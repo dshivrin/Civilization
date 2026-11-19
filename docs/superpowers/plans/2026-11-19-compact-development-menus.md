@@ -8,9 +8,11 @@ Alternatives: always-expanded cards cause current density/misalignment; a separa
 
 - [x] Step1: record feedback, request ChatGPT visual guides, add failing interaction coverage for both compact/expanded menus, deficits and alignment; commit spec/tests.
 - [x] Step2: shared compact card, icon costs and category/grid spacing; integrate buildings, prove behavior, commit.
-- [ ] Step3: integrate research with same components, verify expansion/research and costs, commit.
+- [x] Step3: integrate research with same components, verify expansion/research and costs, commit.
 - [ ] Step4: all core/Release regressions, Release probes, phone/mini/Pro interactions and live screenshot review; signed iPhone backup/install/preservation when connected. Record ChatGPT guides and real limits; commit report and stop for review.
 
 Verification: UI regression asserts default collapsed state, expansion/collapse restores detail, neighboring summaries align, cost accessibility signals shortages and locked actions stay disabled. Existing UI suite retains placement and gestures. No tests that mirror view implementation. Review actual screenshots at compact phone/tablet sizes. Final independent read-only branch review per executing-plans, fix concrete findings once. No second age/extra cities/warfare/monetization/renderer changes.
 
 Step1 red: new UI regression fails on missing building Details control. Step2 builds and passes building collapsed/expand/collapse plus neighboring action alignment; regression proceeds to expected missing research Details control. Shared costs expose required/stored/missing counts. Commit shared controls/buildings before research integration.
+
+Step3 green: compact/expanded research and exact deficit/locked-state UI test passes. Developer Early deliberately has500Knowledge; changed shortage test to a unique temporary fresh normal save, avoiding artificial edits or real user data. ChatGPT guide received and retained at docs/art/chatgpt-compact-menu-guide.md. Proposed dimensions/panel variants are suggestions; inline details and separate44point actions retain native touch usability.

@@ -211,6 +211,13 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["research-description-oralTradition"].exists)
         capture("expanded-research", app: app)
         tradition.tap()
+        app.buttons["closeResearch"].tap()
+        app.terminate()
+        // Fresh, ordinary starting balances in a unique temporary save; never reset user data.
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launch()
+        XCTAssertTrue(app.buttons["openResearch"].waitForExistence(timeout: 20))
+        app.buttons["openResearch"].tap()
         app.buttons["pillarFilter-militarySecurity"].tap()
         let deficit = app.descendants(matching: .any)["cost-research-fortification-knowledge"].firstMatch
         XCTAssertTrue(deficit.waitForExistence(timeout: 5))

@@ -16,6 +16,11 @@ struct CivilizationApp: App {
                 guard session == nil && startupError == nil else { return }
                 do {
                     #if DEBUG
+                    if ProcessInfo.processInfo.environment["CIVILIZATION_UI_FRESH_SAVE"] == "1" {
+                        let url = FileManager.default.temporaryDirectory.appendingPathComponent("ui-fresh-" + UUID().uuidString + ".json")
+                        session = try await GameSession.load(saveURL: url)
+                        return
+                    }
                     if ProcessInfo.processInfo.environment["CIVILIZATION_RENDER_SCENARIO"] == "late" {
                         session = try GameSession.renderBenchmark(in: FileManager.default.temporaryDirectory)
                         return

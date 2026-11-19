@@ -8,6 +8,8 @@ struct ResearchView: View {
     @Binding var selectedPillar: DevelopmentPillar
     @Environment(\.dismiss) private var dismiss
     @State private var showReadiness = false
+    @State private var expanded: Set<String> = []
+    @Environment(\.dynamicTypeSize) private var typeSize
     @State private var positions: [DevelopmentPillar: String] = [:]
     private let pillars: [DevelopmentPillar] = [.economy, .science, .population, .culture, .militarySecurity]
     private var completedRequirements: Int { session.stoneAgeRequirements.filter(\.isComplete).count }
@@ -46,15 +48,15 @@ struct ResearchView: View {
                             ScrollView(.horizontal) { HStack(spacing: 8) { ForEach(pillars, id: \.self) { category($0) } } }.fixedSize(horizontal: false, vertical: true)
                         }
                         ScrollView {
-                            LazyVGrid(columns: [GridItem(.adaptive(minimum: 300), alignment: .top)], alignment: .leading, spacing: 14) {
+                            LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 248), alignment: .top)], alignment: .leading, spacing: 10) {
                                 ForEach(session.configuration.technologyDefinitions.filter { $0.pillar == selectedPillar }) { technology in
                                     technologyCard(technology).id(technology.id)
                                 }
                             }.scrollTargetLayout().padding(.bottom, 20)
-                        }.scrollPosition(id: Binding(get: { positions[selectedPillar] }, set: { positions[selectedPillar] = $0 }))
+                        }.frame(maxHeight: .infinity).clipped().scrollPosition(id: Binding(get: { positions[selectedPillar] }, set: { positions[selectedPillar] = $0 }))
                     }
                 }
-            }.padding(20)
+            }.padding(16)
         }
         .background(panelColor).foregroundStyle(parchment).tint(.yellow)
         .sheet(isPresented: $showReadiness) {
@@ -91,35 +93,33 @@ struct ResearchView: View {
         let affordable = session.canAfford(technology.cost)
         let status = complete ? "Researched" : missing ? "Prerequisites needed" : !affordable ? "Need resources" : "Available"
         let color: Color = complete ? .mint : missing ? parchment.opacity(0.65) : !affordable ? .orange : .yellow
-        return VStack(alignment: .leading, spacing: 12) {
-            Label(status, systemImage: complete ? "checkmark.seal.fill" : missing ? "lock.fill" : !affordable ? "hourglass" : "sparkles")
-                .font(.caption.bold()).foregroundStyle(color)
-            HStack(spacing: 12) {
-                EraIcon(domain: .research, id: technology.id, size: 56)
-                Text(technology.name).font(.title3.bold())
+        let isExpanded = Binding(get: { expanded.contains(technology.id) }, set: { if $0 { expanded.insert(technology.id) } else { expanded.remove(technology.id) } })
+        return VStack(alignment: .leading, spacing: 8) {
+            DevelopmentSummary(title: technology.name, status: status, symbol: complete ? "checkmark.seal.fill" : missing ? "lock.fill" : "sparkles", color: color) {
+                EraIcon(domain: .research, id: technology.id, size: 48)
             }
-            Text(technology.summary).font(.subheadline).foregroundStyle(parchment.opacity(0.85)).fixedSize(horizontal: false, vertical: true)
-            Text("Prerequisites: " + (technology.prerequisites.isEmpty ? "None" : technology.prerequisites.map { id in
-                (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id) + (session.researchedIDs.contains(id) ? " ✓" : "")
-            }.joined(separator: ", "))).font(.caption).foregroundStyle(parchment.opacity(0.75))
-            VStack(alignment: .leading, spacing: 5) {
-                Text("BENEFITS").font(.caption2.bold()).tracking(1)
-                ForEach(effects(technology), id: \.self) { Text($0).font(.subheadline) }
-            }.foregroundStyle(.mint)
-            VStack(alignment: .leading, spacing: 5) {
-                Text("RESEARCH COST").font(.caption2.bold()).tracking(1)
-                ForEach(Resource.allCases.filter { technology.cost[$0] > 0 }, id: \.self) { resource in
-                    HStack {
-                        Label { Text(resource.title) } icon: { EraIcon(domain: .resource, id: resource.rawValue, size: 20) }
-                        Spacer()
-                        Text("\(Int(technology.cost[resource])) / \(Int(session.state.resources[resource])) stored")
-                            .foregroundStyle(session.state.resources[resource] >= technology.cost[resource] ? parchment : .orange)
-                    }.font(.caption).monospacedDigit()
-                }
+            DevelopmentCosts(cost: technology.cost, stored: session.state.resources, id: "research-" + technology.id, paid: complete)
+            HStack(spacing: 8) {
+                Button(complete ? "Researched ✓" : missing ? "Locked" : !affordable ? "Need resources" : "Research") { session.research(technology.id) }
+                    .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).foregroundStyle(panelColor)
+                    .disabled(complete || session.researchIssue(technology.id) != nil)
+                    .accessibilityLabel(complete ? technology.name + ": researched" : missing ? technology.name + ": prerequisites needed" : "Research " + technology.name)
+                    .accessibilityIdentifier("research-" + technology.id)
+                DevelopmentDetailsButton(title: technology.name, id: "research-" + technology.id, expanded: isExpanded)
             }
-            Button(complete ? "Researched ✓" : missing ? "Prerequisites needed" : !affordable ? "Need resources" : "Research " + technology.name) { session.research(technology.id) }
-                .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).foregroundStyle(panelColor)
-                .disabled(complete || session.researchIssue(technology.id) != nil).accessibilityIdentifier("research-" + technology.id)
+            if isExpanded.wrappedValue {
+                Divider().overlay(parchment.opacity(0.2))
+                Text(technology.summary).font(.subheadline).foregroundStyle(parchment.opacity(0.85)).fixedSize(horizontal: false, vertical: true)
+                    .accessibilityIdentifier("research-description-" + technology.id)
+                DevelopmentCosts(cost: technology.cost, stored: session.state.resources, id: "research-detail-" + technology.id, paid: complete, detailed: true)
+                Text("Prerequisites: " + (technology.prerequisites.isEmpty ? "None" : technology.prerequisites.map { id in
+                    (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id) + (session.researchedIDs.contains(id) ? " ✓" : "")
+                }.joined(separator: ", "))).font(.caption).foregroundStyle(parchment.opacity(0.75))
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("BENEFITS").font(.caption2.bold()).tracking(1)
+                    ForEach(effects(technology), id: \.self) { Text($0).font(.subheadline) }
+                }.foregroundStyle(.mint)
+            }
         }.modifier(DevelopmentCardStyle(color: color))
     }
     private func effects(_ technology: TechnologyDefinition) -> [String] {
