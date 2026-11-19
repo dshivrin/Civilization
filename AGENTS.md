@@ -1,5 +1,13 @@
 # Civilization Builder — Codex project instructions
 
+## Current authority — synchronized design roadmap (19 November 2026)
+
+The root `DESIGN_BASELINE.md`, `DEVELOPMENT_ROADMAP.md`, `DESIGN_DECISIONS.md`, `MEDIA_REQUIREMENTS.md` and `DESIGN_SYNC.md` are the shared version-controlled design authority. Read them before feature work. ChatGPT design inputs must be recovered/classified, reconciled with human approvals, and committed to these documents before implementation. Cross-chat memory and an assistant’s “saved/approved” label are not complete specifications or independent acceptance.
+
+Dima directly approved synchronization of variable footprints/rotation, decorative roads, Living City, the revised realism art target/loading/branding, AUDIO-001–006, WND-001–007 and future GEO-001–008. This task creates the sibling `/Users/dima/dev/Civilization-Media` Git/LFS repository and synchronizes documentation; **it does not implement all future features**. Deliver bounded stages per roadmap. Exact sizes/costs/era definitions/frameworks/budgets remain proposed/open until decided; no automatic4×4rescaling (actual campfire/palisade1×1, eighteen others2×2). Preserve immutable campfire, geography, normal saves/rewards, iOS18/signing and tested gestures. No renderer replacement, warfare, monetization or backend is authorized.
+
+Current next task is first-era stabilization/assessment: complete post-title-fix UI suites on all3profiles and consolidate legitimate progression/performance evidence; then approve footprint migration before new sizes/roads. Latest compact-menu installation remains pending last-observed iPhone availability and a fresh validated backup. Human art/enjoyment acceptance remains open. Earlier milestone/stop sections below are historical context where superseded by the synchronized baseline; they must not erase approved future directions or authorize unscheduled implementation.
+
 ## Active roadmap — first-era review candidate complete
 Dima authorized continuous implementation through the Civilization project's City Design Coordination conversation. See [docs/design/status-ledger.md](docs/design/status-ledger.md) for statuses and sources. Seed 0.2.1 is complete. The old stop-after-0.2.1 boundary is superseded.
 

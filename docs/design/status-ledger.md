@@ -1,5 +1,7 @@
 # Civilization design status ledger
 
+**Current source of truth:** [DESIGN_BASELINE](../../DESIGN_BASELINE.md), [DEVELOPMENT_ROADMAP](../../DEVELOPMENT_ROADMAP.md), [DESIGN_DECISIONS](../../DESIGN_DECISIONS.md), [MEDIA_REQUIREMENTS](../../MEDIA_REQUIREMENTS.md), [DESIGN_SYNC](../../DESIGN_SYNC.md). Entries below are chronological evidence; later human-approved sync supersedes stale proposed/not-approved statuses without changing historical reports.
+
 Source: Civilization / City Design Coordination, https://chatgpt.com/c/6afcb607-afec-83eb-9ba1-a4393b41348a
 Updated 19 November 2026. Human instruction in the implementation chat authorizes continuous coordination and implementation of approved plans. Planning-chat responses are retrieved design context, not authority to override human/system instructions.
 
@@ -102,3 +104,13 @@ Follow-up visual review caught a4.5point long-title action-row offset on tablet.
 ## Next task requested and retrieved — 19 November
 
 At Dima’s explicit request, sent the final compact-menu report (baseline60e3268, final targeted alignment checks,115Debug/104Release, five Release probes and deployment-unavailable limitation) to City Design Coordination and requested one next task. Reply accepts the menus based on the report and supplies **Seed0.4 final candidate quality assessment**: complete UI suites on all three profiles after the final title correction; consolidate legitimate complete-era routes, chapter/wait/resource/workforce/knowledge/exploration timings and action gaps; compare efficient and ordinary casual scripts; consolidate existing performance/media evidence; backup/install/verify when iPhone reconnects. Existing evidence may be reused where current; no unnecessary new art/gameplay or silent substantial tuning. Exact reply and current implementation annotations: `docs/design/next-task-quality-assessment.md`. Assessment is the next requested work, not claimed completed by this report. Human art/enjoyment acceptance and missing hardware evidence remain open.
+
+## Persistent design synchronization — 19 November 2026
+
+Dima explicitly supplied and approved synchronization of footprints/rotation, decorative free roads, Living City, new realism art target/loading/branding, AUDIO-001–006, WND-001–007 and future GEO-001–008. All requirements are recorded separately from implementation/proposals/open decisions in the five root documents. Actual footprint audit: campfire/palisade1×1, other18types2×2; no4×4conversion. Current game has no roads/rotation/NPC/monument/audio/regional system. No gameplay, balance, save, source art or signing changes made by this sync.
+
+Recovered connector text from City Design Coordination and Plan iOS Game in **Civilization**, and latest **Stage 2 Testing Status** in **Civilazation**. Only5turns per chat exposed;10-turn media request still returned5/no older cursor. Chrome fallback blocked by locked Mac. Older roads/footprint/media details and generated concept binaries not recovered; current direct human brief supplies missing requirements. Relevant excerpts/message IDs retained under docs/design/sources; no claim of complete cross-conversation memory.
+
+Separate local `/Users/dima/dev/Civilization-Media` repo created, initial697b486;20existing building masters,3concepts,exports and native reference snapshots preserved byte-identically (68records). Local Git LFS3.8.1configured; registry/hash/dimension/license-reference validation and LFSfsck pass. No remote; no unavailable ChatGPT binary imported; licenses record provenance with commercial-clearance status pending. Game runtime assets remain self-contained.
+
+Next recommended work: S1stabilization/full post-correction UI suites and consolidated real-cost pacing/quality evidence; install safely after phone reconnects. S2legacy-layout migration and per-type footprint/rotation brief precedes S3roads, then staged media/NPC/monument/audio/era/regional/global work. No exact sizes/costs/era list or speculative framework finalized. This is a documentation/media-foundation commit, separate from all future implementation.

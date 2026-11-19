@@ -1,5 +1,7 @@
 # Decision register
 
+> Historical decision snapshot through0.2.5. Superseded for current design by [DESIGN_DECISIONS](../../DESIGN_DECISIONS.md) and [DESIGN_BASELINE](../../DESIGN_BASELINE.md). In particular, all-catalog readiness and seven chapters were later approved/implemented; original candidate art was added and a revised realism target/future roadmap is now approved. Retained below for history, not current authorization.
+
 Design approval and implementation state are separate. Source: City Design Coordination, latest consolidated baseline and 0.2.2 accepted report, retrieved17November2026.
 
 | Decision | Design status | Implementation | Rationale/dependency |

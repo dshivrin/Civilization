@@ -1,5 +1,7 @@
 # First-era asset inventory
 
+Current media inventory/source copies: [Civilization-Media registry](../../../Civilization-Media/registry/asset-registry.json). This list describes the implemented earlier candidate, not all media required by the [synchronized roadmap](../../MEDIA_REQUIREMENTS.md). Roads/NPCs/monuments/audio/native-aspect loading sets remain backlog; unavailable design-chat source images were not imported.
+
 Candidate, original replaceable assets. ChatGPT reference brief: [media examples](chatgpt-first-era-brief.md). No external reference artwork integrated.
 
 | Building | Sprite / thumbnail | Status |

@@ -1,5 +1,7 @@
 # First-era candidate art production standards
 
+> Historical first-era candidate standards. Current approved art target and source-media contract: [MEDIA_REQUIREMENTS](../../MEDIA_REQUIREMENTS.md), [DESIGN_BASELINE](../../DESIGN_BASELINE.md) and the sibling Civilization-Media repo. Prior muted/painterly assets remain preserved candidates; the new realism/saturation direction has not been mass-produced or integrated.
+
 19 November 2026. Dima authorized integrated candidate implementation and reviews the result afterward. Art direction remains replaceable, not permanently accepted.
 
 ## Media and source boundaries
@@ -14,7 +16,7 @@ Research/resource/pillar icons are original code-native vector illustrations in 
 
 - Natural ochre thatch, weathered warm timber, wattle/clay, gray stone, muted greens and blue water; upper-left light.
 - Orthographic2:1ground projection and fixed geography retained. No new river/hill/forest tiles or resource locations.
-- Building identity and logical footprints remain in GameCore; art-only files/dimensions/contact anchors live in the separately validated ArtCatalog. Campfire1x1; other current types2x2.
+- Building identity and logical footprints remain in GameCore; art-only files/dimensions/contact anchors live in the separately validated ArtCatalog. Current catalog: campfire and palisade1×1; other18types2×2. Variable dimensions/rotation require the synchronized migration stage first.
 - Full alpha is preserved, padding is transparent, and alpha-only masks reject transparent silhouette hits before the existing logical-footprint fallback. Art may overhang a footprint visually, without changing occupancy.
 - Catalog thumbnails derive from actual world sprites. Research and resource icons avoid books/modern objects; status text/checkmarks/locks remain independent of color.
 - Menu layout,44pointcontrols, resource popovers, collapsible chapter summary/full detail, drag/pan/pinch and inspection accessibility are retained.
