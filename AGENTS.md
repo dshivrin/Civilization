@@ -18,6 +18,9 @@ Dima now directly authorizes creating a local Git repository, committing the bas
 ## First-era candidate handoff — 19 November 2026
 Candidate implementation is complete for Dima’s review. See `docs/milestones/first-era-review.md`, `docs/art/review.html` and `docs/design/first-era-pacing-review.md`. All seven chapters, full catalog progression, original replaceable art, interface/effects and available automated checks are implemented. 115 Debug/104 Release tests and five Release probes pass. Final signed iPhone update preserves existing save bytes. Dense physical performance remains below the 60FPS aim in the pre-cache sample; final rerun was blocked by device lock. Do not infer permanent art/human acceptance or authorize new systems. Stop for Dima’s review.
 
+## Compact menu feedback — 19 November 2026
+Dima directly authorized smaller aligned Buildings/Research cards, icon costs with individual red shortages, expandable detail, ChatGPT visual consultation and separate commits. Implemented; see `docs/milestones/compact-menu-review.md` and its plan. 115Debug/104Release tests, five Release probes and5UI tests on phone/mini/Pro pass. Signed build is ready; physical iPhone reports unavailable, so this refinement is not installed pending a fresh backup on reconnection. Earlier installed candidate/saves remain untouched. Stop for evening review; preserve scope boundaries.
+
 ## Seed 0.1 foundation (historical balance and scope)
 The sections below retain the original foundation requirements; the active milestone above governs changed mechanics.
 

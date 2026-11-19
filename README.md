@@ -4,6 +4,8 @@ A native iPhone/iPad Stone Age settlement using SwiftUI, SpriteKit and a pure Sw
 
 See the [status ledger](docs/design/status-ledger.md) for approved mechanics, experimental tuning and deferred work. Seed 0.2.7 completes the Stone Age checklist, seven development chapters and a research-style building catalog, with isolated Debug developer scenarios. No second age is implemented. See the [0.2.7 report](docs/milestones/seed-0.2.7-report.md), [graphics feasibility proposal](docs/design/graphics-feasibility-03.md) and [0.2.6 report](docs/milestones/seed-0.2.6-report.md), [physical-device setup](docs/design/device-testing.md) and [approved-feature audit](docs/design/approved-feature-audit-026.md).
 
+Latest: [compact-menu review](docs/milestones/compact-menu-review.md) and [ChatGPT layout guide](docs/art/chatgpt-compact-menu-guide.md). Building/research items now show compact icon costs, individual red shortages and expandable details. The signed menu update is built; physical installation awaits iPhone reconnection and a fresh backup.
+
 Review the [candidate report](docs/milestones/first-era-review.md), [offline visual gallery](docs/art/review.html), [ChatGPT media examples](docs/art/chatgpt-first-era-brief.md) and [asset provenance](docs/art/provenance.json). Local Git preserves the verified 0.2.7 baseline on `main`; candidate work is on `first-era-review`.
 
 ## Run
@@ -54,13 +56,13 @@ Saves follow meaningful actions, every 15 active seconds and backgrounding. Catc
 
 **115 Debug Swift Testing tests pass**, including frozen historical regressions, transactions, all migrations, growth/construction, production/maintenance sharing, finite depletion, priorities, exploration, research and sticky achievement boundaries. A complete real-cost playthrough reaches all five pillars, saves/reloads and builds afterward. See the [0.2.5 report](docs/milestones/seed-0.2.5-report.md) and [documented playthrough](docs/design/stone-age-playthrough.md).
 
-Release tests: **104 pass**. Four simulator XCTest UI regressions verify immediate catalog drag mode, the mode indicator, long-press relocation, pan/pinch and stable identity; run it with `xcodebuild -project Civilization.xcodeproj -scheme Civilization -destination 'platform=iOS Simulator,id=<SIMULATOR-ID>' CODE_SIGNING_ALLOWED=NO test`. `python3 scripts/verify-developer-release.py` checks that five debug APIs compile only in Debug, after building both package configurations.
+Release tests: **104 pass**. Five simulator XCTest UI regressions verify immediate catalog drag mode, the mode indicator, long-press relocation, pan/pinch and stable identity; run it with `xcodebuild -project Civilization.xcodeproj -scheme Civilization -destination 'platform=iOS Simulator,id=<SIMULATOR-ID>' CODE_SIGNING_ALLOWED=NO test`. `python3 scripts/verify-developer-release.py` checks that five debug APIs compile only in Debug, after building both package configurations.
 
 In Debug, tap the wrench to load Early/Developed/Late test settlements or resume the separate developer save. Pause/speed/time advance, grants, reveal and three-second construction are available there. Normal saves stay isolated; relaunch always opens normal play. See the device guide for controls, reset and save recovery.
 
 Phone and tablet builds/runs and relevant UI interactions were verified. The completed automated save was previewed on an isolated simulator; screenshots are in `docs/screenshots/seed-025`. This is not a manual full-era playtest.
 
-The signed candidate is installed on Dima's iPhone; both existing save files are byte-identical to the fresh final pre-install backup. Four UI tests pass on phone and both tablet profiles. Original artwork and final presentation are awaiting Dima's review, not claimed permanently accepted.
+The signed candidate is installed on Dima's iPhone; both existing save files are byte-identical to the fresh final pre-install backup. Five UI tests pass on phone and both tablet profiles. Original artwork and final presentation are awaiting Dima's review, not claimed permanently accepted.
 
 Normal-cost automated routes complete all seven chapters, all twenty building types/technologies and all five pillars. A second storytelling circle with earlier Natural Knowledge completes in 90 simulated minutes; the preserved serial route takes 154. Balance is unchanged; see the [pacing evidence](docs/design/first-era-pacing-review.md). Human enjoyment remains unverified.
 
