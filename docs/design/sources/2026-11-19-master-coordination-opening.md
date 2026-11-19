@@ -38,4 +38,3 @@ Our permanent division of responsibilities is\:
 The six canonical documents remain our shared, version-controlled source of truth. Conversation history supplements those documents but does not replace them.
 
 **Our immediate product objective remains a complete, enjoyable and polished Stone Age — not merely a technically functional one.**
-
