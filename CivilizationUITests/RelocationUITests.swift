@@ -59,6 +59,43 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(position.waitForExistence(timeout: 5))
         XCTAssertTrue(position.label.contains("Tile \(destination.x), \(destination.y)"), position.label)
     }
+    @MainActor func testInvalidMoveKeepsPreviewAndBottomCancelWhileOutsideDragPans() throws {
+        continueAfterFailure = false
+        XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"; app.launch()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        app.buttons["developerTools"].tap(); app.buttons["scenario-early"].tap()
+        let map = app.otherElements["settlementMap"], frame = map.frame
+        let config = try GameConfiguration.bundled()
+        let engine = try DeveloperScenario.early.makeEngine(configuration: config, now: Date())
+        let building = try XCTUnwrap(engine.state.buildings.first { $0.id == 1 })
+        let scale = frame.width > 1000 ? 1.1 : 0.95
+        let camp = MapGeometry.point(for: config.map.campfire)
+        func point(_ tile: Tile, centerOffset: Double = 0) -> CGVector {
+            let world = MapGeometry.point(for: tile)
+            return CGVector(dx: 0.5 + (world.x - camp.x - 80) / scale / frame.width,
+                            dy: 0.5 - (world.y + centerOffset - camp.y - 30) / scale / frame.height)
+        }
+        let start = map.coordinate(withNormalizedOffset: point(building.origin))
+        let blocked = map.coordinate(withNormalizedOffset: point(config.map.campfire))
+        start.press(forDuration: 0.55, thenDragTo: blocked)
+        let cancel = app.buttons["cancelRelocation"]
+        XCTAssertTrue(cancel.waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["confirmPlacement"].isEnabled)
+        XCTAssertTrue(app.frame.contains(cancel.frame)); XCTAssertGreaterThanOrEqual(cancel.frame.height, 44)
+        XCTAssertEqual(cancel.frame.midX, app.frame.midX, accuracy: 2)
+        let preview = app.staticTexts["placementTile"].label
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.55, dy: 0.30))
+            .press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx: 0.60, dy: 0.35)))
+        XCTAssertTrue(cancel.exists)
+        XCTAssertEqual(app.staticTexts["placementTile"].label, preview)
+        capture("invalid-move-kept-preview", app: app)
+        cancel.tap(); XCTAssertFalse(cancel.exists)
+        app.buttons["settlementBuildings"].tap(); app.buttons["inspectBuilding-1"].tap()
+        XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("Tile \(building.origin.x), \(building.origin.y)"))
+    }
+
     @MainActor func testCatalogAutomaticallyEntersImmediateDragMode() throws {
         continueAfterFailure = false
         XCUIDevice.shared.orientation = .landscapeLeft

@@ -195,3 +195,49 @@ private func openTile(_ g: GameEngine, kind: BuildingKind, excluding: Set<Tile> 
     session.cancel()
     #expect(!session.isDragMode)
 }
+
+@Test func relocationTileIndicatorsDistinguishSelfOpenOccupiedRoadAndBounds() throws {
+    var g = try GameEngine(configuration: moveConfiguration(), now: moveEpoch)
+    try g.build(.hut, at: Tile(x: 12, y: 12))
+    try g.build(.woodcutter, at: Tile(x: 14, y: 12))
+    let before = g.state
+    #expect(g.siteTileIssue(at: Tile(x: 13, y: 12), excludingBuildingID: 1) == nil)
+    #expect(g.siteTileIssue(at: Tile(x: 14, y: 12), excludingBuildingID: 1) != nil)
+    #expect(g.siteTileIssue(at: Tile(x: 12, y: 12)) != nil)
+    #expect(g.siteTileIssue(at: Tile(x: -1, y: 12), excludingBuildingID: 1) != nil)
+    #expect(g.state == before)
+    try g.editRoads(at: [Tile(x: 13, y: 14)], style: .dirt)
+    #expect(g.siteTileIssue(at: Tile(x: 13, y: 14), excludingBuildingID: 1) != nil)
+    #expect(g.siteTileIssue(at: Tile(x: 12, y: 14), excludingBuildingID: 1) == nil)
+}
+
+@MainActor @Test func invalidRelocationDropRetainsPreviewThenCanRetryOrCancelWithoutSaveLeak() throws {
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let url = folder.appendingPathComponent("save.json")
+    let c = try moveConfiguration()
+    let session = try GameSession(clock: { moveEpoch }, saveURL: url, configuration: c)
+    session.choose(.hut); session.tap(Tile(x: 12, y: 12)); session.confirm()
+    let before = session.state
+    let bytes = try Data(contentsOf: url)
+    let id = try #require(session.state.buildings.last?.id)
+    session.beginRelocation(buildingID: id)
+    session.tap(Tile(x: -1, y: 12)); session.finishRelocation()
+    #expect(session.movingBuildingID == id)
+    #expect(session.selectedTile == Tile(x: -1, y: 12))
+    #expect(session.state == before)
+    #expect(try Data(contentsOf: url) == bytes)
+    session.tap(Tile(x: 13, y: 12))
+    #expect(session.isPreviewTileAvailable(Tile(x: 13, y: 12)))
+    #expect(session.canDragPreview(from: Tile(x: 13, y: 12)))
+    #expect(!session.canDragPreview(from: Tile(x: 12, y: 12)))
+    session.finishRelocation()
+    #expect(session.movingBuildingID == nil)
+    #expect(session.state.buildings.last?.origin == Tile(x: 13, y: 12))
+    let moved = session.state
+    session.finishRelocation(); #expect(session.state == moved)
+    session.beginRelocation(buildingID: id)
+    session.tap(Tile(x: -1, y: 12)); session.finishRelocation(); session.cancel()
+    #expect(session.state == moved && session.movingBuildingID == nil)
+    #expect(try SaveStore(url: url).load(configuration: c) == moved)
+}

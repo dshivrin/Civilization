@@ -175,6 +175,16 @@ public final class GameSession {
         }
         return selectedKind.map { configuration.definition($0).footprint }
     }
+    public func isPreviewTileAvailable(_ tile: Tile) -> Bool {
+        engine.siteTileIssue(at: tile, excludingBuildingID: movingBuildingID) == nil
+    }
+    /// Relocation grabs only ground cells; new construction retains its approved drag-anywhere workflow.
+    public func canDragPreview(from tile: Tile) -> Bool {
+        guard isDragMode else { return false }
+        guard movingBuildingID != nil else { return true }
+        guard let origin = selectedTile, let footprint = previewFootprint else { return false }
+        return footprint.tiles(at: origin).contains(tile)
+    }
     public var placementIssue: GameError? {
         if let id = movingBuildingID, let tile = selectedTile { return engine.relocationIssue(buildingID: id, at: tile) }
         guard let kind = selectedKind, let tile = selectedTile else { return .placement("Tap open land to choose a location.") }
@@ -300,8 +310,7 @@ public final class GameSession {
     public func finishRelocation() {
         guard let id = movingBuildingID, let tile = selectedTile else { return }
         if let issue = engine.relocationIssue(buildingID: id, at: tile) {
-            cancelRelocationPreview()
-            message = "Move cancelled. " + issue.localizedDescription
+            message = "Choose another spot or Cancel. " + issue.localizedDescription
             return
         }
         perform {

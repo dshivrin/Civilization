@@ -115,6 +115,14 @@ struct SettlementView: View {
                 .padding(.horizontal, compact ? 12 : 22)
                 .padding(.vertical, compact ? 8 : 18)
             }
+            .overlay(alignment: .bottom) {
+                if session.movingBuildingID != nil {
+                    Button("Cancel move", systemImage: "xmark") { session.cancel() }
+                        .font(.subheadline.bold()).padding(.horizontal, 20).frame(minHeight: 44)
+                        .background(panelColor, in: Capsule()).overlay(Capsule().stroke(parchment.opacity(0.5)))
+                        .padding(.bottom, 10).accessibilityIdentifier("cancelRelocation")
+                }
+            }
             .foregroundStyle(parchment)
             .tint(Color(red: 0.91, green: 0.73, blue: 0.39))
             .overlay {
@@ -224,9 +232,11 @@ struct SettlementView: View {
                 Text(session.placementIssue?.localizedDescription ?? "Valid location · \(session.previewFootprint?.width ?? definition.width)×\(session.previewFootprint?.height ?? definition.height) tiles")
                     .font(.caption).foregroundStyle(session.placementIssue == nil ? Color.mint : Color.orange)
                     .fixedSize(horizontal: false, vertical: true)
-                if let tile = session.selectedTile { Text("Tile \(tile.x), \(tile.y) · drag to move, release to place").font(.system(size: 10)).foregroundStyle(parchment.opacity(0.6)) }
+                if let tile = session.selectedTile { Text("Tile \(tile.x), \(tile.y) · drag to move, release to place").accessibilityIdentifier("placementTile").font(.system(size: 10)).foregroundStyle(parchment.opacity(0.6)) }
                 HStack {
-                    Button("Cancel", action: session.cancel).frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.bordered)
+                    if session.movingBuildingID == nil {
+                        Button("Cancel", action: session.cancel).frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.bordered)
+                    }
                     Button("Confirm", action: session.confirm).frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).disabled(session.placementIssue != nil).accessibilityIdentifier("confirmPlacement")
                 }
             }

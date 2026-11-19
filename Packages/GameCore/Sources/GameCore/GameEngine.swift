@@ -110,16 +110,25 @@ public struct GameEngine: Sendable {
         guard origin.x >= 0, origin.y >= 0, origin.x <= configuration.map.width - footprint.width,
               origin.y <= configuration.map.height - footprint.height else { return .placement("Keep the whole footprint inside the map.") }
         for tile in footprint.tiles(at: origin) {
-            guard isDiscovered(tile) else { return .placement("Explore the whole footprint before building here.") }
-            guard let terrain = configuration.map.terrain(at: tile), terrain == .grass || terrain == .clearing else {
-                return .placement("Choose open grass or clearing. Water, hills and forest are protected.")
-            }
-            if let occupant = building(at: tile), occupant.id != excludingBuildingID { return .placement("Another building occupies this footprint.") }
-            if state.roads?.contains(where: { $0.tile == tile }) == true { return .placement("Remove the road from this footprint before building or moving here.") }
+            if let issue = siteTileIssue(at: tile, excludingBuildingID: excludingBuildingID) { return issue }
         }
         if let terrain = definition.requiredNearbyTerrain, !hasNearbyTerrain(terrain, at: origin, radius: definition.nearbyTerrainRadius ?? 0) {
             return .placement("This building needs nearby discovered \(terrain == "w" ? "water" : "suitable terrain").")
         }
+        return nil
+    }
+    /// Per-cell placement feedback shares exactly the terrain/occupancy rules used by transactions.
+    /// Whole-building prerequisites (e.g. nearby water, costs) remain separate site checks.
+    public func siteTileIssue(at tile: Tile, excludingBuildingID: Int? = nil) -> GameError? {
+        guard tile.x >= 0, tile.y >= 0, tile.x < configuration.map.width, tile.y < configuration.map.height else {
+            return .placement("Keep the whole footprint inside the map.")
+        }
+        guard isDiscovered(tile) else { return .placement("Explore the whole footprint before building here.") }
+        guard let terrain = configuration.map.terrain(at: tile), terrain == .grass || terrain == .clearing else {
+            return .placement("Choose open grass or clearing. Water, hills and forest are protected.")
+        }
+        if let occupant = building(at: tile), occupant.id != excludingBuildingID { return .placement("Another building occupies this footprint.") }
+        if state.roads?.contains(where: { $0.tile == tile }) == true { return .placement("Remove the road from this footprint before building or moving here.") }
         return nil
     }
     public func relocationIssue(buildingID: Int, at origin: Tile, orientation: BuildingOrientation? = nil) -> GameError? {

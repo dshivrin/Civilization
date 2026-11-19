@@ -35,7 +35,7 @@ struct WorldView: UIViewRepresentable {
         scene.isPaused = session.shouldPauseAnimation
         scene.reduceMotion = reduceMotion
         scene.activeProductionIDs = session.operatingProductionBuildingIDs
-        scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, previewFootprint: session.previewFootprint, roadTool: session.roadTool, roadDraft: session.roadDraft, roadInvalid: session.roadPreviewIssue != nil, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
+        scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, previewFootprint: session.previewFootprint, unavailablePreviewTiles: session.movingBuildingID == nil ? nil : Set((session.previewFootprint?.tiles(at: session.selectedTile ?? Tile(x: 0, y: 0)) ?? []).filter { !session.isPreviewTileAvailable($0) }), roadTool: session.roadTool, roadDraft: session.roadDraft, roadInvalid: session.roadPreviewIssue != nil, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
     }
     @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {
         let scene: SettlementScene
@@ -53,8 +53,8 @@ struct WorldView: UIViewRepresentable {
         }
         private func movableBuilding(at point: CGPoint) -> PlacedBuilding? {
             guard !session.isDragMode && session.roadTool == nil else { return nil }
-            guard let building = building(at: point), building.kind != .campfire else { return nil }
-            return building
+            let touched = IsometricProjection.tile(point)
+            return session.state.buildings.first { $0.kind != .campfire && $0.tiles(in: session.configuration).contains(touched) }
         }
         func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
             guard recognizer is UILongPressGestureRecognizer else { return true }
@@ -107,11 +107,10 @@ struct WorldView: UIViewRepresentable {
                 recognizer.setTranslation(.zero, in: recognizer.view);return
             }
             if recognizer.state == .began {
-                isDragging = session.isDragMode
+                isDragging = session.canDragPreview(from: tile(recognizer))
                 if isDragging {
                     let touched = tile(recognizer)
-                    let point = scene.convertPoint(fromView: recognizer.location(in: recognizer.view))
-                    if let origin = session.selectedTile, scene.previewContains(point) {
+                    if let origin = session.selectedTile, session.previewFootprint?.tiles(at: origin).contains(touched) == true {
                         dragOffset = Tile(x: touched.x - origin.x, y: touched.y - origin.y)
                     } else { dragOffset = Tile(x: 0, y: 0) }
                 }

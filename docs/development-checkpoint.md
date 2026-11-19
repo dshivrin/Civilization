@@ -4,11 +4,11 @@ Updated: 19 November 2026. Active chat 01a1f50b-a549-7010-9931-1e625005c041. Nat
 
 ## Current task
 
-S1-UX Task 1 — shared per-tile relocation validity and forgiving drop. Spec/plan reconciled before code. Exact next action: add failing tests in RelocationTests.swift for mixed tile validity and invalid-release preview retention, run swift test --package-path Packages/GameCore, then implement smallest shared core/session change.
+S1-UX Task 2 — reversible ordered road draft. Task 1 complete: shared per-cell validity, ground-footprint gesture gates, invalid-release retention and bottom-center Cancel. Exact next action: change backtrackedRoadPointerDoesNotInventOffRouteTiles expectation to [a,b,d], add sparse retrace/single removal tests, run Swift tests to see RED, then implement truncation in GameSessionRoads.
 
 ## Completed
 
-Canonical sync/protocol, geometry/roads prior milestones. Native Goal configured after official Goals docs verification. GitHub connector read canonical file and issue list successfully; current list empty. Human authorization and ordered milestone sequence reconciled; S1-UX spec/plan drafted. No product code changed in this checkpoint.
+Canonical sync/protocol, geometry/roads prior milestones. Native Goal configured after official Goals docs verification. GitHub connector read canonical file and issue list successfully; current list empty. Human authorization and ordered milestone sequence reconciled; S1-UX spec/plan drafted. Relocation core/session/render/native UI changes implemented. Spec/plan commit 69e0817 precedes code. GitHub issue creation returned 403 Resource not accessible by integration; file reads work, so committed/pushed checkpoints are the reporting fallback. No issue was created and no permission bypass attempted.
 
 ## Remaining ordered work
 
@@ -16,7 +16,7 @@ S1-UX A relocation → B road retrace → C HUD/Build navigation → full tests/
 
 ## Tests and commits
 
-Historical road evidence: 148 Debug/137 Release, 5 Release probes, 13 UI/profile. No fresh gameplay tests yet in this cycle. Fresh documentation whitespace check and GitHub connector read are required before committing this checkpoint. Commit SHA field: baseline a7cf474; retrieve latest exact SHA with git log -1 and checkpoint commit history (a checkpoint cannot contain its own future hash).
+Historical road evidence: 148 Debug/137 Release, 5 Release probes, 13 UI/profile. Fresh full Debug suite passes 150 tests after expected missing-API RED; log /tmp/civilization-s1ux-relocation-green.log. Native build_sim succeeds; phone valid long-press and invalid-retention/outside-pan/bottom-Cancel tests both pass (12.611s and 17.152s), log /tmp/civilization-s1ux-move-phone.log. Full milestone Release/three-profile/UI/visual verification still pending. Fresh documentation whitespace check and GitHub connector read are required before committing this checkpoint. Commit SHA field: design 69e0817, Task 1 product commit follows this checkpoint update; retrieve latest exact SHA with git log -1 and checkpoint commit history (a checkpoint cannot contain its own future hash).
 
 ## Continuation and quota
 

@@ -95,7 +95,7 @@ final class SettlementScene: SKScene {
                                                   width: configuration.map.width, height: configuration.map.height)
         worldCamera.position = CGPoint(x: point.x, y: point.y)
     }
-    func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, roadTool: RoadTool? = nil, roadDraft: [Tile] = [], roadInvalid: Bool = false, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
+    func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, unavailablePreviewTiles: Set<Tile>? = nil, roadTool: RoadTool? = nil, roadDraft: [Tile] = [], roadInvalid: Bool = false, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
         if centerRequest != lastCenterRequest { recenter(); lastCenterRequest = centerRequest }
         let discoveryChanged = state.discoveredTiles != renderedDiscovery
         roadLayer.display(roads: state.roads ?? [], discovered: state.discoveredTiles, configuration: configuration, tool: roadTool, draft: roadDraft, invalid: roadInvalid)
@@ -141,9 +141,22 @@ final class SettlementScene: SKScene {
             if (-1000..<1000).contains(tile.x) && (-1000..<1000).contains(tile.y) {
                 for covered in footprint.tiles(at: tile) {
                     let node = SKShapeNode(path: IsometricProjection.diamond(at: IsometricProjection.point(covered)))
-                    node.fillColor = (valid ? UIColor.systemMint : UIColor.systemRed).withAlphaComponent(0.42)
-                    node.strokeColor = valid ? .systemMint : .systemRed; node.lineWidth = 2
+                    let available = unavailablePreviewTiles.map { !$0.contains(covered) } ?? valid
+                    node.fillColor = (available ? UIColor.systemMint : UIColor.systemRed).withAlphaComponent(0.30)
+                    node.strokeColor = available ? .systemMint : .systemRed; node.lineWidth = 2
+                    node.zPosition = 10_000
                     ghostLayer.addChild(node)
+                    if !available {
+                        let center = IsometricProjection.point(covered)
+                        let cross = CGMutablePath()
+                        cross.move(to: CGPoint(x: center.x - 5, y: center.y - 5))
+                        cross.addLine(to: CGPoint(x: center.x + 5, y: center.y + 5))
+                        cross.move(to: CGPoint(x: center.x - 5, y: center.y + 5))
+                        cross.addLine(to: CGPoint(x: center.x + 5, y: center.y - 5))
+                        let marker = SKShapeNode(path: cross)
+                        marker.strokeColor = .white; marker.lineWidth = 2; marker.zPosition = 10_001
+                        ghostLayer.addChild(marker)
+                    }
                 }
                 if let id = movingBuildingID, var preview = state.buildings.first(where: { $0.id == id }) {
                     preview.origin = tile
