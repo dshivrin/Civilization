@@ -151,3 +151,22 @@ Human execution authorization above plus [MC-001 detailed reply](docs/design/sou
 MC-001 mentions CIV-001 friendly player-owned civilizations and CIV-002 common timeline with different local progress. Existing historical prose retains those concepts. The source supplies no original message IDs for a newly stricter prohibition, so record that attribution for future reconciliation; do not implement warfare or multi-civilization systems.
 
 RD-005 pending correction: individual endpoint Undo removes one preview cell without changing committed roads; Clear remains discard-all, retrace removes suffix, Remove+Confirm erases a committed chosen tile. Build-selected road surface must initialize editing controls, preventing silent switch to trodden during Replace. Delegated bounded interaction detail under current authorized work.
+
+## GitHub UX research candidates retained
+
+| ID | Decision | Design status | Gate / source |
+|---|---|---|---|
+| UX-RESEARCH | Accurate placement, variants/interactions, dedicated city planner, compatible footprints avoiding wasted gaps, visible world and shallow logical menus | Approved direction for future bounded delivery | GitHub comment7019888242; existing FP/MOVE/HUD/MEDIA retained |
+| UX-001 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-002 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-003 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-004 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-005 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-006 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-007 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-008 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-009 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-010 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-011 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-012 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+| UX-013 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
