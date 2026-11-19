@@ -92,23 +92,24 @@ public struct GameEngine: Sendable {
     public var currentGoal: Goal? { Goal.allCases.first { !state.completedGoals.contains($0) } }
     public func canAfford(_ costs: ResourceAmounts) -> Bool { Resource.allCases.allSatisfy { state.resources[$0] >= costs[$0] } }
     public func building(at tile: Tile) -> PlacedBuilding? {
-        state.buildings.first { configuration.definition($0.kind).tiles(at: $0.origin).contains(tile) }
+        state.buildings.first { $0.tiles(in: configuration).contains(tile) }
     }
-    public func placementIssue(_ kind: BuildingKind, at origin: Tile) -> GameError? {
+    public func placementIssue(_ kind: BuildingKind, at origin: Tile, orientation: BuildingOrientation = .north) -> GameError? {
         if kind == .campfire { return .uniqueCampfire }
         guard configuration.buildings.contains(where: { $0.kind == kind }) else { return .placement("Building is not in this ruleset.") }
         let definition = configuration.definition(kind)
+        guard definition.resolvedOrientations.contains(orientation) else { return .placement("This building does not support that orientation.") }
         if !isUnlocked(kind) { return .researchRequired }
-        if let issue = siteIssue(kind, at: origin) { return issue }
+        if let issue = siteIssue(kind, at: origin, footprint: definition.footprint.oriented(orientation)) { return issue }
         guard canAfford(definition.cost) else { return .insufficientResources }
         return bootstrapSpendIssue(for: definition.cost, constructing: kind)
     }
     /// Site checks shared by construction and free relocation. The moving footprint may overlap itself.
-    private func siteIssue(_ kind: BuildingKind, at origin: Tile, excludingBuildingID: Int? = nil) -> GameError? {
+    private func siteIssue(_ kind: BuildingKind, at origin: Tile, footprint: BuildingFootprint, excludingBuildingID: Int? = nil) -> GameError? {
         let definition = configuration.definition(kind)
-        guard origin.x >= 0, origin.y >= 0, origin.x <= configuration.map.width - definition.width,
-              origin.y <= configuration.map.height - definition.height else { return .placement("Keep the whole footprint inside the map.") }
-        for tile in definition.tiles(at: origin) {
+        guard origin.x >= 0, origin.y >= 0, origin.x <= configuration.map.width - footprint.width,
+              origin.y <= configuration.map.height - footprint.height else { return .placement("Keep the whole footprint inside the map.") }
+        for tile in footprint.tiles(at: origin) {
             guard isDiscovered(tile) else { return .placement("Explore the whole footprint before building here.") }
             guard let terrain = configuration.map.terrain(at: tile), terrain == .grass || terrain == .clearing else {
                 return .placement("Choose open grass or clearing. Water, hills and forest are protected.")
@@ -120,16 +121,21 @@ public struct GameEngine: Sendable {
         }
         return nil
     }
-    public func relocationIssue(buildingID: Int, at origin: Tile) -> GameError? {
+    public func relocationIssue(buildingID: Int, at origin: Tile, orientation: BuildingOrientation? = nil) -> GameError? {
         guard let building = state.buildings.first(where: { $0.id == buildingID }) else { return .placement("Choose an existing building to move.") }
         guard building.kind != .campfire else { return .placement("The campfire is the fixed settlement anchor.") }
-        return siteIssue(building.kind, at: origin, excludingBuildingID: buildingID)
+        let target = orientation ?? building.resolvedOrientation
+        if target != building.resolvedOrientation && !configuration.definition(building.kind).resolvedOrientations.contains(target) {
+            return .placement("This building does not support that orientation.")
+        }
+        return siteIssue(building.kind, at: origin, footprint: building.resolvedFootprint(in: configuration).oriented(target), excludingBuildingID: buildingID)
     }
-    public mutating func relocate(buildingID: Int, to origin: Tile) throws {
-        if let issue = relocationIssue(buildingID: buildingID, at: origin) { throw issue }
+    public mutating func relocate(buildingID: Int, to origin: Tile, orientation: BuildingOrientation? = nil) throws {
+        if let issue = relocationIssue(buildingID: buildingID, at: origin, orientation: orientation) { throw issue }
         let index = state.buildings.firstIndex { $0.id == buildingID }!
         evaluateGoals()
         state.buildings[index].origin = origin
+        if let orientation, orientation != state.buildings[index].resolvedOrientation { state.buildings[index].orientation = orientation }
         evaluateGoals()
     }
     public func constructionDuration(for kind: BuildingKind) -> Double {
@@ -138,11 +144,13 @@ public struct GameEngine: Sendable {
         #endif
         return activeTechnologies.reduce(configuration.definition(kind).constructionSeconds ?? 0) { $0 * $1.effects.constructionDurationMultiplier }
     }
-    public mutating func build(_ kind: BuildingKind, at origin: Tile) throws {
-        if let issue = placementIssue(kind, at: origin) { throw issue }
+    public mutating func build(_ kind: BuildingKind, at origin: Tile, orientation: BuildingOrientation = .north) throws {
+        if let issue = placementIssue(kind, at: origin, orientation: orientation) { throw issue }
         evaluateGoals()
         spend(configuration.definition(kind).cost)
         var building = PlacedBuilding(id: state.nextBuildingID, kind: kind, origin: origin)
+        building.footprint = configuration.definition(kind).footprint
+        building.orientation = orientation
         let effectiveDuration = constructionDuration(for: kind)
         if effectiveDuration > 0 { building.constructionRemainingSeconds = effectiveDuration; building.constructionDurationSeconds = effectiveDuration }
         state.buildings.append(building)
@@ -340,6 +348,11 @@ public struct GameEngine: Sendable {
         var occupied: Set<Tile> = []
         for b in state.buildings {
             let d = configuration.definition(b.kind)
+            let base = b.resolvedFootprint(in: configuration)
+            try require(base.width > 0 && base.height > 0 && base.width <= configuration.map.width && base.height <= configuration.map.height, "Invalid saved footprint")
+            let footprint = b.occupiedFootprint(in: configuration)
+            try require(footprint.width <= configuration.map.width && footprint.height <= configuration.map.height, "Invalid oriented saved footprint")
+            try require(b.kind != .campfire || (base == BuildingFootprint(width: 1, height: 1) && b.resolvedOrientation == .north), "Invalid campfire geometry")
             try require((0...2).contains(b.workerPriority ?? 1), "Invalid worker priority")
             try require(b.level >= 1 && b.level <= (configuration.economyRules?.maximumUpgradeLevel ?? 1), "Invalid building level")
             try require(b.productionModeID == nil || d.recipes?.contains(where: { $0.id == b.productionModeID }) == true, "Unknown production mode")
@@ -348,8 +361,8 @@ public struct GameEngine: Sendable {
                 try require(seconds.isFinite && seconds > 0 && b.kind != .campfire, "Invalid construction timer")
                 try require(b.constructionDurationSeconds != nil && b.constructionDurationSeconds!.isFinite && b.constructionDurationSeconds! >= seconds, "Invalid construction duration")
             }
-            try require(b.origin.x >= 0 && b.origin.y >= 0 && b.origin.x <= configuration.map.width - d.width && b.origin.y <= configuration.map.height - d.height, "Building outside map")
-            for tile in d.tiles(at: b.origin) {
+            try require(b.origin.x >= 0 && b.origin.y >= 0 && b.origin.x <= configuration.map.width - footprint.width && b.origin.y <= configuration.map.height - footprint.height, "Building outside map")
+            for tile in footprint.tiles(at: b.origin) {
                 let terrain = configuration.map.terrain(at: tile)
                 try require(isDiscovered(tile), "Building occupies undiscovered territory")
                 try require((terrain == .grass || terrain == .clearing) && occupied.insert(tile).inserted, "Blocked or overlapping building")

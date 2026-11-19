@@ -48,6 +48,7 @@ public struct BuildingDefinition: Codable, Sendable {
     public var name: String
     public var width: Int
     public var height: Int
+    public var allowedOrientations: [BuildingOrientation]?
     public var cost: ResourceAmounts
     public var ratesPerMinute: ResourceAmounts
     public var housing: Int
@@ -66,13 +67,16 @@ public struct BuildingDefinition: Codable, Sendable {
     public var storageBonus: ResourceAmounts?
     public var geographicBonus: GeographicBonus?
     public func tiles(at origin: Tile) -> [Tile] {
-        (0..<height).flatMap { dy in (0..<width).map { dx in Tile(x: origin.x + dx, y: origin.y + dy) } }
+        footprint.tiles(at: origin)
     }
 }
 public struct PlacedBuilding: Codable, Equatable, Identifiable, Sendable {
     public var id: Int
     public var kind: BuildingKind
     public var origin: Tile
+    /// Optional for v1–v5 compatibility. New construction captures catalog dimensions.
+    public var footprint: BuildingFootprint?
+    public var orientation: BuildingOrientation?
     public var constructionRemainingSeconds: Double?
     public var constructionDurationSeconds: Double?
     public var workerPriority: Int?

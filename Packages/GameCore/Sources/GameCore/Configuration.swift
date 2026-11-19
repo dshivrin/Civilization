@@ -54,6 +54,13 @@ public struct GameConfiguration: Codable, Sendable {
         try require(map.width == 32 && map.height == 24 && map.rows.count == map.height && !map.id.isEmpty, "Invalid seed map dimensions or identity")
         try require(map.rows.allSatisfy { $0.count == map.width && $0.allSatisfy { Terrain(rawValue: $0) != nil } }, "Invalid terrain rows")
         for b in buildings {
+            let orientations = b.resolvedOrientations
+            try require(!orientations.isEmpty && orientations.contains(.north) && Set(orientations).count == orientations.count, "Invalid building orientations")
+            try require(orientations.allSatisfy { o in
+                let size = b.footprint.oriented(o)
+                return size.width <= map.width && size.height <= map.height
+            }, "Oriented footprint exceeds map")
+            try require(b.kind != .campfire || orientations == [.north], "Campfire cannot rotate")
             try require(b.width > 0 && b.height > 0 && b.width <= map.width && b.height <= map.height && b.housing >= 0 && !b.assetKey.isEmpty && !b.name.isEmpty, "Invalid building footprint or metadata")
         }
         try require(definition(.campfire).width == 1 && definition(.campfire).height == 1 && !definition(.campfire).requiresResearch, "Campfire must occupy one tile")

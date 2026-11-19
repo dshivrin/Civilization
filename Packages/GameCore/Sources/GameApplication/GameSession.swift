@@ -159,6 +159,13 @@ public final class GameSession {
     public var pillarGoals: [PillarGoalDefinition] { engine.pillarGoals }
     public func pillarGoalProgress(id: String) -> String { engine.pillarGoalProgress(id: id) }
     public func isPillarGoalComplete(_ id: String) -> Bool { engine.isPillarGoalComplete(id: id) }
+    /// The same occupied dimensions used by core validation, including captured relocation geometry.
+    public var previewFootprint: BuildingFootprint? {
+        if let id = movingBuildingID, let building = state.buildings.first(where: { $0.id == id }) {
+            return building.occupiedFootprint(in: configuration)
+        }
+        return selectedKind.map { configuration.definition($0).footprint }
+    }
     public var placementIssue: GameError? {
         if let id = movingBuildingID, let tile = selectedTile { return engine.relocationIssue(buildingID: id, at: tile) }
         guard let kind = selectedKind, let tile = selectedTile else { return .placement("Tap open land to choose a location.") }
