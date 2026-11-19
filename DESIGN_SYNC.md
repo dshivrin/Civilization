@@ -115,3 +115,5 @@ Independent review corrected a missing journey title; actual accessibility inspe
 Dima answered“ Yes ”to the displayed catalog-derived starter-material protection proposal. This approves prevention of ruinous spending (PLAY-002), not a resource grant/refund or legacy-state reset. Costs/rates unchanged; construction/research/upgrades must enforce the same atomic rule and UI explanation. Commit this approval before implementation.
 
 Reserve delivery: core commit3ecc846; six additional regressions, complete routes and supplier UI verified. Only the approved optional seed policy flag changed; numerical configuration and savev5 stayed intact.
+
+Geometry foundation: Dima’s direct “Start implementing” supersedes proposed-only status for the bounded next engineering task. Spec/plan and approval synchronized before code; existing first-era-review branch retained for this authorized continuation. No approval of ChatGPT’s exact footprint table, media sizes or road defaults inferred.

@@ -76,3 +76,7 @@ Synchronized19November2026. Status vocabulary and precedence: [baseline](DESIGN_
 ## Supersession rules
 
 The latest direct sync instruction approves broader **future planning**, the revised art target, footprint/road/Living City requirements and the media repository. Earlier first-era stop boundaries still protect against unscoped implementation; they no longer mean those future directions were never approved. Existing code/catalog/save schema are not changed by a document approval alone. Exact costs, dimensions, era lists, numeric targets, bit assignments and framework selections remain provisional until explicitly decided in a bounded stage brief. Preserve historical records with a superseded notice rather than rewriting their original claims.
+
+## Geometry foundation authorization
+
+Dima directly said “Start implementing” after the recovered next-step summary. This authorizes the bounded geometry foundation described in docs/superpowers/specs/2026-11-19-building-geometry-design.md. Exact larger dimensions, legacy-size conversion, visible rotation/art variants and roads/NPC implementation remain staged. Optional captured geometry for new builds and zero-orientation legacy fallback are engineering choices; no eager save rewrite or implicit relocation conversion.

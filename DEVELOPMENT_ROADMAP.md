@@ -128,3 +128,7 @@ Each stage ends in a local coherent commit, tests for affected behavior, updated
 ## S1current outcome and next dependency
 
 Optional actionable guidance and legitimate recommendation-following progression are implemented; [quality assessment](docs/milestones/first-era-playability.md) records104–121minute full routes, waits/resources/workforce, recovery and126Debug/115Release/9UI-per-profile evidence. No economy values or final requirements changed. Before secondary features, retain approved PLAY-002 starter reserve protection and normal save protection and complete physical installation when access returns. S1functional guided-route verification is delivered; no blanket acceptance of every spending choice, human pacing or unavailable hardware.
+
+## Current execution — geometry foundation
+
+Dima authorized starting the bounded next geometry task after0b6b738. Implement shared rectangular/oriented geometry and optional new-building dimension snapshots, retaining existing square catalogs and player experience. Follow docs/superpowers/plans/2026-11-19-building-geometry.md. Legacy geometry activation/migration policy, larger sizes, rotation art/UI, roads and NPCs remain subsequent bounded stages.

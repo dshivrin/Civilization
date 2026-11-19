@@ -1,0 +1,19 @@
+# Building geometry foundation design
+
+Dima's “Start implementing” authorizes the bounded next task summarized from the recovered ChatGPT brief, not activation of larger buildings or all subsequent systems. Baseline0b6b738 (gameplay91b0bb6), existing first-era-review branch. Execute inline in the existing dedicated candidate checkout; preserve review history, no merge/remote changes.
+
+## Intent and approach
+
+Centralize logical rectangular footprints and quarter-turn orientation in pure GameCore. Preserve current catalog dimensions, costs, map, savev5, rewards/readiness, signing/iOS18 and gestures. No shipped rotation controls or orientation artwork yet: current catalogs default to the original orientation. Test-only rectangular definitions prove the foundation. No roads/NPC/media production in this task.
+
+Alternatives: immediate larger footprints/rotation UI would require undecided dimensions, art and legacy conversion; deferred. Recomputing all geometry directly from live catalog cannot protect investments from future catalog edits. Chosen implementation is a shared geometry value and optional per-instance base footprint/orientation for new construction, while nil legacy fields resolve exactly as today. No eager legacy rewrite: legacy conversion policy before future catalog-size activation remains open. A snapshot-bearing building retains its footprint through reload and relocation, even if its catalog dimensions later differ. Explicit relocation preserves its captured size; no implicit upgrade/conversion.
+
+## Technical choices (implementation decisions)
+
+BuildingOrientation has four valid quarter-turn values; default north (zero). BuildingFootprint stores unrotated positive width/height; rotated size swaps axes for east/west. Origin is the minimum logical x/y corner in every orientation, never an artwork corner. BuildingDefinition optionally declares allowedOrientations, defaults north only, must contain north, be nonempty/unique; campfire only north. New construction takes optional orientation default north, validates allowed orientation then the same terrain/discovery/occupancy/reserve rules, pays once and captures base footprint. PlacedBuilding optional footprint/orientation decode oldv1–v5without changes. Saved dimensions validated before tile enumeration (positive, map-bounded), campfire fixed1×1/north. Relocation defaults to saved orientation and preserves every field except explicit origin/orientation; a changed orientation must be catalog-allowed. Invalid changes leave all state unchanged.
+
+One authoritative footprint/tile resolver feeds occupancy, save validation, relocation, preview/inspection overlay and map hit fallback. Footprint center uses both axes: xOffset=(width-height)*16, yOffset=-(width+height-2)*8; unchanged for current square footprints. Depth ordering uses the footprint's far logical corner. Cache signatures include geometry. Art remains upright; no fake image rotation or new variants. Gameplay nearby-terrain/deposit distances retain existing origin semantics; changing those is separate tuning.
+
+## Acceptance
+
+Legacy nil fields load/save without grants, resets, layout changes or blanket rewrite; snapshots survive catalog changes. Rectangular north/east builds occupy exact tiles and reject overlap, hidden/protected/out-of-map/forbidden orientation atomically. Rotation during core relocation validates full new footprint and preserves costs/timers/modes/priorities/IDs. Campfire remains immutable. Test center/hit/preview consistency and corrupt fields. Existing complete legitimate first-era routes and all126Debug/115Release tests plus Release probes remain green. Build/test phone and both tablets with existing9UI regression cases. No numeric seed or art changes. Record available physical-deployment limits honestly.
