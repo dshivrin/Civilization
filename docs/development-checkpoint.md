@@ -4,7 +4,7 @@ Updated: 19 November 2026. Active chat 01a1f50b-a549-7010-9931-1e625005c041. Nat
 
 ## Current task
 
-S1-UX Task 2 — reversible ordered road draft. Task 1 complete: shared per-cell validity, ground-footprint gesture gates, invalid-release retention and bottom-center Cancel. Exact next action: change backtrackedRoadPointerDoesNotInventOffRouteTiles expectation to [a,b,d], add sparse retrace/single removal tests, run Swift tests to see RED, then implement truncation in GameSessionRoads.
+S1-UX Task 3 — HUD/navigation, with issue #1 refinement before further UI changes. Task 2 reversible road preview complete after RED→GREEN; 151 Debug regressions pass. Exact next action: integrate remote documentation-only commit 26894bd by rebasing unpublished local commits (no merge/force-push), then synchronize issue #1 details into spec/canonical docs: white/light-gray grid, stationary translucent original, footprint-only dragging, circular X, icon-only goals default. Implement/refine UI and verify full phone/mini/Pro suites.
 
 ## Completed
 
@@ -21,3 +21,5 @@ Historical road evidence: 148 Debug/137 Release, 5 Release probes, 13 UI/profile
 ## Continuation and quota
 
 Use native Codex Goal; it continues only on safe idle boundaries under host constraints. Official source: https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex . At a host quota stop, keep this checkpoint and coherent committed units; do not buy/reset/bypass quota, switch accounts or launch a duplicate. When native continuation is permitted, read six canonical docs, this checkpoint and git status/log, verify no other work is active, resume exact next action. Automatic timer wake at the five-hour reset is not demonstrated; do not claim guaranteed unattended reset-resume. No automation/cron/launchd process installed.
+
+Task 2 tests: two retrace tests observed RED (5 assertions), then full 151 Debug pass, log /tmp/civilization-s1ux-roads-green.log. Task 1 product a90dc73 before synchronization rebase; use git log after rebase for exact current SHAs. Push was safely rejected because remote 26894bd adds docs/design/github-coordination.md and issue #1; no remote overwrite. Native Goal remains active; all work stays on this thread.

@@ -12,13 +12,24 @@ public extension GameSession {
         message = "Road mode · drag or tap to preview; Confirm applies the stroke. Roads are free decoration."
     }
     func extendRoadStroke(to tile: Tile) {
-        guard roadTool != nil, roadDraft.count <= configuration.map.width * configuration.map.height else { return }
+        guard roadTool != nil else { return }
+        // A sparse pointer sample landing on the retained route is an exact retrace,
+        // not a new staircase that can invent off-route cells on a diagonal.
+        if let index = roadDraft.firstIndex(of: tile) {
+            roadDraft.removeSubrange((index + 1)..<roadDraft.count)
+            roadLastSample = tile
+            return
+        }
+        guard roadDraft.count <= configuration.map.width * configuration.map.height else { return }
         let samples = roadLastSample.map { RoadGeometry.path(from:$0,to:tile,width:configuration.map.width,height:configuration.map.height) } ?? [tile]
         roadLastSample = tile
-        var covered = Set(roadDraft)
-        for p in samples.isEmpty ? [tile] : samples where covered.insert(p).inserted {
-            guard roadDraft.count <= configuration.map.width * configuration.map.height else { break }
-            roadDraft.append(p)
+        for p in samples.isEmpty ? [tile] : samples {
+            if let index = roadDraft.firstIndex(of: p) {
+                roadDraft.removeSubrange((index + 1)..<roadDraft.count)
+            } else {
+                guard roadDraft.count <= configuration.map.width * configuration.map.height else { break }
+                roadDraft.append(p)
+            }
         }
     }
     func clearRoadStroke() { roadDraft = [];roadLastSample = nil }

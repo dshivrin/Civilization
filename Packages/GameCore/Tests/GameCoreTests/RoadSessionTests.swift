@@ -69,6 +69,32 @@ private let roadSessionEpoch = Date(timeIntervalSince1970:60_000_000)
     let b = Tile(x:a.x+1,y:a.y),c = Tile(x:a.x+2,y:a.y),d = Tile(x:a.x+1,y:a.y+1)
     s.chooseRoadTool(.draw(.dirt))
     for p in [a,b,c,b,d] { s.extendRoadStroke(to:p) }
-    #expect(Set(s.roadDraft) == Set([a,b,c,d]))
+    #expect(s.roadDraft == [a,b,d])
     s.clearRoadStroke();s.extendRoadStroke(to:d);#expect(s.roadDraft == [d])
+}
+
+@MainActor @Test func sparseRoadRetraceCanRemoveOneCommittedTileWithoutChangingOtherSurfaces() throws {
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let url = folder.appendingPathComponent("save.json"), s = try roadSession(url)
+    let a = try #require(openRoadSites(s).first { p in
+        (0..<4).allSatisfy { dx in s.roadIssue(at: Tile(x: p.x + dx, y: p.y)) == nil }
+    })
+    let b = Tile(x: a.x + 1, y: a.y), c = Tile(x: a.x + 2, y: a.y)
+    s.chooseRoadTool(.draw(.dirt)); s.extendRoadStroke(to: a); s.extendRoadStroke(to: c)
+    #expect(s.roadDraft == [a,b,c])
+    s.confirmRoadStroke()
+    let before = s.state
+    s.chooseRoadTool(.erase); s.extendRoadStroke(to: a); s.extendRoadStroke(to: c)
+    s.extendRoadStroke(to: a)
+    #expect(s.roadDraft == [a])
+    #expect(s.state == before)
+    s.confirmRoadStroke()
+    #expect(s.state.roads == [RoadTile(tile: b, style: .dirt), RoadTile(tile: c, style: .dirt)])
+    #expect(try SaveStore(url: url).load(configuration: s.configuration) == s.state)
+    s.chooseRoadTool(.draw(.stone)); s.extendRoadStroke(to: a); s.extendRoadStroke(to: c)
+    s.extendRoadStroke(to: b)
+    #expect(s.roadDraft == [a,b])
+    s.cancel()
+    #expect(s.state.roads?.count == 2)
 }
