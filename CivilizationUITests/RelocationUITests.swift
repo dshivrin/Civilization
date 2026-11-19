@@ -380,6 +380,107 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(app.descendants(matching: .any)["dragModeIndicator"].firstMatch.waitForExistence(timeout: 5))
     }
 
+    @MainActor func testRoadDrawReplaceEraseAndCancelPreserveBuildingGestures() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication();app.terminate();app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1";app.launch()
+        XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout:20))
+        app.buttons["openRoads"].tap()
+        XCTAssertTrue(app.buttons["confirmRoadStroke"].waitForExistence(timeout:5))
+        let map = app.otherElements["settlementMap"], frame = map.frame
+        let c = try GameConfiguration.bundled(),g = try GameEngine(configuration:c,now:Date())
+        let camp = MapGeometry.point(for:c.map.campfire),scale = frame.width > 1000 ? 1.1 : 0.95
+        func point(_ tile:Tile) -> CGVector {
+            let p = MapGeometry.point(for:tile)
+            return CGVector(dx:0.5+(p.x-camp.x-80)/scale/frame.width,dy:0.5-(p.y-camp.y-30)/scale/frame.height)
+        }
+        let visible = (0..<24).flatMap { y in (0..<32).map { Tile(x:$0,y:y) } }.filter {
+            let p = point($0);return (0.42...0.60).contains(p.dx) && (0.40...0.67).contains(p.dy) && g.roadIssue(at:$0) == nil
+        }
+        let pair = try XCTUnwrap(visible.flatMap { a in visible.map { (a,$0) } }.first { a,b in
+            let path = RoadGeometry.path(from:a,to:b,width:32,height:24)
+            return path.count >= 4 && path.count <= 8 && path.allSatisfy { g.roadIssue(at:$0) == nil }
+        })
+        let start = map.coordinate(withNormalizedOffset:point(pair.0)),end = map.coordinate(withNormalizedOffset:point(pair.1))
+        start.press(forDuration:0.05,thenDragTo:end)
+        XCTAssertEqual(app.staticTexts["roadTileCount"].label,"0 roads placed")
+        XCTAssertTrue(app.buttons["confirmRoadStroke"].isEnabled)
+        XCTAssertTrue(app.buttons["confirmRoadStroke"].isHittable,"Confirm must stay visible without scrolling")
+        capture("road-preview",app:app)
+        app.buttons["confirmRoadStroke"].tap()
+        let count = app.staticTexts["roadTileCount"].label
+        XCTAssertNotEqual(count,"0 roads placed")
+        capture("road-trodden",app:app)
+        app.buttons["roadStyle-stone"].tap();app.buttons["roadMode-replace"].tap()
+        start.tap();app.buttons["confirmRoadStroke"].tap()
+        XCTAssertEqual(app.staticTexts["roadTileCount"].label,count)
+        capture("road-mixed-stone",app:app)
+        app.buttons["roadStyle-dirt"].tap();end.tap();app.buttons["confirmRoadStroke"].tap()
+        XCTAssertTrue(app.frame.contains(app.buttons["confirmRoadStroke"].frame),"The entire Confirm target must fit inside the screen")
+        capture("road-three-styles",app:app)
+        app.buttons["roadMode-erase"].tap();start.tap();app.buttons["clearRoadStroke"].tap()
+        XCTAssertEqual(app.staticTexts["roadTileCount"].label,count)
+        XCTAssertFalse(app.buttons["confirmRoadStroke"].isEnabled)
+        start.press(forDuration:0.05,thenDragTo:end);app.buttons["confirmRoadStroke"].tap()
+        XCTAssertEqual(app.staticTexts["roadTileCount"].label,"0 roads placed")
+        app.buttons["closeRoads"].tap()
+        app.buttons["Build"].tap();app.buttons["buildingCategory-Food and water"].tap();app.buttons["build-gatheringShelter"].tap()
+        XCTAssertTrue(app.descendants(matching:.any)["dragModeIndicator"].firstMatch.waitForExistence(timeout:5))
+    }
+
+    @MainActor func testRoadPinchDiscardsDraftWithoutApplyingIt() throws {
+        continueAfterFailure = false;XCUIDevice.shared.orientation = .landscapeRight
+        let app = XCUIApplication();app.terminate();app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1";app.launch()
+        XCTAssertTrue(app.buttons["openRoads"].waitForExistence(timeout:20));app.buttons["openRoads"].tap()
+        let map = app.otherElements["settlementMap"]
+        map.coordinate(withNormalizedOffset:CGVector(dx:0.5,dy:0.65)).tap()
+        XCTAssertNotEqual(app.staticTexts["roadDraftCount"].label,"0 preview tiles")
+        app.buttons["toggleRoadDetails"].tap()
+        map.pinch(withScale:1.8,velocity:1)
+        app.buttons["toggleRoadDetails"].tap()
+        XCTAssertEqual(app.staticTexts["roadDraftCount"].label,"0 preview tiles")
+        XCTAssertEqual(app.staticTexts["roadTileCount"].label,"0 roads placed")
+        app.buttons["closeRoads"].tap();app.buttons["Center on settlement"].tap()
+    }
+
+    @MainActor func testRoadJourneyNavigationDiscardsPreview() throws {
+        continueAfterFailure = false;XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication();app.terminate();app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1";app.launch()
+        XCTAssertTrue(app.buttons["openRoads"].waitForExistence(timeout:20));app.buttons["openRoads"].tap()
+        app.otherElements["settlementMap"].coordinate(withNormalizedOffset:CGVector(dx:0.5,dy:0.65)).tap()
+        app.buttons["toggleGoals"].tap();app.buttons["openJourney"].tap()
+        app.navigationBars["Stone Age journey"].buttons["Done"].tap()
+        XCTAssertFalse(app.buttons["confirmRoadStroke"].exists)
+        app.buttons["openRoads"].tap()
+        XCTAssertEqual(app.staticTexts["roadDraftCount"].label,"0 preview tiles")
+        XCTAssertEqual(app.staticTexts["roadTileCount"].label,"0 roads placed")
+    }
+
+    @MainActor func testRoadDenseMixedSurfacesRemainSeparateFromEraProgress() throws {
+        continueAfterFailure = false;XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication();app.terminate()
+        var g = try GameEngine(configuration:.bundled(),now:Date())
+        let styles = RoadStyle.allCases
+        let tiles = (0..<24).flatMap { y in (0..<32).map { Tile(x:$0,y:y) } }.filter { g.roadIssue(at:$0) == nil }
+        for (index,tile) in tiles.enumerated() { try g.editRoads(at:[tile],style:styles[index % styles.count]) }
+        let isolated = try XCTUnwrap(tiles.first { p in RoadGeometry.neighbors(of:p).allSatisfy { n in g.state.roads?.contains { $0.tile == n.tile } == true } })
+        try g.editRoads(at:RoadGeometry.neighbors(of:isolated).map(\.tile),style:nil)
+        let roads = g.state.roads ?? []
+        let masks = Set(roads.map { g.roadMask(at:$0.tile) })
+        XCTAssertEqual(masks,Set(UInt8(0)...15))
+        XCTAssertFalse(g.fullStoneAgeRequirementsMet)
+        print("ROAD_DENSE_FIXTURE tiles=\(roads.count) masks=\(masks.sorted())")
+        struct Envelope:Encodable { let version = 5;let state:GameState }
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state:g.state)).base64EncodedString()
+        app.launchEnvironment["CIVILIZATION_RENDER_METRICS"] = "1";app.launch()
+        XCTAssertTrue(app.buttons["openRoads"].waitForExistence(timeout:20));app.buttons["openRoads"].tap()
+        XCTAssertEqual(app.staticTexts["roadTileCount"].label,"\(roads.count) roads placed")
+        XCTAssertTrue(app.buttons["toggleGoals"].label.contains("0/7"))
+        Thread.sleep(forTimeInterval:6)
+        capture("road-dense",app:app)
+        app.buttons["closeRoads"].tap();app.buttons["Center on settlement"].tap()
+    }
+
     @MainActor private func capture(_ name: String, app: XCUIApplication) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)

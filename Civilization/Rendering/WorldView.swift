@@ -35,7 +35,7 @@ struct WorldView: UIViewRepresentable {
         scene.isPaused = session.shouldPauseAnimation
         scene.reduceMotion = reduceMotion
         scene.activeProductionIDs = session.operatingProductionBuildingIDs
-        scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, previewFootprint: session.previewFootprint, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
+        scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, previewFootprint: session.previewFootprint, roadTool: session.roadTool, roadDraft: session.roadDraft, roadInvalid: session.roadPreviewIssue != nil, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
     }
     @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {
         let scene: SettlementScene
@@ -52,7 +52,7 @@ struct WorldView: UIViewRepresentable {
             return session.state.buildings.first { $0.tiles(in: session.configuration).contains(tile) }
         }
         private func movableBuilding(at point: CGPoint) -> PlacedBuilding? {
-            guard !session.isDragMode else { return nil }
+            guard !session.isDragMode && session.roadTool == nil else { return nil }
             guard let building = building(at: point), building.kind != .campfire else { return nil }
             return building
         }
@@ -68,6 +68,7 @@ struct WorldView: UIViewRepresentable {
         }
         @objc func tap(_ recognizer: UITapGestureRecognizer) {
             let point = scene.convertPoint(fromView: recognizer.location(in: recognizer.view))
+            if session.roadTool != nil { session.extendRoadStroke(to: IsometricProjection.tile(point)); return }
             if session.previewKind == nil, let building = building(at: point) { session.inspect(buildingID: building.id) }
             else { session.tap(IsometricProjection.tile(point)) }
         }
@@ -97,6 +98,14 @@ struct WorldView: UIViewRepresentable {
             }
         }
         @objc func pan(_ recognizer: UIPanGestureRecognizer) {
+            if session.roadTool != nil {
+                switch recognizer.state {
+                case .began, .changed, .ended: session.extendRoadStroke(to: tile(recognizer))
+                case .cancelled, .failed: session.clearRoadStroke()
+                default: break
+                }
+                recognizer.setTranslation(.zero, in: recognizer.view);return
+            }
             if recognizer.state == .began {
                 isDragging = session.isDragMode
                 if isDragging {
@@ -125,6 +134,7 @@ struct WorldView: UIViewRepresentable {
             scene.pan(dx: translation.x, dy: translation.y); recognizer.setTranslation(.zero, in: recognizer.view)
         }
         @objc func pinch(_ recognizer: UIPinchGestureRecognizer) {
+            if recognizer.state == .began { session.clearRoadStroke() }
             if recognizer.state == .began, session.isDragMode { session.cancel(); isDragging = false }
             scene.zoom(factor: recognizer.scale); recognizer.scale = 1
         }

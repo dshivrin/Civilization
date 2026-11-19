@@ -83,8 +83,16 @@ struct SettlementView: View {
                                         .frame(maxWidth: .infinity, minHeight: 44)
                                 }.background(panelColor.opacity(0.95), in: RoundedRectangle(cornerRadius: 12)).accessibilityIdentifier("openResearch")
                                 panelButton("Explore", icon: "map", value: .explore)
+                                Button {
+                                    if session.roadTool != nil { session.cancel() }
+                                    else { panel = nil; session.chooseRoadTool(.draw(.trodden)) }
+                                } label: {
+                                    VStack(spacing: 3) { Image(systemName: "point.topleft.down.to.point.bottomright.curvepath"); Text("Roads").font(.system(size: 11, weight: .semibold)) }
+                                        .frame(maxWidth: .infinity, minHeight: 44)
+                                }.background(panelColor.opacity(0.95), in: RoundedRectangle(cornerRadius: 12)).accessibilityIdentifier("openRoads")
                             }
-                            if session.previewKind != nil { placementPanel }
+                            if session.roadTool != nil { RoadControlsView(session: session) }
+                            else if session.previewKind != nil { placementPanel }
                             else if let building = session.currentInspection { inspectionPanel(building) }
                             else if panel == .explore {
                                 ScrollView {
@@ -114,6 +122,7 @@ struct SettlementView: View {
             }
         }
         .onChange(of: session.isDragMode) { _, active in if active { goals.isExpanded = false } }
+        .onChange(of: session.roadTool != nil) { _, active in if active { goals.isExpanded = false } }
         .onChange(of: session.eraID) { _, id in goals.observeEra(id) }
         .fullScreenCover(isPresented: $showJourney, onDismiss: {
             if let action = pendingGuidanceAction {
@@ -364,7 +373,7 @@ struct SettlementView: View {
             if goals.isExpanded {
                 VStack(alignment: .leading, spacing: 5) {
                     guidanceDetail(compact: compact)
-                    Button("All seven chapters", systemImage: "list.bullet") { showJourney = true }.frame(minHeight: 44)
+                    Button("All seven chapters", systemImage: "list.bullet") { session.cancel(); showJourney = true }.frame(minHeight: 44)
                         .accessibilityIdentifier("openJourney")
                 }.padding(.horizontal, 12).padding(.bottom, 8).frame(maxWidth: .infinity, alignment: .leading)
                     .accessibilityElement(children: .contain).accessibilityIdentifier("goalProgress")

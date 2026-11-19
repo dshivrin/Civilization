@@ -9,6 +9,7 @@ final class SettlementScene: SKScene {
     private let terrainLayer = SKNode()
     private let depositLayer = SKNode()
     private let buildingLayer = SKNode()
+    private let roadLayer = RoadSceneLayer()
     private var renderedDiscovery: Set<Tile>?
     private var renderedDepositSignature = ""
     private let ghostLayer = SKNode()
@@ -49,6 +50,7 @@ final class SettlementScene: SKScene {
         depositLayer.zPosition = 90
         addChild(depositLayer)
         addChild(buildingLayer)
+        addChild(roadLayer);addChild(roadLayer.preview)
         ghostLayer.zPosition = 2000
         addChild(ghostLayer)
     }
@@ -93,9 +95,10 @@ final class SettlementScene: SKScene {
                                                   width: configuration.map.width, height: configuration.map.height)
         worldCamera.position = CGPoint(x: point.x, y: point.y)
     }
-    func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
+    func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, roadTool: RoadTool? = nil, roadDraft: [Tile] = [], roadInvalid: Bool = false, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
         if centerRequest != lastCenterRequest { recenter(); lastCenterRequest = centerRequest }
         let discoveryChanged = state.discoveredTiles != renderedDiscovery
+        roadLayer.display(roads: state.roads ?? [], discovered: state.discoveredTiles, configuration: configuration, tool: roadTool, draft: roadDraft, invalid: roadInvalid)
         if discoveryChanged || reduceMotion != renderedReduceMotion {
             drawTerrain(discovered: state.discoveredTiles)
             renderedDiscovery = state.discoveredTiles

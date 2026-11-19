@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+        A01100000000000000000003 /* RoadControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01100000000000000000004 /* RoadControlsView.swift */; };
+        A01100000000000000000001 /* RoadSceneLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01100000000000000000002 /* RoadSceneLayer.swift */; };
 		0EBF6F1984BD97775228F3ED /* GameCore in Frameworks */ = {isa = PBXBuildFile; productRef = B8A356A50B0089EBD45054F2 /* GameCore */; };
 		1B9864AC305C2C9973F47BBF /* Civilization/UI/SettlementLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA83532DA044475A7A83483 /* Civilization/UI/SettlementLoadingView.swift */; };
 		344D5E50B0FC6E38B4984267 /* GamePersistence in Frameworks */ = {isa = PBXBuildFile; productRef = EFB860EA162D0C567E7CEAA0 /* GamePersistence */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+        A01100000000000000000004 /* RoadControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/RoadControlsView.swift; sourceTree = SOURCE_ROOT; };
+        A01100000000000000000002 /* RoadSceneLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/RoadSceneLayer.swift; sourceTree = SOURCE_ROOT; };
 		092722F83ECB20036385A87F /* Civilization/UI/DeveloperToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/DeveloperToolsView.swift; sourceTree = SOURCE_ROOT; };
 		1207C98C88630EE38F7F51FB /* Civilization/UI/SettlementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/SettlementView.swift; sourceTree = SOURCE_ROOT; };
 		1B33D167B688309E1154F77E /* Civilization/UI/ResearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/ResearchView.swift; sourceTree = SOURCE_ROOT; };
@@ -104,6 +108,8 @@
 				5F253BCE6C81846BB9AB733E /* Civilization/CivilizationApp.swift */,
 				54A6192FF8E93B7E6D7AC890 /* Civilization/Rendering/IsometricProjection.swift */,
 				24B4F8E874CF59D2DE8A4F2D /* Civilization/Rendering/SettlementScene.swift */,
+                A01100000000000000000002 /* RoadSceneLayer.swift */,
+                A01100000000000000000004 /* RoadControlsView.swift */,
 				E1869522EAEC8033D828D556 /* Civilization/Rendering/WorldView.swift */,
 				1207C98C88630EE38F7F51FB /* Civilization/UI/SettlementView.swift */,
 				FBDC4F23F93125BBEEAE800C /* Products */,
@@ -233,6 +239,8 @@
 				5BA86DE92064239F988A0808 /* Civilization/CivilizationApp.swift in Sources */,
 				9B64E0CF81C06C999E6642DC /* Civilization/Rendering/IsometricProjection.swift in Sources */,
 				56F790BC1FC09883CFCAE1CD /* Civilization/Rendering/SettlementScene.swift in Sources */,
+                A01100000000000000000001 /* RoadSceneLayer.swift in Sources */,
+                A01100000000000000000003 /* RoadControlsView.swift in Sources */,
 				75BDE7114ACE9BA4ED0C47C5 /* Civilization/Rendering/WorldView.swift in Sources */,
 				4767FE11F7540197C37A84AB /* Civilization/UI/SettlementView.swift in Sources */,
 			);
