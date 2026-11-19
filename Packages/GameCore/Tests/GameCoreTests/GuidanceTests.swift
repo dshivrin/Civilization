@@ -47,6 +47,9 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
     var chapterTimes: [Int: Int] = [:]
     var actions = 0, waitSeconds = 0.0, longestWait = 0.0, currentWait = 0.0
     var counts: [String: Int] = [:]
+    var waits: [String: Double] = [:]
+    var chapterEvents: [[String: Any]] = []
+    var actionEvents: [[String: Any]] = []
     var last: [String] = []
     var recoveryChecked = false
     for _ in 0..<5000 {
@@ -57,8 +60,20 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
             let seconds = min(pollSeconds, max(1, hint.waitSeconds!))
             game.advance(to: game.state.lastUpdated.addingTimeInterval(seconds))
             waitSeconds += seconds; currentWait += seconds; longestWait = max(longestWait, currentWait)
+            let key: String
+            switch hint.action {
+            case .resource(let r): key = "resource-" + r.rawValue
+            case .inspect: key = "construction"
+            case .explore: key = "expedition"
+            case .population: key = "growth"
+            default: key = "achievement-check"
+            }
+            waits[key, default: 0] += seconds
         } else {
             currentWait = 0; actions += 1
+            var event: [String: Any] = ["atSeconds": game.state.lastUpdated.timeIntervalSince(guidanceEpoch), "action": String(describing: hint.action), "title": hint.title]
+            if case .build(let kind) = hint.action { event["constructionDurationSeconds"] = game.constructionDuration(for: kind) }
+            actionEvents.append(event)
             switch hint.action {
             case .build(let kind):
                 let map = game.configuration.map
@@ -76,7 +91,7 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
         if !recoveryChecked && pollSeconds == 60 && [.toolmaker, .tannery, .potteryWorkshop].allSatisfy({ kind in game.state.buildings.contains { $0.kind == kind && $0.isOperational } }) {
             recoveryChecked = true
             var recovery = game
-            for building in recovery.state.buildings where building.kind != .campfire {
+            for building in recovery.state.buildings where (recovery.configuration.definition(building.kind).workersRequired ?? 0) > 0 {
                 try recovery.setWorkerPriority(buildingID: building.id, priority: building.kind == .woodcutter ? 0 : 2)
             }
             recovery.advance(to: recovery.state.lastUpdated.addingTimeInterval(14400), offline: true)
@@ -97,6 +112,9 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
         }
         for chapter in game.journeyChapters where chapter.isComplete && chapterTimes[chapter.id] == nil {
             chapterTimes[chapter.id] = Int(game.state.lastUpdated.timeIntervalSince(guidanceEpoch))
+            let overview = game.economicOverview
+            let stocks = Dictionary(uniqueKeysWithValues: Resource.allCases.map { r in (r.rawValue, ["stored": game.state.resources[r], "grossPerMinute": overview.gross[r], "usedPerMinute": overview.consumption[r], "netPerMinute": overview.net[r], "capacity": game.capacities[r]]) })
+            chapterEvents.append(["id": chapter.id, "title": chapter.title, "atSeconds": chapterTimes[chapter.id]!, "population": game.state.population, "housing": game.housingCapacity, "workersAvailable": game.workforceAvailable, "workersRequired": game.workforceRequired, "discoveredTiles": game.discoveredTileCount, "resources": stocks])
         }
     }
     #expect(game.state.stoneAgeCompleted == true, "Recent recommendations: \(last)")
@@ -114,6 +132,12 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
     let restored = try GameEngine(state: saved, configuration: game.configuration)
     #expect(restored.settlementGuidance.action == .complete)
     #expect(restored.state.completedGoals == game.state.completedGoals)
+    if let folder = ProcessInfo.processInfo.environment["CIVILIZATION_GUIDANCE_REPORT_DIR"] {
+        let directory = URL(fileURLWithPath: folder)
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        let report: [String: Any] = ["schemaVersion": 1, "ordinaryCosts": true, "developerGrants": false, "scriptedNotHumanPlaytest": true, "decisionCadenceSeconds": pollSeconds, "totalSeconds": game.state.lastUpdated.timeIntervalSince(guidanceEpoch), "actions": actionEvents, "chapterEvents": chapterEvents, "waitByReasonSeconds": waits, "totalWaitSeconds": waitSeconds, "longestContinuousScriptWaitSeconds": longestWait, "fullRequirementsMet": game.fullStoneAgeRequirementsMet, "allChaptersComplete": game.journeyChapters.allSatisfy { $0.isComplete }]
+        try JSONSerialization.data(withJSONObject: report, options: [.prettyPrinted, .sortedKeys]).write(to: directory.appendingPathComponent("guided-\(Int(pollSeconds)).json"))
+    }
     print("GUIDED pace=\(pollSeconds)s total=\(Int(game.state.lastUpdated.timeIntervalSince(guidanceEpoch)))s actions=\(actions) wait=\(Int(waitSeconds))s longestCostOrConstructionWait=\(Int(longestWait))s chapters=\(chapterTimes.sorted { $0.key < $1.key }) choices=\(counts) pop=\(game.state.population) workers=\(game.workforceAvailable)/\(game.workforceRequired) netFood=\(game.rates.food) netWater=\(game.rates[.water]) knowledge=\(game.rates.knowledge) discovery=\(game.discoveredTileCount)")
 }
 

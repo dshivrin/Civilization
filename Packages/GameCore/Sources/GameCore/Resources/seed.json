@@ -1,5 +1,6 @@
 {
   "requiresCompleteStoneAgeCatalog": true,
+  "protectBootstrapMaterials": true,
   "resourceCap": 500,
   "offlineCapSeconds": 28800,
   "initialResources": {

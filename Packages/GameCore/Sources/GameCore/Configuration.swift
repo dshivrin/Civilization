@@ -26,6 +26,7 @@ public struct GameConfiguration: Codable, Sendable {
     public var populationRules: PopulationRules?
     public var technologies: [TechnologyDefinition]?
     public var requiresCompleteStoneAgeCatalog: Bool?
+    public var protectBootstrapMaterials: Bool?
     public var progressionGoals: [PillarGoalDefinition]?
     public var explorationRules: ExplorationRules?
     public var workforceRules: WorkforceRules?

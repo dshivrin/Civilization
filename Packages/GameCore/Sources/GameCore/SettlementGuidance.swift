@@ -72,6 +72,7 @@ private struct GuidanceResolver {
         }
         if !game.isUnlocked(kind), let technology = config.technologyDefinitions.first(where: { $0.effects.unlockedBuildings.contains(kind) }) { return research(technology.id) }
         if let missing = Resource.allCases.first(where: { game.state.resources[$0] < definition.cost[$0] }) { return resource(missing, target: definition.cost[missing]) }
+        if let supplier = game.bootstrapRequirement(for: definition.cost, constructing: kind) { return build(supplier, reason: "Establish this source before using your last construction materials. ") }
         let hasSite = (0..<config.map.height).contains { y in (0..<config.map.width).contains { x in game.placementIssue(kind, at: Tile(x: x, y: y)) == nil } }
         if !hasSite {
             if game.discoveredTileCount < config.map.width * config.map.height { return explore() }
@@ -83,6 +84,7 @@ private struct GuidanceResolver {
         guard enter("research-" + id), let technology = config.technologyDefinitions.first(where: { $0.id == id }) else { return help }
         for prerequisite in technology.prerequisites where !game.researchedIDs.contains(prerequisite) { return research(prerequisite) }
         if let missing = Resource.allCases.first(where: { game.state.resources[$0] < technology.cost[$0] }) { return resource(missing, target: technology.cost[missing]) }
+        if let supplier = game.bootstrapRequirement(for: technology.cost) { return build(supplier, reason: "Establish this source before spending its starter materials on research. ") }
         return advice("Research " + technology.name, technology.summary + " Open Research and confirm the purchase. Red costs show any resources still missing; researching never consumes population.", .research(id))
     }
     mutating func resource(_ r: Resource, target: Double, minimumNet: Double = 0) -> SettlementGuidance {
@@ -114,7 +116,7 @@ private struct GuidanceResolver {
             let inputs = game.recipe(for: producer)?.inputsPerMinute ?? ResourceAmounts()
             for input in Resource.allCases where inputs[input] > 0 && game.state.resources[input] < 1 && net[input] <= 0 { return resource(input, target: max(1, inputs[input])) }
             if let depositResource = game.recipe(for: producer)?.depositResource, !game.discoveredRequiredResources.contains(depositResource) { return discover(depositResource) }
-            if let altered = game.state.buildings.first(where: { ($0.workerPriority ?? 1) != 1 }) {
+            if let altered = game.state.buildings.first(where: { $0.isOperational && (config.definition($0.kind).workersRequired ?? 0) > 0 && ($0.workerPriority ?? 1) != 1 }) {
                 return advice("Balance worker priorities", "Set " + config.definition(altered.kind).name + " to Normal priority. High priorities can starve other production; food and water retain a protected share.", .priority(altered.id, 1))
             }
             if game.workforceProductivity(producer) == 0 {
@@ -124,10 +126,10 @@ private struct GuidanceResolver {
         if let depositResource = recipe.depositResource, !game.discoveredRequiredResources.contains(depositResource) { return discover(depositResource) }
         if !game.isUnlocked(source.kind) { return build(source.kind) }
         if matching.isEmpty {
-            // Keep the only stone/flint/clay source running: switch a redundant producer, otherwise build a dedicated one.
+            // Prefer dedicated suppliers; reuse an existing selectable mode if a duplicate cannot safely be funded.
             if let idleMode = game.state.buildings.reversed().first(where: { b in
                 guard b.kind == source.kind && b.isOperational, let current = game.recipe(for: b), current.id != recipe.id else { return false }
-                return game.state.buildings.filter { $0.kind == b.kind && $0.isOperational && game.recipe(for: $0)?.id == current.id }.count > 1
+                return game.state.buildings.filter { $0.kind == b.kind && $0.isOperational && game.recipe(for: $0)?.id == current.id }.count > 1 || !game.canAfford(source.cost) || game.bootstrapRequirement(for: source.cost, constructing: source.kind) != nil
             }) {
                 return advice("Choose " + recipe.name, "Inspect " + source.name + " and select the “" + recipe.name + "” production mode to make " + name(r) + ". Separate gatherers can keep stone, flint and clay flowing together.", .recipe(idleMode.id, recipe.id))
             }

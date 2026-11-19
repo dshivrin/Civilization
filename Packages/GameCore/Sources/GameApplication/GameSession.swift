@@ -89,6 +89,14 @@ public final class GameSession {
     public func constructionDuration(for kind: BuildingKind) -> Double { engine.constructionDuration(for: kind) }
     public func isUnlocked(_ kind: BuildingKind) -> Bool { engine.isUnlocked(kind) }
     public func researchIssue(_ id: String) -> GameError? { engine.researchIssue(id) }
+    public func bootstrapRequirement(for cost: ResourceAmounts, constructing kind: BuildingKind? = nil) -> BuildingKind? {
+        engine.bootstrapRequirement(for: cost, constructing: kind)
+    }
+    public func bootstrapSpendIssue(for cost: ResourceAmounts, constructing kind: BuildingKind? = nil) -> GameError? {
+        engine.bootstrapSpendIssue(for: cost, constructing: kind)
+    }
+    public func upgradeIssue(buildingID: Int) -> GameError? { engine.upgradeIssue(buildingID: buildingID) }
+
     public var explorationIssue: GameError? { engine.explorationIssue }
     public var discoveredTileCount: Int { engine.discoveredTileCount }
     public var discoveredDeposits: [NaturalDeposit] { engine.discoveredDeposits }

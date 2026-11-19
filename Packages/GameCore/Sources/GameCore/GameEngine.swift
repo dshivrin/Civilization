@@ -87,7 +87,7 @@ public struct GameEngine: Sendable {
             return .researchUnavailable("Requires " + names.joined(separator: ", ") + ".")
         }
         if !canAfford(tech.cost) { return .insufficientResources }
-        return nil
+        return bootstrapSpendIssue(for: tech.cost)
     }
     public var currentGoal: Goal? { Goal.allCases.first { !state.completedGoals.contains($0) } }
     public func canAfford(_ costs: ResourceAmounts) -> Bool { Resource.allCases.allSatisfy { state.resources[$0] >= costs[$0] } }
@@ -100,7 +100,8 @@ public struct GameEngine: Sendable {
         let definition = configuration.definition(kind)
         if !isUnlocked(kind) { return .researchRequired }
         if let issue = siteIssue(kind, at: origin) { return issue }
-        return canAfford(definition.cost) ? nil : .insufficientResources
+        guard canAfford(definition.cost) else { return .insufficientResources }
+        return bootstrapSpendIssue(for: definition.cost, constructing: kind)
     }
     /// Site checks shared by construction and free relocation. The moving footprint may overlap itself.
     private func siteIssue(_ kind: BuildingKind, at origin: Tile, excludingBuildingID: Int? = nil) -> GameError? {
@@ -184,7 +185,7 @@ public struct GameEngine: Sendable {
         guard let index = state.buildings.firstIndex(where: { $0.id == buildingID }), let cost = upgradeCost(for: state.buildings[index]) else {
             throw GameError.placement("This building cannot be upgraded further.")
         }
-        guard canAfford(cost) else { throw GameError.insufficientResources }
+        if let issue = upgradeIssue(buildingID: buildingID) { throw issue }
         evaluateGoals()
         spend(cost)
         state.buildings[index].upgradeLevel = state.buildings[index].level + 1
