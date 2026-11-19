@@ -1,5 +1,10 @@
 # Civilization Builder — Codex project instructions
 
+## GitHub issue #1 refinement — active S1-UX details
+
+[Primary coordination issue](https://github.com/dshivrin/Civilization/issues/1) and remote docs commit 26894bd were retrieved before further UI work. Latest refinement supersedes earlier MC-001 engineering defaults: **white available/light-gray blocked grid; original building stays stationary/translucent while only the footprint moves; circular bottom-center X; goals icon-only by default, tap for summary then expand guidance**. Explore stays adjacent; Roads inside Build. Shared atomic validation, forgiving invalid drop, free relocation, ordered pending-road retrace and Confirm/Cancel remain. Exact larger-map dimensions/migration explicitly require review before S1-Geography. Preserve all other roadmap IDs. Current code commits before this refinement are foundations, not final visual/default compliance. GitHub comment write now succeeds (comment 7019325134), superseding the earlier transient 403; issue #1 is the actual report channel. Git uses rebase of unpublished commits onto remote docs, no merge/force-push.
+
+
 ## Active execution authorization — first-era polish
 
 Dima directly authorizes autonomous implementation in order **S1-UX → S1-Saves → S1-Geography → approved environment graphics**, with detailed design reconciliation before each milestone. This supersedes older synchronization-only/awaiting-authorization boundaries. Preserve every approved/deferred roadmap item, both repositories and the existing first-era-review branch. Routine engineering choices are delegated; stop for significant product/safety decisions. No second-era gameplay. GitHub under personal owner dshivrin is the primary coordination channel; commit/push coherent work and retrieve actual instructions when connector permissions permit. Maintain [durable checkpoint](docs/development-checkpoint.md); do not infer product acceptance from passing tests.
