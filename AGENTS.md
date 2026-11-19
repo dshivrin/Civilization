@@ -1,6 +1,6 @@
 # Civilization Builder — Codex project instructions
 
-## Active roadmap — Seed 0.2.7 complete Stone Age
+## Active roadmap — first-era review candidate complete
 Dima authorized continuous implementation through the Civilization project's City Design Coordination conversation. See [docs/design/status-ledger.md](docs/design/status-ledger.md) for statuses and sources. Seed 0.2.1 is complete. The old stop-after-0.2.1 boundary is superseded.
 
 - Execute 0.2.2 economy/catalog, then 0.2.3 workforce, 0.2.4 exploration and 0.2.5 research/progression, verifying and reporting each milestone to the authorized conversation before checking current approvals and continuing.
@@ -14,6 +14,9 @@ Dima's direct brief on 18 November 2026 authorizes Seed 0.2.7 and supersedes the
 
 ## First-era completion authorization — 19 November 2026
 Dima now directly authorizes creating a local Git repository, committing the baseline and continuing to finish first-era goals, with his review after completion. This supersedes the proposal-only stop above for reversible graphics/polish work in a complete review candidate. Follow `docs/superpowers/specs/2026-11-19-first-era-review.md` and its plan. Use ChatGPT media as inspiration, original generated/native assets with provenance, preserve SpriteKit/geography/saves/gestures/iOS18/signing, and document provisional art choices. Complete available verification honestly; no fabricated human enjoyment or missing-hardware measurements. No second age, additional cities, warfare, monetization or unrelated systems. Commit coherent milestones locally and stop for Dima's final review.
+
+## First-era candidate handoff — 19 November 2026
+Candidate implementation is complete for Dima’s review. See `docs/milestones/first-era-review.md`, `docs/art/review.html` and `docs/design/first-era-pacing-review.md`. All seven chapters, full catalog progression, original replaceable art, interface/effects and available automated checks are implemented. 115 Debug/104 Release tests and five Release probes pass. Final signed iPhone update preserves existing save bytes. Dense physical performance remains below the 60FPS aim in the pre-cache sample; final rerun was blocked by device lock. Do not infer permanent art/human acceptance or authorize new systems. Stop for Dima’s review.
 
 ## Seed 0.1 foundation (historical balance and scope)
 The sections below retain the original foundation requirements; the active milestone above governs changed mechanics.

@@ -1,5 +1,12 @@
 import Foundation
 
+public struct EconomicOverview: Sendable, Equatable {
+    public let gross: ResourceAmounts
+    public let consumption: ResourceAmounts
+    public let net: ResourceAmounts
+    public let productiveBuildingIDs: Set<Int>
+}
+
 public struct ProductionRecipe: Codable, Sendable {
     public var id: String
     public var name: String
@@ -44,16 +51,22 @@ private struct Flow {
     var extraction: Double
 }
 public extension GameEngine {
-    /// One shared economy snapshot for presentation activity, including selected recipes and actual staffing.
-    var operatingProductionBuildingIDs: Set<Int> {
-        let factors = configuration.economyRules == nil ? nil : economySnapshot.factors
-        return Set(state.buildings.compactMap { building in
+    /// Read-only presentation values from one authoritative snapshot.
+    var economicOverview: EconomicOverview {
+        let snapshot = configuration.economyRules == nil ? nil : economySnapshot
+        let gross = snapshot?.gross ?? grossRates
+        let used = snapshot?.consumption ?? consumption
+        var net = gross
+        for resource in Resource.allCases { net[resource] -= used[resource] }
+        let productive = Set(state.buildings.compactMap { building -> Int? in
             guard building.isOperational else { return nil }
             let outputs = recipe(for: building)?.outputsPerMinute ?? configuration.definition(building.kind).ratesPerMinute
-            guard Resource.allCases.contains(where: { outputs[$0] > 0 }), (factors?[building.id] ?? (factors == nil ? 1 : 0)) > 1e-9 else { return nil }
+            guard Resource.allCases.contains(where: { outputs[$0] > 0 }), (snapshot?.factors[building.id] ?? (snapshot == nil ? 1 : 0)) > 1e-9 else { return nil }
             return building.id
         })
+        return EconomicOverview(gross: gross, consumption: used, net: net, productiveBuildingIDs: productive)
     }
+    var operatingProductionBuildingIDs: Set<Int> { economicOverview.productiveBuildingIDs }
     /// Counts current gross-output sources, excluding construction, staffing/input/deposit shutdowns.
     func producingBuildingCount(for resource: Resource) -> Int {
         let factors = configuration.economyRules == nil ? nil : economySnapshot.factors

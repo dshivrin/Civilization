@@ -31,6 +31,8 @@ public final class GameSession {
     }
     public private(set) var developerScenario: DeveloperScenario = .early
     #endif
+    @ObservationIgnored private var economicPresentationState: GameState?
+    @ObservationIgnored private var economicPresentation: EconomicOverview?
     @ObservationIgnored private let clock: () -> Date
     @ObservationIgnored private var savesEnabled = true
     @ObservationIgnored private var isActive = true
@@ -40,7 +42,8 @@ public final class GameSession {
     public var selectedKind: BuildingKind?
     public private(set) var movingBuildingID: Int?
     public var eraID: String { "stoneAge" }
-    public var shouldPauseRendering: Bool {
+    public var shouldPauseRendering: Bool { !isActive }
+    public var shouldPauseAnimation: Bool {
         #if DEBUG
         return !isActive || (isDeveloperMode && developerPaused)
         #else
@@ -64,9 +67,17 @@ public final class GameSession {
     public var centerRequest = 0
     public var state: GameState { engine.state }
     public var configuration: GameConfiguration { engine.configuration }
-    public var rates: ResourceAmounts { engine.rates }
-    public var grossRates: ResourceAmounts { engine.grossRates }
-    public var consumption: ResourceAmounts { engine.consumption }
+    public var economicOverview: EconomicOverview {
+        // Shared across toolbar accessibility, resource details and world effects until state changes.
+        if economicPresentationState != engine.state || economicPresentation == nil {
+            economicPresentation = engine.economicOverview
+            economicPresentationState = engine.state
+        }
+        return economicPresentation!
+    }
+    public var rates: ResourceAmounts { economicOverview.net }
+    public var grossRates: ResourceAmounts { economicOverview.gross }
+    public var consumption: ResourceAmounts { economicOverview.consumption }
     public var capacities: ResourceAmounts { engine.capacities }
     public var growthStatus: GrowthStatus { engine.growthStatus }
     public var growthIntervalSeconds: Double { engine.growthIntervalSeconds }
@@ -106,7 +117,7 @@ public final class GameSession {
         inspectedBuilding = building
         message = configuration.definition(building.kind).name
     }
-    public var operatingProductionBuildingIDs: Set<Int> { engine.operatingProductionBuildingIDs }
+    public var operatingProductionBuildingIDs: Set<Int> { economicOverview.productiveBuildingIDs }
     public func productivity(_ building: PlacedBuilding) -> Double { engine.productivity(building) }
     public func operatingStatus(_ building: PlacedBuilding) -> String { engine.operatingStatus(building) }
     public func upgradeCost(for building: PlacedBuilding) -> ResourceAmounts? { engine.upgradeCost(for: building) }

@@ -52,7 +52,8 @@ import GameApplication
     #if DEBUG
     session.loadDeveloperScenario(.early)
     session.setDeveloperPaused(true)
-    #expect(session.shouldPauseRendering)
+    #expect(!session.shouldPauseRendering) // Keep the map drawable for paused placement/inspection.
+    #expect(session.shouldPauseAnimation)
     session.setDeveloperPaused(false)
     #expect(!session.shouldPauseRendering)
     #endif
@@ -76,4 +77,21 @@ import GameApplication
     engine.advance(to: epoch.addingTimeInterval(60))
     #expect(engine.state.buildings.contains { $0.kind == .hut && $0.isOperational })
     #expect(engine.operatingProductionBuildingIDs == [0])
+}
+
+@Test @MainActor func economicPresentationRefreshesAfterRealStateChanges() throws {
+    var now = Date(timeIntervalSince1970: 1000)
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let session = try GameSession(clock: { now }, saveURL: folder.appendingPathComponent("normal.json"))
+    let original = session.economicOverview
+    #expect(session.rates == original.net)
+    session.choose(.gatheringShelter);session.confirm()
+    now = now.addingTimeInterval(60);session.tick()
+    let updated = session.economicOverview
+    #expect(updated.gross.food > original.gross.food)
+    #expect(updated.net == session.rates)
+    #expect(updated.gross == session.grossRates)
+    #expect(updated.consumption == session.consumption)
+    #expect(updated.productiveBuildingIDs == session.operatingProductionBuildingIDs)
 }

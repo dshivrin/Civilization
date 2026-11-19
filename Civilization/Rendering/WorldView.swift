@@ -32,6 +32,7 @@ struct WorldView: UIViewRepresentable {
     func updateUIView(_ view: SKView, context: Context) {
         scene.onReady = onReady
         view.isPaused = session.shouldPauseRendering || isObscured
+        scene.isPaused = session.shouldPauseAnimation
         scene.reduceMotion = reduceMotion
         scene.activeProductionIDs = session.operatingProductionBuildingIDs
         scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
