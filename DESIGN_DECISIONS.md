@@ -82,3 +82,7 @@ The latest direct sync instruction approves broader **future planning**, the rev
 Dima directly said “Start implementing” after the recovered next-step summary. This authorizes the bounded geometry foundation described in docs/superpowers/specs/2026-11-19-building-geometry-design.md. Exact larger dimensions, legacy-size conversion, visible rotation/art variants and roads/NPC implementation remain staged. Optional captured geometry for new builds and zero-orientation legacy fallback are engineering choices; no eager save rewrite or implicit relocation conversion.
 
 Geometry foundation implementation:70418ea(core/session/tests),d0a3284(render consumers);135Debug/124Release,5Release API probes and9UIcases per profile pass. Optional legacy fields remain nil unless already present; no assumption that this settles legacy conversion before larger-size activation.
+
+## Current authorization — decorative roads
+
+Dima directly instructs “Report to ChatGPT and move on” after geometryed23e2e. Implement the bounded approved decorative-road direction on existing dimensions, per docs/superpowers/specs/2026-11-19-decorative-roads-design.md and plan. Default terrain/no-overlap/mixed-material/free explicit paint/erase rules are documented Codex implementation choices, not recovered human quotations. Geometry stability is sufficient; unapproved larger dimensions remain deferred. No NPC, era or economy expansion. Commit this scope before product changes.

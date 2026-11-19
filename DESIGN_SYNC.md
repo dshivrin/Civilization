@@ -119,3 +119,7 @@ Reserve delivery: core commit3ecc846; six additional regressions, complete route
 Geometry foundation: Dima’s direct “Start implementing” supersedes proposed-only status for the bounded next engineering task. Spec/plan and approval synchronized before code; existing first-era-review branch retained for this authorized continuation. No approval of ChatGPT’s exact footprint table, media sizes or road defaults inferred.
 
 Geometry foundation delivered: shared occupied geometry and additive optional snapshots for new construction; current catalog/art unchanged, legacy nil fields not rewritten. Full135Debug/124Release,5Release probes,9UI/profile verification recorded in [delivery report](docs/milestones/building-geometry-foundation.md). No larger-size/live-rotation/road/NPC activation; legacy conversion policy remains a prerequisite. Physical installation awaits device access/fresh backup.
+
+## Current authorization — decorative roads
+
+Dima directly instructs “Report to ChatGPT and move on” after geometryed23e2e. Implement the bounded approved decorative-road direction on existing dimensions, per docs/superpowers/specs/2026-11-19-decorative-roads-design.md and plan. Default terrain/no-overlap/mixed-material/free explicit paint/erase rules are documented Codex implementation choices, not recovered human quotations. Geometry stability is sufficient; unapproved larger dimensions remain deferred. No NPC, era or economy expansion. Commit this scope before product changes.
