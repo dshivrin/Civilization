@@ -241,3 +241,35 @@ private func openTile(_ g: GameEngine, kind: BuildingKind, excluding: Set<Tile> 
     #expect(session.state == moved && session.movingBuildingID == nil)
     #expect(try SaveStore(url: url).load(configuration: c) == moved)
 }
+
+@Test func threeStateGoalsStartMinimalAndCycleToSummaryThenGuidance() {
+    var disclosure = SettlementGoalsDisclosure(eraID: "stoneAge")
+    #expect(disclosure.state == .minimal)
+    disclosure.cycle(); #expect(disclosure.state == .compact && !disclosure.isExpanded)
+    disclosure.cycle(); #expect(disclosure.state == .expanded && disclosure.isExpanded)
+    disclosure.cycle(); #expect(disclosure.state == .minimal)
+    disclosure.isExpanded = true; #expect(disclosure.state == .expanded)
+    disclosure.isExpanded = false; #expect(disclosure.state == .minimal)
+    disclosure.observeEra("stoneAge"); #expect(disclosure.state == .minimal)
+    disclosure.observeEra("future-fixture-only"); #expect(disclosure.state == .expanded)
+}
+
+@MainActor @Test func relocationGridExcludesFogAndKeepsSourceCellsAvailable() throws {
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    var c = try moveConfiguration()
+    c.explorationRules = try GameConfiguration.bundled().explorationRules
+    let s = try GameSession(clock: { moveEpoch }, saveURL: folder.appendingPathComponent("save.json"), configuration: c)
+    #expect(s.relocationGrid == nil)
+    s.choose(.hut); s.confirm()
+    let b = try #require(s.state.buildings.last { $0.kind == .hut })
+    let before = s.state
+    s.beginRelocation(buildingID: b.id)
+    let grid = try #require(s.relocationGrid)
+    #expect(Set(grid.keys) == s.state.discoveredTiles)
+    #expect(grid[b.origin] == true)
+    #expect(grid[c.map.campfire] == false)
+    #expect(grid[Tile(x: 0, y: 23)] == nil)
+    #expect(s.state == before)
+    s.cancel(); #expect(s.relocationGrid == nil && s.state == before)
+}

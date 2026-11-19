@@ -82,14 +82,6 @@ struct SettlementView: View {
                                     VStack(spacing: 3) { Image(systemName: "sparkles"); Text("Research").font(.system(size: 11, weight: .semibold)) }
                                         .frame(maxWidth: .infinity, minHeight: 44)
                                 }.background(panelColor.opacity(0.95), in: RoundedRectangle(cornerRadius: 12)).accessibilityIdentifier("openResearch")
-                                panelButton("Explore", icon: "map", value: .explore)
-                                Button {
-                                    if session.roadTool != nil { session.cancel() }
-                                    else { panel = nil; session.chooseRoadTool(.draw(.trodden)) }
-                                } label: {
-                                    VStack(spacing: 3) { Image(systemName: "point.topleft.down.to.point.bottomright.curvepath"); Text("Roads").font(.system(size: 11, weight: .semibold)) }
-                                        .frame(maxWidth: .infinity, minHeight: 44)
-                                }.background(panelColor.opacity(0.95), in: RoundedRectangle(cornerRadius: 12)).accessibilityIdentifier("openRoads")
                             }
                             if session.roadTool != nil { RoadControlsView(session: session) }
                             else if session.previewKind != nil { placementPanel }
@@ -117,10 +109,11 @@ struct SettlementView: View {
             }
             .overlay(alignment: .bottom) {
                 if session.movingBuildingID != nil {
-                    Button("Cancel move", systemImage: "xmark") { session.cancel() }
-                        .font(.subheadline.bold()).padding(.horizontal, 20).frame(minHeight: 44)
-                        .background(panelColor, in: Capsule()).overlay(Capsule().stroke(parchment.opacity(0.5)))
-                        .padding(.bottom, 10).accessibilityIdentifier("cancelRelocation")
+                    Button { session.cancel() } label: {
+                        Image(systemName: "xmark").font(.headline).frame(width: 48, height: 48)
+                    }
+                    .background(panelColor, in: Circle()).overlay(Circle().stroke(parchment.opacity(0.7)))
+                    .padding(.bottom, 10).accessibilityLabel("Cancel move").accessibilityIdentifier("cancelRelocation")
                 }
             }
             .foregroundStyle(parchment)
@@ -366,20 +359,32 @@ struct SettlementView: View {
     }
     private func signed(_ number: Double) -> String { String(format: "%+.1f", number) }
     private func goalsPanel(compact: Bool) -> some View {
-        VStack(spacing: 0) {
-            Button { goals.isExpanded.toggle() } label: {
-                HStack {
-                    Image(systemName: "flag.checkered")
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Chapters \(session.journeyChapters.filter(\.isComplete).count)/\(session.journeyChapters.count)").font(.subheadline.bold())
-                        Text(session.nextGuidance.title).font(.caption).lineLimit(2)
-                            .accessibilityIdentifier("nextStepSummary")
-                    }
-                    Spacer()
-                    Image(systemName: goals.isExpanded ? "chevron.up" : "chevron.down")
-                }.padding(.horizontal, 12).frame(minHeight: 44).contentShape(Rectangle())
-            }.buttonStyle(.plain).accessibilityIdentifier("toggleGoals")
-                .accessibilityValue(goals.isExpanded ? "Expanded" : "Collapsed")
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(alignment: .top, spacing: 4) {
+                Button { goals.cycle() } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "flag.checkered").frame(minWidth: 24)
+                        if goals.state != .minimal {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Chapters \(session.journeyChapters.filter(\.isComplete).count)/\(session.journeyChapters.count)").font(.subheadline.bold())
+                                Text(session.nextGuidance.title).font(.caption).lineLimit(2)
+                                    .accessibilityIdentifier("nextStepSummary")
+                            }
+                            Spacer(minLength: 0)
+                            Image(systemName: goals.isExpanded ? "chevron.up" : "chevron.down")
+                        }
+                    }.padding(.horizontal, 10).frame(minWidth: 44, minHeight: 44).contentShape(Rectangle())
+                }.buttonStyle(.plain).accessibilityIdentifier("toggleGoals")
+                    .accessibilityLabel("Chapters \(session.journeyChapters.filter(\.isComplete).count)/\(session.journeyChapters.count), goals")
+                    .accessibilityValue(goals.state.rawValue)
+                Button {
+                    let wasVisible = panel == .explore && session.roadTool == nil && !session.isDragMode && session.currentInspection == nil
+                    session.cancel(); session.inspectedBuilding = nil
+                    panel = wasVisible ? nil : .explore
+                } label: {
+                    Image(systemName: "map").frame(width: 44, height: 44).contentShape(Rectangle())
+                }.buttonStyle(.plain).accessibilityLabel("Explore").accessibilityIdentifier("openExplore")
+            }
             if goals.isExpanded {
                 VStack(alignment: .leading, spacing: 5) {
                     guidanceDetail(compact: compact)
@@ -389,6 +394,7 @@ struct SettlementView: View {
                     .accessibilityElement(children: .contain).accessibilityIdentifier("goalProgress")
             }
         }.background(panelColor.opacity(0.96), in: RoundedRectangle(cornerRadius: 12))
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
     private func guidanceDetail(compact: Bool = false, showAction: Bool = true) -> some View {
         VStack(alignment: .leading, spacing: 6) {

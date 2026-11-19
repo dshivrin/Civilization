@@ -9,7 +9,7 @@ struct BuildingCatalogView: View {
     @State private var search = ""
     @State private var expanded: Set<BuildingKind> = []
     @Environment(\.dynamicTypeSize) private var typeSize
-    private var categories: [String] { ["All"] + Set(session.configuration.buildings.map { $0.category ?? "Other" }).sorted() }
+    private var categories: [String] { ["All"] + Set(session.configuration.buildings.map { $0.category ?? "Other" }).sorted() + ["Roads"] }
     private func definitions(_ category: String) -> [BuildingDefinition] {
         session.configuration.buildings.filter { category == "All" || ($0.category ?? "Other") == category }
     }
@@ -33,12 +33,15 @@ struct BuildingCatalogView: View {
                 HStack(alignment: .top, spacing: 20) {
                     if wide { VStack(spacing: 8) { ForEach(categories, id: \.self) { category($0) }; Spacer() }.frame(width: 220) }
                     VStack(spacing: 8) {
-                        if !wide { ScrollView(.horizontal) { HStack(spacing: 8) { ForEach(categories, id: \.self) { category($0) } } }.fixedSize(horizontal: false, vertical: true) }
+                        if !wide { ScrollView(.horizontal) { HStack(spacing: 8) { ForEach(categories, id: \.self) { category($0) } } }.fixedSize(horizontal: false, vertical: true).accessibilityIdentifier("buildingCategories") }
                         ScrollView {
                             LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 280), alignment: .top)], alignment: .leading, spacing: 10) {
+                                if selectedCategory == "Roads" {
+                                    ForEach(RoadStyle.allCases, id: \.self) { style in roadCard(style) }
+                                }
                                 ForEach(definitions(selectedCategory).filter { search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }, id: \.kind) { card($0) }
                             }.padding(.bottom, 20)
-                            if definitions(selectedCategory).filter({ search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }).isEmpty { Text("No matching buildings.").padding() }
+                            if selectedCategory != "Roads" && definitions(selectedCategory).filter({ search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }).isEmpty { Text("No matching buildings.").padding() }
                         }.frame(maxHeight: .infinity).clipped().accessibilityIdentifier("buildingCatalog")
                     }
                 }
@@ -48,8 +51,25 @@ struct BuildingCatalogView: View {
     private func category(_ title: String) -> some View {
         let entries = definitions(title)
         let count = entries.filter { constructed($0.kind) > 0 }.count
-        return DevelopmentCategoryButton(title: title, detail: "\(count)/\(entries.count) constructed", completed: count, total: entries.count, selected: selectedCategory == title) { selectedCategory = title }
+        return DevelopmentCategoryButton(title: title, detail: title == "Roads" ? "Three free surfaces" : "\(count)/\(entries.count) constructed", completed: count, total: entries.count, selected: selectedCategory == title) { selectedCategory = title }
             .accessibilityIdentifier("buildingCategory-" + title)
+    }
+    private func roadCard(_ style: RoadStyle) -> some View {
+        Button {
+            session.chooseRoadTool(.draw(style))
+            dismiss()
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "point.topleft.down.to.point.bottomright.curvepath").font(.title2).frame(width: 44, height: 44)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(style.title).font(.headline)
+                    Text("Free · decorative · drag to preview").font(.caption)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+            }.padding(12).frame(minHeight: 64)
+        }.buttonStyle(.plain).modifier(DevelopmentCardStyle(color: .yellow))
+            .accessibilityIdentifier("roadCatalog-" + style.rawValue)
     }
     private func amounts(_ values: ResourceAmounts) -> String {
         let items = Resource.allCases.filter { values[$0] > 0 }.map { "\(String(format: "%g", values[$0])) \($0.title)" }

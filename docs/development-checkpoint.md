@@ -4,7 +4,7 @@ Updated: 19 November 2026. Active chat 01a1f50b-a549-7010-9931-1e625005c041. Nat
 
 ## Current task
 
-S1-UX Task 3 — HUD/navigation, with issue #1 refinement before further UI changes. Task 2 reversible road preview complete after RED→GREEN; 151 Debug regressions pass. Exact next action: integrate remote documentation-only commit 26894bd by rebasing unpublished local commits (no merge/force-push), then synchronize issue #1 details into spec/canonical docs: white/light-gray grid, stationary translucent original, footprint-only dragging, circular X, icon-only goals default. Implement/refine UI and verify full phone/mini/Pro suites.
+S1-UX final verification/handover. All requested product behavior implemented; independent review found four consequential issues, now fixed in one pass. Exact next action: wait for /tmp/civilization-s1ux-reviewed-{phone,mini,pro}.log / xcresult full 16-case suites, inspect failures and native visual captures, verify final Release suite/exclusion probes, publish a milestone report and checkpoint to issue #1; then reconcile/commit S1-Saves spec before code.
 
 ## Completed
 
@@ -25,3 +25,14 @@ Use native Codex Goal; it continues only on safe idle boundaries under host cons
 Task 2 tests: two retrace tests observed RED (5 assertions), then full 151 Debug pass, log /tmp/civilization-s1ux-roads-green.log. Task 1 product a90dc73 before synchronization rebase; use git log after rebase for exact current SHAs. Push was safely rejected because remote 26894bd adds docs/design/github-coordination.md and issue #1; no remote overwrite. Native Goal remains active; all work stays on this thread.
 
 GitHub update: issue #1 is now readable/writable; comment 7019325134 posted. Remote 26894bd integrated by rebasing unpublished commits without merge/force-push. Current product commits 1a6f508 relocation and dc13ce6 road retrace; design 562069c. Issue #1 visual/default refinements reconciled before further code; implement next. Exact geography size/migration remains review gate.
+
+## Current verified evidence (supersedes earlier checkpoint statements)
+
+- Initial baseline a7cf474, remote coordination 26894bd; rebased unpublished local work without merge/force push. Design 562069c, relocation 1a6f508, roads dc13ce6, issue refinement 38d22aa.
+- Reversible road tests observed RED then 151 Debug GREEN; three-state model observed missing-API RED then GREEN. Final reviewed full Debug 154 passes, log /tmp/civilization-s1ux-debug-reviewed.log. Release rerun in progress at /tmp/civilization-s1ux-release-reviewed.log; previous pre-review 142 Release and five API exclusion probes pass.
+- First full native run: phone 15/15, Pro 15/15; mini had one SwiftUI Menu automation failure after cancellation, corrected using existing map-inspection fallback. First HUD adjacency assertions read transitional frames; condition-based settling proves exactly four-point gap in Minimal/Compact/Expanded. No production workaround or artificial delay added.
+- Independent reviewer: touch-down footprint edge decision, inspection road-draft leak, stale Explore panel and main-thread relocation grid rebuilding. First three have failing regressions then GREEN: native edge cases/first-tap Explore both pass on fresh test phone; inspection core test passes. Grid now cached by occupied geometry, known terrain, road occupancy and moving ID (not pointer/resource/time); no new hardware FPS claim. Full 16-case suites rerunning all three profiles after fixes.
+- Original relocation remains stationary/translucent and only the footprint moves; white/light-gray discovered terrain grid cached in renderer, no fog exposure; circular bottom X. Minimal goals default, summary then guidance; Explore adjacent; roads in Build distinct category.
+- Native Goal remains active on this same chat, no other development session. GitHub read and comment posting are working; issue #1 is primary. Media 697b486 unchanged. No physical update/performance/human acceptance claimed this cycle.
+
+Rulings: native Goal instead of a local timer/duplicate process (quota reset wake remains unverified); retain existing branch/workspace per human direction; issue #1 supersedes earlier Compact-default/tinted moving sprite design; use ground-space map inspection in mini UI automation because SwiftUI Menu rows are not reliably exposed. None changes economy/saves/geography/signing or deletes deferred requirements.

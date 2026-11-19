@@ -13,6 +13,8 @@ final class SettlementScene: SKScene {
     private var renderedDiscovery: Set<Tile>?
     private var renderedDepositSignature = ""
     private let ghostLayer = SKNode()
+    private let relocationGridLayer = SKNode()
+    private var renderedRelocationGrid: [Tile: Bool]?
     #if DEBUG
     private let diagnostics = RenderDiagnostics()
     #endif
@@ -51,6 +53,8 @@ final class SettlementScene: SKScene {
         addChild(depositLayer)
         addChild(buildingLayer)
         addChild(roadLayer);addChild(roadLayer.preview)
+        relocationGridLayer.zPosition = 95
+        addChild(relocationGridLayer)
         ghostLayer.zPosition = 2000
         addChild(ghostLayer)
     }
@@ -95,7 +99,7 @@ final class SettlementScene: SKScene {
                                                   width: configuration.map.width, height: configuration.map.height)
         worldCamera.position = CGPoint(x: point.x, y: point.y)
     }
-    func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, unavailablePreviewTiles: Set<Tile>? = nil, roadTool: RoadTool? = nil, roadDraft: [Tile] = [], roadInvalid: Bool = false, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
+    func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, relocationGrid: [Tile: Bool]? = nil, unavailablePreviewTiles: Set<Tile>? = nil, roadTool: RoadTool? = nil, roadDraft: [Tile] = [], roadInvalid: Bool = false, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
         if centerRequest != lastCenterRequest { recenter(); lastCenterRequest = centerRequest }
         let discoveryChanged = state.discoveredTiles != renderedDiscovery
         roadLayer.display(roads: state.roads ?? [], discovered: state.discoveredTiles, configuration: configuration, tool: roadTool, draft: roadDraft, invalid: roadInvalid)
@@ -133,6 +137,17 @@ final class SettlementScene: SKScene {
                 root.childNode(withName: "constructionScaffold")?.isHidden = fraction < 0.25 || fraction > 0.85
             }
         }
+        if relocationGrid != renderedRelocationGrid {
+            relocationGridLayer.removeAllChildren()
+            for (tile, available) in relocationGrid ?? [:] {
+                let node = SKShapeNode(path: IsometricProjection.diamond(at: IsometricProjection.point(tile)))
+                node.strokeColor = (available ? UIColor.white : UIColor.lightGray).withAlphaComponent(0.7)
+                node.fillColor = available ? .clear : UIColor.lightGray.withAlphaComponent(0.12)
+                node.lineWidth = 1
+                relocationGridLayer.addChild(node)
+            }
+            renderedRelocationGrid = relocationGrid
+        }
         hasDisplayedSnapshot = true
         ghostLayer.removeAllChildren()
         if let kind, let tile {
@@ -142,8 +157,9 @@ final class SettlementScene: SKScene {
                 for covered in footprint.tiles(at: tile) {
                     let node = SKShapeNode(path: IsometricProjection.diamond(at: IsometricProjection.point(covered)))
                     let available = unavailablePreviewTiles.map { !$0.contains(covered) } ?? valid
-                    node.fillColor = (available ? UIColor.systemMint : UIColor.systemRed).withAlphaComponent(0.30)
-                    node.strokeColor = available ? .systemMint : .systemRed; node.lineWidth = 2
+                    let tint: UIColor = movingBuildingID == nil ? (available ? .systemMint : .systemRed) : (available ? .white : .lightGray)
+                    node.fillColor = tint.withAlphaComponent(0.30)
+                    node.strokeColor = tint; node.lineWidth = 2
                     node.zPosition = 10_000
                     ghostLayer.addChild(node)
                     if !available {
@@ -158,11 +174,8 @@ final class SettlementScene: SKScene {
                         ghostLayer.addChild(marker)
                     }
                 }
-                if let id = movingBuildingID, var preview = state.buildings.first(where: { $0.id == id }) {
-                    preview.origin = tile
-                    drawBuilding(preview, into: ghostLayer)
-                } else {
-                    // Render-only identity; no building is added or paid for until the drop is accepted.
+                if movingBuildingID == nil {
+                    // Only new construction has a moving sprite; relocation keeps its source faded in place.
                     drawBuilding(PlacedBuilding(id: -1, kind: kind, origin: tile), into: ghostLayer)
                 }
             }

@@ -31,6 +31,19 @@ public final class GameSession {
     }
     public private(set) var developerScenario: DeveloperScenario = .early
     #endif
+    private struct RelocationGridKey: Equatable {
+        struct Occupancy: Equatable {
+            var id: Int
+            var origin: Tile
+            var footprint: BuildingFootprint
+        }
+        var movingID: Int
+        var occupied: [Occupancy]
+        var roads: [Tile]
+        var discovered: Set<Tile>?
+    }
+    @ObservationIgnored private var relocationGridKey: RelocationGridKey?
+    @ObservationIgnored private var cachedRelocationGrid: [Tile: Bool]?
     @ObservationIgnored private var economicPresentationState: GameState?
     @ObservationIgnored private var economicPresentation: EconomicOverview?
     @ObservationIgnored private var guidanceState: GameState?
@@ -130,6 +143,7 @@ public final class GameSession {
     }
     public func inspect(buildingID: Int) {
         guard let building = state.buildings.first(where: { $0.id == buildingID }) else { return }
+        exitRoadMode()
         cancelRelocationPreview()
         selectedKind = nil
         selectedTile = nil
@@ -174,6 +188,23 @@ public final class GameSession {
             return building.occupiedFootprint(in: configuration)
         }
         return selectedKind.map { configuration.definition($0).footprint }
+    }
+    /// Only known terrain is exposed to the relocation grid; no fog contents leak.
+    public var relocationGrid: [Tile: Bool]? {
+        guard let id = movingBuildingID else {
+            relocationGridKey = nil; cachedRelocationGrid = nil
+            return nil
+        }
+        let key = RelocationGridKey(movingID: id, occupied: state.buildings.map {
+            .init(id: $0.id, origin: $0.origin, footprint: $0.occupiedFootprint(in: configuration))
+        }, roads: (state.roads ?? []).map(\.tile), discovered: state.discoveredTiles)
+        if key == relocationGridKey { return cachedRelocationGrid }
+        let tiles = state.discoveredTiles ?? Set((0..<configuration.map.height).flatMap { y in
+            (0..<configuration.map.width).map { Tile(x: $0, y: y) }
+        })
+        let grid = Dictionary(uniqueKeysWithValues: tiles.map { ($0, engine.siteTileIssue(at: $0, excludingBuildingID: id) == nil) })
+        relocationGridKey = key; cachedRelocationGrid = grid
+        return grid
     }
     public func isPreviewTileAvailable(_ tile: Tile) -> Bool {
         engine.siteTileIssue(at: tile, excludingBuildingID: movingBuildingID) == nil

@@ -18,7 +18,7 @@ struct WorldView: UIViewRepresentable {
         hold.minimumPressDuration = 0.35; hold.allowableMovement = 10; hold.numberOfTouchesRequired = 1; hold.delegate = coordinator
         let tap = UITapGestureRecognizer(target: coordinator, action: #selector(Coordinator.tap(_:)))
         let pan = UIPanGestureRecognizer(target: coordinator, action: #selector(Coordinator.pan(_:)))
-        pan.maximumNumberOfTouches = 1
+        pan.maximumNumberOfTouches = 1; pan.delegate = coordinator
         let pinch = UIPinchGestureRecognizer(target: coordinator, action: #selector(Coordinator.pinch(_:)))
         pinch.delegate = coordinator
         tap.require(toFail: hold); pan.require(toFail: hold)
@@ -35,13 +35,15 @@ struct WorldView: UIViewRepresentable {
         scene.isPaused = session.shouldPauseAnimation
         scene.reduceMotion = reduceMotion
         scene.activeProductionIDs = session.operatingProductionBuildingIDs
-        scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, previewFootprint: session.previewFootprint, unavailablePreviewTiles: session.movingBuildingID == nil ? nil : Set((session.previewFootprint?.tiles(at: session.selectedTile ?? Tile(x: 0, y: 0)) ?? []).filter { !session.isPreviewTileAvailable($0) }), roadTool: session.roadTool, roadDraft: session.roadDraft, roadInvalid: session.roadPreviewIssue != nil, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
+        scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, previewFootprint: session.previewFootprint, relocationGrid: session.relocationGrid, unavailablePreviewTiles: session.movingBuildingID == nil ? nil : Set((session.previewFootprint?.tiles(at: session.selectedTile ?? Tile(x: 0, y: 0)) ?? []).filter { !session.isPreviewTileAvailable($0) }), roadTool: session.roadTool, roadDraft: session.roadDraft, roadInvalid: session.roadPreviewIssue != nil, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
     }
     @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {
         let scene: SettlementScene
         let session: GameSession
         private var dragOffset = Tile(x: 0, y: 0)
         private var isDragging = false
+        private var panTouchDownTile: Tile?
+        private var holdTouchDown: (buildingID: Int, tile: Tile)?
         init(scene: SettlementScene, session: GameSession) { self.scene = scene; self.session = session }
         private func tile(_ recognizer: UIGestureRecognizer) -> Tile {
             IsometricProjection.tile(scene.convertPoint(fromView: recognizer.location(in: recognizer.view)))
@@ -57,9 +59,17 @@ struct WorldView: UIViewRepresentable {
             return session.state.buildings.first { $0.kind != .campfire && $0.tiles(in: session.configuration).contains(touched) }
         }
         func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-            guard recognizer is UILongPressGestureRecognizer else { return true }
             let location = scene.convertPoint(fromView: touch.location(in: recognizer.view))
-            return movableBuilding(at: location) != nil
+            let touched = IsometricProjection.tile(location)
+            if recognizer is UIPanGestureRecognizer {
+                panTouchDownTile = touched
+                return true
+            }
+            if recognizer is UILongPressGestureRecognizer {
+                guard let building = movableBuilding(at: location) else { holdTouchDown = nil; return false }
+                holdTouchDown = (building.id, touched)
+            }
+            return true
         }
         func gestureRecognizer(_ first: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith second: UIGestureRecognizer) -> Bool {
             // A second finger can start zoom; the pinch handler cancels the preview before moving the camera.
@@ -75,9 +85,9 @@ struct WorldView: UIViewRepresentable {
         @objc func move(_ recognizer: UILongPressGestureRecognizer) {
             switch recognizer.state {
             case .began:
-                let touched = tile(recognizer)
-                guard let building = movableBuilding(at: scene.convertPoint(fromView: recognizer.location(in: recognizer.view))) else { return }
-                dragOffset = Tile(x: touched.x - building.origin.x, y: touched.y - building.origin.y)
+                guard let start = holdTouchDown, !session.isDragMode,
+                      let building = session.state.buildings.first(where: { $0.id == start.buildingID }) else { return }
+                dragOffset = Tile(x: start.tile.x - building.origin.x, y: start.tile.y - building.origin.y)
                 session.beginRelocation(buildingID: building.id)
                 isDragging = true
             case .changed:
@@ -107,9 +117,9 @@ struct WorldView: UIViewRepresentable {
                 recognizer.setTranslation(.zero, in: recognizer.view);return
             }
             if recognizer.state == .began {
-                isDragging = session.canDragPreview(from: tile(recognizer))
+                let touched = panTouchDownTile ?? tile(recognizer)
+                isDragging = session.canDragPreview(from: touched)
                 if isDragging {
-                    let touched = tile(recognizer)
                     if let origin = session.selectedTile, session.previewFootprint?.tiles(at: origin).contains(touched) == true {
                         dragOffset = Tile(x: touched.x - origin.x, y: touched.y - origin.y)
                     } else { dragOffset = Tile(x: 0, y: 0) }

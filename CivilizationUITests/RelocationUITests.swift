@@ -77,6 +77,7 @@ final class RelocationUITests: XCTestCase {
             return CGVector(dx: 0.5 + (world.x - camp.x - 80) / scale / frame.width,
                             dy: 0.5 - (world.y + centerOffset - camp.y - 30) / scale / frame.height)
         }
+        app.buttons["openExplore"].tap()
         let start = map.coordinate(withNormalizedOffset: point(building.origin))
         let blocked = map.coordinate(withNormalizedOffset: point(config.map.campfire))
         start.press(forDuration: 0.55, thenDragTo: blocked)
@@ -92,8 +93,52 @@ final class RelocationUITests: XCTestCase {
         XCTAssertEqual(app.staticTexts["placementTile"].label, preview)
         capture("invalid-move-kept-preview", app: app)
         cancel.tap(); XCTAssertFalse(cancel.exists)
-        app.buttons["settlementBuildings"].tap(); app.buttons["inspectBuilding-1"].tap()
+        app.buttons["Center on settlement"].tap()
+        if frame.width > 1000 {
+            map.coordinate(withNormalizedOffset: point(building.origin, centerOffset: 14)).tap()
+        } else {
+            app.buttons["settlementBuildings"].tap(); app.buttons["inspectBuilding-1"].tap()
+        }
         XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("Tile \(building.origin.x), \(building.origin.y)"))
+        app.buttons["moveBuilding"].tap()
+        app.buttons["openExplore"].tap()
+        XCTAssertTrue(app.staticTexts["explorationCoverage"].waitForExistence(timeout: 5), "One Explore tap must cancel an editor and reveal exploration")
+        XCTAssertFalse(app.buttons["cancelRelocation"].exists)
+    }
+
+    @MainActor func testPreviewDragUsesTouchDownFootprintAtBothEdges() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"; app.launch()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        app.buttons["developerTools"].tap(); app.buttons["scenario-early"].tap()
+        let map = app.otherElements["settlementMap"], frame = map.frame
+        let c = try GameConfiguration.bundled(), g = try DeveloperScenario.early.makeEngine(configuration: c, now: Date())
+        let b = try XCTUnwrap(g.state.buildings.first { $0.id == 1 })
+        let camp = MapGeometry.point(for: c.map.campfire), scale = frame.width > 1000 ? 1.1 : 0.95
+        func point(_ tile: Tile) -> CGVector {
+            let p = MapGeometry.point(for: tile)
+            return CGVector(dx: 0.5 + (p.x - camp.x - 80) / scale / frame.width,
+                            dy: 0.5 - (p.y - camp.y - 30) / scale / frame.height)
+        }
+        map.coordinate(withNormalizedOffset: point(b.origin)).press(forDuration: 0.55, thenDragTo: map.coordinate(withNormalizedOffset: point(c.map.campfire)))
+        XCTAssertTrue(app.buttons["cancelRelocation"].waitForExistence(timeout: 5))
+        let preview = app.staticTexts["placementTile"].label
+        let inner = point(Tile(x: c.map.campfire.x + 1, y: c.map.campfire.y))
+        let outer = point(Tile(x: c.map.campfire.x + 2, y: c.map.campfire.y))
+        func edge(_ fraction: Double) -> CGVector {
+            CGVector(dx: inner.dx + (outer.dx - inner.dx) * fraction, dy: inner.dy + (outer.dy - inner.dy) * fraction)
+        }
+        map.coordinate(withNormalizedOffset: edge(0.51)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(Tile(x: c.map.campfire.x - 1, y: c.map.campfire.y + 2))))
+        XCTAssertTrue(app.buttons["cancelRelocation"].exists)
+        XCTAssertEqual(app.staticTexts["placementTile"].label, preview, "A touch starting outside must pan even if recognition occurs inside")
+        app.buttons["Center on settlement"].tap()
+        let destination = try XCTUnwrap((0..<24).flatMap { y in (0..<32).map { Tile(x: $0, y: y) } }.first { t in
+            let p = point(t)
+            return g.relocationIssue(buildingID: b.id, at: t) == nil && p.dx > inner.dx + 0.04 && p.dx < 0.61 && (0.32...0.66).contains(p.dy)
+        })
+        map.coordinate(withNormalizedOffset: edge(0.49)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(Tile(x: destination.x + 1, y: destination.y))))
+        XCTAssertFalse(app.buttons["cancelRelocation"].exists)
+        XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("Tile \(destination.x), \(destination.y)"))
     }
 
     @MainActor func testCatalogAutomaticallyEntersImmediateDragMode() throws {
@@ -152,9 +197,9 @@ final class RelocationUITests: XCTestCase {
         capture("scenario-selection", app: app)
         app.buttons["Done"].tap()
         let goals = app.buttons["toggleGoals"]
-        XCTAssertEqual(goals.value as? String, "Collapsed")
+        XCTAssertEqual(goals.value as? String, "Minimal")
         XCTAssertTrue(goals.label.contains("Chapters"))
-        goals.tap()
+        expandGoals(app)
         XCTAssertTrue(app.descendants(matching: .any)["goalProgress"].firstMatch.exists)
         XCTAssertEqual(goals.value as? String, "Expanded")
         app.buttons["openJourney"].tap()
@@ -162,7 +207,7 @@ final class RelocationUITests: XCTestCase {
         capture("chapters", app: app)
         app.buttons["Done"].tap()
         goals.tap()
-        XCTAssertEqual(goals.value as? String, "Collapsed")
+        XCTAssertEqual(goals.value as? String, "Minimal")
         app.buttons["Build"].tap()
         XCTAssertTrue(app.buttons["buildingCategory-Settlement"].waitForExistence(timeout: 5))
         app.buttons["buildingCategory-Settlement"].tap()
@@ -285,10 +330,13 @@ final class RelocationUITests: XCTestCase {
         continueAfterFailure = false
         XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"; app.launch()
+        XCTAssertEqual(app.buttons["toggleGoals"].value as? String, "Minimal")
+        XCTAssertFalse(app.staticTexts["nextStepSummary"].exists)
+        app.buttons["toggleGoals"].tap()
         let next = app.staticTexts["nextStepSummary"]
         XCTAssertTrue(next.waitForExistence(timeout: 20))
         XCTAssertTrue(next.label.localizedCaseInsensitiveContains("gathering shelter"), next.label)
-        XCTAssertEqual(app.buttons["toggleGoals"].value as? String, "Collapsed")
+        XCTAssertEqual(app.buttons["toggleGoals"].value as? String, "Compact")
         capture("fresh-next-step", app: app)
         app.buttons["toggleGoals"].tap()
         XCTAssertTrue(app.staticTexts["nextStepExplanation"].label.contains("Drag"))
@@ -297,7 +345,7 @@ final class RelocationUITests: XCTestCase {
         app.buttons["build-gatheringShelter"].tap()
         let indicator = app.descendants(matching: .any)["dragModeIndicator"].firstMatch
         XCTAssertTrue(indicator.waitForExistence(timeout: 5))
-        XCTAssertEqual(app.buttons["toggleGoals"].value as? String, "Collapsed")
+        XCTAssertEqual(app.buttons["toggleGoals"].value as? String, "Minimal")
         capture("guided-placement", app: app)
         let map = app.otherElements["settlementMap"], frame = map.frame
         let config = try GameConfiguration.bundled()
@@ -316,6 +364,7 @@ final class RelocationUITests: XCTestCase {
         map.coordinate(withNormalizedOffset: CGVector(dx: 0.42, dy: 0.76)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(tile)))
         capture("guided-drop-result", app: app)
         XCTAssertFalse(indicator.exists, app.staticTexts["settlementMessage"].label)
+        app.buttons["toggleGoals"].tap()
         let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label CONTAINS[c] %@", "woodcutter"), object: next)
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 45), .completed)
         capture("first-building-complete", app: app)
@@ -327,9 +376,10 @@ final class RelocationUITests: XCTestCase {
         let app = XCUIApplication(); app.launch()
         XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
         app.buttons["developerTools"].tap(); app.buttons["scenario-early"].tap()
+        app.buttons["toggleGoals"].tap()
         let next = app.staticTexts["nextStepSummary"]
         XCTAssertTrue(next.label.contains("Oral Tradition"), next.label)
-        app.buttons["toggleGoals"].tap(); app.buttons["openJourney"].tap()
+        expandGoals(app); app.buttons["openJourney"].tap()
         XCTAssertTrue(app.navigationBars["Stone Age journey"].waitForExistence(timeout: 5))
         capture("guided-journey", app: app)
         let action = app.scrollViews["journeyContent"].buttons["nextStepAction"]
@@ -370,12 +420,14 @@ final class RelocationUITests: XCTestCase {
         app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
         app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state: game.state)).base64EncodedString()
         app.launch()
+        XCTAssertTrue(app.buttons["toggleGoals"].waitForExistence(timeout: 20))
+        app.buttons["toggleGoals"].tap()
         let next = app.staticTexts["nextStepSummary"]
         XCTAssertTrue(next.waitForExistence(timeout: 20))
         XCTAssertEqual(next.label, "Stone Age complete")
         XCTAssertTrue(app.buttons["toggleGoals"].label.contains("7/7"))
         capture("earned-completion", app: app)
-        app.buttons["toggleGoals"].tap(); app.buttons["openJourney"].tap()
+        expandGoals(app); app.buttons["openJourney"].tap()
         XCTAssertTrue(app.staticTexts["journeyNextStepTitle"].waitForExistence(timeout: 5))
         XCTAssertEqual(app.staticTexts["journeyNextStepTitle"].label, "Stone Age complete")
         capture("completed-journey", app: app)
@@ -421,7 +473,7 @@ final class RelocationUITests: XCTestCase {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication();app.terminate();app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1";app.launch()
         XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout:20))
-        app.buttons["openRoads"].tap()
+        openRoads(app)
         XCTAssertTrue(app.buttons["confirmRoadStroke"].waitForExistence(timeout:5))
         let map = app.otherElements["settlementMap"], frame = map.frame
         let c = try GameConfiguration.bundled(),g = try GameEngine(configuration:c,now:Date())
@@ -467,7 +519,7 @@ final class RelocationUITests: XCTestCase {
     @MainActor func testRoadPinchDiscardsDraftWithoutApplyingIt() throws {
         continueAfterFailure = false;XCUIDevice.shared.orientation = .landscapeRight
         let app = XCUIApplication();app.terminate();app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1";app.launch()
-        XCTAssertTrue(app.buttons["openRoads"].waitForExistence(timeout:20));app.buttons["openRoads"].tap()
+        XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout:20));openRoads(app)
         let map = app.otherElements["settlementMap"]
         map.coordinate(withNormalizedOffset:CGVector(dx:0.5,dy:0.65)).tap()
         XCTAssertNotEqual(app.staticTexts["roadDraftCount"].label,"0 preview tiles")
@@ -482,12 +534,12 @@ final class RelocationUITests: XCTestCase {
     @MainActor func testRoadJourneyNavigationDiscardsPreview() throws {
         continueAfterFailure = false;XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication();app.terminate();app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1";app.launch()
-        XCTAssertTrue(app.buttons["openRoads"].waitForExistence(timeout:20));app.buttons["openRoads"].tap()
+        XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout:20));openRoads(app)
         app.otherElements["settlementMap"].coordinate(withNormalizedOffset:CGVector(dx:0.5,dy:0.65)).tap()
-        app.buttons["toggleGoals"].tap();app.buttons["openJourney"].tap()
+        expandGoals(app);app.buttons["openJourney"].tap()
         app.navigationBars["Stone Age journey"].buttons["Done"].tap()
         XCTAssertFalse(app.buttons["confirmRoadStroke"].exists)
-        app.buttons["openRoads"].tap()
+        openRoads(app)
         XCTAssertEqual(app.staticTexts["roadDraftCount"].label,"0 preview tiles")
         XCTAssertEqual(app.staticTexts["roadTileCount"].label,"0 roads placed")
     }
@@ -510,12 +562,58 @@ final class RelocationUITests: XCTestCase {
         app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
         app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state:g.state)).base64EncodedString()
         app.launchEnvironment["CIVILIZATION_RENDER_METRICS"] = "1";app.launch()
-        XCTAssertTrue(app.buttons["openRoads"].waitForExistence(timeout:20));app.buttons["openRoads"].tap()
+        XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout:20));openRoads(app)
         XCTAssertEqual(app.staticTexts["roadTileCount"].label,"\(roads.count) roads placed")
         XCTAssertTrue(app.buttons["toggleGoals"].label.contains("0/7"))
         Thread.sleep(forTimeInterval:6)
         capture("road-dense",app:app)
         app.buttons["closeRoads"].tap();app.buttons["Center on settlement"].tap()
+    }
+
+    @MainActor func testGoalsThreeStatesKeepExploreAdjacentAndRoadsInsideBuild() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"; app.launch()
+        let goals = app.buttons["toggleGoals"], explore = app.buttons["openExplore"]
+        XCTAssertTrue(goals.waitForExistence(timeout: 20))
+        XCTAssertEqual(goals.value as? String, "Minimal")
+        XCTAssertFalse(app.staticTexts["nextStepSummary"].exists)
+        for state in ["Minimal", "Compact", "Expanded"] {
+            XCTAssertEqual(goals.value as? String, state)
+            let aligned = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in
+                abs(goals.frame.minY - explore.frame.minY) <= 2
+            }, object: nil)
+            XCTAssertEqual(XCTWaiter.wait(for: [aligned], timeout: 5), .completed)
+            let goalFrame = goals.frame, exploreFrame = explore.frame
+            print("HUD_FRAME state=\(state) goals=\(goalFrame) explore=\(exploreFrame)")
+            XCTAssertEqual(goalFrame.minY, exploreFrame.minY, accuracy: 2)
+            XCTAssertLessThanOrEqual(abs(exploreFrame.minX - goalFrame.maxX), 24, "Adjacent controls may expose inset accessibility frames")
+            XCTAssertTrue(explore.isHittable)
+            capture("goals-" + state.lowercased(), app: app)
+            goals.tap()
+        }
+        XCTAssertEqual(goals.value as? String, "Minimal")
+        explore.tap(); XCTAssertTrue(app.staticTexts["explorationCoverage"].waitForExistence(timeout: 5))
+        explore.tap(); XCTAssertFalse(app.staticTexts["explorationCoverage"].exists)
+        XCTAssertFalse(app.buttons["openRoads"].exists)
+        openRoads(app)
+        XCTAssertEqual(app.staticTexts["roadTileCount"].label, "0 roads placed")
+        XCTAssertTrue(app.buttons["confirmRoadStroke"].exists)
+        app.buttons["closeRoads"].tap()
+    }
+
+    @MainActor private func expandGoals(_ app: XCUIApplication) {
+        let button = app.buttons["toggleGoals"]
+        for _ in 0..<2 where button.value as? String != "Expanded" { button.tap() }
+        XCTAssertEqual(button.value as? String, "Expanded")
+    }
+    @MainActor private func openRoads(_ app: XCUIApplication) {
+        app.buttons["Build"].tap()
+        let roads = app.buttons["buildingCategory-Roads"]
+        let categories = app.scrollViews["buildingCategories"]
+        if !roads.isHittable && categories.exists { categories.swipeLeft() }
+        roads.tap()
+        app.buttons["roadCatalog-trodden"].tap()
+        XCTAssertTrue(app.buttons["confirmRoadStroke"].waitForExistence(timeout: 5))
     }
 
     @MainActor private func capture(_ name: String, app: XCUIApplication) {

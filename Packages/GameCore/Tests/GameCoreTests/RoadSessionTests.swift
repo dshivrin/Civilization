@@ -98,3 +98,16 @@ private let roadSessionEpoch = Date(timeIntervalSince1970:60_000_000)
     s.cancel()
     #expect(s.state.roads?.count == 2)
 }
+
+@MainActor @Test func inspectionDiscardsRoadDraftAndShowsBuildingWithoutApplyingStroke() throws {
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let s = try roadSession(folder.appendingPathComponent("save.json"))
+    let before = s.state
+    let tile = try #require(openRoadSites(s).first)
+    s.chooseRoadTool(.draw(.stone)); s.extendRoadStroke(to: tile)
+    s.inspect(buildingID: 0)
+    #expect(s.roadTool == nil && s.roadDraft.isEmpty)
+    #expect(s.currentInspection?.id == 0)
+    s.confirmRoadStroke(); #expect(s.state == before)
+}
