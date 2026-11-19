@@ -82,7 +82,7 @@ struct ResearchView: View {
     private func category(_ pillar: DevelopmentPillar) -> some View {
         let technologies = session.configuration.technologyDefinitions.filter { $0.pillar == pillar }
         let completed = technologies.filter { session.researchedIDs.contains($0.id) }.count
-        return DevelopmentCategoryButton(title: pillar.title, detail: "\(completed)/\(technologies.count) researched", completed: completed, total: technologies.count, selected: selectedPillar == pillar) { selectedPillar = pillar }
+        return DevelopmentCategoryButton(title: pillar.title, detail: "\(completed)/\(technologies.count) researched", completed: completed, total: technologies.count, selected: selectedPillar == pillar, pillarID: pillar.rawValue) { selectedPillar = pillar }
             .accessibilityIdentifier("pillarFilter-" + pillar.rawValue)
     }
     private func technologyCard(_ technology: TechnologyDefinition) -> some View {
@@ -94,7 +94,10 @@ struct ResearchView: View {
         return VStack(alignment: .leading, spacing: 12) {
             Label(status, systemImage: complete ? "checkmark.seal.fill" : missing ? "lock.fill" : !affordable ? "hourglass" : "sparkles")
                 .font(.caption.bold()).foregroundStyle(color)
-            Text(technology.name).font(.title3.bold())
+            HStack(spacing: 12) {
+                EraIcon(domain: .research, id: technology.id, size: 56)
+                Text(technology.name).font(.title3.bold())
+            }
             Text(technology.summary).font(.subheadline).foregroundStyle(parchment.opacity(0.85)).fixedSize(horizontal: false, vertical: true)
             Text("Prerequisites: " + (technology.prerequisites.isEmpty ? "None" : technology.prerequisites.map { id in
                 (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id) + (session.researchedIDs.contains(id) ? " ✓" : "")
@@ -107,7 +110,7 @@ struct ResearchView: View {
                 Text("RESEARCH COST").font(.caption2.bold()).tracking(1)
                 ForEach(Resource.allCases.filter { technology.cost[$0] > 0 }, id: \.self) { resource in
                     HStack {
-                        Label(resource.title, systemImage: resource.symbol)
+                        Label { Text(resource.title) } icon: { EraIcon(domain: .resource, id: resource.rawValue, size: 20) }
                         Spacer()
                         Text("\(Int(technology.cost[resource])) / \(Int(session.state.resources[resource])) stored")
                             .foregroundStyle(session.state.resources[resource] >= technology.cost[resource] ? parchment : .orange)

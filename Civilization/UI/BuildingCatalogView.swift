@@ -62,7 +62,7 @@ struct BuildingCatalogView: View {
         let prerequisites = session.configuration.technologyDefinitions.filter { $0.effects.unlockedBuildings.contains(definition.kind) }
         return VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Image(systemName: symbol(definition)).font(.title2).frame(width: 34, height: 34)
+                BuildingThumbnail(kind: definition.kind, size: 64)
                 Text(definition.name).font(.title3.bold())
                 Spacer()
                 if count > 0 { Label("\(count)", systemImage: "checkmark.seal.fill").foregroundStyle(.mint) }

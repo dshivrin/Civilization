@@ -1,0 +1,207 @@
+{
+  "date": "2026-11-19",
+  "licenseNote": "Original generated candidate artwork; external ChatGPT image-search references used as inspiration only, not integrated.",
+  "concepts": [
+    {
+      "id": "directionA",
+      "source": "docs/art/concepts/direction-a.png",
+      "prompt": "Original concept art for an iPhone/iPad Stone Age civilization builder, landscape 16:9 composition. Direction A: warm handcrafted living miniature diorama, stylized natural materials, painterly tactile detail, clean readable silhouettes, no photorealism. One fixed temperate river valley: winding blue river on the right, ochre clearing center, muted sage and moss grass, woods left, rocky flint hills upper-right. Small Neolithic settlement with a stone-ring campfire, rounded thatched hut, open timber woodcutting shelter and logs, small crops, baskets and clay pots. Orthographic 2:1 isometric ground projection, 45-degree azimuth and approximately 30-degree elevation; warm upper-left sunlight, soft contact shadows. No modern items, metal tools, text, labels, HUD, UI, people, warfare, watermarks or logos. Ground footprints and forms remain legible at mobile zoom. This is a visual direction study, not a game screenshot. Fine art editorial quality, harmonious sparse composition with room for a compact HUD."
+    },
+    {
+      "id": "directionB",
+      "source": "docs/art/concepts/direction-b.png",
+      "prompt": "Original game concept art of the SAME small Neolithic river-valley settlement: campfire, round thatched hut, open timber woodcutter, plots, muted green woods left, winding blue river right, rocky flint hills. Landscape composition, 2:1 isometric-like orthographic view, warm upper-left light. Natural historically inspired materials, no modern objects/metal/text/UI/labels/people/warfare/logos. Direction study, not game screenshot. Direction B: illustrated history, fine hand-painted gouache and watercolor, beautiful quiet editorial landscape, expressive brushwork, earthy sage/ochre/blue palette. Clear architectural silhouettes at mobile zoom."
+    },
+    {
+      "id": "directionC",
+      "source": "docs/art/concepts/direction-c.png",
+      "prompt": "Original game concept art of the SAME small Neolithic river-valley settlement: campfire, round thatched hut, open timber woodcutter, plots, muted green woods left, winding blue river right, rocky flint hills. Landscape composition, 2:1 isometric-like orthographic view, warm upper-left light. Natural historically inspired materials, no modern objects/metal/text/UI/labels/people/warfare/logos. Direction study, not game screenshot. Direction C: stylized architectural realism, refined clean geometry, tactile restrained 3D miniature maquette look, physically plausible thatch/wattle/stone forms but no photorealism; cooler forest hues and warm sandy clearing. Legible mobile-scale architecture."
+    }
+  ],
+  "assets": [
+    {
+      "id": "campfire",
+      "source": "docs/art/sources/buildings/campfire.png",
+      "tool": "built-in image_gen",
+      "prompt": "Production game sprite, ORIGINAL single isolated a compact low ring of irregular gray river stones enclosing stacked charred logs and a small warm orange fire, two low log seats, no smoke. Match the warm tactile handcrafted miniature materials and painterly stylized architectural realism of the reference; the reference is STYLE ONLY, not the composition. Isolated object cutout on genuinely transparent RGBA background. Square canvas, full object visible with 8% padding, no scene, no landscape, no base plinth, no grass patch, no floor plane, no border, no text, no labels, no person, no UI, no watermark. Orthographic 2:1 ground projection, 45 degree azimuth, 30 degree camera elevation, consistently see front and right side; sunlight upper left. Ground contact center is at x50%, y82% measured from top; object's footprint base centered there, object extends upward, subtle compact contact shadow only. Footprint diamond width at ground about70% of canvas, height35%; no enclosing drawn diamond. Natural ochre thatch, weathered warm wood, earthy clay, gray stone. Clear mobile readable silhouette, bold material groups, not photorealistic. The asset will replace one existing building, do not add surrounding buildings.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "hut",
+      "source": "docs/art/sources/buildings/hut.png",
+      "tool": "built-in image_gen",
+      "prompt": "Production game sprite, ORIGINAL single isolated a round Neolithic wattle-and-daub dwelling with a conical golden straw roof, rough timber door frame, dark open doorway and a clay pot. Match the warm tactile handcrafted miniature materials and painterly stylized architectural realism of the reference; the reference is STYLE ONLY, not the composition. Isolated object cutout on genuinely transparent RGBA background. Square canvas, full object visible with 8% padding, no scene, no landscape, no base plinth, no grass patch, no floor plane, no border, no text, no labels, no person, no UI, no watermark. Orthographic 2:1 ground projection, 45 degree azimuth, 30 degree camera elevation, consistently see front and right side; sunlight upper left. Ground contact center is at x50%, y82% measured from top; object's footprint base centered there, object extends upward, subtle compact contact shadow only. Footprint diamond width at ground about70% of canvas, height35%; no enclosing drawn diamond. Natural ochre thatch, weathered warm wood, earthy clay, gray stone. Clear mobile readable silhouette, bold material groups, not photorealistic. The asset will replace one existing building, do not add surrounding buildings.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "gatheringShelter",
+      "source": "docs/art/sources/buildings/gatheringShelter.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: an open-sided primitive thatched canopy on four rough timber posts with three woven gathering baskets of berries and roots, no enclosed walls. Consistent with reference STYLE only: warm handcrafted miniature, stylized architectural realism, tactile natural materials, clear mobile-scale silhouette. Transparent RGBA background, square canvas with complete object and8% padding. Orthographic 2:1 ground projection,45degree azimuth,30degree elevation, upper-left sunlight, front and right sides visible. Ground-contact center at x50%,y82% from top; footprint roughly70% canvas wide and35% high. Object extends upward from contact. Compact contact shadow only. No scenic background, no ground plinth/grass patch, no surrounding buildings, no decorative canvas, no text/UI/logos/people/metal/modern architecture. Natural golden thatch, warm weathered timber, wattle, muted clay/gray stone/sage. No drawn footprint outline. This replaces one2x2 building.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "huntingLodge",
+      "source": "docs/art/sources/buildings/huntingLodge.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a low brown animal-hide hunting lodge with a triangular hide roof, drying rack and stone-tipped spears leaning at the side. Consistent with reference STYLE only: warm handcrafted miniature, stylized architectural realism, tactile natural materials, clear mobile-scale silhouette. Transparent RGBA background, square canvas with complete object and8% padding. Orthographic 2:1 ground projection,45degree azimuth,30degree elevation, upper-left sunlight, front and right sides visible. Ground-contact center at x50%,y82% from top; footprint roughly70% canvas wide and35% high. Object extends upward from contact. Compact contact shadow only. No scenic background, no ground plinth/grass patch, no surrounding buildings, no decorative canvas, no text/UI/logos/people/metal/modern architecture. Natural golden thatch, warm weathered timber, wattle, muted clay/gray stone/sage. No drawn footprint outline. This replaces one2x2 building.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "fishingShelter",
+      "source": "docs/art/sources/buildings/fishingShelter.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a primitive waterfront fishing work shelter with reeds roof, a small timber platform, hanging coarse net and wicker fish baskets; no actual water or shore. Consistent with reference STYLE only: warm handcrafted miniature, stylized architectural realism, tactile natural materials, clear mobile-scale silhouette. Transparent RGBA background, square canvas with complete object and8% padding. Orthographic 2:1 ground projection,45degree azimuth,30degree elevation, upper-left sunlight, front and right sides visible. Ground-contact center at x50%,y82% from top; footprint roughly70% canvas wide and35% high. Object extends upward from contact. Compact contact shadow only. No scenic background, no ground plinth/grass patch, no surrounding buildings, no decorative canvas, no text/UI/logos/people/metal/modern architecture. Natural golden thatch, warm weathered timber, wattle, muted clay/gray stone/sage. No drawn footprint outline. This replaces one2x2 building.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "woodcutter",
+      "source": "docs/art/sources/buildings/woodcutter.png",
+      "tool": "built-in image_gen",
+      "prompt": "Production game sprite, ORIGINAL single isolated a primitive open timber lean-to work shelter with split wood shingle and straw roof, neatly stacked cut logs, one chopping stump and a stone axe, no metal. Match the warm tactile handcrafted miniature materials and painterly stylized architectural realism of the reference; the reference is STYLE ONLY, not the composition. Isolated object cutout on genuinely transparent RGBA background. Square canvas, full object visible with 8% padding, no scene, no landscape, no base plinth, no grass patch, no floor plane, no border, no text, no labels, no person, no UI, no watermark. Orthographic 2:1 ground projection, 45 degree azimuth, 30 degree camera elevation, consistently see front and right side; sunlight upper left. Ground contact center is at x50%, y82% measured from top; object's footprint base centered there, object extends upward, subtle compact contact shadow only. Footprint diamond width at ground about70% of canvas, height35%; no enclosing drawn diamond. Natural ochre thatch, weathered warm wood, earthy clay, gray stone. Clear mobile readable silhouette, bold material groups, not photorealistic. The asset will replace one existing building, do not add surrounding buildings.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "stoneGatherer",
+      "source": "docs/art/sources/buildings/stoneGatherer.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a rough low open timber quarry-work canopy with sorted gray stone blocks, a few dark flint chunks and a simple stone hammer work slab. Consistent with reference STYLE only: warm handcrafted miniature, stylized architectural realism, tactile natural materials, clear mobile-scale silhouette. Transparent RGBA background, square canvas with complete object and8% padding. Orthographic 2:1 ground projection,45degree azimuth,30degree elevation, upper-left sunlight, front and right sides visible. Ground-contact center at x50%,y82% from top; footprint roughly70% canvas wide and35% high. Object extends upward from contact. Compact contact shadow only. No scenic background, no ground plinth/grass patch, no surrounding buildings, no decorative canvas, no text/UI/logos/people/metal/modern architecture. Natural golden thatch, warm weathered timber, wattle, muted clay/gray stone/sage. No drawn footprint outline. This replaces one2x2 building.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "farm",
+      "source": "docs/art/sources/buildings/farm.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a compact square Neolithic cultivated plot with three short parallel rows of golden grain and green leafy crops, earthen furrows and small woven seed basket; no fence. Consistent with reference STYLE only: warm handcrafted miniature, stylized architectural realism, tactile natural materials, clear mobile-scale silhouette. Transparent RGBA background, square canvas with complete object and8% padding. Orthographic 2:1 ground projection,45degree azimuth,30degree elevation, upper-left sunlight, front and right sides visible. Ground-contact center at x50%,y82% from top; footprint roughly70% canvas wide and35% high. Object extends upward from contact. Compact contact shadow only. No scenic background, no ground plinth/grass patch, no surrounding buildings, no decorative canvas, no text/UI/logos/people/metal/modern architecture. Natural golden thatch, warm weathered timber, wattle, muted clay/gray stone/sage. No drawn footprint outline. This replaces one2x2 building.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "animalPen",
+      "source": "docs/art/sources/buildings/animalPen.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a compact square woven-branch livestock enclosure with low wattle fence, a tiny straw-roof shade corner and two small sheep; no people. Consistent with reference STYLE only: warm handcrafted miniature, stylized architectural realism, tactile natural materials, clear mobile-scale silhouette. Transparent RGBA background, square canvas with complete object and8% padding. Orthographic 2:1 ground projection,45degree azimuth,30degree elevation, upper-left sunlight, front and right sides visible. Ground-contact center at x50%,y82% from top; footprint roughly70% canvas wide and35% high. Object extends upward from contact. Compact contact shadow only. No scenic background, no ground plinth/grass patch, no surrounding buildings, no decorative canvas, no text/UI/logos/people/metal/modern architecture. Natural golden thatch, warm weathered timber, wattle, muted clay/gray stone/sage. No drawn footprint outline. This replaces one2x2 building.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "storehouse",
+      "source": "docs/art/sources/buildings/storehouse.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a raised Neolithic granary on short thick timber stilts, small enclosed woven-wattle walls, hipped golden thatch roof, bundles and grain baskets underneath. Match reference STYLE only: warm handcrafted miniature and stylized architectural realism, natural tactile materials, crisp legible mobile silhouette. Genuine transparent RGBA background, square canvas complete object with8% padding. Orthographic2:1 isometric ground projection,45degree azimuth/30degree elevation, front and right visible; soft upper-left sunlight. Ground-contact center x50% y82% from top, footprint70% canvas width35%height. Compact soft contact shadow only. No scene, no grass ground patch, no plinth, no surrounding buildings, no drawn footprint, no text/UI/logos/people/metal/modern tools. All architecture Neolithic, primitive timber/wattle/thatch/clay/stone. One2x2 building asset extends upward from contact.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "toolmaker",
+      "source": "docs/art/sources/buildings/toolmaker.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: an open-sided low hide-and-timber flint-knapping workshop, large flat stone workbench with recognizably knapped flint axes and small stone tools, tiny raw-flint pile. Match reference STYLE only: warm handcrafted miniature and stylized architectural realism, natural tactile materials, crisp legible mobile silhouette. Genuine transparent RGBA background, square canvas complete object with8% padding. Orthographic2:1 isometric ground projection,45degree azimuth/30degree elevation, front and right visible; soft upper-left sunlight. Ground-contact center x50% y82% from top, footprint70% canvas width35%height. Compact soft contact shadow only. No scene, no grass ground patch, no plinth, no surrounding buildings, no drawn footprint, no text/UI/logos/people/metal/modern tools. All architecture Neolithic, primitive timber/wattle/thatch/clay/stone. One2x2 building asset extends upward from contact.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "tannery",
+      "source": "docs/art/sources/buildings/tannery.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a primitive hide-working yard with two tall square timber stretch frames holding brown animal hides, a low bark lean-to and clay soaking bowl. Match reference STYLE only: warm handcrafted miniature and stylized architectural realism, natural tactile materials, crisp legible mobile silhouette. Genuine transparent RGBA background, square canvas complete object with8% padding. Orthographic2:1 isometric ground projection,45degree azimuth/30degree elevation, front and right visible; soft upper-left sunlight. Ground-contact center x50% y82% from top, footprint70% canvas width35%height. Compact soft contact shadow only. No scene, no grass ground patch, no plinth, no surrounding buildings, no drawn footprint, no text/UI/logos/people/metal/modern tools. All architecture Neolithic, primitive timber/wattle/thatch/clay/stone. One2x2 building asset extends upward from contact.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "potteryWorkshop",
+      "source": "docs/art/sources/buildings/potteryWorkshop.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a primitive Neolithic pottery yard, low clay-lined firing pit with a few glowing coals, several round terracotta vessels and a small open reed work shelter. Match reference STYLE only: warm handcrafted miniature and stylized architectural realism, natural tactile materials, crisp legible mobile silhouette. Genuine transparent RGBA background, square canvas complete object with8% padding. Orthographic2:1 isometric ground projection,45degree azimuth/30degree elevation, front and right visible; soft upper-left sunlight. Ground-contact center x50% y82% from top, footprint70% canvas width35%height. Compact soft contact shadow only. No scene, no grass ground patch, no plinth, no surrounding buildings, no drawn footprint, no text/UI/logos/people/metal/modern tools. All architecture Neolithic, primitive timber/wattle/thatch/clay/stone. One2x2 building asset extends upward from contact.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "storytellingCircle",
+      "source": "docs/art/sources/buildings/storytellingCircle.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a broad low circular gathering space with six short timber benches around a small central stone hearth, one simple storytelling upright timber post, no people. Match reference STYLE only: warm handcrafted miniature and stylized architectural realism, natural tactile materials, crisp legible mobile silhouette. Genuine transparent RGBA background, square canvas complete object with8% padding. Orthographic2:1 isometric ground projection,45degree azimuth/30degree elevation, front and right visible; soft upper-left sunlight. Ground-contact center x50% y82% from top, footprint70% canvas width35%height. Compact soft contact shadow only. No scene, no grass ground patch, no plinth, no surrounding buildings, no drawn footprint, no text/UI/logos/people/metal/modern tools. All architecture Neolithic, primitive timber/wattle/thatch/clay/stone. One2x2 building asset extends upward from contact.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "healersHut",
+      "source": "docs/art/sources/buildings/healersHut.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a small round wattle-and-daub herbalist hut with asymmetrical straw roof and an open side porch, hanging bundles of green herbs, woven baskets and clay mortar. Match reference STYLE only: warm handcrafted miniature and stylized architectural realism, natural tactile materials, crisp legible mobile silhouette. Genuine transparent RGBA background, square canvas complete object with8% padding. Orthographic2:1 isometric ground projection,45degree azimuth/30degree elevation, front and right visible; soft upper-left sunlight. Ground-contact center x50% y82% from top, footprint70% canvas width35%height. Compact soft contact shadow only. No scene, no grass ground patch, no plinth, no surrounding buildings, no drawn footprint, no text/UI/logos/people/metal/modern tools. All architecture Neolithic, primitive timber/wattle/thatch/clay/stone. One2x2 building asset extends upward from contact.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "shrine",
+      "source": "docs/art/sources/buildings/shrine.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: three upright rough gray ritual stones with simple abstract carved grooves, a small low stone offering altar with clay bowl, no writing or modern symbols. Match reference STYLE only: warm tactile handcrafted miniature, painterly stylized architectural realism, natural historically inspired primitive materials. Genuinely transparent RGBA background, square canvas full silhouette with8% padding. Orthographic2:1 ground projection,45degree azimuth/30degree elevation, front and right visible; sunlight upper left, compact soft contact shadow only. Ground-contact center x50% y82% from top; same2x2 footprint70% canvas wide35%high. Tall objects extend upward. No scene, no base plinth, no grass ground patch, no surrounding buildings, no people,text,UI,logos,metal,modern or medieval objects; do not draw any footprint outline.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "burialGround",
+      "source": "docs/art/sources/buildings/burialGround.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a compact respectful Neolithic burial place with two low stone cairns, one earthen mound and three small upright marker stones; no skeletons/no crosses. Match reference STYLE only: warm tactile handcrafted miniature, painterly stylized architectural realism, natural historically inspired primitive materials. Genuinely transparent RGBA background, square canvas full silhouette with8% padding. Orthographic2:1 ground projection,45degree azimuth/30degree elevation, front and right visible; sunlight upper left, compact soft contact shadow only. Ground-contact center x50% y82% from top; same2x2 footprint70% canvas wide35%high. Tall objects extend upward. No scene, no base plinth, no grass ground patch, no surrounding buildings, no people,text,UI,logos,metal,modern or medieval objects; do not draw any footprint outline.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "scoutCamp",
+      "source": "docs/art/sources/buildings/scoutCamp.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a small low portable triangular brown hide tent with rolled blankets, reed map mat, walking staff and simple stone-tipped spear equipment; no people. Match reference STYLE only: warm tactile handcrafted miniature, painterly stylized architectural realism, natural historically inspired primitive materials. Genuinely transparent RGBA background, square canvas full silhouette with8% padding. Orthographic2:1 ground projection,45degree azimuth/30degree elevation, front and right visible; sunlight upper left, compact soft contact shadow only. Ground-contact center x50% y82% from top; same2x2 footprint70% canvas wide35%high. Tall objects extend upward. No scene, no base plinth, no grass ground patch, no surrounding buildings, no people,text,UI,logos,metal,modern or medieval objects; do not draw any footprint outline.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "watchtower",
+      "source": "docs/art/sources/buildings/watchtower.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a tall primitive four-post timber lookout with lashed joints, elevated wooden platform, simple handrails, short straw shade roof and a ladder; no medieval masonry. Match reference STYLE only: warm tactile handcrafted miniature, painterly stylized architectural realism, natural historically inspired primitive materials. Genuinely transparent RGBA background, square canvas full silhouette with8% padding. Orthographic2:1 ground projection,45degree azimuth/30degree elevation, front and right visible; sunlight upper left, compact soft contact shadow only. Ground-contact center x50% y82% from top; same2x2 footprint70% canvas wide35%high. Tall objects extend upward. No scene, no base plinth, no grass ground patch, no surrounding buildings, no people,text,UI,logos,metal,modern or medieval objects; do not draw any footprint outline.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    },
+    {
+      "id": "palisade",
+      "source": "docs/art/sources/buildings/palisade.png",
+      "tool": "built-in image_gen",
+      "prompt": "Original single isolated production building sprite: a compact U-shaped defensive boundary segment of sharpened upright irregular timber stakes with a small central entry gap, horizontal branch lashings; no towers or metal. Match reference STYLE only: warm tactile handcrafted miniature, painterly stylized architectural realism, natural historically inspired primitive materials. Genuinely transparent RGBA background, square canvas full silhouette with8% padding. Orthographic2:1 ground projection,45degree azimuth/30degree elevation, front and right visible; sunlight upper left, compact soft contact shadow only. Ground-contact center x50% y82% from top; same2x2 footprint70% canvas wide35%high. Tall objects extend upward. No scene, no base plinth, no grass ground patch, no surrounding buildings, no people,text,UI,logos,metal,modern or medieval objects; do not draw any footprint outline.",
+      "styleReference": "docs/art/concepts/direction-a.png",
+      "candidate": true,
+      "editable3DModel": false
+    }
+  ],
+  "nativeSources": [
+    "Civilization/UI/EraIcon.swift",
+    "Civilization/Rendering/WorldDetails.swift"
+  ]
+}

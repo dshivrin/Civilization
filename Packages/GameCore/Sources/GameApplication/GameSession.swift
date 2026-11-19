@@ -40,6 +40,13 @@ public final class GameSession {
     public var selectedKind: BuildingKind?
     public private(set) var movingBuildingID: Int?
     public var eraID: String { "stoneAge" }
+    public var shouldPauseRendering: Bool {
+        #if DEBUG
+        return !isActive || (isDeveloperMode && developerPaused)
+        #else
+        return !isActive
+        #endif
+    }
     public var isDragMode: Bool { previewKind != nil }
     public var previewKind: BuildingKind? {
         if let id = movingBuildingID { return state.buildings.first { $0.id == id }?.kind }

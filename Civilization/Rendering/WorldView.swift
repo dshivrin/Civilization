@@ -4,6 +4,7 @@ import SpriteKit
 import GameCore
 
 struct WorldView: UIViewRepresentable {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     let scene: SettlementScene
     let session: GameSession
     let onReady: () -> Void
@@ -29,6 +30,9 @@ struct WorldView: UIViewRepresentable {
     }
     func updateUIView(_ view: SKView, context: Context) {
         scene.onReady = onReady
+        view.isPaused = session.shouldPauseRendering
+        scene.reduceMotion = reduceMotion
+        scene.activeProductionIDs = Set(session.state.buildings.filter { $0.isOperational && session.productivity($0) > 0 }.map(\.id))
         scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
     }
     @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {

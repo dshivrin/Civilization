@@ -3,7 +3,7 @@ import SwiftUI
 import GameCore
 
 let parchment = Color(red: 0.94, green: 0.89, blue: 0.76)
-let panelColor = Color(red: 0.10, green: 0.19, blue: 0.18)
+let panelColor = Color(red: 0.105, green: 0.155, blue: 0.125)
 
 struct SettlementView: View {
     @Environment(\.scenePhase) private var phase
@@ -40,7 +40,7 @@ struct SettlementView: View {
                             HStack(spacing: 10) {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("RIVERBEND").font(.system(size: compact ? 17 : 23, weight: .bold, design: .serif)).tracking(2)
-                                    Text("STONE AGE · SEED 0.2.7").font(.system(size: 10, weight: .semibold)).tracking(1.5).foregroundStyle(parchment.opacity(0.65))
+                                    Text("STONE AGE").font(.system(size: 10, weight: .semibold)).tracking(1.5).foregroundStyle(parchment.opacity(0.65))
                                 }
                                 Button { session.centerRequest += 1 } label: { Image(systemName: "scope").frame(width: 44, height: 44) }
                                     .accessibilityLabel("Center on settlement").buttonStyle(.plain).background(panelColor.opacity(0.8), in: RoundedRectangle(cornerRadius: 10))
@@ -177,7 +177,7 @@ struct SettlementView: View {
     private func resourceButton(_ resource: Resource, compact: Bool) -> some View {
         Button { inspectedResource = ResourceInspection(resource: resource) } label: {
             HStack(spacing: 5) {
-                Image(systemName: resource.symbol).foregroundStyle(resource.color).font(.system(size: 17))
+                EraIcon(domain: .resource, id: resource.rawValue, size: 23).font(.system(size: 17))
                 Text("\(Int(session.state.resources[resource].rounded(.down)))")
                     .font(.system(size: 14, weight: .semibold, design: .rounded)).monospacedDigit()
             }.frame(minWidth: 52, minHeight: 44).contentShape(Rectangle())
@@ -283,13 +283,16 @@ struct SettlementView: View {
     private func resourceDetails(_ resource: Resource) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                Label(resource.title, systemImage: resource.symbol).font(.headline)
+                Label { Text(resource.title) } icon: { EraIcon(domain: .resource, id: resource.rawValue, size: 24) }.font(.headline)
                 Text("Stored: \(Int(session.state.resources[resource])) / \(Int(session.capacities[resource]))")
                 Text("Gross: \(signed(session.grossRates[resource])) / min")
                 Text("Consumption: \(String(format: "%.1f", session.consumption[resource])) / min")
                 Text("Net: \(signed(session.rates[resource])) / min").foregroundStyle(session.rates[resource] < 0 ? .orange : .mint)
                 Text("Producing now: \(session.producingBuildingCount(for: resource)) buildings").font(.subheadline.bold())
                     .accessibilityIdentifier("resourceProducerCount")
+                if resource == .knowledge {
+                    Text("Another storytelling circle can speed research. Natural Knowledge improves output; enough inhabitants and balanced worker priorities keep both knowledge and materials flowing.").font(.caption)
+                }
                 Text("WHERE TO GATHER OR MAKE").font(.caption.bold())
                 ForEach(session.productionSources(for: resource), id: \.kind) { definition in
                     VStack(alignment: .leading, spacing: 4) {

@@ -1,5 +1,6 @@
 import SpriteKit
 import GameCore
+import GameApplication
 
 @MainActor
 final class SettlementScene: SKScene {
@@ -21,6 +22,12 @@ final class SettlementScene: SKScene {
         onReady?()
     }
     private var renderedBuildings: [PlacedBuilding] = []
+    private var renderedVisualSignature = ""
+    var reduceMotion = false
+    var activeProductionIDs: Set<Int> = []
+    private var fireAnimationIDs: Set<Int> = []
+    private var renderedActiveIDs: Set<Int> = []
+    private var renderedReduceMotion = false
     private var lastCenterRequest = -1
     private var didCenter = false
     init(configuration: GameConfiguration) {
@@ -49,7 +56,11 @@ final class SettlementScene: SKScene {
         for hit in nodes(at: point) {
             var node: SKNode? = hit
             while let current = node, current !== self {
-                if current.parent === buildingLayer, let id = current.userData?["buildingID"] as? Int { return id }
+                if current.parent === buildingLayer, let id = current.userData?["buildingID"] as? Int {
+                    if let building = renderedBuildings.first(where: { $0.id == id }), EraArt.texture(building.kind) != nil,
+                       !EraArt.contains(building.kind, point: current.convert(point, from: self)) { break }
+                    return id
+                }
                 node = current.parent
             }
         }
@@ -78,7 +89,7 @@ final class SettlementScene: SKScene {
     func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
         if centerRequest != lastCenterRequest { recenter(); lastCenterRequest = centerRequest }
         let discoveryChanged = state.discoveredTiles != renderedDiscovery
-        if discoveryChanged {
+        if discoveryChanged || reduceMotion != renderedReduceMotion {
             drawTerrain(discovered: state.discoveredTiles)
             renderedDiscovery = state.discoveredTiles
         }
@@ -89,11 +100,23 @@ final class SettlementScene: SKScene {
             drawDeposits(deposits, identifiedIDs: identifiedDepositIDs, reserves: state.depositRemaining ?? [:])
             renderedDepositSignature = depositSignature
         }
-        if state.buildings != renderedBuildings || discoveryChanged || movingBuildingID != renderedMovingID {
+        fireAnimationIDs = Set(state.buildings.filter { $0.isOperational && ($0.kind == .campfire || ($0.kind == .potteryWorkshop && activeProductionIDs.contains($0.id))) }.prefix(VisualActivityPolicy.maximumSmokeParticles / 2).map(\.id))
+        let signature = state.buildings.map { "\($0.id):\($0.kind.rawValue):\($0.origin.x),\($0.origin.y):\($0.level):\($0.isOperational)" }.joined(separator: "|")
+        if signature != renderedVisualSignature || discoveryChanged || movingBuildingID != renderedMovingID || activeProductionIDs != renderedActiveIDs || reduceMotion != renderedReduceMotion {
             buildingLayer.removeAllChildren()
             for building in state.buildings where state.discoveredTiles == nil || state.discoveredTiles!.contains(building.origin) { drawBuilding(building, faded: building.id == movingBuildingID) }
             renderedMovingID = movingBuildingID
-            renderedBuildings = state.buildings
+            renderedVisualSignature = signature
+            renderedActiveIDs = activeProductionIDs
+            renderedReduceMotion = reduceMotion
+        }
+        renderedBuildings = state.buildings
+        for building in state.buildings where !building.isOperational {
+            if let root = buildingLayer.children.first(where: { ($0.userData?["buildingID"] as? Int) == building.id }) {
+                let fraction = 1 - (building.constructionRemainingSeconds ?? 0) / max(1, building.constructionDurationSeconds ?? 1)
+                root.childNode(withName: "constructionProgress")?.xScale = max(0.02, min(1, fraction))
+                root.childNode(withName: "artSprite")?.alpha = 0.25 + 0.60 * fraction
+            }
         }
         hasDisplayedSnapshot = true
         ghostLayer.removeAllChildren()
@@ -140,11 +163,11 @@ final class SettlementScene: SKScene {
                 let tile = Tile(x: x, y: y)
                 let point = IsometricProjection.point(tile)
                 if let discovered, !discovered.contains(tile) {
-                    ground.addChild(shape(IsometricProjection.diamond(at: point), fill: UIColor(red: 0.12, green: 0.20, blue: 0.20, alpha: 1), stroke: UIColor.black.withAlphaComponent(0.10), width: 0.5))
+                    ground.addChild(shape(IsometricProjection.diamond(at: point), fill: UIColor(red: 0.105, green: 0.16, blue: 0.145, alpha: 1), stroke: UIColor(red: 0.105, green: 0.16, blue: 0.145, alpha: 0.14), width: 7))
                     continue
                 }
                 let terrain = configuration.map.terrain(at: tile)!
-                let variation = CGFloat((x * 17 + y * 31) % 7) / 100
+                let variation = CGFloat((x * 17 + y * 31) % 7) / 400
                 let color: UIColor
                 switch terrain {
                 case .grass: color = UIColor(red: 0.39 + variation, green: 0.49 + variation, blue: 0.30 + variation, alpha: 1)
@@ -153,26 +176,38 @@ final class SettlementScene: SKScene {
                 case .water: color = UIColor(red: 0.23, green: 0.48 + variation, blue: 0.57 + variation, alpha: 1)
                 case .hill: color = UIColor(red: 0.49 + variation, green: 0.49 + variation, blue: 0.43 + variation, alpha: 1)
                 }
-                ground.addChild(shape(IsometricProjection.diamond(at: point), fill: color, stroke: UIColor.black.withAlphaComponent(0.07), width: 0.5))
+                ground.addChild(shape(IsometricProjection.diamond(at: point), fill: color, stroke: .clear, width: 0))
+                let seed = x * 157 + y * 83
+                if terrain == .grass || terrain == .clearing || terrain == .forest {
+                    ground.addChild(WorldDetails.groundTexture(at: point, seed: seed, forest: terrain == .forest, soil: terrain == .clearing))
+                }
                 if terrain == .forest && (x + y) % 2 == 0 {
-                    let tree = SKNode(); tree.position = point; tree.zPosition = CGFloat(x + y) + 1
-                    let trunk = SKShapeNode(rectOf: CGSize(width: 5, height: 19)); trunk.position.y = 10; trunk.fillColor = .brown; trunk.strokeColor = .clear; tree.addChild(trunk)
-                    tree.addChild(polygon([CGPoint(x: -18,y: 12), CGPoint(x: 0,y: 57), CGPoint(x: 18,y: 12)], fill: UIColor(red: 0.19,green: 0.33,blue: 0.23,alpha: 1)))
-                    tree.addChild(polygon([CGPoint(x: 0,y: 57), CGPoint(x: 3,y: 12), CGPoint(x: 18,y: 12)], fill: UIColor(red: 0.24,green: 0.39,blue: 0.27,alpha: 1)))
-                    scenery.addChild(tree)
+                    let tree = WorldDetails.tree(seed: seed);tree.position = point;tree.zPosition = CGFloat(x+y)+1;scenery.addChild(tree)
                 }
                 if terrain == .hill {
-                    let rock = polygon([CGPoint(x: point.x - 27,y: point.y), CGPoint(x: point.x - 8,y: point.y + 38), CGPoint(x: point.x + 10,y: point.y + 45), CGPoint(x: point.x + 28,y: point.y + 2), CGPoint(x: point.x,y: point.y - 12)], fill: UIColor(red: 0.59,green: 0.58,blue: 0.50,alpha: 1))
-                    rock.zPosition = CGFloat(x + y); scenery.addChild(rock)
+                    let rock = WorldDetails.rocks(seed: seed);rock.position = point;rock.zPosition = CGFloat(x+y);scenery.addChild(rock)
                 }
-                if terrain == .water && (x + y) % 3 == 0 {
-                    let ripple = SKShapeNode(ellipseOf: CGSize(width: 24,height: 5)); ripple.position = point; ripple.strokeColor = UIColor.white.withAlphaComponent(0.22); ground.addChild(ripple)
+                if terrain == .water {
+                    let bank = WorldDetails.waterEdge(at: tile, configuration: configuration, discovered: discovered)
+                    bank.position = point;ground.addChild(bank)
                 }
+
             }
         }
         // Cache static terrain; no per-frame tile traversal or economy updates.
         let cached = SKEffectNode(); cached.shouldRasterize = true; cached.addChild(ground); terrainLayer.addChild(cached)
         scenery.zPosition = 1; terrainLayer.addChild(scenery)
+        if !reduceMotion {
+            var ripples = 0
+            for y in 0..<configuration.map.height { for x in 0..<configuration.map.width {
+                let tile = Tile(x:x,y:y)
+                if ripples < VisualActivityPolicy.maximumWaterRipples && (x+y)%3 == 0 && (discovered?.contains(tile) ?? true) && configuration.map.terrain(at: tile) == .water {
+                    let ripple = SKShapeNode(ellipseOf: CGSize(width: 21,height: 3));ripple.position = IsometricProjection.point(tile);ripple.strokeColor = .white.withAlphaComponent(0.22);ripple.lineWidth = 0.7;scenery.addChild(ripple)
+                    ripple.run(.repeatForever(.sequence([.group([.moveBy(x: 7,y: -3,duration: 3.8),.fadeOut(withDuration: 3.8)]),.run { [weak ripple] in ripple?.position = IsometricProjection.point(tile);ripple?.alpha = 1 }])))
+                    ripples += 1
+                }
+            } }
+        }
         buildingLayer.zPosition = 100
     }
     private func drawDeposits(_ deposits: [NaturalDeposit], identifiedIDs: Set<String>, reserves: [String: Double]) {
@@ -188,12 +223,12 @@ final class SettlementScene: SKScene {
             disc.strokeColor = identified ? (empty ? .systemGray : .systemYellow) : .systemGray
             disc.lineWidth = 2
             marker.addChild(disc)
-            let symbol = SKLabelNode(fontNamed: "AvenirNext-Bold")
-            symbol.text = identified ? (empty ? "–" : "◆") : "?"
-            symbol.fontSize = 16
-            symbol.verticalAlignmentMode = .center
-            symbol.fontColor = identified && !empty ? .systemYellow : .systemGray
-            marker.addChild(symbol)
+            if identified, !empty, let resource = deposit.resource, let texture = EraArt.resourceTexture(resource) {
+                let icon = SKSpriteNode(texture: texture);icon.size = CGSize(width: 26,height: 26);marker.addChild(icon)
+            } else {
+                let symbol = SKLabelNode(fontNamed: "AvenirNext-Bold")
+                symbol.text = identified ? "–" : "?";symbol.fontSize = 16;symbol.verticalAlignmentMode = .center;symbol.fontColor = .systemGray;marker.addChild(symbol)
+            }
             marker.name = "deposit-" + deposit.id
             depositLayer.addChild(marker)
         }
@@ -207,6 +242,38 @@ final class SettlementScene: SKScene {
         let node = SKNode(); node.name = definition.assetKey; node.position = anchor
         node.userData = ["buildingID": building.id]
         node.zPosition = CGFloat(building.origin.x + building.origin.y)
+        if let texture = EraArt.texture(building.kind), let visual = EraArt.catalog?.building(building.kind) {
+            let sprite = SKSpriteNode(texture: texture)
+            sprite.name = "artSprite"
+            sprite.size = CGSize(width: visual.worldWidth, height: visual.worldHeight)
+            sprite.anchorPoint = CGPoint(x: visual.anchorX, y: visual.anchorY)
+            node.addChild(sprite)
+            if !building.isOperational {
+                sprite.alpha = 0.3
+                let frame = polygon([CGPoint(x: -36,y: 0),CGPoint(x: -36,y: 40),CGPoint(x: 0,y: 65),CGPoint(x: 36,y: 40),CGPoint(x:36,y:0)], fill: .clear)
+                frame.strokeColor = UIColor(red: 0.78,green: 0.65,blue: 0.43,alpha: 0.85); frame.lineWidth = 3; node.addChild(frame)
+                let bar = SKSpriteNode(color: .systemYellow, size: CGSize(width: 60, height: 3))
+                bar.anchorPoint = CGPoint(x: 0,y: 0.5); bar.position = CGPoint(x:-30,y: -15);bar.name = "constructionProgress";node.addChild(bar)
+            }
+            if layer == nil && !reduceMotion && fireAnimationIDs.contains(building.id) {
+                let glow = SKShapeNode(ellipseOf: CGSize(width: building.kind == .campfire ? 23 : 12, height: 9))
+                glow.fillColor = .systemOrange.withAlphaComponent(0.18); glow.strokeColor = .clear;glow.position.y = 6;node.addChild(glow)
+                glow.run(.repeatForever(.sequence([.fadeAlpha(to: 0.7,duration: 0.65),.fadeAlpha(to: 0.25,duration: 0.8)])))
+                // Two bounded wisps per active fire, never an unbounded particle emitter.
+                for offset in [0.0, 1.8] {
+                    let smoke = SKShapeNode(ellipseOf: CGSize(width: 8,height: 6));smoke.fillColor = .white.withAlphaComponent(0.18);smoke.strokeColor = .clear;smoke.alpha = 0
+                    smoke.position = CGPoint(x: 3,y: 22);node.addChild(smoke)
+                    smoke.run(.repeatForever(.sequence([.wait(forDuration: offset),.group([.moveBy(x: 8,y: 28,duration: 3.6),.sequence([.fadeAlpha(to: 0.3,duration: 0.7),.fadeOut(withDuration: 2.9)])]),.run { [weak smoke] in smoke?.position = CGPoint(x: 3,y: 22) }])))
+                }
+            }
+            if layer == nil && !reduceMotion && building.isOperational && activeProductionIDs.contains(building.id) && building.kind != .campfire {
+                let active = SKShapeNode(circleOfRadius: 2.5);active.fillColor = .systemMint.withAlphaComponent(0.8);active.strokeColor = .clear;active.position = CGPoint(x: 0,y: -8);node.addChild(active)
+                active.run(.repeatForever(.sequence([.fadeAlpha(to: 0.35,duration: 1.6),.fadeAlpha(to: 0.8,duration: 1.6)])))
+            }
+            if faded { node.alpha = 0.2 }
+            (layer ?? buildingLayer).addChild(node)
+            return
+        }
         let shadow = SKShapeNode(ellipseOf: CGSize(width: definition.width == 1 ? 40 : 94, height: 30)); shadow.fillColor = UIColor.black.withAlphaComponent(0.20); shadow.strokeColor = .clear; shadow.position = CGPoint(x: 7,y: -5); node.addChild(shadow)
         if building.kind == .campfire || building.kind == .storytellingCircle {
             let ring = SKShapeNode(ellipseOf: CGSize(width: building.kind == .campfire ? 35 : 85, height: building.kind == .campfire ? 19 : 43)); ring.strokeColor = UIColor(red: 0.76,green: 0.73,blue: 0.60,alpha: 1); ring.lineWidth = 7; node.addChild(ring)

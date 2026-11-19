@@ -1,0 +1,377 @@
+{
+  "version": 1,
+  "direction": "Warm miniature / stylized architectural realism \u2014 review candidate",
+  "buildings": [
+    {
+      "id": "campfire",
+      "file": "buildings/campfire.png",
+      "thumbnail": "thumbnails/campfire.png",
+      "worldWidth": 80,
+      "worldHeight": 80,
+      "anchorX": 0.5,
+      "anchorY": 0.35
+    },
+    {
+      "id": "hut",
+      "file": "buildings/hut.png",
+      "thumbnail": "thumbnails/hut.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "gatheringShelter",
+      "file": "buildings/gatheringShelter.png",
+      "thumbnail": "thumbnails/gatheringShelter.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "huntingLodge",
+      "file": "buildings/huntingLodge.png",
+      "thumbnail": "thumbnails/huntingLodge.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "fishingShelter",
+      "file": "buildings/fishingShelter.png",
+      "thumbnail": "thumbnails/fishingShelter.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "woodcutter",
+      "file": "buildings/woodcutter.png",
+      "thumbnail": "thumbnails/woodcutter.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "stoneGatherer",
+      "file": "buildings/stoneGatherer.png",
+      "thumbnail": "thumbnails/stoneGatherer.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "farm",
+      "file": "buildings/farm.png",
+      "thumbnail": "thumbnails/farm.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "animalPen",
+      "file": "buildings/animalPen.png",
+      "thumbnail": "thumbnails/animalPen.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "storehouse",
+      "file": "buildings/storehouse.png",
+      "thumbnail": "thumbnails/storehouse.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "toolmaker",
+      "file": "buildings/toolmaker.png",
+      "thumbnail": "thumbnails/toolmaker.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "tannery",
+      "file": "buildings/tannery.png",
+      "thumbnail": "thumbnails/tannery.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "potteryWorkshop",
+      "file": "buildings/potteryWorkshop.png",
+      "thumbnail": "thumbnails/potteryWorkshop.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "storytellingCircle",
+      "file": "buildings/storytellingCircle.png",
+      "thumbnail": "thumbnails/storytellingCircle.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "healersHut",
+      "file": "buildings/healersHut.png",
+      "thumbnail": "thumbnails/healersHut.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "shrine",
+      "file": "buildings/shrine.png",
+      "thumbnail": "thumbnails/shrine.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "burialGround",
+      "file": "buildings/burialGround.png",
+      "thumbnail": "thumbnails/burialGround.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "scoutCamp",
+      "file": "buildings/scoutCamp.png",
+      "thumbnail": "thumbnails/scoutCamp.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "watchtower",
+      "file": "buildings/watchtower.png",
+      "thumbnail": "thumbnails/watchtower.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    },
+    {
+      "id": "palisade",
+      "file": "buildings/palisade.png",
+      "thumbnail": "thumbnails/palisade.png",
+      "worldWidth": 160,
+      "worldHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.18
+    }
+  ],
+  "research": [
+    {
+      "id": "oralTradition",
+      "motif": "storyFire",
+      "tint": "CBA978"
+    },
+    {
+      "id": "stoneTools",
+      "motif": "axe",
+      "tint": "A8B7A1"
+    },
+    {
+      "id": "socialOrder",
+      "motif": "community",
+      "tint": "E0BA76"
+    },
+    {
+      "id": "hunting",
+      "motif": "spear",
+      "tint": "BC9871"
+    },
+    {
+      "id": "fishing",
+      "motif": "fish",
+      "tint": "7DB9C1"
+    },
+    {
+      "id": "cultivation",
+      "motif": "seedling",
+      "tint": "B4BF80"
+    },
+    {
+      "id": "animalDomestication",
+      "motif": "animal",
+      "tint": "C6AD8A"
+    },
+    {
+      "id": "leatherworking",
+      "motif": "hideFrame",
+      "tint": "BF967C"
+    },
+    {
+      "id": "pottery",
+      "motif": "pot",
+      "tint": "D59E75"
+    },
+    {
+      "id": "foodPreservation",
+      "motif": "preserves",
+      "tint": "C9B07B"
+    },
+    {
+      "id": "basketry",
+      "motif": "basket",
+      "tint": "C8AA7A"
+    },
+    {
+      "id": "construction",
+      "motif": "timberFrame",
+      "tint": "B5A180"
+    },
+    {
+      "id": "naturalKnowledge",
+      "motif": "leafStone",
+      "tint": "91B8A4"
+    },
+    {
+      "id": "permanentSettlement",
+      "motif": "settlement",
+      "tint": "C7AD85"
+    },
+    {
+      "id": "herbalMedicine",
+      "motif": "herbs",
+      "tint": "AABF8B"
+    },
+    {
+      "id": "rituals",
+      "motif": "standingStone",
+      "tint": "CDB893"
+    },
+    {
+      "id": "burialTraditions",
+      "motif": "cairn",
+      "tint": "A9B1A3"
+    },
+    {
+      "id": "exploration",
+      "motif": "trail",
+      "tint": "B3C5A2"
+    },
+    {
+      "id": "surveillance",
+      "motif": "lookout",
+      "tint": "C9BB8E"
+    },
+    {
+      "id": "fortification",
+      "motif": "stakes",
+      "tint": "C0A68C"
+    }
+  ],
+  "resources": [
+    {
+      "id": "food",
+      "motif": "berries",
+      "tint": "CBA978"
+    },
+    {
+      "id": "wood",
+      "motif": "logs",
+      "tint": "A8B7A1"
+    },
+    {
+      "id": "stone",
+      "motif": "rocks",
+      "tint": "E0BA76"
+    },
+    {
+      "id": "water",
+      "motif": "water",
+      "tint": "BC9871"
+    },
+    {
+      "id": "flint",
+      "motif": "flint",
+      "tint": "7DB9C1"
+    },
+    {
+      "id": "clay",
+      "motif": "clay",
+      "tint": "B4BF80"
+    },
+    {
+      "id": "animalHides",
+      "motif": "hide",
+      "tint": "C6AD8A"
+    },
+    {
+      "id": "stoneTools",
+      "motif": "axe",
+      "tint": "BF967C"
+    },
+    {
+      "id": "leather",
+      "motif": "leather",
+      "tint": "D59E75"
+    },
+    {
+      "id": "pottery",
+      "motif": "pot",
+      "tint": "C9B07B"
+    },
+    {
+      "id": "knowledge",
+      "motif": "storyFire",
+      "tint": "C8AA7A"
+    },
+    {
+      "id": "culture",
+      "motif": "standingStone",
+      "tint": "B5A180"
+    }
+  ],
+  "pillars": [
+    {
+      "id": "economy",
+      "motif": "basket",
+      "tint": "CBA978"
+    },
+    {
+      "id": "science",
+      "motif": "leafStone",
+      "tint": "A8B7A1"
+    },
+    {
+      "id": "militarySecurity",
+      "motif": "stakes",
+      "tint": "E0BA76"
+    },
+    {
+      "id": "culture",
+      "motif": "standingStone",
+      "tint": "BC9871"
+    },
+    {
+      "id": "population",
+      "motif": "community",
+      "tint": "7DB9C1"
+    }
+  ]
+}

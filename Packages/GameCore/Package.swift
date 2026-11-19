@@ -6,7 +6,7 @@ let package = Package(
     targets: [
         .target(name: "GameCore", resources: [.process("Resources")]),
         .target(name: "GamePersistence", dependencies: ["GameCore"]),
-        .target(name: "GameApplication", dependencies: ["GameCore", "GamePersistence"]),
+        .target(name: "GameApplication", dependencies: ["GameCore", "GamePersistence"], resources: [.process("Resources")]),
         .testTarget(name: "GameCoreTests", dependencies: ["GameCore", "GamePersistence", "GameApplication"], resources: [.copy("Fixtures")])
     ]
 )
