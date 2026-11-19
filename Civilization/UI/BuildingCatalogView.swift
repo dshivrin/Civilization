@@ -7,6 +7,8 @@ struct BuildingCatalogView: View {
     @Binding var selectedCategory: String
     @Environment(\.dismiss) private var dismiss
     @State private var search = ""
+    @State private var expanded: Set<BuildingKind> = []
+    @Environment(\.dynamicTypeSize) private var typeSize
     private var categories: [String] { ["All"] + Set(session.configuration.buildings.map { $0.category ?? "Other" }).sorted() }
     private func definitions(_ category: String) -> [BuildingDefinition] {
         session.configuration.buildings.filter { category == "All" || ($0.category ?? "Other") == category }
@@ -33,14 +35,14 @@ struct BuildingCatalogView: View {
                     VStack(spacing: 12) {
                         if !wide { ScrollView(.horizontal) { HStack(spacing: 8) { ForEach(categories, id: \.self) { category($0) } } }.fixedSize(horizontal: false, vertical: true) }
                         ScrollView {
-                            LazyVGrid(columns: [GridItem(.adaptive(minimum: 280), alignment: .top)], alignment: .leading, spacing: 14) {
+                            LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 248), alignment: .top)], alignment: .leading, spacing: 10) {
                                 ForEach(definitions(selectedCategory).filter { search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }, id: \.kind) { card($0) }
                             }.padding(.bottom, 20)
                             if definitions(selectedCategory).filter({ search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }).isEmpty { Text("No matching buildings.").padding() }
-                        }.accessibilityIdentifier("buildingCatalog")
+                        }.frame(maxHeight: .infinity).clipped().accessibilityIdentifier("buildingCatalog")
                     }
                 }
-            }.padding(20)
+            }.padding(16)
         }.background(panelColor).foregroundStyle(parchment).tint(.yellow)
     }
     private func category(_ title: String) -> some View {
@@ -60,44 +62,36 @@ struct BuildingCatalogView: View {
         let affordable = session.canAfford(definition.cost)
         let color: Color = locked ? parchment.opacity(0.6) : count > 0 ? .mint : .yellow
         let prerequisites = session.configuration.technologyDefinitions.filter { $0.effects.unlockedBuildings.contains(definition.kind) }
+        let isExpanded = Binding(get: { expanded.contains(definition.kind) }, set: { if $0 { expanded.insert(definition.kind) } else { expanded.remove(definition.kind) } })
         return VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                BuildingThumbnail(kind: definition.kind, size: 64)
-                Text(definition.name).font(.title3.bold())
-                Spacer()
-                if count > 0 { Label("\(count)", systemImage: "checkmark.seal.fill").foregroundStyle(.mint) }
+            DevelopmentSummary(title: definition.name, status: locked ? "Research required" : campfire ? "Fixed anchor" : count > 0 ? "Constructed · \(count)" : affordable ? "Available" : "Need resources", symbol: locked ? "lock.fill" : count > 0 ? "checkmark.seal.fill" : "hammer.fill", color: color) {
+                BuildingThumbnail(kind: definition.kind, size: 48)
             }
-            Label(locked ? "Research required" : campfire ? "Fixed settlement anchor" : affordable ? "Available" : "Need resources", systemImage: locked ? "lock.fill" : campfire ? "flame.fill" : affordable ? "hammer.fill" : "hourglass").font(.caption.bold()).foregroundStyle(color)
-            Text("Cost: " + amounts(definition.cost)).font(.caption).foregroundStyle(.yellow)
-            Button(campfire ? "Already placed" : locked ? "Research required" : "Build " + definition.name) {
-                session.choose(definition.kind)
-                dismiss()
-            }.frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).controlSize(.large).foregroundStyle(panelColor).disabled(locked || campfire)
-                .accessibilityIdentifier("build-" + definition.kind.rawValue)
-            Text(definition.description ?? definition.name).font(.subheadline).fixedSize(horizontal: false, vertical: true)
-            Text("Research: " + (prerequisites.isEmpty ? "None" : prerequisites.map { $0.name + (session.researchedIDs.contains($0.id) ? " ✓" : "") }.joined(separator: ", "))).font(.caption)
-            ForEach(definition.recipes ?? [], id: \.id) { recipe in
-                Text(recipe.name + ": " + amounts(recipe.outputsPerMinute) + "/min" + (Resource.allCases.contains { recipe.inputsPerMinute[$0] > 0 } ? " · uses " + amounts(recipe.inputsPerMinute) + "/min" : ""))
-                    .font(.caption).foregroundStyle(.mint)
+            DevelopmentCosts(cost: definition.cost, stored: session.state.resources, id: "building-" + definition.kind.rawValue)
+            HStack(spacing: 8) {
+                Button(campfire ? "Already placed" : locked ? "Locked" : "Build") {
+                    session.choose(definition.kind)
+                    dismiss()
+                }.frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).foregroundStyle(panelColor).disabled(locked || campfire)
+                    .accessibilityLabel(campfire ? "Campfire already placed" : locked ? definition.name + ": research required" : "Build " + definition.name)
+                    .accessibilityIdentifier("build-" + definition.kind.rawValue)
+                DevelopmentDetailsButton(title: definition.name, id: "building-" + definition.kind.rawValue, expanded: isExpanded)
             }
-            if definition.housing > 0 { Text("+\(definition.housing) housing").font(.caption) }
-            if let storage = definition.storageBonus { Text("Storage: " + amounts(storage)).font(.caption) }
-            Text("\(definition.width)×\(definition.height) tiles · \(Int(ceil(session.constructionDuration(for: definition.kind))))s · \(String(format: "%g", definition.workersRequired ?? 0)) workers").font(.caption).foregroundStyle(parchment.opacity(0.7))
-            if definition.requiredNearbyTerrain != nil { Text("Requires revealed nearby water.").font(.caption) }
-
+            if isExpanded.wrappedValue {
+                Divider().overlay(parchment.opacity(0.2))
+                Text(definition.description ?? definition.name).font(.subheadline).fixedSize(horizontal: false, vertical: true)
+                    .accessibilityIdentifier("building-description-" + definition.kind.rawValue)
+                DevelopmentCosts(cost: definition.cost, stored: session.state.resources, id: "building-detail-" + definition.kind.rawValue, detailed: true)
+                Text("Research: " + (prerequisites.isEmpty ? "None" : prerequisites.map { $0.name + (session.researchedIDs.contains($0.id) ? " ✓" : "") }.joined(separator: ", "))).font(.caption)
+                ForEach(definition.recipes ?? [], id: \.id) { recipe in
+                    Text(recipe.name + ": " + amounts(recipe.outputsPerMinute) + "/min" + (Resource.allCases.contains { recipe.inputsPerMinute[$0] > 0 } ? " · uses " + amounts(recipe.inputsPerMinute) + "/min" : ""))
+                        .font(.caption).foregroundStyle(.mint)
+                }
+                if definition.housing > 0 { Text("+\(definition.housing) housing").font(.caption) }
+                if let storage = definition.storageBonus { Text("Storage: " + amounts(storage)).font(.caption) }
+                Text("\(definition.width)×\(definition.height) tiles · \(Int(ceil(session.constructionDuration(for: definition.kind))))s · \(String(format: "%g", definition.workersRequired ?? 0)) workers").font(.caption).foregroundStyle(parchment.opacity(0.7))
+                if definition.requiredNearbyTerrain != nil { Text("Requires revealed nearby water.").font(.caption) }
+            }
         }.modifier(DevelopmentCardStyle(color: color))
-    }
-    /// Replaceable SF Symbol placeholders, independent of renderer asset keys.
-    private func symbol(_ definition: BuildingDefinition) -> String {
-        if definition.kind == .campfire { return "flame.fill" }
-        switch definition.category {
-        case "Settlement": return "house.fill"
-        case "Food and water": return "leaf.fill"
-        case "Extraction": return "mountain.2.fill"
-        case "Crafting": return "hammer.fill"
-        case "Culture and knowledge": return "sparkles"
-        case "Community": return "person.3.fill"
-        default: return "shield.fill"
-        }
     }
 }
