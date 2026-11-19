@@ -38,12 +38,14 @@ struct DevelopmentSummary<Picture: View>: View {
     let color: Color
     @ViewBuilder let picture: Picture
     @Environment(\.dynamicTypeSize) private var typeSize
+    @ScaledMetric(relativeTo: .subheadline) private var titleHeight = 40
     var body: some View {
         HStack(spacing: 10) {
             picture.accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 3) {
                 Text(title).font(.subheadline.bold()).lineLimit(typeSize.isAccessibilitySize ? nil : 2)
                     .fixedSize(horizontal: false, vertical: true)
+                    .frame(minHeight: typeSize.isAccessibilitySize ? nil : titleHeight, alignment: .topLeading)
                 Label(status, systemImage: symbol).font(.caption2).foregroundStyle(color)
                     .lineLimit(typeSize.isAccessibilitySize ? nil : 1)
             }

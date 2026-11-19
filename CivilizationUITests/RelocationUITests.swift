@@ -187,6 +187,7 @@ final class RelocationUITests: XCTestCase {
         let app = XCUIApplication(); app.launch()
         XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
         app.buttons["developerTools"].tap(); app.buttons["scenario-early"].tap()
+        let tablet = app.otherElements["settlementMap"].frame.width > 1000
         app.buttons["Build"].tap(); app.buttons["buildingCategory-Settlement"].tap()
         let hut = app.buttons["details-building-hut"]
         XCTAssertTrue(hut.waitForExistence(timeout: 5))
@@ -229,6 +230,9 @@ final class RelocationUITests: XCTestCase {
         let knowledge = app.descendants(matching: .any)["cost-research-hunting-knowledge"].firstMatch
         XCTAssertTrue(wood.label.contains("available"), wood.label)
         XCTAssertTrue(knowledge.label.contains("missing"), knowledge.label)
+        let animal = app.buttons["research-animalDomestication"]
+        let neighbor = app.buttons[tablet ? "research-leatherworking" : "research-cultivation"]
+        XCTAssertEqual(animal.frame.minY, neighbor.frame.minY, accuracy: 2)
         capture("mixed-affordability", app: app)
         app.buttons["pillarFilter-science"].tap()
         app.buttons["research-oralTradition"].tap()
