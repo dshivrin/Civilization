@@ -305,6 +305,81 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(next.label.contains("Oral Tradition"), next.label)
     }
 
+    @MainActor func testEarnedStoneAgeCompletionIsClearAndSandboxRemainsAvailable() throws {
+        continueAfterFailure = false
+        XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.terminate()
+        // Earn the fixture with ordinary public commands, not a developer scenario or granted state.
+        var game = try GameEngine(configuration: .bundled(), now: Date())
+        for _ in 0..<5000 {
+            let hint = game.settlementGuidance
+            if hint.action == .complete { break }
+            if let wait = hint.waitSeconds { game.advance(to: game.state.lastUpdated.addingTimeInterval(min(60, max(1, wait)))); continue }
+            switch hint.action {
+            case .build(let kind):
+                let tile = try XCTUnwrap((0..<24).flatMap { y in (0..<32).map { Tile(x: $0, y: y) } }.first { game.placementIssue(kind, at: $0) == nil })
+                try game.build(kind, at: tile)
+            case .research(let id): try game.research(id)
+            case .recipe(let id, let mode): try game.setProductionMode(buildingID: id, recipeID: mode)
+            case .priority(let id, let priority): try game.setWorkerPriority(buildingID: id, priority: priority)
+            case .explore: try game.startExploration()
+            default: XCTFail("Unusable ordinary action: " + hint.title); return
+            }
+            game.advance(to: game.state.lastUpdated.addingTimeInterval(60))
+        }
+        XCTAssertTrue(game.fullStoneAgeRequirementsMet)
+        XCTAssertEqual(game.state.stoneAgeCompleted, true)
+        struct Envelope: Encodable { let version = 5; let state: GameState }
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state: game.state)).base64EncodedString()
+        app.launch()
+        let next = app.staticTexts["nextStepSummary"]
+        XCTAssertTrue(next.waitForExistence(timeout: 20))
+        XCTAssertEqual(next.label, "Stone Age complete")
+        XCTAssertTrue(app.buttons["toggleGoals"].label.contains("7/7"))
+        capture("earned-completion", app: app)
+        app.buttons["toggleGoals"].tap(); app.buttons["openJourney"].tap()
+        XCTAssertTrue(app.staticTexts["journeyNextStepTitle"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.staticTexts["journeyNextStepTitle"].label, "Stone Age complete")
+        capture("completed-journey", app: app)
+        app.navigationBars["Stone Age journey"].buttons["Done"].tap()
+        app.buttons["Build"].tap(); app.buttons["buildingCategory-Settlement"].tap()
+        XCTAssertTrue(app.buttons["build-hut"].isEnabled)
+    }
+
+    @MainActor func testStarterReserveExplainsAndNavigatesToSupplier() throws {
+        continueAfterFailure = false
+        XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.terminate()
+        var game = try GameEngine(configuration: .bundled(), now: Date())
+        for _ in 0..<6 {
+            let tile = try XCTUnwrap((0..<24).flatMap { y in (0..<32).map { Tile(x: $0, y: y) } }.first { game.placementIssue(.gatheringShelter, at: $0) == nil })
+            try game.build(.gatheringShelter, at: tile)
+            game.advance(to: game.state.lastUpdated.addingTimeInterval(30))
+        }
+        XCTAssertEqual(game.state.resources[.wood], 20)
+        struct Envelope: Encodable { let version = 5; let state: GameState }
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state: game.state)).base64EncodedString()
+        app.launch()
+        XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout: 20))
+        app.buttons["Build"].tap(); app.buttons["buildingCategory-Food and water"].tap()
+        let shelter = app.buttons["build-gatheringShelter"]
+        XCTAssertTrue(shelter.waitForExistence(timeout: 5)); XCTAssertFalse(shelter.isEnabled)
+        capture("reserve-protected", app: app)
+        app.buttons["details-building-gatheringShelter"].tap()
+        let reason = app.staticTexts["building-reserve-gatheringShelter"]
+        XCTAssertTrue(reason.waitForExistence(timeout: 5)); XCTAssertTrue(reason.label.contains("Woodcutter"))
+        capture("reserve-explanation", app: app)
+        let supplier = app.buttons["showBootstrapSupplier-gatheringShelter"]
+        if !supplier.isHittable { app.scrollViews["buildingCatalog"].swipeUp() }
+        supplier.tap()
+        let woodcutter = app.buttons["build-woodcutter"]
+        XCTAssertTrue(woodcutter.waitForExistence(timeout: 5)); XCTAssertTrue(woodcutter.isEnabled)
+        woodcutter.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["dragModeIndicator"].firstMatch.waitForExistence(timeout: 5))
+    }
+
     @MainActor private func capture(_ name: String, app: XCUIApplication) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)

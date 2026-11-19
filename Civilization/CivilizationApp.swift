@@ -18,6 +18,11 @@ struct CivilizationApp: App {
                     #if DEBUG
                     if ProcessInfo.processInfo.environment["CIVILIZATION_UI_FRESH_SAVE"] == "1" {
                         let url = FileManager.default.temporaryDirectory.appendingPathComponent("ui-fresh-" + UUID().uuidString + ".json")
+                        // Synthetic earned UI fixtures use the same validated save loader and a unique temporary file.
+                        if let encoded = ProcessInfo.processInfo.environment["CIVILIZATION_UI_EARNED_SAVE"] {
+                            guard let data = Data(base64Encoded: encoded) else { throw CocoaError(.fileReadCorruptFile) }
+                            try data.write(to: url, options: .atomic)
+                        }
                         session = try await GameSession.load(saveURL: url)
                         return
                     }

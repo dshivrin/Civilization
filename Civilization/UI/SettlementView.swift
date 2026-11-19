@@ -371,12 +371,14 @@ struct SettlementView: View {
             }
         }.background(panelColor.opacity(0.96), in: RoundedRectangle(cornerRadius: 12))
     }
-    private func guidanceDetail(compact: Bool = false) -> some View {
+    private func guidanceDetail(compact: Bool = false, showAction: Bool = true) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(session.nextGuidance.explanation).font(.caption).lineLimit(compact ? 3 : nil).fixedSize(horizontal: false, vertical: true)
                 .accessibilityIdentifier("nextStepExplanation")
-            Button(guidanceActionTitle) { openGuidance() }.frame(minHeight: 44)
-                .accessibilityIdentifier("nextStepAction")
+            if showAction {
+                Button(guidanceActionTitle) { openGuidance() }.frame(minHeight: 44)
+                    .accessibilityIdentifier("nextStepAction")
+            }
         }
     }
     private var guidanceActionTitle: String {
@@ -422,7 +424,7 @@ struct SettlementView: View {
                 if !session.fullStoneAgeRequirementsMet { Text("Your historical readiness is preserved. Finish the expanded checklist at your own pace.").font(.caption) }
             }
             Text(session.nextGuidance.title).font(.headline).accessibilityIdentifier("journeyNextStepTitle")
-            guidanceDetail()
+            guidanceDetail(showAction: session.nextGuidance.action != .complete && session.nextGuidance.action != .journey)
             Text("Every chapter credits work completed ahead of time. Original construction rewards remain one-time awards.").font(.caption)
             ForEach(session.journeyChapters) { chapter in
                 VStack(alignment: .leading, spacing: 6) {
@@ -478,7 +480,10 @@ struct SettlementView: View {
                         Text("Upgrade: " + cost(upgradeCost)).font(.caption).foregroundStyle(.yellow)
                         Button("Upgrade to level \(building.level + 1)") { session.upgrade(buildingID: building.id) }
                             .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
-                            .disabled(!session.canAfford(upgradeCost)).accessibilityIdentifier("upgradeBuilding")
+                            .disabled(session.upgradeIssue(buildingID: building.id) != nil).accessibilityIdentifier("upgradeBuilding")
+                        if let issue = session.bootstrapSpendIssue(for: upgradeCost) {
+                            Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange)
+                        }
                     } else if session.configuration.economyRules != nil {
                         Text("No further upgrades available.").font(.caption).foregroundStyle(parchment.opacity(0.65))
                     }
