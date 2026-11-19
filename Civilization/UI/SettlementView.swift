@@ -18,6 +18,7 @@ struct SettlementView: View {
     @State private var showResearch = false
     @State private var showCatalog = false
     @State private var showJourney = false
+    @State private var pendingGuidanceAction: GuidanceAction?
     #if DEBUG
     @State private var showDeveloperTools = false
     #endif
@@ -112,10 +113,16 @@ struct SettlementView: View {
                 if !worldReady { SettlementLoadingView(stage: "Preparing the valley…").ignoresSafeArea() }
             }
         }
+        .onChange(of: session.isDragMode) { _, active in if active { goals.isExpanded = false } }
         .onChange(of: session.eraID) { _, id in goals.observeEra(id) }
-        .fullScreenCover(isPresented: $showJourney) {
+        .fullScreenCover(isPresented: $showJourney, onDismiss: {
+            if let action = pendingGuidanceAction {
+                pendingGuidanceAction = nil
+                navigateGuidance(action)
+            }
+        }) {
             NavigationStack {
-                ScrollView { goalCard(compact: false).padding() }
+                ScrollView { goalCard(compact: false).padding() }.accessibilityIdentifier("journeyContent")
                     .background(panelColor).foregroundStyle(parchment).tint(.yellow)
                     .navigationTitle("Stone Age journey")
                     .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { showJourney = false }.frame(minHeight: 44) } }
@@ -344,9 +351,10 @@ struct SettlementView: View {
             Button { goals.isExpanded.toggle() } label: {
                 HStack {
                     Image(systemName: "flag.checkered")
-                    Text("Chapters \(session.journeyChapters.filter(\.isComplete).count)/7").font(.subheadline.bold())
-                    if let next = session.journeyChapters.first(where: { !$0.isComplete }) {
-                        Text("\(next.id) · \(next.completedCount)/\(next.objectives.count)").font(.caption).monospacedDigit()
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Chapters \(session.journeyChapters.filter(\.isComplete).count)/\(session.journeyChapters.count)").font(.subheadline.bold())
+                        Text(session.nextGuidance.title).font(.caption).lineLimit(2)
+                            .accessibilityIdentifier("nextStepSummary")
                     }
                     Spacer()
                     Image(systemName: goals.isExpanded ? "chevron.up" : "chevron.down")
@@ -355,12 +363,7 @@ struct SettlementView: View {
                 .accessibilityValue(goals.isExpanded ? "Expanded" : "Collapsed")
             if goals.isExpanded {
                 VStack(alignment: .leading, spacing: 5) {
-                    if let next = session.journeyChapters.first(where: { !$0.isComplete }) {
-                        Text(next.title).font(.subheadline.bold())
-                        if let objective = next.objectives.first(where: { !$0.isComplete }) {
-                            Text(objective.title + " · " + objective.progress).font(.caption)
-                        }
-                    } else { Text("All seven chapters complete").font(.subheadline.bold()) }
+                    guidanceDetail(compact: compact)
                     Button("All seven chapters", systemImage: "list.bullet") { showJourney = true }.frame(minHeight: 44)
                         .accessibilityIdentifier("openJourney")
                 }.padding(.horizontal, 12).padding(.bottom, 8).frame(maxWidth: .infinity, alignment: .leading)
@@ -368,12 +371,58 @@ struct SettlementView: View {
             }
         }.background(panelColor.opacity(0.96), in: RoundedRectangle(cornerRadius: 12))
     }
+    private func guidanceDetail(compact: Bool = false) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(session.nextGuidance.explanation).font(.caption).lineLimit(compact ? 3 : nil).fixedSize(horizontal: false, vertical: true)
+                .accessibilityIdentifier("nextStepExplanation")
+            Button(guidanceActionTitle) { openGuidance() }.frame(minHeight: 44)
+                .accessibilityIdentifier("nextStepAction")
+        }
+    }
+    private var guidanceActionTitle: String {
+        switch session.nextGuidance.action {
+        case .build: "Open Buildings"
+        case .research: "Open Research"
+        case .recipe, .priority, .inspect: "Inspect building"
+        case .explore: "Open Explore"
+        case .resource: "Resource help"
+        case .population: "Population and workers"
+        case .journey, .complete: "View era requirements"
+        }
+    }
+    private func openGuidance() {
+        let action = session.nextGuidance.action
+        if showJourney {
+            if action != .journey && action != .complete { pendingGuidanceAction = action; showJourney = false }
+            return
+        }
+        navigateGuidance(action)
+    }
+    private func navigateGuidance(_ action: GuidanceAction) {
+        session.cancel(); session.inspectedBuilding = nil
+        switch action {
+        case .build(let kind):
+            category = session.configuration.definition(kind).category ?? "Other"
+            showJourney = false; showCatalog = true
+        case .research(let id):
+            researchPillar = session.configuration.technologyDefinitions.first { $0.id == id }?.pillar ?? .science
+            showJourney = false; showResearch = true
+        case .recipe(let id, _), .priority(let id, _), .inspect(let id):
+            showJourney = false; panel = nil; session.inspect(buildingID: id)
+        case .explore: showJourney = false; panel = .explore
+        case .resource(let resource): showJourney = false; inspectedResource = ResourceInspection(resource: resource)
+        case .population: showJourney = false; showPopulation = true
+        case .journey, .complete: showJourney = true
+        }
+    }
     private func goalCard(compact: Bool) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             if session.state.stoneAgeCompleted == true {
                 Label("Stone Age readiness earned", systemImage: "checkmark.seal.fill").foregroundStyle(.mint)
                 if !session.fullStoneAgeRequirementsMet { Text("Your historical readiness is preserved. Finish the expanded checklist at your own pace.").font(.caption) }
             }
+            Text(session.nextGuidance.title).font(.headline).accessibilityIdentifier("journeyNextStepTitle")
+            guidanceDetail()
             Text("Every chapter credits work completed ahead of time. Original construction rewards remain one-time awards.").font(.caption)
             ForEach(session.journeyChapters) { chapter in
                 VStack(alignment: .leading, spacing: 6) {
@@ -390,7 +439,7 @@ struct SettlementView: View {
                 }
             }
             Text("Complete all catalog entries, required resource discoveries and all five pillars. Advancing into a new age is not yet available.").font(.caption)
-        }.padding(12).frame(maxWidth: .infinity, alignment: .leading).accessibilityIdentifier("goalProgress")
+        }.padding(12).frame(maxWidth: .infinity, alignment: .leading).accessibilityElement(children: .contain).accessibilityIdentifier("goalProgress")
     }
     private func inspectionPanel(_ building: PlacedBuilding) -> some View {
         let definition = session.configuration.definition(building.kind)

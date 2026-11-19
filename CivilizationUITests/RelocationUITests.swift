@@ -244,6 +244,67 @@ final class RelocationUITests: XCTestCase {
         app.buttons["closeResearch"].tap()
     }
 
+    @MainActor func testFreshPlayerSeesNextActionAndBuildsWithoutDeveloperTools() throws {
+        continueAfterFailure = false
+        XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"; app.launch()
+        let next = app.staticTexts["nextStepSummary"]
+        XCTAssertTrue(next.waitForExistence(timeout: 20))
+        XCTAssertTrue(next.label.localizedCaseInsensitiveContains("gathering shelter"), next.label)
+        XCTAssertEqual(app.buttons["toggleGoals"].value as? String, "Collapsed")
+        capture("fresh-next-step", app: app)
+        app.buttons["toggleGoals"].tap()
+        XCTAssertTrue(app.staticTexts["nextStepExplanation"].label.contains("Drag"))
+        app.buttons["nextStepAction"].tap()
+        XCTAssertTrue(app.buttons["build-gatheringShelter"].waitForExistence(timeout: 5))
+        app.buttons["build-gatheringShelter"].tap()
+        let indicator = app.descendants(matching: .any)["dragModeIndicator"].firstMatch
+        XCTAssertTrue(indicator.waitForExistence(timeout: 5))
+        XCTAssertEqual(app.buttons["toggleGoals"].value as? String, "Collapsed")
+        capture("guided-placement", app: app)
+        let map = app.otherElements["settlementMap"], frame = map.frame
+        let config = try GameConfiguration.bundled()
+        let engine = try GameEngine(configuration: config, now: Date())
+        let scale = frame.width > 1000 ? 1.1 : 0.95
+        let camp = MapGeometry.point(for: config.map.campfire)
+        func point(_ tile: Tile) -> CGVector {
+            let world = MapGeometry.point(for: tile)
+            return CGVector(dx: 0.5 + (world.x - camp.x - 80) / scale / frame.width,
+                            dy: 0.5 - (world.y - camp.y - 30) / scale / frame.height)
+        }
+        let tile = try XCTUnwrap((0..<24).flatMap { y in (0..<32).map { Tile(x: $0, y: y) } }.first {
+            let screen = point($0)
+            return engine.placementIssue(.gatheringShelter, at: $0) == nil && (0.45...0.60).contains(screen.dx) && (0.35...0.65).contains(screen.dy)
+        })
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.42, dy: 0.76)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(tile)))
+        capture("guided-drop-result", app: app)
+        XCTAssertFalse(indicator.exists, app.staticTexts["settlementMessage"].label)
+        let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label CONTAINS[c] %@", "woodcutter"), object: next)
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 45), .completed)
+        capture("first-building-complete", app: app)
+    }
+
+    @MainActor func testGuidanceResearchNavigationDoesNotPurchase() throws {
+        continueAfterFailure = false
+        XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launch()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        app.buttons["developerTools"].tap(); app.buttons["scenario-early"].tap()
+        let next = app.staticTexts["nextStepSummary"]
+        XCTAssertTrue(next.label.contains("Oral Tradition"), next.label)
+        app.buttons["toggleGoals"].tap(); app.buttons["openJourney"].tap()
+        XCTAssertTrue(app.navigationBars["Stone Age journey"].waitForExistence(timeout: 5))
+        capture("guided-journey", app: app)
+        let action = app.scrollViews["journeyContent"].buttons["nextStepAction"]
+        XCTAssertTrue(action.isHittable)
+        action.tap()
+        XCTAssertTrue(app.buttons["research-oralTradition"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["research-oralTradition"].isEnabled)
+        capture("guided-research", app: app)
+        app.buttons["closeResearch"].tap()
+        XCTAssertTrue(next.label.contains("Oral Tradition"), next.label)
+    }
+
     @MainActor private func capture(_ name: String, app: XCUIApplication) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)

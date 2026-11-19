@@ -48,6 +48,7 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
     var actions = 0, waitSeconds = 0.0, longestWait = 0.0, currentWait = 0.0
     var counts: [String: Int] = [:]
     var last: [String] = []
+    var recoveryChecked = false
     for _ in 0..<5000 {
         let hint = game.settlementGuidance
         last.append(hint.title); if last.count > 12 { last.removeFirst() }
@@ -71,6 +72,28 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
             }
             // Ordinary decision cadence, not fast construction or a developer clock override.
             game.advance(to: game.state.lastUpdated.addingTimeInterval(pollSeconds))
+        }
+        if !recoveryChecked && pollSeconds == 60 && [.toolmaker, .tannery, .potteryWorkshop].allSatisfy({ kind in game.state.buildings.contains { $0.kind == kind && $0.isOperational } }) {
+            recoveryChecked = true
+            var recovery = game
+            for building in recovery.state.buildings where building.kind != .campfire {
+                try recovery.setWorkerPriority(buildingID: building.id, priority: building.kind == .woodcutter ? 0 : 2)
+            }
+            recovery.advance(to: recovery.state.lastUpdated.addingTimeInterval(14400), offline: true)
+            #expect(recovery.state.resources.wood == 0)
+            var recovered = false
+            for _ in 0..<120 {
+                let hint = recovery.guidance(for: "building-hut")
+                if case .build(.hut) = hint.action { recovered = true; break }
+                if hint.waitSeconds != nil { recovery.advance(to: recovery.state.lastUpdated.addingTimeInterval(60)) }
+                else if case .priority(let id, let priority) = hint.action { try recovery.setWorkerPriority(buildingID: id, priority: priority) }
+                else { Issue.record("Recovery guidance did not explain a usable action: \(hint)"); break }
+            }
+            #expect(recovered)
+            let restored = try GameEngine(state: JSONDecoder().decode(GameState.self, from: JSONEncoder().encode(recovery.state)), configuration: recovery.configuration)
+            #expect(restored.canAfford(restored.configuration.definition(.hut).cost))
+            #expect(restored.state.population == recovery.state.population)
+            print("GUIDED recovery: wood0 after poor priorities; advice restored ordinary hut affordability and reload at wood=\(restored.state.resources.wood), no grants")
         }
         for chapter in game.journeyChapters where chapter.isComplete && chapterTimes[chapter.id] == nil {
             chapterTimes[chapter.id] = Int(game.state.lastUpdated.timeIntervalSince(guidanceEpoch))
