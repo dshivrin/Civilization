@@ -117,3 +117,5 @@ Dima answered“ Yes ”to the displayed catalog-derived starter-material protec
 Reserve delivery: core commit3ecc846; six additional regressions, complete routes and supplier UI verified. Only the approved optional seed policy flag changed; numerical configuration and savev5 stayed intact.
 
 Geometry foundation: Dima’s direct “Start implementing” supersedes proposed-only status for the bounded next engineering task. Spec/plan and approval synchronized before code; existing first-era-review branch retained for this authorized continuation. No approval of ChatGPT’s exact footprint table, media sizes or road defaults inferred.
+
+Geometry foundation delivered: shared occupied geometry and additive optional snapshots for new construction; current catalog/art unchanged, legacy nil fields not rewritten. Full135Debug/124Release,5Release probes,9UI/profile verification recorded in [delivery report](docs/milestones/building-geometry-foundation.md). No larger-size/live-rotation/road/NPC activation; legacy conversion policy remains a prerequisite. Physical installation awaits device access/fresh backup.

@@ -1,5 +1,7 @@
 # Riverbend — first-era review candidate
 
+Latest engineering step: [building geometry foundation](docs/milestones/building-geometry-foundation.md) supports rectangular/oriented placement internally and captures dimensions for new construction. Current building sizes remain unchanged; visible rotation, roads and NPCs remain staged.
+
 Shared design source of truth: [baseline](DESIGN_BASELINE.md), [dependency-aware roadmap](DEVELOPMENT_ROADMAP.md), [decision register](DESIGN_DECISIONS.md), [media requirements](MEDIA_REQUIREMENTS.md) and [sync/access record](DESIGN_SYNC.md). Read these before extending the game. The current first-era **core candidate** does not yet include roads, rotation/building-specific footprints, NPCs, monuments, audio or regional civilizations. Those approved future directions are now synchronized and staged; no game behavior changed in the documentation sync.
 
 Separate local [Civilization-Media repository](../Civilization-Media/README.md) preserves original masters and optimized-export copies with local Git LFS and provenance/license/backlog records; no remote or app build dependency. Older candidate artwork is preserved while historically inspired realism/high saturation/sharp materials/warm light is the approved target. Missing ChatGPT concept binaries were not imported.

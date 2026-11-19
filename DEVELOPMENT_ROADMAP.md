@@ -132,3 +132,5 @@ Optional actionable guidance and legitimate recommendation-following progression
 ## Current execution — geometry foundation
 
 Dima authorized starting the bounded next geometry task after0b6b738. Implement shared rectangular/oriented geometry and optional new-building dimension snapshots, retaining existing square catalogs and player experience. Follow docs/superpowers/plans/2026-11-19-building-geometry.md. Legacy geometry activation/migration policy, larger sizes, rotation art/UI, roads and NPCs remain subsequent bounded stages.
+
+Geometry foundation delivered: shared occupied geometry and additive optional snapshots for new construction; current catalog/art unchanged, legacy nil fields not rewritten. Full135Debug/124Release,5Release probes,9UI/profile verification recorded in [delivery report](docs/milestones/building-geometry-foundation.md). No larger-size/live-rotation/road/NPC activation; legacy conversion policy remains a prerequisite. Physical installation awaits device access/fresh backup.

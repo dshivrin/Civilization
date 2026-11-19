@@ -80,3 +80,5 @@ The latest direct sync instruction approves broader **future planning**, the rev
 ## Geometry foundation authorization
 
 Dima directly said “Start implementing” after the recovered next-step summary. This authorizes the bounded geometry foundation described in docs/superpowers/specs/2026-11-19-building-geometry-design.md. Exact larger dimensions, legacy-size conversion, visible rotation/art variants and roads/NPC implementation remain staged. Optional captured geometry for new builds and zero-orientation legacy fallback are engineering choices; no eager save rewrite or implicit relocation conversion.
+
+Geometry foundation implementation:70418ea(core/session/tests),d0a3284(render consumers);135Debug/124Release,5Release API probes and9UIcases per profile pass. Optional legacy fields remain nil unless already present; no assumption that this settles legacy conversion before larger-size activation.
