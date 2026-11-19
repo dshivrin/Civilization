@@ -228,7 +228,7 @@ public final class GameSession {
         var warning: String?
     }
     /// Read and simulate off the UI thread. Invalid save bytes remain untouched.
-    nonisolated private static func restore(now: Date, saveURL: URL?, configuration providedConfiguration: GameConfiguration?) throws -> Restoration {
+    nonisolated private static func restore(now: Date, saveURL: URL?, configuration providedConfiguration: GameConfiguration?, requireExistingSave: Bool = false) throws -> Restoration {
         let configuration = try providedConfiguration ?? GameConfiguration.bundled()
         let url = try saveURL ?? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             .appendingPathComponent("Civilization/settlement-v1.json")
@@ -240,6 +240,8 @@ public final class GameSession {
                 engine = try GameEngine(state: saved, configuration: configuration)
                 engine.advance(to: now, offline: true)
                 message = "Welcome back. Your settlement kept producing (up to \(Int(configuration.offlineCapSeconds / 3600)) hours)."
+            } else if requireExistingSave {
+                throw GameError.invalidSave("The registered game file is missing.")
             }
         } catch {
             warning = "Your existing save could not be loaded and has been preserved. This temporary settlement will not overwrite it. \(error.localizedDescription)"
@@ -261,10 +263,10 @@ public final class GameSession {
         savesEnabled = restoration.warning == nil
         if savesEnabled { save() }
     }
-    public static func load(clock: @escaping () -> Date = Date.init, saveURL: URL? = nil, configuration: GameConfiguration? = nil) async throws -> GameSession {
+    public static func load(clock: @escaping () -> Date = Date.init, saveURL: URL? = nil, configuration: GameConfiguration? = nil, requireExistingSave: Bool = false) async throws -> GameSession {
         let now = clock()
         let restored = try await Task.detached(priority: .userInitiated) {
-            try restore(now: now, saveURL: saveURL, configuration: configuration)
+            try restore(now: now, saveURL: saveURL, configuration: configuration, requireExistingSave: requireExistingSave)
         }.value
         try Task.checkCancellation()
         let session = GameSession(restoration: restored, clock: clock)
@@ -284,6 +286,12 @@ public final class GameSession {
     }
     public func resume() { advance(to: clock(), offline: true); save() }
     public func background() { exitRoadMode(); cancelRelocationPreview(); advance(to: clock()); save() }
+    /// A failed regular save blocks a game switch; protected temporary sessions never overwrite their source.
+    public func suspendForGameSwitch() throws {
+        cancel(); inspectedBuilding = nil
+        if isActive { setActive(false) } else { save() }
+        if savesEnabled, let warning = persistenceWarning { throw GameError.invalidSave(warning) }
+    }
     public func save() {
         guard savesEnabled else { return }
         do {
