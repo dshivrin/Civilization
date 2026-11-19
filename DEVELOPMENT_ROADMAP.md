@@ -4,6 +4,11 @@
 
 See [CLU-001–004 source brief and visual grids](docs/design/sources/2026-11-19-city-layout-usability.md): sprite footprint correction, residential neighborhoods, construction indicator/selection investigation, and compact inspector. Documentation authorized; exact population bonuses, courtyard occupancy and implementation scheduling remain open. Preserve active authorized milestone order; no catalog, economy or save changes implied.
 
+## Active S1-Saves specification
+
+S1-UX is delivered; now execute authorized SAVE-001/DEV-001 per [reconciled design](docs/superpowers/specs/2026-11-19-s1-saves-design.md) and [plan](docs/superpowers/plans/2026-11-19-s1-saves.md). Separate version1 library index; existing normal/developer paths retained; new UUID games have independent files and actual starting state. Save-before-switch, validated targets, no silent resets on corruption, atomic selection publication, library-owned lifecycle, isolated Debug fixtures. Names/default presentation are delegated choices; no deletion/cloud/world expansion. Preserve all future backlog. No save-management product code preceded this design commit.
+
+
 ## S1-UX delivery checkpoint — 19 November 2026
 
 S1-UX is implemented **awaiting human review**, final product60046d2; [actual milestone evidence](docs/milestones/s1-ux.md) records155Debug/144Release, five Release probes,16native cases/profile plus affected final checks, original stationary/translucent relocation/grid, pending retrace/Undo, icon-default goals/adjacent Explore/Build roads. Signed final iPhone update installed after fresh production-validated backup; both saves byte-identical pre-launch and normal launch succeeds. Human enjoyment/art/touch/sustained hardware performance are open. No economy/catalog/geography/save-schema change. Continue directly to authorized **S1-Saves** after its detailed design reconciliation, then S1-Geography (exact dimensions/migration review gate), then environment graphics. Preserve all previous roadmap requirements and both repositories. Native same-chat Goal/checkpoint remains active; no quota bypass/duplicate session or guaranteed reset timer claim.
@@ -97,8 +102,8 @@ Current authorized milestone: **S1-UX** after the direct autonomous-execution in
 | HUD-001 — Compact goals HUD with three display states | Awaiting Human Review | P1 | GOAL-001, PLAY-001 | Agree exact three states; switch all states accessibly on phone/tablet with chapter/progress/action guidance retained and map readable. | S1-UX | P1 | 1a6f508, dc13ce6, 8ad0a9a, ebd33fc, 60046d2; S1-UX report |
 | HUD-002 — Explore icon beside goals icon | Awaiting Human Review | P1 | HUD-001 | Adjacent accessible goals/Explore controls open existing exploration without losing or committing another preview. | S1-UX | P1 | 1a6f508, dc13ce6, 8ad0a9a, ebd33fc, 60046d2; S1-UX report |
 | HUD-003 — Move Roads into Build menu | Awaiting Human Review | P1 | RD-001, UI-001 | Road tools discoverable in Build; remain separate from 20 progression building types; preserve road edit/placement/cancel behavior. | S1-UX | P1 | 1a6f508, dc13ce6, 8ad0a9a, ebd33fc, 60046d2; S1-UX report |
-| SAVE-001 — New game and independent saves | Approved | P1 | CORE-002, DEV-001 | Specify slot ownership/selection; create/reload/switch independent normal games without overwriting existing progress; atomic migration and offline/reward isolation verified. | S1-Saves | P1 | — |
-| DEV-001 — Separate developer and regular player experiences | Approved | P1 | CORE-001, CORE-002 | Preserve isolated developer store and Release exclusions; ordinary new-game flow has no scenario/grant/reset controls; slot switching cannot mix histories. | S1-Saves | P1 | Existing Debug isolation at 4d4211e; regular-flow refinement pending |
+| SAVE-001 — New game and independent saves | In Progress | P1 | CORE-002, DEV-001 | Specify slot ownership/selection; create/reload/switch independent normal games without overwriting existing progress; atomic migration and offline/reward isolation verified. | S1-Saves | P1 | — |
+| DEV-001 — Separate developer and regular player experiences | In Progress | P1 | CORE-001, CORE-002 | Preserve isolated developer store and Release exclusions; ordinary new-game flow has no scenario/grant/reset controls; slot switching cannot mix histories. | S1-Saves | P1 | Existing Debug isolation at 4d4211e; regular-flow refinement pending |
 | MAP-001 — Larger persistent geographical maps | Approved | P2 | CORE-002, SAVE-001 | Approve size/performance and legacy migration policy; reload preserves geography/IDs/landmarks/occupied tiles; no forced existing-save replacement. | S1-Geography | P1 | — |
 | MAP-002 — Accessible stone quarry on settlement side of river | Approved | P1 | MAP-001, PLAY-001 | Quarry is reachable for legitimate first-era discovery/extraction without a bridge; preserve existing deposit IDs and player investments in old saves. | S1-Geography | P1 | — |
 | MAP-003 — Cloud-covered unexplored territory | Approved | P2 | MAP-001, MED-001 | Clouds hide unknown content without leaks; readable discovery edges and reduced-motion/performance fallback; no construction on hidden land. | S1-Geography | P1 | — |
@@ -116,7 +121,7 @@ The detailed stage descriptions/acceptance below and requirement rows above join
 | S0 synchronization/media | In Progress | P0 | Canonical review; complete master reply/reconciliation | P1, S1 original sync | c9ecdd4; media 697b486; current sync pending commit |
 | S1 first-era candidate | Awaiting Human Review | P1 | Historical acceptance criteria below; S1-UX follows reconciled brief | Direct playability approval; P1 | 62767da, 7047d38, 3ecc846, ec36baf; current evidence 4d4211e |
 | S1-UX feedback | Awaiting Human Review | P1 | COORD-001 reply/reconciliation; Q-MOVE/RD/HUD | P1 | — |
-| S1-Saves | Approved | P1 | Q-SAVE-1 migration/UX brief | P1 | Debug isolation only at 4d4211e; independent slots absent |
+| S1-Saves | In Progress | P1 | Q-SAVE-1 migration/UX brief | P1 | Debug isolation only at 4d4211e; independent slots absent |
 | S1-Geography | Approved | P2 | Q-MAP-1; save compatibility; measured budget | P1 | Expedition foundation only at 4d4211e |
 | S2 dimensions/rotation | Approved | P2 | Q-FP-1/2; legacy preservation; directional art | S1 original approval | 70418ea, d0a3284 foundation only |
 | S3 decorative roads | Awaiting Human Review | P1 | Current geometry; physical usability review pending | Direct move-on approval after ed23e2e | 4ed64ac, 24fd575, 4d4211e |
@@ -293,3 +298,12 @@ These are additions to the same canonical roadmap, not competing milestones. The
 | UX-011 — Original numbered research proposal pending recovery | Proposed | P2 | UX-RESEARCH; source mapping | Retrieve exact definition and human approval before implementation; no inferred feature activation | Future bounded UX brief | GitHub comment7019888242 preserves candidate only | — |
 | UX-012 — Original numbered research proposal pending recovery | Proposed | P2 | UX-RESEARCH; source mapping | Retrieve exact definition and human approval before implementation; no inferred feature activation | Future bounded UX brief | GitHub comment7019888242 preserves candidate only | — |
 | UX-013 — Original numbered research proposal pending recovery | Proposed | P2 | UX-RESEARCH; source mapping | Retrieve exact definition and human approval before implementation; no inferred feature activation | Future bounded UX brief | GitHub comment7019888242 preserves candidate only | — |
+
+## City-layout follow-up backlog
+
+| ID / description | Status | Priority | Dependencies | Acceptance criteria | Target milestone | Approval reference | Implementation commit / evidence |
+|---|---|---|---|---|---|---|---|
+| CLU-001 — Sprite ground-plane scale and preview consistency | Deferred | P1 | FP/MOVE/MEDIA; bounded scheduling | Test adjacency/zoom/pan/select/move with unchanged occupancy | Future city-layout brief | 5ccca9a documentation-only feedback | — |
+| CLU-002 — Neighborhood direction and proposed bonuses/centerpiece | Proposed | P2 | Residential grouping/space/economy approval | No overlap/duplicate bonuses; pair/square/diagonal/irregular/reload cases | Future city-layout brief | 5ccca9a; examples not approved tuning | — |
+| CLU-003 — Independent construction and selection indicators | Deferred | P1 | Reproduction and bounded brief | Selected details match selection; timers independent and clean up | Future city-layout brief | 5ccca9a documentation-only feedback | — |
+| CLU-004 — Compact inspector polish | Proposed | P1 | Bounded brief | Safe areas/44-point controls/scroll/fixed close on phone/tablet | Future city-layout brief | 5ccca9a designer proposal | — |

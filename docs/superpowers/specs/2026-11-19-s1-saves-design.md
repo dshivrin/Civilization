@@ -1,0 +1,31 @@
+# S1-Saves — independent normal games and developer separation
+
+Authority: Dima's direct ordered autonomous instruction and GitHub issue #1. Stage follows delivered S1-UX (report0b4a8b4, final product60046d2); base6f5195c plus coordination-only5ccca9a. Preserve branch, v5 GameState/envelope, original save paths/bytes until ordinary simulation writes, geography, rewards/readiness, IDs, economy, iOS18/signing and SpriteKit. No geography activation yet.
+
+## Scope and engineering approach
+
+Add independent normal-game creation/resumption, preserving the existing settlement. Use a small validated version1 library index in Application Support/Civilization/games-index.json, separate from v5 game files. The legacy record has stable ID `legacy` and retains settlement-v1.json plus settlement-v1.json.developer at their original locations. New UUID games use games/<UUID>/settlement-v1.json and the existing per-session .developer suffix. Each game starts from the actual catalog defaults, without a scenario/grants/reset; names are optional, defaulting to Settlement N. No delete/reset/overwrite UI. Record mapID in index metadata as existing identity, not a new world generator.
+
+Alternatives: overwriting the normal file to start a new game risks data loss; copying the whole app container conflates developer/normal ownership. A separate index referencing stable per-game SaveStore paths is smallest and compatible with later approved geography. Exact persistence mechanics/naming defaults are delegated engineering choices, not historical human quotations.
+
+## Store contract
+
+GameLibraryStore in GamePersistence owns Codable SavedGame/GameLibraryIndex and atomic index writes. Validate version, unique IDs, selected ID membership, legacy-or-UUID identity, nonempty bounded display names and map identities, finite dates; compute file paths from validated IDs only (no stored arbitrary paths). First library creation writes index only, without rewriting/moving legacy bytes. An existing corrupt/unsupported index is preserved and throws; no fallback recreation/reset. Missing/corrupt target game must not silently become a new settlement. New game file is persisted before the new selected index is published; index failure leaves old selection intact. A newly created unindexed file can remain recoverable after IO failure; never delete another game's data. No multi-file economy transaction or cloud/backend.
+
+## Session/library ownership
+
+GameLibrary in GameApplication is @MainActor @Observable and owns active GameSession + index. Async startup/session restore uses the established validated loader. Game switching is serialized; reject concurrent requests. Suspend current simulation/cancel transient placement/road/inspection, save before switching and block a switch if ordinary progress cannot be saved. A deliberately protected temporary session from an already-corrupt original may be left while preserving its source bytes; it must never overwrite that source. Developer mode must be exited explicitly before managing regular games; ordinary create/resume never uses developer scenarios or grants. Failed target restore/index write retains the old selected game/session; restore its lifecycle according to the current scene activity. New/restored target session stays inactive until successful publication; activation/catch-up happens once through library-owned lifecycle. Paused unselected games catch up independently on resume under the existing8-hour cap.
+
+GameSession adds a narrow suspendForGameSwitch method that cancels previews, deactivates and verifies persistence success (existing protected-temporary session is safe to leave). Existing direct session APIs/fixtures and Release developer exclusions remain.
+
+## UI
+
+CivilizationApp owns GameLibrary rather than a single normal session. SettlementView receives a Games callback and library-owned lifecycle flag; its default direct-session lifecycle remains compatible with existing tests/benchmarks. Key the settlement view by gameID to reset old renderer/UI state on switching. Ordinary toolbar has a labeled Games control with44-point target. SavedGamesView uses a sheet/navigation stack, optional name field, Start new Stone Age game button, and explicit saved-game list/current marker/resume buttons. Busy/error feedback is readable; switching has no implicit purchase or destructive confirmation. Hide/disable regular-game management in developer mode and direct the player to existing normal-game return. Debug fresh/earned UI fixtures get a unique temporary library root and legacy file, never app production data. Benchmark route retains its existing isolated session.
+
+## Verification and acceptance
+
+Store tests: legacy bytes untouched/index reload, multiple unique game paths, malicious IDs/path traversal/unsupported version/duplicate or missing selected slot rejected, corrupt index/target bytes preserved. Session/library tests: fresh default normal game, independent resources/buildings/research/rewards/roads and resume/reload/offline cap, developer isolation per normal game, in-progress drafts discarded, invalid target/no-save data/index IO failure retains selection, serialized switching/lifecycle activation. Use temp directories only. Watch meaningful tests RED before implementing. Full core Debug/Release and five exclusion probes. Native create→play→new→switch→restart/continue on phone/mini/Pro, plus existing16-case regression suite affected by app ownership. Inspect new UI. Signed physical update only after fresh validated backup including old files/index if present; no reset/uninstall. Update canonical status/checkpoint and report to issue #1. Product/human/performance acceptance remains separate.
+
+## Exclusions and gates
+
+No deletion, cloud sync, extra playable cities in a game, world expansion, catalog-size activation, planner/neighborhood economics, audio/NPC/monuments, second era or renderer changes. S1-Geography exact dimensions/migration need the issue's review gate; slot map identity is recorded now without choosing those policies.

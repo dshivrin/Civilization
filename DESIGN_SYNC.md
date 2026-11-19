@@ -1,5 +1,10 @@
 # Design synchronization record and operating procedure
 
+## Active S1-Saves specification
+
+S1-UX is delivered; now execute authorized SAVE-001/DEV-001 per [reconciled design](docs/superpowers/specs/2026-11-19-s1-saves-design.md) and [plan](docs/superpowers/plans/2026-11-19-s1-saves.md). Separate version1 library index; existing normal/developer paths retained; new UUID games have independent files and actual starting state. Save-before-switch, validated targets, no silent resets on corruption, atomic selection publication, library-owned lifecycle, isolated Debug fixtures. Names/default presentation are delegated choices; no deletion/cloud/world expansion. Preserve all future backlog. No save-management product code preceded this design commit.
+
+
 ## S1-UX delivery checkpoint — 19 November 2026
 
 S1-UX is implemented **awaiting human review**, final product60046d2; [actual milestone evidence](docs/milestones/s1-ux.md) records155Debug/144Release, five Release probes,16native cases/profile plus affected final checks, original stationary/translucent relocation/grid, pending retrace/Undo, icon-default goals/adjacent Explore/Build roads. Signed final iPhone update installed after fresh production-validated backup; both saves byte-identical pre-launch and normal launch succeeds. Human enjoyment/art/touch/sustained hardware performance are open. No economy/catalog/geography/save-schema change. Continue directly to authorized **S1-Saves** after its detailed design reconciliation, then S1-Geography (exact dimensions/migration review gate), then environment graphics. Preserve all previous roadmap requirements and both repositories. Native same-chat Goal/checkpoint remains active; no quota bypass/duplicate session or guaranteed reset timer claim.
@@ -197,3 +202,5 @@ Detailed MC-001 text was recovered through section 7, with an explicit connector
 ## S1-UX report publication and research follow-up
 
 S1-UX report/checkpoint0b4a8b4 and final product60046d2 pushed to first-era-review after refreshing remote; handover actually posted as issue #1 comment7020189361. New research follow-up comment7019888242 recovered from the same channel and archived in docs/design/sources/2026-11-19-github-ux-research-followup.md. Overall direction endorsed; specific editor/planner/layout/UI details remain proposals and UX-001–013 exact mapping is missing. Preserve the thirteen candidate IDs without inventing numbered definitions. This does not expand current ordered S1-Saves/Geography/environment work or authorize second-era systems. Both working trees were clean before this follow-up documentation update; media697b486 unchanged.
+
+City-layout coordination source5ccca9a, docs/design/sources/2026-11-19-city-layout-usability.md, is preserved as documentation-only backlog. CLU-001 sprite/ground footprint and CLU-003 construction/selection feedback require bounded investigation; neighborhood direction CLU-002 has unapproved grouping/capacity/centerpiece economics; CLU-004 compact inspector is a designer proposal. Suggested Seed0.6 label is not a schedule/authorization. Existing FP/MOVE/HUD/UX and all prior IDs retained; no implementation added to S1-Saves. Referenced schematic SVGs were not in the fetched commit and are not claimed imported assets.

@@ -1,5 +1,10 @@
 # Design decisions and unresolved details
 
+## Active S1-Saves specification
+
+S1-UX is delivered; now execute authorized SAVE-001/DEV-001 per [reconciled design](docs/superpowers/specs/2026-11-19-s1-saves-design.md) and [plan](docs/superpowers/plans/2026-11-19-s1-saves.md). Separate version1 library index; existing normal/developer paths retained; new UUID games have independent files and actual starting state. Save-before-switch, validated targets, no silent resets on corruption, atomic selection publication, library-owned lifecycle, isolated Debug fixtures. Names/default presentation are delegated choices; no deletion/cloud/world expansion. Preserve all future backlog. No save-management product code preceded this design commit.
+
+
 ## S1-UX delivery checkpoint — 19 November 2026
 
 S1-UX is implemented **awaiting human review**, final product60046d2; [actual milestone evidence](docs/milestones/s1-ux.md) records155Debug/144Release, five Release probes,16native cases/profile plus affected final checks, original stationary/translucent relocation/grid, pending retrace/Undo, icon-default goals/adjacent Explore/Build roads. Signed final iPhone update installed after fresh production-validated backup; both saves byte-identical pre-launch and normal launch succeeds. Human enjoyment/art/touch/sustained hardware performance are open. No economy/catalog/geography/save-schema change. Continue directly to authorized **S1-Saves** after its detailed design reconciliation, then S1-Geography (exact dimensions/migration review gate), then environment graphics. Preserve all previous roadmap requirements and both repositories. Native same-chat Goal/checkpoint remains active; no quota bypass/duplicate session or guaranteed reset timer claim.
@@ -170,3 +175,12 @@ RD-005 pending correction: individual endpoint Undo removes one preview cell wit
 | UX-011 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
 | UX-012 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
 | UX-013 | Research proposal identifier retained; exact original numbered definition not recovered | Proposed | Recover source mapping and bounded approval before implementation; comment7019888242 |
+
+## City-layout feedback (documentation only)
+
+| ID | Decision | Design status | Gate / source |
+|---|---|---|---|
+| CLU-001 | Align sprite ground scale/anchor/perspective with unchanged occupancy; roof overhang allowed | Feedback retained, implementation deferred | 5ccca9a; bounded brief/scheduling |
+| CLU-002 | Connected residences/neighborhood direction; capacity/centerpiece/grouping examples not finalized | Direction retained; exact mechanics proposed | 5ccca9a; explicit economy/space approval |
+| CLU-003 | Investigate selected building versus unrelated global construction HUD; propose compact anchored independent indicators | Feedback retained; proposed implementation | 5ccca9a; reproduce root cause and bounded brief |
+| CLU-004 | Compact inspector/header/staffing/priority layout | Proposed | 5ccca9a; bounded brief/scheduling |
