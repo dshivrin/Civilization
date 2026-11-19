@@ -89,3 +89,7 @@ All five canonical documents and updated entry-point relative links resolve. All
 ## Next action
 
 Execute S1final candidate quality assessment: full post-correction UI suites on3profiles, consolidate current legitimate progression/idle gaps, retain real hardware limits and install safely after reconnection. Then S2footprint/rotation brief and migration decision precede S3decorative roads. This task stops after synchronized docs/media foundation and commits; no roads, resized building catalog, agents, audio, monuments or new-era content was implemented.
+
+## Priority update — first-era playability
+
+Dima directly instructs continued first-era tasks with player start/understanding/completion as priority; graphics, roads and NPCs secondary. Approved focused contextual guidance/explanation/navigation, real-cost progression and recovery checks preserve current economy/chapters/saves. Recorded in baseline/decisions/roadmap before implementation. Confirmed source/UI gap: chapter2knowledge-dependent research precedes chapter5storytelling-circle objective; collapsed goals only showed counts. Bounded optional guidance is the chosen routine implementation, not a new gameplay requirement.

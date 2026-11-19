@@ -34,7 +34,9 @@ Deliver the five root design documents, source excerpts with access limits, upda
 
 Acceptance: all workstreams/IDs trace to a human requirement or marked proposal; actual1×1/2×2footprints and access gaps documented; media registry/license entries resolve; master hashes match game originals; LFS objects validate; two clean Git repos; game changes are documentation only.
 
-## S1 — First-era completion, stabilization and evidence (recommended next task)
+## S1 — First-era completion, stabilization and evidence (active priority)
+
+Dima explicitly prioritizes start/understand/complete. Add optional contextual prerequisite/action guidance where current chapters leave an instructional gap (knowledge producer is a later-chapter objective). Preserve real costs and chapters; no automatic purchase or visual/road/NPC expansion. Implement via the [playability plan](docs/superpowers/plans/2026-11-19-first-era-playability.md).
 
 Baseline: implemented game source at60e3268, documentation throughfea9e16and this sync. Keep gameplay/art unchanged except confirmed defects. Reconcile existing artifacts rather than repeating measurements without a reason.
 

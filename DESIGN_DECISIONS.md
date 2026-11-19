@@ -11,6 +11,7 @@ Synchronized19November2026. Status vocabulary and precedence: [baseline](DESIGN_
 | CORE-002 |Persistent geography, IDs, rewards/readiness; no silent revocation (S1/prior0.2.7)|Approved|v5implemented; future migrations must preserve|
 | ERA-001 |All active progression catalog buildings/technologies, required resource discovery, five pillars (direct0.2.7)|Approved|Implemented20/20current counts; historical partial-pillar rule superseded|
 | GOAL-001 |Seven measurable chapters and out-of-order credit, no duplicate historical rewards (direct0.2.7)|Approved|Implemented; four-chapter proposals superseded|
+| PLAY-001 |Dima prioritizes start/understand/complete first era over looks/roads/NPCs; contextual optional dependency guidance and existing-screen navigation |Approved current work|Implementation/verification next; no tuning or requirement change|
 | UI-001 |Compact expandable aligned Building/Research cards, icon costs, individual red deficits (direct feedback)|Approved|Implemented through60e3268; current code unchanged by sync|
 | FP-001 |Individually balanced dimensions, rectangles and rotation (S1)|Approved requirement|Unimplemented beyond existing width/height enumeration|
 | FP-002 |Unique immovable1×1fireplace, existing `campfire` identity (S1/R1)|Approved invariant|Implemented; current palisade also1×1but not required to remain so forever|

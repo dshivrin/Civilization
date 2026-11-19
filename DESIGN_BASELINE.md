@@ -19,6 +19,10 @@ Five development pillars: economy, science, security, culture and population. Ne
 
 GameCore owns authoritative economy, construction, population, exploration and progression. Rendering submits commands; decorative systems must not mint resources, assign real workers or change simulation outcomes. Saves are currently version5, migrate older supported versions, write atomically and cap offline catch-up at8hours. Preserve map identity, original goal reward IDs/history and ordinary time handling. Debug tools use isolated saves and compile out of Release. Existing drag placement, relocation, camera pan/pinch and fixed campfire behavior remain regression boundaries.
 
+## Current delivery priority — first-era playability
+
+Dima directly instructs: prioritize a player starting, understanding what to do and completing the first era. Graphics/looks, roads and NPCs are secondary. This authorizes focused guidance/usability fixes and legitimate progression/recovery verification now; leave future feature workstreams staged. Keep existing chapter/readiness conditions and numerical balance. Contextual optional next-step explanations may expose prerequisite production/research and navigate to existing screens; no automatic transactions or new progression gates. See [execution plan](docs/superpowers/plans/2026-11-19-first-era-playability.md).
+
 ## Observed implementation at fea9e16
 
 | Area | Observed state | Limits / next evidence |
