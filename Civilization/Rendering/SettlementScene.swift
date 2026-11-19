@@ -93,7 +93,7 @@ final class SettlementScene: SKScene {
                                                   width: configuration.map.width, height: configuration.map.height)
         worldCamera.position = CGPoint(x: point.x, y: point.y)
     }
-    func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
+    func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
         if centerRequest != lastCenterRequest { recenter(); lastCenterRequest = centerRequest }
         let discoveryChanged = state.discoveredTiles != renderedDiscovery
         if discoveryChanged || reduceMotion != renderedReduceMotion {
@@ -109,7 +109,10 @@ final class SettlementScene: SKScene {
         }
         newlyPlacedIDs = hasDisplayedSnapshot ? Set(state.buildings.map(\.id)).subtracting(renderedBuildings.map(\.id)) : []
         fireAnimationIDs = Set(state.buildings.filter { $0.isOperational && ($0.kind == .campfire || ($0.kind == .potteryWorkshop && activeProductionIDs.contains($0.id))) }.prefix(VisualActivityPolicy.maximumSmokeParticles / 2).map(\.id))
-        let signature = state.buildings.map { "\($0.id):\($0.kind.rawValue):\($0.origin.x),\($0.origin.y):\($0.level):\($0.isOperational)" }.joined(separator: "|")
+        let signature = state.buildings.map { building in
+            let footprint = building.occupiedFootprint(in: configuration)
+            return "\(building.id):\(building.kind.rawValue):\(building.origin.x),\(building.origin.y):\(building.level):\(building.isOperational):\(footprint.width)x\(footprint.height):\(building.resolvedOrientation.rawValue)"
+        }.joined(separator: "|")
         if signature != renderedVisualSignature || discoveryChanged || movingBuildingID != renderedMovingID || activeProductionIDs != renderedActiveIDs || reduceMotion != renderedReduceMotion {
             buildingLayer.removeAllChildren()
             for building in state.buildings where state.discoveredTiles == nil || state.discoveredTiles!.contains(building.origin) { drawBuilding(building, faded: building.id == movingBuildingID) }
@@ -130,10 +133,10 @@ final class SettlementScene: SKScene {
         hasDisplayedSnapshot = true
         ghostLayer.removeAllChildren()
         if let kind, let tile {
-            let definition = configuration.definition(kind)
+            let footprint = previewFootprint ?? configuration.definition(kind).footprint
             // Clamp visual offsets for taps beyond the map. The core remains authoritative.
             if (-1000..<1000).contains(tile.x) && (-1000..<1000).contains(tile.y) {
-                for covered in definition.tiles(at: tile) {
+                for covered in footprint.tiles(at: tile) {
                     let node = SKShapeNode(path: IsometricProjection.diamond(at: IsometricProjection.point(covered)))
                     node.fillColor = (valid ? UIColor.systemMint : UIColor.systemRed).withAlphaComponent(0.42)
                     node.strokeColor = valid ? .systemMint : .systemRed; node.lineWidth = 2
@@ -148,7 +151,7 @@ final class SettlementScene: SKScene {
                 }
             }
         } else if let inspected {
-            for covered in configuration.definition(inspected.kind).tiles(at: inspected.origin) {
+            for covered in inspected.tiles(in: configuration) {
                 let node = SKShapeNode(path: IsometricProjection.diamond(at: IsometricProjection.point(covered)))
                 node.fillColor = .clear; node.strokeColor = .systemYellow; node.lineWidth = 2
                 ghostLayer.addChild(node)
@@ -252,13 +255,13 @@ final class SettlementScene: SKScene {
     }
     private func drawBuilding(_ building: PlacedBuilding, into layer: SKNode? = nil, faded: Bool = false) {
         let definition = configuration.definition(building.kind)
-        let origin = IsometricProjection.point(building.origin)
-        // Footprint center is the replaceable sprite's ground-contact anchor.
-        let offset = CGFloat(definition.width - 1)
-        let anchor = CGPoint(x: origin.x, y: origin.y - offset * 16)
+        let footprint = building.occupiedFootprint(in: configuration)
+        // Both logical axes contribute to the ground-contact anchor.
+        let center = footprint.center(at: building.origin)
+        let anchor = CGPoint(x: center.x, y: center.y)
         let node = SKNode(); node.name = definition.assetKey; node.position = anchor
         node.userData = ["buildingID": building.id]
-        node.zPosition = CGFloat(building.origin.x + building.origin.y)
+        node.zPosition = CGFloat(building.origin.x + building.origin.y + footprint.width + footprint.height - 2)
         if let texture = EraArt.texture(building.kind), let visual = EraArt.catalog?.building(building.kind) {
             let sprite = SKSpriteNode(texture: texture)
             sprite.name = "artSprite"
@@ -296,7 +299,7 @@ final class SettlementScene: SKScene {
             (layer ?? buildingLayer).addChild(node)
             return
         }
-        let shadow = SKShapeNode(ellipseOf: CGSize(width: definition.width == 1 ? 40 : 94, height: 30)); shadow.fillColor = UIColor.black.withAlphaComponent(0.20); shadow.strokeColor = .clear; shadow.position = CGPoint(x: 7,y: -5); node.addChild(shadow)
+        let shadow = SKShapeNode(ellipseOf: CGSize(width: footprint.width == 1 && footprint.height == 1 ? 40 : 94, height: 30)); shadow.fillColor = UIColor.black.withAlphaComponent(0.20); shadow.strokeColor = .clear; shadow.position = CGPoint(x: 7,y: -5); node.addChild(shadow)
         if building.kind == .campfire || building.kind == .storytellingCircle {
             let ring = SKShapeNode(ellipseOf: CGSize(width: building.kind == .campfire ? 35 : 85, height: building.kind == .campfire ? 19 : 43)); ring.strokeColor = UIColor(red: 0.76,green: 0.73,blue: 0.60,alpha: 1); ring.lineWidth = 7; node.addChild(ring)
             let log = SKShapeNode(rectOf: CGSize(width: 29,height: 7), cornerRadius: 3); log.fillColor = .brown; log.strokeColor = .clear; log.zRotation = 0.3; node.addChild(log)

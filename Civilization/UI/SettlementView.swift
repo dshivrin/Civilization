@@ -212,7 +212,7 @@ struct SettlementView: View {
                 let definition = session.configuration.definition(kind)
                 Label(definition.name, systemImage: "hand.draw.fill").font(.headline)
                 Text(session.movingBuildingID == nil ? cost(definition.cost) : "Move building · no cost").font(.caption).foregroundStyle(parchment.opacity(0.7))
-                Text(session.placementIssue?.localizedDescription ?? "Valid location · \(definition.width)×\(definition.height) tiles")
+                Text(session.placementIssue?.localizedDescription ?? "Valid location · \(session.previewFootprint?.width ?? definition.width)×\(session.previewFootprint?.height ?? definition.height) tiles")
                     .font(.caption).foregroundStyle(session.placementIssue == nil ? Color.mint : Color.orange)
                     .fixedSize(horizontal: false, vertical: true)
                 if let tile = session.selectedTile { Text("Tile \(tile.x), \(tile.y) · drag to move, release to place").font(.system(size: 10)).foregroundStyle(parchment.opacity(0.6)) }
@@ -492,7 +492,7 @@ struct SettlementView: View {
                     ProgressView(value: constructionProgress(building))
                     Text("\(Int(ceil(building.constructionRemainingSeconds ?? 0)))s remaining").font(.caption)
                 }
-                Text("Tile \(building.origin.x), \(building.origin.y) · \(definition.width)×\(definition.height) footprint").font(.caption).accessibilityIdentifier("inspectedBuildingPosition")
+                Text("Tile \(building.origin.x), \(building.origin.y) · \(building.occupiedFootprint(in: session.configuration).width)×\(building.occupiedFootprint(in: session.configuration).height) footprint").font(.caption).accessibilityIdentifier("inspectedBuildingPosition")
                 if building.kind != .campfire {
                     Button("Move building") { session.beginRelocation(buildingID: building.id) }
                         .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("moveBuilding")

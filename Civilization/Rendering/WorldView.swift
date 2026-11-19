@@ -35,7 +35,7 @@ struct WorldView: UIViewRepresentable {
         scene.isPaused = session.shouldPauseAnimation
         scene.reduceMotion = reduceMotion
         scene.activeProductionIDs = session.operatingProductionBuildingIDs
-        scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
+        scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, previewFootprint: session.previewFootprint, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
     }
     @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {
         let scene: SettlementScene
@@ -49,7 +49,7 @@ struct WorldView: UIViewRepresentable {
         private func building(at point: CGPoint) -> PlacedBuilding? {
             if let id = scene.buildingID(at: point) { return session.state.buildings.first { $0.id == id } }
             let tile = IsometricProjection.tile(point)
-            return session.state.buildings.first { session.configuration.definition($0.kind).tiles(at: $0.origin).contains(tile) }
+            return session.state.buildings.first { $0.tiles(in: session.configuration).contains(tile) }
         }
         private func movableBuilding(at point: CGPoint) -> PlacedBuilding? {
             guard !session.isDragMode else { return nil }
