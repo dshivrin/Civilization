@@ -32,6 +32,11 @@ public extension GameSession {
             }
         }
     }
+    func undoRoadTile() {
+        guard roadTool != nil else { return }
+        if !roadDraft.isEmpty { roadDraft.removeLast() }
+        roadLastSample = roadDraft.last
+    }
     func clearRoadStroke() { roadDraft = [];roadLastSample = nil }
     func exitRoadMode() { roadTool = nil;clearRoadStroke() }
     func confirmRoadStroke() {

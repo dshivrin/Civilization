@@ -111,3 +111,20 @@ private let roadSessionEpoch = Date(timeIntervalSince1970:60_000_000)
     #expect(s.currentInspection?.id == 0)
     s.confirmRoadStroke(); #expect(s.state == before)
 }
+
+@MainActor @Test func undoRoadPreviewRemovesOneTileAndNeverEditsCommittedRoads() throws {
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let s = try roadSession(folder.appendingPathComponent("save.json"))
+    let a = try #require(openRoadSites(s).first { p in (0..<3).allSatisfy { s.roadIssue(at: Tile(x: p.x + $0, y: p.y)) == nil } })
+    let b = Tile(x: a.x + 1, y: a.y), c = Tile(x: a.x + 2, y: a.y)
+    s.chooseRoadTool(.draw(.stone)); s.extendRoadStroke(to: a); s.confirmRoadStroke()
+    let committed = s.state
+    s.extendRoadStroke(to: a); s.extendRoadStroke(to: c)
+    s.undoRoadTile(); #expect(s.roadDraft == [a,b])
+    #expect(s.state == committed && s.roadTool == .draw(.stone))
+    s.undoRoadTile(); s.undoRoadTile(); s.undoRoadTile()
+    #expect(s.roadDraft.isEmpty && s.state == committed)
+    s.extendRoadStroke(to: c); #expect(s.roadDraft == [c])
+    s.cancel(); #expect(s.state == committed)
+}

@@ -128,7 +128,7 @@ final class RelocationUITests: XCTestCase {
         func edge(_ fraction: Double) -> CGVector {
             CGVector(dx: inner.dx + (outer.dx - inner.dx) * fraction, dy: inner.dy + (outer.dy - inner.dy) * fraction)
         }
-        map.coordinate(withNormalizedOffset: edge(0.51)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(Tile(x: c.map.campfire.x - 1, y: c.map.campfire.y + 2))))
+        map.coordinate(withNormalizedOffset: edge(0.55)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(Tile(x: c.map.campfire.x - 1, y: c.map.campfire.y + 2))))
         XCTAssertTrue(app.buttons["cancelRelocation"].exists)
         XCTAssertEqual(app.staticTexts["placementTile"].label, preview, "A touch starting outside must pan even if recognition occurs inside")
         app.buttons["Center on settlement"].tap()
@@ -136,7 +136,7 @@ final class RelocationUITests: XCTestCase {
             let p = point(t)
             return g.relocationIssue(buildingID: b.id, at: t) == nil && p.dx > inner.dx + 0.04 && p.dx < 0.61 && (0.32...0.66).contains(p.dy)
         })
-        map.coordinate(withNormalizedOffset: edge(0.49)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(Tile(x: destination.x + 1, y: destination.y))))
+        map.coordinate(withNormalizedOffset: edge(0.45)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(Tile(x: destination.x + 1, y: destination.y))))
         XCTAssertFalse(app.buttons["cancelRelocation"].exists)
         XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("Tile \(destination.x), \(destination.y)"))
     }
@@ -595,7 +595,16 @@ final class RelocationUITests: XCTestCase {
         explore.tap(); XCTAssertTrue(app.staticTexts["explorationCoverage"].waitForExistence(timeout: 5))
         explore.tap(); XCTAssertFalse(app.staticTexts["explorationCoverage"].exists)
         XCTAssertFalse(app.buttons["openRoads"].exists)
-        openRoads(app)
+        openRoads(app, style: "stone")
+        XCTAssertEqual(app.buttons["roadStyle-stone"].value as? String, "Selected")
+        app.buttons["roadMode-replace"].tap()
+        XCTAssertEqual(app.buttons["roadStyle-stone"].value as? String, "Selected")
+        app.buttons["roadMode-draw"].tap()
+        app.otherElements["settlementMap"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.65)).tap()
+        XCTAssertEqual(app.staticTexts["roadDraftCount"].label, "1 preview tiles")
+        XCTAssertTrue(app.buttons["undoRoadTile"].isHittable)
+        app.buttons["undoRoadTile"].tap()
+        XCTAssertEqual(app.staticTexts["roadDraftCount"].label, "0 preview tiles")
         XCTAssertEqual(app.staticTexts["roadTileCount"].label, "0 roads placed")
         XCTAssertTrue(app.buttons["confirmRoadStroke"].exists)
         app.buttons["closeRoads"].tap()
@@ -606,13 +615,13 @@ final class RelocationUITests: XCTestCase {
         for _ in 0..<2 where button.value as? String != "Expanded" { button.tap() }
         XCTAssertEqual(button.value as? String, "Expanded")
     }
-    @MainActor private func openRoads(_ app: XCUIApplication) {
+    @MainActor private func openRoads(_ app: XCUIApplication, style: String = "trodden") {
         app.buttons["Build"].tap()
         let roads = app.buttons["buildingCategory-Roads"]
         let categories = app.scrollViews["buildingCategories"]
         if !roads.isHittable && categories.exists { categories.swipeLeft() }
         roads.tap()
-        app.buttons["roadCatalog-trodden"].tap()
+        app.buttons["roadCatalog-" + style].tap()
         XCTAssertTrue(app.buttons["confirmRoadStroke"].waitForExistence(timeout: 5))
     }
 

@@ -6,6 +6,10 @@ struct RoadControlsView: View {
     let session: GameSession
     @State private var style: RoadStyle = .trodden
     @State private var expanded = true
+    init(session: GameSession) {
+        self.session = session
+        _style = State(initialValue: session.roadTool?.style ?? .trodden)
+    }
     var body: some View {
         VStack(alignment:.leading,spacing:8) {
                 HStack {
@@ -26,6 +30,7 @@ struct RoadControlsView: View {
                             else { session.chooseRoadTool(.draw(value)) }
                         }.font(.caption.bold()).frame(maxWidth:.infinity,minHeight:44)
                             .background(session.roadTool?.style == value ? .white.opacity(0.16) : .clear,in:RoundedRectangle(cornerRadius:8))
+                            .accessibilityValue(session.roadTool?.style == value ? "Selected" : "Not selected")
                             .accessibilityLabel(value.title).accessibilityIdentifier("roadStyle-"+value.rawValue)
                     }
                 }
@@ -46,6 +51,10 @@ struct RoadControlsView: View {
                     .font(.caption2).foregroundStyle(parchment.opacity(0.65)).fixedSize(horizontal:false,vertical:true)
                 } }
                 HStack {
+                    Button(action: session.undoRoadTile) {
+                        Image(systemName: "arrow.uturn.backward").frame(width: 44, height: 44)
+                    }.buttonStyle(.plain).background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 8))
+                        .disabled(session.roadDraft.isEmpty).accessibilityLabel("Undo last preview tile").accessibilityIdentifier("undoRoadTile")
                     Button("Clear",action:session.clearRoadStroke).frame(maxWidth:.infinity,minHeight:44).buttonStyle(.bordered)
                         .disabled(session.roadDraft.isEmpty).accessibilityIdentifier("clearRoadStroke")
                     Button("Confirm",action:session.confirmRoadStroke).frame(maxWidth:.infinity,minHeight:44).buttonStyle(.borderedProminent)
