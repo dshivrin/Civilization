@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-19",
+  "installed": true,
+  "normalLaunchSucceeded": true,
+  "processRemainedRunning": true,
+  "productionValidatedBeforeAndAfter": true,
+  "comparisonTiming": "immediately after install, before launch/offline catch-up",
+  "backupDirectory": "/tmp/civilization-iphone-before-roads-20261119-1835",
+  "postInstallDirectory": "/tmp/civilization-iphone-after-roads-20261119-1835",
+  "files": [
+    {
+      "file": "settlement-v1.json",
+      "sha256": "f179f4d20531ce4dc59f5d0d169f8cb5db1f604414ac6872c57f4acd51a06cc8",
+      "beforeAndAfterBytesEqual": true
+    },
+    {
+      "file": "settlement-v1.json.developer",
+      "sha256": "3e68799f3b06d4798dbc99c13676cdf3fe6edf67d53681f0cbc5003402a066b5",
+      "beforeAndAfterBytesEqual": true
+    }
+  ],
+  "saveContentsVersioned": false,
+  "physicalPerformanceOrUsabilityVerified": false
+}

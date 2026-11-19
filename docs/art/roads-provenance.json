@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-19",
+  "status": "original replaceable procedural candidate, not final production art",
+  "creator": "Codex for Dima's authorized decorative-road milestone",
+  "source": "Civilization/Rendering/RoadSceneLayer.swift",
+  "sourceSHA256": "bc661b0df62fb18c9c783d458774ea4fbe95540cc92ae85bfba0fe501d313db0",
+  "materials": [
+    "trodden",
+    "dirt",
+    "stone"
+  ],
+  "connectionMasks": 16,
+  "logicalVisualVariants": 48,
+  "cachedPathShapes": 16,
+  "projection": "existing 2:1 logical ground projection",
+  "anchor": "logical tile center",
+  "construction": "compound central diamond plus cardinal shared-edge connectors, material fill colors",
+  "externalAssetsImported": false,
+  "licenseNote": "Original code-drawn shapes; no external raster/texture or third-party art incorporated. ChatGPT image-search widgets remain inspiration only.",
+  "futureAssetNote": "Replace material color/path renderer with accepted textures through a separate media brief; preserve masters and export provenance then."
+}

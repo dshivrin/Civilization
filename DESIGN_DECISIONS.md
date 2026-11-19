@@ -18,10 +18,10 @@ Synchronized19November2026. Status vocabulary and precedence: [baseline](DESIGN_
 | FP-002 |Unique immovable1×1fireplace, existing `campfire` identity (S1/R1)|Approved invariant|Implemented; current palisade also1×1but not required to remain so forever|
 | FP-003 |Uniform4×4reported design starting point (S1)|Source discrepancy, not an implementation fact|Actual18types2×2pluscampfire/palisade1×1; no automatic scale conversion|
 | FP-004 |Rotation uses90degree steps; saved dimensions/orientation per instance (planning suggestion)|Proposed approach, not finalized|Choose/migrate before catalog dimension changes|
-| RD-001 |Footpath/dirt/primitive stone,1tile strips,4-way16masks, drag, save/remove/upgrade (S1)|Approved requirements|Not implemented|
+| RD-001 |Footpath/dirt/primitive stone,1tile strips,4-way16masks, drag, save/remove/upgrade (S1)|Approved requirements|Decorative implementation delivered; see road milestone|
 | RD-002 |Initially decorative/free; must not gate era progression (S1)|Approved constraint|Keep outside required-building counts unless a later explicit decision changes it|
 | RD-003 |Transport/trade/NPC path preference/building connectivity (S1)|Approved future direction|Functional economics/network delivery deferred|
-| RD-004 |N=1/E=2/S=4/W=8; no diagonals; road command batching/tier borders (planning)|Only four-direction16states are approved; exact bit order/transaction details proposed|Document protocol in implementation brief before save format/art mapping|
+| RD-004 |N=1/E=2/S=4/W=8; no diagonals; road command batching/tier borders (planning)|Documented implementation protocol in2bd4997, not a recovered human bit-order requirement|Masks derived from tiles; no stored mask migration|
 | LC-001 |Decorative population-proportional diverse agents; building activities, road preference/open land; markets/animals (S1)|Approved direction|Unimplemented; economic agents deferred|
 | LC-002 |Exact NPC caps, update rates, demographic proportions, wildlife collisions (planning)|Open technical/tuning choices|Measure on target devices; do not conflate with actual workers|
 | MED-001 |Separate local Civilization-Media Git repo, master/runtime separation, provenance/license/backlog (S1)|Approved, setup authorized now|Created/imported separately; see media repo and SYNC manifest|
@@ -60,8 +60,8 @@ Synchronized19November2026. Status vocabulary and precedence: [baseline](DESIGN_
 | Q-PLAY-1 |Reserve protection approved (PLAY-002). How should already-insolvent historical saves recover? [Approved prevention scope](docs/design/bootstrap-reserve-proposal.md)|Prevention does not authorize an emergency grant/refund/reset; legacy recovery remains separate|
 | Q-FP-1 |What footprint/rotation/anchor does each actual type use, and how are legacy instances preserved without overlap or land loss?|Before footprint JSON/save changes; individual table is proposed until approved|
 | Q-FP-2 |Are rotations90degree-only, which types may rotate, and do visuals need direction variants rather than image mirroring?|Before interaction/save/art protocol|
-| Q-RD-1 |Which terrain/discovery/occupancy allows roads? Can buildings replace roads, share entrance tiles or require removal? How do gestures select roads vs buildings/pan?|Before road commands/UI; do not infer bridges or bulldozing|
-| Q-RD-2 |Are all road tiers available initially? Upgrade/downgrade/removal rules, mixed-tier connections and free-upgrade treatment?|Before tier catalog; initial free construction and no progression gate stay fixed|
+| Q-RD-1 |Resolved for current road stage: discovered open grass/clearing, no overlap, explicit removal before buildings; explicit road mode/Confirm/Cancel|Codex defaults documented before implementation; no bridges/bulldozing|
+| Q-RD-2 |Resolved for current road stage: all3free styles, Draw missing tiles, Replace existing surfaces, Remove roads, mixed-style joins|No research/economy/progression effect; documented stage defaults|
 | Q-LC-1 |What are the measured per-device caps and LOD/update budgets? Are market stalls decorative anchors or new functional buildings?|Before NPC pilot; no invented economic market|
 | Q-MED-1 |Can missing earlier ChatGPT concepts be recovered as actual high-res files, with provenance and usable rights? Which current candidates need replacement under the realism target?|Before import/replacement acceptance; keep absent entries absent|
 | Q-AUD-1 |Which distributable models/licenses/frameworks/device profiles actually satisfy local generation and spatial/head-tracked audio on supported hardware?|Before advanced audio implementation; no guaranteed Neural Engine execution|
@@ -86,3 +86,5 @@ Geometry foundation implementation:70418ea(core/session/tests),d0a3284(render co
 ## Current authorization — decorative roads
 
 Dima directly instructs “Report to ChatGPT and move on” after geometryed23e2e. Implement the bounded approved decorative-road direction on existing dimensions, per docs/superpowers/specs/2026-11-19-decorative-roads-design.md and plan. Default terrain/no-overlap/mixed-material/free explicit paint/erase rules are documented Codex implementation choices, not recovered human quotations. Geometry stability is sufficient; unapproved larger dimensions remain deferred. No NPC, era or economy expansion. Commit this scope before product changes.
+
+Road delivery: core/session4ed64ac, with native controls/rendering and separate report commits. Reviewer backtracking and journey-preview leaks reproduced/fixed;148Debug/137Release and13UI/profile verification. Current approval does not activate NPCs or larger building dimensions.

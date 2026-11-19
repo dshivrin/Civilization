@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-19",
+  "environment": "iOS Simulator, iPad mini A17 Pro profile, iOS18.6",
+  "hardwareBenchmark": false,
+  "comparison": "absolute fixture samples; not paired with physical or baseline hardware",
+  "concurrency": "other simulator UI/capture processes active",
+  "source": "RenderDiagnostics RENDER_METRICS lines in /tmp/civilization-roads-metrics-mini-final.log",
+  "fixture": "217 roads legally placed in ordinary starting revealed grass/clearing, three materials; ring removed to include isolated tile; all masks0\u201315; no grants/era completion",
+  "samples": [
+    {
+      "timestamp": "18:28:45.468",
+      "roadTiles": 217,
+      "sceneNodes": 259,
+      "memoryMiB": 62.0,
+      "fps": 58.0,
+      "p95FrameMs": 16.82,
+      "frames": 276
+    },
+    {
+      "timestamp": "18:28:50.484",
+      "roadTiles": 217,
+      "sceneNodes": 259,
+      "memoryMiB": 64.2,
+      "fps": 59.2,
+      "p95FrameMs": 17.9,
+      "frames": 297
+    },
+    {
+      "timestamp": "18:28:55.483",
+      "roadTiles": 217,
+      "sceneNodes": 259,
+      "memoryMiB": 66.0,
+      "fps": 59.4,
+      "p95FrameMs": 16.83,
+      "frames": 297
+    }
+  ],
+  "limits": [
+    "No A15/M1 or physical iPhone benchmark",
+    "No battery/thermal/sustained hardware60FPS claim",
+    "Same renderer used before/after subsequent panel footer fix; final UI captures reverified separately"
+  ]
+}
