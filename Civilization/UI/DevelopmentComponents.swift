@@ -24,7 +24,7 @@ struct DevelopmentCategoryButton: View {
 struct DevelopmentCardStyle: ViewModifier {
     let color: Color
     func body(content: Content) -> some View {
-        content.padding(12).frame(maxWidth: .infinity, alignment: .leading)
+        content.padding(10).frame(maxWidth: .infinity, alignment: .leading)
             .background(LinearGradient(colors: [Color(red: 0.19, green: 0.235, blue: 0.18), Color(red: 0.135, green: 0.185, blue: 0.145)], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 16))
             .overlay(RoundedRectangle(cornerRadius: 16).stroke(color.opacity(0.3), lineWidth: 1))
     }
@@ -48,7 +48,7 @@ struct DevelopmentSummary<Picture: View>: View {
                     .lineLimit(typeSize.isAccessibilitySize ? nil : 1)
             }
             Spacer(minLength: 0)
-        }.frame(maxWidth: .infinity, minHeight: 54, alignment: .leading)
+        }.frame(maxWidth: .infinity, minHeight: 50, alignment: .leading)
     }
 }
 
@@ -60,7 +60,7 @@ struct DevelopmentDetailsButton: View {
         Button { expanded.toggle() } label: {
             Image(systemName: expanded ? "chevron.up" : "chevron.down")
                 .frame(width: 44, height: 44).contentShape(Rectangle())
-        }.buttonStyle(.bordered).accessibilityLabel((expanded ? "Less about " : "Details about ") + title)
+        }.buttonStyle(.plain).background(Color.white.opacity(0.06), in: RoundedRectangle(cornerRadius: 8)).accessibilityLabel((expanded ? "Less about " : "Details about ") + title)
             .accessibilityValue(expanded ? "Expanded" : "Collapsed")
             .accessibilityIdentifier("details-" + id)
     }

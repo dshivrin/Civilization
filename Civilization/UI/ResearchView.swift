@@ -16,7 +16,7 @@ struct ResearchView: View {
     var body: some View {
         GeometryReader { geometry in
             let wide = geometry.size.width > 1000
-            VStack(spacing: 12) {
+            VStack(spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 3) {
                         Text("Research").font(.system(.title, design: .serif).bold())
@@ -43,12 +43,12 @@ struct ResearchView: View {
                     if wide {
                         VStack(spacing: 8) { ForEach(pillars, id: \.self) { category($0) }; Spacer() }.frame(width: 220)
                     }
-                    VStack(spacing: 12) {
+                    VStack(spacing: 8) {
                         if !wide {
                             ScrollView(.horizontal) { HStack(spacing: 8) { ForEach(pillars, id: \.self) { category($0) } } }.fixedSize(horizontal: false, vertical: true)
                         }
                         ScrollView {
-                            LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 248), alignment: .top)], alignment: .leading, spacing: 10) {
+                            LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 280), alignment: .top)], alignment: .leading, spacing: 10) {
                                 ForEach(session.configuration.technologyDefinitions.filter { $0.pillar == selectedPillar }) { technology in
                                     technologyCard(technology).id(technology.id)
                                 }
@@ -56,7 +56,7 @@ struct ResearchView: View {
                         }.frame(maxHeight: .infinity).clipped().scrollPosition(id: Binding(get: { positions[selectedPillar] }, set: { positions[selectedPillar] = $0 }))
                     }
                 }
-            }.padding(16)
+            }.padding(12)
         }
         .background(panelColor).foregroundStyle(parchment).tint(.yellow)
         .sheet(isPresented: $showReadiness) {
@@ -95,17 +95,21 @@ struct ResearchView: View {
         let color: Color = complete ? .mint : missing ? parchment.opacity(0.65) : !affordable ? .orange : .yellow
         let isExpanded = Binding(get: { expanded.contains(technology.id) }, set: { if $0 { expanded.insert(technology.id) } else { expanded.remove(technology.id) } })
         return VStack(alignment: .leading, spacing: 8) {
-            DevelopmentSummary(title: technology.name, status: status, symbol: complete ? "checkmark.seal.fill" : missing ? "lock.fill" : "sparkles", color: color) {
-                EraIcon(domain: .research, id: technology.id, size: 48)
+            HStack(spacing: 6) {
+                DevelopmentSummary(title: technology.name, status: status, symbol: complete ? "checkmark.seal.fill" : missing ? "lock.fill" : "sparkles", color: color) {
+                    EraIcon(domain: .research, id: technology.id, size: 44)
+                }
+                DevelopmentDetailsButton(title: technology.name, id: "research-" + technology.id, expanded: isExpanded)
             }
-            DevelopmentCosts(cost: technology.cost, stored: session.state.resources, id: "research-" + technology.id, paid: complete)
-            HStack(spacing: 8) {
-                Button(complete ? "Researched ✓" : missing ? "Locked" : !affordable ? "Need resources" : "Research") { session.research(technology.id) }
-                    .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).foregroundStyle(panelColor)
+            HStack(spacing: 6) {
+                DevelopmentCosts(cost: technology.cost, stored: session.state.resources, id: "research-" + technology.id, paid: complete)
+                Button(complete ? "Done ✓" : missing ? "Locked" : "Research") { session.research(technology.id) }
+                    .font(.caption.bold()).padding(.horizontal, 8).frame(minWidth: 70, minHeight: 44).buttonStyle(.plain)
+                    .background(complete || session.researchIssue(technology.id) != nil ? Color.white.opacity(0.08) : .yellow, in: RoundedRectangle(cornerRadius: 8))
+                    .foregroundStyle(complete || session.researchIssue(technology.id) != nil ? parchment.opacity(0.6) : panelColor)
                     .disabled(complete || session.researchIssue(technology.id) != nil)
                     .accessibilityLabel(complete ? technology.name + ": researched" : missing ? technology.name + ": prerequisites needed" : "Research " + technology.name)
                     .accessibilityIdentifier("research-" + technology.id)
-                DevelopmentDetailsButton(title: technology.name, id: "research-" + technology.id, expanded: isExpanded)
             }
             if isExpanded.wrappedValue {
                 Divider().overlay(parchment.opacity(0.2))

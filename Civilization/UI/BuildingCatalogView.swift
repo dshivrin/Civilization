@@ -17,7 +17,7 @@ struct BuildingCatalogView: View {
     var body: some View {
         GeometryReader { geometry in
             let wide = geometry.size.width > 1000
-            VStack(spacing: 12) {
+            VStack(spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 3) {
                         Text("Buildings").font(.system(.title, design: .serif).bold())
@@ -32,17 +32,17 @@ struct BuildingCatalogView: View {
                 }
                 HStack(alignment: .top, spacing: 20) {
                     if wide { VStack(spacing: 8) { ForEach(categories, id: \.self) { category($0) }; Spacer() }.frame(width: 220) }
-                    VStack(spacing: 12) {
+                    VStack(spacing: 8) {
                         if !wide { ScrollView(.horizontal) { HStack(spacing: 8) { ForEach(categories, id: \.self) { category($0) } } }.fixedSize(horizontal: false, vertical: true) }
                         ScrollView {
-                            LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 248), alignment: .top)], alignment: .leading, spacing: 10) {
+                            LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 280), alignment: .top)], alignment: .leading, spacing: 10) {
                                 ForEach(definitions(selectedCategory).filter { search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }, id: \.kind) { card($0) }
                             }.padding(.bottom, 20)
                             if definitions(selectedCategory).filter({ search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }).isEmpty { Text("No matching buildings.").padding() }
                         }.frame(maxHeight: .infinity).clipped().accessibilityIdentifier("buildingCatalog")
                     }
                 }
-            }.padding(16)
+            }.padding(12)
         }.background(panelColor).foregroundStyle(parchment).tint(.yellow)
     }
     private func category(_ title: String) -> some View {
@@ -64,18 +64,22 @@ struct BuildingCatalogView: View {
         let prerequisites = session.configuration.technologyDefinitions.filter { $0.effects.unlockedBuildings.contains(definition.kind) }
         let isExpanded = Binding(get: { expanded.contains(definition.kind) }, set: { if $0 { expanded.insert(definition.kind) } else { expanded.remove(definition.kind) } })
         return VStack(alignment: .leading, spacing: 8) {
-            DevelopmentSummary(title: definition.name, status: locked ? "Research required" : campfire ? "Fixed anchor" : count > 0 ? "Constructed · \(count)" : affordable ? "Available" : "Need resources", symbol: locked ? "lock.fill" : count > 0 ? "checkmark.seal.fill" : "hammer.fill", color: color) {
-                BuildingThumbnail(kind: definition.kind, size: 48)
+            HStack(spacing: 6) {
+                DevelopmentSummary(title: definition.name, status: locked ? "Research required" : campfire ? "Fixed anchor" : count > 0 ? "Constructed · \(count)" : affordable ? "Available" : "Need resources", symbol: locked ? "lock.fill" : count > 0 ? "checkmark.seal.fill" : "hammer.fill", color: color) {
+                    BuildingThumbnail(kind: definition.kind, size: 44)
+                }
+                DevelopmentDetailsButton(title: definition.name, id: "building-" + definition.kind.rawValue, expanded: isExpanded)
             }
-            DevelopmentCosts(cost: definition.cost, stored: session.state.resources, id: "building-" + definition.kind.rawValue)
-            HStack(spacing: 8) {
-                Button(campfire ? "Already placed" : locked ? "Locked" : "Build") {
+            HStack(spacing: 6) {
+                DevelopmentCosts(cost: definition.cost, stored: session.state.resources, id: "building-" + definition.kind.rawValue)
+                Button(campfire ? "Placed" : locked ? "Locked" : "Build") {
                     session.choose(definition.kind)
                     dismiss()
-                }.frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).foregroundStyle(panelColor).disabled(locked || campfire)
+                }.font(.caption.bold()).padding(.horizontal, 10).frame(minWidth: 64, minHeight: 44).buttonStyle(.plain)
+                    .background(locked || campfire ? Color.white.opacity(0.08) : .yellow, in: RoundedRectangle(cornerRadius: 8))
+                    .foregroundStyle(locked || campfire ? parchment.opacity(0.6) : panelColor).disabled(locked || campfire)
                     .accessibilityLabel(campfire ? "Campfire already placed" : locked ? definition.name + ": research required" : "Build " + definition.name)
                     .accessibilityIdentifier("build-" + definition.kind.rawValue)
-                DevelopmentDetailsButton(title: definition.name, id: "building-" + definition.kind.rawValue, expanded: isExpanded)
             }
             if isExpanded.wrappedValue {
                 Divider().overlay(parchment.opacity(0.2))

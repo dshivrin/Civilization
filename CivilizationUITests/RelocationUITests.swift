@@ -224,6 +224,19 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(deficit.label.contains("missing"), deficit.label)
         XCTAssertFalse(app.buttons["research-fortification"].isEnabled)
         capture("missing-resource", app: app)
+        app.buttons["pillarFilter-economy"].tap()
+        let wood = app.descendants(matching: .any)["cost-research-hunting-wood"].firstMatch
+        let knowledge = app.descendants(matching: .any)["cost-research-hunting-knowledge"].firstMatch
+        XCTAssertTrue(wood.label.contains("available"), wood.label)
+        XCTAssertTrue(knowledge.label.contains("missing"), knowledge.label)
+        capture("mixed-affordability", app: app)
+        app.buttons["pillarFilter-science"].tap()
+        app.buttons["research-oralTradition"].tap()
+        XCTAssertFalse(app.buttons["research-oralTradition"].isEnabled)
+        let paidWood = app.descendants(matching: .any)["cost-research-oralTradition-wood"].firstMatch
+        XCTAssertTrue(paidWood.label.contains("90 stored"), paidWood.label)
+        XCTAssertTrue(paidWood.label.contains("already paid"), paidWood.label)
+        capture("completed-research", app: app)
         app.buttons["closeResearch"].tap()
     }
 
