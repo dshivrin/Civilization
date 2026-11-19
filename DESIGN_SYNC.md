@@ -2,6 +2,16 @@
 
 Effective19November2026. Version-controlled documents are the shared source of truth. ChatGPT supplies new design inputs; approved decisions must be explicitly reconciled and committed **before** implementation. Do not rely on cross-chat memory, an assistant’s claim that something was “saved,” or the newest visible chat alone.
 
+## Latest retrieval — roads, NPCs, icons and images
+
+At Dima's request, fetched the completed [City Design Coordination reply](docs/design/sources/2026-11-19-recovered-design-next-phase.md), assistant message `5fbad8d8-6f7b-4ac6-8372-02f26afdfac1`, on19November2026. Full returned text archived, not marked truncated. The design assistant reports recovering November17–19context, including November18footprint/road/LivingCity/media discussions; it supplies no underlying original message IDs/links or generated image binaries. This is attributed secondary recovery, not independent verification of those messages.
+
+The reply agrees with already-approved directions: varied footprints/rotation with fixed1×1campfire; free decorative roads with three styles and16connection masks; decorative population-related NPCs; historically inspired realistic/saturated media with separate masters/exports. It recommends first-era acceptance, geometry foundation, approved dimensions, roads, media reconciliation, NPC pilot and performance polish; inventory work may proceed independently.
+
+New specifics remain **proposals**: exact per-building dimensions,90degree orientations, grandfathered footprints until safe conversion, road overlap/mixed-material/replacement defaults, NPC frame/direction/resolution values and all suggested media sizes. No changes to existing approval status, economy, saves or staging are made by this retrieval. Recommended bounded next engineering task is geometry/orientation foundation without activating larger footprints; its Seed0.5.1label is provisional. Returned brief contains only objective/prerequisites, so migration and full acceptance specification still need reconciliation before implementation.
+
+Three historical concept filenames are mentioned, but only filenames were recovered; no new asset import is claimed. The reply's visual widgets contain external inspiration queries. Existing media repo remains unchanged; first-era human review, physical deployment and Q-PLAY-1historical recovery remain open. Game baseline91b0bb6is preserved. This sync commit changes documentation only.
+
 ## Canonical documents and precedence
 
 1. Latest direct human instruction resolves conflicts, followed by explicit human approvals with traceable source text.
