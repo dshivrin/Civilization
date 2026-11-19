@@ -123,3 +123,5 @@ Geometry foundation delivered: shared occupied geometry and additive optional sn
 ## Current authorization — decorative roads
 
 Dima directly instructs “Report to ChatGPT and move on” after geometryed23e2e. Implement the bounded approved decorative-road direction on existing dimensions, per docs/superpowers/specs/2026-11-19-decorative-roads-design.md and plan. Default terrain/no-overlap/mixed-material/free explicit paint/erase rules are documented Codex implementation choices, not recovered human quotations. Geometry stability is sufficient; unapproved larger dimensions remain deferred. No NPC, era or economy expansion. Commit this scope before product changes.
+
+Retrieved [decorative-road brief](docs/design/sources/2026-11-19-decorative-road-brief.md), message687607db-1eb3-4916-95b2-56ce7ee56c34. Assistant agrees with staged roads/current sizes; source images not returned. Adopt separate Draw/Replace/Remove; retain explicit Confirm/Cancel and whole-stroke validation rather than proposed release commit/invalid skipping. These are documented implementation choices under Dima’s move-on authorization; no new scope inferred.

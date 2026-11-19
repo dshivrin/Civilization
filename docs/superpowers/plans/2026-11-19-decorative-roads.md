@@ -23,7 +23,7 @@ Interfaces: RoadStyle, RoadTile(tile:style:); RoadGeometry.neighbors/connectionM
 
 ### Task2 — Draft session and native tools/rendering
 Files: new GameApplication road extension if access allows (otherwise focused methods in GameSession), new RoadSceneLayer.swift registered in Xcode, WorldView, SettlementScene, SettlementView; tests RoadSessionTests.swift, UI RoadUITests or existing RelocationUITests.
-Interfaces: RoadTool.paint/erase; session roadTool/roadDraft/roadPreviewIssue/chooseRoadTool/extendRoadStroke/clearRoadStroke/confirmRoadStroke/exitRoadMode. Cancel/default navigation resets road mode; pinch clears draft; background discards draft. Pure changed-cell set feeds incremental rendering.
+Interfaces: RoadTool.draw/replace/erase; session roadTool/roadDraft/roadPreviewIssue/chooseRoadTool/extendRoadStroke/clearRoadStroke/confirmRoadStroke/exitRoadMode. Cancel/default navigation resets road mode; pinch clears draft; background discards draft. Pure changed-cell set feeds incremental rendering.
 - [ ] Session tests RED for draft isolation, confirmed persistence/idempotency, cancel/mode/navigation/lifecycle and map bounds. Implement GREEN; render cached committed+draft layers; add compact controls and deliberate gesture branch.
 - [ ] Add UI road lifecycle test RED missing Roads control; implement tools/drag/confirm/erase, verify no existing gesture regression. Native captures + all UI cases on3profiles. Commit.
 
