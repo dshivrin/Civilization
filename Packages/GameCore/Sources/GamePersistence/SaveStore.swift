@@ -1,0 +1,81 @@
+import Foundation
+import GameCore
+
+/// Validated v1/v2/v3/v4 -> v5 migration. The filename remains unchanged so installed settlements are found.
+public struct SaveStore: Sendable {
+    private struct Envelope: Codable { var version: Int; var state: GameState }
+    private struct Header: Decodable { var version: Int }
+    public let url: URL
+    public init(url: URL) { self.url = url }
+    public func save(_ state: GameState) throws {
+        let data = try JSONEncoder().encode(Envelope(version: 5, state: state))
+        try FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+        if FileManager.default.fileExists(atPath: url.path) {
+            let original = try Data(contentsOf: url)
+            let version = try JSONDecoder().decode(Header.self, from: original).version
+            guard (1...5).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
+            if version < 5 {
+                let suffix = version == 1 ? "seed-0.1.bak" : version == 2 ? "seed-0.2.1.bak" : version == 3 ? "seed-0.2.3.bak" : "seed-0.2.4.bak"
+                let backup = url.appendingPathExtension(suffix)
+                if !FileManager.default.fileExists(atPath: backup.path) { try original.write(to: backup, options: .atomic) }
+            }
+        }
+        try data.write(to: url, options: .atomic)
+    }
+    public func load(configuration: GameConfiguration) throws -> GameState? {
+        guard FileManager.default.fileExists(atPath: url.path) else { return nil }
+        let data = try Data(contentsOf: url)
+        let version = try JSONDecoder().decode(Header.self, from: data).version
+        guard (1...5).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
+        var state = try JSONDecoder().decode(Envelope.self, from: data).state
+        if version == 1 {
+            state.researchedTechnologies = state.researchedOralTradition ? ["oralTradition"] : []
+            state.populationGrowthSeconds = 0
+            for index in state.buildings.indices {
+                state.buildings[index].constructionRemainingSeconds = nil
+                state.buildings[index].constructionDurationSeconds = nil
+            }
+        } else if configuration.populationRules != nil || configuration.technologies != nil {
+            guard state.populationGrowthSeconds != nil && state.researchedTechnologies != nil else { throw GameError.invalidSave("Missing v2 simulation progress") }
+        }
+        if configuration.economyRules != nil {
+            if version < 3 {
+                // Earlier rulesets had no extractable deposit accounting. Existing buildings,
+                // resources, construction timers and earned progress remain unchanged.
+                state.depositRemaining = Dictionary(uniqueKeysWithValues:
+                    (configuration.naturalDeposits ?? []).filter { !$0.renewable }.map { ($0.id, $0.capacity) })
+            } else {
+                guard state.depositRemaining != nil else { throw GameError.invalidSave("Missing v3 deposit progress") }
+            }
+        }
+        if configuration.explorationRules != nil {
+            if version < 4 {
+                // All earlier clients displayed the whole handcrafted valley. Preserve
+                // that knowledge and every established building rather than re-fogging it.
+                state.discoveredTiles = Set((0..<configuration.map.height).flatMap { y in
+                    (0..<configuration.map.width).map { x in Tile(x:x,y:y) }
+                })
+                state.explorationRadius = 32
+                state.explorationRemainingSeconds = nil
+            } else {
+                guard state.discoveredTiles != nil && state.explorationRadius != nil else {
+                    throw GameError.invalidSave("Missing v4 exploration progress")
+                }
+            }
+        }
+        if configuration.progressionGoals != nil {
+            if version < 5 {
+                // Preserve established construction knowledge without granting research,
+                // production modifiers or achievements that the old client never tracked.
+                state.completedPillarGoals = []
+                state.stoneAgeCompleted = false
+                state.grandfatheredBuildingKinds = Set(state.buildings.map(\.kind))
+            } else {
+                guard state.completedPillarGoals != nil && state.stoneAgeCompleted != nil && state.grandfatheredBuildingKinds != nil else {
+                    throw GameError.invalidSave("Missing v5 progression history")
+                }
+            }
+        }
+        return try GameEngine(state: state, configuration: configuration).state
+    }
+}

@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+"""Compile API probes against built Debug/Release modules; debug APIs must not exist in Release.
+Run after swift test and swift test -c release. Optional arguments: debug and release module directories.
+"""
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+root = Path(__file__).resolve().parents[1]
+build = root / 'Packages/GameCore/.build'
+def module_dir(configuration):
+    for path in (build / 'out/Products' / configuration, build / configuration.lower() / 'Modules'):
+        if (path / 'GameApplication.swiftmodule').exists():
+            return path
+    raise SystemExit(f'Build {configuration} modules first')
+debug, release = map(Path, sys.argv[1:]) if len(sys.argv) == 3 else (module_dir('Debug'), module_dir('Release'))
+probes = {
+    'DeveloperScenario': 'import GameApplication\nlet scenario = DeveloperScenario.early\n',
+    'developerFastConstruction': 'import GameCore\nfunc probe(_ e: inout GameEngine) { e.developerFastConstruction = true }\n',
+    'loadDeveloperScenario': 'import GameApplication\n@MainActor func probe(_ s: GameSession) { s.loadDeveloperScenario(.early) }\n',
+    'developerAddResources': 'import GameCore\nfunc probe(_ e: inout GameEngine) { e.developerAddResources(1) }\n',
+}
+with tempfile.TemporaryDirectory() as folder:
+    source = Path(folder) / 'probe.swift'
+    for name, text in probes.items():
+        source.write_text(text)
+        for modules, should_compile in ((debug, True), (release, False)):
+            result = subprocess.run(['xcrun', 'swiftc', '-typecheck', '-I', str(modules), str(source)], capture_output=True, text=True)
+            assert (result.returncode == 0) == should_compile, result.stderr
+            if not should_compile:
+                assert name in result.stderr and ('no member' in result.stderr or 'cannot find' in result.stderr), result.stderr
+        print(f'PASS: {name} exists in Debug and is unavailable in Release')

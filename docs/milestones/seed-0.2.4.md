@@ -1,0 +1,5 @@
+# Seed0.2.4 — Geography and exploration
+
+APPROVED: persistent32×24 temperate river valley; separate underlying terrain, deposits, discoveredtiles and technologyidentification. Gradualdiscovery; unknownterrain cannotbuild/extract andunidentifieddeposits cannotextract. Geographyrestrictions/advantages. Preserveidentity; preparefirsttwoages withoutimplementingsecondage. Additionalworlds/proceduralmap/cities deferred.
+
+EXPERIMENTAL delegated: initialChebyshevradius7 + narrowknownroutes tocurrentrawdepositorigins; ringexpeditions45seconds/10food reveal2radius, scoutcampneededbeyond11. Basicexpeditionshouseholdtasks toavoidbootstraplocks. Fishingwithin3revealedwatertiles. Existingfullyvisiblev1-v3mapsmigratefullydiscovered; noreset. Copperpersists butunidentified/unextractable untilfutureage. Two-agebalanceunverifiedbecausefuturecontentundefined.

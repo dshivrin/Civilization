@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0EBF6F1984BD97775228F3ED /* GameCore in Frameworks */ = {isa = PBXBuildFile; productRef = B8A356A50B0089EBD45054F2 /* GameCore */; };
+		1B9864AC305C2C9973F47BBF /* Civilization/UI/SettlementLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA83532DA044475A7A83483 /* Civilization/UI/SettlementLoadingView.swift */; };
+		344D5E50B0FC6E38B4984267 /* GamePersistence in Frameworks */ = {isa = PBXBuildFile; productRef = EFB860EA162D0C567E7CEAA0 /* GamePersistence */; };
+		4767FE11F7540197C37A84AB /* Civilization/UI/SettlementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1207C98C88630EE38F7F51FB /* Civilization/UI/SettlementView.swift */; };
+		56F790BC1FC09883CFCAE1CD /* Civilization/Rendering/SettlementScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B4F8E874CF59D2DE8A4F2D /* Civilization/Rendering/SettlementScene.swift */; };
+		5ADCBC8E29C71D99E3A9D4E9 /* Civilization/UI/ResearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33D167B688309E1154F77E /* Civilization/UI/ResearchView.swift */; };
+		5BA86DE92064239F988A0808 /* Civilization/CivilizationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F253BCE6C81846BB9AB733E /* Civilization/CivilizationApp.swift */; };
+		75BDE7114ACE9BA4ED0C47C5 /* Civilization/Rendering/WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1869522EAEC8033D828D556 /* Civilization/Rendering/WorldView.swift */; };
+		84E3418B737CCDDF47653F60 /* GameApplication in Frameworks */ = {isa = PBXBuildFile; productRef = 864A68A0A36B30AF08D6C438 /* GameApplication */; };
+		9B64E0CF81C06C999E6642DC /* Civilization/Rendering/IsometricProjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A6192FF8E93B7E6D7AC890 /* Civilization/Rendering/IsometricProjection.swift */; };
+		BE973AA859618AED77AA1FB0 /* Civilization/LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4454D13678104873C84898A5 /* Civilization/LaunchScreen.storyboard */; };
+		C93687E1F4837695FDD1B417 /* Civilization/UI/DeveloperToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092722F83ECB20036385A87F /* Civilization/UI/DeveloperToolsView.swift */; };
+		F02600000000000000000002 /* CivilizationUITests/RelocationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02600000000000000000001 /* CivilizationUITests/RelocationUITests.swift */; };
+		F02600000000000000000011 /* GameCore in Frameworks */ = {isa = PBXBuildFile; productRef = F0260000000000000000000E /* GameCore */; };
+		F02600000000000000000012 /* GameApplication in Frameworks */ = {isa = PBXBuildFile; productRef = F0260000000000000000000F /* GameApplication */; };
+		F02700000000000000000002 /* Civilization/UI/DevelopmentComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02700000000000000000001; };
+		F02700000000000000000004 /* Civilization/UI/BuildingCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02700000000000000000003; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0260000000000000000000C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E8A3AD980EC179856012B7E;
+			remoteInfo = Civilization;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		092722F83ECB20036385A87F /* Civilization/UI/DeveloperToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/DeveloperToolsView.swift; sourceTree = SOURCE_ROOT; };
+		1207C98C88630EE38F7F51FB /* Civilization/UI/SettlementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/SettlementView.swift; sourceTree = SOURCE_ROOT; };
+		1B33D167B688309E1154F77E /* Civilization/UI/ResearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/ResearchView.swift; sourceTree = SOURCE_ROOT; };
+		24B4F8E874CF59D2DE8A4F2D /* Civilization/Rendering/SettlementScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/SettlementScene.swift; sourceTree = SOURCE_ROOT; };
+		38A007151ABE87CC01A5B6E9 /* Civilization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = Civilization.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CA83532DA044475A7A83483 /* Civilization/UI/SettlementLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/SettlementLoadingView.swift; sourceTree = SOURCE_ROOT; };
+		4454D13678104873C84898A5 /* Civilization/LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Civilization/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		54A6192FF8E93B7E6D7AC890 /* Civilization/Rendering/IsometricProjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/IsometricProjection.swift; sourceTree = SOURCE_ROOT; };
+		5F253BCE6C81846BB9AB733E /* Civilization/CivilizationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/CivilizationApp.swift; sourceTree = SOURCE_ROOT; };
+		E1869522EAEC8033D828D556 /* Civilization/Rendering/WorldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/WorldView.swift; sourceTree = SOURCE_ROOT; };
+		F02600000000000000000001 /* CivilizationUITests/RelocationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CivilizationUITests/RelocationUITests.swift; sourceTree = SOURCE_ROOT; };
+		F02600000000000000000003 /* CivilizationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = CivilizationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02700000000000000000001 /* Civilization/UI/DevelopmentComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/DevelopmentComponents.swift; sourceTree = SOURCE_ROOT; };
+		F02700000000000000000003 /* Civilization/UI/BuildingCatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/BuildingCatalogView.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7561BFB015D8F536760CB671 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E3418B737CCDDF47653F60 /* GameApplication in Frameworks */,
+				0EBF6F1984BD97775228F3ED /* GameCore in Frameworks */,
+				344D5E50B0FC6E38B4984267 /* GamePersistence in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02600000000000000000005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F02600000000000000000011 /* GameCore in Frameworks */,
+				F02600000000000000000012 /* GameApplication in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		64292B1C2B2E13EAD8788FC8 = {
+			isa = PBXGroup;
+			children = (
+				F02600000000000000000001 /* CivilizationUITests/RelocationUITests.swift */,
+				4454D13678104873C84898A5 /* Civilization/LaunchScreen.storyboard */,
+				3CA83532DA044475A7A83483 /* Civilization/UI/SettlementLoadingView.swift */,
+				092722F83ECB20036385A87F /* Civilization/UI/DeveloperToolsView.swift */,
+				F02700000000000000000003 /* Civilization/UI/BuildingCatalogView.swift */,
+				F02700000000000000000001 /* Civilization/UI/DevelopmentComponents.swift */,
+				1B33D167B688309E1154F77E /* Civilization/UI/ResearchView.swift */,
+				5F253BCE6C81846BB9AB733E /* Civilization/CivilizationApp.swift */,
+				54A6192FF8E93B7E6D7AC890 /* Civilization/Rendering/IsometricProjection.swift */,
+				24B4F8E874CF59D2DE8A4F2D /* Civilization/Rendering/SettlementScene.swift */,
+				E1869522EAEC8033D828D556 /* Civilization/Rendering/WorldView.swift */,
+				1207C98C88630EE38F7F51FB /* Civilization/UI/SettlementView.swift */,
+				FBDC4F23F93125BBEEAE800C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FBDC4F23F93125BBEEAE800C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38A007151ABE87CC01A5B6E9 /* Civilization.app */,
+				F02600000000000000000003 /* CivilizationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E8A3AD980EC179856012B7E /* Civilization */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C57128001CE614BF8549D6BB /* Build configuration list for PBXNativeTarget "Civilization" */;
+			buildPhases = (
+				BCE16DD0260827ECF338C787 /* Sources */,
+				7561BFB015D8F536760CB671 /* Frameworks */,
+				0189424A5A60FED329FA868E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Civilization;
+			packageProductDependencies = (
+				864A68A0A36B30AF08D6C438 /* GameApplication */,
+				B8A356A50B0089EBD45054F2 /* GameCore */,
+				EFB860EA162D0C567E7CEAA0 /* GamePersistence */,
+			);
+			productName = Civilization;
+			productReference = 38A007151ABE87CC01A5B6E9 /* Civilization.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F0260000000000000000000A /* CivilizationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F02600000000000000000009 /* Build configuration list for PBXNativeTarget "CivilizationUITests" */;
+			buildPhases = (
+				F02600000000000000000004 /* Sources */,
+				F02600000000000000000005 /* Frameworks */,
+				F02600000000000000000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0260000000000000000000B /* PBXTargetDependency */,
+			);
+			name = CivilizationUITests;
+			packageProductDependencies = (
+				F0260000000000000000000E /* GameCore */,
+				F0260000000000000000000F /* GameApplication */,
+			);
+			productName = CivilizationUITests;
+			productReference = F02600000000000000000003 /* CivilizationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98F54143AB4E86B28C3AFEE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2720;
+			};
+			buildConfigurationList = 862894B703A6DEDF96A9DD6C /* Build configuration list for PBXProject "Civilization" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 64292B1C2B2E13EAD8788FC8;
+			packageReferences = (
+				582681C2EAE02B3F3D399C0C /* XCLocalSwiftPackageReference "Packages/GameCore" */,
+			);
+			productRefGroup = FBDC4F23F93125BBEEAE800C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0260000000000000000000A /* CivilizationUITests */,
+				0E8A3AD980EC179856012B7E /* Civilization */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0189424A5A60FED329FA868E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE973AA859618AED77AA1FB0 /* Civilization/LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02600000000000000000006 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCE16DD0260827ECF338C787 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B9864AC305C2C9973F47BBF /* Civilization/UI/SettlementLoadingView.swift in Sources */,
+				C93687E1F4837695FDD1B417 /* Civilization/UI/DeveloperToolsView.swift in Sources */,
+				F02700000000000000000004 /* Civilization/UI/BuildingCatalogView.swift in Sources */,
+				F02700000000000000000002 /* Civilization/UI/DevelopmentComponents.swift in Sources */,
+				5ADCBC8E29C71D99E3A9D4E9 /* Civilization/UI/ResearchView.swift in Sources */,
+				5BA86DE92064239F988A0808 /* Civilization/CivilizationApp.swift in Sources */,
+				9B64E0CF81C06C999E6642DC /* Civilization/Rendering/IsometricProjection.swift in Sources */,
+				56F790BC1FC09883CFCAE1CD /* Civilization/Rendering/SettlementScene.swift in Sources */,
+				75BDE7114ACE9BA4ED0C47C5 /* Civilization/Rendering/WorldView.swift in Sources */,
+				4767FE11F7540197C37A84AB /* Civilization/UI/SettlementView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02600000000000000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F02600000000000000000002 /* CivilizationUITests/RelocationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F0260000000000000000000B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E8A3AD980EC179856012B7E /* Civilization */;
+			targetProxy = F0260000000000000000000C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		639A7CA24D39909E713B47F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V93YJCFLY7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Riverbend;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.civilization.seed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7082CC0B6FC1282FCEABD07A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V93YJCFLY7;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Riverbend;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				MARKETING_VERSION = 0.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.civilization.seed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89E1FD6268CC0F221A2BE178 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		E6DE6C99132752C914FEF632 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		F02600000000000000000007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.civilization.seed.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Civilization;
+			};
+			name = Debug;
+		};
+		F02600000000000000000008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.civilization.seed.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Civilization;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		862894B703A6DEDF96A9DD6C /* Build configuration list for PBXProject "Civilization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89E1FD6268CC0F221A2BE178 /* Debug */,
+				E6DE6C99132752C914FEF632 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C57128001CE614BF8549D6BB /* Build configuration list for PBXNativeTarget "Civilization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7082CC0B6FC1282FCEABD07A /* Debug */,
+				639A7CA24D39909E713B47F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F02600000000000000000009 /* Build configuration list for PBXNativeTarget "CivilizationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F02600000000000000000007 /* Debug */,
+				F02600000000000000000008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		582681C2EAE02B3F3D399C0C /* XCLocalSwiftPackageReference "Packages/GameCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/GameCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		864A68A0A36B30AF08D6C438 /* GameApplication */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GameApplication;
+		};
+		B8A356A50B0089EBD45054F2 /* GameCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GameCore;
+		};
+		EFB860EA162D0C567E7CEAA0 /* GamePersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GamePersistence;
+		};
+		F0260000000000000000000E /* GameCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GameCore;
+		};
+		F0260000000000000000000F /* GameApplication */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GameApplication;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+}

@@ -1,0 +1,5 @@
+# Seed 0.2.3 — Population and workforce
+
+APPROVED structure (City Design Coordination, after accepted0.2.2): continuous food/water consumption, growth conditional on housing/food/water; workforce from population, automatic allocation, per-building requirements, player priorities and partial productivity. No individual assignment, deaths or demographic simulation. Verify shortages/recovery, deterministic allocation, online/offline equivalence, migration, fresh-game bootstrap and phone/tablet.
+
+EXPERIMENTAL implementation: floor60% working population; one worker per productive building, zero for campfire/housing/storage/palisades. Reserve half available labor for basic food/water buildings, distributed proportionally, then allocate remainder by high/normal/low priority with proportional sharing within a priority. Constructors are household tasks using existing timers, not extra workforce locks. Campfire remains passive. Water0.5/person/min, reserve10 and positive netwater required for growth. Foodrules unchanged. Water shortage never kills inhabitants. Configurable parameters and saved priorities; retain earned growth when blocked.

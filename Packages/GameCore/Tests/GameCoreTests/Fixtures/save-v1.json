@@ -1,0 +1,1 @@
+{"version":1,"state":{"mapID":"river-clearing-v1","resources":{"food":40,"wood":80,"stone":50,"knowledge":0},"population":3,"buildings":[{"id":0,"kind":"campfire","origin":{"x":17,"y":12}},{"id":1,"kind":"hut","origin":{"x":10,"y":10}}],"researchedOralTradition":true,"completedGoals":["hut","oralTradition"],"nextBuildingID":2,"lastUpdated":-976307200}}

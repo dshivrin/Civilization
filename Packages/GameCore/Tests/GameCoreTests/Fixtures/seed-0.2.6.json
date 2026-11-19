@@ -1,0 +1,1546 @@
+{
+  "resourceCap": 500,
+  "offlineCapSeconds": 28800,
+  "initialResources": {
+    "food": 60,
+    "wood": 100,
+    "stone": 50,
+    "water": 60,
+    "flint": 0,
+    "clay": 0,
+    "animalHides": 0,
+    "stoneTools": 0,
+    "leather": 0,
+    "pottery": 0,
+    "knowledge": 0,
+    "culture": 0
+  },
+  "initialPopulation": 3,
+  "constructionGoalWoodReward": 10,
+  "knowledgeGoalUnits": 15,
+  "researchCost": {
+    "food": 20,
+    "wood": 10,
+    "stone": 0,
+    "knowledge": 0
+  },
+  "buildings": [
+    {
+      "kind": "campfire",
+      "name": "Campfire",
+      "width": 1,
+      "height": 1,
+      "cost": {
+        "food": 0,
+        "wood": 0,
+        "stone": 0,
+        "knowledge": 0
+      },
+      "ratesPerMinute": {
+        "food": 2,
+        "wood": 0,
+        "stone": 0,
+        "knowledge": 0
+      },
+      "housing": 5,
+      "assetKey": "placeholder.campfire",
+      "requiresResearch": false,
+      "constructionSeconds": 0,
+      "category": "Settlement",
+      "recipes": [
+        {
+          "id": "campfire",
+          "name": "Campfire provision",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "food": 2,
+            "water": 3
+          },
+          "allocationTier": 0
+        }
+      ],
+      "workersRequired": 0,
+      "survivalProduction": false
+    },
+    {
+      "kind": "hut",
+      "name": "Hut",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "food": 0,
+        "wood": 20,
+        "stone": 0,
+        "knowledge": 0
+      },
+      "ratesPerMinute": {
+        "food": 0,
+        "wood": 0,
+        "stone": 0,
+        "knowledge": 0
+      },
+      "housing": 5,
+      "assetKey": "placeholder.hut",
+      "requiresResearch": false,
+      "constructionSeconds": 15,
+      "category": "Settlement",
+      "recipes": [],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "workersRequired": 0,
+      "survivalProduction": false
+    },
+    {
+      "kind": "gatheringShelter",
+      "name": "Gathering shelter",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "food": 0,
+        "wood": 15,
+        "stone": 0,
+        "knowledge": 0
+      },
+      "ratesPerMinute": {
+        "food": 12,
+        "wood": 0,
+        "stone": 0,
+        "knowledge": 0
+      },
+      "housing": 0,
+      "assetKey": "placeholder.gatheringShelter",
+      "requiresResearch": false,
+      "constructionSeconds": 20,
+      "category": "Food and water",
+      "recipes": [
+        {
+          "id": "gather",
+          "name": "Gather wild food",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "food": 12
+          },
+          "allocationTier": 0
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "workersRequired": 1,
+      "survivalProduction": true
+    },
+    {
+      "kind": "huntingLodge",
+      "name": "Hunting lodge",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 25,
+        "stone": 5
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.huntingLodge",
+      "requiresResearch": true,
+      "constructionSeconds": 30,
+      "category": "Food and water",
+      "recipes": [
+        {
+          "id": "hunt",
+          "name": "Hunt and collect hides",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "food": 10,
+            "animalHides": 4
+          },
+          "allocationTier": 0,
+          "depositResource": "animalHides"
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "geographicBonus": {
+        "terrain": "f",
+        "radius": 5,
+        "outputBonus": 0.2
+      },
+      "workersRequired": 1,
+      "survivalProduction": true
+    },
+    {
+      "kind": "fishingShelter",
+      "name": "Fishing shelter",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 20,
+        "stone": 5
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.fishingShelter",
+      "requiresResearch": true,
+      "constructionSeconds": 30,
+      "category": "Food and water",
+      "recipes": [
+        {
+          "id": "fish",
+          "name": "Fish and collect water",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "food": 10,
+            "water": 12
+          },
+          "allocationTier": 0,
+          "depositResource": "water"
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "geographicBonus": {
+        "terrain": "w",
+        "radius": 3,
+        "outputBonus": 0.2
+      },
+      "workersRequired": 1,
+      "survivalProduction": true,
+      "requiredNearbyTerrain": "w",
+      "nearbyTerrainRadius": 3
+    },
+    {
+      "kind": "woodcutter",
+      "name": "Woodcutter",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "food": 0,
+        "wood": 10,
+        "stone": 5,
+        "knowledge": 0
+      },
+      "ratesPerMinute": {
+        "food": 0,
+        "wood": 10,
+        "stone": 0,
+        "knowledge": 0
+      },
+      "housing": 0,
+      "assetKey": "placeholder.woodcutter",
+      "requiresResearch": false,
+      "constructionSeconds": 20,
+      "category": "Extraction",
+      "recipes": [
+        {
+          "id": "wood",
+          "name": "Gather renewable wood",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "wood": 10
+          },
+          "allocationTier": 0,
+          "depositResource": "wood"
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "geographicBonus": {
+        "terrain": "f",
+        "radius": 5,
+        "outputBonus": 0.2
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "stoneGatherer",
+      "name": "Stone gatherer",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "food": 0,
+        "wood": 15,
+        "stone": 0,
+        "knowledge": 0
+      },
+      "ratesPerMinute": {
+        "food": 0,
+        "wood": 0,
+        "stone": 8,
+        "knowledge": 0
+      },
+      "housing": 0,
+      "assetKey": "placeholder.stoneGatherer",
+      "requiresResearch": false,
+      "constructionSeconds": 20,
+      "category": "Extraction",
+      "recipes": [
+        {
+          "id": "stone",
+          "name": "Gather stone",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "stone": 8
+          },
+          "allocationTier": 0,
+          "depositResource": "stone"
+        },
+        {
+          "id": "flint",
+          "name": "Gather flint",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "flint": 6
+          },
+          "allocationTier": 0,
+          "depositResource": "flint"
+        },
+        {
+          "id": "clay",
+          "name": "Gather clay",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "clay": 6
+          },
+          "allocationTier": 0,
+          "depositResource": "clay"
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "geographicBonus": {
+        "terrain": "h",
+        "radius": 4,
+        "outputBonus": 0.2
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "farm",
+      "name": "Farm",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 30,
+        "stone": 10
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.farm",
+      "requiresResearch": true,
+      "constructionSeconds": 30,
+      "category": "Food and water",
+      "recipes": [
+        {
+          "id": "farm",
+          "name": "Cultivate food",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "food": 16
+          },
+          "allocationTier": 1
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "maintenancePerMinute": {
+        "water": 3
+      },
+      "geographicBonus": {
+        "terrain": "w",
+        "radius": 3,
+        "outputBonus": 0.2
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "animalPen",
+      "name": "Animal pen",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "food": 15,
+        "wood": 30
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.animalPen",
+      "requiresResearch": true,
+      "constructionSeconds": 30,
+      "category": "Food and water",
+      "recipes": [
+        {
+          "id": "animals",
+          "name": "Tend animals",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "food": 8,
+            "animalHides": 5
+          },
+          "allocationTier": 1,
+          "depositResource": "animalHides"
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "maintenancePerMinute": {
+        "water": 2
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "storehouse",
+      "name": "Storehouse",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 35,
+        "stone": 15
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.storehouse",
+      "requiresResearch": false,
+      "constructionSeconds": 30,
+      "category": "Settlement",
+      "recipes": [],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "storageBonus": {
+        "food": 250,
+        "wood": 250,
+        "stone": 250,
+        "water": 250,
+        "flint": 250,
+        "clay": 250,
+        "animalHides": 250,
+        "stoneTools": 250,
+        "leather": 250,
+        "pottery": 250,
+        "knowledge": 250,
+        "culture": 250
+      },
+      "workersRequired": 0,
+      "survivalProduction": false
+    },
+    {
+      "kind": "toolmaker",
+      "name": "Toolmaker",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 25,
+        "stone": 10
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.toolmaker",
+      "requiresResearch": true,
+      "constructionSeconds": 30,
+      "category": "Crafting",
+      "recipes": [
+        {
+          "id": "stoneTools",
+          "name": "Knapp stone tools",
+          "inputsPerMinute": {
+            "wood": 2,
+            "flint": 2
+          },
+          "outputsPerMinute": {
+            "stoneTools": 2
+          },
+          "allocationTier": 1
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "maintenancePerMinute": {
+        "water": 1
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "tannery",
+      "name": "Tannery",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 25,
+        "stone": 10
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.tannery",
+      "requiresResearch": true,
+      "constructionSeconds": 30,
+      "category": "Crafting",
+      "recipes": [
+        {
+          "id": "leather",
+          "name": "Prepare leather",
+          "inputsPerMinute": {
+            "animalHides": 2
+          },
+          "outputsPerMinute": {
+            "leather": 2
+          },
+          "allocationTier": 2
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "maintenancePerMinute": {
+        "water": 1
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "potteryWorkshop",
+      "name": "Pottery workshop",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 25,
+        "stone": 15
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.potteryWorkshop",
+      "requiresResearch": true,
+      "constructionSeconds": 30,
+      "category": "Crafting",
+      "recipes": [
+        {
+          "id": "pottery",
+          "name": "Fire pottery",
+          "inputsPerMinute": {
+            "clay": 3,
+            "wood": 2
+          },
+          "outputsPerMinute": {
+            "pottery": 2
+          },
+          "allocationTier": 1
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "maintenancePerMinute": {
+        "water": 1
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "storytellingCircle",
+      "name": "Storytelling circle",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "food": 10,
+        "wood": 20,
+        "stone": 10,
+        "knowledge": 0
+      },
+      "ratesPerMinute": {
+        "food": 0,
+        "wood": 0,
+        "stone": 0,
+        "knowledge": 3
+      },
+      "housing": 0,
+      "assetKey": "placeholder.storytellingCircle",
+      "requiresResearch": true,
+      "constructionSeconds": 30,
+      "category": "Culture and knowledge",
+      "recipes": [
+        {
+          "id": "stories",
+          "name": "Share oral histories",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "knowledge": 3,
+            "culture": 2
+          },
+          "allocationTier": 2
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "healersHut",
+      "name": "Healer’s hut",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 30,
+        "stone": 10
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.healersHut",
+      "requiresResearch": true,
+      "constructionSeconds": 35,
+      "category": "Community",
+      "recipes": [
+        {
+          "id": "healing",
+          "name": "Share healing knowledge",
+          "inputsPerMinute": {
+            "leather": 0.5
+          },
+          "outputsPerMinute": {
+            "knowledge": 2,
+            "culture": 1
+          },
+          "allocationTier": 3
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "maintenancePerMinute": {
+        "water": 2
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "shrine",
+      "name": "Shrine",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 20,
+        "stone": 30
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.shrine",
+      "requiresResearch": true,
+      "constructionSeconds": 40,
+      "category": "Culture and knowledge",
+      "recipes": [
+        {
+          "id": "rituals",
+          "name": "Hold communal rituals",
+          "inputsPerMinute": {
+            "pottery": 0.5
+          },
+          "outputsPerMinute": {
+            "culture": 5
+          },
+          "allocationTier": 2
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "burialGround",
+      "name": "Burial ground",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 15,
+        "stone": 25
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.burialGround",
+      "requiresResearch": true,
+      "constructionSeconds": 35,
+      "category": "Culture and knowledge",
+      "recipes": [
+        {
+          "id": "remembrance",
+          "name": "Preserve collective memory",
+          "inputsPerMinute": {},
+          "outputsPerMinute": {
+            "culture": 3,
+            "knowledge": 1
+          },
+          "allocationTier": 2
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "scoutCamp",
+      "name": "Scout camp",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "food": 15,
+        "wood": 25,
+        "stone": 5
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.scoutCamp",
+      "requiresResearch": true,
+      "constructionSeconds": 30,
+      "category": "Security",
+      "recipes": [
+        {
+          "id": "scouting",
+          "name": "Record valley observations",
+          "inputsPerMinute": {
+            "stoneTools": 0.5
+          },
+          "outputsPerMinute": {
+            "knowledge": 2
+          },
+          "allocationTier": 2
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "watchtower",
+      "name": "Watchtower",
+      "width": 2,
+      "height": 2,
+      "cost": {
+        "wood": 40,
+        "stone": 20
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.watchtower",
+      "requiresResearch": true,
+      "constructionSeconds": 45,
+      "category": "Security",
+      "recipes": [
+        {
+          "id": "watch",
+          "name": "Maintain settlement watch",
+          "inputsPerMinute": {
+            "stoneTools": 0.25
+          },
+          "outputsPerMinute": {
+            "culture": 2
+          },
+          "allocationTier": 2
+        }
+      ],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "workersRequired": 1,
+      "survivalProduction": false
+    },
+    {
+      "kind": "palisade",
+      "name": "Palisade",
+      "width": 1,
+      "height": 1,
+      "cost": {
+        "wood": 20,
+        "stone": 5
+      },
+      "ratesPerMinute": {},
+      "housing": 0,
+      "assetKey": "placeholder.palisade",
+      "requiresResearch": true,
+      "constructionSeconds": 20,
+      "category": "Security",
+      "recipes": [],
+      "upgradeCost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "workersRequired": 0,
+      "survivalProduction": false
+    }
+  ],
+  "map": {
+    "id": "river-clearing-v1",
+    "width": 32,
+    "height": 24,
+    "rows": [
+      "ffffffffffff...........ww..hhhhh",
+      "ffffffffffff...........ww..hhhhh",
+      "ffffffffffff...........ww..hhhhh",
+      "ffffffffffff..........ww...hhhhh",
+      "ffffffffffff..........ww...hhhhh",
+      "ffff..................ww...hhhhh",
+      "ffff.................ww....hhhhh",
+      "ffff.................ww.........",
+      "ffff....ccccccccccc..ww.........",
+      "ffff....ccccccccccc..ww.........",
+      "ffff....ccccccccccc..ww.........",
+      "ffff....ccccccccccc..ww.........",
+      "ffff....ccccccccccc..ww.........",
+      "ffff....ccccccccccc..ww.........",
+      "ffff....ccccccccccc...ww........",
+      "ffff....ccccccccccc...ww........",
+      "ffff....ccccccccccc...ww........",
+      "ffff....ccccccccccc....ww.......",
+      "ffff....ccccccccccc....ww.......",
+      "ffff...................ww.......",
+      "ffffffffff..............ww......",
+      "ffffffffff..............ww......",
+      "ffffffffff..............ww......",
+      "ffffffffff..............ww......"
+    ],
+    "campfire": {
+      "x": 17,
+      "y": 12
+    }
+  },
+  "populationRules": {
+    "foodPerPersonPerMinute": 1,
+    "growthIntervalSeconds": 120,
+    "minimumFoodForGrowth": 20
+  },
+  "technologies": [
+    {
+      "id": "oralTradition",
+      "name": "Oral Tradition",
+      "pillar": "science",
+      "summary": "Unlocks storytelling circles and the first knowledge production.",
+      "prerequisites": [],
+      "cost": {
+        "food": 20,
+        "wood": 10,
+        "stone": 0,
+        "knowledge": 0
+      },
+      "effects": {
+        "productionBonus": {
+          "food": 0,
+          "wood": 0,
+          "stone": 0,
+          "knowledge": 0
+        },
+        "storageBonus": {
+          "food": 0,
+          "wood": 0,
+          "stone": 0,
+          "knowledge": 0
+        },
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "storytellingCircle"
+        ]
+      }
+    },
+    {
+      "id": "stoneTools",
+      "name": "Stone Tools",
+      "pillar": "science",
+      "summary": "Improves gross wood and stone production by 20% and unlocks toolmakers.",
+      "prerequisites": [
+        "oralTradition"
+      ],
+      "cost": {
+        "food": 0,
+        "wood": 0,
+        "stone": 0,
+        "knowledge": 15
+      },
+      "effects": {
+        "productionBonus": {
+          "food": 0,
+          "wood": 0.2,
+          "stone": 0.2,
+          "knowledge": 0
+        },
+        "storageBonus": {
+          "food": 0,
+          "wood": 0,
+          "stone": 0,
+          "knowledge": 0
+        },
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "toolmaker"
+        ]
+      }
+    },
+    {
+      "id": "socialOrder",
+      "name": "Social Order",
+      "pillar": "population",
+      "summary": "Reduces the eligible population growth interval to 90 seconds. Provisional foundation research.",
+      "prerequisites": [
+        "oralTradition"
+      ],
+      "cost": {
+        "food": 0,
+        "wood": 0,
+        "stone": 0,
+        "knowledge": 50
+      },
+      "effects": {
+        "productionBonus": {
+          "food": 0,
+          "wood": 0,
+          "stone": 0,
+          "knowledge": 0
+        },
+        "storageBonus": {
+          "food": 0,
+          "wood": 0,
+          "stone": 0,
+          "knowledge": 0
+        },
+        "growthIntervalMultiplier": 0.75,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": []
+      }
+    },
+    {
+      "id": "hunting",
+      "name": "Hunting",
+      "pillar": "economy",
+      "summary": "Unlocks hunting lodges for food and hides.",
+      "prerequisites": [
+        "oralTradition"
+      ],
+      "cost": {
+        "knowledge": 10,
+        "wood": 5
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "huntingLodge"
+        ]
+      }
+    },
+    {
+      "id": "fishing",
+      "name": "Fishing",
+      "pillar": "economy",
+      "summary": "Unlocks fishing shelters for food and water.",
+      "prerequisites": [
+        "oralTradition"
+      ],
+      "cost": {
+        "knowledge": 10,
+        "wood": 5
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "fishingShelter"
+        ]
+      }
+    },
+    {
+      "id": "cultivation",
+      "name": "Cultivation",
+      "pillar": "economy",
+      "summary": "Unlocks farms and improves food output by 10%.",
+      "prerequisites": [
+        "hunting"
+      ],
+      "cost": {
+        "knowledge": 20,
+        "food": 10
+      },
+      "effects": {
+        "productionBonus": {
+          "food": 0.1
+        },
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "farm"
+        ]
+      }
+    },
+    {
+      "id": "animalDomestication",
+      "name": "Animal Domestication",
+      "pillar": "economy",
+      "summary": "Unlocks animal pens.",
+      "prerequisites": [
+        "cultivation"
+      ],
+      "cost": {
+        "knowledge": 20,
+        "food": 15
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "animalPen"
+        ]
+      }
+    },
+    {
+      "id": "leatherworking",
+      "name": "Leatherworking",
+      "pillar": "economy",
+      "summary": "Unlocks tanneries.",
+      "prerequisites": [
+        "stoneTools",
+        "hunting"
+      ],
+      "cost": {
+        "knowledge": 15,
+        "animalHides": 5
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "tannery"
+        ]
+      }
+    },
+    {
+      "id": "pottery",
+      "name": "Pottery",
+      "pillar": "economy",
+      "summary": "Unlocks pottery workshops.",
+      "prerequisites": [
+        "stoneTools"
+      ],
+      "cost": {
+        "knowledge": 15,
+        "clay": 5
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "potteryWorkshop"
+        ]
+      }
+    },
+    {
+      "id": "foodPreservation",
+      "name": "Food Preservation",
+      "pillar": "economy",
+      "summary": "Adds 100 food storage and improves food output by 10%.",
+      "prerequisites": [
+        "pottery"
+      ],
+      "cost": {
+        "knowledge": 20,
+        "pottery": 3
+      },
+      "effects": {
+        "productionBonus": {
+          "food": 0.1
+        },
+        "storageBonus": {
+          "food": 100
+        },
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": []
+      }
+    },
+    {
+      "id": "basketry",
+      "name": "Basketry",
+      "pillar": "economy",
+      "summary": "Adds 50 wood and water storage.",
+      "prerequisites": [
+        "oralTradition"
+      ],
+      "cost": {
+        "knowledge": 10,
+        "wood": 10
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {
+          "wood": 50,
+          "water": 50
+        },
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": []
+      }
+    },
+    {
+      "id": "construction",
+      "name": "Construction",
+      "pillar": "science",
+      "summary": "Reduces new construction durations by 10%.",
+      "prerequisites": [
+        "stoneTools"
+      ],
+      "cost": {
+        "knowledge": 10,
+        "stone": 10
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 0.9,
+        "unlockedBuildings": []
+      }
+    },
+    {
+      "id": "naturalKnowledge",
+      "name": "Natural Knowledge",
+      "pillar": "science",
+      "summary": "Improves knowledge output by 20%.",
+      "prerequisites": [
+        "oralTradition"
+      ],
+      "cost": {
+        "knowledge": 20,
+        "food": 10
+      },
+      "effects": {
+        "productionBonus": {
+          "knowledge": 0.2
+        },
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": []
+      }
+    },
+    {
+      "id": "permanentSettlement",
+      "name": "Permanent Settlement",
+      "pillar": "population",
+      "summary": "Reduces eligible population growth intervals by 10%.",
+      "prerequisites": [
+        "oralTradition"
+      ],
+      "cost": {
+        "knowledge": 15,
+        "wood": 10
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 0.9,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": []
+      }
+    },
+    {
+      "id": "herbalMedicine",
+      "name": "Herbal Medicine",
+      "pillar": "population",
+      "summary": "Unlocks healer’s huts and improves water output by 10%.",
+      "prerequisites": [
+        "leatherworking",
+        "naturalKnowledge"
+      ],
+      "cost": {
+        "knowledge": 20,
+        "leather": 3
+      },
+      "effects": {
+        "productionBonus": {
+          "water": 0.1
+        },
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "healersHut"
+        ]
+      }
+    },
+    {
+      "id": "rituals",
+      "name": "Rituals",
+      "pillar": "culture",
+      "summary": "Unlocks shrines and improves culture output by 10%.",
+      "prerequisites": [
+        "oralTradition"
+      ],
+      "cost": {
+        "knowledge": 15,
+        "stone": 10
+      },
+      "effects": {
+        "productionBonus": {
+          "culture": 0.1
+        },
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "shrine"
+        ]
+      }
+    },
+    {
+      "id": "burialTraditions",
+      "name": "Burial Traditions",
+      "pillar": "culture",
+      "summary": "Unlocks burial grounds.",
+      "prerequisites": [
+        "rituals"
+      ],
+      "cost": {
+        "knowledge": 15,
+        "stone": 15
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "burialGround"
+        ]
+      }
+    },
+    {
+      "id": "exploration",
+      "name": "Exploration",
+      "pillar": "militarySecurity",
+      "summary": "Unlocks scout camps for deeper exploration.",
+      "prerequisites": [
+        "oralTradition"
+      ],
+      "cost": {
+        "knowledge": 10,
+        "food": 10
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "scoutCamp"
+        ]
+      }
+    },
+    {
+      "id": "surveillance",
+      "name": "Surveillance",
+      "pillar": "militarySecurity",
+      "summary": "Unlocks watchtowers.",
+      "prerequisites": [
+        "exploration",
+        "stoneTools"
+      ],
+      "cost": {
+        "knowledge": 20,
+        "wood": 10
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "watchtower"
+        ]
+      }
+    },
+    {
+      "id": "fortification",
+      "name": "Fortification",
+      "pillar": "militarySecurity",
+      "summary": "Unlocks palisades.",
+      "prerequisites": [
+        "surveillance"
+      ],
+      "cost": {
+        "knowledge": 15,
+        "stone": 10
+      },
+      "effects": {
+        "productionBonus": {},
+        "storageBonus": {},
+        "growthIntervalMultiplier": 1,
+        "constructionDurationMultiplier": 1,
+        "unlockedBuildings": [
+          "palisade"
+        ]
+      }
+    }
+  ],
+  "resourceCaps": {
+    "food": 500,
+    "wood": 500,
+    "stone": 500,
+    "water": 500,
+    "flint": 500,
+    "clay": 500,
+    "animalHides": 500,
+    "stoneTools": 500,
+    "leather": 500,
+    "pottery": 500,
+    "knowledge": 500,
+    "culture": 500
+  },
+  "economyRules": {
+    "maximumUpgradeLevel": 3,
+    "outputBonusPerLevel": 0.25
+  },
+  "naturalDeposits": [
+    {
+      "id": "valley-stone",
+      "kind": "stone",
+      "resource": "stone",
+      "origin": {
+        "x": 27,
+        "y": 4
+      },
+      "radius": 40,
+      "renewable": false,
+      "capacity": 12000
+    },
+    {
+      "id": "valley-flint",
+      "kind": "flint",
+      "resource": "flint",
+      "origin": {
+        "x": 26,
+        "y": 5
+      },
+      "radius": 40,
+      "renewable": false,
+      "capacity": 6000
+    },
+    {
+      "id": "river-clay",
+      "kind": "clay",
+      "resource": "clay",
+      "origin": {
+        "x": 20,
+        "y": 12
+      },
+      "radius": 40,
+      "renewable": false,
+      "capacity": 8000
+    },
+    {
+      "id": "western-forest",
+      "kind": "forest",
+      "resource": "wood",
+      "origin": {
+        "x": 2,
+        "y": 12
+      },
+      "radius": 40,
+      "renewable": true,
+      "capacity": 0
+    },
+    {
+      "id": "river-water",
+      "kind": "river",
+      "resource": "water",
+      "origin": {
+        "x": 21,
+        "y": 12
+      },
+      "radius": 40,
+      "renewable": true,
+      "capacity": 0
+    },
+    {
+      "id": "valley-wildlife",
+      "kind": "wildlife",
+      "resource": "animalHides",
+      "origin": {
+        "x": 5,
+        "y": 6
+      },
+      "radius": 40,
+      "renewable": true,
+      "capacity": 0
+    },
+    {
+      "id": "hill-copper",
+      "kind": "copper",
+      "origin": {
+        "x": 28,
+        "y": 3
+      },
+      "radius": 4,
+      "renewable": false,
+      "capacity": 3000,
+      "requiredTechnology": "futureMetalworking"
+    }
+  ],
+  "workforceRules": {
+    "workingPopulationFraction": 0.6,
+    "survivalReserveFraction": 0.5,
+    "waterPerPersonPerMinute": 0.5,
+    "minimumWaterForGrowth": 10
+  },
+  "explorationRules": {
+    "initialRadius": 7,
+    "revealRadiusStep": 2,
+    "durationSeconds": 45,
+    "cost": {
+      "food": 10
+    },
+    "initialKnownDepositIDs": [
+      "valley-stone",
+      "valley-flint",
+      "river-clay",
+      "western-forest",
+      "river-water",
+      "valley-wildlife"
+    ],
+    "requiresScoutAfterRadius": 11
+  },
+  "progressionGoals": [
+    {
+      "id": "economyFoundation",
+      "title": "A self-sufficient craft economy",
+      "pillar": "economy",
+      "requiredBuildings": [
+        "gatheringShelter",
+        "woodcutter",
+        "stoneGatherer",
+        "storehouse",
+        "toolmaker",
+        "tannery",
+        "potteryWorkshop"
+      ],
+      "requiredTechnologies": [],
+      "minimumPopulation": 0,
+      "minimumResources": {
+        "stoneTools": 5,
+        "leather": 5,
+        "pottery": 5
+      },
+      "minimumDiscoveredTiles": 0,
+      "minimumNetRates": {}
+    },
+    {
+      "id": "scienceFoundation",
+      "title": "Stone Age understanding",
+      "pillar": "science",
+      "requiredBuildings": [],
+      "requiredTechnologies": [
+        "oralTradition",
+        "stoneTools",
+        "construction",
+        "naturalKnowledge",
+        "pottery",
+        "socialOrder",
+        "rituals",
+        "exploration"
+      ],
+      "minimumPopulation": 0,
+      "minimumResources": {},
+      "minimumDiscoveredTiles": 0,
+      "minimumNetRates": {}
+    },
+    {
+      "id": "populationFoundation",
+      "title": "A growing community",
+      "pillar": "population",
+      "requiredBuildings": [
+        "hut"
+      ],
+      "requiredTechnologies": [],
+      "minimumPopulation": 10,
+      "minimumResources": {},
+      "minimumDiscoveredTiles": 0,
+      "minimumNetRates": {
+        "food": 1,
+        "water": 1
+      }
+    },
+    {
+      "id": "cultureFoundation",
+      "title": "Shared stories and traditions",
+      "pillar": "culture",
+      "requiredBuildings": [
+        "storytellingCircle",
+        "shrine"
+      ],
+      "requiredTechnologies": [],
+      "minimumPopulation": 0,
+      "minimumResources": {
+        "culture": 30
+      },
+      "minimumDiscoveredTiles": 0,
+      "minimumNetRates": {}
+    },
+    {
+      "id": "securityFoundation",
+      "title": "A known and protected valley",
+      "pillar": "militarySecurity",
+      "requiredBuildings": [
+        "scoutCamp",
+        "watchtower",
+        "palisade"
+      ],
+      "requiredTechnologies": [],
+      "minimumPopulation": 0,
+      "minimumResources": {},
+      "minimumDiscoveredTiles": 600,
+      "minimumNetRates": {}
+    }
+  ]
+}
