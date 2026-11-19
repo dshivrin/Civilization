@@ -181,6 +181,45 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(map.exists)
     }
 
+    @MainActor func testCompactDevelopmentCardsExpandAndShowDeficits() throws {
+        continueAfterFailure = false
+        XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launch()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        app.buttons["developerTools"].tap(); app.buttons["scenario-early"].tap()
+        app.buttons["Build"].tap(); app.buttons["buildingCategory-Settlement"].tap()
+        let hut = app.buttons["details-building-hut"]
+        XCTAssertTrue(hut.waitForExistence(timeout: 5))
+        XCTAssertEqual(hut.value as? String, "Collapsed")
+        XCTAssertFalse(app.staticTexts["building-description-hut"].exists)
+        XCTAssertEqual(app.buttons["build-hut"].frame.minY, app.buttons["build-campfire"].frame.minY, accuracy: 2)
+        capture("compact-buildings", app: app)
+        hut.tap()
+        XCTAssertEqual(hut.value as? String, "Expanded")
+        XCTAssertTrue(app.staticTexts["building-description-hut"].exists)
+        capture("expanded-building", app: app)
+        hut.tap()
+        XCTAssertFalse(app.staticTexts["building-description-hut"].exists)
+        app.buttons["closeBuildingCatalog"].tap()
+        app.buttons["openResearch"].tap(); app.buttons["pillarFilter-science"].tap()
+        let tradition = app.buttons["details-research-oralTradition"]
+        XCTAssertTrue(tradition.waitForExistence(timeout: 5))
+        XCTAssertEqual(tradition.value as? String, "Collapsed")
+        XCTAssertFalse(app.staticTexts["research-description-oralTradition"].exists)
+        capture("compact-research", app: app)
+        tradition.tap()
+        XCTAssertTrue(app.staticTexts["research-description-oralTradition"].exists)
+        capture("expanded-research", app: app)
+        tradition.tap()
+        app.buttons["pillarFilter-militarySecurity"].tap()
+        let deficit = app.descendants(matching: .any)["cost-research-fortification-knowledge"].firstMatch
+        XCTAssertTrue(deficit.waitForExistence(timeout: 5))
+        XCTAssertTrue(deficit.label.contains("missing"), deficit.label)
+        XCTAssertFalse(app.buttons["research-fortification"].isEnabled)
+        capture("missing-resource", app: app)
+        app.buttons["closeResearch"].tap()
+    }
+
     @MainActor private func capture(_ name: String, app: XCUIApplication) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
