@@ -4,7 +4,7 @@ Updated19November2026. Current branch first-era-review; clean baseline5ccca9a (r
 
 ## Current task and exact next action
 
-S1-Saves design reconciled and ready to commit before product code. Spec docs/superpowers/specs/2026-11-19-s1-saves-design.md; plan docs/superpowers/plans/2026-11-19-s1-saves.md. Exact next action: commit the design/canonical classification/checkpoint, then write failing GameLibraryStoreTests for untouched legacy bootstrap, independent paths, validation/corrupt metadata preservation. Run targeted swift test to observe RED; implement store; run full suite; commit unit. Then async GameLibrary/session orchestration, native UI, full verification/review/device delivery.
+S1-Saves design committed1cc694f. Task1 metadata store complete: separate version1 index, unchanged legacy paths, validated UUID paths, corrupt/unsupported metadata preservation and alias rejection. RED compilation observed then all160Debug tests passed (/tmp/civilization-s1saves-store-green.log). Exact next action: write failing async GameLibraryTests, add session suspension/registered-file protection and serialized GameLibrary ownership; verify full Debug/Release and commit before native Games UI. Current metadata unit commit follows this checkpoint; retrieve SHA with git log -1.
 
 ## Completed work and actual evidence
 
