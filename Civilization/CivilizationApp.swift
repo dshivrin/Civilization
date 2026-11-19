@@ -14,7 +14,15 @@ struct CivilizationApp: App {
             }
             .task {
                 guard session == nil && startupError == nil else { return }
-                do { session = try await GameSession.load() }
+                do {
+                    #if DEBUG
+                    if ProcessInfo.processInfo.environment["CIVILIZATION_RENDER_SCENARIO"] == "late" {
+                        session = try GameSession.renderBenchmark(in: FileManager.default.temporaryDirectory)
+                        return
+                    }
+                    #endif
+                    session = try await GameSession.load()
+                }
                 catch is CancellationError {}
                 catch { startupError = error.localizedDescription }
             }

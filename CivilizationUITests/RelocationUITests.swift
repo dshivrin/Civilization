@@ -152,6 +152,35 @@ final class RelocationUITests: XCTestCase {
         XCTAssertFalse(app.buttons["closeBuildingCatalog"].exists)
     }
 
+    @MainActor func testDenseSettlementArtAndCamera() throws {
+        continueAfterFailure = false
+        XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_RENDER_METRICS"] = "1"
+        app.launch()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        app.buttons["developerTools"].tap(); app.buttons["scenario-late"].tap()
+        let map = app.otherElements["settlementMap"]
+        XCTAssertTrue(map.waitForExistence(timeout: 10))
+        XCTAssertGreaterThan(map.frame.width,map.frame.height)
+        capture("late-world", app: app)
+        map.pinch(withScale: 1.15,velocity: 0.5)
+        let center=map.coordinate(withNormalizedOffset:CGVector(dx:0.5,dy:0.5))
+        center.press(forDuration:0.05,thenDragTo:map.coordinate(withNormalizedOffset:CGVector(dx:0.58,dy:0.55)))
+        app.buttons["Center on settlement"].tap()
+        app.buttons["Build"].tap()
+        app.buttons["buildingCategory-Crafting"].tap()
+        XCTAssertTrue(app.buttons["build-toolmaker"].isEnabled)
+        capture("crafting-thumbnails", app: app)
+        app.buttons["closeBuildingCatalog"].tap()
+        app.buttons["openResearch"].tap()
+        XCTAssertTrue(app.buttons["pillarFilter-science"].waitForExistence(timeout:5))
+        app.buttons["pillarFilter-science"].tap()
+        capture("research-icons", app: app)
+        app.buttons["closeResearch"].tap()
+        XCTAssertTrue(map.exists)
+    }
+
     @MainActor private func capture(_ name: String, app: XCUIApplication) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)

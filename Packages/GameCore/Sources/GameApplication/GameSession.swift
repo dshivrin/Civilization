@@ -106,6 +106,7 @@ public final class GameSession {
         inspectedBuilding = building
         message = configuration.definition(building.kind).name
     }
+    public var operatingProductionBuildingIDs: Set<Int> { engine.operatingProductionBuildingIDs }
     public func productivity(_ building: PlacedBuilding) -> Double { engine.productivity(building) }
     public func operatingStatus(_ building: PlacedBuilding) -> String { engine.operatingStatus(building) }
     public func upgradeCost(for building: PlacedBuilding) -> ResourceAmounts? { engine.upgradeCost(for: building) }
@@ -327,6 +328,14 @@ public final class GameSession {
         cancelRelocationPreview()
         selectedKind = nil; selectedTile = nil; inspectedBuilding = nil
         centerRequest += 1
+    }
+    /// Opt-in profiling fixture in unique temporary files; never opens the user's normal/developer stores.
+    public static func renderBenchmark(in directory: URL, clock: @escaping () -> Date = Date.init) throws -> GameSession {
+        let url = directory.appendingPathComponent("render-benchmark-\(UUID().uuidString).json")
+        let session = try GameSession(clock: clock, saveURL: url)
+        session.loadDeveloperScenario(.late)
+        guard session.isDeveloperMode, session.developerScenario == .late else { throw GameError.invalidSave("Unable to prepare render benchmark") }
+        return session
     }
     public func loadDeveloperScenario(_ scenario: DeveloperScenario) {
         do {

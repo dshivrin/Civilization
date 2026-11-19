@@ -73,3 +73,17 @@ public struct SpriteAlphaMask: Sendable {
         return alpha[row * width + column] >= 32
     }
 }
+
+/// Presentation timing only. Ignore invalid values and suspension-sized gaps.
+public struct RenderFrameSummary: Sendable, Equatable {
+    public let frameCount: Int
+    public let framesPerSecond: Double
+    public let p95Milliseconds: Double
+    public init?(samples: [Double]) {
+        let valid = samples.filter { $0.isFinite && $0 > 0 && $0 <= 1 }.sorted()
+        guard !valid.isEmpty else { return nil }
+        frameCount = valid.count
+        framesPerSecond = Double(valid.count) / valid.reduce(0, +)
+        p95Milliseconds = valid[min(valid.count - 1, max(0, Int(ceil(Double(valid.count) * 0.95)) - 1))] * 1000
+    }
+}

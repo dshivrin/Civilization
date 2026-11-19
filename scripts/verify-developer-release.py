@@ -15,6 +15,7 @@ def module_dir(configuration):
     raise SystemExit(f'Build {configuration} modules first')
 debug, release = map(Path, sys.argv[1:]) if len(sys.argv) == 3 else (module_dir('Debug'), module_dir('Release'))
 probes = {
+    'renderBenchmark': 'import Foundation\nimport GameApplication\n@MainActor func probe() throws { _ = try GameSession.renderBenchmark(in: URL(fileURLWithPath: "/tmp")) }\n',
     'DeveloperScenario': 'import GameApplication\nlet scenario = DeveloperScenario.early\n',
     'developerFastConstruction': 'import GameCore\nfunc probe(_ e: inout GameEngine) { e.developerFastConstruction = true }\n',
     'loadDeveloperScenario': 'import GameApplication\n@MainActor func probe(_ s: GameSession) { s.loadDeveloperScenario(.early) }\n',

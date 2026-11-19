@@ -184,3 +184,21 @@ import GamePersistence
     #expect(engine.state.buildings.last?.constructionRemainingSeconds == config.definition(.hut).constructionSeconds)
 }
 #endif
+
+#if DEBUG
+@MainActor @Test func renderBenchmarkNeverTouchesExistingSettlementFiles() throws {
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let normal = folder.appendingPathComponent("settlement-v1.json")
+    let original = Data("protected normal save".utf8)
+    try original.write(to: normal)
+    let session = try GameSession.renderBenchmark(in: folder, clock: { Date(timeIntervalSince1970: 1000) })
+    #expect(session.isDeveloperMode)
+    #expect(session.developerScenario == .late)
+    #expect(session.state.buildings.count >= 20)
+    session.tick();session.save()
+    #expect(try Data(contentsOf: normal) == original)
+    #expect(!FileManager.default.fileExists(atPath: normal.appendingPathExtension("developer").path))
+}
+#endif

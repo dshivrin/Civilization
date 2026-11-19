@@ -68,9 +68,14 @@ struct BuildingCatalogView: View {
                 if count > 0 { Label("\(count)", systemImage: "checkmark.seal.fill").foregroundStyle(.mint) }
             }
             Label(locked ? "Research required" : campfire ? "Fixed settlement anchor" : affordable ? "Available" : "Need resources", systemImage: locked ? "lock.fill" : campfire ? "flame.fill" : affordable ? "hammer.fill" : "hourglass").font(.caption.bold()).foregroundStyle(color)
+            Text("Cost: " + amounts(definition.cost)).font(.caption).foregroundStyle(.yellow)
+            Button(campfire ? "Already placed" : locked ? "Research required" : "Build " + definition.name) {
+                session.choose(definition.kind)
+                dismiss()
+            }.frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).controlSize(.large).foregroundStyle(panelColor).disabled(locked || campfire)
+                .accessibilityIdentifier("build-" + definition.kind.rawValue)
             Text(definition.description ?? definition.name).font(.subheadline).fixedSize(horizontal: false, vertical: true)
             Text("Research: " + (prerequisites.isEmpty ? "None" : prerequisites.map { $0.name + (session.researchedIDs.contains($0.id) ? " ✓" : "") }.joined(separator: ", "))).font(.caption)
-            Text("Cost: " + amounts(definition.cost)).font(.caption).foregroundStyle(.yellow)
             ForEach(definition.recipes ?? [], id: \.id) { recipe in
                 Text(recipe.name + ": " + amounts(recipe.outputsPerMinute) + "/min" + (Resource.allCases.contains { recipe.inputsPerMinute[$0] > 0 } ? " · uses " + amounts(recipe.inputsPerMinute) + "/min" : ""))
                     .font(.caption).foregroundStyle(.mint)
@@ -79,11 +84,7 @@ struct BuildingCatalogView: View {
             if let storage = definition.storageBonus { Text("Storage: " + amounts(storage)).font(.caption) }
             Text("\(definition.width)×\(definition.height) tiles · \(Int(ceil(session.constructionDuration(for: definition.kind))))s · \(String(format: "%g", definition.workersRequired ?? 0)) workers").font(.caption).foregroundStyle(parchment.opacity(0.7))
             if definition.requiredNearbyTerrain != nil { Text("Requires revealed nearby water.").font(.caption) }
-            Button(campfire ? "Already placed" : locked ? "Research required" : "Build " + definition.name) {
-                session.choose(definition.kind)
-                dismiss()
-            }.frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).foregroundStyle(panelColor).disabled(locked || campfire)
-                .accessibilityIdentifier("build-" + definition.kind.rawValue)
+
         }.modifier(DevelopmentCardStyle(color: color))
     }
     /// Replaceable SF Symbol placeholders, independent of renderer asset keys.

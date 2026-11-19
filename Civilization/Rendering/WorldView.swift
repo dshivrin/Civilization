@@ -8,6 +8,7 @@ struct WorldView: UIViewRepresentable {
     let scene: SettlementScene
     let session: GameSession
     let onReady: () -> Void
+    var isObscured = false
     func makeCoordinator() -> Coordinator { Coordinator(scene: scene, session: session) }
     func makeUIView(context: Context) -> SKView {
         let view = SKView(); view.ignoresSiblingOrder = true; view.preferredFramesPerSecond = 60
@@ -30,9 +31,9 @@ struct WorldView: UIViewRepresentable {
     }
     func updateUIView(_ view: SKView, context: Context) {
         scene.onReady = onReady
-        view.isPaused = session.shouldPauseRendering
+        view.isPaused = session.shouldPauseRendering || isObscured
         scene.reduceMotion = reduceMotion
-        scene.activeProductionIDs = Set(session.state.buildings.filter { $0.isOperational && session.productivity($0) > 0 }.map(\.id))
+        scene.activeProductionIDs = session.operatingProductionBuildingIDs
         scene.display(state: session.state, kind: session.previewKind, tile: session.selectedTile, valid: session.placementIssue == nil, inspected: session.currentInspection, movingBuildingID: session.movingBuildingID, centerRequest: session.centerRequest, deposits: session.discoveredDeposits, identifiedDepositIDs: Set(session.discoveredDeposits.filter { session.isIdentified($0) }.map(\.id)))
     }
     @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {

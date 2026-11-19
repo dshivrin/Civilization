@@ -57,3 +57,23 @@ import GameApplication
     #expect(!session.shouldPauseRendering)
     #endif
 }
+
+@Test func frameSummaryRejectsSuspensionAndNonfiniteSamples() throws {
+    let samples = Array(repeating: 1.0 / 60, count: 120) + [.nan, -.infinity, 0, 5]
+    let summary = try #require(RenderFrameSummary(samples: samples))
+    #expect(abs(summary.framesPerSecond - 60) < 0.001)
+    #expect(abs(summary.p95Milliseconds - 1000 / 60) < 0.001)
+    #expect(summary.frameCount == 120)
+    #expect(RenderFrameSummary(samples: [.nan, 0, 2]) == nil)
+}
+
+@Test func productionActivityUsesActualOutputAndExcludesHousing() throws {
+    let epoch = Date(timeIntervalSince1970: 10_000)
+    var engine = try GameEngine(configuration: .bundled(), now: epoch)
+    #expect(engine.operatingProductionBuildingIDs == [0])
+    let tile = try #require((0..<24).flatMap { y in (0..<32).map { Tile(x: $0,y: y) } }.first { engine.placementIssue(.hut, at: $0) == nil })
+    try engine.build(.hut, at: tile)
+    engine.advance(to: epoch.addingTimeInterval(60))
+    #expect(engine.state.buildings.contains { $0.kind == .hut && $0.isOperational })
+    #expect(engine.operatingProductionBuildingIDs == [0])
+}

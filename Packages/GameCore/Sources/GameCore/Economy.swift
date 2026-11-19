@@ -44,6 +44,16 @@ private struct Flow {
     var extraction: Double
 }
 public extension GameEngine {
+    /// One shared economy snapshot for presentation activity, including selected recipes and actual staffing.
+    var operatingProductionBuildingIDs: Set<Int> {
+        let factors = configuration.economyRules == nil ? nil : economySnapshot.factors
+        return Set(state.buildings.compactMap { building in
+            guard building.isOperational else { return nil }
+            let outputs = recipe(for: building)?.outputsPerMinute ?? configuration.definition(building.kind).ratesPerMinute
+            guard Resource.allCases.contains(where: { outputs[$0] > 0 }), (factors?[building.id] ?? (factors == nil ? 1 : 0)) > 1e-9 else { return nil }
+            return building.id
+        })
+    }
     /// Counts current gross-output sources, excluding construction, staffing/input/deposit shutdowns.
     func producingBuildingCount(for resource: Resource) -> Int {
         let factors = configuration.economyRules == nil ? nil : economySnapshot.factors

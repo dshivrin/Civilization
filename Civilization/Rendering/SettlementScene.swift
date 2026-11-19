@@ -12,16 +12,23 @@ final class SettlementScene: SKScene {
     private var renderedDiscovery: Set<Tile>?
     private var renderedDepositSignature = ""
     private let ghostLayer = SKNode()
+    #if DEBUG
+    private let diagnostics = RenderDiagnostics()
+    #endif
     var onReady: (() -> Void)?
     private var hasDisplayedSnapshot = false
     private var didReportReady = false
     private var renderedMovingID: Int?
     override func didFinishUpdate() {
+        #if DEBUG
+        diagnostics.observe(self)
+        #endif
         guard hasDisplayedSnapshot, !didReportReady else { return }
         didReportReady = true
         onReady?()
     }
     private var renderedBuildings: [PlacedBuilding] = []
+    private var newlyPlacedIDs: Set<Int> = []
     private var renderedVisualSignature = ""
     var reduceMotion = false
     var activeProductionIDs: Set<Int> = []
@@ -100,6 +107,7 @@ final class SettlementScene: SKScene {
             drawDeposits(deposits, identifiedIDs: identifiedDepositIDs, reserves: state.depositRemaining ?? [:])
             renderedDepositSignature = depositSignature
         }
+        newlyPlacedIDs = hasDisplayedSnapshot ? Set(state.buildings.map(\.id)).subtracting(renderedBuildings.map(\.id)) : []
         fireAnimationIDs = Set(state.buildings.filter { $0.isOperational && ($0.kind == .campfire || ($0.kind == .potteryWorkshop && activeProductionIDs.contains($0.id))) }.prefix(VisualActivityPolicy.maximumSmokeParticles / 2).map(\.id))
         let signature = state.buildings.map { "\($0.id):\($0.kind.rawValue):\($0.origin.x),\($0.origin.y):\($0.level):\($0.isOperational)" }.joined(separator: "|")
         if signature != renderedVisualSignature || discoveryChanged || movingBuildingID != renderedMovingID || activeProductionIDs != renderedActiveIDs || reduceMotion != renderedReduceMotion {
@@ -115,7 +123,8 @@ final class SettlementScene: SKScene {
             if let root = buildingLayer.children.first(where: { ($0.userData?["buildingID"] as? Int) == building.id }) {
                 let fraction = 1 - (building.constructionRemainingSeconds ?? 0) / max(1, building.constructionDurationSeconds ?? 1)
                 root.childNode(withName: "constructionProgress")?.xScale = max(0.02, min(1, fraction))
-                root.childNode(withName: "artSprite")?.alpha = 0.25 + 0.60 * fraction
+                root.childNode(withName: "artSprite")?.alpha = fraction < 0.25 ? 0.12 : 0.25 + 0.60 * fraction
+                root.childNode(withName: "constructionScaffold")?.isHidden = fraction < 0.25 || fraction > 0.85
             }
         }
         hasDisplayedSnapshot = true
@@ -194,15 +203,23 @@ final class SettlementScene: SKScene {
 
             }
         }
-        // Cache static terrain; no per-frame tile traversal or economy updates.
-        let cached = SKEffectNode(); cached.shouldRasterize = true; cached.addChild(ground); terrainLayer.addChild(cached)
-        scenery.zPosition = 1; terrainLayer.addChild(scenery)
+        // Flatten immutable ground/scenery to one texture and release thousands of source shape nodes.
+        // Rebuild only when discovery or motion preferences change, never per simulation/render frame.
+        let staticWorld = SKNode();staticWorld.addChild(ground);scenery.zPosition = 1;staticWorld.addChild(scenery)
+        if let view, let texture = view.texture(from: staticWorld) {
+            let bounds = staticWorld.calculateAccumulatedFrame()
+            let sprite = SKSpriteNode(texture: texture);sprite.position = CGPoint(x:bounds.midX,y:bounds.midY);sprite.size = bounds.size
+            terrainLayer.addChild(sprite)
+        } else {
+            let cached = SKEffectNode();cached.shouldRasterize = true;cached.addChild(staticWorld);terrainLayer.addChild(cached)
+        }
+        let waterEffects = SKNode();waterEffects.zPosition = 2;terrainLayer.addChild(waterEffects)
         if !reduceMotion {
             var ripples = 0
             for y in 0..<configuration.map.height { for x in 0..<configuration.map.width {
                 let tile = Tile(x:x,y:y)
                 if ripples < VisualActivityPolicy.maximumWaterRipples && (x+y)%3 == 0 && (discovered?.contains(tile) ?? true) && configuration.map.terrain(at: tile) == .water {
-                    let ripple = SKShapeNode(ellipseOf: CGSize(width: 21,height: 3));ripple.position = IsometricProjection.point(tile);ripple.strokeColor = .white.withAlphaComponent(0.22);ripple.lineWidth = 0.7;scenery.addChild(ripple)
+                    let ripple = SKShapeNode(ellipseOf: CGSize(width: 21,height: 3));ripple.position = IsometricProjection.point(tile);ripple.strokeColor = .white.withAlphaComponent(0.22);ripple.lineWidth = 0.7;waterEffects.addChild(ripple)
                     ripple.run(.repeatForever(.sequence([.group([.moveBy(x: 7,y: -3,duration: 3.8),.fadeOut(withDuration: 3.8)]),.run { [weak ripple] in ripple?.position = IsometricProjection.point(tile);ripple?.alpha = 1 }])))
                     ripples += 1
                 }
@@ -251,6 +268,7 @@ final class SettlementScene: SKScene {
             if !building.isOperational {
                 sprite.alpha = 0.3
                 let frame = polygon([CGPoint(x: -36,y: 0),CGPoint(x: -36,y: 40),CGPoint(x: 0,y: 65),CGPoint(x: 36,y: 40),CGPoint(x:36,y:0)], fill: .clear)
+                frame.name = "constructionScaffold"
                 frame.strokeColor = UIColor(red: 0.78,green: 0.65,blue: 0.43,alpha: 0.85); frame.lineWidth = 3; node.addChild(frame)
                 let bar = SKSpriteNode(color: .systemYellow, size: CGSize(width: 60, height: 3))
                 bar.anchorPoint = CGPoint(x: 0,y: 0.5); bar.position = CGPoint(x:-30,y: -15);bar.name = "constructionProgress";node.addChild(bar)
@@ -269,6 +287,10 @@ final class SettlementScene: SKScene {
             if layer == nil && !reduceMotion && building.isOperational && activeProductionIDs.contains(building.id) && building.kind != .campfire {
                 let active = SKShapeNode(circleOfRadius: 2.5);active.fillColor = .systemMint.withAlphaComponent(0.8);active.strokeColor = .clear;active.position = CGPoint(x: 0,y: -8);node.addChild(active)
                 active.run(.repeatForever(.sequence([.fadeAlpha(to: 0.35,duration: 1.6),.fadeAlpha(to: 0.8,duration: 1.6)])))
+            }
+            if layer == nil && newlyPlacedIDs.contains(building.id) && !reduceMotion {
+                let ring = SKShapeNode(ellipseOf: CGSize(width: 96,height: 42));ring.strokeColor = .systemMint.withAlphaComponent(0.7);ring.lineWidth = 2;ring.fillColor = .clear;node.addChild(ring)
+                ring.run(.sequence([.group([.scale(to:1.2,duration:0.65),.fadeOut(withDuration:0.65)]),.removeFromParent()]))
             }
             if faded { node.alpha = 0.2 }
             (layer ?? buildingLayer).addChild(node)

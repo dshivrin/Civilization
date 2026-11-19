@@ -32,7 +32,7 @@ struct SettlementView: View {
         GeometryReader { geometry in
             let compact = geometry.size.height < 500
             ZStack {
-                WorldView(scene: scene, session: session, onReady: { worldReady = true }).ignoresSafeArea()
+                WorldView(scene: scene, session: session, onReady: { worldReady = true }, isObscured: showResearch || showCatalog || showJourney).ignoresSafeArea()
                 VStack(spacing: compact ? 8 : 14) {
                     resourceBar(compact: compact)
                     HStack(alignment: .top, spacing: 14) {
