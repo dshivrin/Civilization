@@ -92,7 +92,7 @@ The detailed stage descriptions/acceptance below and requirement rows above join
 
 | Stage | Status | Priority | Dependencies / gate | Approval reference | Implementation reference |
 |---|---|---|---|---|---|
-| S0 synchronization/media | In Progress | P0 | Canonical review; master request approval/delivery | P1, S1 original sync | c9ecdd4; media 697b486; current sync pending commit |
+| S0 synchronization/media | In Progress | P0 | Canonical review; complete master reply/reconciliation | P1, S1 original sync | c9ecdd4; media 697b486; current sync pending commit |
 | S1 first-era candidate | Awaiting Human Review | P1 | Historical acceptance criteria below; S1-UX follows reconciled brief | Direct playability approval; P1 | 62767da, 7047d38, 3ecc846, ec36baf; current evidence 4d4211e |
 | S1-UX feedback | Approved | P1 | COORD-001 reply/reconciliation; Q-MOVE/RD/HUD | P1 | — |
 | S1-Saves | Approved | P1 | Q-SAVE-1 migration/UX brief | P1 | Debug isolation only at 4d4211e; independent slots absent |
@@ -247,3 +247,7 @@ Dima directly instructs “Report to ChatGPT and move on” after geometryed23e2
 ## Decorative roads delivered
 
 Dima’s direct move-on instruction authorized the bounded road stage aftered23e2e. Spec/choices2bd4997 and ChatGPT reconciliation6659754 precede product implementation4ed64ac. Free separate road data/tools, three per-tile styles,16derived cardinal masks, gap-free preview, Draw/Replace/Remove, explicit Confirm/Cancel, mixed joins and local renderer invalidation are implemented. Discovered open land/no overlap, explicit removal before buildings and atomic invalid-stroke rejection are documented implementation choices. Roads do not affect economy or era requirements. Missing legacy fields remainnil/empty without rewrite;v5retained. [Milestone](docs/milestones/decorative-roads.md) records148Debug/137Release,5Release probes,13UI/profile, native captures and simulator-only performance evidence. Current building dimensions/raster art unchanged; NPCs, live rotation and larger sizes remain staged. Phone reconnected: final signed update installed after fresh validated backup; both saves byte-identical before normal launch, which succeeds. Physical usability/performance is still pending.
+
+## Coordination publication update
+
+COORD-001 master request was delivered with explicitly approved canonical package to [the permanent chat](https://chatgpt.com/c/6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9). Introductory acknowledgment recovered; full nine-part reconciliation still pending retrieval. Game `first-era-review` at ae1d996 published and remote hash verified under dshivrin/Civilization; no product implementation in this cycle. All GitHub actions restricted by Dima to personal owner dshivrin. Media remote/backup remains unspecified. S1-UX stays an approved direction awaiting the reconciled bounded brief, not an active implementation.

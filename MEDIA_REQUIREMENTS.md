@@ -88,3 +88,7 @@ Decorative-road candidate surfaces are now original procedural code:16cached com
 ## P1 first-era geography and interaction coverage
 
 Preserve ART-001: realistic highly saturated environments with sharp material detail and warm natural lighting. MAP-001–004 require a later terrain/quarry/cloud pilot tied to approved logical geometry and save policy. Cover cloud fog edges/reveal transitions, a readable accessible near-side stone quarry, larger-map terrain continuity and expedition feedback; no second-era asset batch. MOVE/HUD/RD feedback needs clear per-tile availability, cancel/goals/Explore/Build-road controls and erase/reversal feedback. Native controls/procedural previews may satisfy usability without new raster files. No new assets, imports or media-repo edits occurred in this sync. Existing 68-record media baseline stays 697b486; new art needs a bounded production brief, provenance and human visual review before acceptance.
+
+## Remote publication boundary
+
+Game source/documentation and bundled runtime assets have been pushed to dshivrin/Civilization, branch first-era-review. The separate media Git/LFS library remains local at 697b486; no media remote was supplied or created and its masters/LFS objects are not covered by the game push. Dima restricts all GitHub actions to his personal owner dshivrin. A future media remote and collaboration capability must be explicitly established; providing ChatGPT a repository link does not by itself grant read/write access.

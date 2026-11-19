@@ -1,5 +1,11 @@
 # Civilization Builder — Codex project instructions
 
+## GitHub ownership and permanent coordination destination
+
+Dima explicitly restricts **all GitHub actions to his personal account `dshivrin`**. Do not act in organizations or other accounts. Game origin is `git@github.com:dshivrin/Civilization.git`; verify destination/owner before future remote writes. Initial push of `first-era-review` at `ae1d996` is verified; it tracks `origin/first-era-review`. Push was directly authorized in this cycle; do not infer permission to merge or publish unrelated work. Existing SSH authentication identifies as `dshivrin`; no new credentials were needed. Media remains local at `697b486` with no supplied remote; do not invent a remote or claim its LFS objects are backed up on GitHub.
+
+Dedicated chat: [Civilization — Master Development Coordination](https://chatgpt.com/c/6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9), consolidated project `g-p-f352f14f77788191b45d2e1e092aa7e7`. Dima explicitly approved uploading/sending the 156 KB package containing all six canonical files and private project/design status. The package and request were actually submitted; the earlier pending-transmission notes below are historical. The chat acknowledged this permanent role; the complete nine-part design reconciliation must be recovered and classified before any feature implementation. No automatic write access by ChatGPT to GitHub or media is established merely by providing URLs.
+
 ## Current authority — permanent protocol synchronization (19 November 2026)
 
 Dima’s [Permanent Development and Coordination Protocol](docs/design/sources/2026-11-19-permanent-development-protocol.md) (source **P1**) is the latest direct instruction. Only the consolidated ChatGPT **Civilization** project `g-p-f352f14f77788191b45d2e1e092aa7e7` is used for coordination. Legacy projects are historical evidence only; do not retrieve instructions independently from them. Use the dedicated **Civilization — Master Development Coordination** conversation recorded in DESIGN_SYNC.md, never select a chat merely by recency.
