@@ -119,6 +119,7 @@ public struct GameState: Codable, Equatable, Sendable {
     public var explorationRemainingSeconds: Double?
     public var explorationRadius: Int?
     public var depositRemaining: [String: Double]?
+    public var roads: [RoadTile]?
 }
 public enum GameError: Error, Equatable, LocalizedError, Sendable {
     case invalidConfiguration(String), invalidSave(String), placement(String), researchUnavailable(String), insufficientResources, researchRequired, alreadyResearched, uniqueCampfire

@@ -115,6 +115,7 @@ public struct GameEngine: Sendable {
                 return .placement("Choose open grass or clearing. Water, hills and forest are protected.")
             }
             if let occupant = building(at: tile), occupant.id != excludingBuildingID { return .placement("Another building occupies this footprint.") }
+            if state.roads?.contains(where: { $0.tile == tile }) == true { return .placement("Remove the road from this footprint before building or moving here.") }
         }
         if let terrain = definition.requiredNearbyTerrain, !hasNearbyTerrain(terrain, at: origin, radius: definition.nearbyTerrainRadius ?? 0) {
             return .placement("This building needs nearby discovered \(terrain == "w" ? "water" : "suitable terrain").")
@@ -156,6 +157,18 @@ public struct GameEngine: Sendable {
         state.buildings.append(building)
         state.nextBuildingID += 1
         evaluateGoals()
+    }
+    /// Free decorative transaction. Validate every tile before modifying even one road.
+    public mutating func editRoads(at tiles: [Tile], style: RoadStyle?) throws {
+        guard tiles.count <= configuration.map.width * configuration.map.height else { throw GameError.placement("This road stroke is too large.") }
+        for tile in tiles { if let issue = roadIssue(at: tile) { throw issue } }
+        var roads = Dictionary((state.roads ?? []).map { ($0.tile, $0.style) }, uniquingKeysWith: { _, last in last })
+        let original = roads
+        for tile in tiles { roads[tile] = style }
+        guard roads != original else { return }
+        state.roads = roads.map { RoadTile(tile: $0.key, style: $0.value) }.sorted {
+            $0.tile.y == $1.tile.y ? $0.tile.x < $1.tile.x : $0.tile.y < $1.tile.y
+        }
     }
     public mutating func research(_ id: String = "oralTradition") throws {
         if let issue = researchIssue(id) { throw issue }
@@ -368,6 +381,7 @@ public struct GameEngine: Sendable {
                 try require((terrain == .grass || terrain == .clearing) && occupied.insert(tile).inserted, "Blocked or overlapping building")
             }
         }
+        try validateRoads()
         for goal in state.completedGoals {
             if let kind = goal.building { try require(state.buildings.contains { $0.kind == kind && $0.isOperational }, "Goal has no building") }
             if goal == .oralTradition { try require(state.researchedOralTradition, "Research goal has no research") }

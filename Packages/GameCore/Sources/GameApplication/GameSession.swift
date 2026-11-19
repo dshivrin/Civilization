@@ -42,6 +42,15 @@ public final class GameSession {
     public var message = "Welcome to Riverbend. Build your first gathering shelter."
     public var persistenceWarning: String?
     public var selectedKind: BuildingKind?
+    public internal(set) var roadTool: RoadTool?
+    public internal(set) var roadDraft: [Tile] = []
+    @ObservationIgnored var roadLastSample: Tile?
+    public func roadIssue(at tile: Tile) -> GameError? { engine.roadIssue(at: tile) }
+    func commitRoadEdit(at tiles: [Tile], style: RoadStyle?) -> Bool {
+        var success = false
+        perform { try engine.editRoads(at: tiles, style: style); success = true }
+        return success
+    }
     public private(set) var movingBuildingID: Int?
     public var eraID: String { "stoneAge" }
     public var shouldPauseRendering: Bool { !isActive }
@@ -233,7 +242,7 @@ public final class GameSession {
         isActive = active
     }
     public func resume() { advance(to: clock(), offline: true); save() }
-    public func background() { cancelRelocationPreview(); advance(to: clock()); save() }
+    public func background() { exitRoadMode(); cancelRelocationPreview(); advance(to: clock()); save() }
     public func save() {
         guard savesEnabled else { return }
         do {
@@ -252,6 +261,7 @@ public final class GameSession {
         catch { persistenceWarning = "Progress could not be saved: \(error.localizedDescription)" }
     }
     public func choose(_ kind: BuildingKind) {
+        exitRoadMode()
         cancelRelocationPreview()
         selectedKind = kind; inspectedBuilding = nil
         // Offer a valid initial ghost near the campfire; map taps can reposition it.
@@ -262,6 +272,7 @@ public final class GameSession {
         message = "Drag mode · drag on the map and release to build, or tap and Confirm."
     }
     public func tap(_ tile: Tile) {
+        if roadTool != nil { extendRoadStroke(to: tile); return }
         if selectedKind != nil || movingBuildingID != nil { selectedTile = tile }
         else {
             inspectedBuilding = engine.building(at: tile)
@@ -277,6 +288,7 @@ public final class GameSession {
     public func beginRelocation(buildingID: Int) {
         guard let building = state.buildings.first(where: { $0.id == buildingID }) else { return }
         if building.kind == .campfire { message = "The campfire is the fixed settlement anchor."; return }
+        exitRoadMode()
         selectedKind = nil; inspectedBuilding = nil; movingBuildingID = buildingID; selectedTile = building.origin
         message = "Drag to move · release on valid land. Relocation is free."
     }
@@ -300,6 +312,7 @@ public final class GameSession {
         }
     }
     public func cancel() {
+        exitRoadMode()
         cancelRelocationPreview(); selectedKind = nil; selectedTile = nil
         message = "Drag to explore · pinch to zoom · long-press a building to move it"
     }
@@ -358,6 +371,7 @@ public final class GameSession {
         resetDeveloperControls()
     }
     private func resetDeveloperControls() {
+        exitRoadMode()
         developerPaused = false; developerSpeed = 1; developerFastConstruction = false
         engine.developerFastConstruction = false
         cancelRelocationPreview()
