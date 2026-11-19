@@ -79,3 +79,11 @@ Player-selected region per new civilization; regional landscape generation, arch
 ## Boundary
 
 Record and plan all approved workstreams now; implement them in separately scoped stages after stabilization and approved migration/design details. Subsequent eras and regional/global systems remain future delivery, not permission to add them during this sync. Human art/enjoyment acceptance remains open. “First-era candidate complete” in earlier reports describes the then-authorized core candidate, **not** completion of roads, NPCs, monuments, audio, regional variants or this expanded roadmap.
+
+## First-era playability implementation update
+
+The current priority iteration adds cached read-only next-step guidance, prerequisite production/research/mode/staffing/housing/exploration explanations and existing-screen navigation. Advice stays visible when goals are collapsed; earned completion and continued sandbox play are explicit. Ordinary recommendation-following routes complete all20types/20technologies/7chapters/5pillars/required discoveries in104–121simulated minutes without grants or tuning.120Debug/109Release and8UI cases per profile are verified; see [quality report](docs/milestones/first-era-playability.md).
+
+The guided path is not proof all mistakes recover. Q-PLAY-1documents a confirmed pre-existing starter-wood overspending trap and a [reserve/recovery proposal](docs/design/bootstrap-reserve-proposal.md), pending Dima’s choice before changing spending rules. Latest signed build is available; physical installation remains pending iPhone access/fresh backup. Human comprehension/enjoyment and existing hardware limits remain open. Secondary visuals/roads/NPCs stay staged.
+
+Dima explicitly approved PLAY-002starter-material reserve protection in response to the concrete proposal. Protect catalog-derived costs for still-missing basic construction suppliers across construction/research/upgrades, with a clear explanation. Actual costs/rates and earned resources remain unchanged; no covert grants or historical save resets. Implement/verify atomically before calling the prevention delivered.
