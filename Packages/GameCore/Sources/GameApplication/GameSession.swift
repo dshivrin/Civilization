@@ -33,6 +33,8 @@ public final class GameSession {
     #endif
     @ObservationIgnored private var economicPresentationState: GameState?
     @ObservationIgnored private var economicPresentation: EconomicOverview?
+    @ObservationIgnored private var guidanceState: GameState?
+    @ObservationIgnored private var cachedGuidance: SettlementGuidance?
     @ObservationIgnored private let clock: () -> Date
     @ObservationIgnored private var savesEnabled = true
     @ObservationIgnored private var isActive = true
@@ -134,6 +136,13 @@ public final class GameSession {
         }
     }
     public var housingCapacity: Int { engine.housingCapacity }
+    public var nextGuidance: SettlementGuidance {
+        if guidanceState != engine.state || cachedGuidance == nil {
+            cachedGuidance = engine.settlementGuidance
+            guidanceState = engine.state
+        }
+        return cachedGuidance!
+    }
     public var journeyChapters: [JourneyChapter] { engine.journeyChapters }
     public var stoneAgeRequirements: [JourneyObjective] { engine.stoneAgeRequirements }
     public var missingDiscoveryResourceNames: [String] { engine.missingDiscoveryResourceNames }
@@ -317,7 +326,7 @@ public final class GameSession {
         if state.population > population { message = "Settlement grew to \(state.population) inhabitants." }
         if discoveredTileCount > discovered { message = "Exploration complete. \(discoveredTileCount - discovered) new tiles discovered." }
         if state.completedGoals != goals && engine.currentGoal == nil { message = "Onboarding complete. Continue developing the five pillars." }
-        if !stoneAgeWasComplete && state.stoneAgeCompleted == true { message = "Stone Age ready. Continue building and researching in your settlement sandbox." }
+        if !stoneAgeWasComplete && state.stoneAgeCompleted == true { message = "Stone Age complete. All requirements are met; keep building in this settlement." }
     }
     public func canAfford(_ costs: ResourceAmounts) -> Bool { engine.canAfford(costs) }
     private func perform(_ action: () throws -> Void) {
