@@ -1,5 +1,12 @@
 # Design synchronization record and operating procedure
 
+## Active execution authorization — first-era polish
+
+Dima directly authorizes autonomous implementation in order **S1-UX → S1-Saves → S1-Geography → approved environment graphics**, with detailed design reconciliation before each milestone. This supersedes older synchronization-only/awaiting-authorization boundaries. Preserve every approved/deferred roadmap item, both repositories and the existing first-era-review branch. Routine engineering choices are delegated; stop for significant product/safety decisions. No second-era gameplay. GitHub under personal owner dshivrin is the primary coordination channel; commit/push coherent work and retrieve actual instructions when connector permissions permit. Maintain [durable checkpoint](docs/development-checkpoint.md); do not infer product acceptance from passing tests.
+
+Native Codex Goal is enabled for this same chat; no cron, launchd, duplicate session, alternate account or quota bypass. Respect host usage limits, checkpoint at coherent boundaries and resume through supported native lifecycle when permitted. Exact automatic wake at the five-hour reset remains unverified; do not promise it. Existing branch is intentionally retained rather than creating another worktree, per Dima's instruction.
+
+
 ## Current authority — permanent protocol synchronization (19 November 2026)
 
 Dima’s [Permanent Development and Coordination Protocol](docs/design/sources/2026-11-19-permanent-development-protocol.md) (source **P1**) is the latest direct instruction. Only the consolidated ChatGPT **Civilization** project `g-p-f352f14f77788191b45d2e1e092aa7e7` is used for coordination. Legacy projects are historical evidence only; do not retrieve instructions independently from them. Use the dedicated **Civilization — Master Development Coordination** conversation recorded in DESIGN_SYNC.md, never select a chat merely by recency.
@@ -172,3 +179,7 @@ Dima’s direct move-on instruction authorized the bounded road stage aftered23e
 ## P1 synchronization verification — 19 November 2026
 
 Fresh checks in this cycle: all local Markdown links in six canonical documents resolve; all 62 decision IDs have a unique roadmap row with eight required metadata fields and a supported status; archived P1 text is byte-identical to the supplied attachment (SHA-256 `983a8b1acf42fd45cf5fb1477035772e435fab9410a2721fddc0bd6938a540d8`); `git diff --check` passes. Media `python3 scripts/validate_registry.py` passes 68 imported records/20 masters/20–12–5 icon mappings with exact hashes/dimensions/license references; `git lfs fsck` passes. No media edits. Game diff is Markdown only, with no source/config/assets/project/test changes. No gameplay tests were rerun because this cycle changes documentation only. Previous 148/137 and 13 UI/profile results remain attributed to the road milestone, not this cycle. Remote configuration/read-only connectivity verified; no push. Coordination transmission is still awaiting explicit approval following automatic review rejection.
+
+## Autonomous first-era implementation cycle
+
+Detailed MC-001 text was recovered through section 7, with an explicit connector 20,000-character truncation. Archive is labeled partial; interactive checklist items and sections 8/9 are not claimed recovered. Current GitHub connector successfully fetched canonical DESIGN_SYNC.md on first-era-review and listed issues (none); repository personal owner dshivrin/push permission verified. GitHub is now the primary progress/instruction channel. The human's latest direct instruction authorizes all four ordered stages and delegated routine choices; no further ChatGPT response is required to start fully reconciled S1-UX. Later save/geography/environment details require their own bounded reconciliation before code. Native Goal configured in this chat, with checkpoint recovery; quota auto-wake capability is not independently demonstrated. No recurring automation or local session-launching process installed.

@@ -1,5 +1,12 @@
 # Media requirements
 
+## Active execution authorization — first-era polish
+
+Dima directly authorizes autonomous implementation in order **S1-UX → S1-Saves → S1-Geography → approved environment graphics**, with detailed design reconciliation before each milestone. This supersedes older synchronization-only/awaiting-authorization boundaries. Preserve every approved/deferred roadmap item, both repositories and the existing first-era-review branch. Routine engineering choices are delegated; stop for significant product/safety decisions. No second-era gameplay. GitHub under personal owner dshivrin is the primary coordination channel; commit/push coherent work and retrieve actual instructions when connector permissions permit. Maintain [durable checkpoint](docs/development-checkpoint.md); do not infer product acceptance from passing tests.
+
+Native Codex Goal is enabled for this same chat; no cron, launchd, duplicate session, alternate account or quota bypass. Respect host usage limits, checkpoint at coherent boundaries and resume through supported native lifecycle when permitted. Exact automatic wake at the five-hour reset remains unverified; do not promise it. Existing branch is intentionally retained rather than creating another worktree, per Dima's instruction.
+
+
 ## Current authority — permanent protocol synchronization (19 November 2026)
 
 Dima’s [Permanent Development and Coordination Protocol](docs/design/sources/2026-11-19-permanent-development-protocol.md) (source **P1**) is the latest direct instruction. Only the consolidated ChatGPT **Civilization** project `g-p-f352f14f77788191b45d2e1e092aa7e7` is used for coordination. Legacy projects are historical evidence only; do not retrieve instructions independently from them. Use the dedicated **Civilization — Master Development Coordination** conversation recorded in DESIGN_SYNC.md, never select a chat merely by recency.

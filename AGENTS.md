@@ -1,5 +1,12 @@
 # Civilization Builder — Codex project instructions
 
+## Active execution authorization — first-era polish
+
+Dima directly authorizes autonomous implementation in order **S1-UX → S1-Saves → S1-Geography → approved environment graphics**, with detailed design reconciliation before each milestone. This supersedes older synchronization-only/awaiting-authorization boundaries. Preserve every approved/deferred roadmap item, both repositories and the existing first-era-review branch. Routine engineering choices are delegated; stop for significant product/safety decisions. No second-era gameplay. GitHub under personal owner dshivrin is the primary coordination channel; commit/push coherent work and retrieve actual instructions when connector permissions permit. Maintain [durable checkpoint](docs/development-checkpoint.md); do not infer product acceptance from passing tests.
+
+Native Codex Goal is enabled for this same chat; no cron, launchd, duplicate session, alternate account or quota bypass. Respect host usage limits, checkpoint at coherent boundaries and resume through supported native lifecycle when permitted. Exact automatic wake at the five-hour reset remains unverified; do not promise it. Existing branch is intentionally retained rather than creating another worktree, per Dima's instruction.
+
+
 ## GitHub ownership and permanent coordination destination
 
 Dima explicitly restricts **all GitHub actions to his personal account `dshivrin`**. Do not act in organizations or other accounts. Game origin is `git@github.com:dshivrin/Civilization.git`; verify destination/owner before future remote writes. Initial push of `first-era-review` at `ae1d996` is verified; it tracks `origin/first-era-review`. Push was directly authorized in this cycle; do not infer permission to merge or publish unrelated work. Existing SSH authentication identifies as `dshivrin`; no new credentials were needed. Media remains local at `697b486` with no supplied remote; do not invent a remote or claim its LFS objects are backed up on GitHub.
