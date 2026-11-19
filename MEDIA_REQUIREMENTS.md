@@ -1,5 +1,10 @@
 # Media requirements
 
+## S1-UX delivery checkpoint — 19 November 2026
+
+S1-UX is implemented **awaiting human review**, final product60046d2; [actual milestone evidence](docs/milestones/s1-ux.md) records155Debug/144Release, five Release probes,16native cases/profile plus affected final checks, original stationary/translucent relocation/grid, pending retrace/Undo, icon-default goals/adjacent Explore/Build roads. Signed final iPhone update installed after fresh production-validated backup; both saves byte-identical pre-launch and normal launch succeeds. Human enjoyment/art/touch/sustained hardware performance are open. No economy/catalog/geography/save-schema change. Continue directly to authorized **S1-Saves** after its detailed design reconciliation, then S1-Geography (exact dimensions/migration review gate), then environment graphics. Preserve all previous roadmap requirements and both repositories. Native same-chat Goal/checkpoint remains active; no quota bypass/duplicate session or guaranteed reset timer claim.
+
+
 ## GitHub issue #1 refinement — active S1-UX details
 
 [Primary coordination issue](https://github.com/dshivrin/Civilization/issues/1) and remote docs commit 26894bd were retrieved before further UI work. Latest refinement supersedes earlier MC-001 engineering defaults: **white available/light-gray blocked grid; original building stays stationary/translucent while only the footprint moves; circular bottom-center X; goals icon-only by default, tap for summary then expand guidance**. Explore stays adjacent; Roads inside Build. Shared atomic validation, forgiving invalid drop, free relocation, ordered pending-road retrace and Confirm/Cancel remain. Exact larger-map dimensions/migration explicitly require review before S1-Geography. Preserve all other roadmap IDs. Current code commits before this refinement are foundations, not final visual/default compliance. GitHub comment write now succeeds (comment 7019325134), superseding the earlier transient 403; issue #1 is the actual report channel. Git uses rebase of unpublished commits onto remote docs, no merge/force-push.

@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-19",
+  "candidateCommit": "60046d2",
+  "phase": "final-update-after-install-before-normal-launch",
+  "backupValidation": "current production SaveStore + GameEngine",
+  "files": [
+    {
+      "file": "settlement-v1.json",
+      "bytes": 9953,
+      "sha256": "bbad229d166bcc1613966fe7b720acd0cd144d322d0e1e871aed0fa9e2453b38",
+      "byteIdenticalBeforeLaunch": true,
+      "buildings": 4,
+      "roads": 15,
+      "mapID": "river-clearing-v1"
+    },
+    {
+      "file": "settlement-v1.json.developer",
+      "bytes": 10745,
+      "sha256": "353c711af262319a1b484789aebcb289bf5dede105bd079eda9c9deb6c3ae03f",
+      "byteIdenticalBeforeLaunch": true,
+      "buildings": 5,
+      "roads": 0,
+      "mapID": "river-clearing-v1"
+    }
+  ]
+}

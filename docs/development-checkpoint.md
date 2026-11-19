@@ -4,7 +4,7 @@ Updated: 19 November 2026. Active chat 01a1f50b-a549-7010-9931-1e625005c041. Nat
 
 ## Current task
 
-S1-UX final verification/handover. All requested product behavior implemented; independent review found four consequential issues, now fixed in one pass. Exact next action: wait for /tmp/civilization-s1ux-reviewed-{phone,mini,pro}.log / xcresult full 16-case suites, inspect failures and native visual captures, verify final Release suite/exclusion probes, publish a milestone report and checkpoint to issue #1; then reconcile/commit S1-Saves spec before code.
+S1-UX implemented and verified, awaiting human review; handover/report publication is current task. Final product **60046d2**, media697b486 unchanged. Exact next action: commit/push the S1-UX report/canonical updates and screenshots, post actual evidence in GitHub issue #1; fetch/read current GitHub instructions, then write and commit S1-Saves detailed spec/plan before any save-management product code. S1-Geography and environment graphics remain later in the authorized sequence.
 
 ## Completed
 
@@ -36,3 +36,9 @@ GitHub update: issue #1 is now readable/writable; comment 7019325134 posted. Rem
 - Native Goal remains active on this same chat, no other development session. GitHub read and comment posting are working; issue #1 is primary. Media 697b486 unchanged. No physical update/performance/human acceptance claimed this cycle.
 
 Rulings: native Goal instead of a local timer/duplicate process (quota reset wake remains unverified); retain existing branch/workspace per human direction; issue #1 supersedes earlier Compact-default/tinted moving sprite design; use ground-space map inspection in mini UI automation because SwiftUI Menu rows are not reliably exposed. None changes economy/saves/geography/signing or deletes deferred requirements.
+
+## Final S1-UX result (current)
+
+155 Debug /144 Release and five Release exclusion probes pass. Full16UI suites pass phone286.942s, mini269.161s, Pro268.595s; affected pending-Undo/material checks pass on all profiles; final phone typography/frame/capture test passes. Native review captures in docs/screenshots/s1-ux. Signed final60046d2 build installed using unchanged signing after fresh final production-validated backups; both saves byte-identical before successful normal launch (normal4buildings/15roads, developer5buildings/0roads). Metadata docs/testing/s1-ux/device-save-preservation.json; save contents stay local. Physical performance/usability/human acceptance unverified. Full report docs/milestones/s1-ux.md supersedes earlier intermediate counts/failures.
+
+Current task and exact next action above supersede older intermediate statements. Native Goal remains active in this chat; no other session. Rate limits checked without reset/purchase/account changes. If interrupted, inspect git status/log and this checkpoint before continuing; do not repeat delivered S1-UX. Preserve all previous approved/deferred backlog. Significant geography size/migration decision explicitly awaits review in issue #1; independent saves design can proceed without deciding geography size.
