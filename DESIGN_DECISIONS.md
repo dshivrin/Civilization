@@ -1,5 +1,16 @@
 # Design decisions and unresolved details
 
+## Current authority — permanent protocol synchronization (19 November 2026)
+
+Dima’s [Permanent Development and Coordination Protocol](docs/design/sources/2026-11-19-permanent-development-protocol.md) (source **P1**) is the latest direct instruction. Only the consolidated ChatGPT **Civilization** project `g-p-f352f14f77788191b45d2e1e092aa7e7` is used for coordination. Legacy projects are historical evidence only; do not retrieve instructions independently from them. Use the dedicated **Civilization — Master Development Coordination** conversation recorded in DESIGN_SYNC.md, never select a chat merely by recency.
+
+The current assignment is documentation synchronization and a real coordination request **before further features**. Human = Product Owner/final authority; ChatGPT = Game Designer/Project Architect/Roadmap Coordinator; Codex = Engineering Lead. Both game and media remain in Git. Complete, enjoyable, polished Stone Age remains the immediate product milestone. Implementation completion is not human acceptance.
+
+Current implementation baseline: game `4d4211e` on `first-era-review`; media `697b486` on `main`. Geometry foundation and decorative roads are delivered for review. Recorded latest evidence: 148 Debug / 137 Release core tests, five Release exclusion probes, 13 UI tests on each of three profiles; signed iPhone update installed with fresh production-validated backup and both saves byte-identical before normal launch. Physical road usability, sustained performance and art/enjoyment acceptance remain open. These are prior milestone results, not fresh tests in this documentation cycle.
+
+The current register at the top of DEVELOPMENT_ROADMAP.md supersedes historical pending-install/no-roads/no-geometry/next-stage statements below. New relocation, road editing, three-state HUD, independent saves and geography feedback is approved for specification; it is not implemented by this sync. No second era, additional playable cities, warfare, monetization, backend, renderer replacement, save reset or catalog rescaling is authorized. Preserve existing local branch; do not automatically merge or push.
+
+
 Synchronized19November2026. Status vocabulary and precedence: [baseline](DESIGN_BASELINE.md), [source record](DESIGN_SYNC.md). Source IDs: **S1** current direct Codex synchronization instruction; **S2** City Design Coordination; **S3** Plan iOS GameWinvalid (exact returned title also in archive); **S4** Stage 2 Testing Status; **R1** repository atfea9e16; **E1** checked-in test/milestone reports. Approval is independent of implementation.
 
 ## Decision register
@@ -88,3 +99,30 @@ Geometry foundation implementation:70418ea(core/session/tests),d0a3284(render co
 Dima directly instructs “Report to ChatGPT and move on” after geometryed23e2e. Implement the bounded approved decorative-road direction on existing dimensions, per docs/superpowers/specs/2026-11-19-decorative-roads-design.md and plan. Default terrain/no-overlap/mixed-material/free explicit paint/erase rules are documented Codex implementation choices, not recovered human quotations. Geometry stability is sufficient; unapproved larger dimensions remain deferred. No NPC, era or economy expansion. Commit this scope before product changes.
 
 Road delivery: core/session4ed64ac, with native controls/rendering and separate report commits. Reviewer backtracking and journey-preview leaks reproduced/fixed;148Debug/137Release and13UI/profile verification. Current approval does not activate NPCs or larger building dimensions.
+
+## P1 decisions — current feedback and supersessions
+
+The new requirements below are human-approved directions to reconcile/specify, not authorization for simultaneous implementation. Delivery metadata and acceptance live in the canonical roadmap register.
+
+| ID | Decision | Authority / delivery |
+|---|---|---|
+| COORD-001 | Permanent canonical cycle and dedicated master coordination chat | P1; Ready, S0 |
+| MOVE-001 | Individual availability indicators for every relocation footprint tile | P1; Approved, S1-UX |
+| MOVE-002 | Footprint-only dragging for relocation | P1; Approved, S1-UX |
+| MOVE-003 | Automatic valid relocation and remain in mode on invalid release | P1; Approved, S1-UX |
+| MOVE-004 | Bottom-center relocation cancellation | P1; Approved, S1-UX |
+| RD-005 | Road stroke reversal and individual tile removal | P1; Approved, S1-UX |
+| HUD-001 | Compact goals HUD with three display states | P1; Approved, S1-UX |
+| HUD-002 | Explore icon beside goals icon | P1; Approved, S1-UX |
+| HUD-003 | Move Roads into Build menu | P1; Approved, S1-UX |
+| SAVE-001 | New game and independent saves | P1; Approved, S1-Saves |
+| DEV-001 | Separate developer and regular player experiences | P1; Approved, S1-Saves |
+| MAP-001 | Larger persistent geographical maps | P1; Approved, S1-Geography |
+| MAP-002 | Accessible stone quarry on settlement side of river | P1; Approved, S1-Geography |
+| MAP-003 | Cloud-covered unexplored territory | P1; Approved, S1-Geography |
+| MAP-004 | Expedition-based territory discovery | P1; existing exploration milestones; Awaiting Human Review, S1-Geography |
+| MAP-005 | Geographical expansion across historical eras | P1; Deferred, S8 |
+
+P1 supersedes invalid-drop cancellation and unrestricted relocation drag behavior where these conflict with MOVE-001–004; changing interaction is intentional only in a later bounded approved stage. Existing road Confirm/Cancel and atomic rejection stay active; the phrase “stroke reversal” alone does not select release-to-commit or partial-invalid filtering. Automatic placement refers to the relocation feedback, not implicit road commits. Three HUD states are required, but their exact contents/transitions are open. New independent game saves do not authorize additional simultaneously playable cities. MAP-001–005 complement GEO-001–008 rather than replace the regional backlog. ART-001 remains the realistic saturated target; no human art acceptance is inferred.
+
+Open P1 gates: Q-MOVE-1 exact footprint hit region and per-tile failure display; Q-RD-3 retrace reversal vs explicit undo and committed-tile removal UX; Q-HUD-1 exact three states; Q-SAVE-1 slot count/naming/selection/deletion/recovery and migration; Q-MAP-1 new vs existing world expansion, size/budget/quarry accessibility policy. ChatGPT should return a bounded first-era polish brief and identify decisions requiring Dima. No automatic reset, resource grants or destructive migration.

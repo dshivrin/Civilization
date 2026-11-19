@@ -1,5 +1,16 @@
 # Media requirements
 
+## Current authority — permanent protocol synchronization (19 November 2026)
+
+Dima’s [Permanent Development and Coordination Protocol](docs/design/sources/2026-11-19-permanent-development-protocol.md) (source **P1**) is the latest direct instruction. Only the consolidated ChatGPT **Civilization** project `g-p-f352f14f77788191b45d2e1e092aa7e7` is used for coordination. Legacy projects are historical evidence only; do not retrieve instructions independently from them. Use the dedicated **Civilization — Master Development Coordination** conversation recorded in DESIGN_SYNC.md, never select a chat merely by recency.
+
+The current assignment is documentation synchronization and a real coordination request **before further features**. Human = Product Owner/final authority; ChatGPT = Game Designer/Project Architect/Roadmap Coordinator; Codex = Engineering Lead. Both game and media remain in Git. Complete, enjoyable, polished Stone Age remains the immediate product milestone. Implementation completion is not human acceptance.
+
+Current implementation baseline: game `4d4211e` on `first-era-review`; media `697b486` on `main`. Geometry foundation and decorative roads are delivered for review. Recorded latest evidence: 148 Debug / 137 Release core tests, five Release exclusion probes, 13 UI tests on each of three profiles; signed iPhone update installed with fresh production-validated backup and both saves byte-identical before normal launch. Physical road usability, sustained performance and art/enjoyment acceptance remain open. These are prior milestone results, not fresh tests in this documentation cycle.
+
+The current register at the top of DEVELOPMENT_ROADMAP.md supersedes historical pending-install/no-roads/no-geometry/next-stage statements below. New relocation, road editing, three-state HUD, independent saves and geography feedback is approved for specification; it is not implemented by this sync. No second era, additional playable cities, warfare, monetization, backend, renderer replacement, save reset or catalog rescaling is authorized. Preserve existing local branch; do not automatically merge or push.
+
+
 Approved requirements and production inventory synchronized19November2026. Source authority/status: [baseline](DESIGN_BASELINE.md), [decisions](DESIGN_DECISIONS.md), [sync record](DESIGN_SYNC.md). Separate media repository: [Civilization-Media](../Civilization-Media/README.md), `/Users/dima/dev/Civilization-Media`, local `main`, initial commit **697b486**; no remote configured. The game continues to bundle its own runtime assets and does not depend on a sibling path at build/runtime.
 
 ## Art direction and production contract
@@ -73,3 +84,7 @@ GEO-001starting regions,002regional landscapes,003architecture,004resources/wild
 Geometry foundation note: runtime occupied-footprint centers now use both logical axes (2:1projection); current square anchors/art are unchanged. Logical orientation is not permission to rotate finished sprites. Orientation-specific art/overhang/anchors remain a later asset brief; no media generated or imported for this foundation.
 
 Decorative-road candidate surfaces are now original procedural code:16cached compound paths ×3material fills, per-tile terrain-center anchors under existing2:1projection, broad shared-edge joins. [Provenance](docs/art/roads-provenance.json) includes source hash and replaceable status. No external road raster/texture or permanent asset imported; media repository unchanged. Dedicated final road master/runtime textures remain a separate art brief.
+
+## P1 first-era geography and interaction coverage
+
+Preserve ART-001: realistic highly saturated environments with sharp material detail and warm natural lighting. MAP-001–004 require a later terrain/quarry/cloud pilot tied to approved logical geometry and save policy. Cover cloud fog edges/reveal transitions, a readable accessible near-side stone quarry, larger-map terrain continuity and expedition feedback; no second-era asset batch. MOVE/HUD/RD feedback needs clear per-tile availability, cancel/goals/Explore/Build-road controls and erase/reversal feedback. Native controls/procedural previews may satisfy usability without new raster files. No new assets, imports or media-repo edits occurred in this sync. Existing 68-record media baseline stays 697b486; new art needs a bounded production brief, provenance and human visual review before acceptance.
