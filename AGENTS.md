@@ -8,6 +8,10 @@ Dima directly approved synchronization of variable footprints/rotation, decorati
 
 Current next task is first-era stabilization/assessment: complete post-title-fix UI suites on all3profiles and consolidate legitimate progression/performance evidence; then approve footprint migration before new sizes/roads. Latest compact-menu installation remains pending last-observed iPhone availability and a fresh validated backup. Human art/enjoyment acceptance remains open. Earlier milestone/stop sections below are historical context where superseded by the synchronized baseline; they must not erase approved future directions or authorize unscheduled implementation.
 
+## Active first-era playability priority
+
+Dima explicitly prioritizes starting, understanding what to do and completing the first era; graphics/roads/NPCs are secondary. Guidance/navigation and legitimate full-era verification implemented; see `docs/milestones/first-era-playability.md`.126Debug/115Release and9UI cases/profile pass. Current numerical config/savev5/geography/gestures/art remain unchanged. PLAY-002 reserve prevention was explicitly approved and is implemented: catalog-derived atomic build/research/upgrade checks plus named supplier UI/guidance. Q-PLAY-1 now concerns only already-insolvent historical-save recovery; no grants/reset authorized. Continue this gameplay priority before secondary features. Physical update awaits device access/fresh backup; no reset.
+
 ## Active roadmap — first-era review candidate complete
 Dima authorized continuous implementation through the Civilization project's City Design Coordination conversation. See [docs/design/status-ledger.md](docs/design/status-ledger.md) for statuses and sources. Seed 0.2.1 is complete. The old stop-after-0.2.1 boundary is superseded.
 

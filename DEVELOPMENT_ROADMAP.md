@@ -1,6 +1,6 @@
 # Development roadmap
 
-Synchronized19November2026 from [baseline](DESIGN_BASELINE.md) and [decision register](DESIGN_DECISIONS.md). This is a dependency-aware delivery plan, **not a claim that future features are implemented**. Stage labels below are planning IDs, not a finalized marketing/version/era schedule. Current task executes only synchronization and media-repo setup. Exact feature briefs, open decisions and migrations precede each implementation stage.
+Synchronized19November2026 from [baseline](DESIGN_BASELINE.md) and [decision register](DESIGN_DECISIONS.md). This is a dependency-aware delivery plan, **not a claim that future features are implemented**. Stage labels below are planning IDs, not a finalized marketing/version/era schedule. Synchronization/media foundation is complete; current task prioritizes first-era player understanding and completion. Exact feature briefs, open decisions and migrations precede each implementation stage.
 
 ## Dependency outline
 
@@ -124,3 +124,7 @@ Acceptance: global knowledge idempotent and provenance/history retained; local u
 ## Exit and commitment policy
 
 Each stage ends in a local coherent commit, tests for affected behavior, updated implementation status/media provenance and a bounded review report. A documentation sync commit precedes implementation changes. Do not mark stage delivery/human acceptance complete from ChatGPT report-based acceptance. No dates, final costs, per-building sizes, NPC counts, next-era definitions or model technologies are silently finalized by this roadmap.
+
+## S1current outcome and next dependency
+
+Optional actionable guidance and legitimate recommendation-following progression are implemented; [quality assessment](docs/milestones/first-era-playability.md) records104–121minute full routes, waits/resources/workforce, recovery and126Debug/115Release/9UI-per-profile evidence. No economy values or final requirements changed. Before secondary features, retain approved PLAY-002 starter reserve protection and normal save protection and complete physical installation when access returns. S1functional guided-route verification is delivered; no blanket acceptance of every spending choice, human pacing or unavailable hardware.

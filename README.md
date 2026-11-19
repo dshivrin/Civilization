@@ -27,6 +27,8 @@ Simulator IDs are machine-specific. This machine has Xcode 27.2 and SDK 27.2. Ve
 
 ## Play
 
+The collapsed Chapters panel shows the next useful step. Expand it for why/how and a shortcut to the relevant existing screen; the full journey shows all seven chapters and credits work done ahead of time. Purchases and placement still require your action. [Playability assessment](docs/milestones/first-era-playability.md) documents ordinary guided completion in104–121 simulated minutes with [approved starter-material reserve protection](docs/design/bootstrap-reserve-proposal.md).
+
 - Choose a building from the categorized catalog, drag its preview and release on valid land to place it; the hand icon indicates drag mode. Tap positioning and Confirm/Cancel are also available. Construction reserves occupancy and costs immediately; effects and one-time onboarding rewards begin on completion.
 - Long-press an existing building to drag it to valid land, or use Move building from inspection. Movement is free and preserves upgrades/timers; the campfire remains fixed. Invalid drops cancel.
 - Drag/pinch the map; scope centers the settlement. Tap buildings or use the building-picker button to inspect recipes, staffing, priorities, maintenance and permanent upgrades.
@@ -58,15 +60,15 @@ Saves follow meaningful actions, every 15 active seconds and backgrounding. Catc
 
 ## Verification and known limits
 
-**115 Debug Swift Testing tests pass**, including frozen historical regressions, transactions, all migrations, growth/construction, production/maintenance sharing, finite depletion, priorities, exploration, research and sticky achievement boundaries. A complete real-cost playthrough reaches all five pillars, saves/reloads and builds afterward. See the [0.2.5 report](docs/milestones/seed-0.2.5-report.md) and [documented playthrough](docs/design/stone-age-playthrough.md).
+**120 Debug Swift Testing tests pass**, including frozen historical regressions, transactions, all migrations, growth/construction, production/maintenance sharing, finite depletion, priorities, exploration, research and sticky achievement boundaries. A complete real-cost playthrough reaches all five pillars, saves/reloads and builds afterward. See the [0.2.5 report](docs/milestones/seed-0.2.5-report.md) and [documented playthrough](docs/design/stone-age-playthrough.md).
 
-Release tests: **104 pass**. Five simulator XCTest UI regressions verify immediate catalog drag mode, the mode indicator, long-press relocation, pan/pinch and stable identity; run it with `xcodebuild -project Civilization.xcodeproj -scheme Civilization -destination 'platform=iOS Simulator,id=<SIMULATOR-ID>' CODE_SIGNING_ALLOWED=NO test`. `python3 scripts/verify-developer-release.py` checks that five debug APIs compile only in Debug, after building both package configurations.
+Release tests: **109 pass**. Eight simulator XCTest UI regressions verify immediate catalog drag mode, the mode indicator, long-press relocation, pan/pinch and stable identity; run it with `xcodebuild -project Civilization.xcodeproj -scheme Civilization -destination 'platform=iOS Simulator,id=<SIMULATOR-ID>' CODE_SIGNING_ALLOWED=NO test`. `python3 scripts/verify-developer-release.py` checks that five debug APIs compile only in Debug, after building both package configurations.
 
 In Debug, tap the wrench to load Early/Developed/Late test settlements or resume the separate developer save. Pause/speed/time advance, grants, reveal and three-second construction are available there. Normal saves stay isolated; relaunch always opens normal play. See the device guide for controls, reset and save recovery.
 
 Phone and tablet builds/runs and relevant UI interactions were verified. The completed automated save was previewed on an isolated simulator; screenshots are in `docs/screenshots/seed-025`. This is not a manual full-era playtest.
 
-The signed candidate is installed on Dima's iPhone; both existing save files are byte-identical to the fresh final pre-install backup. Five UI tests pass on phone and both tablet profiles. Original artwork and final presentation are awaiting Dima's review, not claimed permanently accepted.
+The signed candidate is installed on Dima's iPhone; both existing save files are byte-identical to the fresh final pre-install backup. Eight UI tests pass on phone and both tablet profiles. Original artwork and final presentation are awaiting Dima's review, not claimed permanently accepted.
 
 Normal-cost automated routes complete all seven chapters, all twenty building types/technologies and all five pillars. A second storytelling circle with earlier Natural Knowledge completes in 90 simulated minutes; the preserved serial route takes 154. Balance is unchanged; see the [pacing evidence](docs/design/first-era-pacing-review.md). Human enjoyment remains unverified.
 
