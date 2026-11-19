@@ -607,6 +607,10 @@ final class RelocationUITests: XCTestCase {
         XCTAssertEqual(app.staticTexts["roadDraftCount"].label, "0 preview tiles")
         XCTAssertEqual(app.staticTexts["roadTileCount"].label, "0 roads placed")
         XCTAssertTrue(app.buttons["confirmRoadStroke"].exists)
+        XCTAssertTrue(app.frame.contains(app.buttons["confirmRoadStroke"].frame))
+        XCTAssertGreaterThan(app.buttons["confirmRoadStroke"].frame.width, app.buttons["confirmRoadStroke"].frame.height * 1.35)
+        XCTAssertTrue(app.buttons["confirmRoadStroke"].isHittable)
+        capture("roads-in-build-and-undo", app: app)
         app.buttons["closeRoads"].tap()
     }
 
