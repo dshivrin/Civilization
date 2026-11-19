@@ -8,6 +8,8 @@ let panelColor = Color(red: 0.105, green: 0.155, blue: 0.125)
 struct SettlementView: View {
     @Environment(\.scenePhase) private var phase
     let session: GameSession
+    let openGames: (() -> Void)?
+    let managesLifecycle: Bool
     @State private var scene: SettlementScene
     @State private var inspectedResource: ResourceInspection?
     @State private var showPopulation = false
@@ -25,8 +27,9 @@ struct SettlementView: View {
     private struct ResourceInspection: Identifiable { let resource: Resource; var id: String { resource.rawValue } }
     @State private var panel: Panel?
     enum Panel { case build, explore }
-    init(session: GameSession) {
+    init(session: GameSession, openGames: (() -> Void)? = nil, managesLifecycle: Bool = true) {
         self.session = session
+        self.openGames = openGames; self.managesLifecycle = managesLifecycle
         _scene = State(initialValue: SettlementScene(configuration: session.configuration))
     }
     var body: some View {
@@ -106,6 +109,7 @@ struct SettlementView: View {
                 }
                 .padding(.horizontal, compact ? 12 : 22)
                 .padding(.vertical, compact ? 8 : 18)
+                .accessibilityHidden(!worldReady)
             }
             .overlay(alignment: .bottom) {
                 if session.movingBuildingID != nil {
@@ -154,7 +158,7 @@ struct SettlementView: View {
             populationDetails.presentationCompactAdaptation(.popover)
         }
         .onChange(of: phase, initial: true) { _, newPhase in
-            session.setActive(newPhase == .active)
+            if managesLifecycle { session.setActive(newPhase == .active) }
         }
         .task {
             while !Task.isCancelled {
@@ -384,6 +388,11 @@ struct SettlementView: View {
                 } label: {
                     Image(systemName: "map").frame(width: 44, height: 44).contentShape(Rectangle())
                 }.buttonStyle(.plain).accessibilityLabel("Explore").accessibilityIdentifier("openExplore")
+                if let openGames {
+                    Button { session.cancel(); session.inspectedBuilding = nil; openGames() } label: {
+                        Image(systemName: "square.stack").frame(width: 44, height: 44).contentShape(Rectangle())
+                    }.buttonStyle(.plain).accessibilityLabel("Games").accessibilityIdentifier("openGames")
+                }
             }
             if goals.isExpanded {
                 VStack(alignment: .leading, spacing: 5) {

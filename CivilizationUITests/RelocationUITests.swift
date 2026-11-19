@@ -4,6 +4,48 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testIndependentGamesCreateSwitchAndResumeAfterRelaunch() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        app.launch()
+        XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
+        app.buttons["openGames"].tap()
+        XCTAssertTrue(app.staticTexts["Original settlement"].waitForExistence(timeout: 5))
+        app.textFields["newGameName"].tap(); app.textFields["newGameName"].typeText("Pine village\n")
+        app.buttons["createGame"].tap()
+        XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
+        app.buttons["openGames"].tap()
+        XCTAssertEqual(app.staticTexts["activeGameName"].label, "Pine village")
+        app.buttons["resumeGame-legacy"].tap()
+        XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
+        app.buttons["openGames"].tap()
+        XCTAssertEqual(app.staticTexts["activeGameName"].label, "Original settlement")
+        app.buttons["Done"].tap(); app.terminate(); app.launch()
+        XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
+        app.buttons["openGames"].tap()
+        XCTAssertEqual(app.staticTexts["activeGameName"].label, "Original settlement")
+        XCTAssertTrue(app.staticTexts["Pine village"].exists)
+        capture("independent-games", app: app)
+    }
+
+    @MainActor func testGamesManagementRequiresLeavingDeveloperScenario() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"; app.launch()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        app.buttons["developerTools"].tap(); app.buttons["scenario-early"].tap()
+        app.buttons["openGames"].tap()
+        XCTAssertTrue(app.staticTexts["gamesDeveloperWarning"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.staticTexts["activeGameName"].label, "Original settlement")
+        app.collectionViews.firstMatch.swipeUp()
+        XCTAssertTrue(app.buttons["createGame"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["createGame"].isEnabled)
+        XCTAssertFalse(app.textFields["newGameName"].isEnabled)
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.buttons["developerTools"].exists)
+    }
+
     @MainActor func testLongPressRelocatesAndCameraGesturesKeepIdentity() throws {
         continueAfterFailure = false
         XCUIDevice.shared.orientation = .landscapeLeft

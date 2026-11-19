@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+        A01200000000000000000001 /* SavedGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01200000000000000000002; };
         A01100000000000000000003 /* RoadControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01100000000000000000004 /* RoadControlsView.swift */; };
         A01100000000000000000001 /* RoadSceneLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01100000000000000000002 /* RoadSceneLayer.swift */; };
 		0EBF6F1984BD97775228F3ED /* GameCore in Frameworks */ = {isa = PBXBuildFile; productRef = B8A356A50B0089EBD45054F2 /* GameCore */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+        A01200000000000000000002 /* SavedGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/SavedGamesView.swift; sourceTree = SOURCE_ROOT; };
         A01100000000000000000004 /* RoadControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/RoadControlsView.swift; sourceTree = SOURCE_ROOT; };
         A01100000000000000000002 /* RoadSceneLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/RoadSceneLayer.swift; sourceTree = SOURCE_ROOT; };
 		092722F83ECB20036385A87F /* Civilization/UI/DeveloperToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/DeveloperToolsView.swift; sourceTree = SOURCE_ROOT; };
@@ -97,6 +99,7 @@
 				4454D13678104873C84898A5 /* Civilization/LaunchScreen.storyboard */,
 				3CA83532DA044475A7A83483 /* Civilization/UI/SettlementLoadingView.swift */,
 				092722F83ECB20036385A87F /* Civilization/UI/DeveloperToolsView.swift */,
+                A01200000000000000000002 /* SavedGamesView.swift */,
 				F03000000000000000000009 /* Civilization/Rendering/RenderDiagnostics.swift */,
 				F03000000000000000000007 /* Civilization/Rendering/WorldDetails.swift */,
 				F03000000000000000000005 /* Civilization/Art */,
@@ -229,6 +232,7 @@
 			files = (
 				1B9864AC305C2C9973F47BBF /* Civilization/UI/SettlementLoadingView.swift in Sources */,
 				C93687E1F4837695FDD1B417 /* Civilization/UI/DeveloperToolsView.swift in Sources */,
+                A01200000000000000000001 /* SavedGamesView.swift in Sources */,
 				F0300000000000000000000A /* Civilization/Rendering/RenderDiagnostics.swift in Sources */,
 				F03000000000000000000008 /* Civilization/Rendering/WorldDetails.swift in Sources */,
 				F03000000000000000000004 /* Civilization/UI/EraIcon.swift in Sources */,
