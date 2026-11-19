@@ -1,5 +1,9 @@
 # Development roadmap
 
+## City layout and usability — new feedback backlog
+
+See [CLU-001–004 source brief and visual grids](docs/design/sources/2026-11-19-city-layout-usability.md): sprite footprint correction, residential neighborhoods, construction indicator/selection investigation, and compact inspector. Documentation authorized; exact population bonuses, courtyard occupancy and implementation scheduling remain open. Preserve active authorized milestone order; no catalog, economy or save changes implied.
+
 ## S1-UX delivery checkpoint — 19 November 2026
 
 S1-UX is implemented **awaiting human review**, final product60046d2; [actual milestone evidence](docs/milestones/s1-ux.md) records155Debug/144Release, five Release probes,16native cases/profile plus affected final checks, original stationary/translucent relocation/grid, pending retrace/Undo, icon-default goals/adjacent Explore/Build roads. Signed final iPhone update installed after fresh production-validated backup; both saves byte-identical pre-launch and normal launch succeeds. Human enjoyment/art/touch/sustained hardware performance are open. No economy/catalog/geography/save-schema change. Continue directly to authorized **S1-Saves** after its detailed design reconciliation, then S1-Geography (exact dimensions/migration review gate), then environment graphics. Preserve all previous roadmap requirements and both repositories. Native same-chat Goal/checkpoint remains active; no quota bypass/duplicate session or guaranteed reset timer claim.
