@@ -1,3 +1,7 @@
+## Latest runtime iPhone update — 20 November 2026
+
+Owner install/fetch request completed: signed Debug e85f9ff installed/launched, process verified after fresh stable production-validated backup. All7files byte-identical before launch; post-launch original6save/backup files and prior library entries preserved. A new normal game changed during final double-copy; captured verification copy separately validates, final snapshot is not claimed stable. No physical taps/reset/signing/save injection. [Evidence](testing/device-update-2026-11-20/report.md). Building/UI prototypes remain review-only; R2-07 disabled. Latest animation plan c845b21 fetched: audit→PhaseA living-settlement prototypes→separate PhaseB atmosphere review; no runtime replacement or PhaseC without owner acceptance.
+
 Latest fetch: origin/main c845b21 adds [Living World visual-production plan](../plans/2026-11-20-living-world-environmental-animation.md). Preserved verbatim for next independent audit/review prototypes; no branch merge or runtime activation. UI slice below remains the current handoff.
 
 ## UI themes and motion prototypes — 20 November 2026

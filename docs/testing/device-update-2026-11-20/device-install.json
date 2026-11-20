@@ -1,0 +1,147 @@
+{
+  "productCommit": "e85f9ff64dfe58bbc4cabbb71ef0d709954ea891",
+  "configuration": "Debug",
+  "bundleIdentifier": "com.civilization.seed",
+  "deviceModel": "iPhone 17 Pro Max",
+  "buildPassed": true,
+  "strictSignatureVerifiedWithHostTrustStore": true,
+  "installed": true,
+  "launchVerified": true,
+  "processRunning": true,
+  "processIdentifier": 9212,
+  "stableProductionValidatedBackup": "/tmp/civilization-device-before-e85f9ff-20261120",
+  "preLaunchComparison": {
+    "preserved": true,
+    "mode": "strict",
+    "originalFiles": 7,
+    "removed": [],
+    "added": [],
+    "changed": [],
+    "beforeSHA256": {
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "e54041b69e1be89b0b0dbe9c48d05af26aa407f8543f8e9298a0a392e013b09f",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "afterSHA256": {
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "e54041b69e1be89b0b0dbe9c48d05af26aa407f8543f8e9298a0a392e013b09f",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "note": "Byte/index comparison only; use validate-saves for production state validation."
+  },
+  "postLaunchComparison": {
+    "preserved": true,
+    "mode": "allow-new-games",
+    "originalFiles": 7,
+    "removed": [],
+    "added": [
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json"
+    ],
+    "changed": [
+      "games-index.json"
+    ],
+    "beforeSHA256": {
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "e54041b69e1be89b0b0dbe9c48d05af26aa407f8543f8e9298a0a392e013b09f",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "afterSHA256": {
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json": "dce191db63ddef4e9c011d35a6b695e075fb3ee704424c59554e0d1599c4dd61",
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "1a630b8f36a49abc1f03e9bc480d59fd54e69412e91266c678329afc8f64901b",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "note": "Byte/index comparison only; use validate-saves for production state validation."
+  },
+  "postLaunchInspection": {
+    "files": [
+      {
+        "buildings": 1,
+        "mapID": "river-clearing-64x48-v1",
+        "operatingRules": "legacy",
+        "relativePath": "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json",
+        "roads": 0,
+        "sha256": "dce191db63ddef4e9c011d35a6b695e075fb3ee704424c59554e0d1599c4dd61"
+      },
+      {
+        "buildings": 9,
+        "mapID": "river-clearing-64x48-v1",
+        "operatingRules": "legacy",
+        "relativePath": "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json",
+        "roads": 0,
+        "sha256": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b"
+      },
+      {
+        "buildings": 3,
+        "mapID": "river-clearing-64x48-v1",
+        "operatingRules": "legacy",
+        "relativePath": "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json",
+        "roads": 0,
+        "sha256": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7"
+      },
+      {
+        "buildings": 22,
+        "mapID": "river-clearing-64x48-v1",
+        "operatingRules": "legacy",
+        "relativePath": "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review",
+        "roads": 0,
+        "sha256": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651"
+      },
+      {
+        "buildings": 6,
+        "mapID": "river-clearing-64x48-v1",
+        "operatingRules": "legacy",
+        "relativePath": "settlement-v1.json",
+        "roads": 15,
+        "sha256": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349"
+      },
+      {
+        "buildings": 5,
+        "mapID": "river-clearing-64x48-v1",
+        "operatingRules": "legacy",
+        "relativePath": "settlement-v1.json.developer",
+        "roads": 0,
+        "sha256": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8"
+      },
+      {
+        "buildings": 5,
+        "mapID": "river-clearing-v1",
+        "operatingRules": "legacy",
+        "relativePath": "settlement-v1.json.pre-geography-64x48.bak",
+        "roads": 15,
+        "sha256": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+      }
+    ],
+    "registeredGames": 4,
+    "sourceByteIdentical": true
+  },
+  "postLaunchDoubleCopyStable": false,
+  "postLaunchCaveat": "A newly added normal game changed between copies while app was running. Verification copy separately production-validated. Original save bytes and all old library entries preserved. Actual physical taps were not observed or automated.",
+  "privateSaveBodiesUploaded": false,
+  "signingChanged": false,
+  "uninstallResetSaveInjection": false,
+  "r207Enabled": false,
+  "runtimeArtOrUIPrototypeIntegration": false,
+  "latestInstructions": {
+    "originMain": "c845b2132641dbf8ea4fd769ae50f8d8b87b872c",
+    "plan": "plans/2026-11-20-living-world-environmental-animation.md"
+  },
+  "buildLog": "/tmp/civilization-device-e85f9ff-build.log",
+  "appExecutableSHA256": "3c617f43ad93f9017c2792630bbccfbfe38c63d0980b7fbb95716499f6c8a88a"
+}
