@@ -1,5 +1,10 @@
 # Design synchronization record and operating procedure
 
+## Approved navigation report delivered and acknowledged — 20 November2026
+
+At Dima's explicit request, committed/pushed human size/navigation acceptance and successful unlocked launch (9d2fbd0, product2ab7492), then reported to the verified Master Development Coordination chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9. Native send accepted; stale history required verification after Dima unlocked the Mac. Exact Chrome conversation now visibly contains the native report and browser fallback, with explicit canonical/deduplicated acknowledgment accepting human64×48/navigation approval and resolved launch blocker. [Dispatch/acknowledgment record](docs/design/sources/2026-11-20-navigation-accepted-handover-status.md). Designer recommends documentation-only production Geography gate and optional preservation-first migration; this remains a proposal until Dima chooses policy. No new product scope or migration approval inferred. GitHub acceptance update7034384060 is posted; all backlog/media retained.
+
+
 ## Human64×48/navigation acceptance — 20 November 2026
 
 Dima confirms **“Yes, navigation improved. Approved, commit and report to chat.”**64×48size and the installed navigation correction are now human-approved. Product2ab7492launch succeeds after unlock; normal32×24settlement and isolated64×48developer geometry/history are preserved. [Acceptance/evidence](docs/milestones/large-developer-village.md). Commit and report to the designated Master Development Coordination chat; broader art/enjoyment/sustained hardware metrics and normal-world migration policy remain separate. All existing backlog retained.
