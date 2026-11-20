@@ -13,12 +13,21 @@ struct EconomyLabView: View {
     @State private var paused = false
     @State private var kind: BuildingKind?
     @State private var tile: Tile?
+    @State private var selectedFind: RiverbendMapFindID?
     var body: some View {
         ZStack(alignment: .trailing) {
             if let scene, let lab = store?.lab {
                 WalkthroughMapSurface(scene: scene, isPaused: phase != .active, civicTile: lab.engine.configuration.map.campfire,
                     candidateAt: { point in isCandidate(point, scene: scene, lab: lab) ? tile : nil },
-                    onTap: { point in guard kind != nil, !isCandidate(point, scene: scene, lab: lab) else { return }; tile = IsometricProjection.tile(point); refresh() },
+                    onTap: { point in
+                        if kind != nil {
+                            guard !isCandidate(point, scene: scene, lab: lab) else { return }
+                            tile = IsometricProjection.tile(point); refresh()
+                        } else {
+                            selectedFind = lab.find(near: WorldPoint(x: point.x, y: point.y), radius: 22 * (scene.camera?.xScale ?? 1))
+                            error = ""
+                        }
+                    },
                     onCandidateMove: { value in tile = value; refresh() }, mapLabel: "Persistent Riverbend Economy Lab map").ignoresSafeArea()
             }
             VStack(alignment: .leading, spacing: 6) {
@@ -37,7 +46,7 @@ struct EconomyLabView: View {
                             ForEach([BuildingKind.hut, .gatheringShelter, .woodcutter], id: \.self) { value in
                                 let definition = lab.engine.configuration.definition(value)
                                 Button("\(definition.name) · \(Int(definition.cost.wood)) Wood · \(Int(definition.constructionSeconds ?? 0))s") {
-                                    kind = value; tile = lab.sites(for: value).first
+                                    selectedFind = nil; kind = value; tile = lab.sites(for: value).first
                                     error = tile == nil ? "No affordable legal site. Use recovery if needed; complete the survey for Woodcutter." : ""
                                     refresh(); focusSelection()
                                 }.disabled(lab.engine.state.buildings.contains { $0.kind == value })
@@ -92,6 +101,23 @@ struct EconomyLabView: View {
                     Text("No existing game was loaded or changed. Close and resolve this lab's file before retrying.").font(.caption)
                 }
             }.padding(12).frame(width: 320).background(.regularMaterial)
+        }.overlay(alignment: .bottomLeading) {
+            if let id = selectedFind, let lab = store?.lab,
+               let find = lab.availableFinds.first(where: { $0.id == id }), let site = find.tile {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(id == .berries ? "Wild berries" : "Fresh deer tracks").font(.headline)
+                        .accessibilityIdentifier("labFindTitle")
+                    Text(id == .berries ? "Gather +3 Food · once. Needs room for all 3." : "Observe this reachable wildlife clue. No reward, hunting, unlock or new territory.")
+                        .font(.caption)
+                    HStack {
+                        Button(id == .berries ? "Gather +3 Food" : "Observe") {
+                            if transact({ try $0.resolveFind(id, at: site) }) { selectedFind = nil }
+                        }.accessibilityIdentifier("labResolveFind")
+                        Button("Dismiss") { selectedFind = nil; error = "" }.accessibilityIdentifier("labDismissFind")
+                    }
+                    if !error.isEmpty { Text(error).font(.caption).foregroundStyle(.red).accessibilityIdentifier("labFindError") }
+                }.padding(12).frame(width: 250).background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12)).padding(12)
+            }
         }.task {
             open()
             while !Task.isCancelled {
@@ -122,6 +148,11 @@ struct EconomyLabView: View {
         guard let lab = store?.lab, let scene else { return }
         scene.display(state: lab.engine.state, kind: kind, tile: tile, valid: tile.map { lab.issue(for: kind ?? .hut, at: $0) == nil } ?? false,
             inspected: nil, movingBuildingID: nil, centerRequest: 0, deposits: [], identifiedDepositIDs: [])
+        scene.displayLabFinds(lab.mapFinds.filter { find in
+            guard let tile = find.tile else { return false }
+            return lab.legalFindSites.contains(tile) && (find.id == .tracks || !find.resolved)
+        }, hidden: kind != nil)
+        if let selectedFind, !lab.availableFinds.contains(where: { $0.id == selectedFind }) { self.selectedFind = nil }
     }
     private func isCandidate(_ point: CGPoint, scene: SettlementScene, lab: RiverbendEconomyLab) -> Bool {
         guard let kind, let tile else { return false }
@@ -139,7 +170,7 @@ struct EconomyLabView: View {
     }
     private func machineStatus(_ lab: RiverbendEconomyLab) -> String {
         let e = lab.engine
-        return "food=\(Int(e.state.resources.food)) wood=\(Int(e.state.resources.wood)) foodNet=\(e.rates.food) woodNet=\(e.rates.wood) knowledge=\(Int(e.state.resources.knowledge)) survey=\(lab.surveyComplete) checkpoint=\(lab.checkpointReached) buildings=\(e.state.buildings.count)"
+        return "food=\(Int(e.state.resources.food)) wood=\(Int(e.state.resources.wood)) foodNet=\(e.rates.food) woodNet=\(e.rates.wood) knowledge=\(Int(e.state.resources.knowledge)) survey=\(lab.surveyComplete) checkpoint=\(lab.checkpointReached) buildings=\(e.state.buildings.count) " + lab.mapFinds.map { "\($0.id.rawValue)=\($0.tile.map { "\($0.x),\($0.y)" } ?? "none"),\($0.resolved ? "resolved" : "pending")" }.joined(separator: " ")
     }
     private func guide(_ lab: RiverbendEconomyLab) -> String {
         if lab.checkpointReached { return "Lab checkpoint reached · Food and Wood are growing. Stop here for review." }
@@ -147,6 +178,29 @@ struct EconomyLabView: View {
         if !lab.surveyComplete { return "Survey the nearby forest. Gathering Shelter (+8 Food/min) can be built alongside it." }
         if lab.engine.rates.wood <= 0 { return "Place Woodcutter at the surveyed forest edge (+6 Wood/min)." }
         return "Build Gathering Shelter for a Food surplus (+8 Food/min)."
+    }
+}
+
+@MainActor private extension SettlementScene {
+    func displayLabFinds(_ finds: [RiverbendMapFind], hidden: Bool) {
+        childNode(withName: "riverbendMapFinds")?.removeFromParent()
+        guard !hidden else { return }
+        let layer = SKNode(); layer.name = "riverbendMapFinds"; layer.zPosition = 50_000
+        for find in finds {
+            guard let tile = find.tile else { continue }
+            let marker = SKShapeNode(ellipseOf: CGSize(width: 36, height: 30))
+            marker.position = IsometricProjection.point(tile)
+            marker.fillColor = find.resolved ? .darkGray : find.id == .berries ? .systemPurple : .brown
+            marker.strokeColor = .white; marker.lineWidth = 2
+            let icon = SKLabelNode(fontNamed: "AvenirNext-Bold")
+            icon.text = find.id == .berries ? "●●" : find.resolved ? "✓" : "⋮"
+            icon.fontSize = 17; icon.verticalAlignmentMode = .center; marker.addChild(icon)
+            let label = SKLabelNode(fontNamed: "AvenirNext-Bold")
+            label.text = find.id == .berries ? "Berries" : find.resolved ? "Observed" : "Tracks"
+            label.fontSize = 12; label.position.y = 22; marker.addChild(label)
+            layer.addChild(marker)
+        }
+        addChild(layer)
     }
 }
 #endif

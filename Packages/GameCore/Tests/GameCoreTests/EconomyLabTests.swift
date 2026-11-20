@@ -210,6 +210,9 @@ private func buildLab(_ kind: BuildingKind, _ lab: inout RiverbendEconomyLab) th
         try buildLab(.woodcutter, &lab); try buildLab(.gatheringShelter, &lab)
     }
     #expect(store.lab.checkpointReached)
+    for find in store.lab.availableFinds {
+        try store.perform { try $0.resolveFind(find.id, at: #require(find.tile)) }
+    }
     _ = try RiverbendEconomyLabStore(directory: root, now: labEpoch.addingTimeInterval(5000))
     #expect(try files() == before)
 }

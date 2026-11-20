@@ -2,6 +2,13 @@
 import Foundation
 import GameCore
 
+public enum RiverbendMapFindID: String, Codable, CaseIterable, Sendable { case berries, tracks }
+public struct RiverbendMapFind: Codable, Equatable, Sendable, Identifiable {
+    public let id: RiverbendMapFindID
+    public var tile: Tile?
+    public var resolved: Bool
+}
+
 /// The paid survey adapter is confined to this versioned review profile.
 /// It reuses real terrain, placement and whole-component forest selection.
 public struct RiverbendEconomyLab {
@@ -9,12 +16,14 @@ public struct RiverbendEconomyLab {
     public let region: OnboardingForestRegion
     public private(set) var surveyRemaining: Double?
     public private(set) var surveyComplete = false
+    public private(set) var mapFinds: [RiverbendMapFind] = []
     private struct Envelope: Codable {
         var profile: String
         var version: Int
         var state: GameState
         var surveyRemaining: Double?
         var surveyComplete: Bool
+        var mapFinds: [RiverbendMapFind]?
     }
     public init(now: Date) throws {
         let c = try GameConfiguration.riverbendEconomyLab()
@@ -51,10 +60,78 @@ public struct RiverbendEconomyLab {
         let expected = c.tiles(within: c.explorationRules!.initialRadius).union(saved.surveyComplete ? region.tiles : [])
         guard candidate.state.discoveredTiles == expected else { throw GameError.invalidSave("Unexpected survey territory") }
         engine = candidate; surveyRemaining = saved.surveyRemaining; surveyComplete = saved.surveyComplete
+        if let finds = saved.mapFinds {
+            let ids = finds.map(\.id)
+            guard (finds.isEmpty && candidate.state.buildings.count == 1) ||
+                    (finds.count == 2 && Set(ids) == Set(RiverbendMapFindID.allCases)),
+                  Set(finds.filter { !$0.resolved }.compactMap(\.tile)).count == finds.filter({ !$0.resolved && $0.tile != nil }).count,
+                  finds.allSatisfy({ find in
+                      guard let tile = find.tile else { return !find.resolved }
+                      return candidate.isDiscovered(tile) && (find.resolved || legalFindSites.contains(tile))
+                  }) else { throw GameError.invalidSave("Invalid Map Finds") }
+            mapFinds = finds
+        } else {
+            // Additive compatibility with the exact Goal 1 lab envelope only.
+            reconcileFindSites()
+        }
     }
     public func encoded() throws -> Data {
         try JSONEncoder().encode(Envelope(profile: GameConfiguration.riverbendLabID, version: 1, state: engine.state,
-            surveyRemaining: surveyRemaining, surveyComplete: surveyComplete))
+            surveyRemaining: surveyRemaining, surveyComplete: surveyComplete, mapFinds: mapFinds))
+    }
+    /// Sites are flood-filled from the civic center over revealed open unoccupied land.
+    /// Stable distance/y/x ordering also defines every fallback, without exposing fog.
+    public var legalFindSites: [Tile] {
+        let center = engine.configuration.map.campfire
+        var visited: Set<Tile> = [center], queue = [center], cursor = 0
+        while cursor < queue.count {
+            for edge in RoadGeometry.neighbors(of: queue[cursor]) {
+                let tile = edge.tile, terrain = engine.configuration.map.terrain(at: tile)
+                if engine.isDiscovered(tile), terrain == .grass || terrain == .clearing,
+                   engine.building(at: tile) == nil, visited.insert(tile).inserted { queue.append(tile) }
+            }
+            cursor += 1
+        }
+        return visited.filter { tile in tile != center && !(engine.state.roads ?? []).contains(where: { $0.tile == tile }) }.sorted {
+            let a = abs($0.x-center.x) + abs($0.y-center.y), b = abs($1.x-center.x) + abs($1.y-center.y)
+            return a == b ? ($0.y == $1.y ? $0.x < $1.x : $0.y < $1.y) : a < b
+        }
+    }
+    public var availableFinds: [RiverbendMapFind] { mapFinds.filter { !$0.resolved && $0.tile != nil } }
+    /// World-space hit selection; caller scales the 22-point screen target with its camera.
+    public func find(near point: WorldPoint, radius: Double) -> RiverbendMapFindID? {
+        availableFinds.compactMap { find -> (id: RiverbendMapFindID, distance: Double)? in
+            guard let tile = find.tile else { return nil }
+            let site = MapGeometry.point(for: tile)
+            let distance = hypot(site.x - point.x, site.y - point.y)
+            return distance <= radius ? (find.id, distance) : nil
+        }.min { $0.distance < $1.distance }?.id
+    }
+    private mutating func reconcileFindSites() {
+        if mapFinds.isEmpty && engine.state.buildings.count > 1 {
+            mapFinds = RiverbendMapFindID.allCases.map { RiverbendMapFind(id: $0, tile: nil, resolved: false) }
+        }
+        let legal = legalFindSites
+        var claimed = Set(mapFinds.filter { !$0.resolved }.compactMap(\.tile).filter(legal.contains))
+        for index in mapFinds.indices where !mapFinds[index].resolved {
+            if let tile = mapFinds[index].tile, legal.contains(tile) { continue }
+            let fallback = legal.first { !claimed.contains($0) }
+            mapFinds[index].tile = fallback
+            if let fallback { claimed.insert(fallback) }
+        }
+    }
+    public mutating func resolveFind(_ id: RiverbendMapFindID, at tile: Tile) throws {
+        guard let index = mapFinds.firstIndex(where: { $0.id == id && !$0.resolved && $0.tile == tile }),
+              legalFindSites.contains(tile) else { throw GameError.placement("This find is unavailable; inspect its current site") }
+        var state = engine.state
+        if id == .berries {
+            guard state.resources.food + 3 <= engine.capacities.food else {
+                throw GameError.placement("Need room for all 3 Food. Berries remain here; use Food and retry.")
+            }
+            state.resources.food += 3
+        }
+        let candidate = try GameEngine(state: state, configuration: engine.configuration)
+        engine = candidate; mapFinds[index].resolved = true
     }
     public var hutComplete: Bool { engine.state.buildings.contains { $0.kind == .hut && $0.isOperational } }
     public var checkpointReached: Bool {
@@ -77,6 +154,7 @@ public struct RiverbendEconomyLab {
     public mutating func build(_ kind: BuildingKind, at tile: Tile) throws {
         if let issue = issue(for: kind, at: tile) { throw issue }
         try engine.build(kind, at: tile)
+        reconcileFindSites()
     }
     public mutating func startSurvey() throws {
         guard hutComplete else { throw GameError.placement("Complete your Hut first") }
@@ -107,6 +185,7 @@ public struct RiverbendEconomyLab {
                 candidate.surveyRemaining = nil; candidate.surveyComplete = true
             }
         }
+        candidate.reconcileFindSites()
         self = candidate
     }
 }

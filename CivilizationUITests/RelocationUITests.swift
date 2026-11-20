@@ -4,6 +4,95 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testMapFindsWaitDismissGatherObserveAndReload() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        func open() {
+            XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+            app.buttons["developerTools"].tap(); app.buttons["openEconomyLab"].tap()
+            XCTAssertTrue(app.staticTexts["economyLabStatus"].waitForExistence(timeout: 15))
+        }
+        launchNormal(app); open()
+        let status = app.staticTexts["economyLabStatus"]
+        func value() -> String { status.value as? String ?? "" }
+        func tap(_ id: String) {
+            let button = app.buttons[id]
+            for _ in 0..<7 where !button.isHittable { app.scrollViews.firstMatch.swipeUp() }
+            if !button.isHittable { for _ in 0..<7 where !button.isHittable { app.scrollViews.firstMatch.swipeDown() } }
+            XCTAssertTrue(button.isHittable, id); button.tap()
+        }
+        func fields(_ text: String, _ name: String) throws -> String {
+            let part = try XCTUnwrap(text.split(separator: " ").first { $0.hasPrefix(name + "=") })
+            return String(part.dropFirst(name.count + 1))
+        }
+        let map = app.otherElements["onboardingWalkthroughMap"]
+        func inspect(_ id: String) throws {
+            let location = try fields(value(), id).split(separator: ",")
+            let tile = Tile(x: try XCTUnwrap(Int(location[0])), y: try XCTUnwrap(Int(location[1])))
+            let geometry = try XCTUnwrap(map.value as? String)
+            let config = try GameConfiguration.riverbendEconomyLab()
+            let point = MapGeometry.point(for: tile), civic = MapGeometry.point(for: config.map.campfire)
+            let zoom = try XCTUnwrap(Double(fields(geometry, "zoom")))
+            let target = map.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(
+                dx: try XCTUnwrap(Double(fields(geometry, "civicX"))) + (point.x - civic.x) / zoom,
+                dy: try XCTUnwrap(Double(fields(geometry, "civicY"))) - (point.y - civic.y) / zoom))
+            target.tap()
+            XCTAssertTrue(app.staticTexts["labFindTitle"].waitForExistence(timeout: 5))
+        }
+        func capture(_ name: String) {
+            let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+            shot.name = name; shot.lifetime = .keepAlways; add(shot)
+        }
+        tap("labBuild-hut"); tap("labConfirmBuild")
+        // The Hut is genuinely in progress; no synthetic fixture or reward injection.
+        XCTAssertTrue((map.value as? String ?? "").contains("construction=legacy"))
+        tap("labPause")
+        XCTAssertTrue(value().contains("pending"))
+        map.pinch(withScale: 0.65, velocity: -1)
+        try inspect("tracks")
+        XCTAssertEqual(app.staticTexts["labFindTitle"].label, "Fresh deer tracks", "Nearest marker wins when touch targets overlap after zoom")
+        tap("labDismissFind")
+        map.pinch(withScale: 1.0 / 0.65, velocity: 1)
+        try inspect("berries")
+        XCTAssertEqual(app.staticTexts["labFindTitle"].label, "Wild berries")
+        capture("map-finds-construction-wait-berries")
+        tap("labDismissFind")
+        XCTAssertFalse(app.buttons["labResolveFind"].exists)
+        XCTAssertTrue(value().contains("pending"))
+        app.buttons["closeEconomyLab"].tap(); app.buttons["openEconomyLab"].tap()
+        XCTAssertTrue(status.waitForExistence(timeout: 15)); tap("labPause")
+        try inspect("berries")
+        let food = try XCTUnwrap(Int(fields(value(), "food")))
+        tap("labResolveFind")
+        XCTAssertEqual(try fields(value(), "food"), String(food + 3))
+        XCTAssertTrue(try fields(value(), "berries").hasSuffix("resolved"))
+        try inspect("tracks")
+        XCTAssertEqual(app.staticTexts["labFindTitle"].label, "Fresh deer tracks")
+        let beforeObserve = value()
+        capture("map-finds-tracks-observe")
+        tap("labResolveFind")
+        XCTAssertEqual(try fields(value(), "food"), try fields(beforeObserve, "food"))
+        XCTAssertTrue(try fields(value(), "tracks").hasSuffix("resolved"))
+        tap("labAdvance60"); tap("labSurvey"); tap("labAdvance60")
+        for kind in ["woodcutter", "gatheringShelter"] {
+            tap("labBuild-" + kind)
+            XCTAssertFalse(app.buttons["labResolveFind"].exists)
+            tap("labConfirmBuild"); tap("labAdvance60")
+        }
+        XCTAssertTrue(value().contains("checkpoint=true"))
+        app.terminate(); app.launchEnvironment.removeValue(forKey: "CIVILIZATION_UI_FRESH_SAVE")
+        launchNormal(app); open(); tap("labPause")
+        XCTAssertTrue(value().contains("checkpoint=true"))
+        XCTAssertTrue(try fields(value(), "berries").hasSuffix("resolved"))
+        XCTAssertTrue(try fields(value(), "tracks").hasSuffix("resolved"))
+        XCTAssertFalse(app.buttons["labResolveFind"].exists)
+        capture("map-finds-reloaded-checkpoint")
+        app.buttons["closeEconomyLab"].tap(); app.navigationBars["Developer tools"].buttons["Done"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].exists)
+    }
+
     @MainActor func testEconomyLabGestureRouteAndReload() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
