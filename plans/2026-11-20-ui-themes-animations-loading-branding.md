@@ -35,3 +35,18 @@
 - Era/region visuals distinct, historically sensible, and accessible.
 - Loading/animation does not falsely report progress or corrupt state.
 - R2-07 remains disabled pending separate owner approval.
+
+## Approved compact completion notifications — supersedes large ordinary-event celebrations
+
+Owner approved the icon-adjacent notification concept shown in the ChatGPT reference mockup (2026-11-20). For **ordinary research, goal and achievement completions**, do **not** display full-screen celebrations, modal popups, large banners or intrusive reward animations.
+
+- Research: pulse/glow around the existing research icon for ~0.5–1 second, then retain a small unread indicator at the icon.
+- Goal: short checkmark/pulse at the goals icon, then persistent unread indicator.
+- Achievement: subtle icon glow, then persistent unread indicator.
+- Multiple events: keep independent unread state for each destination, without overlapping or repeated animations.
+- Tap the icon to open the relevant screen and view exact results/rewards; clear the indicator when the relevant new item is viewed (not merely on animation completion).
+- Preserve event idempotency across save/load, reduced-motion static indicators, VoiceOver announcement and sufficient non-color-only cues.
+- **Era completion remains a special larger transition**. Chapter completion should default to compact treatment unless separately approved.
+- Keep permanent icon positions, icon identities and layout unchanged across eras/regions.
+
+Reference: user-approved six-panel HUD concept illustrating normal → brief glow/check → persistent dot. The image is in the ChatGPT conversation, **not** guaranteed available as a GitHub/media file. Codex should recreate/validate against actual HUD rather than claiming the image was imported.
