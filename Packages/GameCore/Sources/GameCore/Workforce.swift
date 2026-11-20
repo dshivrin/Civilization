@@ -7,7 +7,13 @@ public struct WorkforceRules: Codable, Sendable {
     public var minimumWaterForGrowth: Double
 }
 public extension GameEngine {
-    var workforceAvailable: Double { floor(Double(state.population) * (configuration.workforceRules?.workingPopulationFraction ?? 0)) }
+    var workforceAvailable: Double {
+        let available = floor(Double(state.population) * (configuration.workforceRules?.workingPopulationFraction ?? 0))
+        #if DEBUG
+        if configuration.isRiverbendEconomyLab { return max(2, available) }
+        #endif
+        return available
+    }
     var workforceRequired: Double {
         state.buildings.filter(isServiceOperational).reduce(0) { $0 + workersRequired(for: $1) }
     }

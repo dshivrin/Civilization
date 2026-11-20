@@ -422,18 +422,19 @@ struct OnboardingWalkthroughReviewView: View {
 }
 /// Same SKView-local coordinate path as normal WorldView. SwiftUI's safe-area
 /// wrapper coordinates must never be passed directly into convertPoint(fromView:).
-private struct WalkthroughMapSurface: UIViewRepresentable {
+struct WalkthroughMapSurface: UIViewRepresentable {
     let scene: SettlementScene
     let isPaused: Bool
     let civicTile: Tile
     let candidateAt: (CGPoint) -> Tile?
     let onTap: (CGPoint) -> Void
     let onCandidateMove: (Tile) -> Void
+    var mapLabel = "Disposable onboarding map"
 
     func makeCoordinator() -> Coordinator { Coordinator(self) }
     func makeUIView(context: Context) -> SKView {
         let view = SKView(); view.ignoresSiblingOrder = true; view.preferredFramesPerSecond = 60
-        view.isAccessibilityElement = true; view.accessibilityLabel = "Disposable onboarding map"
+        view.isAccessibilityElement = true; view.accessibilityLabel = mapLabel
         view.accessibilityIdentifier = "onboardingWalkthroughMap"
         view.presentScene(scene)
         let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.tap(_:)))

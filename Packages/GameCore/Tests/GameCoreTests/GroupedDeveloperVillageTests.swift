@@ -72,10 +72,12 @@ import GamePersistence
     let url = root.appendingPathComponent("settlement.json")
     let session = try GameSession(clock: { Date(timeIntervalSince1970:1000) }, saveURL: url)
     let bytes = try Data(contentsOf: url)
+    // Cancel before the child can publish; do not poll a transient flag which
+    // can already have returned to false by the time this actor resumes.
     let task = Task { await session.prepareDeveloperScenario(.grouped) }
-    while !session.isPreparingDeveloperScenario { await Task.yield() }
-    #expect(!session.isDeveloperMode && session.configuration.map.width == 64)
-    task.cancel(); await task.value
+    task.cancel()
+    await task.value
+    #expect(session.configuration.map.width == 64)
     #expect(!session.isDeveloperMode && !session.isPreparingDeveloperScenario)
     #expect(try Data(contentsOf: url) == bytes)
     #expect(!FileManager.default.fileExists(atPath: url.appendingPathExtension("developer").path))

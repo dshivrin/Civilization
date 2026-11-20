@@ -15,7 +15,7 @@ Reads Xcode/Swift versions and required/optional executable availability. It doe
 ## Existing tests, one report
 
 ```sh
-# Full core Debug + Release and eleven developer API exclusion probes.
+# Full core Debug + Release and thirteen developer API exclusion probes.
 python3 scripts/dev.py test
 
 # Deliberately scoped regression: report retains the exact filter/configuration.
@@ -134,3 +134,19 @@ Add `--include-placement` to `--walkthrough` when archiving the native candidate
 For selective destination retries, use `--profile-report phone=REPORT --profile-report mini=REPORT --profile-report pro=REPORT` instead of `--qa-report`. Each selected destination step must have nonzero executed tests and pass, and its actual result bundle must match the images. Original reports (including other-device failures) are copied unchanged and their aggregate status is explicit in every capture record. This never promotes a failed/zero-test device step; it avoids repeating already verified destinations merely to obtain a single green aggregate report.
 
 `swift scripts/verify-art.swift --inspect-atlas IMAGE.png COLUMNS ROWS` measures original top-left integer cells without editing the PNG. `python3 scripts/build-art-gallery.py --villager-atlas` validates raw candidates, prompts, references and native reports and atomically publishes one review data file. Failed margin checks remain visible; no frame alignment or runtime promotion. `node --test scripts/tests/atlas_review.test.cjs` exercises actual viewer lifecycle callbacks, including a negative control; browser/OS event delivery remains separately observed. Serve only the self-contained `docs/art/villager-atlas-review` directory if local HTTP is needed. [Study and limitations](../docs/art/villager-atlas-review/README.md).
+
+
+## Riverbend Economy Lab (Debug review only)
+
+Developer tools → Open separate Food and Wood lab runs `riverbend-economy-lab-v1`.
+It uses `Application Support/RiverbendDebugLabs/riverbend-economy-lab-v1/lab.json`,
+independent of Games/Normal/Developer/Round2. The existing Debug UI-library identity
+adds a separate test namespace. Corrupt/failed files stop the Lab without resetting it.
+No physical install, production activation or ordinary Water migration is authorized.
+
+Use `python3 scripts/dev.py test` for all core configurations and13exclusions;
+`--suite ui --configuration debug --simulator UDID --only-testing CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload`
+for the real playable route, map gestures and reload. Run serially per simulator/cache.
+Export XCTest screenshots using `xcrun xcresulttool export attachments`.
+The Lab's60second survey uses the existing whole-forest adapter against real terrain,
+not production area exploration. Time pauses on dismissal; no offline catch-up.

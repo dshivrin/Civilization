@@ -86,6 +86,9 @@ public struct GameEngine: Sendable {
         if state.resources.food + 1e-9 < rules.minimumFoodForGrowth { return .foodReserve }
         let net = netRates ?? rates
         if net.food <= 0 { return .foodDeficit }
+        #if DEBUG
+        if configuration.isRiverbendEconomyLab { return .growing }
+        #endif
         if let water = configuration.workforceRules {
             if state.resources[.water] + 1e-9 < water.minimumWaterForGrowth { return .waterReserve }
             if net[.water] <= 0 { return .waterDeficit }

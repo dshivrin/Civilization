@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+        A08000000000000000000007 = {isa = PBXBuildFile; fileRef = A08100000000000000000007; };
         A08000000000000000000006 = {isa = PBXBuildFile; fileRef = A08100000000000000000006; };
         A08000000000000000000005 = {isa = PBXBuildFile; fileRef = A08100000000000000000005; };
         A08000000000000000000004 = {isa = PBXBuildFile; fileRef = A08100000000000000000004; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+        A08100000000000000000007 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/EconomyLabView.swift; sourceTree = SOURCE_ROOT; };
         A08100000000000000000006 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/VillagerMotionReviewView.swift; sourceTree = SOURCE_ROOT; };
         A08100000000000000000005 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/VillagerFigure.swift; sourceTree = SOURCE_ROOT; };
         A08100000000000000000004 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/NativeVisualReviewView.swift; sourceTree = SOURCE_ROOT; };
@@ -132,6 +134,7 @@
                 A08100000000000000000002,
                 A08100000000000000000003,
                 A08100000000000000000004,
+                A08100000000000000000007,
                 A08100000000000000000006,
                 A08100000000000000000005,
 				E1869522EAEC8033D828D556 /* Civilization/Rendering/WorldView.swift */,
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
                 A08000000000000000000004,
+                A08000000000000000000007,
                 A08000000000000000000006,
                 A08000000000000000000005,
                 A08000000000000000000003,

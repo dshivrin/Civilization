@@ -4,6 +4,89 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testEconomyLabGestureRouteAndReload() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        app.buttons["developerTools"].tap(); app.buttons["openEconomyLab"].tap()
+        let status = app.staticTexts["economyLabStatus"]
+        XCTAssertTrue(status.waitForExistence(timeout: 15))
+        func tap(_ id: String) {
+            let button = app.buttons[id]
+            for _ in 0..<7 where !button.isHittable { app.scrollViews.firstMatch.swipeUp() }
+            if !button.isHittable {
+                for _ in 0..<7 where !button.isHittable { app.scrollViews.firstMatch.swipeDown() }
+            }
+            XCTAssertTrue(button.isHittable, id); button.tap()
+        }
+        func build(_ value: String) {
+            tap("labBuild-" + value); tap("labNextSite"); tap("labConfirmBuild"); tap("labAdvance60")
+        }
+        tap("labPause")
+        XCTAssertTrue((status.value as? String ?? "").contains("wood=32"))
+        let map = app.otherElements["onboardingWalkthroughMap"]
+        tap("labPause") // resume, then verify ticks preserve a player-selected camera
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.2, dy: 0.5)).press(forDuration: 0.05,
+            thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.6)))
+        let camera = try XCTUnwrap(map.value as? String).components(separatedBy: " sceneBuilds=").first
+        Thread.sleep(forTimeInterval: 2)
+        XCTAssertEqual((map.value as? String)?.components(separatedBy: " sceneBuilds=").first, camera)
+        tap("labPause")
+        tap("labBuild-hut")
+        let location = app.staticTexts["labPlacement"].label
+        let numbers = location.split { !($0.isNumber || $0 == "-") }.compactMap { Int($0) }
+        let origin = Tile(x: try XCTUnwrap(numbers.first), y: try XCTUnwrap(numbers.dropFirst().first))
+        let mapValue = try XCTUnwrap(map.value as? String)
+        func field(_ name: String) throws -> Double {
+            let part = try XCTUnwrap(mapValue.split(separator: " ").first { $0.hasPrefix(name + "=") })
+            return try XCTUnwrap(Double(part.dropFirst(name.count + 1)))
+        }
+        let config = try GameConfiguration.riverbendEconomyLab()
+        let center = config.definition(.hut).footprint.center(at: origin)
+        let civic = MapGeometry.point(for: config.map.campfire)
+        let zoom = try field("zoom")
+        let roof = map.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(
+            dx: try field("civicX") + (center.x - civic.x) / zoom,
+            dy: try field("civicY") - (center.y - civic.y + 55) / zoom))
+        roof.tap()
+        XCTAssertEqual(app.staticTexts["labPlacement"].label, location, "Preview roof tap retains origin")
+        let beforeDragCamera = (map.value as? String)?.components(separatedBy: "camera=").last
+        roof.press(forDuration: 0.05, thenDragTo: roof.withOffset(CGVector(dx: 32 / zoom, dy: 16 / zoom)))
+        let moved = app.staticTexts["labPlacement"].label.split { !($0.isNumber || $0 == "-") }.compactMap { Int($0) }
+        XCTAssertEqual(moved, [origin.x + 1, origin.y])
+        XCTAssertEqual((map.value as? String)?.components(separatedBy: "camera=").last, beforeDragCamera)
+        tap("labNextSite"); tap("labConfirmBuild"); tap("labAdvance60")
+        tap("labSurvey")
+        let paid = try XCTUnwrap(status.value as? String)
+        XCTAssertTrue(paid.contains("knowledge=0"))
+        // Dismiss and reopen the persisted lab in the same independent namespace.
+        app.buttons["closeEconomyLab"].tap(); app.buttons["openEconomyLab"].tap()
+        XCTAssertTrue(status.waitForExistence(timeout: 15))
+        tap("labPause")
+        tap("labAdvance60")
+        XCTAssertTrue((status.value as? String ?? "").contains("knowledge=6 survey=true"))
+        build("woodcutter"); build("gatheringShelter")
+        XCTAssertTrue((status.value as? String ?? "").contains("checkpoint=true"))
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); attachment.name = "economy-lab-positive-loop"; attachment.lifetime = .keepAlways; add(attachment)
+        tap("labAdvance60")
+        XCTAssertTrue((status.value as? String ?? "").contains("woodNet=6.0"))
+        app.terminate()
+        // Keep the same QA library/lab identity; production save roots are never read.
+        app.launchEnvironment.removeValue(forKey: "CIVILIZATION_UI_FRESH_SAVE")
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        app.buttons["developerTools"].tap(); app.buttons["openEconomyLab"].tap()
+        XCTAssertTrue(status.waitForExistence(timeout: 15))
+        XCTAssertTrue((status.value as? String ?? "").contains("checkpoint=true"))
+        XCTAssertTrue((status.value as? String ?? "").contains("knowledge=6"))
+        app.buttons["closeEconomyLab"].tap()
+        app.navigationBars["Developer tools"].buttons["Done"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].exists)
+    }
+
     @MainActor func testVillagerMotionCloseProbe() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
@@ -888,6 +971,7 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30))
         XCTAssertFalse(app.buttons["continueGame"].isEnabled)
         XCTAssertFalse(app.buttons["developerTools"].exists)
+        XCTAssertFalse(app.buttons["openEconomyLab"].exists)
         capture("normal-entry-menu", app: app)
         app.buttons["newNormalGame"].tap()
         let map = app.otherElements["settlementMap"]
@@ -1739,6 +1823,7 @@ final class NormalEntryUITests: XCTestCase {
         let newGame = app.buttons["newNormalGame"]
         XCTAssertTrue(newGame.waitForExistence(timeout: 30))
         XCTAssertFalse(app.buttons["developerTools"].exists)
+        XCTAssertFalse(app.buttons["openEconomyLab"].exists)
         newGame.tap()
         let map = app.otherElements["settlementMap"]
         XCTAssertTrue(map.waitForExistence(timeout: 30))
@@ -1778,6 +1863,7 @@ final class NormalCompletionUITests: XCTestCase {
             let resume = app.buttons["continueGame"]
             XCTAssertTrue(resume.waitForExistence(timeout: 30)); XCTAssertTrue(resume.isEnabled)
             XCTAssertFalse(app.buttons["developerTools"].exists)
+        XCTAssertFalse(app.buttons["openEconomyLab"].exists)
             resume.tap()
             XCTAssertTrue(app.buttons["toggleGoals"].waitForExistence(timeout: 30))
             XCTAssertTrue(app.buttons["toggleGoals"].label.contains("7/7"))
