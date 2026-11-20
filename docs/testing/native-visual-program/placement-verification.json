@@ -1,0 +1,84 @@
+{
+  "scope": "Walkthrough placement drag and next-valid-site correction only",
+  "normalGateBApproved": false,
+  "appearanceApproved": false,
+  "r207Enabled": false,
+  "reports": {
+    "core": {
+      "path": "/tmp/civilization-qa-65909ae6ab904c2dad6014aa95756d31/report.json",
+      "steps": [
+        {
+          "name": "core-debug",
+          "tests": 272,
+          "status": "passed"
+        },
+        {
+          "name": "core-release",
+          "tests": 235,
+          "status": "passed"
+        },
+        {
+          "name": "release-api-exclusions",
+          "tests": null,
+          "status": "passed"
+        }
+      ]
+    },
+    "nativeThreeProfiles": {
+      "path": "/tmp/civilization-qa-0e2e44cd2aaa483ab4c54b5c448765ac/report.json",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "tests": 3,
+          "status": "passed"
+        },
+        {
+          "name": "ui-debug-2",
+          "tests": 3,
+          "status": "passed"
+        },
+        {
+          "name": "ui-debug-3",
+          "tests": 3,
+          "status": "passed"
+        }
+      ]
+    },
+    "releaseEntry": {
+      "path": "/tmp/civilization-qa-b6642af954dd4a4b88f356d1cc6e8cf3/report.json",
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "tests": 1,
+          "status": "passed"
+        }
+      ]
+    }
+  },
+  "regressions": {
+    "nativeDragAndSuggestionRED": "/tmp/civilization-qa-41926f57cf3a43e0b93340413bdf4a5a/report.json",
+    "roofTapRED": "/tmp/civilization-qa-e777475ea7ad4306a9e34f8404658800/report.json",
+    "safeAreaBoundaryTrace": "/tmp/civilization-qa-7fc30c709abf4dce972e6a5c921680ac/ui-debug-1.log",
+    "measuredSwiftUIToSKViewOffsetPoints": 62,
+    "firstCorrectionStillFailed": "/tmp/civilization-qa-bd22203251274c9e8eb1906b8cc856a0/report.json"
+  },
+  "review": {
+    "mode": "independent read-only",
+    "findings": [],
+    "testsByReviewer": false
+  },
+  "sourceSHA256": {
+    "Civilization/UI/NativeVisualReviewView.swift": "68253de65fa129ff307d9c14faa613c107e27dfb7c663744521df79a779f84e5",
+    "CivilizationUITests/RelocationUITests.swift": "301def950dd165db49afd379b9f48d130becfaab5640f0b0515bac31650e9072",
+    "Packages/GameCore/Sources/GameApplication/OnboardingReviewWalkthrough.swift": "10e7f9cd6bf2877ed45e595b002556ca12e03a19d63ee7128608511e9dd4d55b",
+    "Packages/GameCore/Tests/GameCoreTests/OnboardingWalkthroughTests.swift": "a1d9f1f000b89eb60963acb5671bcc4994d7c3395c0b3b2b09b8a34d9cccd62b",
+    "scripts/build-native-visual-gallery.py": "6bdb0ab028b0855451216da31762bc2d0d98c7b7fd30d7bdbb04a9f9bf4b1c2a"
+  },
+  "preservedAuthoritativePaths": {
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+    "Packages/GameCore/Sources/GameApplication/Resources/art-catalog.json": "f7e79340e138601539c4f1cae3f10df643770b02294551a98e6f7f9ff9373690"
+  },
+  "normalGameCoreWorldViewAndProjectUnchanged": true,
+  "captureManifest": "captures/2026-11-20-placement-v2/manifest.json",
+  "physicalInstall": "Pending separate installation evidence; prior467a26d retained"
+}

@@ -1,0 +1,167 @@
+[
+  {
+    "profile": "phone",
+    "state": "walkthrough-01-hut-guide",
+    "file": "captures/2026-11-20-placement-v2/phone/walkthrough-01-hut-guide.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "2125e494c1bcc7feae875d2501d55c4b69c0c1c5bac08504f855f7ab48d3203c",
+    "source": "/tmp/civilization-walkthrough-placement-phone/9D7BA28C-C0EF-40D8-BE1A-651A08875CBF.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795201388.263
+  },
+  {
+    "profile": "phone",
+    "state": "walkthrough-02-expedition-guide",
+    "file": "captures/2026-11-20-placement-v2/phone/walkthrough-02-expedition-guide.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "c60bfad0435d6533a51079b1251500a9530df0567b27ae8fa3c8791b32ae6938",
+    "source": "/tmp/civilization-walkthrough-placement-phone/7E16BFE2-6C66-4F34-99B5-9FFFA50DA0C3.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795201392.413
+  },
+  {
+    "profile": "phone",
+    "state": "walkthrough-03-forest-woodcutter-guide",
+    "file": "captures/2026-11-20-placement-v2/phone/walkthrough-03-forest-woodcutter-guide.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "b868ad401df0dd87e7297eb3cadf7a8f667971e8fec65bacc5d742c9ea40ffc0",
+    "source": "/tmp/civilization-walkthrough-placement-phone/38446C89-1EA8-4CCE-8B35-93A4C02111B7.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795201394.756
+  },
+  {
+    "profile": "phone",
+    "state": "walkthrough-04-goals-handoff",
+    "file": "captures/2026-11-20-placement-v2/phone/walkthrough-04-goals-handoff.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "3e6299b364861238ed32f5ec368b29ff32bc293ca968fab2d68e3c80e68fd1e8",
+    "source": "/tmp/civilization-walkthrough-placement-phone/EA5F106C-7CD2-4204-9457-883A62839345.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795201396.019
+  },
+  {
+    "profile": "phone",
+    "state": "walkthrough-placement-drag-suggest",
+    "file": "captures/2026-11-20-placement-v2/phone/walkthrough-placement-drag-suggest.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "8dc98c1b2494da0435a6f5ef522fe108b1f57557f5f24c8da6e41e396db2e96a",
+    "source": "/tmp/civilization-walkthrough-placement-phone/7A2B15E9-AC48-4D76-A027-310CCA241516.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795201363.794
+  },
+  {
+    "profile": "mini",
+    "state": "walkthrough-01-hut-guide",
+    "file": "captures/2026-11-20-placement-v2/mini/walkthrough-01-hut-guide.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "22a6aed1a93b2e1af65ac695b7381a4b0a435d556ad5915fb416dc1119a4ceed",
+    "source": "/tmp/civilization-walkthrough-placement-mini/82EB996A-AAD5-475F-8F1C-EFBA0502951A.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795201443.505
+  },
+  {
+    "profile": "mini",
+    "state": "walkthrough-02-expedition-guide",
+    "file": "captures/2026-11-20-placement-v2/mini/walkthrough-02-expedition-guide.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "3d79deebbed3c61b0ba0e06156f5d74cd38b8dccd8253b1241d8ffa058de3214",
+    "source": "/tmp/civilization-walkthrough-placement-mini/29C2FF77-1605-4E26-9922-28C8E64FF248.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795201447.58
+  },
+  {
+    "profile": "mini",
+    "state": "walkthrough-03-forest-woodcutter-guide",
+    "file": "captures/2026-11-20-placement-v2/mini/walkthrough-03-forest-woodcutter-guide.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "15e1c99fac763cbd4b5ea232dc12191a47ced14e4eb72dedc98d5d49c97d774a",
+    "source": "/tmp/civilization-walkthrough-placement-mini/3DDFE6FB-A6AB-4FBA-ACF3-42036316D683.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795201449.86
+  },
+  {
+    "profile": "mini",
+    "state": "walkthrough-04-goals-handoff",
+    "file": "captures/2026-11-20-placement-v2/mini/walkthrough-04-goals-handoff.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "9fb6c06c56c1e3fab623824310250cf0bd30657a417bc2a1ad21019730d023f2",
+    "source": "/tmp/civilization-walkthrough-placement-mini/6C1E7CE2-093B-46FF-A4A0-DBC2BF021EEE.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795201451.07
+  },
+  {
+    "profile": "mini",
+    "state": "walkthrough-placement-drag-suggest",
+    "file": "captures/2026-11-20-placement-v2/mini/walkthrough-placement-drag-suggest.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "229aec495904be4905769bfd89b64848e420002c6b232d6dcb0b449e7090af3c",
+    "source": "/tmp/civilization-walkthrough-placement-mini/CB565C0A-7E78-4A21-9462-F3E348CA13AB.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795201420.57
+  },
+  {
+    "profile": "pro",
+    "state": "walkthrough-01-hut-guide",
+    "file": "captures/2026-11-20-placement-v2/pro/walkthrough-01-hut-guide.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "29fc9e7d259f1ce8bcc6964fcacb2c753eef42995fb9f832c53e449c0bb543d8",
+    "source": "/tmp/civilization-walkthrough-placement-pro/7C75973C-E93A-494C-9F8C-4813D1BC12BC.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795201497.487
+  },
+  {
+    "profile": "pro",
+    "state": "walkthrough-02-expedition-guide",
+    "file": "captures/2026-11-20-placement-v2/pro/walkthrough-02-expedition-guide.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "708cb15343051eacff15a24e5a025cb4453ebfa00256ec750faf8bee685d7439",
+    "source": "/tmp/civilization-walkthrough-placement-pro/9F02878F-52C6-4E41-8112-B56B248A065D.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795201501.597
+  },
+  {
+    "profile": "pro",
+    "state": "walkthrough-03-forest-woodcutter-guide",
+    "file": "captures/2026-11-20-placement-v2/pro/walkthrough-03-forest-woodcutter-guide.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "fbcc77da312415263ea5577f77779fd6687ce1844ac2212f8bd05537a51efa36",
+    "source": "/tmp/civilization-walkthrough-placement-pro/5F93CCDF-EE66-48D9-947F-9FD2DBE2A4F9.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795201504.003
+  },
+  {
+    "profile": "pro",
+    "state": "walkthrough-04-goals-handoff",
+    "file": "captures/2026-11-20-placement-v2/pro/walkthrough-04-goals-handoff.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "6e875f87833cf057b2cc0ee9c8e5760ade538943bb59864b670ff11eec26ec57",
+    "source": "/tmp/civilization-walkthrough-placement-pro/158BDEFC-C470-4D07-A117-9C0FC23947A4.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795201505.227
+  },
+  {
+    "profile": "pro",
+    "state": "walkthrough-placement-drag-suggest",
+    "file": "captures/2026-11-20-placement-v2/pro/walkthrough-placement-drag-suggest.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "a9d7cc877918cbe771065c5d3868dab84f20af872e85afdd1fa7bf32e9978f6a",
+    "source": "/tmp/civilization-walkthrough-placement-pro/391978D8-2BE6-40E5-9CEB-1A5812C83162.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795201474.348
+  }
+]

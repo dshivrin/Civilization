@@ -20,8 +20,11 @@ def main():
     parser.add_argument('--output', type=Path, required=True, help='New directory inside gallery/captures')
     parser.add_argument('--render-only', action='store_true', help='Validate an existing archive and regenerate HTML only')
     parser.add_argument('--walkthrough', action='store_true', help='Archive the four interactive guide steps and build walkthrough.html')
+    parser.add_argument('--include-placement', action='store_true', help='Include actual candidate drag screenshot in a walkthrough archive')
     args = parser.parse_args()
-    states = WALKTHROUGH_STATES if args.walkthrough else STATES
+    if args.include_placement and not args.walkthrough:
+        parser.error('Placement captures require --walkthrough')
+    states = WALKTHROUGH_STATES + (['walkthrough-placement-drag-suggest'] if args.include_placement else []) if args.walkthrough else STATES
     target = args.output.resolve()
     if not target.is_relative_to(GALLERY / 'captures') or args.output.is_symlink():
         parser.error('Output must be a new gallery/captures directory without aliases')
@@ -96,7 +99,7 @@ def main():
     if args.walkthrough:
         body = ['<h1>Interactive onboarding walkthrough</h1>',
                 '<p>Open Developer tools → Onboarding walkthrough — start here. This is a fresh in-memory rehearsal; normal New Game has not changed. The guide runs real Hut construction, one paid expedition countdown and Woodcutter construction. Whole-forest discovery is a review proposal applied only to this disposable copy.</p>',
-                '<p>Place buildings freely by tapping the map and confirming. Skip/reopen preserves this temporary progress. Explicit time advance is labeled; existing saves and R2-07 remain unchanged. Owner requested refinement before normal integration; no approval is inferred.</p>',
+                '<p>Drag the building or tap an open tile, then confirm. Next suggested site chooses another authoritative-valid site. Skip/reopen preserves this temporary progress. Explicit time advance is labeled; existing saves and R2-07 remain unchanged. Owner requested refinement before normal integration; no approval is inferred.</p>',
                 '<p><a href="index.html">Earlier visual/fog comparison</a> · <a href="progress.md">Verification ledger</a></p>']
     clip_manifest = GALLERY / 'clips/provenance.json'
     if clip_manifest.exists() and not args.walkthrough:

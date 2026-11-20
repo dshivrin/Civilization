@@ -13,3 +13,12 @@ Goal: make the entire proposed campfire → Hut → paid expedition → whole fo
 - [x] Run reusable full core/Release exclusions and scoped native regression + Release entry, independent review, commit/push and update review handoff honestly. Install only after fresh validated backup and strict pre-launch preservation.
 
 The automatic atmosphere follow-up is temporarily held for this direct feedback. Its tested pure clock remains a separate unpublished preparation slice; no new runtime atmosphere is wired. No approval is inferred from the owner's inability to find the guide.
+
+## Physical placement follow-up
+
+Owner confirms the guide is useful, reports that dragging does not move the building and suggested site does nothing, and will supply a broader design plan later. No normal Gate B or appearance approval is inferred. Keep the existing branch and fix only these concrete interactions now.
+
+- Reproduce native candidate drag incorrectly panning the camera and repeated suggestion no-op; pure tests require a different valid next suggestion without spending.
+- Walkthrough gestures must share the normal scene's footprint/opaque-art hit contract, preserve the initial grab offset, keep camera stationary during candidate drag and retain invalid candidates for correction with confirmation disabled. Tapping the candidate must not relocate it. Empty-map drag remains camera pan; pinch cancels candidate drag ownership.
+- Next suggested site cycles deterministically through authoritative-valid nearby candidates (woodcutters remain in reviewed forest sites); handle no/one-site results explicitly. Preserve current placement confirmation and all game data.
+- Wrap the clipped title/cost labels visible in the owner's screenshot, capture actual placement state, verify the full guide plus drag/suggestion on phone/mini/Pro and normal Release entry, review, commit/push and install only after fresh validated backup and pre-launch preservation.

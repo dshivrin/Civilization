@@ -25,17 +25,24 @@ public struct OnboardingReviewWalkthrough {
         state.discoveredTiles = snapshot.initialDiscoveredTiles
         engine = try GameEngine(state: state, configuration: configuration)
     }
-    public func suggestedOrigin(for kind: BuildingKind) -> Tile? {
+    /// Cycle read-only suggestions. No construction, camera movement or spending occurs.
+    public func suggestedOrigin(for kind: BuildingKind, after current: Tile? = nil) -> Tile? {
+        let candidates: [Tile]
         if kind == .woodcutter {
-            return snapshot.region.woodcutterOrigins.first { engine.placementIssue(kind, at: $0) == nil }
+            candidates = snapshot.region.woodcutterOrigins
+        } else {
+            let center = engine.configuration.map.campfire
+            candidates = (engine.state.discoveredTiles ?? []).sorted {
+                let a = abs($0.x - center.x) + abs($0.y - center.y)
+                let b = abs($1.x - center.x) + abs($1.y - center.y)
+                if a != b { return a < b }
+                return $0.y == $1.y ? $0.x < $1.x : $0.y < $1.y
+            }
         }
-        let center = engine.configuration.map.campfire
-        return (engine.state.discoveredTiles ?? []).sorted {
-            let a = abs($0.x - center.x) + abs($0.y - center.y)
-            let b = abs($1.x - center.x) + abs($1.y - center.y)
-            if a != b { return a < b }
-            return $0.y == $1.y ? $0.x < $1.x : $0.y < $1.y
-        }.first { engine.placementIssue(kind, at: $0) == nil }
+        let valid = candidates.filter { engine.placementIssue(kind, at: $0) == nil }
+        guard let first = valid.first else { return nil }
+        guard let current, let index = valid.firstIndex(of: current) else { return first }
+        return valid[(index + 1) % valid.count]
     }
     public mutating func build(_ kind: BuildingKind, at tile: Tile) throws {
         guard kind == .hut || kind == .woodcutter else { throw GameError.placement("This review guides Hut and Woodcutter placement.") }

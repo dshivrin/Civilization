@@ -4,6 +4,74 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor private func openWalkthroughPlacement() throws -> XCUIApplication {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        app.buttons["developerTools"].tap()
+        let entry = app.buttons["openOnboardingWalkthrough"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 5)); entry.tap()
+        XCTAssertTrue(app.buttons["walkthroughChooseHut"].waitForExistence(timeout: 10))
+        app.buttons["walkthroughChooseHut"].tap()
+        XCTAssertTrue(app.buttons["walkthroughConfirmBuilding"].waitForExistence(timeout: 5))
+        return app
+    }
+
+    @MainActor func testOnboardingCandidateDragMovesBuildingWithoutPanning() throws {
+        let app = try openWalkthroughPlacement()
+        let map = app.descendants(matching: .any).matching(identifier: "onboardingWalkthroughMap").firstMatch
+        let initial = app.staticTexts["walkthroughPlacementLocation"].label
+        let numbers = initial.split { !($0.isNumber || $0 == "-") }.compactMap { Int($0) }
+        let tile = Tile(x: try XCTUnwrap(numbers.first), y: try XCTUnwrap(numbers.dropFirst().first))
+        let value = try XCTUnwrap(map.value as? String)
+        func field(_ name: String) throws -> Double {
+            let part = try XCTUnwrap(value.split(separator: " ").first { $0.hasPrefix(name + "=") })
+            return try XCTUnwrap(Double(part.dropFirst(name.count + 1)))
+        }
+        let configuration = try GameConfiguration.bundled()
+        let center = configuration.definition(.hut).footprint.center(at: tile)
+        let civic = MapGeometry.point(for: configuration.map.campfire)
+        let zoom = try field("zoom")
+        let roof = map.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(
+            dx: try field("civicX") + (center.x - civic.x) / zoom,
+            dy: try field("civicY") - (center.y - civic.y + 55) / zoom))
+        print("WALKTHROUGH_TOUCH before=\(value) roof=\(roof)")
+        roof.tap()
+        print("WALKTHROUGH_TOUCH after=\(map.value as? String ?? "none")")
+        XCTAssertEqual(app.staticTexts["walkthroughPlacementLocation"].label, initial, "Tapping the candidate roof must keep its origin")
+        let camera = (map.value as? String)?.components(separatedBy: "camera=").last
+        roof.press(forDuration: 0.05, thenDragTo: roof.withOffset(CGVector(dx: 32 / zoom, dy: 16 / zoom)))
+        let moved = app.staticTexts["walkthroughPlacementLocation"].label.split { !($0.isNumber || $0 == "-") }.compactMap { Int($0) }
+        XCTAssertEqual(moved, [tile.x + 1, tile.y], "One projected tile of drag must move one logical tile while retaining the roof grab offset")
+        XCTAssertEqual((map.value as? String)?.components(separatedBy: "camera=").last, camera,
+                       "Dragging the candidate must retain the review camera")
+        let movedLabel = app.staticTexts["walkthroughPlacementLocation"].label
+        let cameraAfterCandidate = (map.value as? String)?.components(separatedBy: "camera=").last
+        let empty = map.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.35))
+        empty.press(forDuration: 0.05, thenDragTo: empty.withOffset(CGVector(dx: 40, dy: 12)))
+        XCTAssertEqual(app.staticTexts["walkthroughPlacementLocation"].label, movedLabel, "Empty-map pan must not move the candidate")
+        XCTAssertNotEqual((map.value as? String)?.components(separatedBy: "camera=").last, cameraAfterCandidate)
+        let beforePinch = (map.value as? String)?.components(separatedBy: "zoom=").last
+        map.pinch(withScale: 1.15, velocity: 1)
+        XCTAssertNotEqual((map.value as? String)?.components(separatedBy: "zoom=").last, beforePinch)
+        XCTAssertEqual(app.staticTexts["walkthroughPlacementLocation"].label, movedLabel, "Pinch must not move the candidate")
+        capture("walkthrough-placement-drag-suggest", app: app)
+    }
+
+    @MainActor func testOnboardingSuggestionButtonSelectsAnotherValidSite() throws {
+        let app = try openWalkthroughPlacement()
+        let original = app.staticTexts["walkthroughPlacementLocation"].label
+        app.buttons["walkthroughSuggestedSite"].tap()
+        let second = app.staticTexts["walkthroughPlacementLocation"].label
+        XCTAssertNotEqual(second, original, "A suggested-site action must move away from the already-selected suggestion")
+        XCTAssertTrue(app.buttons["walkthroughConfirmBuilding"].isEnabled)
+        app.buttons["walkthroughSuggestedSite"].tap()
+        XCTAssertNotEqual(app.staticTexts["walkthroughPlacementLocation"].label, second)
+        XCTAssertTrue(app.buttons["walkthroughConfirmBuilding"].isEnabled)
+    }
+
     @MainActor func testOnboardingWalkthroughShowsAndPerformsEveryGuidedStep() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"

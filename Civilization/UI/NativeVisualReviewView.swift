@@ -152,29 +152,21 @@ struct OnboardingWalkthroughReviewView: View {
     @State private var selectedKind: BuildingKind?
     @State private var selectedTile: Tile?
     @State private var errorMessage: String?
-    @State private var previousDrag = CGSize.zero
-    @State private var previousZoom: CGFloat = 1
     @State private var revealSettled = true
     @State private var showGoals = false
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             if let scene {
-                SpriteView(scene: scene, isPaused: appPhase != .active).ignoresSafeArea()
-                    .accessibilityLabel("Disposable onboarding map")
-                    .accessibilityIdentifier("onboardingWalkthroughMap")
-                    .accessibilityValue("civicX=\(scene.convertPoint(toView: IsometricProjection.point(configuration.map.campfire)).x) civicY=\(scene.convertPoint(toView: IsometricProjection.point(configuration.map.campfire)).y)")
-                    .gesture(SpatialTapGesture().onEnded { value in
+                WalkthroughMapSurface(scene: scene, isPaused: appPhase != .active, civicTile: configuration.map.campfire,
+                    candidateAt: { point in isCandidate(point, in: scene) ? selectedTile : nil },
+                    onTap: { point in
+                        guard selectedKind != nil, !isCandidate(point, in: scene) else { return }
+                        selectedTile = IsometricProjection.tile(point); errorMessage = nil; refresh()
+                    }, onCandidateMove: { tile in
                         guard selectedKind != nil else { return }
-                        selectedTile = IsometricProjection.tile(scene.convertPoint(fromView: value.location)); refresh()
-                    })
-                    .simultaneousGesture(DragGesture(minimumDistance: 3).onChanged { value in
-                        scene.pan(dx: value.translation.width - previousDrag.width, dy: value.translation.height - previousDrag.height)
-                        previousDrag = value.translation
-                    }.onEnded { _ in previousDrag = .zero })
-                    .simultaneousGesture(MagnificationGesture().onChanged { value in
-                        scene.zoom(factor: value / previousZoom); previousZoom = value
-                    }.onEnded { _ in previousZoom = 1 })
+                        selectedTile = tile; errorMessage = nil; refresh()
+                    }).ignoresSafeArea()
             }
             VStack(alignment: .trailing, spacing: 8) {
                 HStack {
@@ -209,7 +201,7 @@ struct OnboardingWalkthroughReviewView: View {
     @ViewBuilder private func guidePanel(_ review: OnboardingReviewWalkthrough) -> some View {
         VStack(alignment: .leading, spacing: 9) {
             HStack(alignment: .top) {
-                Text(guideTitle(review)).font(.subheadline.bold())
+                Text(guideTitle(review)).font(.subheadline.bold()).fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("onboardingWalkthroughStep")
                     .accessibilityValue(review.guide.nextStep.rawValue)
                 Spacer()
@@ -219,17 +211,20 @@ struct OnboardingWalkthroughReviewView: View {
             Text(guideDescription(review)).font(.caption).fixedSize(horizontal: false, vertical: true)
             if let kind = selectedKind, let tile = selectedTile {
                 let issue = review.engine.placementIssue(kind, at: tile)
-                Text("Tap the map to choose a site · tile \(tile.x), \(tile.y)").font(.caption)
+                Text("Drag the building or tap an open tile · tile \(tile.x), \(tile.y)").font(.caption)
                     .accessibilityIdentifier("walkthroughPlacementLocation")
                 if let issue { Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange) }
                 HStack {
-                    Button("Place \(configuration.definition(kind).name) · \(cost(configuration.definition(kind).cost))") {
+                    Button {
                         perform { try $0.build(kind, at: tile) }
                         if errorMessage == nil { selectedKind = nil; selectedTile = nil; refresh() }
+                    } label: {
+                        Text("Place \(configuration.definition(kind).name) · \(cost(configuration.definition(kind).cost))")
+                            .font(.caption).fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center)
                     }.disabled(issue != nil).accessibilityIdentifier("walkthroughConfirmBuilding")
                     Button("Cancel") { selectedKind = nil; selectedTile = nil; refresh() }
                 }
-                Button("Use suggested site") { choose(kind) }.font(.caption)
+                Button("Next suggested site") { choose(kind, after: tile) }.font(.caption)
                     .accessibilityIdentifier("walkthroughSuggestedSite")
             } else if let remaining = remainingWork(review) {
                 Text("\(review.engine.state.explorationRemainingSeconds == nil ? "Construction" : "Expedition") · \(Int(ceil(remaining))) s remaining")
@@ -280,7 +275,7 @@ struct OnboardingWalkthroughReviewView: View {
     }
     private func guideDescription(_ review: OnboardingReviewWalkthrough) -> String {
         switch review.guide.nextStep {
-        case .hut: "Your campfire is the civic heart of this settlement. Choose Build → Hut, then tap any valid nearby site. A completed hut adds housing."
+        case .hut: "Your campfire is the civic heart of this settlement. Choose Build → Hut, then drag it or tap a valid nearby site. A completed hut adds housing."
         case .expedition: "Explore to uncover useful terrain. The current expedition costs \(cost(configuration.explorationRules?.cost ?? ResourceAmounts())) and takes \(Int(configuration.explorationRules?.durationSeconds ?? 0)) seconds. This review proposes revealing the whole western forest."
         case .forest: "The cost has been paid once. The countdown below reflects actual expedition work. You can continue looking around while it runs."
         case .woodcutter: "The forest and its existing wood source are now known. Place a Woodcutter on valid open ground nearby. Forest proximity improves output; completion and a worker are needed."
@@ -307,11 +302,16 @@ struct OnboardingWalkthroughReviewView: View {
             scene = world; refresh()
         } catch { errorMessage = error.localizedDescription }
     }
-    private func choose(_ kind: BuildingKind) {
+    private func choose(_ kind: BuildingKind, after previous: Tile? = nil) {
         guard let review = walkthrough else { return }
-        errorMessage = nil; selectedKind = kind; selectedTile = review.suggestedOrigin(for: kind)
-        if selectedTile == nil { errorMessage = "No valid site is currently available." }
+        errorMessage = nil; selectedKind = kind; selectedTile = review.suggestedOrigin(for: kind, after: previous)
+        if selectedTile == nil { selectedKind = nil; errorMessage = "No valid site is currently available." }
+        else if let previous, selectedTile == previous { errorMessage = "Only one valid site is available right now." }
         refresh()
+    }
+    private func isCandidate(_ point: CGPoint, in scene: SettlementScene) -> Bool {
+        guard let kind = selectedKind, let origin = selectedTile else { return false }
+        return configuration.definition(kind).footprint.tiles(at: origin).contains(IsometricProjection.tile(point)) || scene.previewContains(point)
     }
     private func perform(_ action: (inout OnboardingReviewWalkthrough) throws -> Void) {
         guard var review = walkthrough else { return }
@@ -340,6 +340,105 @@ struct OnboardingWalkthroughReviewView: View {
             inspected: nil, movingBuildingID: nil, centerRequest: 0,
             deposits: review.engine.discoveredDeposits,
             identifiedDepositIDs: Set(review.engine.discoveredDeposits.filter(review.engine.isIdentified).map(\.id)))
+    }
+}
+/// Same SKView-local coordinate path as normal WorldView. SwiftUI's safe-area
+/// wrapper coordinates must never be passed directly into convertPoint(fromView:).
+private struct WalkthroughMapSurface: UIViewRepresentable {
+    let scene: SettlementScene
+    let isPaused: Bool
+    let civicTile: Tile
+    let candidateAt: (CGPoint) -> Tile?
+    let onTap: (CGPoint) -> Void
+    let onCandidateMove: (Tile) -> Void
+
+    func makeCoordinator() -> Coordinator { Coordinator(self) }
+    func makeUIView(context: Context) -> SKView {
+        let view = SKView(); view.ignoresSiblingOrder = true; view.preferredFramesPerSecond = 60
+        view.isAccessibilityElement = true; view.accessibilityLabel = "Disposable onboarding map"
+        view.accessibilityIdentifier = "onboardingWalkthroughMap"
+        view.presentScene(scene)
+        let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.tap(_:)))
+        let pan = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.pan(_:)))
+        pan.maximumNumberOfTouches = 1; pan.delegate = context.coordinator
+        let pinch = UIPinchGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.pinch(_:)))
+        pinch.delegate = context.coordinator
+        tap.require(toFail: pan)
+        for recognizer in [tap, pan, pinch] { view.addGestureRecognizer(recognizer) }
+        return view
+    }
+    func updateUIView(_ view: SKView, context: Context) {
+        context.coordinator.parent = self
+        view.isPaused = isPaused
+        if isPaused { context.coordinator.resetGestureOwnership() }
+        if view.scene !== scene { view.presentScene(scene) }
+        context.coordinator.updateAccessibility(view)
+    }
+    static func dismantleUIView(_ view: SKView, coordinator: Coordinator) {
+        view.isPaused = true; view.presentScene(nil)
+    }
+    @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {
+        var parent: WalkthroughMapSurface
+        private var grabOffset: Tile?
+        private var previousTranslation = CGPoint.zero
+        private var panAccepted = false
+        private var isZooming = false
+        init(_ parent: WalkthroughMapSurface) { self.parent = parent }
+        func resetGestureOwnership() {
+            grabOffset = nil; previousTranslation = .zero; panAccepted = false; isZooming = false
+        }
+        func updateAccessibility(_ view: SKView) {
+            let civic = parent.scene.convertPoint(toView: IsometricProjection.point(parent.civicTile))
+            view.accessibilityValue = "civicX=\(civic.x) civicY=\(civic.y) " + parent.scene.cameraAccessibilityValue
+        }
+        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+            if gestureRecognizer is UIPanGestureRecognizer {
+                let point = parent.scene.convertPoint(fromView: touch.location(in: gestureRecognizer.view))
+                if let origin = parent.candidateAt(point) {
+                    let touched = IsometricProjection.tile(point)
+                    grabOffset = Tile(x: touched.x - origin.x, y: touched.y - origin.y)
+                } else { grabOffset = nil }
+                previousTranslation = .zero; panAccepted = false
+            }
+            return true
+        }
+        func gestureRecognizer(_ first: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith second: UIGestureRecognizer) -> Bool {
+            (first is UIPanGestureRecognizer && second is UIPinchGestureRecognizer) ||
+            (first is UIPinchGestureRecognizer && second is UIPanGestureRecognizer)
+        }
+        @objc func tap(_ recognizer: UITapGestureRecognizer) {
+            guard !isZooming, let view = recognizer.view as? SKView else { return }
+            parent.onTap(parent.scene.convertPoint(fromView: recognizer.location(in: view)))
+            updateAccessibility(view)
+        }
+        @objc func pan(_ recognizer: UIPanGestureRecognizer) {
+            guard let view = recognizer.view as? SKView else { return }
+            defer {
+                if [.ended, .cancelled, .failed].contains(recognizer.state) {
+                    grabOffset = nil; previousTranslation = .zero; panAccepted = false
+                }
+                updateAccessibility(view)
+            }
+            if recognizer.state == .began { panAccepted = !isZooming }
+            guard panAccepted, !isZooming, [.began, .changed, .ended].contains(recognizer.state) else { return }
+            let translation = recognizer.translation(in: view)
+            if let offset = grabOffset {
+                let touched = IsometricProjection.tile(parent.scene.convertPoint(fromView: recognizer.location(in: view)))
+                parent.onCandidateMove(Tile(x: touched.x - offset.x, y: touched.y - offset.y))
+            } else {
+                parent.scene.pan(dx: translation.x - previousTranslation.x, dy: translation.y - previousTranslation.y)
+            }
+            previousTranslation = translation
+        }
+        @objc func pinch(_ recognizer: UIPinchGestureRecognizer) {
+            guard let view = recognizer.view as? SKView else { return }
+            if recognizer.state == .began { isZooming = true; grabOffset = nil; panAccepted = false }
+            if [.began, .changed].contains(recognizer.state) {
+                parent.scene.zoom(factor: recognizer.scale); recognizer.scale = 1
+            }
+            if [.ended, .cancelled, .failed].contains(recognizer.state) { isZooming = false; previousTranslation = .zero }
+            updateAccessibility(view)
+        }
     }
 }
 #endif

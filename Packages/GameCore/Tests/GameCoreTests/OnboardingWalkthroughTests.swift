@@ -6,6 +6,33 @@ import GameApplication
 
 private let walkthroughEpoch = Date(timeIntervalSince1970: 30_000_000)
 
+@Test func onboardingWalkthroughSuggestionsMoveToDifferentValidSitesWithoutSpending() throws {
+    let configuration = try GameConfiguration.bundled()
+    let review = try OnboardingReviewWalkthrough(configuration: configuration, now: walkthroughEpoch)
+    let before = review.engine.state
+    let first = try #require(review.suggestedOrigin(for: .hut))
+    let second = try #require(review.suggestedOrigin(for: .hut, after: first))
+    let third = try #require(review.suggestedOrigin(for: .hut, after: second))
+    #expect(second != first)
+    #expect(third != second)
+    #expect(review.engine.placementIssue(.hut, at: second) == nil)
+    #expect(review.engine.placementIssue(.hut, at: third) == nil)
+    #expect(review.suggestedOrigin(for: .hut, after: Tile(x: -1, y: -1)) == first)
+    #expect(review.engine.state == before)
+}
+
+@Test func onboardingWalkthroughWoodSuggestionsStayInReviewedForestSites() throws {
+    let configuration = try GameConfiguration.bundled()
+    var review = try OnboardingReviewWalkthrough(configuration: configuration, now: walkthroughEpoch)
+    try review.startExpedition()
+    try review.advanceReview(by: configuration.explorationRules!.durationSeconds)
+    let first = try #require(review.suggestedOrigin(for: .woodcutter))
+    let second = try #require(review.suggestedOrigin(for: .woodcutter, after: first))
+    #expect(first != second)
+    #expect(review.snapshot.region.woodcutterOrigins.contains(second))
+    #expect(review.engine.placementIssue(.woodcutter, at: second) == nil)
+}
+
 @Test func onboardingWalkthroughUsesRealConstructionPaidExpeditionAndWoodProduction() throws {
     let configuration = try GameConfiguration.bundled()
     var review = try OnboardingReviewWalkthrough(configuration: configuration, now: walkthroughEpoch)
