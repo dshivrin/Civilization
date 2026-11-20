@@ -1,5 +1,12 @@
 # Design baseline
 
+## GAME-LOOP-01 — approved direction; implementation decisions pending
+
+The owner-approved [Permanent Civic Center Evolution plan](plans/GAME-LOOP-01.md) (`661db65`) and direct execution instruction supersede older fixed/immovable campfire requirements (FP-002 and the campfire restriction in MOVE-003). One permanent, relocatable civic center retains its entity identity and upgrade history: L1 Campfire → L2 Gathering Place → L3 Council Circle. Civic upgrades replace mandatory duplicate Storytelling Circle construction, including chapter/pillar/catalog requirements; existing assets and earned progress must survive. Historical unchanged-economy/fixed-campfire/stop-for-playtest passages do not prevent this newly authorized task. Other backlog and media approvals remain separate.
+
+**Blocked before gameplay changes:** the plan supplies no approved civic costs/rates, level research gates or explicit legacy/reward policy and requires approval of unestablished values. [Reconciliation, catalog-grounded proposal and exact decisions](docs/design/proposals/2026-11-20-game-loop-01-reconciliation.md). Proposed values are not approved mechanics. No GAME-LOOP-01 implementation or migration is claimed; existing product/saves remain unchanged.
+
+
 ## ENG-TOOLS-001 — reusable local engineering tools
 
 Dima directly requested reusable parameterized scripts after reviewing the infrastructure proposal. Local toolkit now reuses existing core/native suites, packages a read-only production save inspector, and provides explicit-device backup planning/validation and strict/additive preservation comparisons. [Usage](scripts/README.md), [bounded report/evidence](docs/milestones/reusable-engineering-tools.md). Python10, inspector8Debug/7Release, main189Debug/171Release plus5exclusions and scoped Release iPad entry pass. No gameplay, signing, physical-device or CI change; S1-PLAY human acceptance remains open. Existing DEV-001 identity and all deferred backlog retained.

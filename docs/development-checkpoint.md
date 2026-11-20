@@ -1,3 +1,9 @@
+# GAME-LOOP-01 — blocked on explicit design decisions, 20 November 2026
+
+Fetched personal origin/first-era-review; clean baseline b87ca0b includes approved plan661db65 and completed tooling. Canonical documents now reconcile movable permanent civic identity and replacement of mandatory storytelling construction. [Decision proposal](design/proposals/2026-11-20-game-loop-01-reconciliation.md) records missing economy/research/chapter/legacy reward choices with catalog-grounded recommendations. Await owner approval before product code; no implementation, migration, device action or save modification. Media repo readable/clean; no new level-specific art found. Continue using reusable tools after decisions; preserve existing branch, player assets/progress and unrelated backlog.
+
+---
+
 # Current checkpoint — S1-Geography delivered; environment visual review —20November2026
 
 ## ENG-TOOLS-001 — reusable local scripts verified
