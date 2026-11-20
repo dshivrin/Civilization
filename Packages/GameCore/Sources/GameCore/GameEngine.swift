@@ -4,6 +4,8 @@ import Foundation
 public struct GameEngine: Sendable {
     public let configuration: GameConfiguration
     public private(set) var state: GameState
+    public internal(set) var connectedBuildingIDs: Set<Int> = []
+    var connectivityTopology: ConnectivityTopology?
     #if DEBUG
     /// Session-only override, never encoded in saves or present in release builds.
     public var developerFastConstruction = false
@@ -24,12 +26,14 @@ public struct GameEngine: Sendable {
                           explorationRemainingSeconds: nil, explorationRadius: configuration.explorationRules?.initialRadius,
                           depositRemaining: configuration.economyRules == nil ? nil : Dictionary(uniqueKeysWithValues: (configuration.naturalDeposits ?? []).filter { !$0.renewable }.map { ($0.id, $0.capacity) }))
         if configuration.civicLevels != nil { state.civicProgress = CivicProgress(foundingBuildingID: 0) }
+        refreshConnectivity()
     }
     public init(state: GameState, configuration: GameConfiguration) throws {
         try configuration.validate()
         self.configuration = configuration
         self.state = state
         try validateState()
+        refreshConnectivity()
     }
     public var researchedIDs: Set<String> { state.researchedTechnologies ?? (state.researchedOralTradition ? ["oralTradition"] : []) }
     private var activeTechnologies: [TechnologyDefinition] { configuration.technologyDefinitions.filter { researchedIDs.contains($0.id) } }
@@ -157,6 +161,7 @@ public struct GameEngine: Sendable {
         evaluateGoals()
         state.buildings[index].origin = origin
         if let orientation, orientation != state.buildings[index].resolvedOrientation { state.buildings[index].orientation = orientation }
+        refreshConnectivity()
         evaluateGoals()
     }
     public func constructionDuration(for kind: BuildingKind) -> Double {
@@ -176,6 +181,7 @@ public struct GameEngine: Sendable {
         if effectiveDuration > 0 { building.constructionRemainingSeconds = effectiveDuration; building.constructionDurationSeconds = effectiveDuration }
         state.buildings.append(building)
         state.nextBuildingID += 1
+        refreshConnectivity()
         evaluateGoals()
     }
     /// Free decorative transaction. Validate every tile before modifying even one road.
@@ -189,6 +195,7 @@ public struct GameEngine: Sendable {
         state.roads = roads.map { RoadTile(tile: $0.key, style: $0.value) }.sorted {
             $0.tile.y == $1.tile.y ? $0.tile.x < $1.tile.x : $0.tile.y < $1.tile.y
         }
+        refreshConnectivity()
     }
     public mutating func research(_ id: String = "oralTradition") throws {
         if let issue = researchIssue(id) { throw issue }
@@ -308,6 +315,7 @@ public struct GameEngine: Sendable {
                 state.buildings[index].constructionRemainingSeconds = nil
             }
         }
+        refreshConnectivity()
         // Completion is processed before growth when both occur at the same instant.
         while (state.populationGrowthSeconds ?? 0) + 1e-9 >= growthIntervalSeconds && growthStatus == .growing {
             state.populationGrowthSeconds = max(0, (state.populationGrowthSeconds ?? 0) - growthIntervalSeconds)
@@ -463,6 +471,7 @@ public extension GameEngine {
         state.discoveredTiles?.formUnion(revealed)
         state.explorationRadius = radius
         state.explorationRemainingSeconds = nil
+        refreshConnectivity()
         evaluateGoals()
     }
     /// Rebase after explicitly simulated debug time; ordinary clock logic is untouched.
