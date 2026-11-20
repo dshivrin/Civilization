@@ -1,5 +1,10 @@
 # Development roadmap
 
+## Active S1-Geography activation — 20 November 2026
+
+Dima confirms all existing saves are development/test data and authorizes the approved **64×48 default**, standard Stone Age start, unchanged normal footprints, MAP-001–004 implementation/verification and then environment graphics assessment. This supersedes earlier production migration approval gates and the 32×24 normal default. Backups must be created and validated before archiving/resetting any development progress; preserve independent normal/developer saves. [Bounded specification](docs/superpowers/specs/2026-11-20-s1-geography-design.md). Implementation is in progress, not accepted production delivery. All previous backlog and visual approval requirements remain.
+
+
 ## Human64×48/navigation acceptance — 20 November 2026
 
 Dima confirms **“Yes, navigation improved. Approved, commit and report to chat.”**64×48size and the installed navigation correction are now human-approved. Product2ab7492launch succeeds after unlock; normal32×24settlement and isolated64×48developer geometry/history are preserved. [Acceptance/evidence](docs/milestones/large-developer-village.md). Commit and report to the designated Master Development Coordination chat; broader art/enjoyment/sustained hardware metrics and normal-world migration policy remain separate. All existing backlog retained.

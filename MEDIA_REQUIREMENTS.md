@@ -1,5 +1,10 @@
 # Media requirements
 
+## Active S1-Geography activation — 20 November 2026
+
+Dima confirms all existing saves are development/test data and authorizes the approved **64×48 default**, standard Stone Age start, unchanged normal footprints, MAP-001–004 implementation/verification and then environment graphics assessment. This supersedes earlier production migration approval gates and the 32×24 normal default. Backups must be created and validated before archiving/resetting any development progress; preserve independent normal/developer saves. [Bounded specification](docs/superpowers/specs/2026-11-20-s1-geography-design.md). Implementation is in progress, not accepted production delivery. All previous backlog and visual approval requirements remain.
+
+
 ##64×48developer review — 20 November 2026
 
 Dima approved64×48size after the isolated grouped preview. Current scene uses existing runtime art; no media master, provenance, repository, new environment art or production footprint change. [Preview/navigation report](docs/milestones/large-developer-village.md). Physical art/performance acceptance remains separate. All requirements below are retained.

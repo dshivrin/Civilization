@@ -1,5 +1,10 @@
 # Design synchronization record and operating procedure
 
+## Active S1-Geography activation — 20 November 2026
+
+Dima confirms all existing saves are development/test data and authorizes the approved **64×48 default**, standard Stone Age start, unchanged normal footprints, MAP-001–004 implementation/verification and then environment graphics assessment. This supersedes earlier production migration approval gates and the 32×24 normal default. Backups must be created and validated before archiving/resetting any development progress; preserve independent normal/developer saves. [Bounded specification](docs/superpowers/specs/2026-11-20-s1-geography-design.md). Implementation is in progress, not accepted production delivery. All previous backlog and visual approval requirements remain.
+
+
 ## Approved navigation report delivered and acknowledged — 20 November2026
 
 At Dima's explicit request, committed/pushed human size/navigation acceptance and successful unlocked launch (9d2fbd0, product2ab7492), then reported to the verified Master Development Coordination chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9. Native send accepted; stale history required verification after Dima unlocked the Mac. Exact Chrome conversation now visibly contains the native report and browser fallback, with explicit canonical/deduplicated acknowledgment accepting human64×48/navigation approval and resolved launch blocker. [Dispatch/acknowledgment record](docs/design/sources/2026-11-20-navigation-accepted-handover-status.md). Designer recommends documentation-only production Geography gate and optional preservation-first migration; this remains a proposal until Dima chooses policy. No new product scope or migration approval inferred. GitHub acceptance update7034384060 is posted; all backlog/media retained.
