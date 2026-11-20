@@ -1,5 +1,7 @@
 # Civilization design status ledger
 
+S1-Geography sizing assessment delivered for review, **not activated**: [conditional 64×48 recommendation](../superpowers/specs/2026-11-20-s1-geography-sizing-review.md), reproducible spatial checks only; exact annex/migration/quarry/discovery policy and hardware gate remain open. Direct movement without edit mode is future-only. Prior backlog and Saves acceptance remain unchanged.
+
 ## S1-Saves — 20 November 2026
 
 SAVE-001/DEV-001 implemented; awaiting human acceptance. Product7f5e10c, [actual report](../milestones/s1-saves.md).172Debug/159Release, five Release exclusions;19phone/19mini,18Pro+one added recovery. Signed update installed and both current saves byte-identical pre-launch; physical launch/index initialization blocked by device lock. Existing/deferred backlog retained. Next S1-Geography specification requires exact dimensions/migration review before map code; then environment graphics.

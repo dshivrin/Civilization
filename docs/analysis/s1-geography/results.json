@@ -1,0 +1,1537 @@
+{
+  "source_sha256": "5804093286c2939d1d7b4100fe7ff0fb91ec137e25325baa2edcda5a2ed2e429",
+  "footprints": {
+    "campfire": [
+      1,
+      1
+    ],
+    "hut": [
+      2,
+      2
+    ],
+    "gatheringShelter": [
+      2,
+      1
+    ],
+    "huntingLodge": [
+      2,
+      2
+    ],
+    "fishingShelter": [
+      2,
+      1
+    ],
+    "woodcutter": [
+      3,
+      2
+    ],
+    "stoneGatherer": [
+      3,
+      2
+    ],
+    "farm": [
+      4,
+      3
+    ],
+    "animalPen": [
+      3,
+      3
+    ],
+    "storehouse": [
+      3,
+      2
+    ],
+    "toolmaker": [
+      2,
+      2
+    ],
+    "tannery": [
+      3,
+      2
+    ],
+    "potteryWorkshop": [
+      3,
+      2
+    ],
+    "storytellingCircle": [
+      3,
+      3
+    ],
+    "healersHut": [
+      2,
+      2
+    ],
+    "shrine": [
+      2,
+      2
+    ],
+    "burialGround": [
+      3,
+      3
+    ],
+    "scoutCamp": [
+      3,
+      2
+    ],
+    "watchtower": [
+      1,
+      1
+    ],
+    "palisade": [
+      1,
+      1
+    ]
+  },
+  "results": [
+    {
+      "size": [
+        48,
+        36
+      ],
+      "total": 1728,
+      "terrain": {
+        "f": 388,
+        ".": 944,
+        "w": 96,
+        "h": 179,
+        "c": 121
+      },
+      "buildable": 1065,
+      "contiguous": 746,
+      "other_land": 319,
+      "district_area": 380,
+      "footprints": 111,
+      "roads": 237,
+      "decorations": 76,
+      "reserve": 72,
+      "unassigned": 250,
+      "buildings": 28,
+      "counts": {
+        "campfire": 1,
+        "woodcutter": 3,
+        "stoneGatherer": 2,
+        "toolmaker": 2,
+        "tannery": 1,
+        "potteryWorkshop": 1,
+        "storehouse": 3,
+        "scoutCamp": 1,
+        "watchtower": 2,
+        "palisade": 8,
+        "storytellingCircle": 1,
+        "healersHut": 1,
+        "shrine": 1,
+        "burialGround": 1
+      },
+      "all_types": false,
+      "accessible": 28,
+      "failed_blocks": [
+        "food",
+        "pairs",
+        "square",
+        "courtyard",
+        "rearrange-B"
+      ],
+      "unconnected_road_tiles": 1,
+      "plaza": [
+        16,
+        0
+      ],
+      "quarry": [
+        10,
+        24
+      ],
+      "quarry_connected": true,
+      "max_road_distance": 53,
+      "max_discovery_radius": 30,
+      "expeditions": 12,
+      "zones": [
+        {
+          "name": "industry",
+          "x": 10,
+          "y": 20,
+          "w": 14,
+          "h": 10
+        },
+        {
+          "name": "logistics",
+          "x": 4,
+          "y": 5,
+          "w": 12,
+          "h": 11
+        },
+        {
+          "name": "civic",
+          "x": 24,
+          "y": 26,
+          "w": 12,
+          "h": 9
+        },
+        {
+          "name": "rearrange-A",
+          "x": 3,
+          "y": 30,
+          "w": 12,
+          "h": 6
+        }
+      ],
+      "placements": [
+        {
+          "kind": "campfire",
+          "x": 17,
+          "y": 12,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "woodcutter",
+          "x": 11,
+          "y": 21,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "woodcutter",
+          "x": 15,
+          "y": 21,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "woodcutter",
+          "x": 19,
+          "y": 21,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "stoneGatherer",
+          "x": 11,
+          "y": 24,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "stoneGatherer",
+          "x": 15,
+          "y": 24,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "toolmaker",
+          "x": 19,
+          "y": 24,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "toolmaker",
+          "x": 11,
+          "y": 27,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "tannery",
+          "x": 14,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "potteryWorkshop",
+          "x": 18,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "storehouse",
+          "x": 5,
+          "y": 6,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "storehouse",
+          "x": 9,
+          "y": 6,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "storehouse",
+          "x": 5,
+          "y": 9,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "scoutCamp",
+          "x": 9,
+          "y": 9,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "watchtower",
+          "x": 13,
+          "y": 9,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "watchtower",
+          "x": 5,
+          "y": 12,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 7,
+          "y": 12,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 9,
+          "y": 12,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 11,
+          "y": 12,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 13,
+          "y": 12,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 5,
+          "y": 14,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 7,
+          "y": 14,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 9,
+          "y": 14,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 11,
+          "y": 14,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "storytellingCircle",
+          "x": 25,
+          "y": 27,
+          "w": 3,
+          "h": 3
+        },
+        {
+          "kind": "healersHut",
+          "x": 29,
+          "y": 27,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "shrine",
+          "x": 32,
+          "y": 27,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "burialGround",
+          "x": 25,
+          "y": 31,
+          "w": 3,
+          "h": 3
+        }
+      ],
+      "legacy_exact": true,
+      "layout_pass": false
+    },
+    {
+      "size": [
+        64,
+        48
+      ],
+      "total": 3072,
+      "terrain": {
+        "f": 744,
+        ".": 1828,
+        "w": 152,
+        "h": 227,
+        "c": 121
+      },
+      "buildable": 1949,
+      "contiguous": 1494,
+      "other_land": 455,
+      "district_area": 936,
+      "footprints": 289,
+      "roads": 566,
+      "decorations": 151,
+      "reserve": 136,
+      "unassigned": 352,
+      "buildings": 64,
+      "counts": {
+        "campfire": 1,
+        "gatheringShelter": 2,
+        "huntingLodge": 2,
+        "fishingShelter": 2,
+        "farm": 4,
+        "animalPen": 2,
+        "woodcutter": 3,
+        "stoneGatherer": 2,
+        "toolmaker": 2,
+        "tannery": 1,
+        "potteryWorkshop": 1,
+        "storehouse": 3,
+        "scoutCamp": 1,
+        "watchtower": 2,
+        "palisade": 8,
+        "storytellingCircle": 1,
+        "healersHut": 1,
+        "shrine": 1,
+        "burialGround": 1,
+        "hut": 24
+      },
+      "all_types": true,
+      "accessible": 64,
+      "failed_blocks": [],
+      "unconnected_road_tiles": 0,
+      "plaza": [
+        4,
+        5
+      ],
+      "quarry": [
+        10,
+        24
+      ],
+      "quarry_connected": true,
+      "max_road_distance": 80,
+      "max_discovery_radius": 46,
+      "expeditions": 20,
+      "zones": [
+        {
+          "name": "food",
+          "x": 3,
+          "y": 26,
+          "w": 16,
+          "h": 16
+        },
+        {
+          "name": "industry",
+          "x": 19,
+          "y": 26,
+          "w": 14,
+          "h": 10
+        },
+        {
+          "name": "logistics",
+          "x": 33,
+          "y": 26,
+          "w": 12,
+          "h": 11
+        },
+        {
+          "name": "civic",
+          "x": 19,
+          "y": 36,
+          "w": 12,
+          "h": 9
+        },
+        {
+          "name": "pairs",
+          "x": 10,
+          "y": 14,
+          "w": 10,
+          "h": 10
+        },
+        {
+          "name": "square",
+          "x": 31,
+          "y": 37,
+          "w": 10,
+          "h": 10
+        },
+        {
+          "name": "courtyard",
+          "x": 41,
+          "y": 37,
+          "w": 10,
+          "h": 10
+        },
+        {
+          "name": "rearrange-A",
+          "x": 3,
+          "y": 42,
+          "w": 12,
+          "h": 6
+        },
+        {
+          "name": "rearrange-B",
+          "x": 12,
+          "y": 0,
+          "w": 8,
+          "h": 8
+        }
+      ],
+      "placements": [
+        {
+          "kind": "campfire",
+          "x": 17,
+          "y": 12,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "gatheringShelter",
+          "x": 4,
+          "y": 27,
+          "w": 2,
+          "h": 1
+        },
+        {
+          "kind": "gatheringShelter",
+          "x": 7,
+          "y": 27,
+          "w": 2,
+          "h": 1
+        },
+        {
+          "kind": "huntingLodge",
+          "x": 10,
+          "y": 27,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "huntingLodge",
+          "x": 13,
+          "y": 27,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "fishingShelter",
+          "x": 21,
+          "y": 24,
+          "w": 2,
+          "h": 1
+        },
+        {
+          "kind": "fishingShelter",
+          "x": 21,
+          "y": 25,
+          "w": 2,
+          "h": 1
+        },
+        {
+          "kind": "farm",
+          "x": 7,
+          "y": 30,
+          "w": 4,
+          "h": 3
+        },
+        {
+          "kind": "farm",
+          "x": 12,
+          "y": 30,
+          "w": 4,
+          "h": 3
+        },
+        {
+          "kind": "farm",
+          "x": 4,
+          "y": 34,
+          "w": 4,
+          "h": 3
+        },
+        {
+          "kind": "farm",
+          "x": 9,
+          "y": 34,
+          "w": 4,
+          "h": 3
+        },
+        {
+          "kind": "animalPen",
+          "x": 14,
+          "y": 34,
+          "w": 3,
+          "h": 3
+        },
+        {
+          "kind": "animalPen",
+          "x": 4,
+          "y": 38,
+          "w": 3,
+          "h": 3
+        },
+        {
+          "kind": "woodcutter",
+          "x": 20,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "woodcutter",
+          "x": 24,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "woodcutter",
+          "x": 4,
+          "y": 24,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "stoneGatherer",
+          "x": 7,
+          "y": 24,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "stoneGatherer",
+          "x": 24,
+          "y": 30,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "toolmaker",
+          "x": 28,
+          "y": 30,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "toolmaker",
+          "x": 20,
+          "y": 33,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "tannery",
+          "x": 23,
+          "y": 33,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "potteryWorkshop",
+          "x": 27,
+          "y": 33,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "storehouse",
+          "x": 34,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "storehouse",
+          "x": 38,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "storehouse",
+          "x": 34,
+          "y": 30,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "scoutCamp",
+          "x": 38,
+          "y": 30,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "watchtower",
+          "x": 42,
+          "y": 30,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "watchtower",
+          "x": 34,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 36,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 38,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 40,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 42,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 34,
+          "y": 35,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 36,
+          "y": 35,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 38,
+          "y": 35,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 40,
+          "y": 35,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "storytellingCircle",
+          "x": 20,
+          "y": 37,
+          "w": 3,
+          "h": 3
+        },
+        {
+          "kind": "healersHut",
+          "x": 24,
+          "y": 37,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "shrine",
+          "x": 27,
+          "y": 37,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "burialGround",
+          "x": 20,
+          "y": 41,
+          "w": 3,
+          "h": 3
+        },
+        {
+          "kind": "hut",
+          "x": 11,
+          "y": 16,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 13,
+          "y": 16,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 16,
+          "y": 16,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 18,
+          "y": 16,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 11,
+          "y": 20,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 13,
+          "y": 20,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 16,
+          "y": 20,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 18,
+          "y": 20,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 32,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 34,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 32,
+          "y": 40,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 34,
+          "y": 40,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 32,
+          "y": 43,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 34,
+          "y": 43,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 32,
+          "y": 45,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 34,
+          "y": 45,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 42,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 45,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 48,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 42,
+          "y": 41,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 48,
+          "y": 41,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 42,
+          "y": 44,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 45,
+          "y": 44,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 48,
+          "y": 44,
+          "w": 2,
+          "h": 2
+        }
+      ],
+      "legacy_exact": true,
+      "layout_pass": true
+    },
+    {
+      "size": [
+        80,
+        60
+      ],
+      "total": 4800,
+      "terrain": {
+        "f": 1228,
+        ".": 2968,
+        "w": 208,
+        "h": 275,
+        "c": 121
+      },
+      "buildable": 3089,
+      "contiguous": 2626,
+      "other_land": 463,
+      "district_area": 936,
+      "footprints": 289,
+      "roads": 566,
+      "decorations": 151,
+      "reserve": 136,
+      "unassigned": 1484,
+      "buildings": 64,
+      "counts": {
+        "campfire": 1,
+        "gatheringShelter": 2,
+        "huntingLodge": 2,
+        "fishingShelter": 2,
+        "farm": 4,
+        "animalPen": 2,
+        "woodcutter": 3,
+        "stoneGatherer": 2,
+        "toolmaker": 2,
+        "tannery": 1,
+        "potteryWorkshop": 1,
+        "storehouse": 3,
+        "scoutCamp": 1,
+        "watchtower": 2,
+        "palisade": 8,
+        "storytellingCircle": 1,
+        "healersHut": 1,
+        "shrine": 1,
+        "burialGround": 1,
+        "hut": 24
+      },
+      "all_types": true,
+      "accessible": 64,
+      "failed_blocks": [],
+      "unconnected_road_tiles": 0,
+      "plaza": [
+        4,
+        5
+      ],
+      "quarry": [
+        10,
+        24
+      ],
+      "quarry_connected": true,
+      "max_road_distance": 80,
+      "max_discovery_radius": 62,
+      "expeditions": 28,
+      "zones": [
+        {
+          "name": "food",
+          "x": 3,
+          "y": 26,
+          "w": 16,
+          "h": 16
+        },
+        {
+          "name": "industry",
+          "x": 19,
+          "y": 26,
+          "w": 14,
+          "h": 10
+        },
+        {
+          "name": "logistics",
+          "x": 33,
+          "y": 26,
+          "w": 12,
+          "h": 11
+        },
+        {
+          "name": "civic",
+          "x": 19,
+          "y": 36,
+          "w": 12,
+          "h": 9
+        },
+        {
+          "name": "pairs",
+          "x": 10,
+          "y": 14,
+          "w": 10,
+          "h": 10
+        },
+        {
+          "name": "square",
+          "x": 31,
+          "y": 37,
+          "w": 10,
+          "h": 10
+        },
+        {
+          "name": "courtyard",
+          "x": 41,
+          "y": 37,
+          "w": 10,
+          "h": 10
+        },
+        {
+          "name": "rearrange-A",
+          "x": 3,
+          "y": 42,
+          "w": 12,
+          "h": 6
+        },
+        {
+          "name": "rearrange-B",
+          "x": 12,
+          "y": 0,
+          "w": 8,
+          "h": 8
+        }
+      ],
+      "placements": [
+        {
+          "kind": "campfire",
+          "x": 17,
+          "y": 12,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "gatheringShelter",
+          "x": 4,
+          "y": 27,
+          "w": 2,
+          "h": 1
+        },
+        {
+          "kind": "gatheringShelter",
+          "x": 7,
+          "y": 27,
+          "w": 2,
+          "h": 1
+        },
+        {
+          "kind": "huntingLodge",
+          "x": 10,
+          "y": 27,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "huntingLodge",
+          "x": 13,
+          "y": 27,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "fishingShelter",
+          "x": 21,
+          "y": 24,
+          "w": 2,
+          "h": 1
+        },
+        {
+          "kind": "fishingShelter",
+          "x": 21,
+          "y": 25,
+          "w": 2,
+          "h": 1
+        },
+        {
+          "kind": "farm",
+          "x": 7,
+          "y": 30,
+          "w": 4,
+          "h": 3
+        },
+        {
+          "kind": "farm",
+          "x": 12,
+          "y": 30,
+          "w": 4,
+          "h": 3
+        },
+        {
+          "kind": "farm",
+          "x": 4,
+          "y": 34,
+          "w": 4,
+          "h": 3
+        },
+        {
+          "kind": "farm",
+          "x": 9,
+          "y": 34,
+          "w": 4,
+          "h": 3
+        },
+        {
+          "kind": "animalPen",
+          "x": 14,
+          "y": 34,
+          "w": 3,
+          "h": 3
+        },
+        {
+          "kind": "animalPen",
+          "x": 4,
+          "y": 38,
+          "w": 3,
+          "h": 3
+        },
+        {
+          "kind": "woodcutter",
+          "x": 20,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "woodcutter",
+          "x": 24,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "woodcutter",
+          "x": 4,
+          "y": 24,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "stoneGatherer",
+          "x": 7,
+          "y": 24,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "stoneGatherer",
+          "x": 24,
+          "y": 30,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "toolmaker",
+          "x": 28,
+          "y": 30,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "toolmaker",
+          "x": 20,
+          "y": 33,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "tannery",
+          "x": 23,
+          "y": 33,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "potteryWorkshop",
+          "x": 27,
+          "y": 33,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "storehouse",
+          "x": 34,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "storehouse",
+          "x": 38,
+          "y": 27,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "storehouse",
+          "x": 34,
+          "y": 30,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "scoutCamp",
+          "x": 38,
+          "y": 30,
+          "w": 3,
+          "h": 2
+        },
+        {
+          "kind": "watchtower",
+          "x": 42,
+          "y": 30,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "watchtower",
+          "x": 34,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 36,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 38,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 40,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 42,
+          "y": 33,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 34,
+          "y": 35,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 36,
+          "y": 35,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 38,
+          "y": 35,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "palisade",
+          "x": 40,
+          "y": 35,
+          "w": 1,
+          "h": 1
+        },
+        {
+          "kind": "storytellingCircle",
+          "x": 20,
+          "y": 37,
+          "w": 3,
+          "h": 3
+        },
+        {
+          "kind": "healersHut",
+          "x": 24,
+          "y": 37,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "shrine",
+          "x": 27,
+          "y": 37,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "burialGround",
+          "x": 20,
+          "y": 41,
+          "w": 3,
+          "h": 3
+        },
+        {
+          "kind": "hut",
+          "x": 11,
+          "y": 16,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 13,
+          "y": 16,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 16,
+          "y": 16,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 18,
+          "y": 16,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 11,
+          "y": 20,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 13,
+          "y": 20,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 16,
+          "y": 20,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 18,
+          "y": 20,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 32,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 34,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 32,
+          "y": 40,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 34,
+          "y": 40,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 32,
+          "y": 43,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 34,
+          "y": 43,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 32,
+          "y": 45,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 34,
+          "y": 45,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 42,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 45,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 48,
+          "y": 38,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 42,
+          "y": 41,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 48,
+          "y": 41,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 42,
+          "y": 44,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 45,
+          "y": 44,
+          "w": 2,
+          "h": 2
+        },
+        {
+          "kind": "hut",
+          "x": 48,
+          "y": 44,
+          "w": 2,
+          "h": 2
+        }
+      ],
+      "legacy_exact": true,
+      "layout_pass": true
+    }
+  ]
+}

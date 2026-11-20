@@ -1,5 +1,10 @@
 # Civilization durable development checkpoint
 
+## Current sizing review — 20 November 2026
+
+Direct Product Owner sizing refinement assessed in [review report](superpowers/specs/2026-11-20-s1-geography-sizing-review.md), with reproducible offline model/JSON/SVGs under analysis/s1-geography. MC-002 retrieved from issue1 comment7032720699 and archived. Recommend 64×48 only with reviewed positive-axis annex and >=1,450 connected buildable land, new-game default plus opt-in existing-world expansion, preserved legacy core/deposits/reserves, shared-reserve near-side quarry access and map-derived discovery cap at existing economics. Exact recommendation awaits Product Owner approval before product code/activation; no implementation plan is approved. Fresh spatial checks: 64/64 road-accessible structures, all20types, 24homes, 1,494 connected tiles,136 rectangular staging +352 other free tiles; legacy768cells exact. Hardware performance not measured. Direct movement without edit mode is future-only. No app/config/save/media edits or device operations. Retain same native Goal identity; do not create another Goal/session. Next: obtain the explicit dimensions/annex/migration/quarry/discovery decision, then reconcile bounded implementation design/plan and required core/native/migration/performance verification. Older pending-response note below is superseded for MC-002 retrieval only; Saves physical launch and human acceptance remain pending.
+
+
 Updated20November2026. Current task: S1-Saves implemented and published to GitHub; prepare concrete S1-Geography review specification before map changes. Branch first-era-review. Product7f5e10c; review fix c124568; reconciled review5129219; prior native7d7608e/core18c758f/metadata c0de0b5. Media697b486/main unchanged/local-only. Actions only under personal dshivrin. Primary coordination https://github.com/dshivrin/Civilization/issues/1 . Same native Goal chat01a1f50b-a549-7010-9931-1e625005c041; no duplicate session.
 
 ## Exact next action

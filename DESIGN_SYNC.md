@@ -1,5 +1,10 @@
 # Design synchronization record and operating procedure
 
+## S1-Geography sizing review — 20 November 2026
+
+[Quantitative sizing report](docs/superpowers/specs/2026-11-20-s1-geography-sizing-review.md) recommends **64×48 conditionally**, not activated or approved: 1,494 settlement-connected buildable tiles in the proposed additive annex; all 20 catalog types/64 instances, 24 homes in three neighborhoods, connected roads/quarry/plaza, 136 staging tiles and 352 other free connected tiles. 48×36 falls short of the exhibited layout budget; 80×60 adds substantial unused land. All original 768 terrain cells/coordinates are preserved in the study. Footprints/annex geometry/opt-in migration/quarry shared reserve/expanded discovery cap remain proposals awaiting Product Owner review. Device performance is unmeasured. Direct movement without edit mode is a future UX requirement only. Preserve all prior backlog and Saves acceptance/physical-launch limits; no product/save/media change.
+
+
 ## Direct ChatGPT handover — 20 November 2026
 
 Dima explicitly requested “Report to ChatGPT.” Native send_message_to_thread accepted the S1-UX/S1-Saves handover to the verified existing [Civilization — Master Development Coordination](https://chatgpt.com/c/6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9) chat. Included product7f5e10c/checkpoint3a4cec2, actual core/native evidence, successful signed installation/save preservation and **locked-device first-launch limitation**, plus links to GitHub report/issue. Requested a bounded S1-Geography brief and explicit dimensions/migration decisions, preserving all future backlog. Destination reports active; no new response has yet been recovered. GitHub remains primary; no new implementation authorization is inferred from dispatch.

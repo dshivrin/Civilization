@@ -1,5 +1,9 @@
 # Media requirements
 
+## S1-Geography sizing review — 20 November 2026
+
+[Assessment](docs/superpowers/specs/2026-11-20-s1-geography-sizing-review.md) recommends a conditional 64×48 additive annex, awaiting Product Owner review. SVG layouts are design evidence, not production art or accepted geography. Environment art follows approved Geography delivery; media repository and runtime art remain unchanged. Direct movement without edit mode remains a future UX requirement. All existing asset/backlog requirements below are retained.
+
 ## S1-Saves delivery checkpoint — 20 November 2026
 
 Independent normal games/developer separation are implemented **awaiting human acceptance**, final product7f5e10c/review fixes c124568. See [actual milestone report](docs/milestones/s1-saves.md):172Debug/159Release, five Release exclusions,19phone/19mini and18Pro+added recovery native checks. Final recovery-copy change has affected core/phone rechecks. Explicit healthy-game recovery preserves damaged slots; failed opens leave target bytes unchanged. Signed iPhone update installed after fresh current-production backup, normal5buildings/15roads and developer5buildings/0roads byte-identical pre-launch. Physical first launch/library-index initialization is blocked by device lock and **not verified**. Geometry/geography/catalog/v5/economy/art/signing unchanged; media697b486 remains untouched. Human usability/enjoyment/art acceptance remains open. Next: S1-Geography detailed dimensions/migration/quarry/cloud/discovery review gate, then approved environment graphics; preserve every existing approved/deferred roadmap item. No second-era gameplay. Same native Goal and durable checkpoint remain active; no quota bypass or duplicate sessions.
