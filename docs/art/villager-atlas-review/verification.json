@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-21",
+  "scope": "offline review study; no application export",
+  "candidates": [
+    {
+      "id": "atlas-v1",
+      "sha256": "bcb79fb9bc335ce872c936f181ee3c4d10df86545fd4b3790f372f57acce7f18",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "cells": 32,
+      "gridSafetyPassed": false,
+      "gutterPixels": 4008
+    },
+    {
+      "id": "atlas-v2",
+      "sha256": "49406a46a0a1c9a083d3876d0be2c2df94584908c6d5f058cb830fe613c37116",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "cells": 32,
+      "gridSafetyPassed": false,
+      "gutterPixels": 41
+    }
+  ],
+  "browserEvidence": "evidence/browser-checks.json",
+  "lifecycleVerification": {
+    "command": "node --test scripts/tests/atlas_review.test.cjs",
+    "tests": 2,
+    "passed": 2,
+    "negativeControl": "Removing the actual hidden-page guard is detected",
+    "automaticOSEventsObserved": false
+  },
+  "registrationCertified": false,
+  "runtimeIntegrated": false,
+  "r207Enabled": false,
+  "requiredArtAcceptance": "Both grids fail proposed margins; semantic contact/camera/direction/gait remain unapproved",
+  "productionSourceChanged": false,
+  "playerFilesAccessed": false,
+  "mediaCommit": "02d934421adbe303bb8a720edad8eb44640abc1f",
+  "mediaRemote": null,
+  "mediaRecords": 74,
+  "previousMediaRecordsPreserved": 72,
+  "tooling": {
+    "command": "python3 -m unittest discover -s scripts/tests -v",
+    "tests": 45,
+    "passed": 45
+  },
+  "node": {
+    "command": "node --test scripts/tests/ui_review.test.cjs scripts/tests/atlas_review.test.cjs",
+    "tests": 9,
+    "passed": 9
+  },
+  "nativeMenus": {
+    "report": "/tmp/civilization-qa-cadfdfcec64c47c1887f327198f564c7/report.json",
+    "status": "passed",
+    "phoneTests": 1,
+    "iPadMiniTests": 1
+  },
+  "finalIndependentReview": {
+    "critical": 0,
+    "importantFixed": 2,
+    "regressions": "Hardlinked input/output and selected-review correction-reference drift each failed before fix, then passed in the full 45-test suite",
+    "deferredMinor": [
+      "Canonical media README links point to game-only files; use the game repository gallery",
+      "Inspector reopens PNG for hashing after measurement; concurrent input replacement remains a limitation"
+    ]
+  }
+}

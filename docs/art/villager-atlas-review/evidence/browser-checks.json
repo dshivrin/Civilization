@@ -1,0 +1,95 @@
+{
+  "date": "2026-11-21",
+  "surface": "CUA in-app browser",
+  "directionActivityChecks": [
+    {
+      "cells": [
+        0,
+        0
+      ],
+      "status": "Toward right · Walk · frame 1/4 · Paused"
+    },
+    {
+      "cells": [
+        4,
+        4
+      ],
+      "status": "Toward right · Carry wood · frame 1/4 · Paused"
+    },
+    {
+      "cells": [
+        8,
+        8
+      ],
+      "status": "Toward left · Walk · frame 1/4 · Paused"
+    },
+    {
+      "cells": [
+        12,
+        12
+      ],
+      "status": "Toward left · Carry wood · frame 1/4 · Paused"
+    },
+    {
+      "cells": [
+        16,
+        16
+      ],
+      "status": "Away right · Walk · frame 1/4 · Paused"
+    },
+    {
+      "cells": [
+        20,
+        20
+      ],
+      "status": "Away right · Carry wood · frame 1/4 · Paused"
+    },
+    {
+      "cells": [
+        24,
+        24
+      ],
+      "status": "Away left · Walk · frame 1/4 · Paused"
+    },
+    {
+      "cells": [
+        28,
+        28
+      ],
+      "status": "Away left · Carry wood · frame 1/4 · Paused"
+    }
+  ],
+  "finalMobile": {
+    "canvasCells": [
+      "15",
+      "15"
+    ],
+    "documentWidth": 375,
+    "images": [
+      {
+        "file": "assets/atlas-v1.png",
+        "loaded": true
+      },
+      {
+        "file": "assets/atlas-v2.png",
+        "loaded": true
+      },
+      {
+        "file": "assets/concept-reference.png",
+        "loaded": true
+      }
+    ],
+    "overflow": [],
+    "status": "Toward left · Carry wood · frame 4/4 · Static",
+    "width": 390
+  },
+  "console": [],
+  "automaticVisibilityObserved": false,
+  "reason": "The IAB tab stayed document.hidden=false during the blank-tab probe; automatic hiding and OS Reduce Motion require separate lifecycle tests.",
+  "screenshots": [
+    "desktop-compare.jpg",
+    "desktop-guides.jpg",
+    "mobile-small.jpg",
+    "mobile-enlarged.jpg"
+  ]
+}

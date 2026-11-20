@@ -30,7 +30,61 @@ func measureArtImage(_ url: URL) throws -> [String: Any] {
             "silhouetteBoundsTopLeftInclusive":[minX,minY,maxX,maxY],"coveredFraction":Double(covered)/Double(w*h),
             "transparentFraction":Double(clear)/Double(w*h),"coveredEdgePixels":edge]
 }
+/// Read-only cell diagnostics. Bounds describe alpha silhouettes, never semantic foot contacts.
+func measureArtAtlas(_ url: URL, columns: Int, rows: Int) throws -> [String: Any] {
+    let bytes = try Data(contentsOf: url)
+    guard bytes.starts(with: [137,80,78,71,13,10,26,10]),
+          let source = CGImageSourceCreateWithData(bytes as CFData, nil),
+          let image = CGImageSourceCreateImageAtIndex(source, 0, nil) else { fatalError("Invalid atlas PNG") }
+    let w = image.width, h = image.height
+    guard w > 0, h > 0, w <= 8192, h <= 8192, w*h <= 16_777_216,
+          columns > 0, rows > 0, columns <= w, rows <= h, columns <= 32, rows <= 32 else {
+        fatalError("Atlas dimensions/grid exceed bounded inspection limits")
+    }
+    var pixels = [UInt8](repeating: 0, count: w*h*4)
+    let rendered = pixels.withUnsafeMutableBytes { buffer -> Bool in
+        guard let context = CGContext(data: buffer.baseAddress, width: w, height: h, bitsPerComponent: 8,
+            bytesPerRow: w*4, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return false }
+        context.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h)); return true
+    }
+    guard rendered else { fatalError("Cannot decode atlas") }
+    var cells = [[String: Any]](), totalClear = 0
+    for row in 0..<rows { for column in 0..<columns {
+        let x0 = w*column/columns, y0 = h*row/rows
+        let cw = w*(column+1)/columns-x0, ch = h*(row+1)/rows-y0
+        let gutter = max(1, Int(ceil(Double(min(cw,ch))*0.05)))
+        var minX = cw, minY = ch, maxX = -1, maxY = -1, covered = 0, clear = 0, edges = 0, gutters = 0
+        for y in 0..<ch { for x in 0..<cw {
+            let alpha = pixels[((y0+y)*w+x0+x)*4+3]
+            if alpha == 0 { clear += 1 }
+            if alpha > 32 {
+                covered += 1; minX = min(minX,x); minY = min(minY,y); maxX = max(maxX,x); maxY = max(maxY,y)
+                if x == 0 || y == 0 || x == cw-1 || y == ch-1 { edges += 1 }
+                if x < gutter || y < gutter || x >= cw-gutter || y >= ch-gutter { gutters += 1 }
+            }
+        } }
+        totalClear += clear
+        cells.append(["index":row*columns+column,"row":row,"column":column,"rect":[x0,y0,cw,ch],
+            "bounds":covered == 0 ? NSNull() : [minX,minY,maxX,maxY] as Any,
+            "coveredPixels":covered,"clearPixels":clear,"coveredEdgePixels":edges,"gutterPixels":gutters,"gutterWidth":gutter])
+    } }
+    let safe = cells.allSatisfy { ($0["coveredPixels"] as! Int) > 0 && ($0["gutterPixels"] as! Int) == 0 && ($0["coveredEdgePixels"] as! Int) == 0 }
+    return ["schemaVersion":1,"file":url.path,"sha256":try hashArtFile(url),"bytes":bytes.count,
+        "width":w,"height":h,"columns":columns,"rows":rows,"alphaThreshold":32,"gutterFraction":0.05,
+        "transparentFraction":Double(totalClear)/Double(w*h),"cells":cells,
+        "gridSafetyPassed":safe && Double(totalClear)/Double(w*h) > 0.1,
+        "boundsConvention":"top-left inclusive local silhouette bounds; rect is top-left x/y/width/height; NOT semantic ground contact",
+        "decodedRGBABytes":w*h*4]
+}
 let inspectionArgs = Array(CommandLine.arguments.dropFirst())
+if inspectionArgs.first == "--inspect-atlas" {
+    guard inspectionArgs.count == 4, let columns = Int(inspectionArgs[2]), let rows = Int(inspectionArgs[3]) else {
+        fatalError("Usage: --inspect-atlas PNG COLUMNS ROWS")
+    }
+    let report = try measureArtAtlas(URL(fileURLWithPath: inspectionArgs[1]), columns: columns, rows: rows)
+    print(String(data: try JSONSerialization.data(withJSONObject: report, options: [.sortedKeys]), encoding: .utf8)!)
+    exit(0)
+}
 if inspectionArgs.first == "--inspect-images" {
     guard inspectionArgs.count > 1 else { fatalError("Provide at least one image") }
     for path in inspectionArgs.dropFirst() {

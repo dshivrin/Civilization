@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-21",
+  "generationCalls": 2,
+  "targetedCorrectionCalls": 1,
+  "columns": 8,
+  "rows": 4,
+  "states": [
+    "walk",
+    "carry"
+  ],
+  "directions": [
+    "near-right",
+    "near-left",
+    "away-right",
+    "away-left"
+  ],
+  "framesPerLoop": 4,
+  "proposedRootNormalized": [
+    0.5,
+    0.84
+  ],
+  "registrationCertified": false,
+  "runtimePromoted": false,
+  "r207Enabled": false,
+  "seedSHA256": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+  "originalInventorySHA256": "9ba475ff8c622d0df6c101e1bc4091fc6c8e46fab1365fa5dbfda4374eb310b3",
+  "records": [
+    {
+      "id": "atlas-v1",
+      "file": "assets/atlas-v1.png",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-caf6385e-284b-44b4-99dc-efe44a77a5ec.png",
+      "outputSHA256": "bcb79fb9bc335ce872c936f181ee3c4d10df86545fd4b3790f372f57acce7f18",
+      "copyUnchanged": true,
+      "prompt": "prompts/atlas-v1.txt",
+      "promptSHA256": "b579a9e728fa38ae68a55435e6a584fe847bc02512f7638ae60bd1909567740e",
+      "references": [
+        {
+          "file": "docs/art/living-world-candidates/assets/villagers-review-v1.png",
+          "sha256": "f47028d551032a78bf8d7287ecb82a86247a8f5707e038fd86daa676dfc8c2b4"
+        },
+        {
+          "file": "Civilization/Art/buildings/hut.png",
+          "sha256": "dbc0ed3af44832855df6921b1b0c54d9962f01380aaff617c0c253d51770a989"
+        }
+      ],
+      "measurement": "measurements/atlas-v1.json",
+      "measurementSHA256": "35f73132fc69ed99d725e8e0688f1956ecf6361a0062f00292675f476577e643",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackgroundRequested": true,
+      "runtimePromoted": false
+    },
+    {
+      "id": "atlas-v2",
+      "file": "assets/atlas-v2.png",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-e7edd203-77b7-4c21-bca1-9a481d8f6ce3.png",
+      "outputSHA256": "49406a46a0a1c9a083d3876d0be2c2df94584908c6d5f058cb830fe613c37116",
+      "copyUnchanged": true,
+      "prompt": "prompts/atlas-v2-edit.txt",
+      "promptSHA256": "151c40ed2a10c54fe7e991bb3c59a288e662de679fc14f2bc0080e6dfbc35af9",
+      "references": [
+        {
+          "file": "docs/art/villager-atlas-review/assets/atlas-v1.png",
+          "sha256": "bcb79fb9bc335ce872c936f181ee3c4d10df86545fd4b3790f372f57acce7f18"
+        }
+      ],
+      "measurement": "measurements/atlas-v2.json",
+      "measurementSHA256": "3a64efe9313066554ae3078e849c250de27aacee4d83e2a791cbcbcaed0a273b",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackgroundRequested": true,
+      "runtimePromoted": false
+    }
+  ]
+}

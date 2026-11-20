@@ -6,6 +6,7 @@ import argparse
 import struct
 import os
 import tempfile
+import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -180,11 +181,126 @@ def build_directions(review=None):
     return data
 
 
+def build_villager_atlas(review=None):
+    """Publish measured raw UV cells, including failed margins, without aligning artwork."""
+    if not __debug__:
+        raise RuntimeError('Atlas integrity validation requires Python without optimization')
+    review = Path(review or ROOT / 'docs/art/villager-atlas-review').absolute()
+    if review.resolve() != review:
+        raise ValueError('Aliased review directory')
+
+    def local(relative):
+        p = Path(relative)
+        if p.is_absolute() or '..' in p.parts:
+            raise ValueError('Review input must be local')
+        path = review / p
+        if path.resolve() != path or not path.is_file() or path.stat().st_nlink != 1:
+            raise ValueError('Missing/aliased review input')
+        return path
+
+    receipts = json.loads(local('generation-receipts.json').read_text())
+    directions = ['near-right', 'near-left', 'away-right', 'away-left']
+    if (receipts['columns'], receipts['rows'], receipts['framesPerLoop']) != (8, 4, 4) or receipts['directions'] != directions or receipts['states'] != ['walk', 'carry']:
+        raise ValueError('Unexpected atlas layout')
+    if (receipts['registrationCertified'] is not False or receipts['runtimePromoted'] is not False
+            or receipts['r207Enabled'] is not False or receipts['proposedRootNormalized'] != [.5, .84]
+            or receipts['generationCalls'] != 2 or receipts['targetedCorrectionCalls'] != 1):
+        raise ValueError('Review boundaries changed')
+    if [r['id'] for r in receipts['records']] != ['atlas-v1', 'atlas-v2']:
+        raise ValueError('Both original and correction must remain visible')
+    seed = ROOT / 'Packages/GameCore/Sources/GameCore/Resources/seed.json'
+    inventory = ROOT / 'docs/art/building-gate-1/evidence/inventory.json'
+    if digest(seed) != receipts['seedSHA256'] or digest(inventory) != receipts['originalInventorySHA256']:
+        raise ValueError('Original map/art inventory drift')
+    for original in json.loads(inventory.read_text())['buildings']:
+        if digest(ROOT / 'Civilization/Art' / original['art']['file']) != original['sprite']['sha256']:
+            raise ValueError('Shipped original art drift')
+    expected_refs = [
+        ['docs/art/living-world-candidates/assets/villagers-review-v1.png', 'Civilization/Art/buildings/hut.png'],
+        ['docs/art/villager-atlas-review/assets/atlas-v1.png']]
+    if digest(local('assets/concept-reference.png')) != digest(ROOT / expected_refs[0][0]):
+        raise ValueError('Original concept display copy drift')
+    assets = []
+    for index, r in enumerate(receipts['records']):
+        key = r['id']
+        if (r['file'] != 'assets/'+key+'.png' or r['measurement'] != 'measurements/'+key+'.json'
+                or r['prompt'] != ('prompts/atlas-v1.txt' if index == 0 else 'prompts/atlas-v2-edit.txt')
+                or r['copyUnchanged'] is not True or r['runtimePromoted'] is not False
+                or r['tool'] != 'built-in image_gen.imagegen' or r['transparentBackgroundRequested'] is not True):
+            raise ValueError('Unexpected candidate source contract')
+        path, prompt, measurement = local(r['file']), local(r['prompt']), local(r['measurement'])
+        if digest(path) != r['outputSHA256'] or digest(prompt) != r['promptSHA256'] or digest(measurement) != r['measurementSHA256']:
+            raise ValueError('Candidate/prompt/native-report drift')
+        if [ref['file'] for ref in r['references']] != expected_refs[index]:
+            raise ValueError('Unexpected reference image')
+        for ref in r['references']:
+            reference = local('assets/atlas-v1.png') if index == 1 else ROOT / ref['file']
+            if digest(reference) != ref['sha256']:
+                raise ValueError('Reference image drift')
+        payload = path.read_bytes()
+        if not payload.startswith(b'\x89PNG\r\n\x1a\n'):
+            raise ValueError('Invalid PNG')
+        width, height = struct.unpack('>II', payload[16:24])
+        m = json.loads(measurement.read_text())
+        if ((m['width'], m['height'], m['columns'], m['rows'], m['alphaThreshold']) != (width, height, 8, 4, 32)
+                or m['sha256'] != r['outputSHA256'] or m['gutterFraction'] != .05
+                or m['bytes'] != len(payload) or m['decodedRGBABytes'] != width*height*4
+                or len(m['cells']) != 32):
+            raise ValueError('Native report/image contract mismatch')
+        for i, c in enumerate(m['cells']):
+            row, col = divmod(i, 8)
+            x, y = width*col//8, height*row//4
+            cw, ch = width*(col+1)//8-x, height*(row+1)//4-y
+            if (type(c['index']) is not int or (c['index'], c['row'], c['column']) != (i, row, col)
+                    or c['rect'] != [x, y, cw, ch] or c['gutterWidth'] != max(1, math.ceil(min(cw,ch)*.05))):
+                raise ValueError('Duplicate/misaligned native cell')
+            for count in ['coveredPixels', 'clearPixels', 'gutterPixels', 'coveredEdgePixels']:
+                if type(c[count]) is not int or not 0 <= c[count] <= cw*ch:
+                    raise ValueError('Invalid native pixel count')
+            if (c['coveredPixels']+c['clearPixels'] > cw*ch or c['gutterPixels'] > c['coveredPixels']
+                    or c['coveredEdgePixels'] > c['gutterPixels']):
+                raise ValueError('Inconsistent native coverage')
+            b = c['bounds']
+            if c['coveredPixels'] == 0:
+                if b is not None: raise ValueError('Empty cell must have null bounds')
+            elif (not isinstance(b, list) or len(b) != 4 or not all(type(v) is int for v in b)
+                    or not 0 <= b[0] <= b[2] < cw or not 0 <= b[1] <= b[3] < ch):
+                raise ValueError('Invalid native silhouette bounds')
+        clear_fraction = sum(c['clearPixels'] for c in m['cells'])/(width*height)
+        safe = clear_fraction > .1 and all(c['coveredPixels'] > 0 and c['gutterPixels'] == 0 for c in m['cells'])
+        if not math.isclose(m['transparentFraction'], clear_fraction, abs_tol=1e-12) or m['gridSafetyPassed'] is not safe:
+            raise ValueError('Native safety conclusion contradicts its pixels')
+        loops = [dict(direction=direction, state=state, frames=[row*8+state_index*4+f for f in range(4)])
+                 for row, direction in enumerate(directions) for state_index, state in enumerate(['walk','carry'])]
+        assets.append(dict(id=key, file=r['file'], sha256=r['outputSHA256'], prompt=r['prompt'],
+            measurements=r['measurement'], width=width, height=height, cells=m['cells'], loops=loops,
+            gridSafetyPassed=safe, transparentFraction=clear_fraction,
+            gutterPixels=sum(c['gutterPixels'] for c in m['cells']), decodedRGBABytes=m['decodedRGBABytes']))
+    data = dict(schemaVersion=1, assets=assets, proposedRootNormalized=[.5,.84], registrationCertified=False,
+        perFrameAlignmentApplied=False, runtimeIntegrated=False, r207Enabled=False,
+        status='Measured candidate cells; camera/identity/feet/gait/lighting unaccepted',
+        originalConcept='assets/concept-reference.png',
+        receiptSHA256=digest(local('generation-receipts.json')))
+    target = review / 'gallery-data.js'
+    if target.is_symlink() or (target.exists() and (not target.is_file() or target.stat().st_nlink != 1)):
+        raise ValueError('Aliased/non-file gallery output')
+    with tempfile.TemporaryDirectory(prefix='.atlas-gallery-', dir=review) as raw:
+        staged = Path(raw) / 'gallery-data.js'
+        staged.write_text('window.VILLAGER_ATLAS = '+json.dumps(data, separators=(',',':'))+';\n', encoding='utf-8')
+        os.replace(staged, target)
+    print('PASS: 2 unchanged candidates,64 measured cells,16 nominal loops; registration remains unapproved')
+    return data
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--directions', action='store_true', help='Validate the separate gathering-shelter rotation study')
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument('--directions', action='store_true', help='Validate the separate gathering-shelter rotation study')
+    mode.add_argument('--villager-atlas', action='store_true', help='Validate the separate raw villager atlas registration study')
     args = parser.parse_args()
     if args.directions:
         build_directions()
+    elif args.villager_atlas:
+        build_villager_atlas()
     else:
         build()
