@@ -42,9 +42,9 @@ public final class GameLibrary {
         // Register only after the first save exists. A corrupt legacy file retains its protected temporary mode.
         let session = try await GameSession.load(clock: clock, saveURL: url, configuration: configuration,
                                                  requireExistingSave: existing != nil, saveAfterRestoration: existing == nil)
-        if let warning = session.persistenceWarning,
+        if session.persistenceWarning != nil,
            selected.id != "legacy" || !FileManager.default.fileExists(atPath: url.path) {
-            throw GameError.invalidSave(warning)
+            throw GameError.invalidSave("The selected game could not be opened. Existing files have been preserved.")
         }
         try Task.checkCancellation()
         if existing == nil || index.activeGameID != existing?.activeGameID { try store.save(index) }
@@ -76,7 +76,7 @@ public final class GameLibrary {
         try session.suspendForGameSwitch()
         let url = try store.saveURL(for: game)
         let candidate = try await GameSession.load(clock: clock, saveURL: url, configuration: configuration, requireExistingSave: true, saveAfterRestoration: false)
-        if let warning = candidate.persistenceWarning { throw GameError.invalidSave(warning) }
+        if candidate.persistenceWarning != nil { throw GameError.invalidSave("This game could not be opened. Existing files have been preserved.") }
         try Task.checkCancellation()
         var updated = index; updated.activeGameID = id
         try store.save(updated)
