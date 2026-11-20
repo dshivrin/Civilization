@@ -13,6 +13,8 @@ struct CivilizationApp: App {
     @State private var libraryRoot: URL?
     @State private var recoveryGames: [SavedGame] = []
     @State private var isRestoring = false
+    @State private var entryReady = false
+    @State private var canContinue = false
     var body: some Scene {
         WindowGroup {
             Group {
@@ -39,7 +41,12 @@ struct CivilizationApp: App {
                         }
                     }
                 }
-                else { SettlementLoadingView(stage: "Restoring settlement…") }
+                else if entryReady {
+                    LaunchMenuView(canContinue: canContinue,
+                                   newGame: { Task { await restoreLibrary(newGame: true) } },
+                                   resume: { Task { await restoreLibrary() } })
+                }
+                else { SettlementLoadingView(stage: "Preparing menu…") }
             }
             .sheet(isPresented: $showGames) {
                 if let library { SavedGamesView(library: library) }
@@ -82,7 +89,8 @@ struct CivilizationApp: App {
                     }
                     #endif
                     libraryRoot = root
-                    await restoreLibrary()
+                    canContinue = try GameLibrary.hasSavedGame(rootURL: root)
+                    entryReady = true
                 }
                 catch is CancellationError {}
                 catch { startupError = error.localizedDescription }
@@ -90,12 +98,13 @@ struct CivilizationApp: App {
             .preferredColorScheme(.dark)
         }
     }
-    @MainActor private func restoreLibrary(selectedGameID: String? = nil) async {
+    @MainActor private func restoreLibrary(selectedGameID: String? = nil, newGame: Bool = false) async {
         guard !isRestoring else { return }
         isRestoring = true
         defer { isRestoring = false }
         do {
-            library = try await GameLibrary.load(rootURL: libraryRoot, selectedGameID: selectedGameID)
+            if newGame { library = try await GameLibrary.startNewGame(rootURL: libraryRoot) }
+            else { library = try await GameLibrary.load(rootURL: libraryRoot, selectedGameID: selectedGameID) }
             library?.setActive(sceneIsActive)
             startupError = nil; recoveryGames = []
         } catch is CancellationError {} catch {

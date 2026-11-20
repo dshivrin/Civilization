@@ -1,5 +1,10 @@
 # Current checkpoint — S1-Geography delivered; environment visual review —20November2026
 
+## S1-PLAY-001 — stop for human playtest
+
+Latest direct task supersedes environment work priority. Normal launch/new/continue and canonical completion presentation implemented; no economy/config/era gameplay expansion. Reconciliation4f1f255; final report [s1-play](milestones/s1-play.md), dependency register [readiness](testing/s1-play-readiness.md). Fresh core189Debug/171Release,5Release exclusions, scoped native entry/persistence/isolation/completion on phone/mini/Pro and Release phone/iPad pass. Existing saves and media remain preserved; no physical install/reset. Independent review found no blocker; failed-Continue back navigation and damaged-index repair remain gaps. Human normal playthrough is the acceptance gate. Commit/push to personal dshivrin/Civilization first-era-review, then stop.
+
+
 Physical update now installed and first launch verified at Dima's direct request. Current56f4124signed product: fresh before/after backups production-validate and are byte-identical pre-launch; normal successfully converts to64×48with original5buildings/15roads/IDs/history and exact on-device backup; grouped developer64buildings/566roads remains byte-identical after normal launch. Existing legacy library selection retained, no new game/reset. [Metadata](testing/s1-geography/device-install.json). Earlier no-new-physical-install statements below are historical and superseded by this check. No runtime environment concept integration.
 
 

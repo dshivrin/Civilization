@@ -466,7 +466,7 @@ struct SettlementView: View {
     private func goalCard(compact: Bool) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             if session.state.stoneAgeCompleted == true {
-                Label("Stone Age readiness earned", systemImage: "checkmark.seal.fill").foregroundStyle(.mint)
+                Label("Bronze Age unlocked · readiness earned", systemImage: "checkmark.seal.fill").foregroundStyle(.mint).accessibilityIdentifier("bronzeAgeReadiness")
                 if !session.fullStoneAgeRequirementsMet { Text("Your historical readiness is preserved. Finish the expanded checklist at your own pace.").font(.caption) }
             }
             Text(session.nextGuidance.title).font(.headline).accessibilityIdentifier("journeyNextStepTitle")
@@ -486,7 +486,17 @@ struct SettlementView: View {
                     }
                 }
             }
-            Text("Complete all catalog entries, required resource discoveries and all five pillars. Advancing into a new age is not yet available.").font(.caption)
+            Text("Five development pillars").font(.subheadline.bold())
+            ForEach(session.pillarGoals) { goal in
+                VStack(alignment: .leading, spacing: 4) {
+                    Label(goal.title, systemImage: session.isPillarGoalComplete(goal.id) ? "checkmark.circle.fill" : "circle")
+                    Text(session.pillarGoalProgress(id: goal.id)).foregroundStyle(.secondary)
+                }.font(.caption)
+            }
+            if !session.missingDiscoveryResourceNames.isEmpty {
+                Text("Resource territories still needed: " + session.missingDiscoveryResourceNames.joined(separator: ", ")).font(.caption)
+            }
+            Text("Goal: complete all Stone Age building types and technologies, required resource territories and all five pillars to unlock Bronze Age readiness. Full-map exploration is optional. Bronze Age gameplay is not available yet.").font(.caption)
         }.padding(12).frame(maxWidth: .infinity, alignment: .leading).accessibilityElement(children: .contain).accessibilityIdentifier("goalProgress")
     }
     private func inspectionPanel(_ building: PlacedBuilding) -> some View {

@@ -16,7 +16,7 @@ public extension GameEngine {
     var settlementGuidance: SettlementGuidance {
         var resolver = GuidanceResolver(game: self, net: rates)
         if fullStoneAgeRequirementsMet {
-            return SettlementGuidance(title: "Stone Age complete", explanation: "Every building type, technology, required resource territory and development pillar is complete. Keep building in this settlement; the next age is not available yet.", action: .complete, waitSeconds: nil)
+            return SettlementGuidance(title: "Stone Age complete", explanation: "Bronze Age unlocked — readiness milestone earned. Every building type, technology, required resource territory and development pillar is complete. Bronze Age gameplay is not available yet. Keep building in this settlement.", action: .complete, waitSeconds: nil)
         }
         guard let objective = journeyChapters.first(where: { !$0.isComplete })?.objectives.first(where: { !$0.isComplete }) else { return resolver.help }
         return resolver.objective(objective.id)

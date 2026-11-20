@@ -200,3 +200,42 @@ private let gamesEpoch = Date(timeIntervalSince1970: 80_000_000)
     #expect(library.session.state == secondDeveloper && library.session.developerScenario == .late)
 }
 #endif
+
+@Test @MainActor func normalEntryMetadataDoesNotCreateOrAdvanceGames() async throws {
+    let root = gameLibraryRoot(); defer { try? FileManager.default.removeItem(at: root) }
+    #expect(try !GameLibrary.hasSavedGame(rootURL: root))
+    #expect(!FileManager.default.fileExists(atPath: root.path))
+    let library = try await GameLibrary.startNewGame(rootURL: root, clock: { gamesEpoch })
+    let c = try GameConfiguration.bundled()
+    #expect(library.games.count == 1 && library.activeGameID == "legacy")
+    #expect(library.session.state == (try GameEngine(configuration: c, now: gamesEpoch).state))
+    let url = root.appendingPathComponent("settlement-v1.json"), before = try Data(contentsOf: url)
+    #expect(try GameLibrary.hasSavedGame(rootURL: root))
+    #expect(try Data(contentsOf: url) == before)
+    let continued = try await GameLibrary.load(rootURL: root, clock: { gamesEpoch })
+    #expect(continued.session.state == library.session.state)
+}
+
+@Test(arguments: [false, true]) @MainActor func launchNewGamePreservesUnopenedDamagedProgress(indexed: Bool) async throws {
+    let root = gameLibraryRoot(); defer { try? FileManager.default.removeItem(at: root) }
+    let c = try GameConfiguration.bundled()
+    var oldURL = root.appendingPathComponent("settlement-v1.json")
+    if indexed {
+        let previous = try await GameLibrary.load(rootURL: root, clock: { gamesEpoch })
+        let game = try await previous.createGame(name: "Keep this game")
+        oldURL = try GameLibraryStore(rootURL: root).saveURL(for: game)
+    } else { try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true) }
+    let bytes = Data("damaged-progress-do-not-replace".utf8)
+    try bytes.write(to: oldURL)
+    let developerURL = oldURL.appendingPathExtension("developer")
+    try bytes.write(to: developerURL)
+    #expect(try GameLibrary.hasSavedGame(rootURL: root))
+    let library = try await GameLibrary.startNewGame(rootURL: root, clock: { gamesEpoch })
+    #expect(library.activeGameID != "legacy")
+    #expect(library.session.state == (try GameEngine(configuration: c, now: gamesEpoch).state))
+    #expect(library.games.count == (indexed ? 3 : 2))
+    #expect(try Data(contentsOf: oldURL) == bytes)
+    #expect(try Data(contentsOf: developerURL) == bytes)
+    let restored = try await GameLibrary.load(rootURL: root, clock: { gamesEpoch })
+    #expect(restored.activeGameID == library.activeGameID)
+}

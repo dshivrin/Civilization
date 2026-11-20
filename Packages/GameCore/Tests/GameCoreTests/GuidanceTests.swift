@@ -131,6 +131,8 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
     let saved = try #require(try store.load(configuration: game.configuration))
     let restored = try GameEngine(state: saved, configuration: game.configuration)
     #expect(restored.settlementGuidance.action == .complete)
+    #expect(restored.settlementGuidance.explanation.contains("Bronze Age unlocked"))
+    #expect(restored.settlementGuidance.explanation.contains("gameplay is not available"))
     #expect(restored.state.completedGoals == game.state.completedGoals)
     if let folder = ProcessInfo.processInfo.environment["CIVILIZATION_GUIDANCE_REPORT_DIR"] {
         let directory = URL(fileURLWithPath: folder)

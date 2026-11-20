@@ -1,5 +1,7 @@
 # Riverbend — first-era review candidate
 
+**Normal play:** launch → **New Game** for a separate authentic Stone Age settlement, or **Continue** for the selected normal save. In game, **Games** switches saves; tap the chapter icon twice → **All seven chapters** for objectives and pillar thresholds. Earn all 20 building types, 20 technologies, required resource discoveries and five pillars for Bronze Age readiness; full exploration is optional and Bronze gameplay is not available. [S1-PLAY report and remaining gaps](docs/milestones/s1-play.md), [tools/test readiness checklist](docs/testing/s1-play-readiness.md). Candidate awaits human playtest.
+
 
 Normal gameplay now defaults to **64×48**, starting with the standard one-campfire Stone Age settlement and unchanged footprints. Development saves preserve progress through a validated, byte-backed-up additive transition. Near-side quarry access shares the original stone reserve; opaque exploration clouds and persistent45-second expeditions reveal the expanded valley. [Geography delivery/evidence](docs/milestones/s1-geography.md). [Environment assessment and review-only concept](docs/art/2026-11-20-environment-integration-assessment.md); no new runtime artwork accepted.
 

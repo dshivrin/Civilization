@@ -57,6 +57,40 @@ public final class GameLibrary {
         return GameLibrary(session: session, index: index, store: store, configuration: configuration, clock: clock)
     }
 
+    /// Reads entry availability without restoring, advancing, migrating or writing any game.
+    public static func hasSavedGame(rootURL: URL? = nil) throws -> Bool {
+        let store = GameLibraryStore(rootURL: try resolvedRoot(rootURL))
+        if try store.load() != nil { return true }
+        let original = SavedGame(id: "legacy", name: "Original settlement", createdAt: Date(), mapID: "entry")
+        return FileManager.default.fileExists(atPath: try store.saveURL(for: original).path)
+    }
+
+    /// Starts separately without opening the previous selection, even when that game is damaged.
+    public static func startNewGame(rootURL: URL? = nil, clock: @escaping () -> Date = Date.init) async throws -> GameLibrary {
+        let configuration = try GameConfiguration.bundled()
+        let store = GameLibraryStore(rootURL: try resolvedRoot(rootURL))
+        let existing = try store.load()
+        let original = SavedGame(id: "legacy", name: "Original settlement", createdAt: clock(), mapID: configuration.map.id)
+        let originalExists = FileManager.default.fileExists(atPath: try store.saveURL(for: original).path)
+        let game = existing == nil && !originalExists ? original :
+            SavedGame(id: UUID().uuidString, name: "Settlement \((existing?.games.count ?? 1) + 1)", createdAt: clock(), mapID: configuration.map.id)
+        let url = try store.saveURL(for: game)
+        guard !FileManager.default.fileExists(atPath: url.path) else {
+            throw GameError.invalidSave("This game already exists. Existing progress has been preserved.")
+        }
+        let session = try await GameSession.load(clock: clock, saveURL: url, configuration: configuration)
+        if let warning = session.persistenceWarning { throw GameError.invalidSave(warning) }
+        try Task.checkCancellation()
+        var index = existing ?? GameLibraryIndex(activeGameID: original.id, games: [original])
+        for i in index.games.indices where index.games[i].mapID == "river-clearing-v1" {
+            index.games[i].mapID = configuration.map.id
+        }
+        if game.id != original.id { index.games.append(game) }
+        index.activeGameID = game.id
+        try store.save(index)
+        return GameLibrary(session: session, index: index, store: store, configuration: configuration, clock: clock)
+    }
+
     /// A valid index can offer explicit recovery choices without loading or changing any game.
     public static func availableGames(rootURL: URL? = nil) throws -> [SavedGame] {
         try GameLibraryStore(rootURL: resolvedRoot(rootURL)).load()?.games ?? []

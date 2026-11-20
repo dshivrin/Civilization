@@ -1,5 +1,10 @@
 # Civilization Builder — Codex project instructions
 
+## S1-PLAY-001 candidate — stop for human playtest, 20 November 2026
+
+Dima's normal-entry/era-completion task is implemented for human review. Launch → New Game creates a separate authentic64×48one-campfire standard start; Continue resumes the selected normal save. No progress reset/deletion or physical install in this task. Seven canonical chapters/catalog/required territories/five pillars lead to Bronze Age readiness only; no Bronze gameplay or balance change. Fresh189Debug/171Release, five Release exclusions and scoped native phone/mini/Pro Debug plus phone/iPad Release entry/completion pass. [Report](docs/milestones/s1-play.md), [tool/test readiness and remaining dependencies](docs/testing/s1-play-readiness.md). Human playtest is the acceptance gate; stop after authorized commit/push. Preserve all prior backlog/media and saves.
+
+
 ## Active S1-Geography activation — 20 November 2026
 
 Dima confirms all existing saves are development/test data and authorizes the approved **64×48 default**, standard Stone Age start, unchanged normal footprints, MAP-001–004 implementation/verification and then environment graphics assessment. This supersedes earlier production migration approval gates and the 32×24 normal default. Backups must be created and validated before archiving/resetting any development progress; preserve independent normal/developer saves. [Bounded specification](docs/superpowers/specs/2026-11-20-s1-geography-design.md). Production implementation is verified and awaiting human review: core181b0a8/rendering56f4124,187Debug/169Release, five Release exclusions and native phone/mini/Pro checks. [Milestone](docs/milestones/s1-geography.md). Environment graphics has started with [integration assessment and one review concept](docs/art/2026-11-20-environment-integration-assessment.md); no runtime art replacement or batch production. All previous backlog and visual approval requirements remain.
