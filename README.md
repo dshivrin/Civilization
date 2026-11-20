@@ -1,5 +1,7 @@
 # Riverbend — first-era review candidate
 
+**Reusable engineering tools:** `python3 scripts/dev.py doctor` checks prerequisites; `python3 scripts/dev.py test` runs existing core Debug/Release and exclusion checks with reports. Read [the command guide](scripts/README.md) for native matrices, packaged save validation, safe backup and preservation comparisons. Reuse these tools instead of recreating temporary scripts.
+
 **Normal play:** launch → **New Game** for a separate authentic Stone Age settlement, or **Continue** for the selected normal save. In game, **Games** switches saves; tap the chapter icon twice → **All seven chapters** for objectives and pillar thresholds. Earn all 20 building types, 20 technologies, required resource discoveries and five pillars for Bronze Age readiness; full exploration is optional and Bronze gameplay is not available. [S1-PLAY report and remaining gaps](docs/milestones/s1-play.md), [tools/test readiness checklist](docs/testing/s1-play-readiness.md). Candidate awaits human playtest.
 
 

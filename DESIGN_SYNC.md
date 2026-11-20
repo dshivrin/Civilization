@@ -1,5 +1,10 @@
 # Design synchronization record and operating procedure
 
+## ENG-TOOLS-001 — reusable local engineering tools
+
+Dima directly requested reusable parameterized scripts after reviewing the infrastructure proposal. Local toolkit now reuses existing core/native suites, packages a read-only production save inspector, and provides explicit-device backup planning/validation and strict/additive preservation comparisons. [Usage](scripts/README.md), [bounded report/evidence](docs/milestones/reusable-engineering-tools.md). Python10, inspector8Debug/7Release, main189Debug/171Release plus5exclusions and scoped Release iPad entry pass. No gameplay, signing, physical-device or CI change; S1-PLAY human acceptance remains open. Existing DEV-001 identity and all deferred backlog retained.
+
+
 ## Active S1-PLAY-001 — normal entry and completion
 
 Dima authorizes normal New Game/Continue entry, authentic64×48Stone Age starts, canonical seven-chapter/era-completion audit and Debug/Release phone/tablet verification. Preserve all normal/developer progress; new games use independent files, never reset existing saves. Bronze Age unlock is readiness only, no Bronze Age gameplay. Full exploration optional;1–2hours is a tuning objective, not a timer. Commit/push and stop for human playtest. [Reconciled specification](docs/superpowers/specs/2026-11-20-s1-play-design.md), [plan](docs/superpowers/plans/2026-11-20-s1-play.md). All previous backlog retained.

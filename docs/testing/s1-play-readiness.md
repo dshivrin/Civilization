@@ -40,3 +40,7 @@ Remaining needs: Dima's normal human playtest; optional sustained physical metri
 ## Requested plan and physical update
 
 Signed2f0e4b9now installed/launched on Dima's iPhone with fresh validated backup and byte-identical original progress; [actual evidence](s1-play/device-install.json). Human acceptance remains open. Dima asked us to request the plan from the Master chat; [retrieved reconstruction](../design/sources/2026-11-20-development-infrastructure-reconstructed.md) proposes unified reporting, broader regression harness, diagnostics and eventual CI. These are proposed next engineering stages, not missing mandatory software or already authorized implementation. Existing DEV IDs retain their meanings.
+
+## Reusable tooling now available
+
+Dima's subsequent direct reuse request authorizes ENG-TOOLS-001, implemented as [scripts/dev.py](../../scripts/dev.py), [command guide](../../scripts/README.md) and packaged Tools/SaveInspector. [Actual validation](../milestones/reusable-engineering-tools.md): Python10/inspector8Debug/7Release and existing189/171+5exclusion suites pass; scoped Release native entry pass. This closes the bounded local runner/report/validator repetition gap without claiming all proposed diagnostics/CI work is delivered. No gameplay or physical acceptance change.

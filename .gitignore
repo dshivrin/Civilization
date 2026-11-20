@@ -5,3 +5,7 @@ DerivedData/
 xcuserdata/
 .swiftpm/
 .xcodebuildmcp/
+
+# Reusable local QA artifacts/caches
+__pycache__/
+.qa/

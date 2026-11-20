@@ -1,0 +1,58 @@
+{
+  "scope": "ENG-TOOLS-001 local scripts; no gameplay change or physical device operation",
+  "pythonSafetyTests": 10,
+  "inspectorDebugTests": 8,
+  "inspectorReleaseTests": 7,
+  "core": [
+    {
+      "name": "core-debug",
+      "status": "passed",
+      "tests": 189,
+      "exitCode": 0,
+      "durationSeconds": 14.857
+    },
+    {
+      "name": "core-release",
+      "status": "passed",
+      "tests": 171,
+      "exitCode": 0,
+      "durationSeconds": 9.651
+    },
+    {
+      "name": "release-api-exclusions",
+      "status": "passed",
+      "tests": null,
+      "exitCode": 0,
+      "durationSeconds": 1.264
+    }
+  ],
+  "native": [
+    {
+      "name": "ui-release-1",
+      "status": "passed",
+      "tests": 1,
+      "exitCode": 0,
+      "durationSeconds": 46.622
+    }
+  ],
+  "nativeScope": "iPad Pro13 M4/iOS18.6 simulator; Release NormalEntryUITests; separate com.civilization.seed.qa identity",
+  "intentionalNegativeCheck": {
+    "swiftProcessExit": 0,
+    "executedTests": 0,
+    "runnerReport": "failed",
+    "runnerExit": 1
+  },
+  "sourceSHA256": {
+    "scripts/dev.py": "fb98ba5760290519e3ba8981a9573d94c5b92e9b0f1f49db3d0689049884f05e",
+    "Tools/SaveInspector/Sources/SaveInspection/Inspector.swift": "9b1ed6f7c364c79fe06dc12abfc4aee2c1a97dc458088a634dfe9adf9fa971f1",
+    "Tools/SaveInspector/Sources/SaveInspector/main.swift": "9fa84f2ab383aac7fbf3998b2a0a3469d264a39c42c790694182bc2879425bd4"
+  },
+  "validation": "Existing private before/after/independent-game backup copies production-validated read-only; strict/additive comparisons passed; backup-device planning tested with no hardware access",
+  "limits": [
+    "No hardware transfer through the new backup wrapper in this task; dry-run and existing-copy validation/comparison verified.",
+    "No deterministic concurrent source-mutation test; inspector and wrapper compare snapshots and fail if changed.",
+    "No CI, screenshot baseline or physical performance acceptance."
+  ],
+  "logs": "/tmp/civilization-tools-*; raw private save contents not committed",
+  "review": "One independent code review; index/map mismatch regression fixed; output dangling-alias issue reproduced and fixed; no unresolved blocking findings"
+}

@@ -1,5 +1,10 @@
 # Civilization Builder — Codex project instructions
 
+## Reuse local engineering tools — 20 November 2026
+
+Dima explicitly requests saving repeated scripts with parameters and reusing them to save time. Before generating another temporary QA runner, save validator or preservation/hash script, read [scripts/README.md](scripts/README.md) and use/extend `python3 scripts/dev.py`: doctor/test/validate-saves/backup-device/compare-saves. Permanent resource-safe SwiftPM inspector lives under Tools/SaveInspector; no more copying ad hoc swiftc binaries/resource bundles. Existing host permissions still apply. Backup-device requires explicit device/bundle/new local output, supports dry-run, does not install/launch/stop/reset/write to device. Native tests use isolated QA identity and persistent cache. Never treat zero/missing tests as passing or overwrite artifact directories. [Verified bounded tooling](docs/milestones/reusable-engineering-tools.md). Original DEV-001 meaning and all future backlog remain. Human game acceptance is still pending.
+
+
 ## S1-PLAY physical update and requested plan — 20 November 2026
 
 At Dima's explicit request, product2f0e4b9signed iPhone installation/launch succeed after a fresh validated backup; all4files byte-identical before launch. Original normal6buildings/15roads, developer5buildings/0roads and geography backup remain byte-identical afterward; separate authentic one-campfire normal game now selected, old entry retained. [Evidence](docs/testing/s1-play/device-install.json). Dima requested asking the Master chat for its tools/test plan; [reply reconstruction](docs/design/sources/2026-11-20-development-infrastructure-reconstructed.md) retrieved. Proposed infrastructure DEV labels are not canonical renumbering/new execution permission. Stop for normal human playtest.

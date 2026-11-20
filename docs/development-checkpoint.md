@@ -1,5 +1,10 @@
 # Current checkpoint — S1-Geography delivered; environment visual review —20November2026
 
+## ENG-TOOLS-001 — reusable local scripts verified
+
+Dima's direct reuse request authorizes this bounded engineering follow-up while S1-PLAY human acceptance stays open. `scripts/dev.py` + Tools/SaveInspector now replace repeated QA, validator and preservation scripts; [usage](../scripts/README.md), [actual report](milestones/reusable-engineering-tools.md). Final Python10, inspector8Debug/7Release; wrapper main189/171+5probes; scoped Release Pro entry1pass; real empty filter rejected as intended; existing backups validated read-only and compared. Final review metadata-identity issue and output dangling-alias issue fixed with red→green regressions. No device action, gameplay/signing/art/CI change. Use/extend scripts before another ad hoc copy. Remaining proposal stages remain deferred; no DEV-001 renumbering. Commit/push coherent tooling to personal first-era-review; game playtest is still the product gate.
+
+
 ## Physical S1-PLAY installed — 20 November 2026
 
 Dima explicitly requested iPhone installation/report and asked the Master chat for the tools/test plan. Product2f0e4b9 signed build/strict verification/install/launch succeed. Fresh stable backup and exact4file pre-launch preservation verified; after launch original normal6buildings/15roads, developer5buildings/0roads and geography backup remain byte-identical. A separate authentic64×48one-campfire normal game is now selected; original legacy slot remains. No physical automated tap/reset or fixture injected. [Evidence](testing/s1-play/device-install.json), [milestone](milestones/s1-play.md). Master reconstructed infrastructure proposal retrieved and archived; candidate DEV-001–006 labels do not replace canonical existing DEV-001. Do not begin proposed infrastructure or art before reconciling authorization; current stop remains human playtest.
