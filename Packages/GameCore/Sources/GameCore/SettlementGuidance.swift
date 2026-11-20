@@ -80,6 +80,9 @@ private struct GuidanceResolver {
     }
     mutating func build(_ kind: BuildingKind, reason: String = "") -> SettlementGuidance {
         guard enter("build-" + kind.rawValue), let definition = config.buildings.first(where: { $0.kind == kind }), kind != .campfire else { return help }
+        if game.usesConnectedPaths, let disconnected = game.state.buildings.first(where: { $0.kind == kind && $0.isOperational && !game.isServiceOperational($0) }) {
+            return advice("Connect " + definition.name, "Connect a path from this building to the civic center, or move it to reachable land. Existing progress is preserved.", .inspect(disconnected.id))
+        }
         if let pending = game.state.buildings.first(where: { $0.kind == kind && !$0.isOperational }) {
             return advice("Finish " + definition.name, "Construction is underway. Its effects and chapter credit start when it finishes. You may work on another objective meanwhile.", .inspect(pending.id), wait: pending.constructionRemainingSeconds)
         }
@@ -91,7 +94,7 @@ private struct GuidanceResolver {
             if game.discoveredTileCount < config.map.width * config.map.height { return explore() }
             return advice("Make room for " + definition.name, "Move an existing building to open grass or clearing. Keep the whole footprint clear; fishing buildings need revealed nearby water. Moving is free and preserves progress.", .journey)
         }
-        return advice("Build " + definition.name, reason + "Choose Build in the catalog. Drag the preview onto clear, revealed land and release to place it. Costs are paid only for a valid placement; construction then finishes over time.", .build(kind))
+        return advice("Build " + definition.name, reason + "Choose Build in the catalog. Drag the preview onto clear, revealed land, then tap the green check to confirm it. Costs are paid only for a valid placement; construction then finishes over time.", .build(kind))
     }
     mutating func research(_ id: String) -> SettlementGuidance {
         guard enter("research-" + id), let technology = config.technologyDefinitions.first(where: { $0.id == id }) else { return help }
@@ -127,6 +130,9 @@ private struct GuidanceResolver {
         guard let source = sources.first, let recipe = source.recipes?.first(where: { $0.outputsPerMinute[r] > 0 }) else { return help }
         let matching = game.state.buildings.filter { $0.isOperational && ((game.recipe(for: $0)?.outputsPerMinute[r] ?? 0) + (game.civicDefinition(for: $0)?.culturalOutputPerMinute[r] ?? 0)) > 0 }
         if let producer = matching.first {
+            if !game.isServiceOperational(producer) {
+                return advice("Connect " + config.definition(producer.kind).name, "Open this building and connect paths to the civic center. It uses no workers or inputs while disconnected. Moving it to reachable land is free.", .inspect(producer.id))
+            }
             let inputs = game.recipe(for: producer)?.inputsPerMinute ?? ResourceAmounts()
             for input in Resource.allCases where inputs[input] > 0 && game.state.resources[input] < 1 && net[input] <= 0 { return resource(input, target: max(1, inputs[input])) }
             if let depositResource = game.recipe(for: producer)?.depositResource, !game.discoveredRequiredResources.contains(depositResource) { return discover(depositResource) }
@@ -161,7 +167,7 @@ private struct GuidanceResolver {
         if let seconds = game.state.explorationRemainingSeconds {
             return advice("Wait for the expedition", "The expedition will reveal more land when it returns. You can build or research meanwhile; a full map is not required for readiness.", .explore, wait: seconds)
         }
-        if (game.state.explorationRadius ?? rules.initialRadius) + rules.revealRadiusStep > rules.requiresScoutAfterRadius && !game.constructedKinds.contains(.scoutCamp) { return build(.scoutCamp) }
+        if (game.state.explorationRadius ?? rules.initialRadius) + rules.revealRadiusStep > rules.requiresScoutAfterRadius && !game.state.buildings.contains(where: { $0.kind == .scoutCamp && game.isServiceOperational($0) }) { return build(.scoutCamp) }
         if let missing = Resource.allCases.first(where: { game.state.resources[$0] < rules.cost[$0] }) { return resource(missing, target: rules.cost[missing]) }
         return advice("Send an expedition", "Open Explore and send an expedition to reveal the next ring. Discover required resource territories and the security pillar's territory target; you do not need every map tile or future-era resources.", .explore)
     }

@@ -82,8 +82,8 @@ struct SettlementView: View {
                             if let warning = session.persistenceWarning {
                                 Text(warning).font(.caption).foregroundStyle(.yellow).padding(10).background(panelColor, in: RoundedRectangle(cornerRadius: 12))
                             }
-                            if !session.isDragMode {
                             goalsPanel(compact: compact)
+                            if !session.isDragMode {
                             Text(session.message).font(.system(size: 12)).lineLimit(2).foregroundStyle(parchment.opacity(0.85))
                                 .padding(9).background(panelColor.opacity(0.94), in: RoundedRectangle(cornerRadius: 10))
                                 .accessibilityIdentifier("settlementMessage")
@@ -123,6 +123,9 @@ struct SettlementView: View {
                 .padding(.horizontal, compact ? 12 : 22)
                 .padding(.vertical, compact ? 8 : 18)
                 .accessibilityHidden(!worldReady)
+            }
+            .overlay {
+                if let scene { CandidateControls(session: session, scene: scene).ignoresSafeArea() }
             }
             .foregroundStyle(parchment)
             .tint(Color(red: 0.91, green: 0.73, blue: 0.39))
@@ -328,6 +331,9 @@ struct SettlementView: View {
             VStack(alignment: .leading, spacing: 12) {
                 Label { Text(resource.title) } icon: { EraIcon(domain: .resource, id: resource.rawValue, size: 24) }.font(.headline)
                 Text("Stored: \(Int(session.state.resources[resource])) / \(Int(session.capacities[resource]))")
+                if session.state.resources[resource] > session.capacities[resource] {
+                    Text("Stored materials remain spendable. Connect storage to make room for new production.").font(.caption)
+                }
                 Text("Gross: \(signed(session.grossRates[resource])) / min")
                 Text("Consumption: \(String(format: "%.1f", session.consumption[resource])) / min")
                 Text("Net: \(signed(session.rates[resource])) / min").foregroundStyle(session.rates[resource] < 0 ? .orange : .mint)
@@ -528,6 +534,12 @@ struct SettlementView: View {
                 }
                 if building.isOperational {
                     Text(session.operatingStatus(building)).font(.subheadline).foregroundStyle(session.productivity(building) < 0.999 ? .orange : .mint)
+                        .accessibilityIdentifier("buildingOperatingStatus")
+                    if !session.isServiceOperational(building) {
+                        Text("Connect any footprint side to paths leading to the civic center, or move this building to reachable land.").font(.caption)
+                        Button("Connect paths") { session.chooseRoadTool(.draw(.trodden)) }
+                            .frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("connectBuildingPaths")
+                    }
                     Text("Productivity: \(Int((session.productivity(building) * 100).rounded()))%")
                         .font(.caption).accessibilityIdentifier("buildingProductivity")
                     if !effect(definition).isEmpty { Text("Base configuration: " + effect(definition)).font(.caption) }

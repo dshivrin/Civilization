@@ -40,7 +40,7 @@ public struct GameEngine: Sendable {
     public var grossRates: ResourceAmounts {
         if configuration.economyRules != nil { return economySnapshot.gross }
         var result = ResourceAmounts()
-        for b in state.buildings where b.isOperational {
+        for b in state.buildings where isServiceOperational(b) {
             for r in Resource.allCases { result[r] += configuration.definition(b.kind).ratesPerMinute[r] }
         }
         for r in Resource.allCases { result[r] *= 1 + activeTechnologies.reduce(0) { $0 + $1.effects.productionBonus[r] } }
@@ -62,15 +62,18 @@ public struct GameEngine: Sendable {
         for r in Resource.allCases { result[r] -= used[r] }
         return result
     }
-    public var capacities: ResourceAmounts {
+    public var capacities: ResourceAmounts { resourceCapacities(connectedOnly: usesConnectedPaths) }
+    /// Trusted retention ceiling; disconnected completed storage still owns existing stock.
+    public var structuralCapacities: ResourceAmounts { resourceCapacities(connectedOnly: false) }
+    private func resourceCapacities(connectedOnly: Bool) -> ResourceAmounts {
         var result = configuration.baseCapacities
         for tech in activeTechnologies { for r in Resource.allCases { result[r] += tech.effects.storageBonus[r] } }
-        for b in state.buildings where b.isOperational {
+        for b in state.buildings where b.isOperational && (!connectedOnly || isServiceOperational(b)) {
             for r in Resource.allCases { result[r] += (configuration.definition(b.kind).storageBonus?[r] ?? 0) * Double(b.level) }
         }
         return result
     }
-    public var housingCapacity: Int { state.buildings.filter(\.isOperational).reduce(0) { $0 + configuration.definition($1.kind).housing * (civicDefinition(for: $1) == nil ? $1.level : 1) } }
+    public var housingCapacity: Int { state.buildings.filter(isServiceOperational).reduce(0) { $0 + configuration.definition($1.kind).housing * (civicDefinition(for: $1) == nil ? $1.level : 1) } }
     public var growthIntervalSeconds: Double {
         activeTechnologies.reduce(configuration.populationRules?.growthIntervalSeconds ?? 0) { $0 * $1.effects.growthIntervalMultiplier }
     }
@@ -192,10 +195,12 @@ public struct GameEngine: Sendable {
         let original = roads
         for tile in tiles { roads[tile] = style }
         guard roads != original else { return }
+        if usesConnectedPaths { evaluateGoals() }
         state.roads = roads.map { RoadTile(tile: $0.key, style: $0.value) }.sorted {
             $0.tile.y == $1.tile.y ? $0.tile.x < $1.tile.x : $0.tile.y < $1.tile.y
         }
         refreshConnectivity()
+        if usesConnectedPaths { evaluateGoals() }
     }
     public mutating func research(_ id: String = "oralTradition") throws {
         if let issue = researchIssue(id) { throw issue }
@@ -283,7 +288,10 @@ public struct GameEngine: Sendable {
                 step = min(step, (state.depositRemaining?[id] ?? 0) * 60 / rate)
             }
             // resolveEvents drains zero-time events before each integration.
-            for r in Resource.allCases { state.resources[r] = min(capacity[r], max(0, state.resources[r] + net[r] * step / 60)) }
+            for r in Resource.allCases {
+                let retainedLimit = usesConnectedPaths ? max(capacity[r], state.resources[r]) : capacity[r]
+                state.resources[r] = min(retainedLimit, max(0, state.resources[r] + net[r] * step / 60))
+            }
             for (id, rate) in snapshot?.deposits ?? [:] {
                 let reserve = state.depositRemaining?[id] ?? 0
                 state.depositRemaining?[id] = max(0,reserve - rate * step / 60)
@@ -322,6 +330,11 @@ public struct GameEngine: Sendable {
             state.population += 1
         }
     }
+    private mutating func credit(_ resource: Resource, amount: Double) {
+        let capacity = capacities[resource]
+        let limit = usesConnectedPaths ? max(capacity, state.resources[resource]) : capacity
+        state.resources[resource] = min(limit, state.resources[resource] + amount)
+    }
     private mutating func spend(_ costs: ResourceAmounts) {
         for r in Resource.allCases { state.resources[r] -= costs[r] }
     }
@@ -334,7 +347,7 @@ public struct GameEngine: Sendable {
             else { achieved = state.resources[.knowledge] >= configuration.knowledgeGoalUnits }
             if achieved {
                 state.completedGoals.insert(goal)
-                if goal.building != nil { state.resources[.wood] = min(capacities.wood, state.resources[.wood] + configuration.constructionGoalWoodReward) }
+                if goal.building != nil { credit(.wood, amount: configuration.constructionGoalWoodReward) }
             }
         }
         if configuration.progressionGoals != nil {
@@ -352,7 +365,7 @@ public struct GameEngine: Sendable {
         try require(state.lastUpdated.timeIntervalSince1970.isFinite && state.population >= configuration.initialPopulation && state.population <= 768_000_000, "Invalid clock or population")
         // Validate references and bounded levels before derived capacities consult definitions.
         try require(state.buildings.allSatisfy { building in configuration.buildings.contains(where: { $0.kind == building.kind }) && building.level >= 1 && building.level <= (configuration.economyRules?.maximumUpgradeLevel ?? 1) }, "Unsupported building or invalid level")
-        try require(Resource.allCases.allSatisfy { state.resources[$0].isFinite && state.resources[$0] >= 0 && state.resources[$0] <= capacities[$0] }, "Invalid resource balances")
+        try require(Resource.allCases.allSatisfy { state.resources[$0].isFinite && state.resources[$0] >= 0 && state.resources[$0] <= (usesConnectedPaths ? structuralCapacities[$0] : capacities[$0]) }, "Invalid resource balances")
         try require(state.buildings.count <= configuration.map.width * configuration.map.height && Set(state.buildings.map(\.id)).count == state.buildings.count, "Invalid building IDs")
         try require(state.buildings.filter { $0.kind == .campfire }.count == 1 && (configuration.civicLevels != nil || civicCenter?.origin == configuration.map.campfire), "Missing or moved campfire")
         if configuration.civicLevels != nil {
@@ -449,7 +462,7 @@ public struct GameEngine: Sendable {
 public extension GameEngine {
     mutating func developerAddResources(_ amount: Double) {
         guard amount.isFinite, amount >= 0 else { return }
-        for r in Resource.allCases { state.resources[r] = min(capacities[r], state.resources[r] + min(amount, capacities[r])) }
+        for r in Resource.allCases { credit(r, amount: min(amount, capacities[r])) }
         evaluateGoals()
     }
     mutating func developerAddPopulation(_ amount: Int) {

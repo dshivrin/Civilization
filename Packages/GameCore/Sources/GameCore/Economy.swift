@@ -62,7 +62,7 @@ public extension GameEngine {
         var net = gross
         for resource in Resource.allCases { net[resource] -= used[resource] }
         let productive = Set(state.buildings.compactMap { building -> Int? in
-            guard building.isOperational else { return nil }
+            guard isServiceOperational(building) else { return nil }
             let outputs = recipe(for: building)?.outputsPerMinute ?? configuration.definition(building.kind).ratesPerMinute
             guard Resource.allCases.contains(where: { outputs[$0] > 0 }), (snapshot?.factors[building.id] ?? (snapshot == nil ? 1 : 0)) > 1e-9 else { return nil }
             return building.id
@@ -74,7 +74,7 @@ public extension GameEngine {
     func producingBuildingCount(for resource: Resource) -> Int {
         let factors = configuration.economyRules == nil ? nil : economySnapshot.factors
         return state.buildings.filter { building in
-            guard building.isOperational else { return false }
+            guard isServiceOperational(building) else { return false }
             if let civic = civicDefinition(for: building) {
                 let founding = recipe(for: building)?.outputsPerMinute ?? configuration.definition(building.kind).ratesPerMinute
                 return founding[resource] > 0 || (civic.culturalOutputPerMinute[resource] > 0 && workforceProductivity(building) > 1e-9)
@@ -98,11 +98,12 @@ public extension GameEngine {
         return cost
     }
     func productivity(_ building: PlacedBuilding) -> Double {
-        guard building.isOperational else { return 0 }
+        guard isServiceOperational(building) else { return 0 }
         return configuration.economyRules == nil ? 1 : economySnapshot.factors[building.id, default: 0]
     }
     func operatingStatus(_ building: PlacedBuilding) -> String {
         if !building.isOperational { return "Under construction" }
+        if !isServiceOperational(building) { return "Not connected · connect a path to the civic center" }
         let factor = productivity(building)
         if workforceProductivity(building) < 1 - 1e-9 { return "Workers limited · \(Int((factor * 100).rounded()))% productivity" }
         return factor >= 1 - 1e-9 ? "Operating" : "Shortage · \(Int((factor * 100).rounded()))% productivity"
@@ -126,7 +127,7 @@ extension GameEngine {
         }
         var flows: [Flow] = []
         // Stable IDs make summation, tie breaks and resource sharing independent of save array order.
-        for building in state.buildings.sorted(by: { $0.id < $1.id }) where building.isOperational {
+        for building in state.buildings.sorted(by: { $0.id < $1.id }) where isServiceOperational(building) {
             let definition = configuration.definition(building.kind)
             let recipe = recipe(for: building)
             var outputs = recipe?.outputsPerMinute ?? definition.ratesPerMinute

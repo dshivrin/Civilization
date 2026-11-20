@@ -11,6 +11,73 @@ final class RelocationUITests: XCTestCase {
         if resume.isEnabled { resume.tap() } else { app.buttons["newNormalGame"].tap() }
     }
 
+    @MainActor func testConnectivityPilotIsExplicitReviewOnlyAndPersistsPaths() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let c = try GameConfiguration.bundled(), epoch = Date().addingTimeInterval(-40)
+        var earned = try GameEngine(configuration: c, now: epoch)
+        let source = Tile(x: c.map.campfire.x - 3, y: c.map.campfire.y)
+        let path = Tile(x: c.map.campfire.x - 1, y: c.map.campfire.y)
+        try earned.build(.gatheringShelter, at: source)
+        earned.advance(to: epoch.addingTimeInterval(20))
+        struct Envelope: Encodable { let version = 6; let state: GameState }
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state: earned.state)).base64EncodedString()
+        launchNormal(app)
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        app.buttons["developerTools"].tap(); XCTAssertFalse(app.buttons["activateReviewConnectivity"].exists)
+        app.buttons["startGameplayReview"].tap()
+        app.buttons["developerTools"].tap()
+        let activate = app.buttons["activateReviewConnectivity"]
+        XCTAssertTrue(activate.waitForExistence(timeout: 5)); activate.tap()
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "connectivityPilotStatus").firstMatch.waitForExistence(timeout: 5))
+        app.buttons["Done"].tap()
+        func inspect() {
+            app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            let row = app.descendants(matching: .any).matching(identifier: "inspectBuilding-1").firstMatch
+            XCTAssertTrue(row.waitForExistence(timeout: 5)); row.tap()
+        }
+        inspect()
+        let status = app.staticTexts["buildingOperatingStatus"]
+        XCTAssertTrue(status.waitForExistence(timeout: 5)); XCTAssertTrue(status.label.contains("Not connected"))
+        app.buttons["connectBuildingPaths"].tap()
+        let map = app.otherElements["settlementMap"], frame = map.frame
+        let scale = frame.width > 1000 ? 1.1 : 0.95
+        let root = MapGeometry.point(for: c.map.campfire), p = MapGeometry.point(for: path)
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.5 + (p.x - root.x - 80) / scale / frame.width,
+                                                       dy: 0.5 - (p.y - root.y - 30) / scale / frame.height)).tap()
+        app.buttons["confirmRoadStroke"].tap(); inspect()
+        XCTAssertFalse(status.label.contains("Not connected")); XCTAssertTrue(app.staticTexts["buildingWorkers"].label.contains("1"))
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); attachment.name = "connected-review-service"; attachment.lifetime = .keepAlways; add(attachment)
+        app.terminate(); launchNormal(app)
+        XCTAssertFalse(app.staticTexts["developerModeBanner"].exists)
+        XCTAssertTrue((map.value as? String ?? "").contains("0 road tiles"))
+        app.buttons["developerTools"].tap(); app.buttons["startGameplayReview"].tap()
+        XCTAssertTrue((map.value as? String ?? "").contains("1 road tiles"))
+        inspect(); XCTAssertFalse(status.label.contains("Not connected"))
+        app.buttons["developerTools"].tap()
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "connectivityPilotStatus").firstMatch.waitForExistence(timeout: 5))
+        XCTAssertFalse(activate.exists)
+    }
+
+    @MainActor func testResearchPrerequisiteReturnsToExactSourceCard() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.buttons["openResearch"].waitForExistence(timeout: 20)); app.buttons["openResearch"].tap()
+        app.buttons["pillarFilter-culture"].tap(); app.buttons["details-research-rituals"].tap()
+        let prerequisite = app.buttons["researchPrerequisite-oralTradition"]
+        for _ in 0..<5 where !prerequisite.isHittable { app.scrollViews["researchCatalog"].swipeUp() }
+        XCTAssertTrue(prerequisite.isHittable); prerequisite.tap()
+        XCTAssertTrue(app.buttons["research-oralTradition"].waitForExistence(timeout: 5))
+        let back = app.buttons["returnToResearchItem"]
+        XCTAssertTrue(back.waitForExistence(timeout: 5)); back.tap()
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "focusedResearch-rituals").firstMatch.exists)
+        XCTAssertTrue(app.staticTexts["research-description-rituals"].exists)
+        XCTAssertTrue(app.buttons["research-rituals"].isHittable)
+    }
+
     @MainActor func testTerrainAndProductionIndicatorEvidence() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
@@ -69,6 +136,8 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(confirm.isHittable); XCTAssertTrue(cancel.isHittable)
         XCTAssertEqual(app.staticTexts["placementTile"].label, tile)
         XCTAssertNotEqual(start, map.value as? String)
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.12)))
+        for id in ["confirmPlacement", "cancelPlacement", "rotatePlacement"] { XCTAssertTrue(app.buttons[id].isHittable, id) }
         capture("candidate-camera-confirmation", app: app)
         confirm.tap(); XCTAssertFalse(cancel.exists)
         XCTAssertTrue((map.value as? String ?? "").contains("2 buildings"))
@@ -498,7 +567,7 @@ final class RelocationUITests: XCTestCase {
         let position = app.staticTexts["inspectedBuildingPosition"]
         XCTAssertTrue(position.waitForExistence(timeout: 10))
         XCTAssertTrue(position.label.contains("Tile \(destination.x), \(destination.y)"), position.label)
-        let screenshot = XCTAttachment(screenshot: app.screenshot()); screenshot.name = "long-press-relocation"; screenshot.lifetime = .keepAlways; add(screenshot)
+        let screenshot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); screenshot.name = "long-press-relocation"; screenshot.lifetime = .keepAlways; add(screenshot)
         app.buttons["Close inspection"].firstMatch.tap()
         // Ordinary movement below the long-press threshold pans; zoom must not relocate another building.
         let center = map.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
@@ -925,6 +994,7 @@ final class RelocationUITests: XCTestCase {
         let shelter = app.buttons["build-gatheringShelter"]
         XCTAssertTrue(shelter.waitForExistence(timeout: 5)); XCTAssertFalse(shelter.isEnabled)
         capture("reserve-protected", app: app)
+        app.textFields["catalogSearch"].tap(); app.textFields["catalogSearch"].typeText("Gathering\n")
         app.buttons["details-building-gatheringShelter"].tap()
         let reason = app.staticTexts["building-reserve-gatheringShelter"]
         XCTAssertTrue(reason.waitForExistence(timeout: 5)); XCTAssertTrue(reason.label.contains("Woodcutter"))
@@ -934,6 +1004,12 @@ final class RelocationUITests: XCTestCase {
         supplier.tap()
         let woodcutter = app.buttons["build-woodcutter"]
         XCTAssertTrue(woodcutter.waitForExistence(timeout: 5)); XCTAssertTrue(woodcutter.isEnabled)
+        let back = app.buttons["returnToBuildingItem"]
+        XCTAssertTrue(back.waitForExistence(timeout: 5)); back.tap()
+        XCTAssertEqual(app.textFields["catalogSearch"].value as? String, "Gathering")
+        XCTAssertTrue(app.staticTexts["building-description-gatheringShelter"].exists)
+        for _ in 0..<4 where !supplier.isHittable { app.scrollViews["buildingCatalog"].swipeUp() }
+        supplier.tap(); XCTAssertTrue(woodcutter.waitForExistence(timeout: 5))
         woodcutter.tap()
         XCTAssertTrue(app.descendants(matching: .any)["dragModeIndicator"].firstMatch.waitForExistence(timeout: 5))
     }
@@ -1099,7 +1175,7 @@ final class RelocationUITests: XCTestCase {
     }
 
     @MainActor private func capture(_ name: String, app: XCUIApplication) {
-        let attachment = XCTAttachment(screenshot: app.screenshot())
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
         // Optional live capture window: XCTest attachments are misframed on some simulator runtimes.
         if let requested = ProcessInfo.processInfo.environment["CIVILIZATION_QA_CAPTURE"], requested == "1" || requested.split(separator: ",").contains(Substring(name)) {

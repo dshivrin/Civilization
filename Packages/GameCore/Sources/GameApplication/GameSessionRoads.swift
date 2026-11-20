@@ -9,7 +9,7 @@ public extension GameSession {
     }
     func chooseRoadTool(_ tool: RoadTool) {
         cancel(); inspectedBuilding = nil;roadTool = tool
-        message = "Road mode · drag or tap to preview; Confirm applies the stroke. Roads are free decoration."
+        message = usesConnectedPaths ? "Path mode · connect buildings to the civic center. Free · Confirm applies the stroke." : "Road mode · drag or tap to preview; Confirm applies the stroke. Roads are free decoration."
     }
     func extendRoadStroke(to tile: Tile) {
         guard roadTool != nil else { return }
@@ -47,7 +47,7 @@ public extension GameSession {
             switch tool { case .draw: !existing.contains(tile);case .replace, .erase: existing.contains(tile) }
         }
         if commitRoadEdit(at:edited,style:tool.style) {
-            clearRoadStroke();message = "Road stroke applied · free decoration, no effect on era progress."
+            clearRoadStroke();message = usesConnectedPaths ? "Path stroke applied · connected services updated." : "Road stroke applied · free decoration, no effect on era progress."
         }
     }
 }

@@ -27,7 +27,7 @@ public extension GameEngine {
         let materials = Set(Resource.allCases.filter { resource in
             availableOutputs.contains(resource) && !campfireOutputs.contains(resource) && configuration.buildings.contains { $0.cost[resource] > 0 }
         })
-        let establishedKinds = Set(state.buildings.map(\.kind))
+        let establishedKinds = Set(state.buildings.filter { !usesConnectedPaths || isServiceOperational($0) }.map(\.kind))
         let established = suppliers.filter { establishedKinds.contains($0.kind) }.reduce(into: Set<Resource>()) { $0.formUnion($1.outputs) }
         let candidates = suppliers.filter { $0.kind != .campfire }
         // Each step establishes at least one missing material: recursion is bounded by the resource catalog.

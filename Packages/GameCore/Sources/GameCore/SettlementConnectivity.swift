@@ -15,6 +15,11 @@ struct ConnectivityTopology: Equatable, Sendable {
 }
 
 public extension GameEngine {
+    var usesConnectedPaths: Bool { state.operatingRules == .connectedPathsV1 }
+    func isServiceOperational(_ building: PlacedBuilding) -> Bool {
+        building.isOperational && (!usesConnectedPaths || building.kind == .campfire || isConnectedToCivicCenter(building))
+    }
+
     func isConnectedToCivicCenter(_ building: PlacedBuilding) -> Bool {
         connectedBuildingIDs.contains(building.id)
     }

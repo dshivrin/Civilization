@@ -47,7 +47,7 @@ public extension GameEngine {
         if state.explorationRemainingSeconds != nil { return .placement("An expedition is already underway.") }
         if discoveredTileCount == configuration.map.width * configuration.map.height { return .placement("The entire valley is discovered.") }
         let next = min(configuration.maximumExplorationRadius,(state.explorationRadius ?? rules.initialRadius) + rules.revealRadiusStep)
-        if next > rules.requiresScoutAfterRadius && !state.buildings.contains(where: { $0.kind == .scoutCamp && $0.isOperational }) { return .placement("Build a scout camp to explore farther.") }
+        if next > rules.requiresScoutAfterRadius && !state.buildings.contains(where: { $0.kind == .scoutCamp && isServiceOperational($0) }) { return .placement(usesConnectedPaths ? "Connect a completed scout camp to explore farther." : "Build a scout camp to explore farther.") }
         return canAfford(rules.cost) ? nil : .insufficientResources
     }
     func hasNearbyTerrain(_ terrain:String,at origin:Tile,radius:Int) -> Bool {

@@ -163,3 +163,24 @@ func rejectsReviewWithoutTrueMarker(present: Bool, suffix: String) throws {
     #expect(report.sourceByteIdentical && report.files.count == 2)
     #expect(try Data(contentsOf: file) == bytes)
 }
+
+@Test func validatesRetainedDisconnectedStorageStockAgainstStructuralCeiling() throws {
+    let root = try temporaryRoot(); defer { try? FileManager.default.removeItem(at: root) }
+    let c = try GameConfiguration.bundled()
+    var fixture = c
+    let index = fixture.buildings.firstIndex { $0.kind == .storehouse }!
+    fixture.buildings[index].requiresResearch = false; fixture.buildings[index].cost = .init(); fixture.buildings[index].constructionSeconds = 0
+    var game = try GameEngine(configuration: fixture, now: Date(timeIntervalSince1970: 1000))
+    let tile = try #require(game.state.discoveredTiles?.first { game.placementIssue(.storehouse, at: $0) == nil })
+    try game.build(.storehouse, at: tile)
+    var state = game.state; state.grandfatheredBuildingKinds?.insert(.storehouse)
+    state.operatingRules = .connectedPathsV1
+    state.resources.wood = c.baseCapacities.wood + (c.definition(.storehouse).storageBonus?.wood ?? 0) / 2
+    let file = root.appendingPathComponent("settlement-v1.json"); try SaveStore(url: file).save(state)
+    let bytes = try Data(contentsOf: file)
+    #expect(try SaveInspection.inspect(root: root).sourceByteIdentical)
+    #expect(try Data(contentsOf: file) == bytes)
+    state.resources.wood = c.baseCapacities.wood + (c.definition(.storehouse).storageBonus?.wood ?? 0) + 1
+    try SaveStore(url: file).save(state)
+    #expect(throws: Error.self) { try SaveInspection.inspect(root: root) }
+}

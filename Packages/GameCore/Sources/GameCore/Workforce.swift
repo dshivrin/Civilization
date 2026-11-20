@@ -9,11 +9,11 @@ public struct WorkforceRules: Codable, Sendable {
 public extension GameEngine {
     var workforceAvailable: Double { floor(Double(state.population) * (configuration.workforceRules?.workingPopulationFraction ?? 0)) }
     var workforceRequired: Double {
-        state.buildings.filter(\.isOperational).reduce(0) { $0 + workersRequired(for: $1) }
+        state.buildings.filter(isServiceOperational).reduce(0) { $0 + workersRequired(for: $1) }
     }
     func workersAllocated(to building: PlacedBuilding) -> Double { workforceAllocation[building.id,default:0] }
     func workforceProductivity(_ building: PlacedBuilding) -> Double {
-        guard building.isOperational else { return 0 }
+        guard isServiceOperational(building) else { return 0 }
         let demand = workersRequired(for: building)
         return demand == 0 || configuration.workforceRules == nil ? 1 : min(1,workersAllocated(to:building) / demand)
     }
@@ -21,7 +21,7 @@ public extension GameEngine {
 extension GameEngine {
     var workforceAllocation: [Int:Double] {
         guard let rules = configuration.workforceRules else { return [:] }
-        let buildings = state.buildings.filter(\.isOperational).sorted { $0.id < $1.id }
+        let buildings = state.buildings.filter(isServiceOperational).sorted { $0.id < $1.id }
         var allocations: [Int:Double] = [:]
         var available = workforceAvailable
         func share(_ group: [PlacedBuilding], budget: Double) -> Double {

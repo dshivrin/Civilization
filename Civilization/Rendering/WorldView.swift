@@ -10,12 +10,8 @@ struct WorldView: UIViewRepresentable {
     let onReady: () -> Void
     var isObscured = false
     func makeCoordinator() -> Coordinator { Coordinator(scene: scene, session: session) }
-    func makeUIView(context: Context) -> WorldSurface {
-        let surface = WorldSurface()
+    func makeUIView(context: Context) -> SKView {
         let view = SKView(); view.ignoresSiblingOrder = true; view.preferredFramesPerSecond = 60
-        surface.map = view
-        surface.addSubview(view)
-        surface.configure(session: session, scene: scene)
         view.presentScene(scene)
         let coordinator = context.coordinator
         let hold = UILongPressGestureRecognizer(target: coordinator, action: #selector(Coordinator.move(_:)))
@@ -32,11 +28,9 @@ struct WorldView: UIViewRepresentable {
         view.accessibilityLabel = "Settlement map"
         view.accessibilityIdentifier = "settlementMap"
         view.accessibilityHint = "Drag to pan, pinch to zoom. Choose a new building to enter drag mode automatically. Drag the footprint, then use the green check to confirm. Long-press an existing building to move it. Tap and Confirm are also available."
-        return surface
+        return view
     }
-    func updateUIView(_ surface: WorldSurface, context: Context) {
-        let view = surface.map!
-        surface.refreshControls(session: session, scene: scene)
+    func updateUIView(_ view: SKView, context: Context) {
         context.coordinator.updateAccessibility(in: view)
         scene.onReady = onReady
         view.isPaused = session.shouldPauseRendering || isObscured
@@ -190,9 +184,16 @@ struct WorldView: UIViewRepresentable {
     }
 }
 
-/// Buttons are siblings of the accessible map, so map gestures never receive their touches.
-@MainActor final class WorldSurface: UIView {
-    var map: SKView?
+/// A passthrough overlay above the HUD. Only actual buttons intercept touches.
+struct CandidateControls: UIViewRepresentable {
+    let session: GameSession
+    let scene: SettlementScene
+    func makeUIView(context: Context) -> CandidateControlsSurface {
+        let view = CandidateControlsSurface(); view.configure(session: session, scene: scene); return view
+    }
+    func updateUIView(_ view: CandidateControlsSurface, context: Context) { view.refreshControls(session: session, scene: scene) }
+}
+@MainActor final class CandidateControlsSurface: UIView {
     private let cancelButton = UIButton(type: .system)
     private let confirmButton = UIButton(type: .system)
     private let rotateButton = UIButton(type: .system)
@@ -221,8 +222,8 @@ struct WorldView: UIViewRepresentable {
         }
         refreshControls(session: session, scene: scene)
     }
-    override func layoutSubviews() {
-        super.layoutSubviews(); map?.frame = bounds
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        [cancelButton, rotateButton, confirmButton].contains { !$0.isHidden && $0.frame.contains(point) }
     }
     func refreshControls(session: GameSession, scene: SettlementScene) {
         let active = session.isDragMode

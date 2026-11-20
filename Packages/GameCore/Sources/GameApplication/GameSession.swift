@@ -62,6 +62,33 @@ public final class GameSession {
             message = "Review copy resumed. Normal progress and developer scenarios stay separate."
         } catch { message = "Review copy preserved: " + error.localizedDescription }
     }
+    /// Explicit pilot activation is available only in the existing isolated review companion.
+    public func activateReviewConnectivity() {
+        guard isDeveloperMode && isGameplayReview && !isPreparingDeveloperScenario && savesEnabled else {
+            message = "Open an isolated review copy before enabling connected paths."; return
+        }
+        guard engine.state.operatingRules == nil else { message = "Connected paths are already enabled in this review."; return }
+        do {
+            cancel()
+            guard let _ = try reviewStore.loadGameplayReview(configuration: configuration) else {
+                throw GameError.invalidSave("Review source is missing.")
+            }
+            // Settle only in memory. Preserve original source bytes before publishing v7 atomically.
+            advance(to: clock())
+            var candidate = engine.state; candidate.operatingRules = .connectedPathsV1
+            var replacement = try GameEngine(state: candidate, configuration: configuration)
+            replacement.developerFastConstruction = engine.developerFastConstruction
+            try writeDeveloperState(candidate, to: reviewStore, review: true, original: nil)
+            engine = replacement; lastSaved = clock(); persistenceWarning = nil
+            message = "Connected paths enabled in this review copy. Normal progress is unchanged."
+        } catch {
+            persistenceWarning = "Connectivity review preserved: " + error.localizedDescription
+            message = persistenceWarning!
+        }
+    }
+    public var reviewDisconnectedBuildingCount: Int {
+        state.buildings.filter { $0.isOperational && $0.kind != .campfire && !engine.isConnectedToCivicCenter($0) }.count
+    }
     private func writeDeveloperState(_ state: GameState, to destination: SaveStore, review: Bool, original: GameState?) throws {
         try destination.preservePreviousVersion(beforeSaving: state)
         let data = try JSONEncoder().encode(DeveloperEnvelope(version: SaveStore.version(for: state), state: state,
@@ -215,6 +242,8 @@ public final class GameSession {
         inspectedBuilding = building
         message = engine.buildingName(building)
     }
+    public var usesConnectedPaths: Bool { engine.usesConnectedPaths }
+    public func isServiceOperational(_ building: PlacedBuilding) -> Bool { engine.isServiceOperational(building) }
     public var operatingProductionBuildingIDs: Set<Int> { economicOverview.productiveBuildingIDs }
     public func productivity(_ building: PlacedBuilding) -> Double { engine.productivity(building) }
     public func operatingStatus(_ building: PlacedBuilding) -> String { engine.operatingStatus(building) }
@@ -355,7 +384,7 @@ public final class GameSession {
         isActive = active
     }
     public func resume() { advance(to: clock(), offline: true); save() }
-    public func background() { exitRoadMode(); cancelRelocationPreview(); advance(to: clock()); save() }
+    public func background() { cancel(); advance(to: clock()); save() }
     /// A failed regular save blocks a game switch; protected temporary sessions never overwrite their source.
     public func suspendForGameSwitch() throws {
         cancel(); inspectedBuilding = nil
@@ -435,7 +464,7 @@ public final class GameSession {
     }
     public func cancel() {
         exitRoadMode()
-        cancelRelocationPreview(); selectedKind = nil; selectedTile = nil
+        cancelRelocationPreview(); selectedKind = nil; selectedTile = nil; previewOrientation = .north
         message = "Drag to explore · pinch to zoom · long-press a building to move it"
     }
     public func confirm() {

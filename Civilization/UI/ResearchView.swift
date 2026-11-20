@@ -9,6 +9,7 @@ struct ResearchView: View {
     var focusedTechnologyID: String? = nil
     var returnLabel = "Return to civic center"
     @State private var highlightedID: String?
+    @State private var focusHistory: [String] = []
     @Environment(\.dismiss) private var dismiss
     @State private var showReadiness = false
     @State private var expanded: Set<String> = []
@@ -26,7 +27,11 @@ struct ResearchView: View {
                         Text("Stone Age · develop your settlement").font(.caption).foregroundStyle(parchment.opacity(0.7))
                     }
                     Spacer()
-                    if focusedTechnologyID != nil {
+                    if let previous = focusHistory.last {
+                        Button("Back to " + (session.configuration.technologyDefinitions.first { $0.id == previous }?.name ?? previous)) {
+                            if let id = focusHistory.popLast() { focus(id) }
+                        }.frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("returnToResearchItem")
+                    } else if focusedTechnologyID != nil {
                         Button(returnLabel) { dismiss() }.frame(minHeight: 44).buttonStyle(.bordered)
                             .accessibilityIdentifier(returnLabel == "Return to civic center" ? "returnToCivicCenter" : "returnToSource")
                     }
@@ -61,7 +66,7 @@ struct ResearchView: View {
                                     technologyCard(technology).id(technology.id)
                                 }
                             }.scrollTargetLayout().padding(.bottom, 20)
-                        }.frame(maxHeight: .infinity).clipped()
+                        }.frame(maxHeight: .infinity).clipped().accessibilityIdentifier("researchCatalog")
                         .task(id: focusRequest) {
                             guard let id = highlightedID else { return }
                             await Task.yield()
@@ -151,7 +156,7 @@ struct ResearchView: View {
                     (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id) + (session.researchedIDs.contains(id) ? " ✓" : "")
                 }.joined(separator: ", "))).font(.caption).foregroundStyle(parchment.opacity(0.75))
                 ForEach(technology.prerequisites, id: \.self) { id in
-                    Button("Show " + (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id)) { focus(id) }
+                    Button("Show " + (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id)) { focusHistory.append(technology.id); focus(id) }
                         .frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("researchPrerequisite-" + id)
                 }
                 VStack(alignment: .leading, spacing: 5) {

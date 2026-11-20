@@ -15,7 +15,7 @@ Reads Xcode/Swift versions and required/optional executable availability. It doe
 ## Existing tests, one report
 
 ```sh
-# Full core Debug + Release and seven developer API exclusion probes.
+# Full core Debug + Release and eight developer API exclusion probes.
 python3 scripts/dev.py test
 
 # Deliberately scoped regression: report retains the exact filter/configuration.
@@ -40,6 +40,8 @@ python3 scripts/dev.py validate-saves '/tmp/private backup/Civilization'
 ```
 
 The permanent local SwiftPM [SaveInspector](../Tools/SaveInspector/Package.swift) packages GameCore resources automatically; do not compile/copy another ad hoc `swiftc` validator. It validates normal/current/legacy/grouped developer saves and isolated review copies, recognized `.bak` files, library metadata and every registered slot using production APIs. It selects each file's original configuration to avoid geography conversion writes, does not restore a session or apply offline time, rejects symlinks/unknown maps/damaged or missing registered saves, and checks all source bytes before/after. Reports contain relative paths, map IDs, counts and hashes, never save bodies or resource stocks. Run via the CLI (Debug inspector) for grouped developer geometry; the standalone Release inspector intentionally lacks that Debug API.
+
+The inspector validates explicit v7 operating-rule markers and their pre-connectivity backups, and reports each file’s rule identity without activating or advancing it. Legacy normal saves remain on their original rules.
 
 The inspector can also be run directly:
 

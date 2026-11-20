@@ -21,7 +21,7 @@ struct RoadControlsView: View {
                 }
                 if expanded {
                 ScrollView { VStack(alignment:.leading,spacing:8) {
-                Text("Free decoration · no era requirement").font(.caption).foregroundStyle(.mint)
+                Text(session.usesConnectedPaths ? "Free paths · connect ordinary services" : "Free decoration · no era requirement").font(.caption).foregroundStyle(.mint)
                 HStack(spacing:4) {
                     ForEach(RoadStyle.allCases,id:\.self) { value in
                         Button(value == .trodden ? "Path" : value == .dirt ? "Dirt" : "Stone") {

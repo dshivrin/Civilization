@@ -7,6 +7,8 @@ struct BuildingCatalogView: View {
     @Binding var selectedCategory: String
     var focusedBuildingKind: BuildingKind? = nil
     @State private var highlightedKind: BuildingKind?
+    private struct CatalogLocation { var kind: BuildingKind; var category: String; var search: String }
+    @State private var focusHistory: [CatalogLocation] = []
     @State private var focusRequest = 0
     @State private var researchTarget: String?
     @State private var researchSource = "buildings"
@@ -31,6 +33,13 @@ struct BuildingCatalogView: View {
                         Text("Stone Age · \(definitions("All").filter { constructed($0.kind) > 0 }.count)/\(session.configuration.buildings.count) types constructed").font(.caption)
                     }
                     Spacer()
+                    if let previous = focusHistory.last {
+                        Button("Back to " + session.configuration.definition(previous.kind).name) {
+                            guard let location = focusHistory.popLast() else { return }
+                            searchFocused = false; search = location.search; selectedCategory = location.category
+                            expanded.insert(location.kind); highlightedKind = location.kind; focusRequest += 1
+                        }.frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("returnToBuildingItem")
+                    }
                     TextField("Find building", text: $search, prompt: Text("Find building").foregroundStyle(parchment.opacity(0.65)))
                         .foregroundStyle(parchment).padding(10).background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
                         .frame(maxWidth: 220).accessibilityIdentifier("catalogSearch")
@@ -87,7 +96,7 @@ struct BuildingCatalogView: View {
                 Image(systemName: "point.topleft.down.to.point.bottomright.curvepath").font(.title2).frame(width: 44, height: 44)
                 VStack(alignment: .leading, spacing: 4) {
                     Text(style.title).font(.headline)
-                    Text("Free · decorative · drag to preview").font(.caption)
+                    Text(session.usesConnectedPaths ? "Free · connects services · drag to preview" : "Free · decorative · drag to preview").font(.caption)
                 }
                 Spacer()
                 Image(systemName: "chevron.right")
@@ -136,6 +145,7 @@ struct BuildingCatalogView: View {
                     Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange)
                         .accessibilityIdentifier("building-reserve-" + definition.kind.rawValue)
                     Button("Show " + session.configuration.definition(supplier).name) {
+                        focusHistory.append(CatalogLocation(kind: definition.kind, category: selectedCategory, search: search))
                         focus(supplier)
                     }.frame(minHeight: 44).buttonStyle(.bordered)
                         .accessibilityIdentifier("showBootstrapSupplier-" + definition.kind.rawValue)

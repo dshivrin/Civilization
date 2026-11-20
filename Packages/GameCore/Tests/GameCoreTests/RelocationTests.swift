@@ -309,3 +309,13 @@ private func openTile(_ g: GameEngine, kind: BuildingKind, excluding: Set<Tile> 
     session.tap(tile)
     #expect(session.message.contains("Open clearing · buildable ground"))
 }
+
+@MainActor @Test func backgroundCancelsRotatedNewCandidateWithoutCharging() throws {
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let session = try GameSession(clock: { moveEpoch }, saveURL: folder.appendingPathComponent("save.json"), configuration: moveConfiguration())
+    let before = session.state
+    session.choose(.hut); session.rotatePreview(); session.background(); session.resume()
+    #expect(!session.isDragMode && session.previewOrientation == .north)
+    session.confirm(); #expect(session.state == before)
+}

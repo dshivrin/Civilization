@@ -19,6 +19,20 @@ struct DeveloperToolsView: View {
                         Text(session.message).font(.caption).foregroundStyle(.secondary)
                     }
                 }
+                if session.isGameplayReview {
+                    Section("Path connectivity pilot") {
+                        Text("Ordinary buildings need paths to the civic center. Founding provisions remain available. Stored resources and earned progress are preserved.")
+                        if session.usesConnectedPaths {
+                            Label("Connected paths active · review copy only", systemImage: "checkmark.circle.fill")
+                                .accessibilityIdentifier("connectivityPilotStatus")
+                        } else {
+                            Text("\(session.reviewDisconnectedBuildingCount) completed buildings would become inactive until connected.")
+                            Button("Enable connected paths in this review") { session.activateReviewConnectivity() }
+                                .frame(minHeight: 44).accessibilityIdentifier("activateReviewConnectivity")
+                        }
+                        Text(session.message).font(.caption)
+                    }
+                }
                 Section("Isolated developer settlement") {
                     if session.isDeveloperMode {
                         Text("Source: " + session.developerModeTitle).font(.subheadline.bold())

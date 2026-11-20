@@ -1,6 +1,6 @@
-## ROUND-2-PLAY — approved staged implementation
+## ROUND-2-PLAY — implementation awaiting human acceptance
 
-Owner approval [f313dd2](plans/ROUND-2-PLAY-APPROVAL.md) and direct instruction authorize R2-01/02/03, then R2-04/05 and the R2-06 isolated connectivity pilot per [reconciliation](docs/design/proposals/2026-11-20-round-2-play-reconciliation.md). Use reusable QA, preserve every save/history, commit/push verified slices. R2-07 normal-save activation waits for pilot verification and human acceptance. No deferred bridges, defenses, new resource rules or artwork. [Execution evidence](docs/testing/round-2/progress.md).
+R2-01–05 are committed/pushed; R2-06 isolated review connectivity pilot is verified and delivered for human review per owner request, with [delivery](docs/milestones/round-2-play.md) and [exact QA evidence](docs/testing/round-2/progress.md). Approval [f313dd2](plans/ROUND-2-PLAY-APPROVAL.md) and [reconciliation](docs/design/proposals/2026-11-20-round-2-play-reconciliation.md) govern scope. Owner defers human review until tonight; R2-07 normal activation remains gated on verification and human acceptance. Normal/developer saves retain legacy rules; explicit v7 review activation preserves original backup/history/stocks. No deferred bridges, defenses, new resource rules, artwork or physical action. Requested next coordination: ask Master chat whether building rendering is finished and ready for the next task.
 
 # Design baseline
 
