@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "assetFamily": "gatheringShelter",
+  "logicalFootprint": [
+    2,
+    2
+  ],
+  "status": "Single-family alternate views; uncertified cardinal/geometry/lighting registration",
+  "runtimeIntegrated": false,
+  "r207Enabled": false,
+  "configSHA256": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+  "generationCalls": 3,
+  "targetedCorrectionCalls": 0,
+  "nativeMeasurementsSHA256": "be0435d0e3f3c8460a19a5bad61677b330da783da58f457444e127b2fe8e1358",
+  "sourceReferenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+  "views": [
+    {
+      "id": "view-a",
+      "file": "assets/view-a.png",
+      "sourcePath": "/Users/dima/dev/Civilazation/docs/art/sources/buildings/gatheringShelter.png",
+      "outputSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "reference": "docs/art/sources/buildings/gatheringShelter.png",
+      "referenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "prompt": null,
+      "promptSHA256": null,
+      "tool": "unchanged original copy",
+      "transparentBackgroundRequested": false,
+      "copyUnchanged": true,
+      "nominalQuarterTurn": 0,
+      "certifiedCardinalMapping": false,
+      "status": "original-reference",
+      "observedNotes": [
+        "Unchanged shipped reference; visible gable on right, root basket behind two berry baskets."
+      ],
+      "measurements": {
+        "alphaThreshold": 32,
+        "bytes": 1504470,
+        "coveredEdgePixels": 0,
+        "coveredFraction": 0.34244103080668176,
+        "file": "docs/art/building-direction-review/assets/view-a.png",
+        "height": 1254,
+        "sha256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+        "silhouetteBoundsTopLeftInclusive": [
+          87,
+          223,
+          1171,
+          1088
+        ],
+        "transparentFraction": 0.6212553640153741,
+        "width": 1254
+      },
+      "rawImageRect": [
+        -80.0,
+        -131.20000000000002,
+        160,
+        160
+      ],
+      "proposedImageRect": [
+        -67.30138248847926,
+        -100.42764976958526,
+        134.06820276497697,
+        134.06820276497697
+      ],
+      "contactStatus": "No semantic ground mask; silhouette framing is a proposal only"
+    },
+    {
+      "id": "view-b",
+      "file": "assets/view-b.png",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-d500b5a0-a6c1-425b-8ae3-bdfbf61daf72.png",
+      "outputSHA256": "fcf4ce12d90febcb837a232efaa78f50365d3442b862760ec2f481e51b9bb46e",
+      "reference": "docs/art/sources/buildings/gatheringShelter.png",
+      "referenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "prompt": "prompts/view-b.txt",
+      "promptSHA256": "b33031a5e6501674f11815bc65fb70e19af5717ab4a22ddea64dbf67ff0586b6",
+      "tool": "built-in image_gen.imagegen edit",
+      "transparentBackgroundRequested": true,
+      "copyUnchanged": true,
+      "nominalQuarterTurn": 1,
+      "certifiedCardinalMapping": false,
+      "status": "unapproved-alternate-view-study",
+      "observedNotes": [
+        "Visible gable changes to left; blue basket now foreground-left and red foreground-right.",
+        "Structure and materials broadly preserved; exact3Dazimuth/lighting/prop registration cannot be certified from independent images."
+      ],
+      "measurements": {
+        "alphaThreshold": 32,
+        "bytes": 1476982,
+        "coveredEdgePixels": 0,
+        "coveredFraction": 0.3364194704537187,
+        "file": "docs/art/building-direction-review/assets/view-b.png",
+        "height": 1254,
+        "sha256": "fcf4ce12d90febcb837a232efaa78f50365d3442b862760ec2f481e51b9bb46e",
+        "silhouetteBoundsTopLeftInclusive": [
+          90,
+          208,
+          1164,
+          1072
+        ],
+        "transparentFraction": 0.6412755100743013,
+        "width": 1254
+      },
+      "rawImageRect": [
+        -80.0,
+        -131.20000000000002,
+        160,
+        160
+      ],
+      "proposedImageRect": [
+        -67.71162790697674,
+        -99.78418604651164,
+        135.3153488372093,
+        135.3153488372093
+      ],
+      "contactStatus": "No semantic ground mask; silhouette framing is a proposal only"
+    },
+    {
+      "id": "view-c",
+      "file": "assets/view-c.png",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-8a0ec19a-8640-4437-9d9f-0a2c3c2a44ce.png",
+      "outputSHA256": "1df2c1deb92862c0ccc86ae873b46ceb856e1a8d916f6a89a53df25307104af5",
+      "reference": "docs/art/sources/buildings/gatheringShelter.png",
+      "referenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "prompt": "prompts/view-c.txt",
+      "promptSHA256": "3185de587f2a4cf0d1353f24cd593e84df9584f9facfabb2c9a40ca987495420",
+      "tool": "built-in image_gen.imagegen edit",
+      "transparentBackgroundRequested": true,
+      "copyUnchanged": true,
+      "nominalQuarterTurn": 2,
+      "certifiedCardinalMapping": false,
+      "status": "unapproved-alternate-view-study",
+      "observedNotes": [
+        "Reference roof diagonal retained by end-to-end symmetry; tall root basket moves into foreground, berries behind.",
+        "Timber/post/join details drift from source; approximate view proposal, not a rigid source model."
+      ],
+      "measurements": {
+        "alphaThreshold": 32,
+        "bytes": 1457597,
+        "coveredEdgePixels": 0,
+        "coveredFraction": 0.3390954368667791,
+        "file": "docs/art/building-direction-review/assets/view-c.png",
+        "height": 1254,
+        "sha256": "1df2c1deb92862c0ccc86ae873b46ceb856e1a8d916f6a89a53df25307104af5",
+        "silhouetteBoundsTopLeftInclusive": [
+          84,
+          218,
+          1170,
+          1086
+        ],
+        "transparentFraction": 0.6426878963393695,
+        "width": 1254
+      },
+      "rawImageRect": [
+        -80.0,
+        -131.20000000000002,
+        160,
+        160
+      ],
+      "proposedImageRect": [
+        -66.96412143514259,
+        -100.0,
+        133.82152713891443,
+        133.82152713891443
+      ],
+      "contactStatus": "No semantic ground mask; silhouette framing is a proposal only"
+    },
+    {
+      "id": "view-d",
+      "file": "assets/view-d.png",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-e2a50fb2-e590-46eb-bc96-89d5b87cd7e8.png",
+      "outputSHA256": "19d66036ad53e674b5abc5773b12506f8c1e9348da5ede290a70b0aba2af3411",
+      "reference": "docs/art/sources/buildings/gatheringShelter.png",
+      "referenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "prompt": "prompts/view-d.txt",
+      "promptSHA256": "250209c74cb2e617d08d00e631ac8ce001bea1e3e2eab2ce21b627b0f89bd650",
+      "tool": "built-in image_gen.imagegen edit",
+      "transparentBackgroundRequested": true,
+      "copyUnchanged": true,
+      "nominalQuarterTurn": 3,
+      "certifiedCardinalMapping": false,
+      "status": "unapproved-alternate-view-study",
+      "observedNotes": [
+        "Left-facing gable with foreground root basket and berries behind; additional rear post is now visible.",
+        "Basket/post/brace relationships need a coherent source model/contact check before directional export."
+      ],
+      "measurements": {
+        "alphaThreshold": 32,
+        "bytes": 1511862,
+        "coveredEdgePixels": 0,
+        "coveredFraction": 0.34545976002787887,
+        "file": "docs/art/building-direction-review/assets/view-d.png",
+        "height": 1254,
+        "sha256": "19d66036ad53e674b5abc5773b12506f8c1e9348da5ede290a70b0aba2af3411",
+        "silhouetteBoundsTopLeftInclusive": [
+          86,
+          224,
+          1165,
+          1086
+        ],
+        "transparentFraction": 0.6360100628546864,
+        "width": 1254
+      },
+      "rawImageRect": [
+        -80.0,
+        -131.20000000000002,
+        160,
+        160
+      ],
+      "proposedImageRect": [
+        -67.23703703703704,
+        -100.75185185185185,
+        134.6888888888889,
+        134.6888888888889
+      ],
+      "contactStatus": "No semantic ground mask; silhouette framing is a proposal only"
+    }
+  ]
+}

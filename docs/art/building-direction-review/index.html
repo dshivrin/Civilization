@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gathering shelter — rotation study</title>
+<style>
+:root{color-scheme:dark;--stage:#ddd}*{box-sizing:border-box}body{margin:0;background:#142322;color:#f1e7cd;font:17px/1.55 system-ui}main{max-width:1280px;margin:32px auto;padding:0 20px}h1{font-size:clamp(28px,4vw,42px);line-height:1.15}h2{font-size:22px}p{max-width:90ch}a{color:#ade2d8}button,select{font:inherit;color:inherit;background:#30433d;border:1px solid #718378;border-radius:9px;padding:10px 14px;min-height:44px}button{cursor:pointer}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #ffe17a;outline-offset:3px}.controls{display:flex;flex-wrap:wrap;gap:14px;align-items:end;padding:18px 0}label{display:grid;gap:5px;font-size:15px}.comparison,.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}figure{margin:0}figcaption{padding:10px 0}.sprite-stage{background:var(--stage);border-radius:12px;overflow:hidden}.sprite-stage.checker{background-color:#ddd;background-image:linear-gradient(45deg,#aaa 25%,transparent 25%),linear-gradient(-45deg,#aaa 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#aaa 75%),linear-gradient(-45deg,transparent 75%,#aaa 75%);background-size:28px 28px;background-position:0 0,0 14px,14px -14px,-14px 0}svg{display:block;width:100%;height:auto}svg .hull{fill:#89a88144;stroke:#265447;stroke-width:1}svg .grid{stroke:#265447;stroke-width:.6;fill:none}.cards{margin:24px 0}.cards article{min-width:0;background:#21352e;padding:16px;border-radius:12px}.cards img{display:block;width:100%;height:auto}.cards h3{margin:4px 0 12px}.meta{font-size:14px;overflow-wrap:anywhere}.notice{padding:16px;background:#30433d;border-left:4px solid #d9b56a}#selection-status{min-height:2em}li{margin:8px 0}footer{padding:24px 0 48px}code{overflow-wrap:anywhere}@media(max-width:650px){main{margin-top:22px;padding:0 14px}.comparison,.cards{grid-template-columns:1fr}.controls>*{max-width:100%}button,select{width:100%}.controls label{width:100%}}
+</style>
+<main>
+<p><a href="../building-gate-2/index.html">Building Gate 2</a> · <a href="../../testing/native-visual-program/walkthrough.html">Onboarding</a> · <a href="README.md">Scope and limits</a></p>
+<h1>One shelter, four view proposals</h1>
+<p>The current game changes its orientation letter while reusing one image. This study compares the unchanged gathering shelter with three alternate images. Use Next view to compare the roof, posts and baskets on the same logical footprint.</p>
+<p class="notice">Review only. A is the original; B/C/D are independently generated view studies. Their quarter-turn targets are <strong>uncertified</strong>: post joints, basket depth, lighting and camera consistency still need review. This is not a rigid 3D model or accepted N/E/S/W mapping. No game art, footprint, save, economy or R2-07 change.</p>
+<div class="controls">
+<label>View<select id="view"><option value="0">A · original reference</option><option value="1">B · nominal 90° target</option><option value="2">C · nominal 180° target</option><option value="3">D · nominal 270° target</option></select></label>
+<button id="next" type="button">Next view ↻</button>
+<label>Framing<select id="framing"><option value="raw">Current canvas framing</option><option value="proposal">Silhouette framing proposal</option></select></label>
+<label>Background<select id="background"><option value="gray">Light gray</option><option value="forest">Forest green</option><option value="parchment">Parchment</option><option value="checker">Alpha checker</option></select></label>
+</div>
+<p id="selection-status" aria-live="polite"></p>
+<div class="comparison">
+<figure><div class="sprite-stage" id="reference"></div><figcaption>Unchanged original · 2×2 logical hull</figcaption></figure>
+<figure><div class="sprite-stage" id="selected"></div><figcaption id="selected-caption"></figcaption></figure>
+</div>
+<p id="framing-note"></p>
+<p>The hull and grid show unchanged logical occupancy. Neither alpha bounds nor silhouette alignment establish ground contacts, source azimuths or acceptable roof overhang. There is no image mirroring, canvas rotation or pixel correction in this viewer.</p>
+<h2>Original PNGs and observed differences</h2>
+<p>These full-canvas previews use ordinary browser RGBA compositing. Open a PNG to inspect the preserved output. Three built-in image-tool edits; no cleanup edits, background stripping or runtime export.</p>
+<div class="cards" id="cards"></div>
+<h2>What remains before integration</h2>
+<p>Choose a coherent directional treatment and author matching contacts, source camera and stable prop registration. Extend only accepted families after review. Runtime orientation lookup, level/direction coverage and hit masks require a separate verified integration. All other building kinds continue to lack a complete cardinal library.</p>
+<footer><a href="manifest.json">Measured manifest</a> · <a href="generation-receipts.json">Source and prompt receipts</a> · <a href="measurements.jsonl">Native alpha measurements</a> · <a href="verification.json">Verification</a></footer>
+</main>
+<script src="gallery-data.js"></script>
+<script>
+'use strict';
+const data=window.DIRECTION_REVIEW;
+const view=document.querySelector('#view'),framing=document.querySelector('#framing'),background=document.querySelector('#background');
+function scene(v){
+ const r=framing.value==='raw'?v.rawImageRect:v.proposedImageRect;
+ return `<svg viewBox="-96 -164 192 220" role="img" aria-label="${v.id} on unchanged two by two footprint"><path class="hull" d="M0 -32L64 0L0 32L-64 0Z"/><path class="grid" d="M-32 -16L32 16M32 -16L-32 16"/><image data-view="${v.id}" href="${v.file}" x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}"/></svg>`;
+}
+function render(){
+ const chosen=data.views[Number(view.value)];
+ document.querySelector('#reference').innerHTML=scene(data.views[0]);
+ document.querySelector('#selected').innerHTML=scene(chosen);
+ document.querySelector('#selected-caption').textContent=`${chosen.id.toUpperCase()} · ${chosen.nominalQuarterTurn?chosen.nominalQuarterTurn*90+'° nominal target, uncertified':'unchanged original'} · same 2×2 hull`;
+ document.querySelector('#selection-status').textContent=chosen.nominalQuarterTurn?'Alternate view proposal selected; the original stays beside it.':'Original reference selected; Next view shows the first alternate proposal.';
+ document.querySelector('#framing-note').textContent=framing.value==='raw'?'Current canvas framing uses the original catalog scale and anchor for every view. It applies no per-view correction.':'Silhouette framing normalizes opaque width to116world units and its bottom to16. This is a display proposal, not measured foot contact or runtime geometry.';
+ const colors={gray:'#ddd',forest:'#536c49',parchment:'#efe3c2',checker:'#ddd'};
+ document.documentElement.style.setProperty('--stage',colors[background.value]);
+ document.querySelectorAll('.sprite-stage').forEach(e=>e.classList.toggle('checker',background.value==='checker'));
+}
+for(const v of data.views){
+ const article=document.createElement('article'),heading=document.createElement('h3');heading.textContent=v.id.toUpperCase()+(v.nominalQuarterTurn?' · alternate study':' · original');article.append(heading);
+ const box=document.createElement('div');box.className='sprite-stage';const link=document.createElement('a');link.href=v.file;const img=document.createElement('img');img.src=v.file;img.alt=heading.textContent+' gathering shelter';link.append(img);box.append(link);article.append(box);
+ const notes=document.createElement('ul');for(const note of v.observedNotes){const item=document.createElement('li');item.textContent=note;notes.append(item)}article.append(notes);
+ const meta=document.createElement('p');meta.className='meta';meta.textContent=`${v.measurements.width}×${v.measurements.height} · ${(v.measurements.transparentFraction*100).toFixed(1)}% transparent · 0 covered edge pixels at alpha>32. SHA256 ${v.outputSHA256}`;article.append(meta);
+ if(v.prompt){const p=document.createElement('a');p.href=v.prompt;p.textContent='Exact generation prompt';article.append(p)}
+ document.querySelector('#cards').append(article);
+}
+document.querySelector('#next').addEventListener('click',()=>{view.value=String((Number(view.value)+1)%4);render()});
+for(const control of [view,framing,background])control.addEventListener('change',render);
+render();
+</script>
+</html>

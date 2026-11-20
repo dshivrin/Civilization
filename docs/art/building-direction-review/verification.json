@@ -1,0 +1,113 @@
+{
+  "status": "verified review artifact; art/registration acceptance pending",
+  "baseline": "979e830",
+  "family": "gatheringShelter",
+  "logicalFootprint": [
+    2,
+    2
+  ],
+  "generatedEdits": 3,
+  "cleanupEdits": 0,
+  "tool": "built-in image_gen.imagegen",
+  "runtimeIntegrated": false,
+  "r207Enabled": false,
+  "gameSourceChanged": false,
+  "playerSaveAccess": false,
+  "physicalInstall": false,
+  "physicalPhoneProduct": "33073e9",
+  "mediaRepositoryChanged": false,
+  "mediaCommit": "9545673",
+  "mediaRemoteConfigured": false,
+  "tests": {
+    "command": "python3 -m unittest discover -s scripts/tests -v",
+    "count": 28,
+    "status": "passed",
+    "log": "/tmp/civilization-direction-tooling-final.log",
+    "logSHA256": "70797d07a31e3cf0fbc7a405bf5ad2a5d065a86ad8d24b29391bab775769cb49",
+    "reviewRed": "/tmp/civilization-direction-review-red.log",
+    "reviewGreen": "/tmp/civilization-direction-review-green.log"
+  },
+  "nativeInspection": {
+    "command": "swift scripts/verify-art.swift --inspect-images docs/art/building-direction-review/assets/view-a.png docs/art/building-direction-review/assets/view-b.png docs/art/building-direction-review/assets/view-c.png docs/art/building-direction-review/assets/view-d.png",
+    "reportSHA256": "be0435d0e3f3c8460a19a5bad61677b330da783da58f457444e127b2fe8e1358",
+    "files": 4,
+    "coveredEdgePixels": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "alphaThreshold": 32
+  },
+  "browser": {
+    "surface": "available CUA in-app browser; separate Browser plugin absent; host preference avoids installing another automation dependency",
+    "url": "http://127.0.0.1:8769/docs/art/building-direction-review/index.html",
+    "desktop": {
+      "width": 1673,
+      "height": 1258,
+      "selected": "view-b",
+      "framing": "original catalog canvas",
+      "background": "light gray",
+      "scrollWidth": 1673
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "selected": "view-d",
+      "framing": "silhouette proposal",
+      "background": "alpha checker",
+      "scrollWidth": 390
+    },
+    "imagesLoaded": 4,
+    "relevantConsoleErrors": 0,
+    "checkedActions": [
+      "Next view selectsB and changes SVG PNG href",
+      "View select choosesD",
+      "Framing changes to explicit silhouette proposal",
+      "Checker background applies on mobile"
+    ],
+    "rgbaVisualObservation": "No visible colored fringe on ordinary gray/checker composition at reviewed sizes; no production alpha/atlas acceptance inferred",
+    "viewportResetRequested": true,
+    "createdTabClosed": true,
+    "evidence": [
+      {
+        "file": "evidence/desktop.jpg",
+        "sha256": "6360a14158e48b243b2cc186aca18da948098431ed9d8c49e46732a1ddb26412"
+      },
+      {
+        "file": "evidence/mobile.jpg",
+        "sha256": "b6849b9ff083bcefa68e2ce3c464f59e99b2c7f858cf590534eaa84e18c83c01"
+      }
+    ]
+  },
+  "independentReview": {
+    "critical": 0,
+    "important": 3,
+    "corrected": [
+      "Reject optimized Python execution before assertions can disappear",
+      "Pin exact native report digest and threshold32",
+      "Reject aliased/non-file outputs; stage both, restore old pair on replacement failure"
+    ],
+    "deferredMinors": [
+      "Reference text calls the1254px source master a shipped reference; actual512px runtime export is distinct",
+      "Original ground shading can contribute to alpha silhouette; all ground contact/registration remains unaccepted"
+    ]
+  },
+  "sourceHashes": {
+    "scripts/build-art-gallery.py": "a3f1728cb7a53896abd888ad340c6ec42330c80e8c3caa5f9464603136c96188",
+    "scripts/tests/test_art_gallery.py": "833f6fb9f5225d17dbe05b2fd1a448e739158277c303eb889258f29de1de5390",
+    "docs/art/building-direction-review/index.html": "e6181e65703f5bc8f7dea5550fc5444e066734465960ec1fcbe7bf1830439d7c"
+  },
+  "artifactHashes": {
+    "generation-receipts.json": "21a0c19ee456f6877c233d4c8ba9dabb9dc0eec020f463db1a05ddcd576fffc5",
+    "measurements.jsonl": "be0435d0e3f3c8460a19a5bad61677b330da783da58f457444e127b2fe8e1358",
+    "manifest.json": "21007d31f1708f61425272edd6b1ea7280c5cae2d1793e5e71a207067a73a98c",
+    "gallery-data.js": "b914c05606177cb9656375bd1e448cefa51332abfdd852fc3113ece52f2eded0"
+  },
+  "limits": [
+    "Independent generated views, not a coherent3Dmodel or certifiedN/E/S/Wmapping",
+    "Roof, props, lighting, shadow and contact differences remain review items",
+    "No normal rotation fix/art replacement, Gate3mass production, bridges/defenses or new roadmap",
+    "No physical performance/human appearance acceptance"
+  ]
+}

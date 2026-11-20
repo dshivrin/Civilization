@@ -1,0 +1,93 @@
+{
+  "assetFamily": "gatheringShelter",
+  "logicalFootprint": [
+    2,
+    2
+  ],
+  "generationCalls": 3,
+  "targetedCorrectionCalls": 0,
+  "sourcePixelsModified": false,
+  "runtimePromoted": false,
+  "records": [
+    {
+      "id": "view-a",
+      "file": "assets/view-a.png",
+      "sourcePath": "/Users/dima/dev/Civilazation/docs/art/sources/buildings/gatheringShelter.png",
+      "outputSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "reference": "docs/art/sources/buildings/gatheringShelter.png",
+      "referenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "prompt": null,
+      "promptSHA256": null,
+      "tool": "unchanged original copy",
+      "transparentBackgroundRequested": false,
+      "copyUnchanged": true,
+      "nominalQuarterTurn": 0,
+      "certifiedCardinalMapping": false,
+      "status": "original-reference",
+      "observedNotes": [
+        "Unchanged shipped reference; visible gable on right, root basket behind two berry baskets."
+      ]
+    },
+    {
+      "id": "view-b",
+      "file": "assets/view-b.png",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-d500b5a0-a6c1-425b-8ae3-bdfbf61daf72.png",
+      "outputSHA256": "fcf4ce12d90febcb837a232efaa78f50365d3442b862760ec2f481e51b9bb46e",
+      "reference": "docs/art/sources/buildings/gatheringShelter.png",
+      "referenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "prompt": "prompts/view-b.txt",
+      "promptSHA256": "b33031a5e6501674f11815bc65fb70e19af5717ab4a22ddea64dbf67ff0586b6",
+      "tool": "built-in image_gen.imagegen edit",
+      "transparentBackgroundRequested": true,
+      "copyUnchanged": true,
+      "nominalQuarterTurn": 1,
+      "certifiedCardinalMapping": false,
+      "status": "unapproved-alternate-view-study",
+      "observedNotes": [
+        "Visible gable changes to left; blue basket now foreground-left and red foreground-right.",
+        "Structure and materials broadly preserved; exact3Dazimuth/lighting/prop registration cannot be certified from independent images."
+      ]
+    },
+    {
+      "id": "view-c",
+      "file": "assets/view-c.png",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-8a0ec19a-8640-4437-9d9f-0a2c3c2a44ce.png",
+      "outputSHA256": "1df2c1deb92862c0ccc86ae873b46ceb856e1a8d916f6a89a53df25307104af5",
+      "reference": "docs/art/sources/buildings/gatheringShelter.png",
+      "referenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "prompt": "prompts/view-c.txt",
+      "promptSHA256": "3185de587f2a4cf0d1353f24cd593e84df9584f9facfabb2c9a40ca987495420",
+      "tool": "built-in image_gen.imagegen edit",
+      "transparentBackgroundRequested": true,
+      "copyUnchanged": true,
+      "nominalQuarterTurn": 2,
+      "certifiedCardinalMapping": false,
+      "status": "unapproved-alternate-view-study",
+      "observedNotes": [
+        "Reference roof diagonal retained by end-to-end symmetry; tall root basket moves into foreground, berries behind.",
+        "Timber/post/join details drift from source; approximate view proposal, not a rigid source model."
+      ]
+    },
+    {
+      "id": "view-d",
+      "file": "assets/view-d.png",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-e2a50fb2-e590-46eb-bc96-89d5b87cd7e8.png",
+      "outputSHA256": "19d66036ad53e674b5abc5773b12506f8c1e9348da5ede290a70b0aba2af3411",
+      "reference": "docs/art/sources/buildings/gatheringShelter.png",
+      "referenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+      "prompt": "prompts/view-d.txt",
+      "promptSHA256": "250209c74cb2e617d08d00e631ac8ce001bea1e3e2eab2ce21b627b0f89bd650",
+      "tool": "built-in image_gen.imagegen edit",
+      "transparentBackgroundRequested": true,
+      "copyUnchanged": true,
+      "nominalQuarterTurn": 3,
+      "certifiedCardinalMapping": false,
+      "status": "unapproved-alternate-view-study",
+      "observedNotes": [
+        "Left-facing gable with foreground root basket and berries behind; additional rear post is now visible.",
+        "Basket/post/brace relationships need a coherent source model/contact check before directional export."
+      ]
+    }
+  ],
+  "measurementsSHA256": "be0435d0e3f3c8460a19a5bad61677b330da783da58f457444e127b2fe8e1358"
+}

@@ -1,3 +1,9 @@
+## Single-family directional art study — 20 November 2026
+
+Owner's rotation feedback and request to refine graphics before integration now have a bounded [gathering-shelter comparison](docs/art/building-direction-review/index.html): unchanged source master plus three built-in imagegen alternate views, exact prompts/hashes, native alpha measurements and desktop/mobile evidence. These are **uncertified nominal turns**, with camera/prop/lighting/contact differences disclosed. No normal rotation fix, accepted art export or Gate3mass production is claimed. [Verification](docs/art/building-direction-review/verification.json):28tooling tests pass; independent publication/provenance findings reproduced and corrected once. Minor source-master wording/shadow-framing limits remain.
+
+Game/app/project/normal art, original media9545673/main/no remote, player files and physical phone33073e9 remain untouched. R2-07 stays disabled. Only visual/graphics and existing onboarding continue; new roadmap and audio remain deferred. Overall Goal remains active for unfinished animation/artwork and genuine appearance/onboarding activation decisions.
+
 ## Construction visual comparison verified — 20 November 2026
 
 Visual-only continuation adds five actual-work stages to the disposable onboarding walkthrough, Pause/Resume review time, small explicit time advances and completed-building inspection. Normal construction appearance/timing, authoritative GameCore, fixed footprints, saves/history, original media and signing remain unchanged. [15-capture comparison](docs/testing/native-visual-program/construction.html), [verification](docs/testing/native-visual-program/construction-verification.json). Core **273 Debug / 235 Release + 10 exclusions**, twelve native executions across phone/mini/Pro and ordinary Release entry pass. Independent review's negative-input/selection findings were reproduced and corrected; minor time-label ambiguity is deferred.
