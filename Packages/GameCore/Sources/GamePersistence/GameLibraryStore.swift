@@ -82,6 +82,10 @@ public struct GameLibraryStore: Sendable {
         }
     }
     private func validateDescendant(_ url: URL) throws {
+        if let attributes = try? FileManager.default.attributesOfItem(atPath: rootURL.path),
+           attributes[.type] as? FileAttributeType == .typeSymbolicLink {
+            throw GameError.invalidSave("Saved-game library aliases are not supported. Existing files have been preserved.")
+        }
         let root = rootURL.resolvingSymlinksInPath().path
         guard url.resolvingSymlinksInPath().path.hasPrefix(root + "/") else {
             throw GameError.invalidSave("Saved-game paths must stay inside their library.")

@@ -251,7 +251,7 @@ public final class GameSession {
     public convenience init(clock: @escaping () -> Date = Date.init, saveURL: URL? = nil, configuration: GameConfiguration? = nil) throws {
         self.init(restoration: try Self.restore(now: clock(), saveURL: saveURL, configuration: configuration), clock: clock)
     }
-    private init(restoration: Restoration, clock: @escaping () -> Date) {
+    private init(restoration: Restoration, clock: @escaping () -> Date, saveAfterRestoration: Bool = true) {
         self.clock = clock
         store = SaveStore(url: restoration.url)
         #if DEBUG
@@ -261,15 +261,15 @@ public final class GameSession {
         message = restoration.message
         persistenceWarning = restoration.warning
         savesEnabled = restoration.warning == nil
-        if savesEnabled { save() }
+        if savesEnabled && saveAfterRestoration { save() }
     }
-    public static func load(clock: @escaping () -> Date = Date.init, saveURL: URL? = nil, configuration: GameConfiguration? = nil, requireExistingSave: Bool = false) async throws -> GameSession {
+    public static func load(clock: @escaping () -> Date = Date.init, saveURL: URL? = nil, configuration: GameConfiguration? = nil, requireExistingSave: Bool = false, saveAfterRestoration: Bool = true) async throws -> GameSession {
         let now = clock()
         let restored = try await Task.detached(priority: .userInitiated) {
             try restore(now: now, saveURL: saveURL, configuration: configuration, requireExistingSave: requireExistingSave)
         }.value
         try Task.checkCancellation()
-        let session = GameSession(restoration: restored, clock: clock)
+        let session = GameSession(restoration: restored, clock: clock, saveAfterRestoration: saveAfterRestoration)
         // Activation belongs to the presenting scene; a suspension during startup must use capped catch-up.
         session.isActive = false
         return session

@@ -6,28 +6,60 @@ import GameApplication
 final class RelocationUITests: XCTestCase {
     @MainActor func testIndependentGamesCreateSwitchAndResumeAfterRelaunch() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
-        let app = XCUIApplication()
+        let app = XCUIApplication(), libraryID = UUID().uuidString
         app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
-        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = libraryID
+        print("S1SAVES_TEST_LIBRARY " + libraryID)
         app.launch()
         XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
+        app.buttons["Build"].tap(); app.buttons["buildingCategory-Food and water"].tap()
+        app.buttons["build-gatheringShelter"].tap()
+        XCTAssertTrue(app.buttons["confirmPlacement"].waitForExistence(timeout: 5))
+        app.buttons["confirmPlacement"].tap()
+        XCTAssertFalse(app.descendants(matching: .any)["dragModeIndicator"].firstMatch.exists)
         app.buttons["openGames"].tap()
         XCTAssertTrue(app.staticTexts["Original settlement"].waitForExistence(timeout: 5))
         app.textFields["newGameName"].tap(); app.textFields["newGameName"].typeText("Pine village\n")
         app.buttons["createGame"].tap()
         XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
+        app.buttons["toggleGoals"].tap()
+        XCTAssertTrue(app.staticTexts["nextStepSummary"].label.localizedCaseInsensitiveContains("gathering shelter"))
         app.buttons["openGames"].tap()
         XCTAssertEqual(app.staticTexts["activeGameName"].label, "Pine village")
         app.buttons["resumeGame-legacy"].tap()
         XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
+        app.buttons["toggleGoals"].tap()
+        let progressed = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label CONTAINS[c] %@", "woodcutter"), object: app.staticTexts["nextStepSummary"])
+        XCTAssertEqual(XCTWaiter.wait(for: [progressed], timeout: 45), .completed)
         app.buttons["openGames"].tap()
         XCTAssertEqual(app.staticTexts["activeGameName"].label, "Original settlement")
-        app.buttons["Done"].tap(); app.terminate(); app.launch()
+        app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "resumeGame-")).firstMatch.tap()
+        XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
+        app.terminate(); app.launch()
+        XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
+        app.buttons["toggleGoals"].tap()
+        XCTAssertTrue(app.staticTexts["nextStepSummary"].label.localizedCaseInsensitiveContains("gathering shelter"))
+        app.buttons["openGames"].tap()
+        XCTAssertEqual(app.staticTexts["activeGameName"].label, "Pine village")
+        XCTAssertTrue(app.buttons["resumeGame-legacy"].exists)
+        capture("independent-games", app: app)
+    }
+
+    @MainActor func testMissingSelectedSaveOffersExplicitHealthyGameRecovery() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_MISSING_SELECTED_SAVE"] = "1"
+        app.launch()
+        XCTAssertTrue(app.staticTexts["gameRecoveryError"].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.buttons["recoverGame-legacy"].exists)
+        capture("missing-selected-save-recovery", app: app)
+        app.buttons["recoverGame-legacy"].tap()
         XCTAssertTrue(app.buttons["openGames"].waitForExistence(timeout: 20))
         app.buttons["openGames"].tap()
         XCTAssertEqual(app.staticTexts["activeGameName"].label, "Original settlement")
-        XCTAssertTrue(app.staticTexts["Pine village"].exists)
-        capture("independent-games", app: app)
+        XCTAssertTrue(app.staticTexts["Unavailable test game"].exists)
+        capture("recovered-games", app: app)
     }
 
     @MainActor func testGamesManagementRequiresLeavingDeveloperScenario() throws {
@@ -675,7 +707,7 @@ final class RelocationUITests: XCTestCase {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
         // Optional live capture window: XCTest attachments are misframed on some simulator runtimes.
-        if ProcessInfo.processInfo.environment["CIVILIZATION_QA_CAPTURE"] == "1" {
+        if let requested = ProcessInfo.processInfo.environment["CIVILIZATION_QA_CAPTURE"], requested == "1" || requested.split(separator: ",").contains(Substring(name)) {
             FileHandle.standardOutput.write(Data(("CIVILIZATION_QA_CAPTURE " + name + "\n").utf8))
             Thread.sleep(forTimeInterval: 6)
         }

@@ -76,3 +76,16 @@ private func libraryFolder() -> URL { FileManager.default.temporaryDirectory.app
     #expect(throws: GameError.self) { try store.loadOrCreate(mapID: "river-clearing-v1", now: libraryEpoch) }
     #expect(try Data(contentsOf: original) == bytes)
 }
+
+@Test func libraryRejectsAliasAtRootWithoutTouchingReferencedLibrary() throws {
+    let actual = libraryFolder(), alias = libraryFolder()
+    defer { try? FileManager.default.removeItem(at: alias); try? FileManager.default.removeItem(at: actual) }
+    let original = GameLibraryStore(rootURL: actual)
+    let index = try original.loadOrCreate(mapID: "river-clearing-v1", now: libraryEpoch)
+    let before = try Data(contentsOf: original.indexURL)
+    try FileManager.default.createSymbolicLink(at: alias, withDestinationURL: actual)
+    let unsafe = GameLibraryStore(rootURL: alias)
+    #expect(throws: GameError.self) { try unsafe.load() }
+    #expect(throws: GameError.self) { try unsafe.save(index) }
+    #expect(try Data(contentsOf: original.indexURL) == before)
+}

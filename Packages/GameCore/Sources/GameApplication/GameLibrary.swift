@@ -3,7 +3,7 @@ import Observation
 import GameCore
 import GamePersistence
 
-/// Owns one active independent game. Metadata commits select a candidate only after its save succeeds.
+/// Owns one independent game. New files precede registration; existing targets stay memory-only until selection commits.
 @MainActor @Observable
 public final class GameLibrary {
     public private(set) var session: GameSession
@@ -23,28 +23,41 @@ public final class GameLibrary {
     }
 
     public static func load(rootURL: URL? = nil, clock: @escaping () -> Date = Date.init,
-                            configuration providedConfiguration: GameConfiguration? = nil) async throws -> GameLibrary {
+                            configuration providedConfiguration: GameConfiguration? = nil, selectedGameID: String? = nil) async throws -> GameLibrary {
         let configuration = try providedConfiguration ?? GameConfiguration.bundled()
-        let root = try rootURL ?? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask,
-                                                         appropriateFor: nil, create: true).appendingPathComponent("Civilization")
-        let store = GameLibraryStore(rootURL: root)
+        let store = GameLibraryStore(rootURL: try resolvedRoot(rootURL))
         let existing = try await Task.detached { try store.load() }.value
         let original = SavedGame(id: "legacy", name: "Original settlement", createdAt: clock(), mapID: configuration.map.id)
-        let index = existing ?? GameLibraryIndex(activeGameID: original.id, games: [original])
+        var index = existing ?? GameLibraryIndex(activeGameID: original.id, games: [original])
+        if let selectedGameID {
+            guard existing != nil, index.games.contains(where: { $0.id == selectedGameID }) else {
+                throw GameError.invalidSave("The requested saved game is unavailable.")
+            }
+            index.activeGameID = selectedGameID
+        }
         guard let selected = index.games.first(where: { $0.id == index.activeGameID }), selected.mapID == configuration.map.id else {
             throw GameError.invalidSave("The selected game's map is not supported.")
         }
         let url = try store.saveURL(for: selected)
         // Register only after the first save exists. A corrupt legacy file retains its protected temporary mode.
         let session = try await GameSession.load(clock: clock, saveURL: url, configuration: configuration,
-                                                 requireExistingSave: existing != nil)
+                                                 requireExistingSave: existing != nil, saveAfterRestoration: existing == nil)
         if let warning = session.persistenceWarning,
            selected.id != "legacy" || !FileManager.default.fileExists(atPath: url.path) {
             throw GameError.invalidSave(warning)
         }
         try Task.checkCancellation()
-        if existing == nil { try store.save(index) }
+        if existing == nil || index.activeGameID != existing?.activeGameID { try store.save(index) }
         return GameLibrary(session: session, index: index, store: store, configuration: configuration, clock: clock)
+    }
+
+    /// A valid index can offer explicit recovery choices without loading or changing any game.
+    public static func availableGames(rootURL: URL? = nil) throws -> [SavedGame] {
+        try GameLibraryStore(rootURL: resolvedRoot(rootURL)).load()?.games ?? []
+    }
+    private static func resolvedRoot(_ rootURL: URL?) throws -> URL {
+        try rootURL ?? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask,
+                                               appropriateFor: nil, create: true).appendingPathComponent("Civilization")
     }
 
     public func setActive(_ active: Bool) {
@@ -62,7 +75,7 @@ public final class GameLibrary {
         defer { isBusy = false; session.setActive(desiredActive) }
         try session.suspendForGameSwitch()
         let url = try store.saveURL(for: game)
-        let candidate = try await GameSession.load(clock: clock, saveURL: url, configuration: configuration, requireExistingSave: true)
+        let candidate = try await GameSession.load(clock: clock, saveURL: url, configuration: configuration, requireExistingSave: true, saveAfterRestoration: false)
         if let warning = candidate.persistenceWarning { throw GameError.invalidSave(warning) }
         try Task.checkCancellation()
         var updated = index; updated.activeGameID = id
