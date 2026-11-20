@@ -1,0 +1,350 @@
+{
+  "status": "Verified simulator-only provisional motion review; human artwork acceptance remains open",
+  "baseline": "139c4b247e6fefe8903263b5f68c16784b223bb5",
+  "reports": {
+    "core": {
+      "path": "/tmp/civilization-qa-9b844d0c043248ab93047476b41d2c0f/report.json",
+      "sha256": "b3409362836efdfa29bae0a0c3fee4b482d694db44bfde66b72929000c259f85",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "both",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 279,
+          "exitCode": 0
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235,
+          "exitCode": 0
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null,
+          "exitCode": 0
+        }
+      ]
+    },
+    "initialRegression": {
+      "path": "/tmp/civilization-qa-45a25ea16f1d48c2ae258ae9be3a3e9e/report.json",
+      "sha256": "644d514d724779c9d45522d02252b917600b2e219f13e2d92f3140d631195278",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150",
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+          "7FBB2956-E961-4389-B329-7D2689E96E4F"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testVillagerMotionReviewStatesAndStaticFallback",
+          "CivilizationUITests/RelocationUITests/testAtmosphereCycleAndStaticFallbackPreserveNormalGame",
+          "CivilizationUITests/RelocationUITests/testNativeVisualReviewPreservesNormalGame",
+          "CivilizationUITests/RelocationUITests/testOnboardingCandidateDragMovesBuildingWithoutPanning",
+          "CivilizationUITests/RelocationUITests/testOnboardingWalkthroughShowsAndPerformsEveryGuidedStep"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 5,
+          "exitCode": 0
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "passed",
+          "tests": 5,
+          "exitCode": 0
+        },
+        {
+          "name": "ui-debug-3",
+          "status": "failed",
+          "tests": 5,
+          "exitCode": 65
+        }
+      ]
+    },
+    "earlierMotionRetry": {
+      "path": "/tmp/civilization-qa-040f867d80ae4e7d80e73d864041e9ef/report.json",
+      "sha256": "cc3b4f7d3d74236fca6a02505f38e26151da2854cdcbdb5ebb5510408c730166",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150",
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+          "7FBB2956-E961-4389-B329-7D2689E96E4F"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testVillagerMotionReviewStatesAndStaticFallback"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 0
+        },
+        {
+          "name": "ui-debug-3",
+          "status": "failed",
+          "tests": 1,
+          "exitCode": 65
+        }
+      ]
+    },
+    "finalPhoneMiniAndInterruptedPro": {
+      "path": "/tmp/civilization-qa-4f5415d4d8154da9ac44f28733ce5986/report.json",
+      "sha256": "8fa1df275cf95d476f7e9418cb558d1b209115491c90fc703a708e1af0b3323d",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150",
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+          "7FBB2956-E961-4389-B329-7D2689E96E4F"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testVillagerMotionReviewStatesAndStaticFallback"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        },
+        {
+          "name": "ui-debug-3",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 65
+        }
+      ]
+    },
+    "finalPro": {
+      "path": "/tmp/civilization-qa-2fed5ea892f0415399368705e58ee9bb/report.json",
+      "sha256": "36caf0b64e0195fd9e88c63cbfb7681305afa9c2b48284f7cb984bdad7616ddd",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "7FBB2956-E961-4389-B329-7D2689E96E4F"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testVillagerMotionReviewStatesAndStaticFallback"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ]
+    },
+    "releaseEntry": {
+      "path": "/tmp/civilization-qa-6e505c8c3c4b41c9b47a519de3cb646c/report.json",
+      "sha256": "9f7d9c06d259036546c925c1864190d0a362f54c9ac466bff772f387e7a5c488",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "release",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150"
+        ],
+        "only_testing": [
+          "CivilizationUITests/NormalEntryUITests"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ]
+    },
+    "recording": {
+      "path": "/tmp/civilization-qa-bbae1d8f2a0f48c096d8e811aa5e2099/report.json",
+      "sha256": "76a3ddc7ee5a780eabfa3fa252091b7ab8178cf5c3b83aa4a17f0fa0a233aa9f",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testVillagerMotionShortRecording"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ]
+    },
+    "proCloseProbe": {
+      "path": "/tmp/civilization-qa-810276a5f298460aa339faa6fe5a4b05/report.json",
+      "sha256": "8abf42957b0689f1f60fc65a3f2edfec77c753d5114a452bd9ed9e8a0bc70082",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "7FBB2956-E961-4389-B329-7D2689E96E4F"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testVillagerMotionCloseProbe"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ]
+    }
+  },
+  "finalDeviceEvidence": {
+    "phone": "finalPhoneMiniAndInterruptedPro/ui-debug-1 passed",
+    "mini": "finalPhoneMiniAndInterruptedPro/ui-debug-2 passed",
+    "pro": "finalPro/ui-debug-1 passed"
+  },
+  "aggregateFailurePreserved": "Final matrix is not called passed: its Pro runner terminated with signal TERM; unchanged Pro retry passes. Original statuses/reports copied unchanged in captures.",
+  "tooling": {
+    "tests": 35,
+    "status": "passed",
+    "log": "/tmp/civilization-villager-tooling-profile-final.log",
+    "sha256": "3ccaa723c9df44233606d3251b6018b9bdfe9a5cefe0fa64562e300c697145f5"
+  },
+  "releaseExclusions": 11,
+  "captures": 24,
+  "captureManifest": "captures/2026-11-20-villagers-v1/manifest.json",
+  "captureManifestSHA256": "e66e04f065815194ff61a888ec6f8128f11c0b1426ec3065f0d779136fd31130",
+  "recording": "clips/villager-provenance.json",
+  "recordingSHA256": "2d3ae6fdbb1ad44b37c44a5441551a1fc5f8bfa0bbfb9180793c60ed42fb3987",
+  "sourceHashes": {
+    "Civilization/Rendering/VillagerFigure.swift": "b07f6f4903a5f667f6bd953e6222538a8d69a471a796cf5681230385f322be47",
+    "Civilization/Rendering/LivingWorldLayer.swift": "e221d406b82128424344cff7568bacdb74141166d4c99c56ea8af2221ea7ceeb",
+    "Civilization/UI/VillagerMotionReviewView.swift": "518e2c16c0ee3f4ec091df9b0f80f0835f691c25171aababbd82ec84c5c2baed",
+    "Civilization/UI/NativeVisualReviewView.swift": "057ec9a51c0d38efd7bf00362d58cefdb4622f18303797af593cce6aa00ef4e4",
+    "Civilization.xcodeproj/project.pbxproj": "d8eb54ede968e78476d3fc606397f043f24aa488191f2c1f78c8734fae1ab48a",
+    "CivilizationUITests/RelocationUITests.swift": "34a9105ffdc044148d4af2469d5ad7060f7b99367c34120866fb1b9ee345f4b9",
+    "Packages/GameCore/Sources/GameApplication/VisualAgentMotion.swift": "9649aa8131bd611229362c50eed3aca67d2ce21fe745303779ac4e365b509bd9",
+    "Packages/GameCore/Tests/GameCoreTests/VisualAgentMotionTests.swift": "1784cf58a3e4303a15e1d4efb578eec9867b463b3af5626dcf035431696770e2",
+    "scripts/build-native-visual-gallery.py": "57cb5c365ab2944fa982fb7dfdf822f39cb69fb35354d30b612e2c7f11c10e7c",
+    "scripts/verify-developer-release.py": "bf763c29d959eeff6c96865383317f35790869bdae98cfcf509e21bf513ee5ef",
+    "scripts/tests/test_native_visual_gallery.py": "7869a9e86e402e7639074809ec63203bf3d7c96c40d79076e3b5bca4e3751b23"
+  },
+  "unchangedPaths": [
+    "Packages/GameCore/Sources/GameCore",
+    "Civilization/Rendering/WorldView.swift",
+    "Civilization/Art",
+    "Packages/GameCore/Sources/GameApplication/Resources"
+  ],
+  "walkthroughSuffixSHA256": "0e5da2b4cc96987952d1b3cd9a0e6a46d958cbf246e766b909f7526fd5957422",
+  "preservedAuthoritativePaths": {
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+    "Packages/GameCore/Sources/GameApplication/Resources/art-catalog.json": "f7e79340e138601539c4f1cae3f10df643770b02294551a98e6f7f9ff9373690"
+  },
+  "projectChange": "Eight source registration lines only; no signing/settings/resources changed",
+  "lastVerifiedPhysicalPhoneProduct": "33073e9",
+  "physicalInstallThisSlice": false,
+  "playerSaveAccessThisSlice": false,
+  "r207Enabled": false,
+  "newRoadmapStarted": false,
+  "media": {
+    "commit": "9545673e906354c00e59739c00a3ce7a345f645a",
+    "branch": "main",
+    "clean": true,
+    "remoteConfigured": false,
+    "modified": false,
+    "pushed": false
+  },
+  "review": {
+    "independent": true,
+    "corrected": [
+      "Turn faces departure while stationary, phase-aligned compression",
+      "Event-driven power observer with weak owner/lifetime cleanup",
+      "Distinct actual device/bundle provenance; selected failed/zero-test steps rejected",
+      "Deliberately panned camera and non-nil normal snapshot preservation tests",
+      "Additional native Done missed-action RED316865e0\u2192GREEN810276a5, final Pro2fed5ea8"
+    ],
+    "deferredMinor": "Two-Double leg-angle array per display; no general heap-allocation certificate"
+  },
+  "limits": [
+    "Source-native scaffold is not an accepted realistic character atlas",
+    "No normal visual/onboarding GateB/R2-07 activation",
+    "No physical touch/FPS/thermal/battery or OS power-transition acceptance",
+    "Existing capacity-driven map rebuild retained on power/background changes; Static retains figures",
+    "Broader visual Goal remains active; new roadmap/audio deferred by owner"
+  ]
+}

@@ -15,7 +15,7 @@ Reads Xcode/Swift versions and required/optional executable availability. It doe
 ## Existing tests, one report
 
 ```sh
-# Full core Debug + Release and ten developer API exclusion probes.
+# Full core Debug + Release and eleven developer API exclusion probes.
 python3 scripts/dev.py test
 
 # Deliberately scoped regression: report retains the exact filter/configuration.
@@ -128,3 +128,7 @@ Add `--include-placement` to `--walkthrough` when archiving the native candidate
 `--construction` archives five actual-work walkthrough stages per profile (15unchanged PNGs) and builds `construction.html`. It is separate from atmosphere/walkthrough modes. Pause review time and labeled3second steps drive only the disposable engine; they do not alter normal build timing or saved progress.
 
 `python3 scripts/build-art-gallery.py --directions` validates the separate gathering-shelter direction study: four preserved source views, exact native-report/prompt/reference/output digests, alpha32and unchanged seed/20runtime assets. It rejects Python optimization, missing/changed views and aliased outputs, stages manifest/browser data before publication and restores the old pair on a failed replace. No image transforms or runtime export. [Scope, prompts and review gallery](../docs/art/building-direction-review/README.md).
+
+`--villagers --qa-report PASSED_THREE_PROFILE_REPORT.json` archives eight magnified provisional poses per profile (24unchanged PNGs) and builds `villagers.html`. Each source must have a distinct device matching its profile and passed QA destination. The builder re-exports the report’s result bundles to verify source image bytes/device/timestamps before publication; do not supply screenshots from an earlier failed run. The report is copied and hash-pinned with every capture. `--villagers --render-only --output EXISTING_ARCHIVE` validates the pinned captures and copied report without needing temporary result bundles. This is motion review, not accepted realistic character artwork.
+
+For selective destination retries, use `--profile-report phone=REPORT --profile-report mini=REPORT --profile-report pro=REPORT` instead of `--qa-report`. Each selected destination step must have nonzero executed tests and pass, and its actual result bundle must match the images. Original reports (including other-device failures) are copied unchanged and their aggregate status is explicit in every capture record. This never promotes a failed/zero-test device step; it avoids repeating already verified destinations merely to obtain a single green aggregate report.

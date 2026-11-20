@@ -5,6 +5,8 @@
 **Goal:** Complete native visual layers and review gates for living settlement, connections/roads, construction, atmosphere and loading; retain existing approved gameplay.
 **Spec:** plans/2026-11-20-living-world-environmental-animation.md; plans/2026-11-20-ui-themes-animations-loading-branding.md; building Gate2. Latest origin/main c845b21 unchanged. Owner directly requests start/complete visual goals after placement feedback; this resumes visual work. Human acceptance remains separate.
 **Architecture:** Pure derived presentation policies in GameApplication; bounded SpriteKit layers driven by read-only snapshots; SwiftUI loading shares true application lifecycle. Existing assets preserved. No animation mutates GameEngine. Procedural agents/atmosphere explicitly review-only until visual acceptance; shared-edge decoration and loading code are reversible native implementation for review.
+**Current owner boundary:** Only visual/graphics and existing onboarding continue. New Empire/EconomyLab/MapFinds roadmap and audio are deferred; queued/historical entries below confer no execution permission. Normal appearance and broader onboarding GateB remain review-gated.
+
 **Constraints:** R2-07 disabled; no new worker/resource/bridge/defense rules or authoritative time. Preserve fixed footprints, saves/history, art originals, iOS18/signing. No art contact/anchor promotion by implication. Existing media is697b486/local-only; new procedural source belongs in game Git, no fictitious media push.
 
 - [x] V1Connections: deterministic cardinal same-family operational visible hut/storehouse shared-edge derivation; mixed levels; native overlay and detailed three-style roads. RED/GREEN tests for corner/fog/construction/family exclusions and order stability.

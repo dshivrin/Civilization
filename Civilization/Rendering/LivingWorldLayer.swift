@@ -11,15 +11,8 @@ final class LivingWorldLayer: SKNode {
     enum Weather: String, CaseIterable { case clear, rain, fog }
 
     private struct Walker {
-        let node: SKNode
-        let body: SKNode
-        let head: SKShapeNode
-        let legs: [SKShapeNode]
-        let route: [CGPoint]
-        var segment = 0
-        var fraction: CGFloat = 0
-        var forward = true
-        var elapsed: TimeInterval = 0
+        let node: VillagerFigure
+        var journey: VisualAgentJourney
     }
     private struct Creature {
         let node: SKNode
@@ -114,7 +107,7 @@ final class LivingWorldLayer: SKNode {
             let planner = VisualRoutePlanner(configuration: configuration, state: state)
             let routes = planner.destinationRoutes(maximumAgents: budget.agentCount)
             routeCount = routes.count; routeTileCount = routes.reduce(0) { $0 + $1.tiles.count }
-            for (index, route) in routes.enumerated() { addWalker(route: route, index: index) }
+            for (index, route) in routes.enumerated() { addWalker(route: route, index: index, state: state, planner: planner, activeProductionIDs: activeProductionIDs) }
             if budget.agentCount > 0 {
                 addWildlife(configuration: configuration, state: state, planner: planner)
                 addNightLights(state: state, configuration: configuration, activeProductionIDs: activeProductionIDs)
@@ -188,71 +181,26 @@ final class LivingWorldLayer: SKNode {
         walkers.removeAll(); wildlife.removeAll(); routeCount = 0; routeTileCount = 0
     }
 
-    private func addWalker(route: VisualAgentRoute, index: Int) {
-        let root = SKNode(), body = SKNode()
-        root.name = "provisional-villager-\(route.purpose.rawValue)"
-        root.position = IsometricProjection.point(route.tiles[0])
-        root.zPosition = 0.1 - root.position.y / 16
-        let shadow = ellipse(size: CGSize(width: 9, height: 4), color: UIColor.black.withAlphaComponent(0.18))
-        shadow.position.y = -1; root.addChild(shadow)
-        let palette: [UIColor] = [UIColor(red: 0.61, green: 0.32, blue: 0.17, alpha: 1), UIColor(red: 0.37, green: 0.47, blue: 0.30, alpha: 1), UIColor(red: 0.71, green: 0.57, blue: 0.35, alpha: 1)]
-        let skin = UIColor(red: 0.70 - Double(index % 3) * 0.08, green: 0.48 - Double(index % 3) * 0.05, blue: 0.30, alpha: 1)
-        var legs: [SKShapeNode] = []
-        for x in [-1.7, 1.7] as [CGFloat] {
-            let leg = SKShapeNode(rectOf: CGSize(width: 2, height: 5), cornerRadius: 0.7)
-            leg.fillColor = skin; leg.strokeColor = .clear
-            leg.position = CGPoint(x: x, y: 2.4); legs.append(leg); root.addChild(leg)
-        }
-        root.addChild(body)
-        let tunic = SKShapeNode(rectOf: CGSize(width: 6.5, height: 8), cornerRadius: 2)
-        tunic.fillColor = palette[index % palette.count]; tunic.strokeColor = .clear
-        tunic.position.y = 8; body.addChild(tunic)
-        let head = ellipse(size: CGSize(width: 5, height: 5.5), color: skin)
-        head.position.y = 14; body.addChild(head)
-        let hair = ellipse(size: CGSize(width: 5.2, height: 2.4), color: UIColor(red: 0.23, green: 0.16, blue: 0.10, alpha: 1))
-        hair.position.y = 16; body.addChild(hair)
-        let nose = ellipse(size: CGSize(width: 1.8, height: 1.3), color: skin)
-        nose.name = "nose"; nose.position = CGPoint(x: 2.6, y: 13.6); body.addChild(nose)
-        if route.purpose == .carryWood {
-            for y in [7, 9] as [CGFloat] {
-                let log = SKShapeNode(rectOf: CGSize(width: 10, height: 2), cornerRadius: 1)
-                log.fillColor = UIColor(red: 0.37, green: 0.23, blue: 0.12, alpha: 1); log.strokeColor = .clear
-                log.name = "carried-log"; log.position = CGPoint(x: 2, y: y); body.addChild(log)
-            }
-        }
-        addChild(root)
-        walkers.append(Walker(node: root, body: body, head: head, legs: legs, route: route.tiles.map(IsometricProjection.point)))
+    private func addWalker(route: VisualAgentRoute, index: Int, state: GameState,
+                           planner: VisualRoutePlanner, activeProductionIDs: Set<Int>) {
+        guard let source = state.buildings.first(where: { $0.id == route.sourceBuildingID }),
+              let destination = state.buildings.first(where: { $0.id == route.destinationBuildingID }),
+              let journey = VisualAgentJourney(tiles: route.tiles, planner: planner, source: source.kind,
+                destination: destination.kind, sourceActive: activeProductionIDs.contains(source.id), purpose: route.purpose) else { return }
+        let figure = VillagerFigure(profile: index)
+        figure.name = "provisional-villager-" + route.purpose.rawValue
+        figure.position = CGPoint(x: journey.position.x, y: journey.position.y)
+        figure.zPosition = 0.1 - figure.position.y / 16
+        figure.display(.sample(activity: journey.activity, elapsed: journey.poseElapsed), activity: journey.activity, facing: journey.facing)
+        addChild(figure); walkers.append(Walker(node: figure, journey: journey))
     }
 
     private func advanceWalker(index: Int, dt: TimeInterval) {
         var walker = walkers[index]
-        walker.elapsed += dt
-        // Pause briefly at a truthful exterior contact, then walk the same valid route home.
-        if walker.segment == walker.route.count - 1 {
-            walker.fraction += CGFloat(dt)
-            if walker.fraction < 1.5 { walkers[index] = walker; return }
-            walker.forward.toggle(); walker.segment = 0; walker.fraction = 0
-            for log in walker.body.children where log.name == "carried-log" { log.isHidden = !walker.forward }
-        }
-        let points = walker.forward ? walker.route : Array(walker.route.reversed())
-        let a = points[walker.segment], b = points[walker.segment + 1]
-        let length = hypot(b.x - a.x, b.y - a.y)
-        walker.fraction += CGFloat(dt) * 17 / max(1, length)
-        if walker.fraction >= 1 {
-            walker.segment += 1; walker.fraction = 0
-            walker.node.position = b
-        } else {
-            walker.node.position = CGPoint(x: a.x + (b.x - a.x) * walker.fraction, y: a.y + (b.y - a.y) * walker.fraction)
-        }
-        let facingRight = b.x > a.x
-        walker.body.xScale = facingRight ? 1 : -1
-        // Head/nose changes distinguish near-facing and away-facing diagonal walks.
-        walker.head.fillColor = b.y < a.y ? UIColor(red: 0.69, green: 0.46, blue: 0.30, alpha: 1) : UIColor(red: 0.40, green: 0.28, blue: 0.17, alpha: 1)
-        walker.body.childNode(withName: "nose")?.isHidden = b.y > a.y
-        walker.body.position.y = CGFloat(sin(walker.elapsed * 9)) * 0.5
-        for (legIndex, leg) in walker.legs.enumerated() {
-            leg.position.y = 2.4 + CGFloat(sin(walker.elapsed * 9 + Double(legIndex) * .pi)) * 1.4
-        }
+        walker.journey.advance(by: dt, animates: true)
+        walker.node.position = CGPoint(x: walker.journey.position.x, y: walker.journey.position.y)
+        walker.node.display(.sample(activity: walker.journey.activity, elapsed: walker.journey.poseElapsed),
+            activity: walker.journey.activity, facing: walker.journey.facing)
         walker.node.zPosition = 0.1 - walker.node.position.y / 16
         walkers[index] = walker
     }

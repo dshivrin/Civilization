@@ -11,6 +11,8 @@ The corrected entry is **Developer tools → Onboarding walkthrough — start he
 
 [New atmosphere review](atmosphere.html) adds18native day/dusk/night/dawn/static-weather comparisons and an untrimmed full-cycle movie. The disposable lab supports continuous lighting, pause/resume and Static/power fallbacks that retain poses. The default120second visual period has a clearly labeled24second preview; neither defines game time. Proposed warm ground pools are capped at8. [Software evidence](atmosphere-verification.json), [recording provenance](clips/atmosphere-provenance.json). This slice is simulator-only; the physical phone remains33073e9. Owner excludes the new roadmap; only visual/graphics and existing onboarding continue.
 
+[People motion comparison](villagers.html) adds eight magnified provisional poses and four facing categories under the disposable lab → **People motion**. Shared retained joints also animate planner-validated exterior trips, with endpoint pauses/turns, active-production work/wood props and an empty return. Static, motion/power and background suspension are review controls; realistic registered character atlases remain unfinished. [Evidence](villager-verification.json). This remains simulator-only, with the phone on33073e9.
+
 [Open the native screenshot gallery](index.html). The same interactive lab is under **Developer tools → Roads, neighborhoods, living world and loading** in Debug builds. It creates disposable fixtures and does not open, replace or save a player game.
 
 Implemented for review:

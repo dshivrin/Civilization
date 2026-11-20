@@ -1,0 +1,108 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [
+      "EC995F2A-534A-4E57-A59C-0DE408729150",
+      "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "7FBB2956-E961-4389-B329-7D2689E96E4F"
+    ],
+    "only_testing": [
+      "CivilizationUITests/RelocationUITests/testVillagerMotionReviewStatesAndStaticFallback"
+    ],
+    "output": null
+  },
+  "steps": [
+    {
+      "name": "ui-debug-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/dev/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=EC995F2A-534A-4E57-A59C-0DE408729150",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/EC995F2A-534A-4E57-A59C-0DE408729150",
+        "-resultBundlePath",
+        "/private/tmp/civilization-qa-4f5415d4d8154da9ac44f28733ce5986/ui-debug-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/RelocationUITests/testVillagerMotionReviewStatesAndStaticFallback"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 1,
+      "durationSeconds": 154.434,
+      "log": "/private/tmp/civilization-qa-4f5415d4d8154da9ac44f28733ce5986/ui-debug-1.log"
+    },
+    {
+      "name": "ui-debug-2",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/dev/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-resultBundlePath",
+        "/private/tmp/civilization-qa-4f5415d4d8154da9ac44f28733ce5986/ui-debug-2.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/RelocationUITests/testVillagerMotionReviewStatesAndStaticFallback"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 1,
+      "durationSeconds": 164.457,
+      "log": "/private/tmp/civilization-qa-4f5415d4d8154da9ac44f28733ce5986/ui-debug-2.log"
+    },
+    {
+      "name": "ui-debug-3",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/dev/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=7FBB2956-E961-4389-B329-7D2689E96E4F",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/7FBB2956-E961-4389-B329-7D2689E96E4F",
+        "-resultBundlePath",
+        "/private/tmp/civilization-qa-4f5415d4d8154da9ac44f28733ce5986/ui-debug-3.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/RelocationUITests/testVillagerMotionReviewStatesAndStaticFallback"
+      ],
+      "exitCode": 65,
+      "status": "failed",
+      "tests": 0,
+      "durationSeconds": 185.829,
+      "log": "/private/tmp/civilization-qa-4f5415d4d8154da9ac44f28733ce5986/ui-debug-3.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-20T21:48:48.098794+00:00",
+  "revision": {
+    "commit": "139c4b247e6fefe8903263b5f68c16784b223bb5",
+    "dirty": true
+  },
+  "status": "failed"
+}

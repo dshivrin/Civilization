@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+        A08000000000000000000006 = {isa = PBXBuildFile; fileRef = A08100000000000000000006; };
+        A08000000000000000000005 = {isa = PBXBuildFile; fileRef = A08100000000000000000005; };
         A08000000000000000000004 = {isa = PBXBuildFile; fileRef = A08100000000000000000004; };
         A08000000000000000000003 = {isa = PBXBuildFile; fileRef = A08100000000000000000003; };
         A08000000000000000000002 /* Civilization/Rendering/BuildingConnectionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08100000000000000000002; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+        A08100000000000000000006 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/VillagerMotionReviewView.swift; sourceTree = SOURCE_ROOT; };
+        A08100000000000000000005 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/VillagerFigure.swift; sourceTree = SOURCE_ROOT; };
         A08100000000000000000004 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/NativeVisualReviewView.swift; sourceTree = SOURCE_ROOT; };
         A08100000000000000000003 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/LivingWorldLayer.swift; sourceTree = SOURCE_ROOT; };
         A08100000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/BuildingConnectionLayer.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +132,8 @@
                 A08100000000000000000002,
                 A08100000000000000000003,
                 A08100000000000000000004,
+                A08100000000000000000006,
+                A08100000000000000000005,
 				E1869522EAEC8033D828D556 /* Civilization/Rendering/WorldView.swift */,
 				1207C98C88630EE38F7F51FB /* Civilization/UI/SettlementView.swift */,
 				FBDC4F23F93125BBEEAE800C /* Products */,
@@ -246,6 +252,8 @@
 			buildActionMask = 2147483647;
 			files = (
                 A08000000000000000000004,
+                A08000000000000000000006,
+                A08000000000000000000005,
                 A08000000000000000000003,
                 A08000000000000000000002 /* Civilization/Rendering/BuildingConnectionLayer.swift in Sources */,
                 A08000000000000000000001 /* Civilization/UI/LoadingSceneryView.swift in Sources */,

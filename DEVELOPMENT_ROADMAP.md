@@ -1,3 +1,11 @@
+## Eight-state native motion review — 20 November 2026
+
+Only visual/graphics and existing onboarding continue; the new roadmap and audio remain deferred. The disposable lab now shares eight provisional poses/four facings with validated exterior trips, contextual active-production work/wood props, endpoint turns and empty returns. Event-driven power handling, retained Static poses and an actual Pro Done hit-area correction are verified. [24-capture gallery and movie](docs/testing/native-visual-program/villagers.html), [exact evidence](docs/testing/native-visual-program/villager-verification.json).
+
+Core279Debug/235Release+11exclusions and35tooling checks pass. Final phone/mini motion steps and separate Pro retry pass; the failed aggregate/SIGTERM and earlier missed-tap/zero-selection results remain explicitly preserved. Prior guide drag/full walkthrough, atmosphere and lab regression cases pass. Movie883frames preserves all presentation timestamps. These are simulator/source-native proposals, not accepted realistic character atlases or physical metrics.
+
+No player-save/device access or install, normal appearance/GateB/R2-07 activation, authoritative GameCore/economy/art/resource change or signing change. Dedicated walkthrough suffix is byte-identical. Last verified phone product33073e9; original media9545673/main is clean/local-only with no remote. Minor deferred: temporary leg-angle array; heap performance unmeasured. Overall visual Goal remains active for remaining artwork/refinement and genuine review gates.
+
 ## Single-family directional art study — 20 November 2026
 
 Owner's rotation feedback and request to refine graphics before integration now have a bounded [gathering-shelter comparison](docs/art/building-direction-review/index.html): unchanged source master plus three built-in imagegen alternate views, exact prompts/hashes, native alpha measurements and desktop/mobile evidence. These are **uncertified nominal turns**, with camera/prop/lighting/contact differences disclosed. No normal rotation fix, accepted art export or Gate3mass production is claimed. [Verification](docs/art/building-direction-review/verification.json):28tooling tests pass; independent publication/provenance findings reproduced and corrected once. Minor source-master wording/shadow-framing limits remain.

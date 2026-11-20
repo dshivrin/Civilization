@@ -1,0 +1,59 @@
+{
+  "scope": "Untrimmed isolated QA launch and provisional walk/carry/gather/work plus Static hold; no realistic-atlas or hardware performance acceptance.",
+  "qaReport": "/tmp/civilization-qa-bbae1d8f2a0f48c096d8e811aa5e2099/report.json",
+  "qaReportSHA256": "76a3ddc7ee5a780eabfa3fa252091b7ab8178cf5c3b83aa4a17f0fa0a233aa9f",
+  "rawDurationSeconds": 99.65,
+  "uprightDurationSeconds": 99.408333,
+  "decodedFrames": 883,
+  "allPresentationTimestampsPreserved": true,
+  "firstPresentationSeconds": 0.0,
+  "lastPresentationSeconds": 99.316667,
+  "requestedCaptureFPS": 15,
+  "normalization": "FFmpeg orientation-only transpose2 (90degCCW), H264 CRF18. No trim/crop; every decoded presentation timestamp preserved. Container end accounting can differ.",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-noautorotate",
+    "-i",
+    "/tmp/civilization-villager-motion-raw-v2.mp4",
+    "-map",
+    "0:v:0",
+    "-vf",
+    "transpose=2",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-fps_mode",
+    "passthrough",
+    "-enc_time_base",
+    "demux",
+    "-an",
+    "-movflags",
+    "+faststart",
+    "-n",
+    "/tmp/civilization-villager-motion-upright-v2.mp4"
+  ],
+  "wallTimeLimit": "Presentation clock clamps frame deltas. Capture frame rate is not a physical FPS measurement; concurrent tablet QA is disclosed.",
+  "qaReportArchive": "clips/villager-motion-qa-report.json",
+  "records": [
+    {
+      "role": "raw",
+      "file": "clips/civilization-villager-motion-raw-v2.mp4",
+      "sha256": "c3c8b75f5a6bdeb6b96be541e6b7724625c2a1814e1d5b2055ce32b12198f573",
+      "bytes": 15291423,
+      "source": "/tmp/civilization-villager-motion-raw-v2.mp4"
+    },
+    {
+      "role": "upright",
+      "file": "clips/civilization-villager-motion-upright-v2.mp4",
+      "sha256": "54bf44f805cd408b7bc59549eecc86c01f2bcf6df60a52c726b9926b71c1a817",
+      "bytes": 8551882,
+      "source": "/tmp/civilization-villager-motion-upright-v2.mp4"
+    }
+  ],
+  "previousRecording": "clips/villager-recording-v1-history.json"
+}

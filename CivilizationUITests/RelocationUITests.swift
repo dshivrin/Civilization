@@ -4,6 +4,128 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testVillagerMotionCloseProbe() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        app.buttons["developerTools"].tap(); app.buttons["openNativeVisualReview"].tap()
+        XCTAssertTrue(app.buttons["openVillagerMotionReview"].waitForExistence(timeout: 10))
+        app.buttons["openVillagerMotionReview"].tap()
+        let done = app.buttons["closeVillagerMotionReview"]
+        XCTAssertTrue(done.waitForExistence(timeout: 10))
+        app.buttons["villagerNextPose"].tap(); app.buttons["villagerPower"].tap()
+        print("VILLAGER_CLOSE_BEFORE \(done.value ?? "missing") \(done.frame)")
+        done.tap()
+        let closed = done.waitForNonExistence(timeout: 10)
+        if !closed { print("VILLAGER_CLOSE_AFTER \(done.value ?? "missing") \(done.frame)") }
+        XCTAssertTrue(closed)
+    }
+
+    @MainActor func testVillagerMotionShortRecording() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        let normal = try XCTUnwrap(app.otherElements["settlementMap"].value as? String)
+        app.buttons["developerTools"].tap(); app.buttons["openNativeVisualReview"].tap()
+        XCTAssertTrue(app.buttons["openVillagerMotionReview"].waitForExistence(timeout: 10))
+        app.buttons["openVillagerMotionReview"].tap()
+        let status = app.staticTexts["villagerPoseStatus"]
+        XCTAssertTrue(status.waitForExistence(timeout: 10))
+        for activity in ["walk", "carry", "gather", "work"] {
+            app.buttons["villagerNextPose"].tap()
+            let first = try XCTUnwrap(status.value as? String)
+            XCTAssertTrue(first.contains("activity=\(activity)"), first)
+            Thread.sleep(forTimeInterval: 3)
+            let second = try XCTUnwrap(status.value as? String)
+            func joints(_ value: String) -> String? { value.split(separator: " ").first { $0.hasPrefix("joints=") }.map(String.init) }
+            XCTAssertNotNil(joints(first)); XCTAssertNotEqual(joints(first), joints(second))
+            print("VILLAGER_RECORDED_MOTION \(first) → \(second)")
+        }
+        app.buttons["villagerStatic"].tap()
+        let frozen = try XCTUnwrap(status.value as? String)
+        Thread.sleep(forTimeInterval: 2)
+        XCTAssertEqual(status.value as? String, frozen)
+        app.buttons["closeVillagerMotionReview"].tap()
+        XCTAssertTrue(app.buttons["closeVillagerMotionReview"].waitForNonExistence(timeout: 10))
+        app.buttons["closeNativeVisualReview"].tap()
+        XCTAssertTrue(app.buttons["closeNativeVisualReview"].waitForNonExistence(timeout: 10))
+        app.navigationBars["Developer tools"].buttons["Done"].tap()
+        XCTAssertEqual(try XCTUnwrap(app.otherElements["settlementMap"].value as? String).components(separatedBy: " sceneBuilds=").first,
+                       normal.components(separatedBy: " sceneBuilds=").first)
+    }
+
+    @MainActor func testVillagerMotionReviewStatesAndStaticFallback() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        let normal = try XCTUnwrap(app.otherElements["settlementMap"].value as? String)
+        app.buttons["developerTools"].tap(); app.buttons["openNativeVisualReview"].tap()
+        let entry = app.buttons["openVillagerMotionReview"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 10))
+        let lab = app.descendants(matching: .any).matching(identifier: "nativeVisualReviewMap").firstMatch
+        XCTAssertTrue(lab.waitForExistence(timeout: 10))
+        let initialLabCamera = try XCTUnwrap(lab.value as? String).components(separatedBy: " sceneBuilds=").first
+        lab.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.60)).press(forDuration: 0.05,
+            thenDragTo: lab.coordinate(withNormalizedOffset: CGVector(dx: 0.2, dy: 0.65)))
+        let movedLabCamera = try XCTUnwrap(lab.value as? String).components(separatedBy: " sceneBuilds=").first
+        XCTAssertNotEqual(movedLabCamera, initialLabCamera)
+        entry.tap()
+        let status = app.staticTexts["villagerPoseStatus"]
+        XCTAssertTrue(status.waitForExistence(timeout: 10))
+        func value() -> String { status.value as? String ?? "" }
+        func field(_ key: String, in snapshot: String) -> String {
+            snapshot.split(separator: " ").first { $0.hasPrefix(key + "=") }.map(String.init) ?? "missing"
+        }
+        let initial = value(), actorID = field("actorID", in: initial), nodes = field("nodes", in: initial)
+        for activity in ["idle", "walk", "carry", "gather", "work", "rest", "socialize", "turn"] {
+            let pose = value()
+            XCTAssertTrue(pose.contains("activity=\(activity)"), pose)
+            XCTAssertTrue(pose.contains("figures=1"), pose)
+            XCTAssertEqual(field("actorID", in: pose), actorID)
+            XCTAssertEqual(field("nodes", in: pose), nodes)
+            capture("villager-pose-" + activity, app: app)
+            app.buttons["villagerNextPose"].tap()
+        }
+        XCTAssertTrue(value().contains("activity=idle"))
+        for facing in ["nearLeft", "awayRight", "awayLeft", "nearRight"] {
+            app.buttons["villagerFacing"].tap()
+            let pose = value()
+            XCTAssertTrue(pose.contains("facing=\(facing)"), pose)
+            XCTAssertTrue(pose.contains("noseHidden=\(facing.hasPrefix("away") ? 1 : 0)"), pose)
+        }
+        app.buttons["villagerNextPose"].tap()
+        app.buttons["villagerStatic"].tap()
+        let frozen = value(); Thread.sleep(forTimeInterval: 1.2)
+        XCTAssertEqual(value(), frozen)
+        XCTAssertTrue(frozen.contains("moving=false"))
+        let frozenJoints = field("joints", in: frozen)
+        app.buttons["villagerStatic"].tap()
+        let moving = XCTNSPredicateExpectation(predicate: NSPredicate { _,_ in
+            let pose = value()
+            return field("joints", in: pose) != frozenJoints && pose.contains("moving=true")
+        }, object: nil)
+        XCTAssertEqual(XCTWaiter.wait(for: [moving], timeout: 8), .completed)
+        app.buttons["villagerPower"].tap()
+        let lowPower = value(); Thread.sleep(forTimeInterval: 1.2)
+        XCTAssertEqual(value(), lowPower); XCTAssertTrue(lowPower.contains("moving=false"))
+        XCTAssertEqual(field("actorID", in: lowPower), actorID)
+        app.buttons["closeVillagerMotionReview"].tap()
+        XCTAssertTrue(app.buttons["closeVillagerMotionReview"].waitForNonExistence(timeout: 10))
+        XCTAssertTrue(app.staticTexts["visualReviewNotice"].waitForExistence(timeout: 5))
+        XCTAssertEqual(try XCTUnwrap(lab.value as? String).components(separatedBy: " sceneBuilds=").first, movedLabCamera)
+        app.buttons["closeNativeVisualReview"].tap()
+        XCTAssertTrue(app.buttons["closeNativeVisualReview"].waitForNonExistence(timeout: 10))
+        app.navigationBars["Developer tools"].buttons["Done"].tap()
+        XCTAssertEqual(try XCTUnwrap(app.otherElements["settlementMap"].value as? String).components(separatedBy: " sceneBuilds=").first,
+                       normal.components(separatedBy: " sceneBuilds=").first)
+    }
+
     @MainActor func testOnboardingConstructionStagesUseActualWork() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = try openWalkthroughPlacement()

@@ -23,6 +23,7 @@ struct NativeVisualReviewView: View {
         reduceMotion || staticPreview || powerPreview || ProcessInfo.processInfo.isLowPowerModeEnabled
     }
     @State private var loading = false
+    @State private var peopleMotion = false
     @State private var onboarding = false
     @State private var onboardingSnapshot: OnboardingReviewSnapshot?
     @State private var forestRevealed = false
@@ -34,7 +35,7 @@ struct NativeVisualReviewView: View {
     var body: some View {
         ZStack(alignment: .top) {
             if let scene {
-                SpriteView(scene: scene, isPaused: appPhase != .active || loading).id(ObjectIdentifier(scene)).ignoresSafeArea()
+                SpriteView(scene: scene, isPaused: appPhase != .active || loading || peopleMotion).id(ObjectIdentifier(scene)).ignoresSafeArea()
                     .accessibilityElement(children: .ignore).accessibilityLabel("Visual review map")
                     .accessibilityIdentifier("nativeVisualReviewMap")
                     .accessibilityValue(scene.cameraAccessibilityValue + " revision=\(cameraRevision)")
@@ -99,8 +100,10 @@ struct NativeVisualReviewView: View {
                         phase = .day; phaseRevision += 1; cyclesLighting = true; refresh()
                     }.buttonStyle(.bordered).font(.caption).frame(minHeight: 44)
                         .disabled(!reviewFrameReady).accessibilityIdentifier("visualReviewFastCycle")
+                    Button("People motion") { peopleMotion = true }
+                        .buttonStyle(.bordered).font(.caption).accessibilityIdentifier("openVillagerMotionReview")
                     if let scene {
-                        TimelineView(.animation(minimumInterval: 0.25, paused: appPhase != .active || loading)) { _ in
+                        TimelineView(.animation(minimumInterval: 0.25, paused: appPhase != .active || loading || peopleMotion)) { _ in
                             Text(scene.reviewAtmosphereCaption).font(.caption2)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .accessibilityLabel(scene.reviewAtmosphereCaption)
@@ -125,6 +128,8 @@ struct NativeVisualReviewView: View {
         .onReceive(NotificationCenter.default.publisher(for: .NSProcessInfoPowerStateDidChange)) { _ in refresh() }
         .onChange(of: loading) { _, value in scene?.isPaused = value || appPhase != .active; refresh() }
 
+        .fullScreenCover(isPresented: $peopleMotion) { VillagerMotionReviewView() }
+        .onChange(of: peopleMotion) { _,_ in refresh() }
         .fullScreenCover(isPresented: $loading) {
             VStack(spacing: 0) {
                 HStack {
@@ -173,7 +178,7 @@ struct NativeVisualReviewView: View {
     }
     private func refresh() {
         guard let scene, let fixture else { return }
-        scene.isPaused = appPhase != .active || loading
+        scene.isPaused = appPhase != .active || loading || peopleMotion
         scene.reviewVisualsEnabled = true; scene.reviewPhase = phase; scene.reviewWeather = weather
         scene.reviewLightingSelectionRevision = phaseRevision
         scene.reviewCyclesLighting = cyclesLighting; scene.reviewLowPowerPreview = powerPreview

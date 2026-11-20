@@ -1,0 +1,61 @@
+{
+  "scope": "Untrimmed isolated QA launch and provisional walk/carry/gather/work plus Static hold; no realistic-atlas or hardware performance acceptance.",
+  "qaReport": "/tmp/civilization-qa-88bdf1def51142c2865157c3c900a0d9/report.json",
+  "qaReportSHA256": "f5beb2a7026925c884a99f83a439297feda274fcfdcd3b9961aa835688d41623",
+  "records": [
+    {
+      "role": "raw",
+      "sha256": "ced90e4455a96f7ee5214211b767d860681a5eba8f3f880b9ae1687e3b26b799",
+      "bytes": 16640349,
+      "source": "/tmp/civilization-villager-motion-raw-v1.mp4",
+      "localArchiveFile": "/tmp/civilization-villager-motion-raw-v1.mp4"
+    },
+    {
+      "role": "upright",
+      "sha256": "ba20ef21eff4dfa43dab3fc58943c567efe829b9eb1f71472a9ff823baf6d53c",
+      "bytes": 9085163,
+      "source": "/tmp/civilization-villager-motion-upright-v1.mp4",
+      "localArchiveFile": "/tmp/civilization-villager-motion-upright-v1.mp4"
+    }
+  ],
+  "rawDurationSeconds": 98.968333,
+  "uprightDurationSeconds": 98.946667,
+  "decodedFrames": 845,
+  "allPresentationTimestampsPreserved": true,
+  "firstPresentationSeconds": 0.0,
+  "lastPresentationSeconds": 98.825,
+  "requestedCaptureFPS": 15,
+  "normalization": "FFmpeg orientation-only transpose2 (90degCCW), H264 CRF18. No trim/crop; every decoded presentation timestamp preserved. Container end accounting can differ.",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-noautorotate",
+    "-i",
+    "/tmp/civilization-villager-motion-raw-v1.mp4",
+    "-map",
+    "0:v:0",
+    "-vf",
+    "transpose=2",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-fps_mode",
+    "passthrough",
+    "-enc_time_base",
+    "demux",
+    "-an",
+    "-movflags",
+    "+faststart",
+    "-n",
+    "/tmp/civilization-villager-motion-upright-v1.mp4"
+  ],
+  "wallTimeLimit": "Presentation clock clamps frame deltas. Capture frame rate is not a physical FPS measurement; concurrent tablet QA is disclosed.",
+  "qaReportArchive": "clips/villager-motion-v1-qa-report.json",
+  "promoted": false,
+  "supersededBy": "villager-provenance.json",
+  "reason": "Earlier passing motion recording predates the larger Done hit area; unchanged source/watch files retained locally."
+}
