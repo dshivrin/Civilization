@@ -1,0 +1,110 @@
+{
+  "productCommit": "3110b33",
+  "civicCommit": "bcf8480",
+  "configuration": "Debug",
+  "bundleIdentifier": "com.civilization.seed",
+  "deviceModel": "iPhone 17 Pro Max",
+  "signedDeviceBuildPassed": true,
+  "strictSignatureVerificationPassed": true,
+  "installed": true,
+  "launchVerified": true,
+  "processStillRunningAfterLaunch": true,
+  "freshStableBackupProductionValidated": true,
+  "preLaunchAllFiveFilesByteIdentical": true,
+  "postLaunchExistingSaveBytesAndLibraryEntriesPreserved": true,
+  "postLaunchComparisonMode": "allow-new-games",
+  "postLaunchAddedFiles": [
+    "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json"
+  ],
+  "postLaunchChangedFiles": [
+    "games-index.json"
+  ],
+  "before": {
+    "files": [
+      {
+        "buildings": 9,
+        "mapID": "river-clearing-64x48-v1",
+        "relativePath": "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json",
+        "roads": 0,
+        "sha256": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b"
+      },
+      {
+        "buildings": 6,
+        "mapID": "river-clearing-64x48-v1",
+        "relativePath": "settlement-v1.json",
+        "roads": 15,
+        "sha256": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349"
+      },
+      {
+        "buildings": 5,
+        "mapID": "river-clearing-64x48-v1",
+        "relativePath": "settlement-v1.json.developer",
+        "roads": 0,
+        "sha256": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8"
+      },
+      {
+        "buildings": 5,
+        "mapID": "river-clearing-v1",
+        "relativePath": "settlement-v1.json.pre-geography-64x48.bak",
+        "roads": 15,
+        "sha256": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+      }
+    ],
+    "registeredGames": 2,
+    "sourceByteIdentical": true
+  },
+  "afterLaunch": {
+    "files": [
+      {
+        "buildings": 9,
+        "mapID": "river-clearing-64x48-v1",
+        "relativePath": "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json",
+        "roads": 0,
+        "sha256": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b"
+      },
+      {
+        "buildings": 2,
+        "mapID": "river-clearing-64x48-v1",
+        "relativePath": "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json",
+        "roads": 0,
+        "sha256": "ca44c42fba1ea75cc6f5627f34d45607bdcd04ee50736b1182e5e75f27235008"
+      },
+      {
+        "buildings": 6,
+        "mapID": "river-clearing-64x48-v1",
+        "relativePath": "settlement-v1.json",
+        "roads": 15,
+        "sha256": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349"
+      },
+      {
+        "buildings": 5,
+        "mapID": "river-clearing-64x48-v1",
+        "relativePath": "settlement-v1.json.developer",
+        "roads": 0,
+        "sha256": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8"
+      },
+      {
+        "buildings": 5,
+        "mapID": "river-clearing-v1",
+        "relativePath": "settlement-v1.json.pre-geography-64x48.bak",
+        "roads": 15,
+        "sha256": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+      }
+    ],
+    "registeredGames": 3,
+    "sourceByteIdentical": true
+  },
+  "privateBackupRoots": [
+    "/tmp/civilization-civic-review-device-before-3110b33",
+    "/tmp/civilization-civic-review-device-after-install-3110b33",
+    "/tmp/civilization-civic-review-device-after-launch-3110b33"
+  ],
+  "privateSaveBodiesUploaded": false,
+  "uninstallResetOrSaveInjectionPerformed": false,
+  "physicalUITapsOrReviewControlsAutomated": false,
+  "limitations": [
+    "New normal game observed after launch (two buildings); the actual physical tap was not independently witnessed.",
+    "Existing saves remain byte-identical; on-device old-save migration and review-copy interaction have not been exercised by Codex.",
+    "Software QA results are from the implementation cycle; no sustained physical performance or human enjoyment acceptance is inferred."
+  ]
+}

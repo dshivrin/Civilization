@@ -1,3 +1,9 @@
+# Civic/review iPhone update installed — 20 November 2026
+
+At Dima's explicit install/report request, product3110b33 signed Debug build, strict signature verification, iPhone17ProMax installation and launch succeed. Fresh stable backups production-validate; all5files byte-identical before launch. After launch, previous9-building normal, original6-building/15-road normal,5-building developer and geography backup remain byte-identical; all old library entries retained. Separate2-building normal game observed added/selected; no automated physical taps/fixtures/reset/uninstall. [Evidence](testing/gameplay-review/device-install.json), [delivery](milestones/isolated-gameplay-review.md). Actual on-device review controls/migration/touch/performance/enjoyment remain human acceptance work. Report to the designated Master Development Coordination chat is the remaining authorized step.
+
+---
+
 # Civic evolution and isolated review controls delivered — 20 November 2026
 
 GAME-LOOP-01 delivered/pushed asbcf8480. Owner's subsequent faster-playtest request now has a separate persistent review companion: **Developer tools → Review this game**, then existing10×/resource grants/time-advance controls. Normal/developer data remain independent; current copy is retained on save failure, pending scenarios cannot overwrite it, damaged normal fallback cannot be cloned, and restart resumes explicit review data without offline simulation or persisted speed settings. [Review controls report](milestones/isolated-gameplay-review.md), [plan](../plans/2026-11-20-isolated-gameplay-review.md).
