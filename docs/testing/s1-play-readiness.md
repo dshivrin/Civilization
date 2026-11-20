@@ -36,3 +36,7 @@
 No missing engineering tool blocks this milestone. Full core Debug189/Release171and five exclusion probes pass. Shared Release entry and earned-completion suites now exist and pass on phone/tablet, closing the identified suite gap. [Actual scope/results and commands](../milestones/s1-play.md). Independent review found no blocking defect.
 
 Remaining needs: Dima's normal human playtest; optional sustained physical metrics; future damaged-index repair/back-to-menu recovery UX. No dedicated rapid-double-tap entry test yet; the MainActor guard and core concurrency regressions cover the underlying serialization. These are recorded gaps, not silently assumed coverage. No new accounts, plugins, signing changes, purchases or network services are required.
+
+## Requested plan and physical update
+
+Signed2f0e4b9now installed/launched on Dima's iPhone with fresh validated backup and byte-identical original progress; [actual evidence](s1-play/device-install.json). Human acceptance remains open. Dima asked us to request the plan from the Master chat; [retrieved reconstruction](../design/sources/2026-11-20-development-infrastructure-reconstructed.md) proposes unified reporting, broader regression harness, diagnostics and eventual CI. These are proposed next engineering stages, not missing mandatory software or already authorized implementation. Existing DEV IDs retain their meanings.

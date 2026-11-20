@@ -1,5 +1,10 @@
 # Civilization Builder — Codex project instructions
 
+## S1-PLAY physical update and requested plan — 20 November 2026
+
+At Dima's explicit request, product2f0e4b9signed iPhone installation/launch succeed after a fresh validated backup; all4files byte-identical before launch. Original normal6buildings/15roads, developer5buildings/0roads and geography backup remain byte-identical afterward; separate authentic one-campfire normal game now selected, old entry retained. [Evidence](docs/testing/s1-play/device-install.json). Dima requested asking the Master chat for its tools/test plan; [reply reconstruction](docs/design/sources/2026-11-20-development-infrastructure-reconstructed.md) retrieved. Proposed infrastructure DEV labels are not canonical renumbering/new execution permission. Stop for normal human playtest.
+
+
 ## S1-PLAY-001 candidate — stop for human playtest, 20 November 2026
 
 Dima's normal-entry/era-completion task is implemented for human review. Launch → New Game creates a separate authentic64×48one-campfire standard start; Continue resumes the selected normal save. No progress reset/deletion or physical install in this task. Seven canonical chapters/catalog/required territories/five pillars lead to Bronze Age readiness only; no Bronze gameplay or balance change. Fresh189Debug/171Release, five Release exclusions and scoped native phone/mini/Pro Debug plus phone/iPad Release entry/completion pass. [Report](docs/milestones/s1-play.md), [tool/test readiness and remaining dependencies](docs/testing/s1-play-readiness.md). Human playtest is the acceptance gate; stop after authorized commit/push. Preserve all prior backlog/media and saves.

@@ -65,3 +65,13 @@ Test development observed missing entry APIs fail before implementation, then pr
 **Future enhancements:** index repair/backup recovery UI, back-to-menu navigation, richer pacing observation and sustained physical performance evidence. Optional exploration/geography and every existing FP/RD/LC/AUDIO/WND/GEO/UX/CLU/MAP backlog remain. Bronze gameplay remains deferred. [Readiness/tool/test dependency register](../testing/s1-play-readiness.md).
 
 Stop for Dima's normal human playtest. No new physical install, final art acceptance, hardware benchmark, merge or second-era work is claimed.
+
+## Physical installation and coordination — 20 November 2026
+
+At Dima's direct request, signed product **2f0e4b9** built with unchanged signing settings, passed strict host-trust verification, installed and launched successfully on his connected iPhone17Pro Max. The app was gracefully closed before a fresh stable production-validated backup. All four library/save/backup files were byte-identical immediately after installation, before launch.
+
+A subsequent copy validates the original normal6buildings/15roads and developer5buildings/0roads, plus a separate authentic one-campfire64×48normal slot now selected. Original normal/developer/geography-backup bytes remain identical; the old library entry remains and the index adds the separate game. No physical UI automation, reset, fixture injection or save replacement was performed. The new slot was observed in the copy; the actual physical tap was not independently witnessed. Ordinary tiny food/water changes in the new slot reflect production time, not grants. Physical launch succeeded; actual touch/enjoyment/pacing/sustained-performance acceptance remains Dima's playtest.
+
+[Preservation metadata](../testing/s1-play/device-install.json); private fresh copies remain under `/tmp/civilization-play-device-{before,before-stable,after,launched}` and are not uploaded. The validator initially lacked its resource bundle; placing current bundles beside it resolved validation. Sandbox-only signing verification lacked host trust; approved host verification passed before installation.
+
+Dima corrected the plan-fetch request to ask the Master chat for it. The request was sent and the [reconstructed infrastructure response](../design/sources/2026-11-20-development-infrastructure-reconstructed.md) retrieved. It proposes a unified runner/report, extended visual/gameplay regressions, diagnostics/physical metrics and eventual CI; no extra mandatory software is claimed. Original-plan recovery is the replying assistant's claim, not independently verified. Candidate DEV labels must not override existing canonical DEV-001. No infrastructure implementation started; stop for human playtest.

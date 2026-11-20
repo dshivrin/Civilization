@@ -1,5 +1,10 @@
 # Current checkpoint — S1-Geography delivered; environment visual review —20November2026
 
+## Physical S1-PLAY installed — 20 November 2026
+
+Dima explicitly requested iPhone installation/report and asked the Master chat for the tools/test plan. Product2f0e4b9 signed build/strict verification/install/launch succeed. Fresh stable backup and exact4file pre-launch preservation verified; after launch original normal6buildings/15roads, developer5buildings/0roads and geography backup remain byte-identical. A separate authentic64×48one-campfire normal game is now selected; original legacy slot remains. No physical automated tap/reset or fixture injected. [Evidence](testing/s1-play/device-install.json), [milestone](milestones/s1-play.md). Master reconstructed infrastructure proposal retrieved and archived; candidate DEV-001–006 labels do not replace canonical existing DEV-001. Do not begin proposed infrastructure or art before reconciling authorization; current stop remains human playtest.
+
+
 ## S1-PLAY-001 — stop for human playtest
 
 Latest direct task supersedes environment work priority. Normal launch/new/continue and canonical completion presentation implemented; no economy/config/era gameplay expansion. Reconciliation4f1f255; final report [s1-play](milestones/s1-play.md), dependency register [readiness](testing/s1-play-readiness.md). Fresh core189Debug/171Release,5Release exclusions, scoped native entry/persistence/isolation/completion on phone/mini/Pro and Release phone/iPad pass. Existing saves and media remain preserved; no physical install/reset. Independent review found no blocker; failed-Continue back navigation and damaged-index repair remain gaps. Human normal playthrough is the acceptance gate. Commit/push to personal dshivrin/Civilization first-era-review, then stop.
