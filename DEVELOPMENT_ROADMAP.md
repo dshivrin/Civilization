@@ -4,6 +4,10 @@ Owner playthrough brief `29236f2` approves strict operational path connectivity 
 
 # Development roadmap
 
+## Empire direction · approved 20 November 2026
+
+The [Empire development roadmap](plans/2026-11-20-empire-development-roadmap.md) is the forward direction for later eras and regional expansion: Riverbend is the starting capital of one shared empire, with regional support settlements, mostly automatic trade, and optional visits and projects. The main campaign adds founder identity at New Game and empire naming at Bronze; regional disruptions are single-player and do not require combat or PvP. This direction reframes the earlier independent-civilization concept for GEO-001/007/008; preserve the remaining milestones, backlog IDs, first-era scope and visual work. This is a roadmap, not implementation authorization.
+
 ## Owner-requested isolated gameplay review controls
 
 After civic deliverybcf8480, Dima requests reusing time multipliers/resource grants for quick playtesting and explicitly selects a **separate review copy preserving normal progress**. Delivered under the [bounded Debug tooling plan](plans/2026-11-20-isolated-gameplay-review.md): independent review companion, existing1×/2×/5×/10× controls and capped250resource grants, resume and save-first return. Normal/developer data retained; failed writes and pending preparations cannot discard/replace review progress. Core210Debug/184Release +7exclusions, inspector10/9, Python10 and native phone/tablet review +Release entry/scenario checks pass. [Delivery/evidence](docs/milestones/isolated-gameplay-review.md). No normal balance, player-save reset, new gameplay backlog or physical installation.
