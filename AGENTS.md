@@ -1,5 +1,14 @@
 # Civilization Builder — Codex project instructions
 
+## Permanent goal-based execution and reusable approvals — 20 November 2026
+
+Every new Civilization Codex assignment must be expressed as a **Goal**, with explicit acceptance criteria, verification, and a concise completion report. Continue through authorized implementation, build, test, fix and retest steps without stopping at routine checkpoints; respect host session and usage limits.
+
+Dima repeatedly approves routine `swift test`, `xcodebuild` and the reusable QA runner, including variations in suite, destination and build configuration. **Minimize duplicate prompts:** use the existing stable `python3 scripts/dev.py` entry point and documented subcommands from `scripts/README.md`, avoid unnecessary shell-wrapper/prefix changes, and configure narrowly scoped persistent allow rules where the host supports them. Prefer existing approved command patterns; do not create ad hoc runners merely to change arguments. If persistent permission matching cannot cover variable commands, explain the exact one-time host configuration required rather than repeatedly requesting equivalent approvals. A Goal or this file does **not** override host permission enforcement; request approval when the host requires it.
+
+Standing authorization covers non-destructive project builds, Swift/XCTest runs, simulator checks, screenshots, and their required cache access within existing security boundaries. It does not authorize bypassing sandbox controls, blanket unrestricted execution, signing/account changes, destructive save operations, physical-device resets, or unrelated publishing. Preserve existing player saves, signing settings, and the personal Git remote restrictions.
+
+
 ## Reuse local engineering tools — 20 November 2026
 
 Dima explicitly requests saving repeated scripts with parameters and reusing them to save time. Before generating another temporary QA runner, save validator or preservation/hash script, read [scripts/README.md](scripts/README.md) and use/extend `python3 scripts/dev.py`: doctor/test/validate-saves/backup-device/compare-saves. Permanent resource-safe SwiftPM inspector lives under Tools/SaveInspector; no more copying ad hoc swiftc binaries/resource bundles. Existing host permissions still apply. Backup-device requires explicit device/bundle/new local output, supports dry-run, does not install/launch/stop/reset/write to device. Native tests use isolated QA identity and persistent cache. Never treat zero/missing tests as passing or overwrite artifact directories. [Verified bounded tooling](docs/milestones/reusable-engineering-tools.md). Original DEV-001 meaning and all future backlog remain. Human game acceptance is still pending.
