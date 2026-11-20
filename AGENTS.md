@@ -1,5 +1,9 @@
 # Civilization Builder — Codex project instructions
 
+## S1-Saves delivery checkpoint — 20 November 2026
+
+Independent normal games/developer separation are implemented **awaiting human acceptance**, final product7f5e10c/review fixes c124568. See [actual milestone report](docs/milestones/s1-saves.md):172Debug/159Release, five Release exclusions,19phone/19mini and18Pro+added recovery native checks. Final recovery-copy change has affected core/phone rechecks. Explicit healthy-game recovery preserves damaged slots; failed opens leave target bytes unchanged. Signed iPhone update installed after fresh current-production backup, normal5buildings/15roads and developer5buildings/0roads byte-identical pre-launch. Physical first launch/library-index initialization is blocked by device lock and **not verified**. Geometry/geography/catalog/v5/economy/art/signing unchanged; media697b486 remains untouched. Human usability/enjoyment/art acceptance remains open. Next: S1-Geography detailed dimensions/migration/quarry/cloud/discovery review gate, then approved environment graphics; preserve every existing approved/deferred roadmap item. No second-era gameplay. Same native Goal and durable checkpoint remain active; no quota bypass or duplicate sessions.
+
 ## Active S1-Saves specification
 
 S1-UX is delivered; now execute authorized SAVE-001/DEV-001 per [reconciled design](docs/superpowers/specs/2026-11-19-s1-saves-design.md) and [plan](docs/superpowers/plans/2026-11-19-s1-saves.md). Separate version1 library index; existing normal/developer paths retained; new UUID games have independent files and actual starting state. Save-before-switch, validated targets, no silent resets on corruption, atomic selection publication, library-owned lifecycle, isolated Debug fixtures. Names/default presentation are delegated choices; no deletion/cloud/world expansion. Preserve all future backlog. No save-management product code preceded this design commit.

@@ -1,5 +1,9 @@
 # Civilization design status ledger
 
+## S1-Saves — 20 November 2026
+
+SAVE-001/DEV-001 implemented; awaiting human acceptance. Product7f5e10c, [actual report](../milestones/s1-saves.md).172Debug/159Release, five Release exclusions;19phone/19mini,18Pro+one added recovery. Signed update installed and both current saves byte-identical pre-launch; physical launch/index initialization blocked by device lock. Existing/deferred backlog retained. Next S1-Geography specification requires exact dimensions/migration review before map code; then environment graphics.
+
 **Current source of truth:** [DESIGN_BASELINE](../../DESIGN_BASELINE.md), [DEVELOPMENT_ROADMAP](../../DEVELOPMENT_ROADMAP.md), [DESIGN_DECISIONS](../../DESIGN_DECISIONS.md), [MEDIA_REQUIREMENTS](../../MEDIA_REQUIREMENTS.md), [DESIGN_SYNC](../../DESIGN_SYNC.md). Entries below are chronological evidence; later human-approved sync supersedes stale proposed/not-approved statuses without changing historical reports.
 
 Source: Civilization / City Design Coordination, https://chatgpt.com/c/6afcb607-afec-83eb-9ba1-a4393b41348a
