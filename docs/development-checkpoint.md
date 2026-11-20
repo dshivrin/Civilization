@@ -1,3 +1,11 @@
+# Civic evolution and isolated review controls delivered — 20 November 2026
+
+GAME-LOOP-01 delivered/pushed asbcf8480. Owner's subsequent faster-playtest request now has a separate persistent review companion: **Developer tools → Review this game**, then existing10×/resource grants/time-advance controls. Normal/developer data remain independent; current copy is retained on save failure, pending scenarios cannot overwrite it, damaged normal fallback cannot be cloned, and restart resumes explicit review data without offline simulation or persisted speed settings. [Review controls report](milestones/isolated-gameplay-review.md), [plan](../plans/2026-11-20-isolated-gameplay-review.md).
+
+Latest full verification:210Debug/184Release +7Release exclusions; inspector10/9, Python10, native phone/iOS18tablet review workflow, ordinary Release entry and scenario/chapter-window regression pass. [Exact evidence](testing/gameplay-review/progress.md). No physical installation, player-save reset, signing or media change. No unresolved Important finding or product decision; prior cosmetic old authored-scenario comparison label remains in existing backlog. Commit/push then stop for Dima's gameplay review. Same native Goal; no duplicate automation/session.
+
+---
+
 # GAME-LOOP-01 delivered for review — 20 November 2026
 
 Permanent unique movable civic identity, paid/research-gated L2/L3, shared cultural worker with fixed founding provisions, chapter/pillar/readiness replacement, exact research round trip and v6 permanent credit are implemented. Supported earlier save formats validate before snapshotting; exact backups, metadata-bearing developer saves, version-boundary/contradiction checks and no-repeat rewards are verified. [Milestone](milestones/game-loop-01.md), [evidence](testing/game-loop-01/progress.md). Core204Debug/184Release +5exclusions; targeted native phone/mini/Pro and ordinary Release iOS18 entry pass. Actual earlier backup read-only validation preserves all original bytes. No physical action or art replacement. Known minor old developer original-comparison label retained in backlog.

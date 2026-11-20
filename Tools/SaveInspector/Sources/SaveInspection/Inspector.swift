@@ -60,7 +60,7 @@ public enum SaveInspection {
         var files: [InspectedSave] = []
         for path in original.keys.sorted() {
             let name = URL(fileURLWithPath: path).lastPathComponent
-            guard name == "settlement-v1.json" || name == "settlement-v1.json.developer" ||
+            guard name == "settlement-v1.json" || name == "settlement-v1.json.developer" || name == "settlement-v1.json.review" ||
                     (name.hasPrefix("settlement-v1.json.") && name.hasSuffix(".bak")) else { continue }
             let file = root.appendingPathComponent(path)
             guard let bytes = original[path],
@@ -81,7 +81,9 @@ public enum SaveInspection {
                 #endif
             default: throw GameError.invalidSave("Unsupported map in " + path)
             }
-            guard let state = try SaveStore(url: file).load(configuration: configuration) else {
+            let store = SaveStore(url: file)
+            let review = name == "settlement-v1.json.review" || name.hasPrefix("settlement-v1.json.review.")
+            guard let state = try (review ? store.loadGameplayReview(configuration: configuration) : store.load(configuration: configuration)) else {
                 throw GameError.invalidSave("Save disappeared: " + path)
             }
             _ = try GameEngine(state: state, configuration: configuration)

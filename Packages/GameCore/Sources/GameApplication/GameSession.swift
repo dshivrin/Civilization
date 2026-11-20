@@ -15,18 +15,68 @@ public final class GameSession {
         let state: GameState
         let developerScenario: DeveloperScenario
         let originalScenarioState: GameState?
+        let isGameplayReview: Bool
     }
-    private struct DeveloperMetadata: Decodable, Sendable { let developerScenario: DeveloperScenario?; let originalScenarioState: GameState? }
+    private struct DeveloperMetadata: Decodable, Sendable { let developerScenario: DeveloperScenario?; let originalScenarioState: GameState?; let isGameplayReview: Bool? }
     @ObservationIgnored private let developerStore: SaveStore
+    @ObservationIgnored private let reviewStore: SaveStore
+    @ObservationIgnored private var activeDeveloperStore: SaveStore { isGameplayReview ? reviewStore : developerStore }
     @ObservationIgnored private var normalSnapshot: (engine: GameEngine, savesEnabled: Bool, warning: String?)?
     public private(set) var isDeveloperMode = false
+    public private(set) var isGameplayReview = false
+    public var hasGameplayReview: Bool { FileManager.default.fileExists(atPath: reviewStore.url.path) }
+    public var developerModeTitle: String { isGameplayReview ? "Review copy" : developerScenario.title }
+    private func prepareNormalForGameplayReview() -> Bool {
+        guard !isDeveloperMode && !isPreparingDeveloperScenario else {
+            message = "Finish preparing or return to normal before opening a review copy."; return false
+        }
+        guard savesEnabled else { message = "Open a healthy saved game before creating a review copy."; return false }
+        if clock() > engine.state.lastUpdated || persistenceWarning != nil { background() }
+        guard persistenceWarning == nil else { message = "Save normal progress successfully before opening a review copy."; return false }
+        return true
+    }
+    public func startGameplayReview() {
+        if hasGameplayReview { resumeGameplayReview(); return }
+        guard prepareNormalForGameplayReview() else { return }
+        do {
+            // Publish review mode only after the first durable write; failures leave normal mode intact.
+            try writeDeveloperState(engine.state, to: reviewStore, review: true, original: nil)
+            enterDeveloperMode(advanceNormal: false)
+            isGameplayReview = true; originalScenarioState = nil
+            lastSaved = clock()
+            message = "Review copy created. Time controls and grants affect only this copy."
+        } catch {
+            persistenceWarning = "Review copy could not be saved: " + error.localizedDescription
+            message = persistenceWarning!
+        }
+    }
+    public func resumeGameplayReview() {
+        guard prepareNormalForGameplayReview() else { return }
+        do {
+            guard let saved = try reviewStore.loadGameplayReview(configuration: configuration) else { throw GameError.invalidSave("Review copy is missing.") }
+            let replacement = try GameEngine(state: saved, configuration: configuration)
+            enterDeveloperMode(advanceNormal: false)
+            engine = replacement; mapIdentity = replacement.state.mapID; isGameplayReview = true
+            originalScenarioState = nil
+            engine.developerRebaseClock(to: clock()); resetDeveloperControls()
+            message = "Review copy resumed. Normal progress and developer scenarios stay separate."
+        } catch { message = "Review copy preserved: " + error.localizedDescription }
+    }
+    private func writeDeveloperState(_ state: GameState, to destination: SaveStore, review: Bool, original: GameState?) throws {
+        try destination.preservePreviousVersion(beforeSaving: state)
+        let data = try JSONEncoder().encode(DeveloperEnvelope(version: state.civicProgress == nil ? 5 : 6, state: state,
+            developerScenario: developerScenario, originalScenarioState: original, isGameplayReview: review))
+        try FileManager.default.createDirectory(at: destination.url.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try data.write(to: destination.url, options: .atomic)
+    }
     public private(set) var developerPaused = false
     public private(set) var developerSpeed: Double = 1
     public private(set) var developerFastConstruction = false
     @ObservationIgnored private var originalScenarioState: GameState?
-    public func isSelectedDeveloperScenario(_ scenario: DeveloperScenario) -> Bool { isDeveloperMode && developerScenario == scenario }
+    public func isSelectedDeveloperScenario(_ scenario: DeveloperScenario) -> Bool { isDeveloperMode && !isGameplayReview && developerScenario == scenario }
     public var developerStateDescription: String {
         guard isDeveloperMode else { return "Normal settlement" }
+        if isGameplayReview { return "Review copy · normal progress preserved" }
         guard var original = originalScenarioState else { return "Saved developer state · original comparison unavailable" }
         original.lastUpdated = state.lastUpdated
         return original == state ? "Original scenario" : "Modified developer state"
@@ -267,6 +317,7 @@ public final class GameSession {
         store = SaveStore(url: restoration.url)
         #if DEBUG
         developerStore = SaveStore(url: restoration.url.appendingPathExtension("developer"))
+        reviewStore = SaveStore(url: restoration.url.appendingPathExtension("review"))
         #endif
         engine = restoration.engine
         mapIdentity = restoration.engine.state.mapID
@@ -309,10 +360,7 @@ public final class GameSession {
         do {
             #if DEBUG
             if isDeveloperMode {
-                try developerStore.preservePreviousVersion(beforeSaving: engine.state)
-                let data = try JSONEncoder().encode(DeveloperEnvelope(version: engine.state.civicProgress == nil ? 5 : 6, state: engine.state, developerScenario: developerScenario, originalScenarioState: originalScenarioState))
-                try FileManager.default.createDirectory(at: developerStore.url.deletingLastPathComponent(), withIntermediateDirectories: true)
-                try data.write(to: developerStore.url, options: .atomic)
+                try writeDeveloperState(engine.state, to: activeDeveloperStore, review: isGameplayReview, original: originalScenarioState)
             }
             else { try store.save(engine.state) }
             #else
@@ -426,10 +474,10 @@ public final class GameSession {
         do { try action(); save() } catch { message = error.localizedDescription }
     }
     #if DEBUG
-    private func enterDeveloperMode() {
+    private func enterDeveloperMode(advanceNormal: Bool = true) {
         guard !isDeveloperMode else { return }
         // Commands already save their state. Avoid rewriting a normal save when no wall time elapsed.
-        if clock() > engine.state.lastUpdated { background() }
+        if advanceNormal && clock() > engine.state.lastUpdated { background() }
         normalSnapshot = (engine, savesEnabled, persistenceWarning)
         isDeveloperMode = true; savesEnabled = true; persistenceWarning = nil
         resetDeveloperControls()
@@ -451,6 +499,7 @@ public final class GameSession {
         return session
     }
     public func loadDeveloperScenario(_ scenario: DeveloperScenario) {
+        guard !isGameplayReview else { message = "Return to normal before selecting a developer scenario."; return }
         do {
             let base = normalSnapshot?.engine.configuration ?? configuration
             let replacement = try scenario.makeEngine(configuration: base, now: clock())
@@ -459,6 +508,7 @@ public final class GameSession {
     }
     /// UI preparation stays off the main actor; dismissal cancels publication.
     public func prepareDeveloperScenario(_ scenario: DeveloperScenario) async {
+        guard !isGameplayReview else { message = "Return to normal before selecting a developer scenario."; return }
         guard !isPreparingDeveloperScenario else { return }
         isPreparingDeveloperScenario = true
         defer { isPreparingDeveloperScenario = false }
@@ -493,6 +543,7 @@ public final class GameSession {
             save()
     }
     public func prepareResumeDeveloperSettlement() async {
+        guard !isGameplayReview else { message = "Return to normal before resuming a developer scenario."; return }
         guard !isPreparingDeveloperScenario else { return }
         guard FileManager.default.fileExists(atPath: developerStore.url.path) else { await prepareDeveloperScenario(.early); return }
         isPreparingDeveloperScenario = true
@@ -515,6 +566,7 @@ public final class GameSession {
         catch { message = "Developer save preserved: " + error.localizedDescription }
     }
     public func resumeDeveloperSettlement() {
+        guard !isGameplayReview else { message = "Return to normal before resuming a developer scenario."; return }
         do {
             guard FileManager.default.fileExists(atPath: developerStore.url.path) else { loadDeveloperScenario(.early); return }
             let metadata = try JSONDecoder().decode(DeveloperMetadata.self, from: Data(contentsOf: developerStore.url))
@@ -529,14 +581,16 @@ public final class GameSession {
             message = "Developer save resumed. Offline simulation is disabled here."
         } catch { message = "Developer save preserved: " + error.localizedDescription }
     }
-    public func returnToNormalGame() {
-        guard let snapshot = normalSnapshot else { return }
+    @discardableResult public func returnToNormalGame() -> Bool {
+        guard let snapshot = normalSnapshot else { return false }
         save()
+        guard persistenceWarning == nil else { message = "Copy could not be saved. Keep this session open and retry before returning to normal."; return false }
         engine = snapshot.engine; mapIdentity = snapshot.engine.state.mapID
         savesEnabled = snapshot.savesEnabled; persistenceWarning = snapshot.warning
-        normalSnapshot = nil; isDeveloperMode = false; resetDeveloperControls()
+        normalSnapshot = nil; isDeveloperMode = false; isGameplayReview = false; resetDeveloperControls()
         message = "Returned to normal settlement."
         resume()
+        return true
     }
     public func setDeveloperPaused(_ paused: Bool) {
         guard isDeveloperMode else { return }

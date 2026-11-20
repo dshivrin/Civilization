@@ -5,8 +5,16 @@ import GameCore
 public struct SaveStore: Sendable {
     private struct Envelope: Codable { var version: Int; var state: GameState }
     private struct Header: Decodable { var version: Int }
+    private struct ReviewMarker: Decodable { let isGameplayReview: Bool }
     public let url: URL
     public init(url: URL) { self.url = url }
+    /// The app and read-only inspector share the review-envelope validation boundary.
+    public func loadGameplayReview(configuration: GameConfiguration) throws -> GameState? {
+        guard FileManager.default.fileExists(atPath: url.path) else { return nil }
+        let marker = try JSONDecoder().decode(ReviewMarker.self, from: Data(contentsOf: url))
+        guard marker.isGameplayReview else { throw GameError.invalidSave("Not a gameplay review copy.") }
+        return try load(configuration: configuration)
+    }
     public func save(_ state: GameState) throws {
         let data = try JSONEncoder().encode(Envelope(version: state.civicProgress == nil ? 5 : 6, state: state))
         try preservePreviousVersion(beforeSaving: state)

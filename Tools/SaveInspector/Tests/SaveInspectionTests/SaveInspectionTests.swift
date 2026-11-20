@@ -113,3 +113,39 @@ private func temporaryRoot() throws -> URL {
     #expect(throws: Error.self) { try SaveInspection.inspect(root: alias) }
     #expect(try SaveInspection.inspect(root: root).files.count == 1)
 }
+
+@Test func validatesReviewCompanionAndRetainsEverySourceByte() throws {
+    let root = try temporaryRoot(); defer { try? FileManager.default.removeItem(at: root) }
+    let config = try GameConfiguration.bundled()
+    let now = Date(timeIntervalSince1970: 1000)
+    let normal = try GameEngine(configuration: config, now: now)
+    var review = normal
+    try review.research("oralTradition"); try review.upgrade(buildingID: 0)
+    let normalURL = root.appendingPathComponent("settlement-v1.json")
+    let reviewURL = root.appendingPathComponent("settlement-v1.json.review")
+    try SaveStore(url: normalURL).save(normal.state)
+    struct ReviewEnvelope: Encodable { let version = 6; let state: GameState; let isGameplayReview = true }
+    let reviewBytes = try JSONEncoder().encode(ReviewEnvelope(state: review.state))
+    try reviewBytes.write(to: reviewURL)
+    try reviewBytes.write(to: reviewURL.appendingPathExtension("snapshot.bak"))
+    let originalNormal = try Data(contentsOf: normalURL), originalReview = try Data(contentsOf: reviewURL)
+    let report = try SaveInspection.inspect(root: root)
+    #expect(report.files.count == 3)
+    #expect(report.files.contains { $0.relativePath == "settlement-v1.json.review" })
+    #expect(report.files.contains { $0.relativePath == "settlement-v1.json.review.snapshot.bak" })
+    #expect(try Data(contentsOf: normalURL) == originalNormal)
+    #expect(try Data(contentsOf: reviewURL) == originalReview)
+}
+
+@Test(arguments: [false, true], ["review", "review.snapshot.bak"])
+func rejectsReviewWithoutTrueMarker(present: Bool, suffix: String) throws {
+    let root = try temporaryRoot(); defer { try? FileManager.default.removeItem(at: root) }
+    let state = try GameEngine(configuration: .bundled(), now: Date(timeIntervalSince1970: 1000)).state
+    try SaveStore(url: root.appendingPathComponent("settlement-v1.json")).save(state)
+    struct Envelope: Encodable { let version = 6; let state: GameState; let isGameplayReview: Bool? }
+    let bytes = try JSONEncoder().encode(Envelope(state: state, isGameplayReview: present ? false : nil))
+    let file = root.appendingPathComponent("settlement-v1.json." + suffix)
+    try bytes.write(to: file)
+    #expect(throws: Error.self) { try SaveInspection.inspect(root: root) }
+    #expect(try Data(contentsOf: file) == bytes)
+}

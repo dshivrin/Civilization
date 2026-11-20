@@ -11,6 +11,50 @@ final class RelocationUITests: XCTestCase {
         if resume.isEnabled { resume.tap() } else { app.buttons["newNormalGame"].tap() }
     }
 
+    @MainActor func testGameplayReviewControlsKeepNormalProgressSeparate() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        let wood = app.descendants(matching: .any).matching(identifier: "resource-wood").firstMatch
+        XCTAssertTrue(wood.waitForExistence(timeout: 5))
+        let originalWood = wood.label
+        app.buttons["developerTools"].tap()
+        app.buttons["startGameplayReview"].tap()
+        let banner = app.staticTexts["developerModeBanner"]
+        XCTAssertTrue(banner.waitForExistence(timeout: 5)); XCTAssertTrue(banner.label.contains("REVIEW COPY"))
+        app.buttons["developerTools"].tap()
+        let form = app.descendants(matching: .any).matching(identifier: "developerToolsForm").firstMatch
+        func reveal(_ element: XCUIElement) {
+            for _ in 0..<16 where !element.isHittable {
+                let from = form.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75))
+                let to = form.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.55))
+                from.press(forDuration: 0.1, thenDragTo: to)
+            }
+            XCTAssertTrue(element.isHittable)
+        }
+        let speed = app.buttons["10×"]
+        reveal(speed); speed.tap()
+        let grant = app.buttons["developerAddResources"]; reveal(grant); grant.tap()
+        app.buttons["Done"].tap()
+        XCTAssertTrue(banner.label.contains("10×"))
+        XCTAssertTrue(wood.label.contains("350"), wood.label)
+        capture("isolated-review-copy-controls", app: app)
+        app.terminate(); launchNormal(app)
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        XCTAssertFalse(banner.exists); XCTAssertEqual(wood.label, originalWood)
+        app.buttons["developerTools"].tap()
+        let resume = app.buttons["startGameplayReview"]
+        XCTAssertTrue(resume.label.contains("Resume review copy")); resume.tap()
+        XCTAssertTrue(banner.waitForExistence(timeout: 5)); XCTAssertTrue(banner.label.contains("1×"))
+        XCTAssertTrue(wood.label.contains("350"), wood.label)
+        app.buttons["developerTools"].tap()
+        let normal = app.buttons["Return to normal settlement"]; reveal(normal); normal.tap()
+        XCTAssertFalse(banner.exists); XCTAssertEqual(wood.label, originalWood)
+    }
+
     @MainActor func testCivicUpgradeResearchRoundTripAndRestart() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()

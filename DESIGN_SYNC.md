@@ -2,7 +2,7 @@
 
 ## Owner-requested isolated gameplay review controls
 
-After civic deliverybcf8480, Dima requests reusing time multipliers/resource grants for quick playtesting and explicitly selects a **separate review copy preserving normal progress**. Execute the [bounded Debug tooling plan](plans/2026-11-20-isolated-gameplay-review.md); preserve existing developer companions too. No normal balance, player-save reset, new gameplay backlog or physical installation.
+After civic deliverybcf8480, Dima requests reusing time multipliers/resource grants for quick playtesting and explicitly selects a **separate review copy preserving normal progress**. Delivered under the [bounded Debug tooling plan](plans/2026-11-20-isolated-gameplay-review.md): independent review companion, existing1×/2×/5×/10× controls and capped250resource grants, resume and save-first return. Normal/developer data retained; failed writes and pending preparations cannot discard/replace review progress. Core210Debug/184Release +7exclusions, inspector10/9, Python10 and native phone/tablet review +Release entry/scenario checks pass. [Delivery/evidence](docs/milestones/isolated-gameplay-review.md). No normal balance, player-save reset, new gameplay backlog or physical installation.
 
 ## GAME-LOOP-01 — approved for implementation
 

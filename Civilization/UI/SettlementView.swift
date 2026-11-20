@@ -58,8 +58,8 @@ struct SettlementView: View {
                             }
                             #if DEBUG
                             if session.isDeveloperMode {
-                                Text("DEVELOPER · \(session.developerPaused ? "PAUSED" : "\(Int(session.developerSpeed))×") · isolated save")
-                                    .font(.caption.weight(.bold)).padding(8).background(.orange.opacity(0.22), in: Capsule())
+                                Text("\(session.isGameplayReview ? "REVIEW COPY" : "DEVELOPER") · \(session.developerPaused ? "PAUSED" : "\(Int(session.developerSpeed))×") · isolated save")
+                                    .font(.caption.weight(.bold)).padding(8).background(.orange.opacity(0.22), in: Capsule()).accessibilityIdentifier("developerModeBanner")
                                 if session.configuration.map.width == 64 {
                                     Button("64×48 · Map overview") { scene?.showMapOverview() }
                                         .font(.caption.weight(.semibold)).padding(8)
