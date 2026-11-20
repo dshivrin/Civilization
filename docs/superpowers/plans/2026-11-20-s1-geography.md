@@ -41,5 +41,5 @@ Interfaces: known-footprint predicate shared by renderer/session; existing start
 
 - [x] One independent whole-change review; correct consequential findings with regression evidence.
 - [x] Update milestone/checkpoint/canonical status with actual results and limitations.
-- [ ] Fetch and push coherent commits to verified personal origin first-era-review; report issue #1 and exact Master chat.
+- [x] Fetch and push coherent commits to verified personal origin first-era-review; report issue #1 and exact Master chat.
 - [x] Assess realistic saturated environment integration and define bounded visual approval pilot; do not batch-generate art.

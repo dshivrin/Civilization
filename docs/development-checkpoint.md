@@ -8,7 +8,7 @@ Fresh verification:187Debug15.489s/169Release1.729s, five Release API exclusions
 
 Environment milestone: integration assessment complete, one built-in-imagegen review concept with exact prompt/provenance saved under docs/art/environment-pilot. Direction-only materials/clouds; generated edges/UI are not pixel exact, no runtime integration or batch production. Established human visual review precedes production art replacement. Media697b486/main clean/local-only; all FP/RD/LC/AUDIO/WND/GEO/UX/CLU/MAP-005backlog retained. Existing signing/account/renderer/economy/era constraints unchanged.
 
-Next: publish/report this verified scope to personal dshivrin/Civilization first-era-review, issue#1 and exact Master chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9; record actual receipts. Then human review of the single environment concept before broader/runtime artwork. Same native session retained; Goal tool returnednullin this runtime, no duplicate Goal/session or automation created. No active test/build processes remain after terminal logs below.
+Published through10b8536to personal dshivrin/Civilization first-era-review. [Actual issue#1 report7034942171](https://github.com/dshivrin/Civilization/issues/1#issuecomment-7034942171). Native send to exact Master chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9succeeded; no acknowledgment claimed from send receipt alone. Next: human review of the single environment concept before broader/runtime artwork. Same native session retained; Goal tool returnednullin this runtime, no duplicate Goal/session or automation created. No active test/build processes remain after terminal logs below.
 
 ---
 

@@ -40,3 +40,7 @@ Additional affected gesture checks pass: phone long-press17.997s, road draw/eras
 Human production cloud/quarry/art/enjoyment review and sustained physical hardware measurements remain open. Minor deferred: some old non-grouped developer companions can show “Modified developer state” after identity conversion because their original scenario snapshot retains the legacy identity; gameplay and persisted progress remain intact. No unverified visual acceptance is implied.
 
 Next authorized stage has started with [environment integration assessment](../art/2026-11-20-environment-integration-assessment.md). Existing realistic/saturated target, native renderer, media provenance and small-pilot human visual review govern it. Media repository remains unchanged/local-only697b486; no batch artwork or footprint rescaling. All FP/RD/LC/AUDIO/WND/GEO/UX/CLU and MAP-005backlog preserved. Same Codex session/checkpoint; Goal API returnsnullin this runtime, and no duplicate Goal/session/automation was created.
+
+## Publication receipts
+
+Pushed through10b8536to personal dshivrin/Civilization first-era-review. [GitHub issue#1 actual report7034942171](https://github.com/dshivrin/Civilization/issues/1#issuecomment-7034942171). Native results handover submitted successfully to designated Master Development Coordination chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9; send receipt alone is not a designer/human acceptance claim. No private save contents uploaded.

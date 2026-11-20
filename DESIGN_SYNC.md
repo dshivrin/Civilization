@@ -1,5 +1,10 @@
 # Design synchronization record and operating procedure
 
+## S1-Geography actual publication —20November2026
+
+Verified implementation181b0a8/56f4124and report/environment-assessment10b8536pushed to verified personal dshivrin/Civilization first-era-review. [Actual issue#1 comment7034942171](https://github.com/dshivrin/Civilization/issues/1#issuecomment-7034942171). Full results/limits and review-concept links were actually submitted via native send to exact Master chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9. Send succeeded; acknowledgment is not inferred from the receipt. No private saves/device backups uploaded. Human visual review remains separate; one generated environment concept is direction-only and no runtime art was replaced.
+
+
 ## Active S1-Geography activation — 20 November 2026
 
 Dima confirms all existing saves are development/test data and authorizes the approved **64×48 default**, standard Stone Age start, unchanged normal footprints, MAP-001–004 implementation/verification and then environment graphics assessment. This supersedes earlier production migration approval gates and the 32×24 normal default. Backups must be created and validated before archiving/resetting any development progress; preserve independent normal/developer saves. [Bounded specification](docs/superpowers/specs/2026-11-20-s1-geography-design.md). Production implementation is verified and awaiting human review: core181b0a8/rendering56f4124,187Debug/169Release, five Release exclusions and native phone/mini/Pro checks. [Milestone](docs/milestones/s1-geography.md). Environment graphics has started with [integration assessment and one review concept](docs/art/2026-11-20-environment-integration-assessment.md); no runtime art replacement or batch production. All previous backlog and visual approval requirements remain.
