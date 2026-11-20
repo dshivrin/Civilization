@@ -2,6 +2,7 @@
 
 Date: 2026-11-20
 Status: APPROVED DESIGN DIRECTION; IMPLEMENTATION REQUIRES RECONCILED TASK BREAKDOWN
+Reconciliation: [proposed task breakdown and owner decisions](../docs/design/proposals/2026-11-20-round-2-play-reconciliation.md), prepared for scope review; not implementation approval.
 Source: owner's second Stone Age 10× isolated-save playthrough and screenshots.
 Repository: dshivrin/Civilization
 

@@ -1,3 +1,7 @@
+## ROUND-2-PLAY — reconciliation prepared, scope approval pending
+
+Owner playthrough brief `29236f2` approves strict operational path connectivity and the civic founding-provision exemption. The [proposed reconciliation](docs/design/proposals/2026-11-20-round-2-play-reconciliation.md) maps R2 tasks to existing IDs and specifies candidate controls, exact-item navigation, connectivity, resource-preserving service behavior and a proposed review-first/per-game save transition. These detailed policies and execution slices await owner review; no gameplay code is authorized by this documentation update. RD-002 decorative-only behavior is superseded for the approved connectivity direction, not arbitrary transport/economy rules. Bridges, local-resource radii, outpost/defense progression and artwork remain separate gates; all prior backlog and earned history retained. `main` and `first-era-review` were synchronized at `29236f2`; creating main did not change GitHub's default branch or authorize automatic merges.
+
 # Development roadmap
 
 ## Owner-requested isolated gameplay review controls
