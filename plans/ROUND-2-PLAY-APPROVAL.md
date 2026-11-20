@@ -1,0 +1,20 @@
+# ROUND-2-PLAY — Owner implementation approval
+
+Date: 2026-11-20
+Status: APPROVED, staged and conditional
+Basis: docs/design/proposals/2026-11-20-round-2-play-reconciliation.md at 13dcaa0; plans/ROUND-2-PLAY.md.
+Working branch: first-era-review; synchronize main only through established branch process, no force-push.
+
+## Approved
+- R2-01/02/03 UX slice: candidate remains uncommitted on drag release, green check explicitly confirms after validation, red X cancels, free pan/pinch while candidate remains, accessible controls beneath candidate, remove redundant inspector placement actions; existing road-tool Confirm/Cancel stays separate. Exact-item navigation carries stable research/building ID and source, clears conflicting search/filter, scrolls and highlights. Investigate cyan dot and brown terrain with evidence before bounded fix.
+- R2-04 logical quarter-turn rotation, retaining current production footprints. Use a clear provisional orientation indicator for nondirectional/square sprites; do not falsely rotate fixed raster art or change master assets. Four rotations round-trip, cancel/failure atomic. Directional art belongs to later media approval.
+- R2-05 deterministic cardinal undirected road graph, civic center virtual root, full-edge access to any occupied footprint tile, no diagonal/corner or building-through-building connection; all three road styles conduct equally. No invented water bridge.
+- R2-06 strict operational review-copy pilot with v7 per-game rules marker, explicit review activation, legacy v1–v6 behavior retained, full envelope/inspector validation. Ordinary completed disconnected buildings have no workers, inputs, maintenance, deposit depletion or output/service; they can finish construction and remain placed. Civic center's intrinsic culture/knowledge also exempt from path connectivity, still subject to ordinary level/research/staffing; founding food/water/housing remain independent of both roads and staffing. Housing disconnection halts growth without eviction. Storage disconnection never deletes existing stock; over-effective-cap stocks remain spendable but cannot increase until under cap, subject to structural ceiling validation. Scout camp must be connected at expedition dispatch; paid active expedition completes despite later disconnection. Time settles under prior topology before atomic edit; previews do not alter live simulation.
+- R2-07 per-game normal-save transition and v7 marker approved CONDITIONALLY: only after R2-06 pilot passes regression, migration, native QA and review acceptance. New games strict by default after that activation slice ships. Existing saves retain legacy rules unless user opts in. One-time UI must explain rule and show count of buildings that would become inactive, with ability to inspect them before confirming. Backup and validate source; settle old-rules offline time once; atomic transition; failure leaves original intact; no automatic activation by file name/copy or launch. No historical chapter/reward/readiness revocation.
+- Preserve existing normal, developer and isolated review saves and their independent rules. No reinstall/reset. No automatic road injection, grants, lost stocks, evictions or replayed rewards.
+
+## Not approved for gameplay implementation
+R2-08 bridges/resource proximity/storage dependencies, R2-09 perimeter/defenses/outpost chapter predicates and R2-10 art production remain separate specification/visual approval gates. No new costs/radii or changes to Bronze Age gameplay.
+
+## Execution and acceptance
+Codex may start R2-01/02/03, then R2-04/05, then R2-06 isolated pilot. R2-07 implementation must wait for pilot validation and report; conditional architecture/spec/test preparation is permitted. Reconcile exact task boundaries against canonical docs, use existing QA tools, add targeted and full Debug/Release tests, simulator UI coverage and save inspector/migration tests. Commit/push each coherent slice; report concise SHA, counts, evidence and blockers. Do not conflate successful automated tests with owner acceptance of pilot.
