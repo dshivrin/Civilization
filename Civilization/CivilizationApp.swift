@@ -18,7 +18,7 @@ struct CivilizationApp: App {
             Group {
                 if let library {
                     SettlementView(session: library.session, openGames: { showGames = true }, managesLifecycle: false)
-                        .id(library.activeGameID)
+                        .id(library.activeGameID + ":" + library.session.mapIdentity)
                 } else if let benchmarkSession { SettlementView(session: benchmarkSession) }
                 else if isRestoring { SettlementLoadingView(stage: "Restoring settlement…") }
                 else if let startupError {

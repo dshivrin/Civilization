@@ -16,12 +16,13 @@ struct WorldView: UIViewRepresentable {
         let coordinator = context.coordinator
         let hold = UILongPressGestureRecognizer(target: coordinator, action: #selector(Coordinator.move(_:)))
         hold.minimumPressDuration = 0.35; hold.allowableMovement = 10; hold.numberOfTouchesRequired = 1; hold.delegate = coordinator
+        coordinator.holdRecognizer = hold
         let tap = UITapGestureRecognizer(target: coordinator, action: #selector(Coordinator.tap(_:)))
         let pan = UIPanGestureRecognizer(target: coordinator, action: #selector(Coordinator.pan(_:)))
         pan.maximumNumberOfTouches = 1; pan.delegate = coordinator
         let pinch = UIPinchGestureRecognizer(target: coordinator, action: #selector(Coordinator.pinch(_:)))
         pinch.delegate = coordinator
-        tap.require(toFail: hold); pan.require(toFail: hold)
+        tap.require(toFail: hold)
         for recognizer in [tap, pan, pinch, hold] { view.addGestureRecognizer(recognizer) }
         view.isAccessibilityElement = true
         view.accessibilityLabel = "Settlement map"
@@ -30,6 +31,7 @@ struct WorldView: UIViewRepresentable {
         return view
     }
     func updateUIView(_ view: SKView, context: Context) {
+        context.coordinator.updateAccessibility(in: view)
         scene.onReady = onReady
         view.isPaused = session.shouldPauseRendering || isObscured
         scene.isPaused = session.shouldPauseAnimation
@@ -44,7 +46,18 @@ struct WorldView: UIViewRepresentable {
         private var isDragging = false
         private var panTouchDownTile: Tile?
         private var holdTouchDown: (buildingID: Int, tile: Tile)?
+        weak var holdRecognizer: UILongPressGestureRecognizer?
+        #if DEBUG
+        private var panCount = 0, pinchCount = 0
+        #endif
         init(scene: SettlementScene, session: GameSession) { self.scene = scene; self.session = session }
+        func updateAccessibility(in view: UIView?) {
+            var value = "\(session.configuration.map.width)×\(session.configuration.map.height) tiles · \(session.state.buildings.count) buildings · \(session.state.roads?.count ?? 0) road tiles"
+            #if DEBUG
+            value += " · pan=\(panCount) pinch=\(pinchCount) " + scene.cameraAccessibilityValue
+            #endif
+            view?.accessibilityValue = value
+        }
         private func tile(_ recognizer: UIGestureRecognizer) -> Tile {
             IsometricProjection.tile(scene.convertPoint(fromView: recognizer.location(in: recognizer.view)))
         }
@@ -71,10 +84,18 @@ struct WorldView: UIViewRepresentable {
             }
             return true
         }
+        func gestureRecognizerShouldBegin(_ recognizer: UIGestureRecognizer) -> Bool {
+            // Pan immediately unless a deliberate hold already owns relocation.
+            if recognizer is UIPanGestureRecognizer,
+               holdRecognizer?.state == .began || holdRecognizer?.state == .changed { return false }
+            return true
+        }
         func gestureRecognizer(_ first: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith second: UIGestureRecognizer) -> Bool {
             // A second finger can start zoom; the pinch handler cancels the preview before moving the camera.
             (first is UIPinchGestureRecognizer && second is UILongPressGestureRecognizer) ||
-            (second is UIPinchGestureRecognizer && first is UILongPressGestureRecognizer)
+            (second is UIPinchGestureRecognizer && first is UILongPressGestureRecognizer) ||
+            (first is UIPinchGestureRecognizer && second is UIPanGestureRecognizer) ||
+            (second is UIPinchGestureRecognizer && first is UIPanGestureRecognizer)
         }
         @objc func tap(_ recognizer: UITapGestureRecognizer) {
             let point = scene.convertPoint(fromView: recognizer.location(in: recognizer.view))
@@ -108,6 +129,10 @@ struct WorldView: UIViewRepresentable {
             }
         }
         @objc func pan(_ recognizer: UIPanGestureRecognizer) {
+            #if DEBUG
+            if recognizer.state == .began { panCount += 1 }
+            #endif
+            defer { if recognizer.state == .ended || recognizer.state == .cancelled { updateAccessibility(in: recognizer.view) } }
             if session.roadTool != nil {
                 switch recognizer.state {
                 case .began, .changed, .ended: session.extendRoadStroke(to: tile(recognizer))
@@ -143,7 +168,14 @@ struct WorldView: UIViewRepresentable {
             scene.pan(dx: translation.x, dy: translation.y); recognizer.setTranslation(.zero, in: recognizer.view)
         }
         @objc func pinch(_ recognizer: UIPinchGestureRecognizer) {
-            if recognizer.state == .began { session.clearRoadStroke() }
+            #if DEBUG
+            if recognizer.state == .began { pinchCount += 1 }
+            #endif
+            defer { if recognizer.state == .ended || recognizer.state == .cancelled { updateAccessibility(in: recognizer.view) } }
+            if recognizer.state == .began {
+                session.clearRoadStroke()
+                holdRecognizer?.isEnabled = false; holdRecognizer?.isEnabled = true
+            }
             if recognizer.state == .began, session.isDragMode { session.cancel(); isDragging = false }
             scene.zoom(factor: recognizer.scale); recognizer.scale = 1
         }

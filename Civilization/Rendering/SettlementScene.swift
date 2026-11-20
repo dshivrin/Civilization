@@ -4,6 +4,9 @@ import GameApplication
 
 @MainActor
 final class SettlementScene: SKScene {
+    #if DEBUG
+    private static var constructedSceneCount = 0
+    #endif
     private let configuration: GameConfiguration
     private let worldCamera = SKCameraNode()
     private let terrainLayer = SKNode()
@@ -43,6 +46,9 @@ final class SettlementScene: SKScene {
     init(configuration: GameConfiguration) {
         self.configuration = configuration
         super.init(size: CGSize(width: 1000, height: 700))
+        #if DEBUG
+        Self.constructedSceneCount += 1
+        #endif
         scaleMode = .resizeFill
         backgroundColor = UIColor(red: 0.075, green: 0.15, blue: 0.15, alpha: 1)
         camera = worldCamera
@@ -60,7 +66,14 @@ final class SettlementScene: SKScene {
     }
     required init?(coder: NSCoder) { fatalError("Programmatic scene") }
     override func didChangeSize(_ oldSize: CGSize) {
-        if !didCenter && size.width > 100 { recenter(); didCenter = true }
+        if !didCenter && size.width > 100 {
+            #if DEBUG
+            if configuration.map.width == 64 { showMapOverview() } else { recenter() }
+            #else
+            recenter()
+            #endif
+            didCenter = true
+        }
         clampCamera()
     }
     func previewContains(_ point: CGPoint) -> Bool { !ghostLayer.nodes(at: point).isEmpty }
@@ -91,16 +104,41 @@ final class SettlementScene: SKScene {
         clampCamera()
     }
     func zoom(factor: CGFloat) {
-        worldCamera.setScale(min(2.1, max(0.5, worldCamera.xScale / factor)))
+        #if DEBUG
+        let maximumScale: CGFloat = configuration.map.width == 64 ? 6 : 2.1
+        #else
+        let maximumScale: CGFloat = 2.1
+        #endif
+        worldCamera.setScale(min(maximumScale, max(0.5, worldCamera.xScale / factor)))
         clampCamera()
     }
+    #if DEBUG
+    var cameraAccessibilityValue: String {
+        String(format: "camera=%.2f,%.2f zoom=%.4f sceneBuilds=%d", worldCamera.position.x, worldCamera.position.y, worldCamera.xScale, Self.constructedSceneCount)
+    }
+    func showMapOverview() {
+        let map = configuration.map
+        let point = IsometricProjection.point(Tile(x: map.width / 2,y: map.height / 2))
+        worldCamera.position = point
+        let span = CGFloat(map.width + map.height)
+        worldCamera.setScale(min(6, max(span * 32 / max(1,size.width), span * 16 / max(1,size.height - 120)) * 1.08))
+        clampCamera()
+    }
+    #endif
     private func clampCamera() {
         let point = MapGeometry.constrainedCamera(WorldPoint(x: worldCamera.position.x, y: worldCamera.position.y),
                                                   width: configuration.map.width, height: configuration.map.height)
         worldCamera.position = CGPoint(x: point.x, y: point.y)
     }
     func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, relocationGrid: [Tile: Bool]? = nil, unavailablePreviewTiles: Set<Tile>? = nil, roadTool: RoadTool? = nil, roadDraft: [Tile] = [], roadInvalid: Bool = false, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
-        if centerRequest != lastCenterRequest { recenter(); lastCenterRequest = centerRequest }
+        if centerRequest != lastCenterRequest {
+            #if DEBUG
+            if lastCenterRequest == -1 && configuration.map.width == 64 { showMapOverview() } else { recenter() }
+            #else
+            recenter()
+            #endif
+            lastCenterRequest = centerRequest
+        }
         let discoveryChanged = state.discoveredTiles != renderedDiscovery
         roadLayer.display(roads: state.roads ?? [], discovered: state.discoveredTiles, configuration: configuration, tool: roadTool, draft: roadDraft, invalid: roadInvalid)
         if discoveryChanged || reduceMotion != renderedReduceMotion {
@@ -199,9 +237,28 @@ final class SettlementScene: SKScene {
         terrainLayer.removeAllChildren()
         let ground = SKNode()
         let scenery = SKNode()
+        // Large Debug review maps need bounded textures at high device raster scales.
+        // Keep the established legacy cache path unchanged.
+        #if DEBUG
+        let chunked = configuration.map.width == 64
+        #else
+        let chunked = false
+        #endif
+        var chunks: [Tile: (ground: SKNode, scenery: SKNode)] = [:]
+        struct ScenicKey: Hashable { let chunk: Tile; let depth: Int }
+        var scenicChunks: [ScenicKey: SKNode] = [:]
+        func sceneryLayer(for tile: Tile) -> SKNode {
+            guard chunked else { return scenery }
+            let key = ScenicKey(chunk: Tile(x:tile.x / 16,y:tile.y / 16), depth:tile.x + tile.y)
+            if scenicChunks[key] == nil { scenicChunks[key] = SKNode() }
+            return scenicChunks[key]!
+        }
         for y in 0..<configuration.map.height {
             for x in 0..<configuration.map.width {
                 let tile = Tile(x: x, y: y)
+                let key = Tile(x: x / 16,y: y / 16)
+                if chunked && chunks[key] == nil { chunks[key] = (SKNode(), SKNode()) }
+                let ground = chunked ? chunks[key]!.ground : ground
                 let point = IsometricProjection.point(tile)
                 if let discovered, !discovered.contains(tile) {
                     ground.addChild(shape(IsometricProjection.diamond(at: point), fill: UIColor(red: 0.105, green: 0.16, blue: 0.145, alpha: 1), stroke: UIColor(red: 0.105, green: 0.16, blue: 0.145, alpha: 0.14), width: 7))
@@ -223,10 +280,10 @@ final class SettlementScene: SKScene {
                     ground.addChild(WorldDetails.groundTexture(at: point, seed: seed, forest: terrain == .forest, soil: terrain == .clearing))
                 }
                 if terrain == .forest && (x + y) % 2 == 0 {
-                    let tree = WorldDetails.tree(seed: seed);tree.position = point;tree.zPosition = CGFloat(x+y)+1;scenery.addChild(tree)
+                    let tree = WorldDetails.tree(seed: seed);tree.position = point;tree.zPosition = CGFloat(x+y)+1;sceneryLayer(for: tile).addChild(tree)
                 }
                 if terrain == .hill {
-                    let rock = WorldDetails.rocks(seed: seed);rock.position = point;rock.zPosition = CGFloat(x+y);scenery.addChild(rock)
+                    let rock = WorldDetails.rocks(seed: seed);rock.position = point;rock.zPosition = CGFloat(x+y);sceneryLayer(for: tile).addChild(rock)
                 }
                 if terrain == .water {
                     let bank = WorldDetails.waterEdge(at: tile, configuration: configuration, discovered: discovered)
@@ -237,13 +294,32 @@ final class SettlementScene: SKScene {
         }
         // Flatten immutable ground/scenery to one texture and release thousands of source shape nodes.
         // Rebuild only when discovery or motion preferences change, never per simulation/render frame.
-        let staticWorld = SKNode();staticWorld.addChild(ground);scenery.zPosition = 1;staticWorld.addChild(scenery)
-        if let view, let texture = view.texture(from: staticWorld) {
-            let bounds = staticWorld.calculateAccumulatedFrame()
-            let sprite = SKSpriteNode(texture: texture);sprite.position = CGPoint(x:bounds.midX,y:bounds.midY);sprite.size = bounds.size
-            terrainLayer.addChild(sprite)
+        var cachedLayers: [(node: SKNode, depth: CGFloat)] = []
+        if chunked {
+            // All ground composites below all scenery. Bounded scenery strips keep
+            // global depth order even where trees/rocks overhang chunk boundaries.
+            for key in chunks.keys.sorted(by: { a,b in a.y == b.y ? a.x < b.x : a.y < b.y }) {
+                cachedLayers.append((chunks[key]!.ground, 0))
+            }
+            for (key,node) in scenicChunks {
+                cachedLayers.append((node, 1 + CGFloat(key.depth) / CGFloat(configuration.map.width + configuration.map.height)))
+            }
         } else {
-            let cached = SKEffectNode();cached.shouldRasterize = true;cached.addChild(staticWorld);terrainLayer.addChild(cached)
+            let staticWorld = SKNode(); staticWorld.addChild(ground)
+            scenery.zPosition = 1; staticWorld.addChild(scenery)
+            cachedLayers.append((staticWorld, 0))
+        }
+        for layer in cachedLayers {
+            let staticWorld = layer.node
+            if let view, let texture = view.texture(from: staticWorld) {
+                let bounds = staticWorld.calculateAccumulatedFrame()
+                let sprite = SKSpriteNode(texture: texture); sprite.position = CGPoint(x:bounds.midX,y:bounds.midY); sprite.size = bounds.size
+                sprite.zPosition = layer.depth; terrainLayer.addChild(sprite)
+            } else if chunked {
+                staticWorld.zPosition = layer.depth; terrainLayer.addChild(staticWorld)
+            } else {
+                let cached = SKEffectNode();cached.shouldRasterize = true;cached.addChild(staticWorld);terrainLayer.addChild(cached)
+            }
         }
         let waterEffects = SKNode();waterEffects.zPosition = 2;terrainLayer.addChild(waterEffects)
         if !reduceMotion {

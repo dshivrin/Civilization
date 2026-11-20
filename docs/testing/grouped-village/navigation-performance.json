@@ -1,0 +1,19 @@
+{
+  "environment": "local macOS Debug; copied physical developer state; NOT device FPS",
+  "buildings": 64,
+  "roads": 566,
+  "simulationSeconds": 12,
+  "before": {
+    "medianAdvanceMs": 240.70310592651367,
+    "maxAdvanceMs": 283.78498554229736,
+    "medianPresentationMs": 12.791991233825684
+  },
+  "after": {
+    "medianAdvanceMs": 8.954048156738281,
+    "maxAdvanceMs": 9.449958801269531,
+    "medianPresentationMs": 2.0159482955932617
+  },
+  "stateEquivalent": true,
+  "numericTolerance": 1e-09,
+  "sceneRebuildRegression": "RED:9to11scenes in2.5s; final phone GREEN:stable scene count"
+}

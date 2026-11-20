@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-20",
+  "signedInstallVerified": true,
+  "freshProductionValidation": true,
+  "normal": {
+    "map": "river-clearing-v1",
+    "width": 32,
+    "height": 24,
+    "buildings": 5,
+    "roads": 15
+  },
+  "developer": {
+    "scenario": "grouped",
+    "width": 64,
+    "height": 48,
+    "buildings": 64,
+    "roads": 566
+  },
+  "files": [
+    {
+      "file": "games-index.json",
+      "bytes": 149,
+      "sha256": "eeb5c93da3ec09fce91d6325ed7c5ffecf5e41f6062082c1f34334a3df8d3811",
+      "byteIdenticalBeforeLaunch": true
+    },
+    {
+      "file": "settlement-v1.json",
+      "bytes": 10141,
+      "sha256": "d74c211c114a8bc7b1bb8a2d1b07baaef30a5feddefee566e39fb4efb1cedac9",
+      "byteIdenticalBeforeLaunch": true
+    },
+    {
+      "file": "settlement-v1.json.developer",
+      "bytes": 164980,
+      "sha256": "a4fe6792d6213ef74ad6210da2651315846549dbb267f643df10c3413017133d",
+      "byteIdenticalBeforeLaunch": true
+    }
+  ],
+  "normalLaunchVerified": false,
+  "privateSaveContentsCommitted": false,
+  "normalMapGeometryRoadsResearchDiscoveryReservesPreserved": true,
+  "launchBlockedBy": "iOS device locked",
+  "postInstallExtraCopyProductionValidated": true,
+  "developerByteIdenticalUntilLaunch": true
+}

@@ -6,6 +6,8 @@ import GamePersistence
 @MainActor @Observable
 public final class GameSession {
     private var engine: GameEngine
+    /// Separate observation identity: resource ticks must not rebuild the scene-owning root.
+    public private(set) var mapIdentity: String
     @ObservationIgnored private let store: SaveStore
     #if DEBUG
     private struct DeveloperEnvelope: Encodable {
@@ -14,7 +16,7 @@ public final class GameSession {
         let developerScenario: DeveloperScenario
         let originalScenarioState: GameState?
     }
-    private struct DeveloperMetadata: Decodable { let developerScenario: DeveloperScenario?; let originalScenarioState: GameState? }
+    private struct DeveloperMetadata: Decodable, Sendable { let developerScenario: DeveloperScenario?; let originalScenarioState: GameState? }
     @ObservationIgnored private let developerStore: SaveStore
     @ObservationIgnored private var normalSnapshot: (engine: GameEngine, savesEnabled: Bool, warning: String?)?
     public private(set) var isDeveloperMode = false
@@ -30,6 +32,7 @@ public final class GameSession {
         return original == state ? "Original scenario" : "Modified developer state"
     }
     public private(set) var developerScenario: DeveloperScenario = .early
+    public private(set) var isPreparingDeveloperScenario = false
     #endif
     private struct RelocationGridKey: Equatable {
         struct Occupancy: Equatable {
@@ -258,6 +261,7 @@ public final class GameSession {
         developerStore = SaveStore(url: restoration.url.appendingPathExtension("developer"))
         #endif
         engine = restoration.engine
+        mapIdentity = restoration.engine.state.mapID
         message = restoration.message
         persistenceWarning = restoration.warning
         savesEnabled = restoration.warning == nil
@@ -436,26 +440,77 @@ public final class GameSession {
     }
     public func loadDeveloperScenario(_ scenario: DeveloperScenario) {
         do {
-            let replacement = try scenario.makeEngine(configuration: configuration, now: clock())
+            let base = normalSnapshot?.engine.configuration ?? configuration
+            let replacement = try scenario.makeEngine(configuration: base, now: clock())
+            try installDeveloperScenario(scenario, replacement: replacement)
+        } catch { message = error.localizedDescription }
+    }
+    /// UI preparation stays off the main actor; dismissal cancels publication.
+    public func prepareDeveloperScenario(_ scenario: DeveloperScenario) async {
+        guard !isPreparingDeveloperScenario else { return }
+        isPreparingDeveloperScenario = true
+        defer { isPreparingDeveloperScenario = false }
+        let base = normalSnapshot?.engine.configuration ?? configuration, now = clock()
+        let work = Task.detached(priority: .userInitiated) { try scenario.makeEngine(configuration: base, now: now) }
+        do {
+            var replacement = try await withTaskCancellationHandler(operation: { try await work.value }, onCancel: { work.cancel() })
+            try Task.checkCancellation()
+            replacement.developerRebaseClock(to: clock())
+            try installDeveloperScenario(scenario, replacement: replacement)
+        } catch is CancellationError { }
+        catch { message = error.localizedDescription }
+    }
+    private func installDeveloperScenario(_ scenario: DeveloperScenario, replacement: GameEngine) throws {
+            let base = normalSnapshot?.engine.configuration ?? configuration
             // An explicit scenario reset can recover a damaged developer file while preserving its bytes.
-            do { _ = try developerStore.load(configuration: configuration) }
+            do {
+                if FileManager.default.fileExists(atPath: developerStore.url.path) {
+                    let metadata = try JSONDecoder().decode(DeveloperMetadata.self, from: Data(contentsOf: developerStore.url))
+                    _ = try developerStore.load(configuration: (metadata.developerScenario ?? .early).configuration(from: base))
+                }
+            }
             catch {
                 let backup = developerStore.url.appendingPathExtension("invalid-\(UUID().uuidString).bak")
                 try FileManager.default.moveItem(at: developerStore.url, to: backup)
             }
             enterDeveloperMode()
-            engine = replacement; developerScenario = scenario; originalScenarioState = replacement.state
+            engine = replacement; mapIdentity = replacement.state.mapID
+            developerScenario = scenario; originalScenarioState = replacement.state
             resetDeveloperControls()
             message = "Developer · " + scenario.title + ". Normal progress is isolated."
             save()
-        } catch { message = error.localizedDescription }
+    }
+    public func prepareResumeDeveloperSettlement() async {
+        guard !isPreparingDeveloperScenario else { return }
+        guard FileManager.default.fileExists(atPath: developerStore.url.path) else { await prepareDeveloperScenario(.early); return }
+        isPreparingDeveloperScenario = true
+        defer { isPreparingDeveloperScenario = false }
+        let base = normalSnapshot?.engine.configuration ?? configuration, source = developerStore
+        let work = Task.detached(priority: .userInitiated) {
+            let metadata = try JSONDecoder().decode(DeveloperMetadata.self, from: Data(contentsOf: source.url))
+            let config = try (metadata.developerScenario ?? .early).configuration(from: base)
+            guard let state = try source.load(configuration: config) else { throw GameError.invalidSave("Developer save is missing") }
+            return (try GameEngine(state: state, configuration: config), metadata)
+        }
+        do {
+            let (replacement, metadata) = try await withTaskCancellationHandler(operation: { try await work.value }, onCancel: { work.cancel() })
+            try Task.checkCancellation()
+            enterDeveloperMode(); engine = replacement; mapIdentity = replacement.state.mapID
+            developerScenario = metadata.developerScenario ?? .early; originalScenarioState = metadata.originalScenarioState
+            engine.developerRebaseClock(to: clock()); resetDeveloperControls()
+            message = "Developer save resumed. Offline simulation is disabled here."
+        } catch is CancellationError { }
+        catch { message = "Developer save preserved: " + error.localizedDescription }
     }
     public func resumeDeveloperSettlement() {
         do {
-            guard let state = try developerStore.load(configuration: configuration) else { loadDeveloperScenario(.early); return }
-            let replacement = try GameEngine(state: state, configuration: configuration)
+            guard FileManager.default.fileExists(atPath: developerStore.url.path) else { loadDeveloperScenario(.early); return }
             let metadata = try JSONDecoder().decode(DeveloperMetadata.self, from: Data(contentsOf: developerStore.url))
-            enterDeveloperMode(); engine = replacement
+            let base = normalSnapshot?.engine.configuration ?? configuration
+            let config = try (metadata.developerScenario ?? .early).configuration(from: base)
+            guard let state = try developerStore.load(configuration: config) else { return }
+            let replacement = try GameEngine(state: state, configuration: config)
+            enterDeveloperMode(); engine = replacement; mapIdentity = replacement.state.mapID
             developerScenario = metadata.developerScenario ?? .early
             originalScenarioState = metadata.originalScenarioState
             engine.developerRebaseClock(to: clock()); resetDeveloperControls()
@@ -465,7 +520,8 @@ public final class GameSession {
     public func returnToNormalGame() {
         guard let snapshot = normalSnapshot else { return }
         save()
-        engine = snapshot.engine; savesEnabled = snapshot.savesEnabled; persistenceWarning = snapshot.warning
+        engine = snapshot.engine; mapIdentity = snapshot.engine.state.mapID
+        savesEnabled = snapshot.savesEnabled; persistenceWarning = snapshot.warning
         normalSnapshot = nil; isDeveloperMode = false; resetDeveloperControls()
         message = "Returned to normal settlement."
         resume()

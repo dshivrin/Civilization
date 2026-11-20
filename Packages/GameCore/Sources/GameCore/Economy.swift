@@ -49,6 +49,7 @@ private struct Flow {
     var outputs: ResourceAmounts
     var deposit: NaturalDeposit?
     var extraction: Double
+    var labor: Double
 }
 public extension GameEngine {
     /// Read-only presentation values from one authoritative snapshot.
@@ -110,6 +111,10 @@ extension GameEngine {
         result.consumption[.water] = Double(state.population) * (configuration.workforceRules?.waterPerPersonPerMinute ?? 0)
         let workers = workforceAllocation
         let techs = configuration.technologyDefinitions.filter { researchedIDs.contains($0.id) }
+        var technologyMultipliers = ResourceAmounts()
+        for resource in Resource.allCases {
+            technologyMultipliers[resource] = 1 + techs.reduce(0) { $0 + $1.effects.productionBonus[resource] }
+        }
         var flows: [Flow] = []
         // Stable IDs make summation, tie breaks and resource sharing independent of save array order.
         for building in state.buildings.sorted(by: { $0.id < $1.id }) where building.isOperational {
@@ -122,7 +127,7 @@ extension GameEngine {
             let demand = definition.workersRequired ?? 0
             let labor = configuration.workforceRules == nil || demand == 0 ? 1 : min(1,workers[building.id,default:0] / demand)
             for r in Resource.allCases {
-                outputs[r] *= labor * scale * geo * (1 + techs.reduce(0) { $0 + $1.effects.productionBonus[r] })
+                outputs[r] *= labor * scale * geo * technologyMultipliers[r]
                 inputs[r] = (inputs[r] + (definition.maintenancePerMinute?[r] ?? 0)) * scale * labor
             }
             var deposit: NaturalDeposit?
@@ -138,7 +143,7 @@ extension GameEngine {
                 if deposit == nil { result.factors[building.id] = 0; continue }
             }
             flows.append(Flow(id:building.id,tier:recipe?.allocationTier ?? 0,inputs:inputs,outputs:outputs,
-                              deposit:deposit,extraction:recipe?.depositResource.map { outputs[$0] } ?? 0))
+                              deposit:deposit,extraction:recipe?.depositResource.map { outputs[$0] } ?? 0,labor: labor))
         }
         for tier in Set(flows.map(\.tier)).sorted() {
             let group = flows.filter { $0.tier == tier }
@@ -171,7 +176,8 @@ extension GameEngine {
             }
             for (i,flow) in group.enumerated() {
                 let factor = factors[i]
-                result.factors[flow.id] = factor * (configuration.workforceRules == nil ? 1 : workforceProductivity(state.buildings.first { $0.id == flow.id }!))
+                // Reuse this snapshot's allocation instead of recalculating all workers per flow.
+                result.factors[flow.id] = factor * flow.labor
                 for r in Resource.allCases {
                     result.gross[r] += flow.outputs[r] * factor
                     result.consumption[r] += flow.inputs[r] * factor

@@ -13,6 +13,15 @@ public struct MapDefinition: Codable, Sendable {
     }
 }
 public struct GameConfiguration: Codable, Sendable {
+    /// Production retains its legacy cap; only the explicitly named Debug review map expands it.
+    public var maximumExplorationRadius: Int {
+        #if DEBUG
+        if map.id == "river-clearing-review-64x48-v1", map.width == 64, map.height == 48 {
+            return max(map.campfire.x, map.width - 1 - map.campfire.x, map.campfire.y, map.height - 1 - map.campfire.y)
+        }
+        #endif
+        return 32
+    }
     public var resourceCap: Double
     public var offlineCapSeconds: Double
     public var initialResources: ResourceAmounts
@@ -51,7 +60,11 @@ public struct GameConfiguration: Codable, Sendable {
             try require(Resource.allCases.allSatisfy { amounts[$0].isFinite && amounts[$0] >= 0 }, "Amounts must be finite nonnegative units")
         }
         try require(Resource.allCases.allSatisfy { initialResources[$0] <= baseCapacities[$0] }, "Initial resource exceeds capacity")
-        try require(map.width == 32 && map.height == 24 && map.rows.count == map.height && !map.id.isEmpty, "Invalid seed map dimensions or identity")
+        var supportedDimensions = map.width == 32 && map.height == 24
+        #if DEBUG
+        supportedDimensions = supportedDimensions || (map.id == "river-clearing-review-64x48-v1" && map.width == 64 && map.height == 48)
+        #endif
+        try require(supportedDimensions && map.rows.count == map.height && !map.id.isEmpty, "Invalid seed map dimensions or identity")
         try require(map.rows.allSatisfy { $0.count == map.width && $0.allSatisfy { Terrain(rawValue: $0) != nil } }, "Invalid terrain rows")
         for b in buildings {
             let orientations = b.resolvedOrientations

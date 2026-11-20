@@ -4,12 +4,16 @@ import GameCore
 
 /// Disposable, deterministic fixtures. All placements and upgrades use real commands.
 public enum DeveloperScenario: String, CaseIterable, Identifiable, Codable, Sendable {
-    case early, developed, late
+    case early, developed, late, grouped
     public var id: String { rawValue }
     public var title: String {
-        switch self { case .early: "Early settlement"; case .developed: "Developed settlement"; case .late: "Late Stone Age" }
+        switch self { case .early: "Early settlement"; case .developed: "Developed settlement"; case .late: "Late Stone Age"; case .grouped: "Large grouped village (64×48)" }
+    }
+    func configuration(from base: GameConfiguration) throws -> GameConfiguration {
+        self == .grouped ? try GroupedDeveloperVillage.configuration(from: base) : base
     }
     public func makeEngine(configuration: GameConfiguration, now: Date) throws -> GameEngine {
+        if self == .grouped { return try GroupedDeveloperVillage.makeEngine(from: configuration, now: now) }
         var engine = try GameEngine(configuration: configuration, now: now)
         func refill() { engine.developerAddResources(1_000_000) }
         func place(_ kind: BuildingKind, level: Int = 1) throws {

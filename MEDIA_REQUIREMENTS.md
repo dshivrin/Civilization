@@ -1,5 +1,9 @@
 # Media requirements
 
+##64×48developer review — 20 November 2026
+
+Dima approved64×48size after the isolated grouped preview. Current scene uses existing runtime art; no media master, provenance, repository, new environment art or production footprint change. [Preview/navigation report](docs/milestones/large-developer-village.md). Physical art/performance acceptance remains separate. All requirements below are retained.
+
 ## S1-Geography sizing review — 20 November 2026
 
 [Assessment](docs/superpowers/specs/2026-11-20-s1-geography-sizing-review.md) recommends a conditional 64×48 additive annex, awaiting Product Owner review. SVG layouts are design evidence, not production art or accepted geography. Environment art follows approved Geography delivery; media repository and runtime art remain unchanged. Direct movement without edit mode remains a future UX requirement. All existing asset/backlog requirements below are retained.

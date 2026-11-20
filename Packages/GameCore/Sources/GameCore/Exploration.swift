@@ -46,7 +46,7 @@ public extension GameEngine {
         guard let rules = configuration.explorationRules else { return .placement("Exploration is unavailable in this ruleset.") }
         if state.explorationRemainingSeconds != nil { return .placement("An expedition is already underway.") }
         if discoveredTileCount == configuration.map.width * configuration.map.height { return .placement("The entire valley is discovered.") }
-        let next = min(32,(state.explorationRadius ?? rules.initialRadius) + rules.revealRadiusStep)
+        let next = min(configuration.maximumExplorationRadius,(state.explorationRadius ?? rules.initialRadius) + rules.revealRadiusStep)
         if next > rules.requiresScoutAfterRadius && !state.buildings.contains(where: { $0.kind == .scoutCamp && $0.isOperational }) { return .placement("Build a scout camp to explore farther.") }
         return canAfford(rules.cost) ? nil : .insufficientResources
     }

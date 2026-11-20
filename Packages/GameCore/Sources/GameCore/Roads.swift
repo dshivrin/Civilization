@@ -27,8 +27,13 @@ public enum RoadGeometry {
     }
     /// A bounded four-connected staircase between sampled tiles; no diagonal gaps.
     public static func path(from start: Tile, to end: Tile, width: Int, height: Int) -> [Tile] {
+        #if DEBUG
+        let bounded = (width <= 32 && height <= 24) || (width == 64 && height == 48)
+        #else
+        let bounded = width <= 32 && height <= 24
+        #endif
         guard width > 0, height > 0, (0..<width).contains(start.x), (0..<height).contains(start.y),
-              (0..<width).contains(end.x), (0..<height).contains(end.y), width <= 32, height <= 24 else { return [] }
+              (0..<width).contains(end.x), (0..<height).contains(end.y), bounded else { return [] }
         let dx = abs(end.x-start.x), dy = abs(end.y-start.y)
         let sx = end.x >= start.x ? 1 : -1, sy = end.y >= start.y ? 1 : -1
         var p = start, ix = 0, iy = 0, result = [start]

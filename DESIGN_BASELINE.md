@@ -1,5 +1,10 @@
 # Design baseline
 
+## Approved64×48size and navigation follow-up — 20 November 2026
+
+Dima explicitly approved **64×48size** after reviewing the large developer preview and requested smoother first-attempt pan/pinch. [Delivery/navigation evidence](docs/milestones/large-developer-village.md) records the added isolated64building/24home/566road grouped scenario, DEBUG-only annex/proposed footprints, preserved original768terrain cells and normal32×24world. Production map/footprint activation and existing-world migration policy remain separately gated. Navigation corrections remove repeated scene creation and redundant equivalent simulation work, preserving balances/relocation/road behavior. Human physical smoothness/art/enjoyment acceptance remains open. All prior backlog and media remain unchanged. Standing `xcodebuild`/`swift test` authorization is recorded in AGENTS.md; use direct commands.
+
+
 ## S1-Geography sizing review — 20 November 2026
 
 [Quantitative sizing report](docs/superpowers/specs/2026-11-20-s1-geography-sizing-review.md) recommends **64×48 conditionally**, not activated or approved: 1,494 settlement-connected buildable tiles in the proposed additive annex; all 20 catalog types/64 instances, 24 homes in three neighborhoods, connected roads/quarry/plaza, 136 staging tiles and 352 other free connected tiles. 48×36 falls short of the exhibited layout budget; 80×60 adds substantial unused land. All original 768 terrain cells/coordinates are preserved in the study. Footprints/annex geometry/opt-in migration/quarry shared reserve/expanded discovery cap remain proposals awaiting Product Owner review. Device performance is unmeasured. Direct movement without edit mode is a future UX requirement only. Preserve all prior backlog and Saves acceptance/physical-launch limits; no product/save/media change.

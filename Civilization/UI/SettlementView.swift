@@ -10,7 +10,7 @@ struct SettlementView: View {
     let session: GameSession
     let openGames: (() -> Void)?
     let managesLifecycle: Bool
-    @State private var scene: SettlementScene
+    @State private var scene: SettlementScene? = nil
     @State private var inspectedResource: ResourceInspection?
     @State private var showPopulation = false
     @State private var worldReady = false
@@ -30,13 +30,14 @@ struct SettlementView: View {
     init(session: GameSession, openGames: (() -> Void)? = nil, managesLifecycle: Bool = true) {
         self.session = session
         self.openGames = openGames; self.managesLifecycle = managesLifecycle
-        _scene = State(initialValue: SettlementScene(configuration: session.configuration))
     }
     var body: some View {
         GeometryReader { geometry in
             let compact = geometry.size.height < 500
             ZStack {
-                WorldView(scene: scene, session: session, onReady: { worldReady = true }, isObscured: showResearch || showCatalog || showJourney).ignoresSafeArea()
+                if let scene {
+                    WorldView(scene: scene, session: session, onReady: { worldReady = true }, isObscured: showResearch || showCatalog || showJourney).ignoresSafeArea()
+                }
                 VStack(spacing: compact ? 8 : 14) {
                     resourceBar(compact: compact)
                     HStack(alignment: .top, spacing: 14) {
@@ -58,6 +59,12 @@ struct SettlementView: View {
                             if session.isDeveloperMode {
                                 Text("DEVELOPER · \(session.developerPaused ? "PAUSED" : "\(Int(session.developerSpeed))×") · isolated save")
                                     .font(.caption.weight(.bold)).padding(8).background(.orange.opacity(0.22), in: Capsule())
+                                if session.configuration.map.width == 64 {
+                                    Button("64×48 · Map overview") { scene?.showMapOverview() }
+                                        .font(.caption.weight(.semibold)).padding(8)
+                                        .background(panelColor, in: Capsule())
+                                        .accessibilityIdentifier("largeMapOverview")
+                                }
                             }
                             #endif
                             if session.isDragMode {
@@ -161,6 +168,9 @@ struct SettlementView: View {
             if managesLifecycle { session.setActive(newPhase == .active) }
         }
         .task {
+            // Defer expensive scene creation until this identity is mounted.
+            // State(initialValue: Scene(...)) evaluated a disposable terrain on parent updates.
+            if scene == nil { scene = SettlementScene(configuration: session.configuration) }
             while !Task.isCancelled {
                 do { try await Task.sleep(for: .seconds(1)) } catch { break }
                 if phase == .active { session.tick() }

@@ -1,5 +1,8 @@
 # Riverbend — first-era review candidate
 
+Current Debug review build adds **Developer tools → Large grouped village (64×48)**: three residential neighborhoods, food/farming, quarry/crafting and civic/storage groups connected by566road tiles. Use **64×48 · Map overview**, pinch to inspect, Resume developer save to keep edits, or Return to normal settlement. Choosing/resetting a scenario replaces only that world's isolated developer state. Normal maps/saves retain32×24.64×48size is human-approved; normal-world expansion/migration remains gated. [Report](docs/milestones/large-developer-village.md).
+
+
 Latest: [decorative roads](docs/milestones/decorative-roads.md) add free Draw/Replace/Remove tools with persistent path, dirt and stone surfaces. Drag or tap to preview, then Confirm; invalid strokes change nothing. Roads never gate era progress. The signed update is installed on Dima’s iPhone; both saves were validated and preserved byte-identically before launch. The [geometry foundation](docs/milestones/building-geometry-foundation.md) preserves current building sizes; visible rotation and NPCs remain staged.
 
 Shared design source of truth: [baseline](DESIGN_BASELINE.md), [dependency-aware roadmap](DEVELOPMENT_ROADMAP.md), [decision register](DESIGN_DECISIONS.md), [media requirements](MEDIA_REQUIREMENTS.md) and [sync/access record](DESIGN_SYNC.md). Read these before extending the game. The current first-era **core candidate** does not yet include activated larger footprints/live rotation, NPCs, monuments, audio or regional civilizations. Those approved future directions are now synchronized and staged; no game behavior changed in the documentation sync.

@@ -9,15 +9,15 @@ import GamePersistence
     let config = try GameConfiguration.bundled()
     for scenario in DeveloperScenario.allCases {
         let engine = try scenario.makeEngine(configuration: config, now: Date(timeIntervalSince1970: 1000))
-        _ = try GameEngine(state: engine.state, configuration: config)
+        _ = try GameEngine(state: engine.state, configuration: engine.configuration)
         #expect(engine.state.population <= engine.housingCapacity)
-        #expect(engine.state.mapID == config.map.id)
+        #expect(engine.state.mapID == engine.configuration.map.id)
         #expect(engine.state.nextBuildingID > engine.state.buildings.map(\.id).max()!)
         let url = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: url) }
         let store = SaveStore(url: url)
         try store.save(engine.state)
-        #expect(try store.load(configuration: config) == engine.state)
+        #expect(try store.load(configuration: engine.configuration) == engine.state)
         switch scenario {
         case .early: #expect((3...5).contains(engine.state.population)); #expect(engine.researchedIDs.count <= 1)
         case .developed:
@@ -33,6 +33,10 @@ import GamePersistence
             #expect(engine.rates[.water] > 0)
             #expect(engine.rates[.food] > 0)
             #expect(!engine.state.buildings.contains { $0.kind == .palisade })
+        case .grouped:
+            #expect(engine.configuration.map.width == 64)
+            #expect(engine.state.buildings.count == 64)
+            #expect((engine.state.roads?.count ?? 0) > 200)
         }
     }
 }

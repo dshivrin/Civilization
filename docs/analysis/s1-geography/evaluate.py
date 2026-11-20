@@ -205,7 +205,7 @@ def evaluate(w,h):
         failed_blocks=failed,unconnected_road_tiles=len(route_failures),plaza=plaza,
         quarry=quarry,quarry_connected=quarry in connected,max_road_distance=max(distances.values()),
         max_discovery_radius=max_radius,expeditions=(max_radius-7+1)//2,
-        zones=zones,placements=buildings,legacy_exact=all(land[x,y]==C['map']['rows'][y][x]
+        zones=zones,placements=buildings,road_tiles=sorted(roads,key=lambda p:(p[1],p[0])),legacy_exact=all(land[x,y]==C['map']['rows'][y][x]
             for y in range(24) for x in range(32)))
     assert result['footprints']+result['roads']+result['decorations']+result['reserve']+result['unassigned']==result['contiguous']
     assert not occupied&roads and not reserves&(occupied|roads|decor)

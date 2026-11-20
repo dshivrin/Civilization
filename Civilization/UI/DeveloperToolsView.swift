@@ -5,6 +5,7 @@ import GameApplication
 struct DeveloperToolsView: View {
     let session: GameSession
     @Environment(\.dismiss) private var dismiss
+    @State private var preparation: Task<Void, Never>?
     var body: some View {
         NavigationStack {
             Form {
@@ -15,7 +16,7 @@ struct DeveloperToolsView: View {
                     }
                     Text("Normal progress is isolated. The checkmark identifies the source scenario; Reset restores its original state. Debug settings reset on relaunch; no developer offline catch-up.").font(.subheadline)
                     ForEach(DeveloperScenario.allCases) { scenario in
-                        Button { session.loadDeveloperScenario(scenario); dismiss() } label: {
+                        Button { preparation = Task { await session.prepareDeveloperScenario(scenario); if !Task.isCancelled { dismiss() } } } label: {
                             HStack {
                                 Text(scenario.title)
                                 Spacer()
@@ -25,7 +26,7 @@ struct DeveloperToolsView: View {
                             .accessibilityAddTraits(session.isSelectedDeveloperScenario(scenario) ? .isSelected : [])
                             .accessibilityIdentifier("scenario-" + scenario.rawValue)
                     }
-                    Button("Resume developer save") { session.resumeDeveloperSettlement(); dismiss() }.frame(minHeight: 44)
+                    Button("Resume developer save") { preparation = Task { await session.prepareResumeDeveloperSettlement(); if !Task.isCancelled { dismiss() } } }.frame(minHeight: 44)
                 }
                 if session.isDeveloperMode {
                     Section("Simulation") {
@@ -51,12 +52,20 @@ struct DeveloperToolsView: View {
                         Text(session.message).font(.caption).accessibilityIdentifier("developerMessage")
                     }
                     Section {
-                        Button("Reset developer settlement", role: .destructive) { session.loadDeveloperScenario(session.developerScenario); dismiss() }.frame(minHeight: 44)
+                        Button("Reset developer settlement", role: .destructive) { preparation = Task { await session.prepareDeveloperScenario(session.developerScenario); if !Task.isCancelled { dismiss() } } }.frame(minHeight: 44)
                         Button("Return to normal settlement") { session.returnToNormalGame(); dismiss() }.frame(minHeight: 44)
                     }
                 }
-            }.navigationTitle("Developer tools")
-                .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() }.frame(minHeight: 44) } }
+            }.disabled(session.isPreparingDeveloperScenario)
+                .overlay {
+                    if session.isPreparingDeveloperScenario {
+                        ProgressView("Preparing developer village…").padding(24)
+                            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16))
+                    }
+                }
+                .onDisappear { preparation?.cancel() }
+                .navigationTitle("Developer tools")
+                .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { preparation?.cancel(); dismiss() }.frame(minHeight: 44) } }
         }
     }
 }

@@ -4,6 +4,56 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testLargeGroupedVillageOverviewResumeAndReturnToOriginalMap() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        app.launch()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        app.buttons["developerTools"].tap()
+        let grouped = app.buttons["scenario-grouped"]
+        for _ in 0..<3 where !grouped.isHittable { app.collectionViews.firstMatch.swipeUp() }
+        XCTAssertTrue(grouped.label.contains("64×48")); grouped.tap()
+        XCTAssertTrue(app.buttons["largeMapOverview"].waitForExistence(timeout: 30))
+        let map = app.otherElements["settlementMap"]
+        XCTAssertTrue(map.waitForExistence(timeout: 10))
+        XCTAssertTrue((map.value as? String ?? "").contains("64×48 tiles · 64 buildings · 566 road tiles"))
+        func sceneBuildCount() -> String {
+            ((map.value as? String ?? "").components(separatedBy: "sceneBuilds=").last ?? "").components(separatedBy: " ").first ?? ""
+        }
+        let builtScenes = sceneBuildCount()
+        Thread.sleep(forTimeInterval: 2.5) // Several ordinary resource ticks must retain one terrain scene.
+        XCTAssertEqual(sceneBuildCount(), builtScenes, "Resource ticks constructed unused terrain scenes")
+        let initialCamera = map.value as? String ?? ""
+        let center = map.coordinate(withNormalizedOffset: CGVector(dx:0.5,dy:0.5))
+        center.press(forDuration:0.02, thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx:0.62,dy:0.6)))
+        XCTAssertTrue((map.value as? String ?? "").contains("pan=1 pinch=0"), map.value as? String ?? "")
+        XCTAssertNotEqual(map.value as? String, initialCamera)
+        app.buttons["largeMapOverview"].tap()
+        capture("large-grouped-overview", app: app)
+        map.pinch(withScale: 2.5,velocity: 1)
+        XCTAssertTrue((map.value as? String ?? "").contains("pinch=1"), map.value as? String ?? "")
+        capture("large-grouped-districts", app: app)
+        app.buttons["largeMapOverview"].tap()
+        app.terminate(); app.launch()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        XCTAssertFalse(app.buttons["largeMapOverview"].exists)
+        app.buttons["developerTools"].tap()
+        let resume = app.buttons["Resume developer save"]
+        for _ in 0..<3 where !resume.isHittable { app.collectionViews.firstMatch.swipeUp() }
+        resume.tap()
+        XCTAssertTrue(app.buttons["largeMapOverview"].waitForExistence(timeout: 30))
+        XCTAssertTrue((app.otherElements["settlementMap"].value as? String ?? "").contains("64×48 tiles · 64 buildings"))
+        app.buttons["developerTools"].tap()
+        let normal = app.buttons["Return to normal settlement"]
+        for _ in 0..<6 where !normal.isHittable { app.collectionViews.firstMatch.swipeUp() }
+        normal.tap()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        XCTAssertFalse(app.buttons["largeMapOverview"].exists)
+        XCTAssertTrue((app.otherElements["settlementMap"].value as? String ?? "").contains("32×24 tiles · 1 buildings · 0 road tiles"))
+        capture("large-grouped-returned-normal", app: app)
+    }
     @MainActor func testIndependentGamesCreateSwitchAndResumeAfterRelaunch() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication(), libraryID = UUID().uuidString

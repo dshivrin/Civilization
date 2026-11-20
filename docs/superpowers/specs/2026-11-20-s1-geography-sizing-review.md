@@ -1,5 +1,8 @@
 # S1-Geography — settlement-derived sizing and migration review
 
+**Decision update:** Dima has now explicitly approved64×48size after reviewing the authorized isolated developer preview. The original assessment's approval-pending language below is historical for the size decision; existing-normal-world migration, production catalog activation and broader Geography delivery remain gated. [Direct source](../../design/sources/2026-11-20-large-preview-approval-navigation.md), [preview/navigation delivery](../../milestones/large-developer-village.md).
+
+
 20 November 2026. **Recommendation: 64×48, conditional spatial pass; awaiting Product Owner approval. No activation.** This is a quantitative design assessment, not an implemented map/migration or a hardware benchmark.
 
 ## Authority and scope

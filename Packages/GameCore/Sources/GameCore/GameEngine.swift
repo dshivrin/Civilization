@@ -46,6 +46,12 @@ public struct GameEngine: Sendable {
         return ResourceAmounts(food: Double(state.population) * (configuration.populationRules?.foodPerPersonPerMinute ?? 0))
     }
     public var rates: ResourceAmounts {
+        if configuration.economyRules != nil {
+            let snapshot = economySnapshot
+            var net = snapshot.gross
+            for resource in Resource.allCases { net[resource] -= snapshot.consumption[resource] }
+            return net
+        }
         var result = grossRates
         let used = consumption
         for r in Resource.allCases { result[r] -= used[r] }
@@ -64,13 +70,17 @@ public struct GameEngine: Sendable {
         activeTechnologies.reduce(configuration.populationRules?.growthIntervalSeconds ?? 0) { $0 * $1.effects.growthIntervalMultiplier }
     }
     public var growthStatus: GrowthStatus {
+        growthStatus(netRates: nil)
+    }
+    private func growthStatus(netRates: ResourceAmounts?) -> GrowthStatus {
         guard let rules = configuration.populationRules else { return .disabled }
         if state.population >= housingCapacity { return .housingFull }
         if state.resources.food + 1e-9 < rules.minimumFoodForGrowth { return .foodReserve }
-        if rates.food <= 0 { return .foodDeficit }
+        let net = netRates ?? rates
+        if net.food <= 0 { return .foodDeficit }
         if let water = configuration.workforceRules {
             if state.resources[.water] + 1e-9 < water.minimumWaterForGrowth { return .waterReserve }
-            if rates[.water] <= 0 { return .waterDeficit }
+            if net[.water] <= 0 { return .waterDeficit }
         }
         return .growing
     }
@@ -235,7 +245,7 @@ public struct GameEngine: Sendable {
             let used = snapshot?.consumption ?? consumption
             for r in Resource.allCases { net[r] -= used[r] }
             let capacity = capacities
-            let growing = growthStatus == .growing
+            let growing = growthStatus(netRates: net) == .growing
             var step = remaining
             if let seconds = state.explorationRemainingSeconds { step = min(step,seconds) }
             for building in state.buildings {
@@ -285,7 +295,7 @@ public struct GameEngine: Sendable {
     }
     private mutating func resolveEvents() {
         if let seconds = state.explorationRemainingSeconds, seconds <= 1e-9, let rules = configuration.explorationRules {
-            let radius = min(32,(state.explorationRadius ?? rules.initialRadius) + rules.revealRadiusStep)
+            let radius = min(configuration.maximumExplorationRadius,(state.explorationRadius ?? rules.initialRadius) + rules.revealRadiusStep)
             let revealed = configuration.tiles(within:radius)
             state.discoveredTiles?.formUnion(revealed)
             state.explorationRadius = radius
@@ -297,7 +307,7 @@ public struct GameEngine: Sendable {
             }
         }
         // Completion is processed before growth when both occur at the same instant.
-        while growthStatus == .growing && (state.populationGrowthSeconds ?? 0) + 1e-9 >= growthIntervalSeconds {
+        while (state.populationGrowthSeconds ?? 0) + 1e-9 >= growthIntervalSeconds && growthStatus == .growing {
             state.populationGrowthSeconds = max(0, (state.populationGrowthSeconds ?? 0) - growthIntervalSeconds)
             state.population += 1
         }
@@ -346,9 +356,9 @@ public struct GameEngine: Sendable {
         }
         if let rules = configuration.explorationRules {
             try require(state.discoveredTiles != nil && state.discoveredTiles!.contains(configuration.map.campfire) && state.discoveredTiles!.allSatisfy(configuration.map.contains), "Invalid discovered territory")
-            try require((rules.initialRadius...32).contains(state.explorationRadius ?? -1), "Invalid exploration radius")
+            try require((rules.initialRadius...configuration.maximumExplorationRadius).contains(state.explorationRadius ?? -1), "Invalid exploration radius")
             try require(configuration.tiles(within:state.explorationRadius!).isSubset(of:state.discoveredTiles!), "Exploration radius exceeds revealed territory")
-            if let timer = state.explorationRemainingSeconds { try require(timer.isFinite && timer > 0 && timer <= rules.durationSeconds && discoveredTileCount < 768, "Invalid expedition timer") }
+            if let timer = state.explorationRemainingSeconds { try require(timer.isFinite && timer > 0 && timer <= rules.durationSeconds && discoveredTileCount < configuration.map.width * configuration.map.height, "Invalid expedition timer") }
         }
         if configuration.economyRules != nil {
             let finite = (configuration.naturalDeposits ?? []).filter { !$0.renewable }
@@ -425,7 +435,7 @@ public extension GameEngine {
     }
     mutating func developerRevealTerritory(radius: Int = 32) {
         guard let rules = configuration.explorationRules else { return }
-        let radius = min(32, max(rules.initialRadius, max(state.explorationRadius ?? 0, radius)))
+        let radius = min(configuration.maximumExplorationRadius, max(rules.initialRadius, max(state.explorationRadius ?? 0, radius)))
         let revealed = configuration.tiles(within: radius)
         state.discoveredTiles?.formUnion(revealed)
         state.explorationRadius = radius
