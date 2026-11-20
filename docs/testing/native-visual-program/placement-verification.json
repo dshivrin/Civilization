@@ -80,5 +80,5 @@
   },
   "normalGameCoreWorldViewAndProjectUnchanged": true,
   "captureManifest": "captures/2026-11-20-placement-v2/manifest.json",
-  "physicalInstall": "Pending separate installation evidence; prior467a26d retained"
+  "physicalInstall": "placement-device-install.json; signed Debug33073e9 installed/launched,12files byte-identical before launch"
 }
