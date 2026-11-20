@@ -90,7 +90,7 @@ public final class GameSession {
     }
     public var selectedTile: Tile?
     public var inspectedBuilding: PlacedBuilding?
-    public var currentInspection: PlacedBuilding? { state.buildings.first { $0.id == inspectedBuilding?.id } }
+    public var currentInspection: PlacedBuilding? { state.buildings.first { $0.id == inspectedBuilding?.id && isVisible($0) } }
     public var centerRequest = 0
     public var state: GameState { engine.state }
     public var configuration: GameConfiguration { engine.configuration }
@@ -126,6 +126,9 @@ public final class GameSession {
     public var discoveredTileCount: Int { engine.discoveredTileCount }
     public var discoveredDeposits: [NaturalDeposit] { engine.discoveredDeposits }
     public func isDiscovered(_ tile: Tile) -> Bool { engine.isDiscovered(tile) }
+    public func isVisible(_ building: PlacedBuilding) -> Bool {
+        DiscoveryVisibility.isVisible(building, in: configuration, discovered: state.discoveredTiles)
+    }
     public func isIdentified(_ deposit: NaturalDeposit) -> Bool { engine.isIdentified(deposit) }
     public func startExploration() {
         perform {
@@ -145,7 +148,7 @@ public final class GameSession {
         }
     }
     public func inspect(buildingID: Int) {
-        guard let building = state.buildings.first(where: { $0.id == buildingID }) else { return }
+        guard let building = state.buildings.first(where: { $0.id == buildingID }), isVisible(building) else { return }
         exitRoadMode()
         cancelRelocationPreview()
         selectedKind = nil
@@ -328,9 +331,11 @@ public final class GameSession {
         if roadTool != nil { extendRoadStroke(to: tile); return }
         if selectedKind != nil || movingBuildingID != nil { selectedTile = tile }
         else {
-            inspectedBuilding = engine.building(at: tile)
+            guard isDiscovered(tile) else { inspectedBuilding = nil; message = "Unexplored terrain · send an expedition to reveal it."; return }
+            inspectedBuilding = engine.building(at: tile).flatMap { isVisible($0) ? $0 : nil }
             if let building = inspectedBuilding { message = configuration.definition(building.kind).name }
             else if !isDiscovered(tile) { message = "Unexplored terrain · send an expedition to reveal it." }
+            else if configuration.naturalDeposits?.contains(where: { ($0.accessSites ?? []).contains(tile) }) == true { message = "Stone quarry · shared valley stone reserve" }
             else if let terrain = configuration.map.terrain(at: tile) { message = "\(String(describing: terrain).capitalized) · tile \(tile.x), \(tile.y)" }
         }
     }
@@ -339,7 +344,7 @@ public final class GameSession {
         movingBuildingID = nil
     }
     public func beginRelocation(buildingID: Int) {
-        guard let building = state.buildings.first(where: { $0.id == buildingID }) else { return }
+        guard let building = state.buildings.first(where: { $0.id == buildingID }), isVisible(building) else { return }
         if building.kind == .campfire { message = "The campfire is the fixed settlement anchor."; return }
         exitRoadMode()
         selectedKind = nil; inspectedBuilding = nil; movingBuildingID = buildingID; selectedTile = building.origin

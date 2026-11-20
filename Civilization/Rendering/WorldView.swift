@@ -64,12 +64,12 @@ struct WorldView: UIViewRepresentable {
         private func building(at point: CGPoint) -> PlacedBuilding? {
             if let id = scene.buildingID(at: point) { return session.state.buildings.first { $0.id == id } }
             let tile = IsometricProjection.tile(point)
-            return session.state.buildings.first { $0.tiles(in: session.configuration).contains(tile) }
+            return session.state.buildings.first { session.isVisible($0) && $0.tiles(in: session.configuration).contains(tile) }
         }
         private func movableBuilding(at point: CGPoint) -> PlacedBuilding? {
             guard !session.isDragMode && session.roadTool == nil else { return nil }
             let touched = IsometricProjection.tile(point)
-            return session.state.buildings.first { $0.kind != .campfire && $0.tiles(in: session.configuration).contains(touched) }
+            return session.state.buildings.first { session.isVisible($0) && $0.kind != .campfire && $0.tiles(in: session.configuration).contains(touched) }
         }
         func gestureRecognizer(_ recognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
             let location = scene.convertPoint(fromView: touch.location(in: recognizer.view))

@@ -283,7 +283,9 @@ struct SettlementView: View {
         return VStack(alignment: .leading, spacing: 5) {
             Text(identified ? deposit.kind.replacingOccurrences(of: "_", with: " ").capitalized : "Unidentified deposit")
                 .font(.subheadline).fontWeight(.semibold)
-            Text("Tile \(deposit.origin.x), \(deposit.origin.y) · reach \(deposit.radius) tiles").font(.caption)
+            ForEach(([deposit.origin] + (deposit.accessSites ?? [])).filter { session.isDiscovered($0) }, id: \.self) { site in
+                Text("\(site == deposit.origin ? "Tile" : "Quarry access") \(site.x), \(site.y) · reach \(deposit.radius) tiles").font(.caption)
+            }
             if identified {
                 if let resource = deposit.resource {
                     Text(resource.title + " · " + (deposit.renewable ? "Renewable" : "\(Int(max(0, session.state.depositRemaining?[deposit.id] ?? deposit.capacity))) units remaining"))

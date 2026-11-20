@@ -68,7 +68,7 @@ final class SettlementScene: SKScene {
     override func didChangeSize(_ oldSize: CGSize) {
         if !didCenter && size.width > 100 {
             #if DEBUG
-            if configuration.map.width == 64 { showMapOverview() } else { recenter() }
+            if configuration.map.id == "river-clearing-review-64x48-v1" { showMapOverview() } else { recenter() }
             #else
             recenter()
             #endif
@@ -133,7 +133,7 @@ final class SettlementScene: SKScene {
     func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, relocationGrid: [Tile: Bool]? = nil, unavailablePreviewTiles: Set<Tile>? = nil, roadTool: RoadTool? = nil, roadDraft: [Tile] = [], roadInvalid: Bool = false, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
         if centerRequest != lastCenterRequest {
             #if DEBUG
-            if lastCenterRequest == -1 && configuration.map.width == 64 { showMapOverview() } else { recenter() }
+            if lastCenterRequest == -1 && configuration.map.id == "river-clearing-review-64x48-v1" { showMapOverview() } else { recenter() }
             #else
             recenter()
             #endif
@@ -148,8 +148,8 @@ final class SettlementScene: SKScene {
         let depositSignature = deposits.sorted { $0.id < $1.id }.map {
             $0.id + (identifiedDepositIDs.contains($0.id) ? ":known" : ":unknown") + ((state.depositRemaining?[$0.id] ?? $0.capacity) <= 0 ? ":empty" : ":available")
         }.joined(separator: "|")
-        if depositSignature != renderedDepositSignature {
-            drawDeposits(deposits, identifiedIDs: identifiedDepositIDs, reserves: state.depositRemaining ?? [:])
+        if depositSignature != renderedDepositSignature || discoveryChanged {
+            drawDeposits(deposits, identifiedIDs: identifiedDepositIDs, reserves: state.depositRemaining ?? [:], discovered: state.discoveredTiles)
             renderedDepositSignature = depositSignature
         }
         newlyPlacedIDs = hasDisplayedSnapshot ? Set(state.buildings.map(\.id)).subtracting(renderedBuildings.map(\.id)) : []
@@ -160,13 +160,13 @@ final class SettlementScene: SKScene {
         }.joined(separator: "|")
         if signature != renderedVisualSignature || discoveryChanged || movingBuildingID != renderedMovingID || activeProductionIDs != renderedActiveIDs || reduceMotion != renderedReduceMotion {
             buildingLayer.removeAllChildren()
-            for building in state.buildings where state.discoveredTiles == nil || state.discoveredTiles!.contains(building.origin) { drawBuilding(building, faded: building.id == movingBuildingID) }
+            for building in state.buildings where DiscoveryVisibility.isVisible(building, in: configuration, discovered: state.discoveredTiles) { drawBuilding(building, faded: building.id == movingBuildingID) }
             renderedMovingID = movingBuildingID
             renderedVisualSignature = signature
             renderedActiveIDs = activeProductionIDs
             renderedReduceMotion = reduceMotion
         }
-        renderedBuildings = state.buildings
+        renderedBuildings = state.buildings.filter { DiscoveryVisibility.isVisible($0, in: configuration, discovered: state.discoveredTiles) }
         for building in state.buildings where !building.isOperational {
             if let root = buildingLayer.children.first(where: { ($0.userData?["buildingID"] as? Int) == building.id }) {
                 let fraction = 1 - (building.constructionRemainingSeconds ?? 0) / max(1, building.constructionDurationSeconds ?? 1)
@@ -237,13 +237,8 @@ final class SettlementScene: SKScene {
         terrainLayer.removeAllChildren()
         let ground = SKNode()
         let scenery = SKNode()
-        // Large Debug review maps need bounded textures at high device raster scales.
-        // Keep the established legacy cache path unchanged.
-        #if DEBUG
-        let chunked = configuration.map.width == 64
-        #else
-        let chunked = false
-        #endif
+        // Bounded caches are required in both Debug and Release at device raster scales.
+        let chunked = configuration.map.width > 32
         var chunks: [Tile: (ground: SKNode, scenery: SKNode)] = [:]
         struct ScenicKey: Hashable { let chunk: Tile; let depth: Int }
         var scenicChunks: [ScenicKey: SKNode] = [:]
@@ -261,7 +256,16 @@ final class SettlementScene: SKScene {
                 let ground = chunked ? chunks[key]!.ground : ground
                 let point = IsometricProjection.point(tile)
                 if let discovered, !discovered.contains(tile) {
-                    ground.addChild(shape(IsometricProjection.diamond(at: point), fill: UIColor(red: 0.105, green: 0.16, blue: 0.145, alpha: 1), stroke: UIColor(red: 0.105, green: 0.16, blue: 0.145, alpha: 0.14), width: 7))
+                    // Opaque ground-independent clouds: no hidden terrain is rendered beneath them.
+                    let shade = CGFloat((x * 17 + y * 31) % 7) / 150
+                    ground.addChild(shape(IsometricProjection.diamond(at: point), fill: UIColor(white: 0.73 + shade, alpha: 1), stroke: UIColor(white: 0.77, alpha: 1), width: 1))
+                    for offset in [-14.0, 5.0] {
+                        let cloud = SKShapeNode(ellipseOf: CGSize(width: 33, height: 14))
+                        cloud.position = CGPoint(x: point.x + offset, y: point.y + (offset < 0 ? 1 : -2))
+                        cloud.fillColor = UIColor(white: 0.83 + shade, alpha: 1)
+                        cloud.strokeColor = .clear
+                        ground.addChild(cloud)
+                    }
                     continue
                 }
                 let terrain = configuration.map.terrain(at: tile)!
@@ -335,10 +339,11 @@ final class SettlementScene: SKScene {
         }
         buildingLayer.zPosition = 100
     }
-    private func drawDeposits(_ deposits: [NaturalDeposit], identifiedIDs: Set<String>, reserves: [String: Double]) {
+    private func drawDeposits(_ deposits: [NaturalDeposit], identifiedIDs: Set<String>, reserves: [String: Double], discovered: Set<Tile>?) {
         depositLayer.removeAllChildren()
         for deposit in deposits {
-            let point = IsometricProjection.point(deposit.origin)
+            for site in [deposit.origin] + (deposit.accessSites ?? []) where discovered?.contains(site) ?? true {
+            let point = IsometricProjection.point(site)
             let marker = SKNode()
             marker.position = CGPoint(x: point.x, y: point.y + 8)
             let identified = identifiedIDs.contains(deposit.id)
@@ -355,7 +360,13 @@ final class SettlementScene: SKScene {
                 symbol.text = identified ? "–" : "?";symbol.fontSize = 16;symbol.verticalAlignmentMode = .center;symbol.fontColor = .systemGray;marker.addChild(symbol)
             }
             marker.name = "deposit-" + deposit.id
+            if site != deposit.origin {
+                let label = SKLabelNode(fontNamed: "AvenirNext-DemiBold")
+                label.text = "Quarry"; label.fontSize = 10; label.fontColor = .white
+                label.position = CGPoint(x: 0, y: -24); marker.addChild(label)
+            }
             depositLayer.addChild(marker)
+            }
         }
     }
     private func drawBuilding(_ building: PlacedBuilding, into layer: SKNode? = nil, faded: Bool = false) {

@@ -4,6 +4,43 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testProductionGeographyCloudsExpeditionAndRelaunch() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        app.launchEnvironment["CIVILIZATION_RENDER_METRICS"] = "1"
+        app.launch()
+        let map = app.otherElements["settlementMap"]
+        XCTAssertTrue(map.waitForExistence(timeout:30))
+        XCTAssertTrue((map.value as? String ?? "").contains("64×48 tiles · 1 buildings · 0 road tiles"))
+        capture("geography-standard-start-cloud-boundary",app:app)
+        app.buttons["openExplore"].tap()
+        let coverage = app.staticTexts["explorationCoverage"]
+        XCTAssertTrue(coverage.waitForExistence(timeout:5))
+        let original = coverage.label
+        XCTAssertTrue(original.replacingOccurrences(of: ",", with: "").contains("/ 3072"), original)
+        app.buttons["startExploration"].tap()
+        XCTAssertTrue(app.staticTexts["explorationTimer"].waitForExistence(timeout:5))
+        XCTAssertFalse(app.buttons["startExploration"].isEnabled)
+        XCTAssertEqual(coverage.label,original)
+        app.terminate(); app.launch()
+        XCTAssertTrue(app.buttons["openExplore"].waitForExistence(timeout:30))
+        app.buttons["openExplore"].tap()
+        XCTAssertTrue(app.staticTexts["explorationTimer"].waitForExistence(timeout:5))
+        XCTAssertEqual(app.staticTexts["explorationCoverage"].label,original)
+        let revealed = NSPredicate { _,_ in app.staticTexts["explorationCoverage"].label != original }
+        expectation(for:revealed,evaluatedWith:nil)
+        waitForExpectations(timeout:55)
+        XCTAssertFalse(app.staticTexts["explorationTimer"].exists)
+        let completed = app.staticTexts["explorationCoverage"].label
+        capture("geography-expedition-revealed",app:app)
+        app.terminate(); app.launch()
+        XCTAssertTrue(app.buttons["openExplore"].waitForExistence(timeout:30))
+        app.buttons["openExplore"].tap()
+        XCTAssertEqual(app.staticTexts["explorationCoverage"].label,completed)
+        XCTAssertFalse(app.staticTexts["explorationTimer"].exists)
+    }
     @MainActor func testLargeGroupedVillageOverviewResumeAndReturnToOriginalMap() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
@@ -51,7 +88,7 @@ final class RelocationUITests: XCTestCase {
         normal.tap()
         XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
         XCTAssertFalse(app.buttons["largeMapOverview"].exists)
-        XCTAssertTrue((app.otherElements["settlementMap"].value as? String ?? "").contains("32×24 tiles · 1 buildings · 0 road tiles"))
+        XCTAssertTrue((app.otherElements["settlementMap"].value as? String ?? "").contains("64×48 tiles · 1 buildings · 0 road tiles"))
         capture("large-grouped-returned-normal", app: app)
     }
     @MainActor func testIndependentGamesCreateSwitchAndResumeAfterRelaunch() throws {
