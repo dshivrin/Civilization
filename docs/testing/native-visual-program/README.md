@@ -4,7 +4,7 @@ Owner feedback after the first install: the guide was not visible as a walkthrou
 
 The corrected entry is **Developer tools → Onboarding walkthrough — start here**. It rehearses the complete guide on a fresh in-memory settlement: actual Hut placement/construction, one paid expedition with a real countdown, proposed whole-forest discovery, actual Woodcutter placement/construction and existing chapter guidance. Tap the map to choose a site; confirm or cancel. Skip/reopen retains this temporary progress. Explicit time advance is available for review. Closing discards only this temporary rehearsal. Normal New Game has no new tutorial yet.
 
-[Interactive walkthrough screenshots](walkthrough.html). Final verification/installation status is in the [ledger](progress.md); the prior product54d4f6e evidence below remains historical.
+**Installed product467a26d** is pushed and running on the iPhone. All11save/library files match before launch; actual physical guide taps remain unverified. [Interactive walkthrough screenshots](walkthrough.html), [installation evidence](walkthrough-device-install.json), [software verification](walkthrough-verification.json). The prior product54d4f6e evidence below is historical.
 
 
 [Open the native screenshot gallery](index.html). The same interactive lab is under **Developer tools → Roads, neighborhoods, living world and loading** in Debug builds. It creates disposable fixtures and does not open, replace or save a player game.
@@ -27,7 +27,7 @@ Remaining gates: approve appearance before promoting new road/connection/loading
 
 Four generated character/wildlife concept sheets are preserved with exact prompts/hashes. Their raw transparency preview was initially misclassified as fringe contamination; standard browser RGBA compositing on gray shows no visible fringe at review scale. They remain unregistered concepts, not validated animation atlases or accepted runtime exports. Two original generations and two targeted edits were performed; all source bytes retained. Canonical media archive **fd912cb**, corrected composite-review metadata **9545673**. Media has no configured remote and has not been pushed. Existing twenty building masters are unchanged.
 
-## Installed review build
+## Earlier review build — 54d4f6e
 
 Product **54d4f6e** is pushed and installed on the iPhone. Normal launch and process 9344 are verified. Fresh stable production-validated before/after-install backups prove all **10 save/library files byte-identical before launch**. No physical gallery taps, sustained device metrics or post-launch byte comparison are claimed. [Installation evidence](device-install.json).
 

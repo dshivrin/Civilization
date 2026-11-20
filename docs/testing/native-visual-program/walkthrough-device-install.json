@@ -1,0 +1,84 @@
+{
+  "recordedAtUTC": "2026-11-20T18:43:17.226549+00:00",
+  "productCommit": "467a26d1d96b560a03cf8c2784c03fe8a2b6a6e2",
+  "configuration": "Debug",
+  "bundle": "com.civilization.seed",
+  "device": "iPhone 17 Pro Max",
+  "build": {
+    "status": "passed",
+    "log": "/tmp/civilization-onboarding-walkthrough-device-build.log",
+    "logSHA256": "ddf277c0e945a6330e0a9c2f9cfc27896ee801097f5b6b2fea3d1f9582a9ba9e",
+    "binarySHA256": {
+      "Civilization": "7e78343a688ff395c7f39f829daefbdf21e8dbf4c90ae8ef47dc8f6beb7aeac8",
+      "Civilization.debug.dylib": "e090296df4fe67f3be9969d7ecacd853b3c664d6c9187069c7c84b0ba6a0dbd5"
+    }
+  },
+  "signature": {
+    "command": "codesign --verify --deep --strict --verbose=2",
+    "status": "passed"
+  },
+  "install": {
+    "status": "passed",
+    "receipt": "/tmp/civilization-walkthrough-467a26d-install.json"
+  },
+  "preservation": {
+    "beforeBackup": "/tmp/civilization-onboarding-walkthrough-before-install",
+    "afterInstallBeforeLaunchBackup": "/tmp/civilization-onboarding-walkthrough-after-install",
+    "bothStableDoubleCopiesAndProductionValidation": "passed",
+    "preserved": true,
+    "mode": "strict",
+    "originalFiles": 11,
+    "removed": [],
+    "added": [],
+    "changed": [],
+    "beforeSHA256": {
+      "games/18001E9D-F656-4A79-A32F-6CD9D85D06C2/settlement-v1.json": "9cd39aef388b63ab20987c6d851b9ff584b82af7fbc5caefb5e49c8b42474728",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json": "ac97fa6ba6605844b415a3d442384b277bee3927189e2bc5575cb9df25753392",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json.review": "7a3449f5a9d9679cc40e7aee80eefdfeead8a553b3a25311c541b18967273980",
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/8361DA8B-B77B-4276-B2AB-649699D36877/settlement-v1.json": "cd9381f2ce615c9346e926e03a5b5f4136ebc056474ce1305032796e373baf67",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "2dc99f4d856b40a61d92e8412d818b66cc98f71a5f10701f66f79e9a5094dda3",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "afterSHA256": {
+      "games/18001E9D-F656-4A79-A32F-6CD9D85D06C2/settlement-v1.json": "9cd39aef388b63ab20987c6d851b9ff584b82af7fbc5caefb5e49c8b42474728",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json": "ac97fa6ba6605844b415a3d442384b277bee3927189e2bc5575cb9df25753392",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json.review": "7a3449f5a9d9679cc40e7aee80eefdfeead8a553b3a25311c541b18967273980",
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/8361DA8B-B77B-4276-B2AB-649699D36877/settlement-v1.json": "cd9381f2ce615c9346e926e03a5b5f4136ebc056474ce1305032796e373baf67",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "2dc99f4d856b40a61d92e8412d818b66cc98f71a5f10701f66f79e9a5094dda3",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "note": "Byte/index comparison only; use validate-saves for production state validation."
+  },
+  "launch": {
+    "status": "passed",
+    "arguments": [],
+    "processIdentifier": 9385,
+    "processVerified": true,
+    "receipt": "/tmp/civilization-walkthrough-467a26d-launch.json",
+    "processReceipt": "/tmp/civilization-walkthrough-467a26d-process.json"
+  },
+  "reviewEntry": "Developer tools \u2192 Onboarding walkthrough \u2014 start here",
+  "limits": {
+    "physicalWalkthroughTaps": "not automated or observed",
+    "postLaunchByteComparison": "not performed; normal gameplay may save",
+    "humanAcceptance": "pending; owner requested refinement before integration",
+    "physicalPerformance": "not measured",
+    "normalTutorialActivation": false,
+    "appearancePromotion": false,
+    "runtimeAssetReplacement": false,
+    "r207Enabled": false,
+    "resetOrUninstall": false,
+    "saveInjection": false,
+    "signingOrAccountChanges": false
+  }
+}

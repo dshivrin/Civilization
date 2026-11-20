@@ -84,5 +84,5 @@
   },
   "noAuthoritativeGameCoreChanges": true,
   "captureManifest": "captures/2026-11-20-walkthrough-v1/manifest.json",
-  "physicalInstall": "Pending separate device evidence; previous54d4f6e record retained"
+  "physicalInstall": "walkthrough-device-install.json; signed Debug467a26d installed/launched,11files byte-identical before launch"
 }

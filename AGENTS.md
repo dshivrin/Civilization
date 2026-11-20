@@ -1,3 +1,13 @@
+## Corrected interactive onboarding review installed — 20 November 2026
+
+Owner reports no visible guides and explicitly selects **refine visuals before integration**. This is not Gate B or appearance approval. The prior initial-card/manual-fog lab did not demonstrate a full guide; its readiness wording overstated the interaction.
+
+Corrected product **467a26d** is committed/pushed and installed/launched on iPhone; process9385 verified. **Developer tools → Onboarding walkthrough — start here** runs the full guide on a fresh in-memory engine: freely selected/confirmed Hut, actual construction, single paid expedition/countdown, proposed whole-forest reveal, Woodcutter and chapter handoff. Skip/reopen retains temporary progress. No player session/library/store is used. [Gallery](docs/testing/native-visual-program/walkthrough.html), [software](docs/testing/native-visual-program/walkthrough-verification.json), [install](docs/testing/native-visual-program/walkthrough-device-install.json).
+
+Core270Debug/235Release+9exclusions, native two cases per phone/mini/Pro, Release entry and Python20tests pass. Independent read-only review finds no verified issues; civic clearance regression and actual map selection are verified. Fresh stable production-validated backups prove all **11 files byte-identical before launch**. No physical walkthrough taps/performance/human acceptance or post-launch byte comparison claimed.
+
+Normal New Game/tutorial/exploration, original assets/loading default, saves/history and R2-07 disabled remain unchanged. Pure daylight-clock preparation **95b50ad** is separately pushed; native cycle integration was held for this feedback. Continue the broader visual Goal; do not mark it complete. Production appearance/onboarding integration still requires the pending review; no acceptance is inferred from this correction.
+
 ## Native visual review installed; onboarding Gate A ready — 20 November 2026
 
 Owner's visual and onboarding requests share the active Goal. Product **54d4f6e** is committed/pushed to personal `first-era-review` and installed/launched on the iPhone; process 9344 verified. Fresh stable production-validated backups show all **10 files byte-identical before launch**. No post-launch byte-preservation claim or automated physical taps. [Device evidence](docs/testing/native-visual-program/device-install.json).
