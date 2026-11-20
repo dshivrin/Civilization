@@ -76,7 +76,7 @@ public struct GameConfiguration: Codable, Sendable {
                 let size = b.footprint.oriented(o)
                 return size.width <= map.width && size.height <= map.height
             }, "Oriented footprint exceeds map")
-            try require(b.kind != .campfire || orientations == [.north], "Campfire cannot rotate")
+            try require(b.kind != .campfire || civicLevels != nil || orientations == [.north], "Campfire cannot rotate")
             try require(b.width > 0 && b.height > 0 && b.width <= map.width && b.height <= map.height && b.housing >= 0 && !b.assetKey.isEmpty && !b.name.isEmpty, "Invalid building footprint or metadata")
         }
         try require(definition(.campfire).width == 1 && definition(.campfire).height == 1 && !definition(.campfire).requiresResearch, "Campfire must occupy one tile")

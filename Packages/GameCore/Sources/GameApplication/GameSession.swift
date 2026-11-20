@@ -118,6 +118,14 @@ public final class GameSession {
         return success
     }
     public private(set) var movingBuildingID: Int?
+    public private(set) var previewOrientation: BuildingOrientation = .north
+    public var canRotatePreview: Bool { previewKind.map { configuration.definition($0).resolvedOrientations.count > 1 } ?? false }
+    public func rotatePreview() {
+        guard let kind = previewKind else { return }
+        let choices = configuration.definition(kind).resolvedOrientations
+        guard let index = choices.firstIndex(of: previewOrientation), choices.count > 1 else { return }
+        previewOrientation = choices[(index + 1) % choices.count]
+    }
     public var eraID: String { "stoneAge" }
     public var shouldPauseRendering: Bool { !isActive }
     public var shouldPauseAnimation: Bool {
@@ -246,9 +254,9 @@ public final class GameSession {
     /// The same occupied dimensions used by core validation, including captured relocation geometry.
     public var previewFootprint: BuildingFootprint? {
         if let id = movingBuildingID, let building = state.buildings.first(where: { $0.id == id }) {
-            return building.occupiedFootprint(in: configuration)
+            return building.resolvedFootprint(in: configuration).oriented(previewOrientation)
         }
-        return selectedKind.map { configuration.definition($0).footprint }
+        return selectedKind.map { configuration.definition($0).footprint.oriented(previewOrientation) }
     }
     /// Only known terrain is exposed to the relocation grid; no fog contents leak.
     public var relocationGrid: [Tile: Bool]? {
@@ -277,9 +285,9 @@ public final class GameSession {
         return footprint.tiles(at: origin).contains(tile)
     }
     public var placementIssue: GameError? {
-        if let id = movingBuildingID, let tile = selectedTile { return engine.relocationIssue(buildingID: id, at: tile) }
+        if let id = movingBuildingID, let tile = selectedTile { return engine.relocationIssue(buildingID: id, at: tile, orientation: previewOrientation) }
         guard let kind = selectedKind, let tile = selectedTile else { return .placement("Tap open land to choose a location.") }
-        return engine.placementIssue(kind, at: tile)
+        return engine.placementIssue(kind, at: tile, orientation: previewOrientation)
     }
     private struct Restoration: Sendable {
         var engine: GameEngine
@@ -372,7 +380,7 @@ public final class GameSession {
     public func choose(_ kind: BuildingKind) {
         exitRoadMode()
         cancelRelocationPreview()
-        selectedKind = kind; inspectedBuilding = nil
+        selectedKind = kind; inspectedBuilding = nil; previewOrientation = .north
         // Offer a valid initial ghost near the current civic entity, including after relocation.
         let center = engine.civicCenter?.origin ?? configuration.map.campfire
         let map = configuration.map
@@ -404,7 +412,7 @@ public final class GameSession {
         guard let building = state.buildings.first(where: { $0.id == buildingID }), isVisible(building) else { return }
         if building.kind == .campfire && configuration.civicLevels == nil { message = "The campfire is the fixed settlement anchor."; return }
         exitRoadMode()
-        selectedKind = nil; inspectedBuilding = nil; movingBuildingID = buildingID; selectedTile = building.origin
+        selectedKind = nil; inspectedBuilding = nil; movingBuildingID = buildingID; selectedTile = building.origin; previewOrientation = building.resolvedOrientation
         message = "Drag the footprint · green check confirms. Relocation is free."
     }
     /// Pointer release only updates the candidate. Confirmation is the sole commit action.
@@ -414,12 +422,12 @@ public final class GameSession {
     }
     public func finishRelocation() {
         guard let id = movingBuildingID, let tile = selectedTile else { return }
-        if let issue = engine.relocationIssue(buildingID: id, at: tile) {
+        if let issue = engine.relocationIssue(buildingID: id, at: tile, orientation: previewOrientation) {
             message = "Choose another spot or Cancel. " + issue.localizedDescription
             return
         }
         perform {
-            try engine.relocate(buildingID: id, to: tile)
+            try engine.relocate(buildingID: id, to: tile, orientation: previewOrientation)
             cancelRelocationPreview()
             inspectedBuilding = state.buildings.first { $0.id == id }
             message = "Building moved."
@@ -434,7 +442,7 @@ public final class GameSession {
         if movingBuildingID != nil { finishRelocation(); return }
         guard let kind = selectedKind, let tile = selectedTile else { return }
         perform {
-            try engine.build(kind, at: tile)
+            try engine.build(kind, at: tile, orientation: previewOrientation)
             message = "\(configuration.definition(kind).name) construction started."
             selectedKind = nil; selectedTile = nil
         }

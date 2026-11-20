@@ -195,6 +195,7 @@ struct WorldView: UIViewRepresentable {
     var map: SKView?
     private let cancelButton = UIButton(type: .system)
     private let confirmButton = UIButton(type: .system)
+    private let rotateButton = UIButton(type: .system)
     func configure(session: GameSession, scene: SettlementScene) {
         for (button, symbol, color, label) in [
             (cancelButton, "xmark", UIColor.systemRed, "Cancel placement"),
@@ -205,6 +206,12 @@ struct WorldView: UIViewRepresentable {
             button.layer.cornerRadius = 24; button.accessibilityLabel = label
             addSubview(button)
         }
+        rotateButton.backgroundColor = .darkGray; rotateButton.tintColor = .white; rotateButton.layer.cornerRadius = 24
+        rotateButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+        rotateButton.setTitleColor(.white, for: .normal)
+        rotateButton.accessibilityIdentifier = "rotatePlacement"; rotateButton.accessibilityLabel = "Rotate clockwise"
+        rotateButton.addAction(UIAction { [weak session] _ in session?.rotatePreview() }, for: .touchUpInside)
+        addSubview(rotateButton)
         confirmButton.accessibilityIdentifier = "confirmPlacement"
         cancelButton.addAction(UIAction { [weak session] _ in session?.cancel() }, for: .touchUpInside)
         confirmButton.addAction(UIAction { [weak session] _ in session?.confirm() }, for: .touchUpInside)
@@ -219,9 +226,12 @@ struct WorldView: UIViewRepresentable {
     }
     func refreshControls(session: GameSession, scene: SettlementScene) {
         let active = session.isDragMode
-        cancelButton.isHidden = !active; confirmButton.isHidden = !active
+        cancelButton.isHidden = !active; confirmButton.isHidden = !active; rotateButton.isHidden = !active
         guard active else { return }
         cancelButton.accessibilityIdentifier = session.movingBuildingID == nil ? "cancelPlacement" : "cancelRelocation"
+        rotateButton.isEnabled = session.canRotatePreview
+        rotateButton.setTitle(String(session.previewOrientation.rawValue.prefix(1)).uppercased() + " ↻", for: .normal)
+        rotateButton.accessibilityValue = session.previewOrientation.rawValue.capitalized
         confirmButton.isEnabled = session.placementIssue == nil
         confirmButton.alpha = confirmButton.isEnabled ? 1 : 0.5
         layoutControls(scene: scene)
@@ -229,9 +239,10 @@ struct WorldView: UIViewRepresentable {
     private func layoutControls(scene: SettlementScene) {
         guard !cancelButton.isHidden, let point = scene.candidateControlPoint() else { return }
         let safe = bounds.inset(by: safeAreaInsets)
-        let x = min(max(point.x, safe.minX + 58), safe.maxX - 58)
+        let x = min(max(point.x, safe.minX + 88), safe.maxX - 88)
         let y = min(max(point.y + 12, safe.minY + 8), safe.maxY - 56)
-        cancelButton.frame = CGRect(x: x - 54, y: y, width: 48, height: 48)
-        confirmButton.frame = CGRect(x: x + 6, y: y, width: 48, height: 48)
+        cancelButton.frame = CGRect(x: x - 84, y: y, width: 48, height: 48)
+        confirmButton.frame = CGRect(x: x + 36, y: y, width: 48, height: 48)
+        rotateButton.frame = CGRect(x: x - 24, y: y, width: 48, height: 48)
     }
 }

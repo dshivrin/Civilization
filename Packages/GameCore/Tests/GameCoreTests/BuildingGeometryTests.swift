@@ -8,6 +8,7 @@ private let geometryEpoch = Date(timeIntervalSince1970: 40_000_000)
 private func rectangleConfiguration() throws -> GameConfiguration {
     var c = try GameConfiguration.bundled()
     c.explorationRules = nil; c.workforceRules = nil; c.progressionGoals = nil
+    c.buildings[c.buildings.firstIndex { $0.kind == .campfire }!].allowedOrientations = [.north]
     let i = c.buildings.firstIndex { $0.kind == .hut }!
     c.buildings[i].width = 3; c.buildings[i].height = 2
     c.buildings[i].allowedOrientations = [.north, .east, .south, .west]
@@ -123,7 +124,8 @@ private func geometrySite(_ g: GameEngine, _ kind: BuildingKind, _ orientation: 
 
 @Test func orientationCatalogDefaultsAndRestrictionsAreValidated() throws {
     var c = try GameConfiguration.bundled()
-    #expect(c.definition(.hut).resolvedOrientations == [.north])
+    #expect(c.definition(.hut).resolvedOrientations == BuildingOrientation.allCases)
+    c.buildings[c.buildings.firstIndex { $0.kind == .hut }!].allowedOrientations = nil
     var g = try GameEngine(configuration:c,now:geometryEpoch)
     let before = g.state
     #expect(throws: GameError.self) { try g.build(.hut,at:Tile(x:12,y:12),orientation:.east) }
@@ -134,6 +136,7 @@ private func geometrySite(_ g: GameEngine, _ kind: BuildingKind, _ orientation: 
         #expect(throws: GameError.self) { try c.validate() }
     }
     c.buildings[i].allowedOrientations = nil
+    c.civicLevels = nil
     c.buildings[c.buildings.firstIndex { $0.kind == .campfire }!].allowedOrientations = [.north,.east]
     #expect(throws: GameError.self) { try c.validate() }
 }
@@ -182,4 +185,51 @@ private func geometrySite(_ g: GameEngine, _ kind: BuildingKind, _ orientation: 
     g = try GameEngine(state:s,configuration:c)
     try g.relocate(buildingID:b.id,to:origin,orientation:.east)
     #expect(Set(g.state.buildings[1].tiles(in:c)) == east)
+}
+
+@Test func productionCatalogAllowsFourLogicalOrientationsIncludingCivic() throws {
+    let c = try GameConfiguration.bundled()
+    for definition in c.buildings {
+        #expect(definition.resolvedOrientations == BuildingOrientation.allCases)
+    }
+}
+
+@MainActor @Test func previewQuarterTurnsRoundTripAndPersistOnlyOnConfirmation() throws {
+    let c = try rectangleConfiguration()
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let url = folder.appendingPathComponent("save.json")
+    let session = try GameSession(clock: { geometryEpoch }, saveURL: url, configuration: c)
+    let g = try GameEngine(configuration: c, now: geometryEpoch)
+    let site = try #require((0..<c.map.height).flatMap { y in (0..<c.map.width).map { Tile(x: $0, y: y) } }.first {
+        g.placementIssue(.hut, at: $0) == nil && g.placementIssue(.hut, at: $0, orientation: .east) == nil
+    })
+    session.choose(.hut); session.tap(site)
+    let before = session.state
+    for expected in [BuildingOrientation.east, .south, .west, .north] {
+        session.rotatePreview(); #expect(session.previewOrientation == expected)
+        #expect(session.previewFootprint == BuildingFootprint(width: 3, height: 2).oriented(expected))
+        #expect(session.state == before)
+    }
+    session.rotatePreview(); session.confirm()
+    #expect(session.state.buildings.last?.resolvedOrientation == .east)
+    #expect(try SaveStore(url: url).load(configuration: c) == session.state)
+    let placed = session.state
+    let bytes = try Data(contentsOf: url)
+    session.beginRelocation(buildingID: 1); #expect(session.previewOrientation == .east)
+    session.rotatePreview(); session.tap(Tile(x: -1, y: 0)); session.confirm()
+    #expect(session.state == placed); #expect(session.movingBuildingID == 1)
+    session.cancel(); #expect(session.state == placed)
+    #expect(try Data(contentsOf: url) == bytes)
+}
+@Test func civicQuarterTurnRetainsIdentityAndSingleTileGeometry() throws {
+    let c = try GameConfiguration.bundled()
+    var g = try GameEngine(configuration: c, now: geometryEpoch)
+    g.advance(to: geometryEpoch.addingTimeInterval(1))
+    let before = g.state
+    try g.relocate(buildingID: 0, to: c.map.campfire, orientation: .east)
+    #expect(g.state.buildings[0].id == before.buildings[0].id)
+    #expect(g.state.buildings[0].occupiedFootprint(in: c) == BuildingFootprint(width: 1, height: 1))
+    #expect(g.state.resources == before.resources && g.state.civicProgress == before.civicProgress)
+    _ = try GameEngine(state: g.state, configuration: c)
 }

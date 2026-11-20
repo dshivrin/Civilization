@@ -24,6 +24,32 @@ final class RelocationUITests: XCTestCase {
         attachment.name = "terrain-and-production-indicators"; attachment.lifetime = .keepAlways; add(attachment)
     }
 
+    @MainActor func testLogicalRotationRoundTripsAndPersists() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout: 20)); app.buttons["Build"].tap()
+        app.buttons["buildingCategory-Settlement"].tap(); app.buttons["build-hut"].tap()
+        let rotate = app.buttons["rotatePlacement"]
+        XCTAssertTrue(rotate.waitForExistence(timeout: 5)); XCTAssertTrue(rotate.isEnabled)
+        for facing in ["East", "South", "West", "North", "East"] {
+            rotate.tap(); XCTAssertEqual(rotate.value as? String, facing)
+        }
+        let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); shot.name = "logical-orientation-east"; shot.lifetime = .keepAlways; add(shot)
+        app.buttons["confirmPlacement"].tap()
+        app.terminate(); launchNormal(app)
+        app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        let item = app.descendants(matching: .any).matching(identifier: "inspectBuilding-1").firstMatch
+        XCTAssertTrue(item.waitForExistence(timeout: 5)); item.tap()
+        XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("facing east"))
+        app.buttons["moveBuilding"].tap(); XCTAssertEqual(rotate.value as? String, "East")
+        rotate.tap(); app.buttons["cancelRelocation"].tap()
+        app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        XCTAssertTrue(item.waitForExistence(timeout: 5)); item.tap()
+        XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("facing east"))
+    }
+
     @MainActor func testCandidateConfirmationSurvivesCameraGestures() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()

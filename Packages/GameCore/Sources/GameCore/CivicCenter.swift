@@ -30,6 +30,9 @@ public extension GameConfiguration {
     var beforeCivicEvolution: GameConfiguration {
         var copy = self
         copy.civicLevels = nil
+        if let index = copy.buildings.firstIndex(where: { $0.kind == .campfire }) {
+            copy.buildings[index].allowedOrientations = nil // Historical civic anchor supported north only.
+        }
         for index in copy.progressionGoals?.indices ?? 0..<0 {
             if copy.progressionGoals![index].requiredCivicLevel != nil {
                 copy.progressionGoals![index].requiredCivicLevel = nil

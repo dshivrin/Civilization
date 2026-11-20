@@ -29,6 +29,7 @@
   "buildings": [
     {
       "kind": "campfire",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Campfire",
       "width": 1,
       "height": 1,
@@ -67,6 +68,7 @@
     },
     {
       "kind": "hut",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Hut",
       "width": 2,
       "height": 2,
@@ -98,6 +100,7 @@
     },
     {
       "kind": "gatheringShelter",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Gathering shelter",
       "width": 2,
       "height": 2,
@@ -139,6 +142,7 @@
     },
     {
       "kind": "huntingLodge",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Hunting lodge",
       "width": 2,
       "height": 2,
@@ -180,6 +184,7 @@
     },
     {
       "kind": "fishingShelter",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Fishing shelter",
       "width": 2,
       "height": 2,
@@ -223,6 +228,7 @@
     },
     {
       "kind": "woodcutter",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Woodcutter",
       "width": 2,
       "height": 2,
@@ -270,6 +276,7 @@
     },
     {
       "kind": "stoneGatherer",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Stone gatherer",
       "width": 2,
       "height": 2,
@@ -337,6 +344,7 @@
     },
     {
       "kind": "farm",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Farm",
       "width": 2,
       "height": 2,
@@ -379,6 +387,7 @@
     },
     {
       "kind": "animalPen",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Animal pen",
       "width": 2,
       "height": 2,
@@ -418,6 +427,7 @@
     },
     {
       "kind": "storehouse",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Storehouse",
       "width": 2,
       "height": 2,
@@ -456,6 +466,7 @@
     },
     {
       "kind": "toolmaker",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Toolmaker",
       "width": 2,
       "height": 2,
@@ -496,6 +507,7 @@
     },
     {
       "kind": "tannery",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Tannery",
       "width": 2,
       "height": 2,
@@ -535,6 +547,7 @@
     },
     {
       "kind": "potteryWorkshop",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Pottery workshop",
       "width": 2,
       "height": 2,
@@ -575,6 +588,7 @@
     },
     {
       "kind": "storytellingCircle",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Storytelling circle",
       "width": 2,
       "height": 2,
@@ -617,6 +631,7 @@
     },
     {
       "kind": "healersHut",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Healer\u2019s hut",
       "width": 2,
       "height": 2,
@@ -657,6 +672,7 @@
     },
     {
       "kind": "shrine",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Shrine",
       "width": 2,
       "height": 2,
@@ -693,6 +709,7 @@
     },
     {
       "kind": "burialGround",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Burial ground",
       "width": 2,
       "height": 2,
@@ -728,6 +745,7 @@
     },
     {
       "kind": "scoutCamp",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Scout camp",
       "width": 2,
       "height": 2,
@@ -765,6 +783,7 @@
     },
     {
       "kind": "watchtower",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Watchtower",
       "width": 2,
       "height": 2,
@@ -801,6 +820,7 @@
     },
     {
       "kind": "palisade",
+      "allowedOrientations": ["north", "east", "south", "west"],
       "name": "Palisade",
       "width": 1,
       "height": 1,

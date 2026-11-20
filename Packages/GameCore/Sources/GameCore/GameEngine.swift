@@ -398,7 +398,7 @@ public struct GameEngine: Sendable {
             try require(base.width > 0 && base.height > 0 && base.width <= configuration.map.width && base.height <= configuration.map.height, "Invalid saved footprint")
             let footprint = b.occupiedFootprint(in: configuration)
             try require(footprint.width <= configuration.map.width && footprint.height <= configuration.map.height, "Invalid oriented saved footprint")
-            try require(b.kind != .campfire || (base == BuildingFootprint(width: 1, height: 1) && b.resolvedOrientation == .north), "Invalid campfire geometry")
+            try require(b.kind != .campfire || (base == BuildingFootprint(width: 1, height: 1) && d.resolvedOrientations.contains(b.resolvedOrientation)), "Invalid campfire geometry")
             try require((0...2).contains(b.workerPriority ?? 1), "Invalid worker priority")
             try require(b.level >= 1 && b.level <= (configuration.economyRules?.maximumUpgradeLevel ?? 1), "Invalid building level")
             try require(b.productionModeID == nil || d.recipes?.contains(where: { $0.id == b.productionModeID }) == true, "Unknown production mode")

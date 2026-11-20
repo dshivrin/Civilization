@@ -13,6 +13,14 @@ Authority: owner approval f313dd2 and direct implementation request. Existing fi
 - Ruling: use one-shot scroll requests instead of two-way bound focus positions to avoid layout feedback; source context persists independently of target selection.
 - R2-03 complete: native [before](production-marker-before.png)/[after](production-marker-after.png) show mint activity dots removed; production status stays in inspection. Ochre central terrain is `.clearing`, deliberately buildable, not a debug/permission overlay; its tap message now explains open buildable ground. No terrain values, occupancy, assets or economic factors changed.
 - R2-03 RED clearing-message regression /tmp/civilization-qa-a38502c27b2e43ad9bfa38f1fafd1823; GREEN full core212Debug/186Release +7 exclusions /tmp/civilization-qa-ac40e666d34f476db5a4638c4ceff918. Native phone/mini evidence cases /tmp/civilization-qa-46d32c21d67a46fcb46b9cd8b4a23158. Full-screen XCTest capture after waiting for developer sheet dismissal avoids the earlier app-canvas artifact; inspected both PNGs.
-- R2-04/05/06 pending.
+- R2-04 completed below; R2-05/06 pending.
 - Preflight: preview geometry is shared by R2-01 and R2-04; commit validation must read the current preview. R2-05 feeds R2-06 operating assessment; retain construction-only historical witnesses. Marker/inspector support precedes persisted pilot activation.
 - Ruling: use the existing reusable QA runner and this committed ledger rather than skill-specific temporary runners; owner explicitly requires reusable infrastructure.
+
+## R2-04 execution
+
+Production catalog now permits four logical quarter turns with unchanged base dimensions. Preview rotation changes no authoritative state; Confirm revalidates and persists captured orientation; cancel/invalid confirm retain prior state/bytes. Provisional N/E/S/W rotate control and inspection text show orientation; fixed raster sprites are not transformed. No art changes or save-envelope change.
+
+Catalog regression failed before implementation (/tmp/civilization-qa-15fb2fe584dd46d4bf93c2278267853c). New rectangle/civic/session tests cover four-turn round-trip, axes, invalid/cancel, persistence and civic identity. Full suite exposed the pre-civic helper inheriting new civic rotations; it now restores historical north-only civic configuration. Full215Debug/189Release +7 exclusions pass (/tmp/civilization-qa-3975838a76c24cee9e2075f8aae25f16). Initial failed full suite remains /tmp/civilization-qa-bddbdcfccc4646fcb1e006261008940f. Native phone rotation/restart/cancel and candidate gestures pass /tmp/civilization-qa-d26ef280a0bb4e98932536ac85836e94; mini candidate passed but rotation picker test required the existing iOS18 coordinate/any-element menu workaround. Final tablet rerun recorded below.
+
+Final mini rotation/restart/cancel passes /tmp/civilization-qa-738484d66222486081f0044b8edc889b; [orientation marker capture](orientation-east-tablet.png) inspected. Inspector menu automation uses coordinate tap + any-element lookup, matching the established iOS18 workaround. Final copy shortened to “Orientation: East”.
