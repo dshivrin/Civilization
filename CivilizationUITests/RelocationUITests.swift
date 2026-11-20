@@ -11,6 +11,19 @@ final class RelocationUITests: XCTestCase {
         if resume.isEnabled { resume.tap() } else { app.buttons["newNormalGame"].tap() }
     }
 
+    @MainActor func testTerrainAndProductionIndicatorEvidence() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 20))
+        app.buttons["developerTools"].tap(); app.buttons["scenario-early"].tap()
+        XCTAssertTrue(app.buttons["Done"].waitForNonExistence(timeout: 5))
+        XCTAssertTrue(app.otherElements["settlementMap"].exists)
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        attachment.name = "terrain-and-production-indicators"; attachment.lifetime = .keepAlways; add(attachment)
+    }
+
     @MainActor func testCandidateConfirmationSurvivesCameraGestures() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()

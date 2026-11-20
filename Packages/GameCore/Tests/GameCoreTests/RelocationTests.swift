@@ -297,3 +297,15 @@ private func openTile(_ g: GameEngine, kind: BuildingKind, excluding: Set<Tile> 
     let placed = session.state
     session.confirm(); #expect(session.state == placed)
 }
+
+@MainActor @Test func clearingTerrainMessageExplainsOpenBuildableGround() throws {
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let session = try GameSession(clock: { moveEpoch }, saveURL: folder.appendingPathComponent("save.json"), configuration: moveConfiguration())
+    let c = session.configuration
+    let tile = try #require((0..<c.map.height).flatMap { y in (0..<c.map.width).map { Tile(x: $0, y: y) } }.first {
+        c.map.terrain(at: $0) == .clearing && $0 != c.map.campfire
+    })
+    session.tap(tile)
+    #expect(session.message.contains("Open clearing · buildable ground"))
+}

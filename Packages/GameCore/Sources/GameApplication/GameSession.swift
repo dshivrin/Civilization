@@ -390,7 +390,10 @@ public final class GameSession {
             if let building = inspectedBuilding { message = engine.buildingName(building) }
             else if !isDiscovered(tile) { message = "Unexplored terrain · send an expedition to reveal it." }
             else if configuration.naturalDeposits?.contains(where: { ($0.accessSites ?? []).contains(tile) }) == true { message = "Stone quarry · shared valley stone reserve" }
-            else if let terrain = configuration.map.terrain(at: tile) { message = "\(String(describing: terrain).capitalized) · tile \(tile.x), \(tile.y)" }
+            else if let terrain = configuration.map.terrain(at: tile) {
+                let title = terrain == .clearing ? "Open clearing · buildable ground" : String(describing: terrain).capitalized
+                message = "\(title) · tile \(tile.x), \(tile.y)"
+            }
         }
     }
     private func cancelRelocationPreview() {

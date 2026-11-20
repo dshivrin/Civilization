@@ -417,10 +417,6 @@ final class SettlementScene: SKScene {
                     smoke.run(.repeatForever(.sequence([.wait(forDuration: offset),.group([.moveBy(x: 8,y: 28,duration: 3.6),.sequence([.fadeAlpha(to: 0.3,duration: 0.7),.fadeOut(withDuration: 2.9)])]),.run { [weak smoke] in smoke?.position = CGPoint(x: 3,y: 22) }])))
                 }
             }
-            if layer == nil && !reduceMotion && building.isOperational && activeProductionIDs.contains(building.id) && building.kind != .campfire {
-                let active = SKShapeNode(circleOfRadius: 2.5);active.fillColor = .systemMint.withAlphaComponent(0.8);active.strokeColor = .clear;active.position = CGPoint(x: 0,y: -8);node.addChild(active)
-                active.run(.repeatForever(.sequence([.fadeAlpha(to: 0.35,duration: 1.6),.fadeAlpha(to: 0.8,duration: 1.6)])))
-            }
             if layer == nil && newlyPlacedIDs.contains(building.id) && !reduceMotion {
                 let ring = SKShapeNode(ellipseOf: CGSize(width: 96,height: 42));ring.strokeColor = .systemMint.withAlphaComponent(0.7);ring.lineWidth = 2;ring.fillColor = .clear;node.addChild(ring)
                 ring.run(.sequence([.group([.scale(to:1.2,duration:0.65),.fadeOut(withDuration:0.65)]),.removeFromParent()]))
