@@ -83,3 +83,15 @@ swift test --package-path Tools/SaveInspector -c release
 ```
 
 Local CI integration, screenshot baselines, automated image comparisons and in-game diagnostics remain future proposals. Reuse these commands rather than duplicating their implementation when those workstreams are authorized.
+
+## Read-only building art audit
+
+Reuse the existing native validator; no Pillow/image-processing dependency or new QA runner:
+
+```sh
+swift scripts/verify-art.swift
+swift scripts/verify-art.swift --audit-output NEW_DIRECTORY \
+  --media-root /Users/dima/dev/Civilization-Media
+```
+
+The optional audit reserves a new output directory exclusively and rejects destinations inside the resolved media root, including symlinked parents. It validates a known asymmetric PNG coordinate fixture, measures all20masters/world exports/thumbnails, checks source/registry/export hashes, and writes `inventory.json`, a standalone HTML/SVG footprint atlas, and actual-map river fixtures. It never changes source art, configuration, saves or the media repository. Alpha bounds describe silhouettes, not semantic ground contact; atlas and river map are diagnostics, not in-game screenshots or human visual acceptance. Standard Swift cache access is required within host permissions. See [Gate 1 audit](../docs/art/building-gate-1/audit.md).

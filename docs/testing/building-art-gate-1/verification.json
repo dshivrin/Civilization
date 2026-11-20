@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "baselineGameCommit": "a0cd0e7",
+  "mediaCommit": "697b486",
+  "mediaDirty": false,
+  "mediaRemote": null,
+  "toolSHA256": "8b0fb9dbdeb5e331ef73a8acbb5df7825d31a7732e950bc5eb91550923897843",
+  "commands": [
+    "python3 /Users/dima/dev/Civilization-Media/scripts/validate_registry.py",
+    "swift scripts/verify-art.swift",
+    "swift scripts/verify-art.swift --audit-output /tmp/civilization-building-gate1-final-evidence --media-root /Users/dima/dev/Civilization-Media",
+    "python3 -m unittest discover -s scripts/tests -v"
+  ],
+  "counts": {
+    "registryRecords": 68,
+    "masters": 20,
+    "sourceAndRegistryMasterMatches": 20,
+    "worldAndThumbnailExportRegistryMatches": 40,
+    "alphaImages": 60,
+    "atlasCards": 20,
+    "riverFixtures": 7,
+    "bankEdges": 162,
+    "pythonTests": 13
+  },
+  "reproducibility": "All four final generated artifacts byte-identical to inspected evidence",
+  "artifacts": {
+    "inventory.json": "9ba475ff8c622d0df6c101e1bc4091fc6c8e46fab1365fa5dbfda4374eb310b3",
+    "atlas.html": "4379fb67e4f105d51db247e59953f5063fb7e9bf179009845d8fb9a7b57d0592",
+    "river-fixtures.json": "b69ff6d63d8aae66e14cace134f5020bcade1254d1c249f46e796efa8d34751c",
+    "river-fixtures.svg": "420d11ecc028a63ca59b63f308a11a235d5f384d519b642e9a1f494e56be5493"
+  },
+  "independentReview": "Three important verifier findings reproduced RED and fixed GREEN; current evidence independently confirmed; no remaining reported findings",
+  "acceptance": "Gate1 measured audit delivered; proposed contracts require visual review before Gate2; R2-07 remains disabled",
+  "preservation": "No runtime/config/art/save/media writes; game-side docs/offline-validator/tests only"
+}

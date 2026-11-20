@@ -1,0 +1,1549 @@
+{
+  "artCatalogSHA256" : "f7e79340e138601539c4f1cae3f10df643770b02294551a98e6f7f9ff9373690",
+  "boundsConvention" : "top-left inclusive; alpha >32; silhouette, NOT semantic ground contact",
+  "buildings" : [
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.34999999999999998,
+        "file" : "buildings\/campfire.png",
+        "id" : "campfire",
+        "thumbnail" : "thumbnails\/campfire.png",
+        "worldHeight" : 80,
+        "worldWidth" : 80
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        1,
+        1
+      ],
+      "id" : "campfire",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 789243,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.19393952112410939,
+        "height" : 1254,
+        "sha256" : "b1b1e6ece3136cce9787b44abf04a6ab536af0cb4a23a62b6003179d13108413",
+        "silhouetteBoundsTopLeftInclusive" : [
+          122,
+          501,
+          1150,
+          1039
+        ],
+        "transparentFraction" : 0.78587944415191957,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.campfire.master",
+      "masterFile" : "buildings\/masters\/campfire.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : false,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 159216,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.19413375854492188,
+        "height" : 512,
+        "sha256" : "1674d1368c16f67b9a332d3fadfc121a675db8cca0f30e48d68aede86ad46fc7",
+        "silhouetteBoundsTopLeftInclusive" : [
+          50,
+          204,
+          469,
+          423
+        ],
+        "transparentFraction" : 0.7886962890625,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 15410,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.19540895061728394,
+        "height" : 144,
+        "sha256" : "cbd3703f6e9ee16a20b816c8c37ddf37ed30a504b3c1041d0b208c78e8fd8e4f",
+        "silhouetteBoundsTopLeftInclusive" : [
+          14,
+          57,
+          131,
+          118
+        ],
+        "transparentFraction" : 0.78915895061728392,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/hut.png",
+        "id" : "hut",
+        "thumbnail" : "thumbnails\/hut.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "hut",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1951868,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.52590625468993635,
+        "height" : 1254,
+        "sha256" : "7bef165ba154b891253d45487522819d42e3c6573696347e1a174d1e6cd0ac30",
+        "silhouetteBoundsTopLeftInclusive" : [
+          77,
+          66,
+          1176,
+          1169
+        ],
+        "transparentFraction" : 0.45519536844140218,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.hut.master",
+      "masterFile" : "buildings\/masters\/hut.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : false,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 384496,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.52573013305664062,
+        "height" : 512,
+        "sha256" : "dbc0ed3af44832855df6921b1b0c54d9962f01380aaff617c0c253d51770a989",
+        "silhouetteBoundsTopLeftInclusive" : [
+          31,
+          27,
+          480,
+          477
+        ],
+        "transparentFraction" : 0.45904541015625,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 34919,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.52594521604938271,
+        "height" : 144,
+        "sha256" : "8d21d79992b774c10e779b696bb3ff272d5850480a4d5530989d386c659fb8ae",
+        "silhouetteBoundsTopLeftInclusive" : [
+          9,
+          8,
+          134,
+          133
+        ],
+        "transparentFraction" : 0.46296296296296297,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/gatheringShelter.png",
+        "id" : "gatheringShelter",
+        "thumbnail" : "thumbnails\/gatheringShelter.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "gatheringShelter",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1504470,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.34244103080668176,
+        "height" : 1254,
+        "sha256" : "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273",
+        "silhouetteBoundsTopLeftInclusive" : [
+          87,
+          223,
+          1171,
+          1088
+        ],
+        "transparentFraction" : 0.62125536401537407,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.gatheringShelter.master",
+      "masterFile" : "buildings\/masters\/gatheringShelter.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : false,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 291497,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.34369277954101562,
+        "height" : 512,
+        "sha256" : "cf294dc60468ba03d1a48259ea836e0aa3be40d62d3e8f8264690665b54768b5",
+        "silhouetteBoundsTopLeftInclusive" : [
+          36,
+          91,
+          478,
+          443
+        ],
+        "transparentFraction" : 0.62762832641601562,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 26881,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.35093557098765432,
+        "height" : 144,
+        "sha256" : "14166496ebe5b8ca6c21f73c01fb1b65fc26bcf5bc872f8a21f587eb2ad835c6",
+        "silhouetteBoundsTopLeftInclusive" : [
+          10,
+          26,
+          133,
+          124
+        ],
+        "transparentFraction" : 0.62871334876543206,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/huntingLodge.png",
+        "id" : "huntingLodge",
+        "thumbnail" : "thumbnails\/huntingLodge.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "huntingLodge",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1344334,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.3132063521134284,
+        "height" : 1254,
+        "sha256" : "8e794d51556a2a7453ff76ebc1705ceb1e09b262e9bcb3f915bbcbc63f2abcbe",
+        "silhouetteBoundsTopLeftInclusive" : [
+          57,
+          368,
+          1194,
+          1107
+        ],
+        "transparentFraction" : 0.6664161127772309,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.huntingLodge.master",
+      "masterFile" : "buildings\/masters\/huntingLodge.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 246432,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.31365585327148438,
+        "height" : 512,
+        "sha256" : "58b32c7b5f83aba6bb8ae02d223a015a7381cb12e7077a6c7953573948295123",
+        "silhouetteBoundsTopLeftInclusive" : [
+          23,
+          150,
+          487,
+          451
+        ],
+        "transparentFraction" : 0.67086410522460938,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 23159,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.31679205246913578,
+        "height" : 144,
+        "sha256" : "1fa5d1ef2aca0b26170d0b27ad34c221546045b0138069d8dbd8a74393037ddc",
+        "silhouetteBoundsTopLeftInclusive" : [
+          7,
+          42,
+          136,
+          126
+        ],
+        "transparentFraction" : 0.67148919753086422,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/fishingShelter.png",
+        "id" : "fishingShelter",
+        "thumbnail" : "thumbnails\/fishingShelter.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "fishingShelter",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1809983,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.42616164159855924,
+        "height" : 1254,
+        "sha256" : "0457dda0441b166a1b8f7bab4431018d29545009642b92b19d497c61756c9822",
+        "silhouetteBoundsTopLeftInclusive" : [
+          72,
+          148,
+          1160,
+          1085
+        ],
+        "transparentFraction" : 0.55008279724975773,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.fishingShelter.master",
+      "masterFile" : "buildings\/masters\/fishingShelter.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 341503,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.426422119140625,
+        "height" : 512,
+        "sha256" : "de140d5e42f7c852ad13924f23baffebd4e3a5eb233c751be8c49b721b6f7918",
+        "silhouetteBoundsTopLeftInclusive" : [
+          30,
+          60,
+          473,
+          442
+        ],
+        "transparentFraction" : 0.55449295043945312,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 30274,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.42824074074074076,
+        "height" : 144,
+        "sha256" : "9cd311edcdfd1268b4e7bf6fdd906cdb1b0e30664724bc2a41f817a64c4e7c0c",
+        "silhouetteBoundsTopLeftInclusive" : [
+          8,
+          17,
+          132,
+          124
+        ],
+        "transparentFraction" : 0.55869020061728392,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/woodcutter.png",
+        "id" : "woodcutter",
+        "thumbnail" : "thumbnails\/woodcutter.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "woodcutter",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1989443,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.49230214509741077,
+        "height" : 1254,
+        "sha256" : "88089c77671995349d74c78ffce3272bc77313ef429f0a5a7f70f797d554f38f",
+        "silhouetteBoundsTopLeftInclusive" : [
+          33,
+          102,
+          1221,
+          1121
+        ],
+        "transparentFraction" : 0.48037539840612115,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.woodcutter.master",
+      "masterFile" : "buildings\/masters\/woodcutter.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : false,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 381523,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.49283599853515625,
+        "height" : 512,
+        "sha256" : "cfd6addae09648c710b00f94fbb8d8dd3d3ba177c0af66eddb643a3eafdc7724",
+        "silhouetteBoundsTopLeftInclusive" : [
+          13,
+          42,
+          498,
+          457
+        ],
+        "transparentFraction" : 0.48566818237304688,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 34815,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.49609375,
+        "height" : 144,
+        "sha256" : "510f5695866cd2d0f3041fdb057ce627cb1b2a2a0aaf2f4ee69eae68e036223a",
+        "silhouetteBoundsTopLeftInclusive" : [
+          4,
+          12,
+          139,
+          128
+        ],
+        "transparentFraction" : 0.48601466049382713,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/stoneGatherer.png",
+        "id" : "stoneGatherer",
+        "thumbnail" : "thumbnails\/stoneGatherer.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "stoneGatherer",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1457175,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.35506411381505815,
+        "height" : 1254,
+        "sha256" : "25783c1bdda5656f0f5aa492ee53b1cee1ccaa74f456ba4e93a3b1f8c213b8fd",
+        "silhouetteBoundsTopLeftInclusive" : [
+          101,
+          224,
+          1159,
+          1047
+        ],
+        "transparentFraction" : 0.62407314138616077,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.stoneGatherer.master",
+      "masterFile" : "buildings\/masters\/stoneGatherer.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : false,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 282977,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.3559112548828125,
+        "height" : 512,
+        "sha256" : "14cb9229fd255f988b7de6f226cd36f5b15ca609982017f40cd424b33f817ebc",
+        "silhouetteBoundsTopLeftInclusive" : [
+          41,
+          91,
+          472,
+          427
+        ],
+        "transparentFraction" : 0.62906265258789062,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 26050,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.35884452160493829,
+        "height" : 144,
+        "sha256" : "543dfc9eb0e5bb3cd63604aaec44dc271b3865da2b17d14b6f5bf036c7c4c164",
+        "silhouetteBoundsTopLeftInclusive" : [
+          12,
+          26,
+          132,
+          119
+        ],
+        "transparentFraction" : 0.62750771604938271,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/farm.png",
+        "id" : "farm",
+        "thumbnail" : "thumbnails\/farm.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "farm",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1010105,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.22892803634430428,
+        "height" : 1254,
+        "sha256" : "9ce9c45e5c7bac7a36eb3870cce340828b80261da7ab34933d6db38f4c2b403e",
+        "silhouetteBoundsTopLeftInclusive" : [
+          132,
+          522,
+          1124,
+          1124
+        ],
+        "transparentFraction" : 0.75056533606017362,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.farm.master",
+      "masterFile" : "buildings\/masters\/farm.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 197084,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.2294769287109375,
+        "height" : 512,
+        "sha256" : "debc2ad930b1d4d1353091c6e82292c4f320e8d41b3644a449e9df457bb0fa86",
+        "silhouetteBoundsTopLeftInclusive" : [
+          54,
+          213,
+          458,
+          458
+        ],
+        "transparentFraction" : 0.75311660766601562,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 18251,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.23201195987654322,
+        "height" : 144,
+        "sha256" : "075c98de8c78808e01663143298908365e60fafa5e0a908ba4580b1d14e76fe5",
+        "silhouetteBoundsTopLeftInclusive" : [
+          15,
+          60,
+          128,
+          128
+        ],
+        "transparentFraction" : 0.75491898148148151,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/animalPen.png",
+        "id" : "animalPen",
+        "thumbnail" : "thumbnails\/animalPen.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "animalPen",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1220858,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.29728346166271125,
+        "height" : 1254,
+        "sha256" : "2dc93618956f313d5b42579c1d14772c30fc0fb587e0350a98b110c2fdc56b39",
+        "silhouetteBoundsTopLeftInclusive" : [
+          156,
+          318,
+          1115,
+          1084
+        ],
+        "transparentFraction" : 0.68226460016941004,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.animalPen.master",
+      "masterFile" : "buildings\/masters\/animalPen.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 241941,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.29733657836914062,
+        "height" : 512,
+        "sha256" : "2ba536bfdec9c32b815db99d04008a70ca4bde1b539a713f8599769c878b0695",
+        "silhouetteBoundsTopLeftInclusive" : [
+          64,
+          130,
+          454,
+          442
+        ],
+        "transparentFraction" : 0.68562698364257812,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 22211,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.29803240740740738,
+        "height" : 144,
+        "sha256" : "89ea35369b3963ce35c9c037e401126580d0089f5d2397d5324d6ed90185f6e9",
+        "silhouetteBoundsTopLeftInclusive" : [
+          18,
+          36,
+          127,
+          123
+        ],
+        "transparentFraction" : 0.68730709876543206,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/storehouse.png",
+        "id" : "storehouse",
+        "thumbnail" : "thumbnails\/storehouse.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "storehouse",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1863456,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.4272541583042716,
+        "height" : 1254,
+        "sha256" : "82c95e978bd6a795b355a9183d4d64cf5a93f86a9117bef14b208eb037224ee3",
+        "silhouetteBoundsTopLeftInclusive" : [
+          140,
+          87,
+          1106,
+          1137
+        ],
+        "transparentFraction" : 0.53581648771777202,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.storehouse.master",
+      "masterFile" : "buildings\/masters\/storehouse.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : false,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 352647,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.42769622802734375,
+        "height" : 512,
+        "sha256" : "18d8ee0be97f0da7d381e3125978b9014702a783f6c055cd4b34eda55aa462cf",
+        "silhouetteBoundsTopLeftInclusive" : [
+          57,
+          36,
+          451,
+          464
+        ],
+        "transparentFraction" : 0.541229248046875,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 31310,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.43002507716049382,
+        "height" : 144,
+        "sha256" : "ba1eee5a127e9a92d9860c3329d09f3872797c3d22a059bb5927cee187095fa6",
+        "silhouetteBoundsTopLeftInclusive" : [
+          16,
+          10,
+          126,
+          130
+        ],
+        "transparentFraction" : 0.54513888888888884,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/toolmaker.png",
+        "id" : "toolmaker",
+        "thumbnail" : "thumbnails\/toolmaker.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "toolmaker",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1641626,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.3808393682480814,
+        "height" : 1254,
+        "sha256" : "2cb763738367d820a30e1182d336f027631bb6367412e961a365473c09df5f26",
+        "silhouetteBoundsTopLeftInclusive" : [
+          89,
+          222,
+          1170,
+          1037
+        ],
+        "transparentFraction" : 0.59649822322952517,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.toolmaker.master",
+      "masterFile" : "buildings\/masters\/toolmaker.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 312871,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.381500244140625,
+        "height" : 512,
+        "sha256" : "07a90d2f9e5f02522bf32f40552799b4e430db4af933709bff00d712f26a45f1",
+        "silhouetteBoundsTopLeftInclusive" : [
+          37,
+          91,
+          477,
+          423
+        ],
+        "transparentFraction" : 0.60090255737304688,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 27938,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.38430748456790126,
+        "height" : 144,
+        "sha256" : "148432339ae90b4c96ce9db81e0ddb25dfc246f35964d686b235d395c51a0771",
+        "silhouetteBoundsTopLeftInclusive" : [
+          10,
+          26,
+          133,
+          118
+        ],
+        "transparentFraction" : 0.60088734567901236,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/tannery.png",
+        "id" : "tannery",
+        "thumbnail" : "thumbnails\/tannery.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "tannery",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1606509,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.36993645851616136,
+        "height" : 1254,
+        "sha256" : "2cd49e6bf9bfeab584567ffd0efd126ac2ad628677101c5088529582a7df01ff",
+        "silhouetteBoundsTopLeftInclusive" : [
+          61,
+          253,
+          1197,
+          1046
+        ],
+        "transparentFraction" : 0.58488117132035544,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.tannery.master",
+      "masterFile" : "buildings\/masters\/tannery.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 303212,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.37137222290039062,
+        "height" : 512,
+        "sha256" : "5808df15307bf54e60cb15e15b9404f49c94da1b8e938a829f1bdc0c2ad29ed8",
+        "silhouetteBoundsTopLeftInclusive" : [
+          25,
+          103,
+          488,
+          426
+        ],
+        "transparentFraction" : 0.59113693237304688,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 29094,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.37856867283950618,
+        "height" : 144,
+        "sha256" : "0dc3cd95148523e3278c5241b1fe6000c18168b96ed7fee596fae0c46663732c",
+        "silhouetteBoundsTopLeftInclusive" : [
+          7,
+          29,
+          136,
+          119
+        ],
+        "transparentFraction" : 0.59534143518518523,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/potteryWorkshop.png",
+        "id" : "potteryWorkshop",
+        "thumbnail" : "thumbnails\/potteryWorkshop.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "potteryWorkshop",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1557754,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.37737867214069681,
+        "height" : 1254,
+        "sha256" : "9a3c4136b43d2df7ba9a1f7e87b3514454716ece7549b1ef154767bebe795604",
+        "silhouetteBoundsTopLeftInclusive" : [
+          67,
+          182,
+          1190,
+          1031
+        ],
+        "transparentFraction" : 0.60206446230117849,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.potteryWorkshop.master",
+      "masterFile" : "buildings\/masters\/potteryWorkshop.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 298096,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.37759017944335938,
+        "height" : 512,
+        "sha256" : "739c9b08e0c2a192f09a50d86927319ef7e3bea4f6fbd86023da68a5931ae889",
+        "silhouetteBoundsTopLeftInclusive" : [
+          27,
+          74,
+          485,
+          420
+        ],
+        "transparentFraction" : 0.60569000244140625,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 26866,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.37876157407407407,
+        "height" : 144,
+        "sha256" : "e1102e21047f45fa19dc52f061c77464b438f69d52f16bb0d7b1bd667b9d90a8",
+        "silhouetteBoundsTopLeftInclusive" : [
+          8,
+          21,
+          136,
+          118
+        ],
+        "transparentFraction" : 0.60768711419753085,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/storytellingCircle.png",
+        "id" : "storytellingCircle",
+        "thumbnail" : "thumbnails\/storytellingCircle.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "storytellingCircle",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1949577,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.47111507927423313,
+        "height" : 1254,
+        "sha256" : "9be2d9da72a8b352784cea5a2f48a204a1a03cecabe7fa85df28d967255bed9a",
+        "silhouetteBoundsTopLeftInclusive" : [
+          57,
+          131,
+          1200,
+          1086
+        ],
+        "transparentFraction" : 0.49246939299822706,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.storytellingCircle.master",
+      "masterFile" : "buildings\/masters\/storytellingCircle.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 361978,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.47133636474609375,
+        "height" : 512,
+        "sha256" : "ad35b68f8179a28ca7088e9d20cbb5f3b54725715cfc0651975022183a86b4ae",
+        "silhouetteBoundsTopLeftInclusive" : [
+          23,
+          54,
+          489,
+          442
+        ],
+        "transparentFraction" : 0.49737167358398438,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 32616,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.47173996913580246,
+        "height" : 144,
+        "sha256" : "afe967459c7bcf5e6018055ced60f7e726f433460f7be149a028918c2467b2b7",
+        "silhouetteBoundsTopLeftInclusive" : [
+          7,
+          15,
+          137,
+          123
+        ],
+        "transparentFraction" : 0.49807098765432101,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/healersHut.png",
+        "id" : "healersHut",
+        "thumbnail" : "thumbnails\/healersHut.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "healersHut",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1837424,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.43864482141994104,
+        "height" : 1254,
+        "sha256" : "a28d94cfbbb959030552a8ad289fbe0eabc8dbfbf4fe03617ba47e46fd76668f",
+        "silhouetteBoundsTopLeftInclusive" : [
+          80,
+          135,
+          1188,
+          1107
+        ],
+        "transparentFraction" : 0.51385804659539236,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.healersHut.master",
+      "masterFile" : "buildings\/masters\/healersHut.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 353597,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.43891525268554688,
+        "height" : 512,
+        "sha256" : "2766486a2c8ec120e34f3fa5a5e2c1b0664dc3aac5a7b2b0d674a578e7a1eef0",
+        "silhouetteBoundsTopLeftInclusive" : [
+          33,
+          55,
+          484,
+          451
+        ],
+        "transparentFraction" : 0.51918411254882812,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 31890,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.44150270061728397,
+        "height" : 144,
+        "sha256" : "93d705146d7f54ace3bed74922b5ae247cfc127c3b975066a41cf33d399a7fd2",
+        "silhouetteBoundsTopLeftInclusive" : [
+          9,
+          15,
+          135,
+          126
+        ],
+        "transparentFraction" : 0.5249324845679012,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/shrine.png",
+        "id" : "shrine",
+        "thumbnail" : "thumbnails\/shrine.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "shrine",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1597316,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.4238462438537986,
+        "height" : 1254,
+        "sha256" : "e9a32c55814d65771b2320e0559c0219db44d34624374496abdc24955b9e5026",
+        "silhouetteBoundsTopLeftInclusive" : [
+          107,
+          107,
+          1144,
+          1110
+        ],
+        "transparentFraction" : 0.5586327897458595,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.shrine.master",
+      "masterFile" : "buildings\/masters\/shrine.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 307751,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.423980712890625,
+        "height" : 512,
+        "sha256" : "80bf162ef41e984f63117cbef0ecf22ff3fdd9e135f587b74e040f627db3e9bf",
+        "silhouetteBoundsTopLeftInclusive" : [
+          44,
+          44,
+          466,
+          452
+        ],
+        "transparentFraction" : 0.56322860717773438,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 29007,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.42607060185185186,
+        "height" : 144,
+        "sha256" : "196180894d0586a9a21ccbcc4c4a05ba14b5caab2ad1b50cce82bd946a67a66c",
+        "silhouetteBoundsTopLeftInclusive" : [
+          12,
+          12,
+          130,
+          127
+        ],
+        "transparentFraction" : 0.56206597222222221,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/burialGround.png",
+        "id" : "burialGround",
+        "thumbnail" : "thumbnails\/burialGround.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "burialGround",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1059272,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.24265190306489728,
+        "height" : 1254,
+        "sha256" : "d103a22f81eb3368034afb53b37c84eeb0c26600d77285ed26895d619b5f7013",
+        "silhouetteBoundsTopLeftInclusive" : [
+          87,
+          383,
+          1159,
+          934
+        ],
+        "transparentFraction" : 0.73103675892645925,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.burialGround.master",
+      "masterFile" : "buildings\/masters\/burialGround.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 203851,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.2429656982421875,
+        "height" : 512,
+        "sha256" : "93245915b34756edd895d16806d924b74155a7ad85b4090c650560d9601c571c",
+        "silhouetteBoundsTopLeftInclusive" : [
+          35,
+          156,
+          472,
+          381
+        ],
+        "transparentFraction" : 0.73708724975585938,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 18796,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.24532214506172839,
+        "height" : 144,
+        "sha256" : "857c129fa384244e3af9994c3dcdfa7cf49d374a35d4b9ebbf86afbd7e37aed0",
+        "silhouetteBoundsTopLeftInclusive" : [
+          10,
+          44,
+          132,
+          106
+        ],
+        "transparentFraction" : 0.74136766975308643,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/scoutCamp.png",
+        "id" : "scoutCamp",
+        "thumbnail" : "thumbnails\/scoutCamp.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "scoutCamp",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1259381,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.31138888252965313,
+        "height" : 1254,
+        "sha256" : "817316230489999185c261a12c812758bf84cdd2a8d84052f71fcac06b93189b",
+        "silhouetteBoundsTopLeftInclusive" : [
+          64,
+          178,
+          1192,
+          1056
+        ],
+        "transparentFraction" : 0.67565163088960623,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.scoutCamp.master",
+      "masterFile" : "buildings\/masters\/scoutCamp.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 239063,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.31164932250976562,
+        "height" : 512,
+        "sha256" : "872229e06414b81e193cf139bd0923fa1bd90cd6a7936163695d9a8e5cf59715",
+        "silhouetteBoundsTopLeftInclusive" : [
+          26,
+          73,
+          486,
+          431
+        ],
+        "transparentFraction" : 0.67987060546875,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 22475,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.31360918209876543,
+        "height" : 144,
+        "sha256" : "7a22f2d14605c412997400148e1ae0c76c9babcb0f128bd5150da79853a16ae3",
+        "silhouetteBoundsTopLeftInclusive" : [
+          7,
+          21,
+          136,
+          120
+        ],
+        "transparentFraction" : 0.67717978395061729,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/watchtower.png",
+        "id" : "watchtower",
+        "thumbnail" : "thumbnails\/watchtower.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "watchtower",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1423023,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.32693467029906215,
+        "height" : 1254,
+        "sha256" : "080230b811c225d5e0c6f9d1c8e1458fdf3a7f485fe08ee2a1f1aff13d1b8087",
+        "silhouetteBoundsTopLeftInclusive" : [
+          213,
+          56,
+          1038,
+          1178
+        ],
+        "transparentFraction" : 0.61424176288190391,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.watchtower.master",
+      "masterFile" : "buildings\/masters\/watchtower.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 285893,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.32924270629882812,
+        "height" : 512,
+        "sha256" : "e684365c0a07fda4dbbf1a30d55316e3d4e8101ffe23869d172cb5d2a0568952",
+        "silhouetteBoundsTopLeftInclusive" : [
+          87,
+          23,
+          423,
+          480
+        ],
+        "transparentFraction" : 0.62420654296875,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 27472,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.34047067901234568,
+        "height" : 144,
+        "sha256" : "8376f9f86500d97286d1335cc992661bae8d3c9aeadaab482d8ce06dd8a1243c",
+        "silhouetteBoundsTopLeftInclusive" : [
+          25,
+          7,
+          118,
+          134
+        ],
+        "transparentFraction" : 0.63218557098765427,
+        "width" : 144
+      }
+    },
+    {
+      "art" : {
+        "anchorX" : 0.5,
+        "anchorY" : 0.17999999999999999,
+        "file" : "buildings\/palisade.png",
+        "id" : "palisade",
+        "thumbnail" : "thumbnails\/palisade.png",
+        "worldHeight" : 160,
+        "worldWidth" : 160
+      },
+      "contactMaskStatus" : "missing-semantic-ground-mask",
+      "directionalAndLevelExports" : "one-kind-sprite-reused-for-all-levels-and-directions",
+      "footprint" : [
+        1,
+        1
+      ],
+      "id" : "palisade",
+      "licenseID" : "GEN-ORIGINAL",
+      "master" : {
+        "alphaThreshold" : 32,
+        "bytes" : 1065680,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.25774745694161461,
+        "height" : 1254,
+        "sha256" : "bce1fb290ad9322c6fc4338817ff3745c36c871827ac0b9c5a1a927774fe2b09",
+        "silhouetteBoundsTopLeftInclusive" : [
+          83,
+          364,
+          1187,
+          979
+        ],
+        "transparentFraction" : 0.71971350370997811,
+        "width" : 1254
+      },
+      "masterAssetID" : "building.palisade.master",
+      "masterFile" : "buildings\/masters\/palisade.png",
+      "maximumLevel" : 3,
+      "orientations" : [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "requiresResearch" : true,
+      "sprite" : {
+        "alphaThreshold" : 32,
+        "bytes" : 205756,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.25818252563476562,
+        "height" : 512,
+        "sha256" : "6938fdd85b846bdaca95a33368833c3caaabd834ca3a6f0164d47b74eee23192",
+        "silhouetteBoundsTopLeftInclusive" : [
+          34,
+          149,
+          484,
+          399
+        ],
+        "transparentFraction" : 0.7234954833984375,
+        "width" : 512
+      },
+      "thumbnail" : {
+        "alphaThreshold" : 32,
+        "bytes" : 19873,
+        "coveredEdgePixels" : 0,
+        "coveredFraction" : 0.26065779320987653,
+        "height" : 144,
+        "sha256" : "b57dcab65d69ec9859f9788e0c311e3aa3382ad3c29b7314360b1d2ed45e4360",
+        "silhouetteBoundsTopLeftInclusive" : [
+          10,
+          42,
+          135,
+          112
+        ],
+        "transparentFraction" : 0.72328317901234573,
+        "width" : 144
+      }
+    }
+  ],
+  "configSHA256" : "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+  "mediaRegistrySHA256" : "179f6b3c824dfaaf8bc2e89ddf3f0297bccc6f496d36f28f1827c7510efad541",
+  "schemaVersion" : 1
+}

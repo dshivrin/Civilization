@@ -1,3 +1,7 @@
+## Building Art Gate 1 — audit delivered for visual review
+
+Owner's “Implement” authorizes the retrieved Gate 1 brief. The [20-master audit and measured atlas](docs/art/building-gate-1/audit.md), [proposed geometry/river/modular contracts](docs/art/building-gate-1/contracts.md) and [verification ledger](docs/testing/building-art-gate-1/progress.md) preserve current footprint/save/art bytes. All20masters exist; distinct level/direction exports and semantic contacts are missing. Media remains clean697b486, local-only. Stop for visual review before Gate 2 production/integration. No palisade/bridge/resource gameplay or R2-07 normal activation. Older backlog and acceptance gates remain.
+
 ## ROUND-2-PLAY — implementation awaiting human acceptance
 
 R2-01–05 are committed/pushed; R2-06 isolated review connectivity pilot is verified and delivered for human review per owner request, with [delivery](docs/milestones/round-2-play.md) and [exact QA evidence](docs/testing/round-2/progress.md). Approval [f313dd2](plans/ROUND-2-PLAY-APPROVAL.md) and [reconciliation](docs/design/proposals/2026-11-20-round-2-play-reconciliation.md) govern scope. Owner defers human review until tonight; R2-07 normal activation remains gated on verification and human acceptance. Normal/developer saves retain legacy rules; explicit v7 review activation preserves original backup/history/stocks. No deferred bridges, defenses, new resource rules, artwork or physical action. Requested next coordination: ask Master chat whether building rendering is finished and ready for the next task.

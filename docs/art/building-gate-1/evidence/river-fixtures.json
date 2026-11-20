@@ -1,0 +1,2242 @@
+{
+  "bankEdges" : [
+    {
+      "land" : [
+        22,
+        0
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        0
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        25,
+        0
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        0
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        22,
+        1
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        1
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        25,
+        1
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        1
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        22,
+        2
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        2
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        25,
+        2
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        2
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        24,
+        3
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        2
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        22,
+        2
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        3
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        21,
+        3
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        3
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        24,
+        3
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        3
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        21,
+        4
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        4
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        24,
+        4
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        4
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        21,
+        5
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        5
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        24,
+        5
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        5
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        23,
+        6
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        5
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        21,
+        5
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        6
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        20,
+        6
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        6
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        23,
+        6
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        6
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        20,
+        7
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        7
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        23,
+        7
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        7
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        20,
+        8
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        8
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        23,
+        8
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        8
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        20,
+        9
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        9
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        23,
+        9
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        9
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        20,
+        10
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        10
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        23,
+        10
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        10
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        20,
+        11
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        11
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        23,
+        11
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        11
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        20,
+        12
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        12
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        23,
+        12
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        12
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        21,
+        14
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        13
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        20,
+        13
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        21,
+        13
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        23,
+        13
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        13
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        21,
+        14
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        14
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        23,
+        13
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        14
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        24,
+        14
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        14
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        21,
+        15
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        15
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        24,
+        15
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        15
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        22,
+        17
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        16
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        21,
+        16
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        22,
+        16
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        24,
+        16
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        16
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        22,
+        17
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        17
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        24,
+        16
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        17
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        25,
+        17
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        17
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        22,
+        18
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        18
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        25,
+        18
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        18
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        23,
+        20
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        19
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        22,
+        19
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        23,
+        19
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        25,
+        19
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        19
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        23,
+        20
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        20
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        25,
+        19
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        25,
+        20
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        26,
+        20
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        25,
+        20
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        23,
+        21
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        21
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        26,
+        21
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        25,
+        21
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        23,
+        22
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        22
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        26,
+        22
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        25,
+        22
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        23,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        23
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        26,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        25,
+        23
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        23,
+        24
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        24
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        26,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        26,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        27,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        27,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        28,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        28,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        29,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        29,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        30,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        30,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        31,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        31,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        32,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        32,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        33,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        33,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        34,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        34,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        35,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        35,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        36,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        36,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        37,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        37,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        38,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        38,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        39,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        39,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        40,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        40,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        41,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        41,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        42,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        42,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        43,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        43,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        44,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        44,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        45,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        45,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        46,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        46,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        47,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        47,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        48,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        48,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        49,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        49,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        50,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        50,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        51,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        51,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        52,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        53,
+        23
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        24
+      ],
+      "waterToLand" : "N"
+    },
+    {
+      "land" : [
+        54,
+        24
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        24
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        24,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        23,
+        25
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        24,
+        25
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        25,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        25,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        26,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        26,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        27,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        27,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        28,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        28,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        29,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        29,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        30,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        30,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        31,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        31,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        32,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        32,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        33,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        33,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        34,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        34,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        35,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        35,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        36,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        36,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        37,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        37,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        38,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        38,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        39,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        39,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        40,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        40,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        41,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        41,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        42,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        42,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        43,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        43,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        44,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        44,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        45,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        45,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        46,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        46,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        47,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        47,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        48,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        48,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        49,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        49,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        50,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        50,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        51,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        51,
+        25
+      ],
+      "waterToLand" : "S"
+    },
+    {
+      "land" : [
+        54,
+        25
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        25
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        26
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        26
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        26
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        27
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        27
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        27
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        27
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        28
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        28
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        28
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        28
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        29
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        29
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        29
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        29
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        30
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        30
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        30
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        30
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        31
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        31
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        31
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        31
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        32
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        32
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        32
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        32
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        33
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        33
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        33
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        33
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        34
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        34
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        34
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        34
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        35
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        35
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        35
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        35
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        36
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        36
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        36
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        36
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        37
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        37
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        37
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        37
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        38
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        38
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        38
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        38
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        39
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        39
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        39
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        39
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        40
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        40
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        40
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        40
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        41
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        41
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        41
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        41
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        42
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        42
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        42
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        42
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        43
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        43
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        43
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        43
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        44
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        44
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        44
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        44
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        45
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        45
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        45
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        45
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        46
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        46
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        46
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        46
+      ],
+      "waterToLand" : "E"
+    },
+    {
+      "land" : [
+        51,
+        47
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        52,
+        47
+      ],
+      "waterToLand" : "W"
+    },
+    {
+      "land" : [
+        54,
+        47
+      ],
+      "landTerrain" : ".",
+      "water" : [
+        53,
+        47
+      ],
+      "waterToLand" : "E"
+    }
+  ],
+  "configSHA256" : "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+  "directions" : "logical N=(0,-1), E=(1,0), S=(0,1), W=(-1,0); not screen compass",
+  "fixtures" : [
+    {
+      "bankEdges" : [
+        {
+          "land" : [
+            20,
+            8
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            21,
+            8
+          ],
+          "waterToLand" : "W"
+        },
+        {
+          "land" : [
+            20,
+            9
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            21,
+            9
+          ],
+          "waterToLand" : "W"
+        }
+      ],
+      "discovery" : "assume revealed for visual fixture only",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "west-bank",
+      "occupancy" : "terrain-only; no live save inspected",
+      "origin" : [
+        19,
+        8
+      ]
+    },
+    {
+      "bankEdges" : [
+        {
+          "land" : [
+            23,
+            8
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            22,
+            8
+          ],
+          "waterToLand" : "E"
+        },
+        {
+          "land" : [
+            23,
+            9
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            22,
+            9
+          ],
+          "waterToLand" : "E"
+        }
+      ],
+      "discovery" : "assume revealed for visual fixture only",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "east-bank",
+      "occupancy" : "terrain-only; no live save inspected",
+      "origin" : [
+        23,
+        8
+      ]
+    },
+    {
+      "bankEdges" : [
+        {
+          "land" : [
+            22,
+            1
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            23,
+            1
+          ],
+          "waterToLand" : "W"
+        },
+        {
+          "land" : [
+            22,
+            2
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            23,
+            2
+          ],
+          "waterToLand" : "W"
+        },
+        {
+          "land" : [
+            22,
+            2
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            22,
+            3
+          ],
+          "waterToLand" : "N"
+        }
+      ],
+      "discovery" : "assume revealed for visual fixture only",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "bend",
+      "occupancy" : "terrain-only; no live save inspected",
+      "origin" : [
+        21,
+        1
+      ]
+    },
+    {
+      "bankEdges" : [
+        {
+          "land" : [
+            51,
+            28
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            52,
+            28
+          ],
+          "waterToLand" : "W"
+        },
+        {
+          "land" : [
+            51,
+            29
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            52,
+            29
+          ],
+          "waterToLand" : "W"
+        }
+      ],
+      "discovery" : "assume revealed for visual fixture only",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "annex-west",
+      "occupancy" : "terrain-only; no live save inspected",
+      "origin" : [
+        50,
+        28
+      ]
+    },
+    {
+      "bankEdges" : [
+        {
+          "land" : [
+            54,
+            28
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            53,
+            28
+          ],
+          "waterToLand" : "E"
+        },
+        {
+          "land" : [
+            54,
+            29
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            53,
+            29
+          ],
+          "waterToLand" : "E"
+        }
+      ],
+      "discovery" : "assume revealed for visual fixture only",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "annex-east",
+      "occupancy" : "terrain-only; no live save inspected",
+      "origin" : [
+        54,
+        28
+      ]
+    },
+    {
+      "bankEdges" : [
+        {
+          "land" : [
+            35,
+            23
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            35,
+            24
+          ],
+          "waterToLand" : "N"
+        },
+        {
+          "land" : [
+            36,
+            23
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            36,
+            24
+          ],
+          "waterToLand" : "N"
+        }
+      ],
+      "discovery" : "assume revealed for visual fixture only",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "horizontal-north",
+      "occupancy" : "terrain-only; no live save inspected",
+      "origin" : [
+        35,
+        22
+      ]
+    },
+    {
+      "bankEdges" : [
+        {
+          "land" : [
+            35,
+            26
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            35,
+            25
+          ],
+          "waterToLand" : "S"
+        },
+        {
+          "land" : [
+            36,
+            26
+          ],
+          "landTerrain" : ".",
+          "water" : [
+            36,
+            25
+          ],
+          "waterToLand" : "S"
+        }
+      ],
+      "discovery" : "assume revealed for visual fixture only",
+      "footprint" : [
+        2,
+        2
+      ],
+      "id" : "horizontal-south",
+      "occupancy" : "terrain-only; no live save inspected",
+      "origin" : [
+        35,
+        26
+      ]
+    }
+  ],
+  "mapID" : "river-clearing-64x48-v1",
+  "size" : [
+    64,
+    48
+  ]
+}

@@ -1,3 +1,9 @@
+## Building Art Gate 1 handoff — 20 November 2026
+
+Direct “Implement” follows retrieved Master reply34783060-ac9e-4dc0-9c8d-792ae091dbcc and approved building-media plan. [Audit](art/building-gate-1/audit.md), [proposed contracts](art/building-gate-1/contracts.md), [evidence](testing/building-art-gate-1/progress.md). All20master/source hashes and40runtime export mappings verified; seven actual-map river fixtures; known PNG coordinate regression RED→GREEN; no-arg validator preserved. Atlas and river projection inspected. Media clean697b486 with no remote; source art/config/saves/runtime untouched. Final audit commit is recorded in branch history.
+
+Next is owner visual review before Gate 2 prototypes. Missing semantic contacts/level/direction exports are explicitly identified; current measurements do not certify art acceptance. Gate 2, mass production, gameplay expansion and R2-07 remain gated. Keep first-era-review; published main has owner staging docs and is not force-synchronized/merged. Tonight's Round 2 human review remains open.
+
 ## Round 2 implementation handoff — 20 November 2026
 
 R2-01–05 committed/pushed; R2-06 review-only service integration and regression fixes verified for commit at owner's direct request. Final product a51a81b pushed to origin/first-era-review. [Execution ledger](testing/round-2/progress.md) records exact results, failed runs and serial Pro reruns (seven Debug/one Release passed). Core239Debug/207Release +8 exclusions; inspector12/11; Python10. Normal-save activation remains absent. v7 explicit review marker, original-byte backup and retained progression/overflow protect migration; no player files or physical device changed.
