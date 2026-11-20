@@ -41,5 +41,6 @@
   "normalMapGeometryRoadsResearchDiscoveryReservesPreserved": true,
   "launchBlockedBy": "iOS device locked",
   "postInstallExtraCopyProductionValidated": true,
-  "developerByteIdenticalUntilLaunch": true
+  "developerByteIdenticalUntilLaunch": true,
+  "productCommit": "2ab7492"
 }

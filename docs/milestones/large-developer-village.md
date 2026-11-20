@@ -1,5 +1,7 @@
 # Large developer village and navigation correction — 20 November2026
 
+Product **2ab7492**, spec20461af; [actual GitHub handover](https://github.com/dshivrin/Civilization/issues/1#issuecomment-7034130861).
+
 Dima authorized a larger developer review world, then explicitly approved **64×48size** and reported first-attempt pan/pinch retries and reduced smoothness. [Direct source](../design/sources/2026-11-20-large-preview-approval-navigation.md), [bounded spec](../superpowers/specs/2026-11-20-grouped-developer-village.md), [plan](../superpowers/plans/2026-11-20-grouped-developer-village.md). Size acceptance is distinct from normal-save migration, human touch/art/enjoyment acceptance and sustained hardware performance.
 
 ## Delivered review scenario
