@@ -1,0 +1,52 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [
+      "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB"
+    ],
+    "only_testing": [
+      "CivilizationUITests/RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload"
+    ],
+    "output": null
+  },
+  "steps": [
+    {
+      "name": "ui-debug-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/.codex/worktrees/4f27/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-resultBundlePath",
+        "/private/tmp/civilization-qa-c9eaae046e31490d80b1214a604d9814/ui-debug-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload"
+      ],
+      "exitCode": 65,
+      "status": "failed",
+      "tests": 1,
+      "durationSeconds": 37.5,
+      "log": "/private/tmp/civilization-qa-c9eaae046e31490d80b1214a604d9814/ui-debug-1.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-20T23:23:21.539894+00:00",
+  "revision": {
+    "commit": "99d6b9e97a540bd9977aecf093d8b58c12b913e4",
+    "dirty": true
+  },
+  "status": "failed"
+}

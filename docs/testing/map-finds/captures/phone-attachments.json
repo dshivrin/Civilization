@@ -1,0 +1,50 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "D0E259CC-BFAC-474A-8C65-9E8619AD6426.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "economy-lab-positive-loop_0_050FCB8F-D4B2-40BD-94AE-8E0752FE6C0D.png",
+        "timestamp" : 1795217143.68
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "1BE00EE2-0286-44D3-96DA-58CC419A2C40.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "map-finds-reloaded-checkpoint_0_C1D70A2B-9079-4C50-B2BF-AE2311FFC040.png",
+        "timestamp" : 1795217201.3
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "E7CD4B1A-FDE4-40ED-9556-0F0AACF44209.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "map-finds-tracks-observe_0_E229CE72-687C-4A9F-A6FC-05CBFC91009D.png",
+        "timestamp" : 1795217183.24
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "F25309CF-DC1E-4D06-AE27-EE9751CD3CCB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "map-finds-construction-wait-berries_0_2691DD1E-13A5-4380-AE73-53CE84D8335B.png",
+        "timestamp" : 1795217174.128
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload"
+  }
+]

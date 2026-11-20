@@ -1,0 +1,526 @@
+{
+  "goal": 2,
+  "base": "d45dc0f34ac926ce661f95a958f5a493a362ddae",
+  "mainReadWithoutMerge": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
+  "branch": "economy-map-finds-review",
+  "profile": "riverbend-economy-lab-v1",
+  "status": "verified-review-only",
+  "sourceSHA256": {
+    "Civilization/UI/EconomyLabView.swift": "69f8b1ff1b63f6e852f21443e181995a039c863a0d61bf1f12436170503c3cd4",
+    "CivilizationUITests/RelocationUITests.swift": "568a250dbec7c3c419df1808ea6b776e9c85613a371ae116a03f1ab3d98e78bd",
+    "Packages/GameCore/Sources/GameApplication/RiverbendEconomyLab.swift": "04688902c34c3f6ddc5058ff98b9fafc9451ff2c5f0976e6730cebe0b1f81286",
+    "Packages/GameCore/Tests/GameCoreTests/MapFindTests.swift": "0e86a0a16ef74e0d7330406701235b354b5c59e29718526646332627ebefb9c3",
+    "Packages/GameCore/Tests/GameCoreTests/EconomyLabTests.swift": "5fdbdb0d1aa044265c48fbc24c6ad4e850548d0f4da67ff5b233133b5c2e9a06",
+    "scripts/verify-developer-release.py": "1ea7a6aeab89d55910c783414d0ca3984b50e2085c9db77bbaa259cc845e783b",
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+    "Packages/GameCore/Sources/GameCore/GameEngine.swift": "2564e5a512fbdb0b3aa05753cfd5b5ba20faa36095e1eb6f80f5764846752a3b",
+    "Packages/GameCore/Sources/GameCore/RiverbendEconomyProfile.swift": "1267c9bece586f4cd7764b817aa9f22871b49e13c7aca093b94a9de910e68bbc",
+    "Packages/GameCore/Sources/GameApplication/GameSession.swift": "6ca897d89755e7fea918ee773b9de5ae08d3593265ea38c4a63010d6b1d921ae",
+    "Packages/GameCore/Sources/GameApplication/GameLibrary.swift": "00b41d0a00d53ab14fc53b1caaf19ea53991417d11ce35731e2ce0957413a582",
+    "Packages/GameCore/Sources/GamePersistence/SaveStore.swift": "d9fc3f8bb362813ab6ea937746d8d57cade70cf685f67ce23d80e3d4f87c5e3e",
+    "Civilization.xcodeproj/project.pbxproj": "5e5a9829ecaa037c0185265ce743da8a7738cba328eb87c11efb876962ce0193",
+    "Civilization/Rendering/SettlementScene.swift": "aeb80963bd90e5914584ed01d59b455443f2ab28a3c0146cebce990d4d113fe9",
+    "Civilization/UI/NativeVisualReviewView.swift": "3e72edf23bbc666365fc7814d617745d066c5cadd24f6e03dfc1b87c484e68af",
+    "Civilization/UI/DeveloperToolsView.swift": "92f200e79149f77e72ccb3e02cde7653f12769193fed009fef44f85ebdb82613"
+  },
+  "byteIdenticalToBase": [
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json",
+    "Packages/GameCore/Sources/GameCore/GameEngine.swift",
+    "Packages/GameCore/Sources/GameCore/RiverbendEconomyProfile.swift",
+    "Packages/GameCore/Sources/GameApplication/GameSession.swift",
+    "Packages/GameCore/Sources/GameApplication/GameLibrary.swift",
+    "Packages/GameCore/Sources/GamePersistence/SaveStore.swift",
+    "Civilization.xcodeproj/project.pbxproj",
+    "Civilization/Rendering/SettlementScene.swift",
+    "Civilization/UI/NativeVisualReviewView.swift",
+    "Civilization/UI/DeveloperToolsView.swift"
+  ],
+  "finalCore": "reports/f65be6dd.json",
+  "finalNative": "reports/4fe8cfcb.json",
+  "ordinaryRelease": "reports/9b4b5884.json",
+  "runs": [
+    {
+      "report": "reports/0883480b.json",
+      "sha256": "9a6434a116b33605417aeafbb2f562f417d06df4d29cec8b657051af61fd8561",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 1,
+          "exitCode": 1
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/0883480b-core-debug.log.gz",
+          "sha256": "23c3df1565a54286ad22e772333eaa9852fa81d29fc4b8f427d843adcc426ee4",
+          "originalSHA256": "2481474bb0068d82ce37e4aa8db2a59e366868f12ca8330ebc2eb354da358d3f"
+        }
+      ]
+    },
+    {
+      "report": "reports/0b763131.json",
+      "sha256": "e12041e02f8600e335bb291b2507a4b1521889f136e4c698a24fe8f1faffcff6",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 9,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/0b763131-core-debug.log.gz",
+          "sha256": "6a71babda5b6916dea2e31d65a57c9a342f8a1eac78c7ff7af21a9c9297278d8",
+          "originalSHA256": "475a708d62210a6a5f55ce08a8b4571030108563cece54fed749da0c6d172b8a"
+        }
+      ]
+    },
+    {
+      "report": "reports/256a627d.json",
+      "sha256": "d0380f66941b38da32a5d28915bbf2be32ae00aece8c99c942a5c47cef00a988",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 6,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/256a627d-core-debug.log.gz",
+          "sha256": "347264bc4adbeadc14d5123f38693d7925b970bcd745a98aa4d43b6a4631b4ac",
+          "originalSHA256": "b79c5ce7430ac50fd6ca78d4cfccf0fb6fbc1fb78403aae706c6f437a9d0f425"
+        }
+      ]
+    },
+    {
+      "report": "reports/4719bc1c.json",
+      "sha256": "0068e1c529ec0fd7229d9ecc31330d653f346b10b264c36419ec0f4fb9a0b930",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/4719bc1c-ui-debug-1.log.gz",
+          "sha256": "ae60b3f8c92bd9f680f4b83c9bded97b5c1c11f248389d9e4cbed8c9f9257e7b",
+          "originalSHA256": "04553c35fd0747182c45e3eff9be7f8f105811fe9d1c71968b7c63ee730c1ebb"
+        }
+      ]
+    },
+    {
+      "report": "reports/4fe8cfcb.json",
+      "sha256": "f4cb478e91f3edf03132f7a385dbc3a86b14cc1642cf6c155815142b6ed00b4a",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 2,
+          "exitCode": 0
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "passed",
+          "tests": 2,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/4fe8cfcb-ui-debug-1.log.gz",
+          "sha256": "58b3cf4983cc0bce35ddc252118daa1cff929478519023ec96d75c8c507fe238",
+          "originalSHA256": "fc4a1105f97743216dfeae561292538afc7460cf33dcd1932f082c84f3fb0aa8"
+        },
+        {
+          "path": "logs/4fe8cfcb-ui-debug-2.log.gz",
+          "sha256": "f913829cc7c56e02f556e5a5dbb702650e1c9f23b87800ef59ebf07091f3b813",
+          "originalSHA256": "c974aafcd69ac70e6bc534f95b5082684f766b01c91f37c2292a27a2dba560cb"
+        }
+      ]
+    },
+    {
+      "report": "reports/50abd5f8.json",
+      "sha256": "bdb24835ada4b52d1b3d809648ecef4add484eed636dc93f72bad685cf6963f6",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 6,
+          "exitCode": 1
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/50abd5f8-core-debug.log.gz",
+          "sha256": "bab2d9048c0718ce5709e04db9309730a397b50771df824e4afdde0adc4810b6",
+          "originalSHA256": "28ea27d8e79499ae7c01f6f9ae9f35107281e6bcead5ecb569b2538a8294ddd2"
+        }
+      ]
+    },
+    {
+      "report": "reports/77e1beea.json",
+      "sha256": "ea61a5dfb404ef4be7624987495c60e6f0572e81ec7b38031545f3ade67a8d19",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 1
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/77e1beea-core-debug.log.gz",
+          "sha256": "388232fec04168f33c9e1205810c14dfb580cf34c9afeabf368bb823601d1e55",
+          "originalSHA256": "a17c47fcee65a16d59a6c583201681c8278811345fa3e9d0e0c94bc7bf0f7e17"
+        }
+      ]
+    },
+    {
+      "report": "reports/8bcde914.json",
+      "sha256": "a6212705036d81c90078e3bf73ee3d772f48fbd722aebb2697baa806f137a311",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 294,
+          "exitCode": 0
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235,
+          "exitCode": 0
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/8bcde914-core-debug.log.gz",
+          "sha256": "df72757c9156bc72ee78692148ce32e1996ecf2782bb3c98233ff3145488e487",
+          "originalSHA256": "b0fd1b3763bc3a64a755bab699f3d8e76056dd1d90e69087e8a2afc25480d892"
+        },
+        {
+          "path": "logs/8bcde914-core-release.log.gz",
+          "sha256": "fe727ab261db05ab348bee2805cc090e79156f35964e176aec4a1d02eb4a20fc",
+          "originalSHA256": "a79f0d82b126876576c9242b46779532a5683164e4fed1d233a2a6006d2eea8c"
+        },
+        {
+          "path": "logs/8bcde914-release-api-exclusions.log.gz",
+          "sha256": "07711b99b1920bd812dc8735e02aa5e012d946bcb845a46168b0758e3e1c8820",
+          "originalSHA256": "9a01e8c3b50fad5d357ae3e5d400f6ce831c9f782f6d3c6d30e4b340867bd4b7"
+        }
+      ]
+    },
+    {
+      "report": "reports/9b4b5884.json",
+      "sha256": "e20fa5bd1919105b13339d04aa77a086dd598dbe87d24ccd8ae09638a7b20b4c",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/9b4b5884-ui-release-1.log.gz",
+          "sha256": "7d243a3c03001604ce186d76ed40b8d4cfe2859e7c84d8d6d654d2a8cab8e328",
+          "originalSHA256": "625cd8f3f64567a86803670b657b38d8569d3cefe9d1eb7f163169a608a4215f"
+        }
+      ]
+    },
+    {
+      "report": "reports/c9eaae04.json",
+      "sha256": "6fb9d7a6374a5917150684d4314a4e953bd9d709a00980a8d31ab8bd6ff04110",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "failed",
+          "tests": 1,
+          "exitCode": 65
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/c9eaae04-ui-debug-1.log.gz",
+          "sha256": "478e43fa4b483a65290f2b48c945836e74ee733c8ed99322d4dec82fb44b1f2d",
+          "originalSHA256": "ff5ffbd2b0ea0694f88ffbd4646e36a1f390a04e66d409baa97577293d9b3201"
+        }
+      ]
+    },
+    {
+      "report": "reports/db224121.json",
+      "sha256": "60baa4306168d1f55726dd40a27c714d82244e57ff4769d7f699a0eceba44680",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 1
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/db224121-core-debug.log.gz",
+          "sha256": "f8ea03ce1351366774501f79e5ff43f87f9a1eb93fdb86d7d397f8715bf91db8",
+          "originalSHA256": "6701f5d3da843432a5b72fafbef39f73077f3b24e55d9088a486c9f5eeff1c14"
+        }
+      ]
+    },
+    {
+      "report": "reports/dce01bb5.json",
+      "sha256": "ec95223331bf63871be7bc193dac3cc74da41ba8a4e99077911e17d9517e218f",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 1
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/dce01bb5-core-debug.log.gz",
+          "sha256": "a3fb252a760768461fe00a0009a2274543f5aa4b86cb690b50e32b02438f628d",
+          "originalSHA256": "d3a55d921fda6d03da9809820dcbed2e0609f7e65408b8ec4547d2e42f6ea1d6"
+        }
+      ]
+    },
+    {
+      "report": "reports/edfa01a0.json",
+      "sha256": "452b293a56e22f033659e15cc288879ad85ed1f8c879d0abb3d1e7652517aaee",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 2,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/edfa01a0-ui-debug-1.log.gz",
+          "sha256": "41c0259e0b9e1679bbbd2fdcfc1e6ef0949efb0dcbb2996db4d27545ba0118c9",
+          "originalSHA256": "8e9a6f4a708be76b8988dc6033db3f4d88e08ae6a57efc39325b3f9ef319cfce"
+        }
+      ]
+    },
+    {
+      "report": "reports/f65be6dd.json",
+      "sha256": "0bcf434ac65f06fd181c39ee9f43bc007f25127a151f58ff98c95ac33b3856a8",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 295,
+          "exitCode": 0
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235,
+          "exitCode": 0
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/f65be6dd-core-debug.log.gz",
+          "sha256": "7eca4a4b7115b948b1f426d71126dc6c36e0ef753b97b44f1a7d3d1a45ec345d",
+          "originalSHA256": "5d3069f94e931061a9062951abd5fbf59568ee1b2202adac8be7c032cb964f1c"
+        },
+        {
+          "path": "logs/f65be6dd-core-release.log.gz",
+          "sha256": "cf793b489c05d26a6f0740f23c5e25f448fed7dc2c739aabd6d5bdb14f0b3e82",
+          "originalSHA256": "520b464bef65582820589fa8eccb30c41bafc3cc1b2784c533cd668f9c04f357"
+        },
+        {
+          "path": "logs/f65be6dd-release-api-exclusions.log.gz",
+          "sha256": "07711b99b1920bd812dc8735e02aa5e012d946bcb845a46168b0758e3e1c8820",
+          "originalSHA256": "9a01e8c3b50fad5d357ae3e5d400f6ce831c9f782f6d3c6d30e4b340867bd4b7"
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "path": "captures/phone-ignore-finds.png",
+      "sha256": "dabf5e57580c8b455e3c531fc8eb5d214dd0a7176d70cf510708dbcf5bfee14e",
+      "profile": "phone",
+      "report": "reports/4fe8cfcb.json",
+      "case": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "D0E259CC-BFAC-474A-8C65-9E8619AD6426.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "economy-lab-positive-loop_0_050FCB8F-D4B2-40BD-94AE-8E0752FE6C0D.png",
+        "timestamp": 1795217143.68
+      }
+    },
+    {
+      "path": "captures/phone-reload.png",
+      "sha256": "74429d0e8ce7f4d93f9b9fb6d684cdefac736f2348764db24f19e7d13572393b",
+      "profile": "phone",
+      "report": "reports/4fe8cfcb.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "1BE00EE2-0286-44D3-96DA-58CC419A2C40.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-reloaded-checkpoint_0_C1D70A2B-9079-4C50-B2BF-AE2311FFC040.png",
+        "timestamp": 1795217201.3
+      }
+    },
+    {
+      "path": "captures/phone-tracks.png",
+      "sha256": "3a5b1599f4bbcbabc0d01f023f10234c5c356e1b5827de0865dd2b890fbe901c",
+      "profile": "phone",
+      "report": "reports/4fe8cfcb.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "E7CD4B1A-FDE4-40ED-9556-0F0AACF44209.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-tracks-observe_0_E229CE72-687C-4A9F-A6FC-05CBFC91009D.png",
+        "timestamp": 1795217183.24
+      }
+    },
+    {
+      "path": "captures/phone-berries.png",
+      "sha256": "62b448b139cfa59df6249d0abd66aae897d38d37ef5158045190b01f72101aff",
+      "profile": "phone",
+      "report": "reports/4fe8cfcb.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "F25309CF-DC1E-4D06-AE27-EE9751CD3CCB.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-construction-wait-berries_0_2691DD1E-13A5-4380-AE73-53CE84D8335B.png",
+        "timestamp": 1795217174.128
+      }
+    },
+    {
+      "path": "captures/mini-ignore-finds.png",
+      "sha256": "89f1bb1a4a3aa4909fd508cb8aefddce5499c4325badde976ed4da1135981561",
+      "profile": "mini",
+      "report": "reports/4fe8cfcb.json",
+      "case": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "3E9D8057-EF10-48CA-8F91-8EE88D67CE32.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "economy-lab-positive-loop_0_083AE980-B3F2-4577-A0D5-A3E53F963A79.png",
+        "timestamp": 1795217251.256
+      }
+    },
+    {
+      "path": "captures/mini-reload.png",
+      "sha256": "65b2886741a3c84e50b3675a12e01a5cd9b279fd714ce22c8f761cf261ebd411",
+      "profile": "mini",
+      "report": "reports/4fe8cfcb.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "22A10319-2AD4-433E-95F4-F777AD2D51F3.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-reloaded-checkpoint_0_0380A640-97A0-478C-B567-F80ACA581C72.png",
+        "timestamp": 1795217307.162
+      }
+    },
+    {
+      "path": "captures/mini-tracks.png",
+      "sha256": "21b2170ccd77d8c0411799ab06643d23e083c57c3e90c6bb27fdd22dd99e81ab",
+      "profile": "mini",
+      "report": "reports/4fe8cfcb.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "BF036EBA-721F-45CE-8B0A-516E2D798CCB.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-tracks-observe_0_DD3F17BA-F44C-4DEE-8B22-0AEBF217D999.png",
+        "timestamp": 1795217289.521
+      }
+    },
+    {
+      "path": "captures/mini-berries.png",
+      "sha256": "999d6d6d7393bf7533c5f51cc7ef308cfd176df3397aa56b87d6255328e78bd1",
+      "profile": "mini",
+      "report": "reports/4fe8cfcb.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "E4B14138-CA7E-4BB1-B3CA-DA623C877B28.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-construction-wait-berries_0_304C6F1C-EC4C-4C89-841C-C155C50D1A8E.png",
+        "timestamp": 1795217281.185
+      }
+    }
+  ],
+  "toolkit": {
+    "observedTotal": 45,
+    "passed": 42,
+    "skipped": 3,
+    "skipReason": "sibling source-media dependent art fixtures unavailable; observed terminal unittest output"
+  },
+  "review": {
+    "important": "First-match overlapping targets reproduced RED in 0883480b; nearest eligible selection GREEN in final core/native runs",
+    "minorDeferred": "Observed-track marker and a later berry fallback may share a display anchor; berry remains actionable",
+    "nativeOverlapAttempt": "c9eaae04 failed overlap precondition; not credited as marker-choice RED",
+    "limits": [
+      "No spontaneous human noticing/enjoyment observation",
+      "No measured native pinch zoom claim",
+      "No process-kill-in-atomic-write-window experiment",
+      "No physical-device actions or metrics"
+    ]
+  },
+  "productCommit": "3759351de18f000458eb5c909c69f709f9192ef8"
+}

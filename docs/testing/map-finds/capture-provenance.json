@@ -1,0 +1,130 @@
+[
+  {
+    "path": "captures/phone-ignore-finds.png",
+    "sha256": "dabf5e57580c8b455e3c531fc8eb5d214dd0a7176d70cf510708dbcf5bfee14e",
+    "profile": "phone",
+    "report": "reports/4fe8cfcb.json",
+    "case": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+      "deviceName": "iPhone 16 Pro",
+      "exportedFileName": "D0E259CC-BFAC-474A-8C65-9E8619AD6426.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "economy-lab-positive-loop_0_050FCB8F-D4B2-40BD-94AE-8E0752FE6C0D.png",
+      "timestamp": 1795217143.68
+    }
+  },
+  {
+    "path": "captures/phone-reload.png",
+    "sha256": "74429d0e8ce7f4d93f9b9fb6d684cdefac736f2348764db24f19e7d13572393b",
+    "profile": "phone",
+    "report": "reports/4fe8cfcb.json",
+    "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+      "deviceName": "iPhone 16 Pro",
+      "exportedFileName": "1BE00EE2-0286-44D3-96DA-58CC419A2C40.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "map-finds-reloaded-checkpoint_0_C1D70A2B-9079-4C50-B2BF-AE2311FFC040.png",
+      "timestamp": 1795217201.3
+    }
+  },
+  {
+    "path": "captures/phone-tracks.png",
+    "sha256": "3a5b1599f4bbcbabc0d01f023f10234c5c356e1b5827de0865dd2b890fbe901c",
+    "profile": "phone",
+    "report": "reports/4fe8cfcb.json",
+    "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+      "deviceName": "iPhone 16 Pro",
+      "exportedFileName": "E7CD4B1A-FDE4-40ED-9556-0F0AACF44209.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "map-finds-tracks-observe_0_E229CE72-687C-4A9F-A6FC-05CBFC91009D.png",
+      "timestamp": 1795217183.24
+    }
+  },
+  {
+    "path": "captures/phone-berries.png",
+    "sha256": "62b448b139cfa59df6249d0abd66aae897d38d37ef5158045190b01f72101aff",
+    "profile": "phone",
+    "report": "reports/4fe8cfcb.json",
+    "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+      "deviceName": "iPhone 16 Pro",
+      "exportedFileName": "F25309CF-DC1E-4D06-AE27-EE9751CD3CCB.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "map-finds-construction-wait-berries_0_2691DD1E-13A5-4380-AE73-53CE84D8335B.png",
+      "timestamp": 1795217174.128
+    }
+  },
+  {
+    "path": "captures/mini-ignore-finds.png",
+    "sha256": "89f1bb1a4a3aa4909fd508cb8aefddce5499c4325badde976ed4da1135981561",
+    "profile": "mini",
+    "report": "reports/4fe8cfcb.json",
+    "case": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "3E9D8057-EF10-48CA-8F91-8EE88D67CE32.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "economy-lab-positive-loop_0_083AE980-B3F2-4577-A0D5-A3E53F963A79.png",
+      "timestamp": 1795217251.256
+    }
+  },
+  {
+    "path": "captures/mini-reload.png",
+    "sha256": "65b2886741a3c84e50b3675a12e01a5cd9b279fd714ce22c8f761cf261ebd411",
+    "profile": "mini",
+    "report": "reports/4fe8cfcb.json",
+    "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "22A10319-2AD4-433E-95F4-F777AD2D51F3.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "map-finds-reloaded-checkpoint_0_0380A640-97A0-478C-B567-F80ACA581C72.png",
+      "timestamp": 1795217307.162
+    }
+  },
+  {
+    "path": "captures/mini-tracks.png",
+    "sha256": "21b2170ccd77d8c0411799ab06643d23e083c57c3e90c6bb27fdd22dd99e81ab",
+    "profile": "mini",
+    "report": "reports/4fe8cfcb.json",
+    "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "BF036EBA-721F-45CE-8B0A-516E2D798CCB.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "map-finds-tracks-observe_0_DD3F17BA-F44C-4DEE-8B22-0AEBF217D999.png",
+      "timestamp": 1795217289.521
+    }
+  },
+  {
+    "path": "captures/mini-berries.png",
+    "sha256": "999d6d6d7393bf7533c5f51cc7ef308cfd176df3397aa56b87d6255328e78bd1",
+    "profile": "mini",
+    "report": "reports/4fe8cfcb.json",
+    "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "E4B14138-CA7E-4BB1-B3CA-DA623C877B28.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "map-finds-construction-wait-berries_0_304C6F1C-EC4C-4C89-841C-C155C50D1A8E.png",
+      "timestamp": 1795217281.185
+    }
+  }
+]

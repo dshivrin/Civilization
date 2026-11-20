@@ -150,3 +150,18 @@ for the real playable route, map gestures and reload. Run serially per simulator
 Export XCTest screenshots using `xcrun xcresulttool export attachments`.
 The Lab's60second survey uses the existing whole-forest adapter against real terrain,
 not production area exploration. Time pauses on dismissal; no offline catch-up.
+
+## Riverbend Map Finds (Goal 2, Debug lab only)
+
+The same separate Lab now adds deterministic berries (+3 Food, Gather once) and
+Observe-only deer tracks during its first actual construction wait. Tap a map
+marker with placement inactive; Dismiss leaves it untouched. Full Food capacity
+keeps the entire berry patch. Find state uses the existing lab transaction file;
+no ordinary save file or schema is involved.
+
+`python3 scripts/dev.py test` now runs14Debug-present/Release-absent probes.
+Add `--only-testing CivilizationUITests/RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload`
+to the documented Debug UI command for construction-wait inspection, dismissal,
+unresolved reopen, Gather/Observe, completion and resolved app relaunch. Keep
+`testEconomyLabGestureRouteAndReload` as the separate ignore-both gesture route.
+Run both on a phone and iPad; ordinary Release entry remains an independent check.

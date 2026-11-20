@@ -1,0 +1,50 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "3E9D8057-EF10-48CA-8F91-8EE88D67CE32.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "economy-lab-positive-loop_0_083AE980-B3F2-4577-A0D5-A3E53F963A79.png",
+        "timestamp" : 1795217251.256
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "22A10319-2AD4-433E-95F4-F777AD2D51F3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "map-finds-reloaded-checkpoint_0_0380A640-97A0-478C-B567-F80ACA581C72.png",
+        "timestamp" : 1795217307.162
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "BF036EBA-721F-45CE-8B0A-516E2D798CCB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "map-finds-tracks-observe_0_DD3F17BA-F44C-4DEE-8B22-0AEBF217D999.png",
+        "timestamp" : 1795217289.521
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "E4B14138-CA7E-4BB1-B3CA-DA623C877B28.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "map-finds-construction-wait-berries_0_304C6F1C-EC4C-4C89-841C-C155C50D1A8E.png",
+        "timestamp" : 1795217281.185
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload"
+  }
+]

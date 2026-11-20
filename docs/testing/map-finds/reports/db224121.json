@@ -1,0 +1,38 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": "mapFinds",
+    "simulator": [],
+    "only_testing": [],
+    "output": null,
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/4f27/Civilazation/Packages/GameCore",
+        "--filter",
+        "mapFinds"
+      ],
+      "exitCode": 1,
+      "status": "failed",
+      "tests": 0,
+      "durationSeconds": 2.776,
+      "log": "/private/tmp/civilization-qa-db2241215de640e38c0d59ac738c8260/core-debug.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-20T23:17:34.275854+00:00",
+  "revision": {
+    "commit": "d45dc0f34ac926ce661f95a958f5a493a362ddae",
+    "dirty": true
+  },
+  "status": "failed"
+}
