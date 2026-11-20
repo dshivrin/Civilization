@@ -14,8 +14,14 @@ The grouped village is the existing geometry-study fixture, not a production foo
 
 [Execution/evidence ledger](progress.md), [onboarding audit and proposed migration policy](../../design/proposals/2026-11-20-onboarding-gate-a.md), [execution plan](../../superpowers/plans/2026-11-20-native-visual-program.md).
 
-Original files, save schema, history, economy, signing and R2-07 remain unchanged. No reset, lost discovery or normal-path activation is authorized by this review. No sustained physical performance, full accessibility or human enjoyment acceptance is inferred.
+Original player data, save schema, history, economy and signing remain unchanged; R2-07 stays disabled. No reset, lost discovery or normal-path activation is authorized by this review. No sustained physical performance, full accessibility or human enjoyment acceptance is inferred.
 
 Remaining gates: approve appearance before promoting new road/connection/loading layers; onboarding plan explicitly requires **“Gate B — implement after review”** before production expedition/tutorial changes. Directional/level art, clean registered character animation frames, full production neighborhoods/roof joins, spatial audio and deferred defense/bridge gameplay are not delivered by these prototypes. The broader Goal remains active.
 
 Four generated character/wildlife concept sheets are preserved with exact prompts/hashes. Their raw transparency preview was initially misclassified as fringe contamination; standard browser RGBA compositing on gray shows no visible fringe at review scale. They remain unregistered concepts, not validated animation atlases or accepted runtime exports. Two original generations and two targeted edits were performed; all source bytes retained. Canonical media archive **fd912cb**, corrected composite-review metadata **9545673**. Media has no configured remote and has not been pushed. Existing twenty building masters are unchanged.
+
+## Installed review build
+
+Product **54d4f6e** is pushed and installed on the iPhone. Normal launch and process 9344 are verified. Fresh stable production-validated before/after-install backups prove all **10 save/library files byte-identical before launch**. No physical gallery taps, sustained device metrics or post-launch byte comparison are claimed. [Installation evidence](device-install.json).
+
+Next review decisions: appearance of the road/shared-yard/loading layers, and the whole-western-forest proposal before production onboarding Gate B. Recommend new-games-only adoption initially; preserve every existing discovered tile and paid expedition until an explicit additive rollout is specified. Directional/level art and registered character animation remain separate unfinished production work.

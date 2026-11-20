@@ -27,3 +27,8 @@ New scope is part of same active Goal; latest origin/main ccf33c6. Missing refer
 ## Queued isolated goals from latestmain d76e5a1
 
 EconomyFoundation andMapFinds arearchivedexactly. Finishcurrentvisualslice first. EconomyLab isseparateDebug-onlyprofile with32Food/32Wood, noWaterprofileflow, originalgamesuntouched; its ownreport/reviewbeforeproductionadoption. MapFindsberries/tracks dependsonten-minuteLabchecks, notambientwildlifeormonetization. Neitherisimplementedorapprovednormalgameplaybythisvisualtask. NativevisualGoalremainsactiveawaitingexplicitasset/ONGateBreviewandremainingV6production.
+
+
+## Verified native milestone and next acceptance decisions
+
+Product54d4f6e is pushed and installed/launched normally on the iPhone. Core263Debug/231Release+8exclusions and three-profile native review pass; all10files match exactly across installation before launch. GateA has an installed independent whole-forest preview with actual production-engine wood access proof. Owner can review the concrete gallery/phone lab before GateB. Recommend new-games-only onboarding initially, with all older discoveries/pending paid expeditions retained. This is a proposal, not a migration or cost/timing decision. V6 production artwork/integration remains open. See native-visual-program README/evidence.

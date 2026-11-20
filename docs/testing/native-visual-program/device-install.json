@@ -1,0 +1,82 @@
+{
+  "recordedAtUTC": "2026-11-20T18:17:30.356743+00:00",
+  "productCommit": "54d4f6e0bea8cf879e8504112005fe3814359322",
+  "configuration": "Debug",
+  "bundle": "com.civilization.seed",
+  "device": "iPhone 17 Pro Max",
+  "build": {
+    "status": "passed",
+    "log": "/tmp/civilization-native-visual-program-final-v5-device-build.log",
+    "logSHA256": "773a1c51e3ac8d6893416732c3280f57ba98dd9d8a1177086d3a579151b2eeda",
+    "binarySHA256": {
+      "Civilization": "43d7e35d28654da5f7399f41dbf88b912cf03c44069d1b0b2d64172f8adb0e45",
+      "Civilization.debug.dylib": "758a3756a8ee6bff2bd607c1d1cd33875ef2e697b2dc5d039e4e3a4d9e83749d"
+    }
+  },
+  "signature": {
+    "command": "codesign --verify --deep --strict --verbose=2",
+    "status": "passed"
+  },
+  "install": {
+    "status": "passed",
+    "receipt": "/tmp/civilization-native-review-54d4f6e-install.json"
+  },
+  "preservation": {
+    "beforeBackup": "/tmp/civilization-native-visual-review-device-before-54d4f6e",
+    "afterInstallBeforeLaunchBackup": "/tmp/civilization-native-visual-review-after-install-54d4f6e",
+    "bothStableDoubleCopiesAndProductionValidation": "passed",
+    "preserved": true,
+    "mode": "strict",
+    "originalFiles": 10,
+    "removed": [],
+    "added": [],
+    "changed": [],
+    "beforeSHA256": {
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json": "ac97fa6ba6605844b415a3d442384b277bee3927189e2bc5575cb9df25753392",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json.review": "7a3449f5a9d9679cc40e7aee80eefdfeead8a553b3a25311c541b18967273980",
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/8361DA8B-B77B-4276-B2AB-649699D36877/settlement-v1.json": "cd9381f2ce615c9346e926e03a5b5f4136ebc056474ce1305032796e373baf67",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "82ac66554eae3e632fe7f9f78e6be11a321da91a23d7879729e6e50d24419e1a",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "afterSHA256": {
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json": "ac97fa6ba6605844b415a3d442384b277bee3927189e2bc5575cb9df25753392",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json.review": "7a3449f5a9d9679cc40e7aee80eefdfeead8a553b3a25311c541b18967273980",
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/8361DA8B-B77B-4276-B2AB-649699D36877/settlement-v1.json": "cd9381f2ce615c9346e926e03a5b5f4136ebc056474ce1305032796e373baf67",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "82ac66554eae3e632fe7f9f78e6be11a321da91a23d7879729e6e50d24419e1a",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "note": "Byte/index comparison only; use validate-saves for production state validation."
+  },
+  "launch": {
+    "status": "passed",
+    "normalLaunchArguments": [],
+    "processIdentifier": 9344,
+    "processCheck": "passed",
+    "receipt": "/tmp/civilization-native-review-54d4f6e-launch.json",
+    "processReceipt": "/tmp/civilization-native-review-54d4f6e-process-search.json"
+  },
+  "limits": {
+    "postLaunchByteComparison": "not performed; normal gameplay may save",
+    "physicalGalleryInteraction": "not automated or observed",
+    "humanAcceptance": "pending",
+    "sustainedPhysicalPerformance": "not measured",
+    "runtimeArtReplacement": false,
+    "normalOnboardingActivation": false,
+    "newLoadingAppearanceDefault": false,
+    "r207Enabled": false,
+    "resetOrUninstall": false,
+    "saveInjection": false,
+    "signingOrAccountChanges": false
+  },
+  "diagnosticRetry": "Initial process URL CONTAINS filter was rejected by devicectl; supported --search succeeded. No app failure inferred."
+}
