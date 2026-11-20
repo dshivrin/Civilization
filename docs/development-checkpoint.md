@@ -1,3 +1,7 @@
+## Placement feedback investigation — 20 November 2026
+
+Owner confirms N/E/S/W letters change but building image stays fixed; initial jump no longer reproducible by owner. Logical rotation is implemented; actual directional sprite rendering remains missing behind the art review gate, not delivered by this patch. Separate native RED roof-tap origin jump and roof-drag camera pan are corrected with opaque candidate-body hit testing and retained grab offset; Debug-only bounded local geometry logs added. [Evidence](testing/placement-touch-2026-11-20/progress.md). No asset/schema/economy/signing change; saves preserved and R2-07 disabled. Animation work paused for this feedback; directional views/rendering remain the visual-rotation next requirement.
+
 ## Latest runtime iPhone update — 20 November 2026
 
 Owner install/fetch request completed: signed Debug e85f9ff installed/launched, process verified after fresh stable production-validated backup. All7files byte-identical before launch; post-launch original6save/backup files and prior library entries preserved. A new normal game changed during final double-copy; captured verification copy separately validates, final snapshot is not claimed stable. No physical taps/reset/signing/save injection. [Evidence](testing/device-update-2026-11-20/report.md). Building/UI prototypes remain review-only; R2-07 disabled. Latest animation plan c845b21 fetched: audit→PhaseA living-settlement prototypes→separate PhaseB atmosphere review; no runtime replacement or PhaseC without owner acceptance.

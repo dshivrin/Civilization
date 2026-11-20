@@ -132,6 +132,47 @@ final class RelocationUITests: XCTestCase {
         attachment.name = "terrain-and-production-indicators"; attachment.lifetime = .keepAlways; add(attachment)
     }
 
+    @MainActor func testGatheringPlacementPhysicalButtonAndDragRegression() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout: 20)); app.buttons["Build"].tap()
+        app.buttons["buildingCategory-Food and water"].tap()
+        app.buttons["build-gatheringShelter"].tap()
+        let rotate = app.buttons["rotatePlacement"]
+        XCTAssertTrue(rotate.waitForExistence(timeout: 5)); XCTAssertTrue(rotate.isEnabled)
+        let initial = app.staticTexts["placementTile"].label
+        for facing in ["East", "South", "West", "North"] {
+            rotate.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            XCTAssertEqual(rotate.value as? String, facing)
+            XCTAssertEqual(app.staticTexts["placementTile"].label, initial, "Rotate must not move the candidate")
+        }
+        let map = app.otherElements["settlementMap"]
+        let config = try GameConfiguration.bundled()
+        let numbers = initial.split { !($0.isNumber || $0 == "-") }.compactMap { Int($0) }
+        let x = try XCTUnwrap(numbers.first), y = try XCTUnwrap(numbers.dropFirst().first)
+        let camp = MapGeometry.point(for: config.map.campfire)
+        let world = MapGeometry.point(for: Tile(x: x, y: y))
+        let scale = map.frame.width > 1000 ? 1.1 : 0.95
+        let start = map.coordinate(withNormalizedOffset: CGVector(dx: 0.5 + (world.x - camp.x - 80) / scale / map.frame.width,
+            dy: 0.5 - (world.y - camp.y - 30) / scale / map.frame.height))
+        let roof = start.withOffset(CGVector(dx: 0, dy: -55 / scale))
+        roof.tap()
+        XCTAssertEqual(app.staticTexts["placementTile"].label, initial, "Tapping the candidate roof must not relocate its origin")
+        let cameraBefore = map.value as? String
+        roof.press(forDuration: 0.05, thenDragTo: roof.withOffset(CGVector(dx: 40, dy: 15)))
+        XCTAssertNotEqual(app.staticTexts["placementTile"].label, initial, "Dragging the visible candidate roof must move the candidate")
+        XCTAssertEqual((map.value as? String)?.components(separatedBy: "camera=").last, cameraBefore?.components(separatedBy: "camera=").last, "Candidate dragging must not pan the camera")
+        let moved = app.staticTexts["placementTile"].label
+        rotate.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        XCTAssertEqual(rotate.value as? String, "East")
+        XCTAssertEqual(app.staticTexts["placementTile"].label, moved)
+        capture("gathering-placement-physical-controls", app: app)
+        app.buttons["cancelPlacement"].tap()
+        XCTAssertTrue((map.value as? String ?? "").contains("1 buildings"))
+    }
+
     @MainActor func testLogicalRotationRoundTripsAndPersists() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"

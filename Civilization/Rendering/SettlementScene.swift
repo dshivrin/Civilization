@@ -87,7 +87,13 @@ final class SettlementScene: SKScene {
         }
         clampCamera()
     }
-    func previewContains(_ point: CGPoint) -> Bool { !ghostLayer.nodes(at: point).isEmpty }
+    /// The candidate's opaque sprite is a drag handle as well as its ground footprint.
+    func previewContains(_ point: CGPoint) -> Bool {
+        guard let root = ghostLayer.children.first(where: { ($0.userData?["buildingID"] as? Int) == -1 }),
+              let kindName = root.name,
+              let kind = configuration.buildings.first(where: { $0.assetKey == kindName })?.kind else { return false }
+        return root.calculateAccumulatedFrame().contains(point) && EraArt.contains(kind, point: root.convert(point, from: self))
+    }
     /// Hit visible silhouettes as well as ground footprints, without selecting the drag ghost.
     func buildingID(at point: CGPoint) -> Int? {
         for hit in nodes(at: point) {

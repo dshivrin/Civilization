@@ -45,6 +45,7 @@ struct WorldView: UIViewRepresentable {
         private var dragOffset = Tile(x: 0, y: 0)
         private var isDragging = false
         private var panTouchDownTile: Tile?
+        private var panTouchDownOnCandidate = false
         private var holdTouchDown: (buildingID: Int, tile: Tile)?
         weak var holdRecognizer: UILongPressGestureRecognizer?
         #if DEBUG
@@ -78,6 +79,7 @@ struct WorldView: UIViewRepresentable {
             let touched = IsometricProjection.tile(location)
             if recognizer is UIPanGestureRecognizer {
                 panTouchDownTile = touched
+                panTouchDownOnCandidate = scene.previewContains(location)
                 return true
             }
             if recognizer is UILongPressGestureRecognizer {
@@ -103,7 +105,10 @@ struct WorldView: UIViewRepresentable {
             let point = scene.convertPoint(fromView: recognizer.location(in: recognizer.view))
             if session.roadTool != nil { session.extendRoadStroke(to: IsometricProjection.tile(point)); return }
             if session.previewKind == nil, let building = building(at: point) { session.inspect(buildingID: building.id) }
-            else { session.tap(IsometricProjection.tile(point)) }
+            else if !scene.previewContains(point) { session.tap(IsometricProjection.tile(point)) }
+            #if DEBUG
+            PlacementDiagnostics.record("map-tap", session: session, scene: scene, point: point)
+            #endif
         }
         @objc func move(_ recognizer: UILongPressGestureRecognizer) {
             switch recognizer.state {
@@ -134,7 +139,12 @@ struct WorldView: UIViewRepresentable {
             #if DEBUG
             if recognizer.state == .began { panCount += 1 }
             #endif
-            defer { if recognizer.state == .ended || recognizer.state == .cancelled { updateAccessibility(in: recognizer.view) } }
+            defer { if recognizer.state == .ended || recognizer.state == .cancelled {
+                updateAccessibility(in: recognizer.view)
+                #if DEBUG
+                PlacementDiagnostics.record("pan-end", session: session, scene: scene, point: scene.convertPoint(fromView: recognizer.location(in: recognizer.view)))
+                #endif
+            } }
             if session.roadTool != nil {
                 switch recognizer.state {
                 case .began, .changed, .ended: session.extendRoadStroke(to: tile(recognizer))
@@ -145,9 +155,9 @@ struct WorldView: UIViewRepresentable {
             }
             if recognizer.state == .began {
                 let touched = panTouchDownTile ?? tile(recognizer)
-                isDragging = session.canDragPreview(from: touched)
+                isDragging = session.canDragPreview(from: touched) || (session.selectedKind != nil && panTouchDownOnCandidate)
                 if isDragging {
-                    if let origin = session.selectedTile, session.previewFootprint?.tiles(at: origin).contains(touched) == true {
+                    if let origin = session.selectedTile {
                         dragOffset = Tile(x: touched.x - origin.x, y: touched.y - origin.y)
                     } else { dragOffset = Tile(x: 0, y: 0) }
                 }
@@ -211,11 +221,26 @@ struct CandidateControls: UIViewRepresentable {
         rotateButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         rotateButton.setTitleColor(.white, for: .normal)
         rotateButton.accessibilityIdentifier = "rotatePlacement"; rotateButton.accessibilityLabel = "Rotate clockwise"
-        rotateButton.addAction(UIAction { [weak session] _ in session?.rotatePreview() }, for: .touchUpInside)
+        rotateButton.addAction(UIAction { [weak session, weak scene] _ in
+            guard let session, let scene else { return }
+            session.rotatePreview()
+            #if DEBUG
+            PlacementDiagnostics.record("rotate", session: session, scene: scene)
+            #endif
+        }, for: .touchUpInside)
         addSubview(rotateButton)
         confirmButton.accessibilityIdentifier = "confirmPlacement"
         cancelButton.addAction(UIAction { [weak session] _ in session?.cancel() }, for: .touchUpInside)
-        confirmButton.addAction(UIAction { [weak session] _ in session?.confirm() }, for: .touchUpInside)
+        confirmButton.addAction(UIAction { [weak session, weak scene] _ in
+            guard let session, let scene else { return }
+            #if DEBUG
+            PlacementDiagnostics.record("confirm-before", session: session, scene: scene)
+            #endif
+            session.confirm()
+            #if DEBUG
+            PlacementDiagnostics.record("confirm-after", session: session, scene: scene)
+            #endif
+        }, for: .touchUpInside)
         scene.onCandidateLayout = { [weak self, weak scene] in
             guard let self, let scene else { return }
             self.layoutControls(scene: scene)
@@ -247,3 +272,19 @@ struct CandidateControls: UIViewRepresentable {
         rotateButton.frame = CGRect(x: x - 24, y: y, width: 48, height: 48)
     }
 }
+
+#if DEBUG
+/// Bounded, local geometry-only evidence. Never reads/writes player saves or resource stocks.
+@MainActor private enum PlacementDiagnostics {
+    private static var lines: [String] = []
+    static func record(_ event: String, session: GameSession, scene: SettlementScene, point: CGPoint? = nil) {
+        guard session.isDragMode || event == "confirm-after" else { return }
+        let tile = session.selectedTile.map { "\($0.x),\($0.y)" } ?? "none"
+        let touch = point.map { String(format: "%.1f,%.1f", $0.x, $0.y) } ?? "none"
+        let line = "\(Date().timeIntervalSince1970) event=\(event) kind=\(session.previewKind?.rawValue ?? "none") tile=\(tile) facing=\(session.previewOrientation.rawValue) valid=\(session.placementIssue == nil) touchWorld=\(touch) \(scene.cameraAccessibilityValue)"
+        lines.append(line); if lines.count > 200 { lines.removeFirst(lines.count - 200) }
+        guard let cache = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return }
+        try? (lines.joined(separator: "\n") + "\n").write(to: cache.appendingPathComponent("civilization-placement-debug.log"), atomically: true, encoding: .utf8)
+    }
+}
+#endif
