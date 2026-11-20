@@ -1,0 +1,1 @@
+/Users/dima/.codex/worktrees/f15b/Civilazation/CivilizationUITests/RelocationUITests.swift:55: error: -[CivilizationUITests.RelocationUITests testEconomyLabGestureRouteAndReload] : XCTAssertEqual failed: ("Hut at 17,11 · tap map or drag preview") is not equal to ("Hut at 18,12 · tap map or drag preview") - Preview roof tap retains origin

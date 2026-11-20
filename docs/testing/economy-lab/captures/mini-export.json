@@ -1,0 +1,17 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "94804563-5E62-48DD-9841-01356D636BA2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "economy-lab-positive-loop_0_CB99A85F-A180-4197-9019-6BC8B62F75B1.png",
+        "timestamp" : 1795216088.032
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+  }
+]

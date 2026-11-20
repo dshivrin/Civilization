@@ -1,0 +1,63 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "both",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [],
+    "only_testing": [],
+    "output": null
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/f15b/Civilazation/Packages/GameCore"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 288,
+      "durationSeconds": 26.056,
+      "log": "/private/tmp/civilization-qa-9cbe932b15414bdf8ed8ce73a3923b42/core-debug.log"
+    },
+    {
+      "name": "core-release",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/f15b/Civilazation/Packages/GameCore",
+        "-c",
+        "release"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 235,
+      "durationSeconds": 29.02,
+      "log": "/private/tmp/civilization-qa-9cbe932b15414bdf8ed8ce73a3923b42/core-release.log"
+    },
+    {
+      "name": "release-api-exclusions",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/dima/.codex/worktrees/f15b/Civilazation/scripts/verify-developer-release.py"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 4.062,
+      "log": "/private/tmp/civilization-qa-9cbe932b15414bdf8ed8ce73a3923b42/release-api-exclusions.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-20T23:05:06.427965+00:00",
+  "revision": {
+    "commit": "a598da71c5315eb021d77c44e8d6bc4ec290e7c5",
+    "dirty": true
+  },
+  "status": "passed"
+}

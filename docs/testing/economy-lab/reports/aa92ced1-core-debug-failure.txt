@@ -1,0 +1,13 @@
+✘ Test economyLabStoreFailureNeverPublishesAndOtherModesRemainByteIdentical() recorded an issue at EconomyLabTests.swift:131:2: Caught error: .invalidConfiguration("Campfire cannot rotate")
+✘ Test economyLabOpeningCostsWorkersAndWaterlessGrowth() recorded an issue at EconomyLabTests.swift:14:2: Caught error: .invalidConfiguration("Campfire cannot rotate")
+✘ Test economyLabRejectsWrongProfileAndSurveyContradictions() recorded an issue at EconomyLabTests.swift:160:2: Caught error: .invalidConfiguration("Campfire cannot rotate")
+✘ Test economyLabOpeningCostsWorkersAndWaterlessGrowth() failed after 0.010 seconds with 1 issue.
+✘ Test economyLabStoreFailureNeverPublishesAndOtherModesRemainByteIdentical() failed after 0.010 seconds with 1 issue.
+✘ Test economyLabRejectsWrongProfileAndSurveyContradictions() failed after 0.010 seconds with 1 issue.
+✘ Test economyLabRecoveryHandlesEmptyBeforeAndAfterHutAndDelayedStart() recorded an issue at EconomyLabTests.swift:71:2: Caught error: .invalidConfiguration("Campfire cannot rotate")
+✘ Test economyLabSurveyIsContiguousPaidOnceAndReloadable() recorded an issue at EconomyLabTests.swift:33:2: Caught error: .invalidConfiguration("Campfire cannot rotate")
+✘ Test economyLabRecoveryHandlesEmptyBeforeAndAfterHutAndDelayedStart() failed after 0.011 seconds with 1 issue.
+✘ Test economyLabSurveyIsContiguousPaidOnceAndReloadable() failed after 0.011 seconds with 1 issue.
+✘ Test economyLabInvalidTransactionsAndCapacityStayDeterministic() recorded an issue at EconomyLabTests.swift:102:2: Caught error: .invalidConfiguration("Campfire cannot rotate")
+✘ Test economyLabInvalidTransactionsAndCapacityStayDeterministic() failed after 0.011 seconds with 1 issue.
+✘ Test run with 7 tests in 0 suites failed after 0.031 seconds with 6 issues.

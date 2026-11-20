@@ -1,0 +1,16 @@
+} (error = Error Domain=FBSOpenApplicationServiceErrorDomain Code=1 "Simulator device failed to launch com.civilization.seed.qa.xctrunner." UserInfo={NSLocalizedDescription=Simulator device failed to launch com.civilization.seed.qa.xctrunner., NSUnderlyingError=0x7c8310a100 {Error Domain=FBSOpenApplicationServiceErrorDomain Code=1 "The request to open "com.civilization.seed.qa.xctrunner" failed." UserInfo={BSErrorCodeDescription=RequestDenied, NSLocalizedDescription=The request to open "com.civilization.seed.qa.xctrunner" failed., NSUnderlyingError=0x7c8310a0d0 {Error Domain=FBSOpenApplicationErrorDomain Code=6 "Application failed preflight checks" UserInfo={BSErrorCodeDescription=Busy, NSLocalizedFailureReason=Application failed preflight checks}}, FBSOpenApplicationRequestID=0x348, NSLocalizedFailureReason=The request was denied by service delegate (SBMainWorkspace) for reason: Busy ("Application failed preflight checks").}}, NSLocalizedFailureReason=The request was denied by service delegate (SBMainWorkspace) for reason: Busy ("Application failed preflight checks")., FBSOpenApplicationRequestID=0x348, SimCallingSelector=launchApplicationWithID:options:pid:error:, BSErrorCodeDescription=RequestDenied})
+2026-11-21 01:02:30.465 xcodebuild[45296:9820529] [MT] IDELaunchReport: d7bacdf03e809380:d7bacdf03e8097c0:Launching CivilizationUITests Finished with error: Simulator device failed to launch com.civilization.seed.qa.xctrunner.
+Failure Reason: The request was denied by service delegate (SBMainWorkspace) for reason: Busy ("Application failed preflight checks").
+    SimCallingSelector = "launchApplicationWithID:options:pid:error:";
+Failure Reason: The request was denied by service delegate (SBMainWorkspace) for reason: Busy ("Application failed preflight checks").
+The operation couldn’t be completed. Application failed preflight checks
+Failure Reason: Application failed preflight checks
+    BSErrorCodeDescription = Busy;
+2026-11-21 01:02:30.465 xcodebuild[45296:9820529] [MT] IDELaunchReport: d7bacdf03e809380:d7bacdf03e809380: Finished with error: Simulator device failed to launch com.civilization.seed.qa.xctrunner.
+Failure Reason: The request was denied by service delegate (SBMainWorkspace) for reason: Busy ("Application failed preflight checks").
+    SimCallingSelector = "launchApplicationWithID:options:pid:error:";
+Failure Reason: The request was denied by service delegate (SBMainWorkspace) for reason: Busy ("Application failed preflight checks").
+The operation couldn’t be completed. Application failed preflight checks
+Failure Reason: Application failed preflight checks
+    BSErrorCodeDescription = Busy;
+	CivilizationUITests-Runner encountered an error (Failed to install or launch the test runner. (Underlying Error: Simulator device failed to launch com.civilization.seed.qa.xctrunner. The request was denied by service delegate (SBMainWorkspace) for reason: Busy ("Application failed preflight checks"). (Underlying Error: The request to open "com.civilization.seed.qa.xctrunner" failed. The request was denied by service delegate (SBMainWorkspace) for reason: Busy ("Application failed preflight checks"). (Underlying Error: The operation couldn’t be completed. Application failed preflight checks))))

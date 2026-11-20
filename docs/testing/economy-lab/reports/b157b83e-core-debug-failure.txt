@@ -1,0 +1,7 @@
+error: SwiftCompile normal arm64 failed with a nonzero exit code. Command line:     cd /Users/dima/.codex/worktrees/f15b/Civilazation/Packages
+/Users/dima/.codex/worktrees/f15b/Civilazation/Packages/GameCore/Tests/GameCoreTests/EconomyLabTests.swift:8:33: error: cannot find type 'RiverbendEconomyLab' in scope
+    |                                 `- error: cannot find type 'RiverbendEconomyLab' in scope
+/Users/dima/.codex/worktrees/f15b/Civilazation/Packages/GameCore/Tests/GameCoreTests/EconomyLabTests.swift:9:58: error: cannot find type 'RiverbendEconomyLab' in scope
+    |                                                          `- error: cannot find type 'RiverbendEconomyLab' in scope
+error: Build failed
+error: fatalError

@@ -1,0 +1,413 @@
+{
+  "goal": 1,
+  "base": "a598da71c5315eb021d77c44e8d6bc4ec290e7c5",
+  "mainInstructions": "3e1faa1ca9b350d1de918e83bd7610ab0128f1cd",
+  "profile": "riverbend-economy-lab-v1",
+  "status": "verified-for-lab-review",
+  "sourceSHA256": {
+    "Civilization.xcodeproj/project.pbxproj": "5e5a9829ecaa037c0185265ce743da8a7738cba328eb87c11efb876962ce0193",
+    "Civilization/UI/DeveloperToolsView.swift": "92f200e79149f77e72ccb3e02cde7653f12769193fed009fef44f85ebdb82613",
+    "Civilization/UI/EconomyLabView.swift": "79ae1a4c2693f74995cb4fc29990859514536fa5f204da1b13c5a1afb93efb51",
+    "Civilization/UI/NativeVisualReviewView.swift": "3e72edf23bbc666365fc7814d617745d066c5cadd24f6e03dfc1b87c484e68af",
+    "CivilizationUITests/RelocationUITests.swift": "3df5d6b4efce6de75b4ee8c679e88ce7a08c64ca56692cc0216d4b2c62b78af0",
+    "Packages/GameCore/Sources/GameApplication/RiverbendEconomyLab.swift": "6d8ba7e33c1b827f9f4c7ff92085afb5528cb0c9b7e65cad9e6a86ec773f62d3",
+    "Packages/GameCore/Sources/GameCore/Configuration.swift": "884b17680c721d128db040a20d9c6516fab188bb43e8ae9e7239fadb02da28a8",
+    "Packages/GameCore/Sources/GameCore/GameEngine.swift": "2564e5a512fbdb0b3aa05753cfd5b5ba20faa36095e1eb6f80f5764846752a3b",
+    "Packages/GameCore/Sources/GameCore/RiverbendEconomyProfile.swift": "1267c9bece586f4cd7764b817aa9f22871b49e13c7aca093b94a9de910e68bbc",
+    "Packages/GameCore/Sources/GameCore/Workforce.swift": "c820043f1031745f7fe4dab58e1176c7b2b4ad0dda5b9817fb74db685fb42b43",
+    "Packages/GameCore/Tests/GameCoreTests/EconomyLabTests.swift": "c1780ad7d48b17fe91ca0bdfb66797ae53d68491f72d722880c563bd2f65cb3a",
+    "Packages/GameCore/Tests/GameCoreTests/GroupedDeveloperVillageTests.swift": "19b2b2a92b34c6fc94f8ad8a30af94b7394a62a7e6e8e32c312049911999be3c",
+    "scripts/verify-developer-release.py": "73d11edfaf110148169b7a652a2080dd935465a4b45daa47bb28d5ed9a642457"
+  },
+  "runs": [
+    {
+      "report": "reports/c409b379.json",
+      "sha256": "517f589150c43c03902a1e9479c2709c4913460fa054466080d54cb02e274d62",
+      "originalDirectory": "/tmp/civilization-qa-c409b379596c4011aa6b64238f64c32a",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 1
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "33d16341290ce456d7113d99a292f983bf3f2fff2599b1dc22f933b11f174f21"
+      }
+    },
+    {
+      "report": "reports/7f66c733.json",
+      "sha256": "e84c9fea773946e9de7cce46cb2d73e8fb00a6905a33a16019204fc05dcc473f",
+      "originalDirectory": "/tmp/civilization-qa-7f66c73316ce4c88bdcdbfe01fea8078",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 1
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "836100353dcc95ce635d7522fd59fe43461ce5dc3f0a97ba46df1de0386316f2"
+      }
+    },
+    {
+      "report": "reports/ad92990b.json",
+      "sha256": "ea9227325b8dc093a96fe0a0b903b3f9d0f4043d5a2333f5de2feb32eb012c55",
+      "originalDirectory": "/tmp/civilization-qa-ad92990b1f2a41dba963b97d104f2442",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 1
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "9e11b364ced3cd404d00fbdbf62695ae564d226ff4c5e3467c0052deb1b88697"
+      }
+    },
+    {
+      "report": "reports/b157b83e.json",
+      "sha256": "f0416b6fd37dc9ebf044c0895550a68a69eddac5274c5d5abbe0f5d8489f4bfe",
+      "originalDirectory": "/tmp/civilization-qa-b157b83ee60e4fc9ba4d5c0f139575be",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 1
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "1dfd6b5c1a9644cd7ac9885079cc540d5218fda6a69b19691ce2487db5325edd"
+      }
+    },
+    {
+      "report": "reports/aa92ced1.json",
+      "sha256": "754b6d9a89270e117e5cbb68d1ad3e7070fdfb5478ed3c8653fcfe2b40770534",
+      "originalDirectory": "/tmp/civilization-qa-aa92ced1a4bd4370844d97e8264b3c99",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 7,
+          "exitCode": 1
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "17fb52ef3f2a024cd84f7fc45f562e66df8882cffd51fc94c1ff9063bbe18677"
+      }
+    },
+    {
+      "report": "reports/0be3057f.json",
+      "sha256": "6138083ddf50657d3bf0382b4dd4d521225f4c6acd96b0e5f1f4e38e4548ffd3",
+      "originalDirectory": "/tmp/civilization-qa-0be3057f4ee24e488f195c1d3d0c0ddf",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 6,
+          "exitCode": 0
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "e761b5b11dd34ece0c62aed063b315721dd8ea6fbbcaacf5b713cf0fef0895bf"
+      }
+    },
+    {
+      "report": "reports/1b616c62.json",
+      "sha256": "dd2c90e521c8bd27569934018aeff76c0ef933badb8613b37c851a872ac01551",
+      "originalDirectory": "/tmp/civilization-qa-1b616c62829a4954912189f0382396f8",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 285,
+          "exitCode": 0
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235,
+          "exitCode": 0
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null,
+          "exitCode": 0
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "d2634bcc38717bf47e1996efa3a079c6e47f78c9db05a5bb1a0a6fd35c8a6924",
+        "core-release.log": "482b6d0b1fac625e2e14c562f0a644452ac92adb0c4ed58f7fbca75b2ecd301b",
+        "release-api-exclusions.log": "65ef1f59f93731de6c88da71deb000988a0c30ebcf4448e2e712ec635bbf5377"
+      }
+    },
+    {
+      "report": "reports/eeb734fa.json",
+      "sha256": "11c42b97332a353c0849f0cb63495aa3c66a0facd5340ec5f9e1470c54b2fda1",
+      "originalDirectory": "/tmp/civilization-qa-eeb734fa19aa4f67b233e25bf3a6b289",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 0
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ],
+      "originalLogSHA256": {
+        "ui-debug-1.log": "1effa2f048083a76462304230238bddda1885cdfb1052cf66ae2b0baf4dd7c16",
+        "ui-debug-2.log": "3edf3602260c5df3f240917927b8b32df894a4b21a2000d68b08cbd795409ebc"
+      }
+    },
+    {
+      "report": "reports/7b91aa93.json",
+      "sha256": "585d1dce3a6a3dc3ec74991b58424ceaca9cfb9d3b18c41af24e5c9cf82b132b",
+      "originalDirectory": "/tmp/civilization-qa-7b91aa93b34c4aeca4f836f1548e473a",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ],
+      "originalLogSHA256": {
+        "ui-release-1.log": "505082ab141f303e0018d163e12862c9e2ea174b3225970c243a2bd461901863"
+      }
+    },
+    {
+      "report": "reports/cc8d3794.json",
+      "sha256": "8bcbd45755b0687bb931030d94934458812521c1c126f3615c927a50464d2af7",
+      "originalDirectory": "/tmp/civilization-qa-cc8d379459c44c2db46ebbdde7635982",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 8,
+          "exitCode": 0
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "508226a637467b61aa649cc297104bf038c74b3c25b8f97bd33e375d1ca51c4a"
+      }
+    },
+    {
+      "report": "reports/465d8e1f.json",
+      "sha256": "288778e703164989012b3a6ee8b4e316cf6e08e02413fe19f5c7f7b8074ff939",
+      "originalDirectory": "/tmp/civilization-qa-465d8e1f2b6f41c4807ef8a9bd7c7c2f",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "failed",
+          "tests": 1,
+          "exitCode": 65
+        }
+      ],
+      "originalLogSHA256": {
+        "ui-debug-1.log": "fca7a5bbe2934c9a2d96423722a2992a4af32ad321feb33de995651dca5fc643"
+      }
+    },
+    {
+      "report": "reports/0f6cd1ac.json",
+      "sha256": "1620df24423f6b4692abdf9573f44a9ec746921ac259f5e37938b7cf96c6e727",
+      "originalDirectory": "/tmp/civilization-qa-0f6cd1ac7bd145d88fdfb89ea5c94b3f",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 65
+        }
+      ],
+      "originalLogSHA256": {
+        "ui-debug-1.log": "6f7b9786b63748d85e875fa30e46455daaaf4bf06ae672d3369bc048efe60491"
+      }
+    },
+    {
+      "report": "reports/5c04b714.json",
+      "sha256": "c0d2e2126b33c7ec67a4c6eadf1e4bcb12479fc10eafe0297bd21c74efebf030",
+      "originalDirectory": "/tmp/civilization-qa-5c04b7140a0c497cbe21b63e0f1ebb1a",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ],
+      "originalLogSHA256": {
+        "ui-debug-1.log": "638856dc6628a9d9bab11c5c69dc6a9b890d39c8d5a3b1553cd7878a0f128940"
+      }
+    },
+    {
+      "report": "reports/834634e4.json",
+      "sha256": "e41408afffc5c694975cd163d64164acdb3d9c4958d45f796aea7cb1b512ee60",
+      "originalDirectory": "/tmp/civilization-qa-834634e46c214ef38b25d5b01d7140f8",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 65
+        }
+      ],
+      "originalLogSHA256": {
+        "ui-debug-1.log": "f21a843a80fe7936ca733f90ca50a1ac8502ce1ae96310bbab1916da3455c53f"
+      }
+    },
+    {
+      "report": "reports/39df5c10.json",
+      "sha256": "3fe17880727d388109a68c3860ea56a45addc1ce1c71858297ba31702049ef0a",
+      "originalDirectory": "/tmp/civilization-qa-39df5c104ad74fb5a0114a9c70cd9c25",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "failed",
+          "tests": 1,
+          "exitCode": 65
+        }
+      ],
+      "originalLogSHA256": {
+        "ui-debug-1.log": "d908ad06488f2a396ae105776d907e5c8947e91284125f4764d1d02dcb819f03"
+      }
+    },
+    {
+      "report": "reports/9cbe932b.json",
+      "sha256": "2e61570da48951a77eb40b7d25f09e77110c4e970c9f3014fe573db7aee75bcb",
+      "originalDirectory": "/tmp/civilization-qa-9cbe932b15414bdf8ed8ce73a3923b42",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 288,
+          "exitCode": 0
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235,
+          "exitCode": 0
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null,
+          "exitCode": 0
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "89152a6e949ced3d144e8c549ddeba79a24c735a80cbbae962ac0b8c130e0bdc",
+        "core-release.log": "f1bea3b7ac470a0a0248bcd44fea72a9d9ebc303d6b4e7c14f9a037cbffed8f0",
+        "release-api-exclusions.log": "65ef1f59f93731de6c88da71deb000988a0c30ebcf4448e2e712ec635bbf5377"
+      }
+    },
+    {
+      "report": "reports/cc6a7d88.json",
+      "sha256": "69f7412e150e2827555e9f8df13e5971583773c74b45dbac6541dd58b9313ed0",
+      "originalDirectory": "/tmp/civilization-qa-cc6a7d8822324bfebcd48a07b48f8186",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 9,
+          "exitCode": 0
+        }
+      ],
+      "originalLogSHA256": {
+        "core-debug.log": "b6a9da6dd8ba61d42599bed4a2ae6f2c84a62285ce19f66f2b584f0d271c17f0"
+      }
+    },
+    {
+      "report": "reports/e1eb4573.json",
+      "sha256": "db2b897e80bcd76a8d6aaa75cc4b6d3a790156366a55edfefce884457fda63c9",
+      "originalDirectory": "/tmp/civilization-qa-e1eb45733fb04a2a9300c6a66e7ff807",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ],
+      "originalLogSHA256": {
+        "ui-debug-1.log": "0efd6667025f65787bceedc84098d6e296ad6901349683f6b05b1dd533f0532a",
+        "ui-debug-2.log": "8759930bf52aef5dde87d5c342d39ad0fc0f635103687175c9cc152f2b95cb62"
+      }
+    }
+  ],
+  "captures": [
+    {
+      "profile": "phone",
+      "file": "captures/phone.png",
+      "sha256": "97575e6ac8b25ff9b28e0ff80607cb4c4d1f62385e80260c37d882d8457e38c5",
+      "device": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+      "test": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+      "timestamp": 1795216024.365,
+      "sourceResultReport": "reports/e1eb4573.json"
+    },
+    {
+      "profile": "mini",
+      "file": "captures/mini.png",
+      "sha256": "e9daaa1641a5815ddcce7970f49b3d1c5b860137dbc0e82fe1f1e2c4f5a2053a",
+      "device": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "test": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+      "timestamp": 1795216088.032,
+      "sourceResultReport": "reports/e1eb4573.json"
+    }
+  ],
+  "trace": [
+    "LAB_TRACE start seconds=0.0 food=32.0 wood=32.0 foodNet=-1.0 woodNet=0.0 people=3",
+    "LAB_TRACE hut seconds=15.0 food=31.75 wood=20.0 foodNet=-1.0 woodNet=0.0 people=3",
+    "LAB_TRACE survey-paid seconds=15.0 food=23.75 wood=20.0 foodNet=-1.0 woodNet=0.0 people=3",
+    "LAB_TRACE forest seconds=75.0 food=22.75 wood=20.0 foodNet=-1.0 woodNet=0.0 people=3",
+    "LAB_TRACE woodcutter seconds=95.0 food=22.416666666666668 wood=16.0 foodNet=-1.0 woodNet=6.0 people=3",
+    "LAB_TRACE gatherer seconds=115.0 food=22.083333333333336 wood=10.0 foodNet=7.0 woodNet=6.0 people=3",
+    "LAB_TRACE minute10 seconds=600.0 food=60.0 wood=58.5 foodNet=5.0 woodNet=6.0 people=5"
+  ],
+  "pythonToolkit": {
+    "passed": 42,
+    "skipped": 3,
+    "reason": "art-audit sibling media fixture unavailable; unchanged art"
+  },
+  "limitations": [
+    "deterministic real-terrain lab adapter, not production area exploration",
+    "one of each opening building; time pauses while closed; no offline catch-up",
+    "no human acceptance, physical save access/install or sustained hardware metrics",
+    "Map Finds and all later goals remain gated"
+  ],
+  "productCommit": "5001588eab83299475f28076fb3e670c83fbb02d"
+}
