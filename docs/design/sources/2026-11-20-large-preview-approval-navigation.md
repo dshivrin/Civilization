@@ -8,3 +8,5 @@ Direct Product Owner instructions in this Codex conversation:
 4. “Always allow all Xcode builds and all swift test runs”; “xcodebuild and swift test commands are always allowed”; screenshot of shell-wrapped Xcode test prompt followed by “Those commands are also always approved.” Standing build/test authorization includes their ordinary wrappers/logging, not arbitrary shell programs. Use direct commands so the saved `xcodebuild` and `swift test` permission rules match.
 
 Human size acceptance, engineering verification and human navigation/art/enjoyment acceptance are separate. Existing map coordinates, immutable campfire, normal saves, rewards and all previously approved/deferred backlog remain protected.
+
+5. After confirming device unlock and successful launch, Dima states: **“Yes, navigation improved. Approved, commit and report to chat.”** This explicitly accepts current physical navigation and authorizes committing/reporting to the established Master Development Coordination chat. It does not imply acceptance of all art/enjoyment or an unchosen normal-world migration policy.

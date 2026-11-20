@@ -36,11 +36,18 @@
       "byteIdenticalBeforeLaunch": true
     }
   ],
-  "normalLaunchVerified": false,
+  "normalLaunchVerified": true,
   "privateSaveContentsCommitted": false,
   "normalMapGeometryRoadsResearchDiscoveryReservesPreserved": true,
-  "launchBlockedBy": "iOS device locked",
   "postInstallExtraCopyProductionValidated": true,
   "developerByteIdenticalUntilLaunch": true,
-  "productCommit": "2ab7492"
+  "productCommit": "2ab7492",
+  "launchVerifiedAfterUserUnlock": true,
+  "postLaunchProductionValidation": true,
+  "developerByteIdenticalAfterOrdinaryLaunch": false,
+  "libraryValidatedAfterLaunch": true,
+  "navigationApprovedByProductOwner": true,
+  "sizeApprovedByProductOwner": true,
+  "developerGeometryRoadsIDsAndHistoryPreservedAfterResume": true,
+  "developerResumedProgressNote": "Geometry/roads/IDs and all researched/earned/discovered sets retained; resources/deposit depletion/time advanced after preview resume. No byte-identity claim after use."
 }

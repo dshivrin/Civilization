@@ -1,5 +1,7 @@
 # Civilization design status ledger
 
+Human acceptance update: Dima confirms navigation improved and approves the current64×48size/navigation build on the physical iPhone. [Evidence](../milestones/large-developer-village.md). Broader art/enjoyment/sustained performance and normal migration remain separate.
+
 64×48size explicitly approved by Dima following installed grouped developer preview. Added Debug-only scenario/navigation corrections are engineering delivery, not full S1-Geography/normal migration or physical smoothness acceptance. [Report](../milestones/large-developer-village.md). Existing backlog retained.
 
 

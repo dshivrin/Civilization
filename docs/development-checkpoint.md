@@ -1,5 +1,15 @@
 # Civilization durable development checkpoint
 
+## Human navigation acceptance and reporting — 20 November 2026
+
+Dima confirms **“Yes, navigation improved. Approved, commit and report to chat.”** Size64×48and the current physical navigation correction are human-approved. Installed product2ab7492launch now succeeds after explicit unlock; both normal/developer states production-validate, normal world/history retained and large preview geometry/road/ID/history retained while resumed simulation advances. Metadata correctly distinguishes pre-launch exact3file preservation from changed developer bytes after use. Commit this launch/acceptance evidence and send the actual handover to the verified Master Development Coordination chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9, then record dispatch. No need to re-ask permission. Broader art/enjoyment/thermal/battery and normal-world migration policy remain separate; preserve all backlog and same Goal/session.
+
+
+## Navigation update launch verified after unlock — 20 November 2026
+
+Dima answered “Unlocked — retry launch.” Current installed product2ab7492 now launches successfully. Fresh /tmp/civilization-navigation-unlocked-launch-verified copy production-validates original normal32×24(5buildings/15roads) and grouped64×48developer(64buildings/566roads); version1library selects legacy. Normal geometry/map/roads/research/deposit reserves/IDs and earned/discovered history retained. Developer geometry/roads/IDs and all researched/earned/discovered sets retained; resumed preview time/resources/deposit depletion advanced, so post-use developer bytes differ legitimately. [Updated device evidence](testing/grouped-village/device-preservation.json). This supersedes the final-update Locked blocker below. Human physical smoothness remains pending; Resume developer save continues the large preview. No reset/reinstallation or further product changes in this verification.
+
+
 ## Current64×48preview/navigation checkpoint — 20 November 2026
 
 Product **2ab7492**, spec20461af, pushed to personal dshivrin/Civilization first-era-review. Actual handover [issue1comment7034130861](https://github.com/dshivrin/Civilization/issues/1#issuecomment-7034130861). Media697b486 verified clean/unchanged. Final signed update is installed; iOS Locked denied launch, with both original normal and64×48developer files production-valid and exact3file preservation verified. Unlock question remains pending.
