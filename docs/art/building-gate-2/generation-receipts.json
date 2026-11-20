@@ -1,0 +1,132 @@
+[
+  {
+    "id": "hut-l1",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-65e95bf2-96c3-4ddb-ae4e-e2196a1d933a.png",
+    "reference": "docs/art/sources/buildings/hut.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "dda5ee5ad0c403aadd7c8f4a9b226500efcb8d79efacd0ec3cf3bfc9a0b3609e",
+    "promptSHA256": "51e470c5c60d5f31e6916c8ee7ef079360a55d2954d14d27759dfd2d44183a1f",
+    "referenceSHA256": "7bef165ba154b891253d45487522819d42e3c6573696347e1a174d1e6cd0ac30"
+  },
+  {
+    "id": "hut-l2",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-dffdf6f9-16c4-4209-b0f2-04b2b154c40e.png",
+    "reference": "docs/art/building-gate-2/assets/hut-l1.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "7cfa0eccc80d59bdadb5614f0a356caa8a3cc4df3c10c975527c11a569a9a6ec",
+    "promptSHA256": "845031e5dd678973fac081110f449d2412db8d836b2f6207c12fe0652d06f71e",
+    "referenceSHA256": "dda5ee5ad0c403aadd7c8f4a9b226500efcb8d79efacd0ec3cf3bfc9a0b3609e"
+  },
+  {
+    "id": "hut-l3",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-9d6dd195-96f2-4c7a-b2ec-dc6b3cc3273f.png",
+    "reference": "docs/art/building-gate-2/assets/hut-l1.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "a4c5a419578b0a296ae059916d15f8903a79e88f35bef4c643d024ddac7a50a4",
+    "promptSHA256": "a56bfad605e418827d4d89644a315250100eede9168e8ebf1cfac713f09952ba",
+    "referenceSHA256": "dda5ee5ad0c403aadd7c8f4a9b226500efcb8d79efacd0ec3cf3bfc9a0b3609e"
+  },
+  {
+    "id": "gathering-l1",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-d455f130-89ce-4690-aa60-da23a8c59e4b.png",
+    "reference": "docs/art/sources/buildings/gatheringShelter.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "3e643b787211ae34af161e389e353d5462fd051a7f95f94daa1c1d3f680ad6a1",
+    "promptSHA256": "b5aac85ee5339601fe29ec822dc2fe904e73833d7c53e7a114f5c552ec68c5db",
+    "referenceSHA256": "f3a24ef79b88f06bfe507f61afd4f1b0b297477044b5162b36206e7a24a25273"
+  },
+  {
+    "id": "storage-l1",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-ac0219f0-4736-44a3-919b-60eb5a0bc3bf.png",
+    "reference": "docs/art/sources/buildings/storehouse.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "b0fa40e5fc6b0630fe732e1f194cbc2b951da9ee1a01d54a6a25fad9c7a821d9",
+    "promptSHA256": "98b1700edd671c54f7fd59bff8e3b689ebca9d1ad78ef5ab533c2ac2d8ecc6b0",
+    "referenceSHA256": "82c95e978bd6a795b355a9183d4d64cf5a93f86a9117bef14b208eb037224ee3"
+  },
+  {
+    "id": "fishing-l1",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-a0f89b54-2057-4685-aea7-019e00c737d1.png",
+    "reference": "docs/art/sources/buildings/fishingShelter.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "fbb77ddb96bb85a2998cde4e479f2040dc749c73654c7668d9dda4d3aa364803",
+    "promptSHA256": "2871144bf3e96e3dd4f9b4712291e8ec9def9566840e944ad39e27b67506b5e5",
+    "referenceSHA256": "0457dda0441b166a1b8f7bab4431018d29545009642b92b19d497c61756c9822"
+  },
+  {
+    "id": "storage-l2",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-e974d59f-9797-4f75-b993-147c7737e6b1.png",
+    "reference": "docs/art/building-gate-2/assets/storage-l1.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "db855feb72ec120df336337aec8470e4068628ccdc15d8564ff5f6435db43b63",
+    "promptSHA256": "4db6d5eaf2fc7fc9ef4048e7784b38c7fff09e81d56c0424b78350015a84fe12",
+    "referenceSHA256": "b0fa40e5fc6b0630fe732e1f194cbc2b951da9ee1a01d54a6a25fad9c7a821d9"
+  },
+  {
+    "id": "storage-l3",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-d465ebdb-7cbf-4049-915f-e02c0262f18f.png",
+    "reference": "docs/art/building-gate-2/assets/storage-l1.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "ae6f02f93bb607343d123abb4964d283e93d2034b5347edc70d0d5ee93e11834",
+    "promptSHA256": "6d5900118ef21f0f957686e484502de7b63ae38b0c029b40b3dabc82a070c264",
+    "referenceSHA256": "b0fa40e5fc6b0630fe732e1f194cbc2b951da9ee1a01d54a6a25fad9c7a821d9"
+  },
+  {
+    "id": "fishing-l2",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-d455be1c-c51f-465f-9ea6-da2eb46cbf39.png",
+    "reference": "docs/art/building-gate-2/assets/fishing-l1.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "862d0b42e4fefb32d8fd453f83b24fc372e081df17fc8f163563dcade44c7e8f",
+    "promptSHA256": "b1019ff5f8aef335bc2c81ce6ed7dcf9b861c99d4215f96e389035272515e33f",
+    "referenceSHA256": "fbb77ddb96bb85a2998cde4e479f2040dc749c73654c7668d9dda4d3aa364803"
+  },
+  {
+    "id": "fishing-l3",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-c987e851-090b-4ffd-8694-8d59ffb96315.png",
+    "reference": "docs/art/building-gate-2/assets/fishing-l1.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "570ff366453711d0a5bb842d77ea77468a1732cdec14a0c2127589f82f7fc711",
+    "promptSHA256": "4dd81a8d23aee739dd1cb31b4cf62fb19fa4e810da592f1ce8865b4209d7fbe4",
+    "referenceSHA256": "fbb77ddb96bb85a2998cde4e479f2040dc749c73654c7668d9dda4d3aa364803"
+  },
+  {
+    "id": "bridge-x",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-8e72a54f-7d9a-4c8f-bd1c-b74f23f190b9.png",
+    "reference": null,
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "923bc3101330ccf3900121d2209cd745b3b93409bb5afaac96bbd518eabf9c59",
+    "promptSHA256": "c3ab59115090425ea4914a8464ac7a8148133037c350917cb28fe5850c6d1fe8",
+    "referenceSHA256": null
+  },
+  {
+    "id": "bridge-y",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-92ea351e-1915-45b1-83aa-a7e9370253c7.png",
+    "reference": null,
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "736c89576fecdbc5a36714e598758939a35b4b0c5ed704dda97c745a53c29d6f",
+    "promptSHA256": "cf8bdcbe33581bab75aa7edd5be4f50981ac68be81e5569a7c12cd9d82f01d56",
+    "referenceSHA256": null
+  },
+  {
+    "id": "fishing-opposite-l1",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-47109d0e-fd81-47b4-b7bf-d58f4d8c55cb.png",
+    "reference": "docs/art/building-gate-2/assets/fishing-l1.png",
+    "tool": "built-in image_gen",
+    "transparentRequested": true,
+    "outputSHA256": "e0770983e65f39103692df1976dac2b09f3266b6ec9b6092a1e8c9fa1caad592",
+    "promptSHA256": "7199d759e9d641f92dc8bfcaec5a2d8873e704d18dfec8ab7dd55f6ef7847647",
+    "referenceSHA256": "fbb77ddb96bb85a2998cde4e479f2040dc749c73654c7668d9dda4d3aa364803"
+  }
+]

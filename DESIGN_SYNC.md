@@ -1,3 +1,7 @@
+## Building Art Gate 2 — visual prototypes for review
+
+Owner directly permits Gate 2 while Gate 1 geometry/contact anchors remain unapproved. [Review gallery](docs/art/building-gate-2/index.html), [scope/provenance](docs/art/building-gate-2/README.md) and [evidence](docs/testing/building-art-gate-2/progress.md):13individual transparent candidates; selected L1–L3families, neighborhoods/storage mixes and fishing/bridge studies on seven actual river fixtures. Proposed framing/contacts and bridge endpoints are not accepted geometry. No runtime art, gameplay, saves, media promotion or UI Themes/Animations change. R2-07 remains disabled; defense gameplay separate; stop for visual selection/refinement before mass production/integration.
+
 ## Building Art Gate 1 — audit delivered for visual review
 
 Owner's “Implement” authorizes the retrieved Gate 1 brief. The [20-master audit and measured atlas](docs/art/building-gate-1/audit.md), [proposed geometry/river/modular contracts](docs/art/building-gate-1/contracts.md) and [verification ledger](docs/testing/building-art-gate-1/progress.md) preserve current footprint/save/art bytes. All20masters exist; distinct level/direction exports and semantic contacts are missing. Media remains clean697b486, local-only. Stop for visual review before Gate 2 production/integration. No palisade/bridge/resource gameplay or R2-07 normal activation. Older backlog and acceptance gates remain.

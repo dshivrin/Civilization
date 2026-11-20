@@ -1,0 +1,49 @@
+{
+  "status": "passed-review-artifacts-only",
+  "baseline": "8e1c6fc",
+  "builtInImagegen": true,
+  "pngConcepts": 13,
+  "nativeAlphaImages": 13,
+  "edgeCoveredPixels": 0,
+  "clusterScenes": 5,
+  "levelPairOptions": 6,
+  "riverFixtures": 7,
+  "pythonTests": 20,
+  "independentReview": "Two important findings reproduced by four RED tests and fixed GREEN; no remaining reported finding",
+  "browser": {
+    "engine": "native CUA in-app browser",
+    "desktop": "default viewport inspected",
+    "phoneOverride": [
+      390,
+      844
+    ],
+    "phoneClientAndContentWidths": [
+      375,
+      375
+    ],
+    "consoleErrors": [],
+    "interactions": [
+      "L2/L3 pairing",
+      "opposite-facing fish",
+      "navigation to comparisons",
+      "reload per-bank orientation warnings"
+    ],
+    "viewportReset": true
+  },
+  "limitations": [
+    "Contact/anchor geometry unreviewed; silhouette frames are proposals",
+    "Quarter-turn fish views missing; bend edge choice required; nominal side matches uncertified",
+    "Bridge sockets hand-estimated, residual4.9X/3.5Y world units; no functional crossing test",
+    "No production media promotion/runtime export, gameplay changes or physical install"
+  ],
+  "media": {
+    "commit": "697b486",
+    "clean": true,
+    "remote": null
+  },
+  "r2_07": "disabled",
+  "toolHashes": {
+    "scripts/verify-art.swift": "5304113686fe18093ee933cd1bb57cd03c4cceb1100817d4e1d3f23e392aa6ed",
+    "scripts/build-art-gallery.py": "5a1df4d9bc6ec7ae2cfefbe5ff159cda4c52e107477d3131f63e163e5f871cab"
+  }
+}

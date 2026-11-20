@@ -95,3 +95,10 @@ swift scripts/verify-art.swift --audit-output NEW_DIRECTORY \
 ```
 
 The optional audit reserves a new output directory exclusively and rejects destinations inside the resolved media root, including symlinked parents. It validates a known asymmetric PNG coordinate fixture, measures all20masters/world exports/thumbnails, checks source/registry/export hashes, and writes `inventory.json`, a standalone HTML/SVG footprint atlas, and actual-map river fixtures. It never changes source art, configuration, saves or the media repository. Alpha bounds describe silhouettes, not semantic ground contact; atlas and river map are diagnostics, not in-game screenshots or human visual acceptance. Standard Swift cache access is required within host permissions. See [Gate 1 audit](../docs/art/building-gate-1/audit.md).
+
+
+## Gate 2 review gallery data
+
+`swift scripts/verify-art.swift --inspect-images IMAGE.png ...` prints read-only native alpha/bounds/hash records without enforcing the historical512/144runtime limits on new review masters. It does not edit pixels or remove backgrounds.
+
+`python3 scripts/build-art-gallery.py` verifies the preserved Gate 2 receipts, prompts, PNG hashes and Gate 1 seed hash, then regenerates review-only `manifest.json` and `gallery-data.js`. The gallery uses local files and can open directly; serving the repository root over loopback also works. Its silhouette framing, yard joins and bridge deck endpoints are proposals, never gameplay/save or runtime art changes. See [review scope](../docs/art/building-gate-2/README.md).

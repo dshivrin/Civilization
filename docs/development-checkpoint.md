@@ -1,3 +1,9 @@
+## Building Art Gate 2 handoff — 20 November 2026
+
+Owner explicitly permits prototypes with unreviewed Gate 1 geometry. [Gallery](art/building-gate-2/index.html), [scope/limits](art/building-gate-2/README.md), [evidence](testing/building-art-gate-2/progress.md).13built-in imagegen outputs, each individual/transparent and copied unchanged; exact prompts/source/reference hashes. Hut/storage/fishingL1–L3, gatheringL1, opposite-fishingL1 and two bridge views; five cluster scenes, six level-pair choices, seven real map fixtures. Contact/anchor calibration and bridge offsets remain unapproved proposals. Browser desktop/phone checks and20tooling tests pass; no runtime integration or save/media mutation. Independent review findings fixed with four RED→GREEN regressions; final commit tracked in ledger/history.
+
+Next: owner visual selection/refinement before broader production or export. Preserve current first-era-review and original media697b486local-only; R2-07 disabled; defense gameplay and UI Themes/Animations separate. No human acceptance or physical install inferred.
+
 ## Building Art Gate 1 handoff — 20 November 2026
 
 Direct “Implement” follows retrieved Master reply34783060-ac9e-4dc0-9c8d-792ae091dbcc and approved building-media plan. [Audit](art/building-gate-1/audit.md), [proposed contracts](art/building-gate-1/contracts.md), [evidence](testing/building-art-gate-1/progress.md). All20master/source hashes and40runtime export mappings verified; seven actual-map river fixtures; known PNG coordinate regression RED→GREEN; no-arg validator preserved. Atlas and river projection inspected. Media clean697b486 with no remote; source art/config/saves/runtime untouched. Final audit commit is recorded in branch history.

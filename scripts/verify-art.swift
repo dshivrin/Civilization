@@ -4,6 +4,42 @@ import CoreGraphics
 import CryptoKit
 import Darwin
 
+func hashArtFile(_ url: URL) throws -> String { try SHA256.hash(data: Data(contentsOf: url)).map { String(format: "%02x", $0) }.joined() }
+func measureArtImage(_ url: URL) throws -> [String: Any] {
+    let bytes = try Data(contentsOf: url)
+    guard let source = CGImageSourceCreateWithData(bytes as CFData, nil), let image = CGImageSourceCreateImageAtIndex(source, 0, nil) else { fatalError("Invalid PNG: \(url.path)") }
+    let w = image.width, h = image.height
+    var pixels = [UInt8](repeating: 0, count: w*h*4)
+    let rendered = pixels.withUnsafeMutableBytes { buffer -> Bool in
+        guard let context = CGContext(data: buffer.baseAddress, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w*4, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return false }
+        // CGImage decode into this bitmap preserves top-left PNG row order.
+        context.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h)); return true
+    }
+    guard rendered else { fatalError("Cannot measure \(url.path)") }
+    var minX=w, minY=h, maxX = -1, maxY = -1, covered=0, clear=0, edge=0
+    for y in 0..<h { for x in 0..<w {
+        let a = pixels[(y*w+x)*4+3]
+        if a == 0 { clear += 1 }
+        if a > 32 {
+            covered += 1; minX=min(minX,x); minY=min(minY,y); maxX=max(maxX,x); maxY=max(maxY,y)
+            if x == 0 || y == 0 || x == w-1 || y == h-1 { edge += 1 }
+        }
+    } }
+    guard covered > 0, clear > 0 else { fatalError("Missing alpha content: \(url.path)") }
+    return ["width":w,"height":h,"bytes":bytes.count,"sha256":try hashArtFile(url),"alphaThreshold":32,
+            "silhouetteBoundsTopLeftInclusive":[minX,minY,maxX,maxY],"coveredFraction":Double(covered)/Double(w*h),
+            "transparentFraction":Double(clear)/Double(w*h),"coveredEdgePixels":edge]
+}
+let inspectionArgs = Array(CommandLine.arguments.dropFirst())
+if inspectionArgs.first == "--inspect-images" {
+    guard inspectionArgs.count > 1 else { fatalError("Provide at least one image") }
+    for path in inspectionArgs.dropFirst() {
+        var report = try measureArtImage(URL(fileURLWithPath: path)); report["file"] = path
+        print(String(data: try JSONSerialization.data(withJSONObject: report, options: [.sortedKeys]), encoding: .utf8)!)
+    }
+    exit(0)
+}
+
 // Offline native validation of every shipped sprite, alpha and theoretical decoded budget.
 let root = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
 let data = try Data(contentsOf: root.appendingPathComponent("Packages/GameCore/Sources/GameApplication/Resources/art-catalog.json"))
@@ -56,36 +92,11 @@ if !args.isEmpty {
     guard output.path != media.path, !output.path.hasPrefix(media.path + "/") else { fatalError("Audit output must be outside the read-only media repository") }
     guard !FileManager.default.fileExists(atPath: output.path) else { fatalError("Audit output already exists") }
     func hash(_ url: URL) throws -> String { try SHA256.hash(data: Data(contentsOf: url)).map { String(format: "%02x", $0) }.joined() }
-    func measure(_ url: URL) throws -> [String: Any] {
-        let bytes = try Data(contentsOf: url)
-        guard let source = CGImageSourceCreateWithData(bytes as CFData, nil), let image = CGImageSourceCreateImageAtIndex(source, 0, nil) else { fatalError("Invalid PNG: \(url.path)") }
-        let w = image.width, h = image.height
-        var pixels = [UInt8](repeating: 0, count: w*h*4)
-        let rendered = pixels.withUnsafeMutableBytes { buffer -> Bool in
-            guard let context = CGContext(data: buffer.baseAddress, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w*4, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return false }
-            // CGImage decode into this bitmap preserves top-left PNG row order.
-            context.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h)); return true
-        }
-        guard rendered else { fatalError("Cannot measure \(url.path)") }
-        var minX=w, minY=h, maxX = -1, maxY = -1, covered=0, clear=0, edge=0
-        for y in 0..<h { for x in 0..<w {
-            let a = pixels[(y*w+x)*4+3]
-            if a == 0 { clear += 1 }
-            if a > 32 {
-                covered += 1; minX=min(minX,x); minY=min(minY,y); maxX=max(maxX,x); maxY=max(maxY,y)
-                if x == 0 || y == 0 || x == w-1 || y == h-1 { edge += 1 }
-            }
-        } }
-        guard covered > 0, clear > 0 else { fatalError("Missing alpha content: \(url.path)") }
-        return ["width":w,"height":h,"bytes":bytes.count,"sha256":try hash(url),"alphaThreshold":32,
-                "silhouetteBoundsTopLeftInclusive":[minX,minY,maxX,maxY],"coveredFraction":Double(covered)/Double(w*h),
-                "transparentFraction":Double(clear)/Double(w*h),"coveredEdgePixels":edge]
-    }
     // A 2×2 PNG with only its top-left pixel opaque pins the coordinate contract.
     let fixtureURL = FileManager.default.temporaryDirectory.appendingPathComponent("art-alpha-" + UUID().uuidString + ".png")
     defer { try? FileManager.default.removeItem(at: fixtureURL) }
     try Data(base64Encoded: "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAD0lEQVR4nGP4z8AAREgAAB7zAf9qN12tAAAAAElFTkSuQmCC")!.write(to: fixtureURL)
-    let fixture = try measure(fixtureURL)
+    let fixture = try measureArtImage(fixtureURL)
     guard fixture["silhouetteBoundsTopLeftInclusive"] as? [Int] == [0,0,0,0] else { fatalError("Top-left alpha-bound regression") }
     let configURL = root.appendingPathComponent("Packages/GameCore/Sources/GameCore/Resources/seed.json")
     let config = try JSONSerialization.jsonObject(with: Data(contentsOf: configURL)) as! [String:Any]
@@ -104,7 +115,7 @@ if !args.isEmpty {
         let masterURL = media.appendingPathComponent(relative), sourceURL = root.appendingPathComponent("docs/art/sources/buildings/\(id).png")
         let spriteURL = root.appendingPathComponent("Civilization/Art").appendingPathComponent(art["file"] as! String)
         let thumbURL = root.appendingPathComponent("Civilization/Art").appendingPathComponent(art["thumbnail"] as! String)
-        let masterMetrics = try measure(masterURL), spriteMetrics = try measure(spriteURL), thumbMetrics = try measure(thumbURL)
+        let masterMetrics = try measureArtImage(masterURL), spriteMetrics = try measureArtImage(spriteURL), thumbMetrics = try measureArtImage(thumbURL)
         guard try hash(sourceURL) == masterMetrics["sha256"] as? String,
               master["sha256"] as? String == masterMetrics["sha256"] as? String else { fatalError("Master/source/registry mismatch \(id)") }
         for (role, url) in [("world",spriteURL),("thumbnail",thumbURL)] {
