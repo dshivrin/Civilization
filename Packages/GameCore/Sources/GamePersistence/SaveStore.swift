@@ -1,7 +1,7 @@
 import Foundation
 import GameCore
 
-/// Validated v1–v5 -> v6 civic migration. The filename remains unchanged so installed settlements are found.
+/// Validated v1–v6 legacy/civic persistence and explicit v7 operating rules. The filename remains unchanged so installed settlements are found.
 public struct SaveStore: Sendable {
     private struct Envelope: Codable { var version: Int; var state: GameState }
     private struct Header: Decodable { var version: Int }
@@ -15,8 +15,9 @@ public struct SaveStore: Sendable {
         guard marker.isGameplayReview else { throw GameError.invalidSave("Not a gameplay review copy.") }
         return try load(configuration: configuration)
     }
+    public static func version(for state: GameState) -> Int { state.operatingRules != nil ? 7 : state.civicProgress == nil ? 5 : 6 }
     public func save(_ state: GameState) throws {
-        let data = try JSONEncoder().encode(Envelope(version: state.civicProgress == nil ? 5 : 6, state: state))
+        let data = try JSONEncoder().encode(Envelope(version: Self.version(for: state), state: state))
         try preservePreviousVersion(beforeSaving: state)
         try FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
         try data.write(to: url, options: .atomic)
@@ -30,14 +31,14 @@ public struct SaveStore: Sendable {
                 _ = try load(configuration: .bundled())
             }
         }
-        let targetVersion = state.civicProgress == nil ? 5 : 6
+        let targetVersion = Self.version(for: state)
         if FileManager.default.fileExists(atPath: url.path) {
             let original = try Data(contentsOf: url)
             let version = try JSONDecoder().decode(Header.self, from: original).version
-            guard (1...6).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
+            guard (1...7).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
             guard targetVersion >= version else { throw GameError.invalidSave("Cannot discard civic history by downgrading a save.") }
             if version < targetVersion {
-                let suffix = version == 1 ? "seed-0.1.bak" : version == 2 ? "seed-0.2.1.bak" : version == 3 ? "seed-0.2.3.bak" : version == 4 ? "seed-0.2.4.bak" : "pre-civic-v5.bak"
+                let suffix = version == 1 ? "seed-0.1.bak" : version == 2 ? "seed-0.2.1.bak" : version == 3 ? "seed-0.2.3.bak" : version == 4 ? "seed-0.2.4.bak" : version == 5 ? "pre-civic-v5.bak" : "pre-connectivity-v6.bak"
                 let backup = url.appendingPathExtension(suffix)
                 if !FileManager.default.fileExists(atPath: backup.path) { try original.write(to: backup, options: .atomic) }
                 guard try Data(contentsOf: backup) == original else { throw GameError.invalidSave("Migration backup differs from source; original preserved.") }
@@ -48,8 +49,11 @@ public struct SaveStore: Sendable {
         guard FileManager.default.fileExists(atPath: url.path) else { return nil }
         let data = try Data(contentsOf: url)
         let version = try JSONDecoder().decode(Header.self, from: data).version
-        guard (1...6).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
+        guard (1...7).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
         var state = try JSONDecoder().decode(Envelope.self, from: data).state
+        guard version == 7 ? (state.operatingRules != nil && state.civicProgress != nil) : state.operatingRules == nil else {
+            throw GameError.invalidSave("Operating rules require an explicit version 7 marker and civic history.")
+        }
         guard version >= 6 || state.civicProgress == nil else { throw GameError.invalidSave("Civic history is unsupported before save version 6.") }
         if state.mapID == "river-clearing-v1", configuration.map.id == "river-clearing-64x48-v1" {
             let legacy = try GameConfiguration.legacyDevelopment()

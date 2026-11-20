@@ -348,6 +348,7 @@ public struct GameEngine: Sendable {
     private func validateState() throws {
         func require(_ condition: Bool, _ reason: String) throws { if !condition { throw GameError.invalidSave(reason) } }
         try require(state.mapID == configuration.map.id, "Map identity is unsupported")
+        try require(state.operatingRules == nil || (configuration.civicLevels != nil && configuration.economyRules != nil && state.civicProgress != nil), "Connected paths require current civic and economy rules")
         try require(state.lastUpdated.timeIntervalSince1970.isFinite && state.population >= configuration.initialPopulation && state.population <= 768_000_000, "Invalid clock or population")
         // Validate references and bounded levels before derived capacities consult definitions.
         try require(state.buildings.allSatisfy { building in configuration.buildings.contains(where: { $0.kind == building.kind }) && building.level >= 1 && building.level <= (configuration.economyRules?.maximumUpgradeLevel ?? 1) }, "Unsupported building or invalid level")

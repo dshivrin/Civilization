@@ -64,7 +64,7 @@ public final class GameSession {
     }
     private func writeDeveloperState(_ state: GameState, to destination: SaveStore, review: Bool, original: GameState?) throws {
         try destination.preservePreviousVersion(beforeSaving: state)
-        let data = try JSONEncoder().encode(DeveloperEnvelope(version: state.civicProgress == nil ? 5 : 6, state: state,
+        let data = try JSONEncoder().encode(DeveloperEnvelope(version: SaveStore.version(for: state), state: state,
             developerScenario: developerScenario, originalScenarioState: original, isGameplayReview: review))
         try FileManager.default.createDirectory(at: destination.url.deletingLastPathComponent(), withIntermediateDirectories: true)
         try data.write(to: destination.url, options: .atomic)

@@ -10,6 +10,7 @@ public struct InspectedSave: Encodable, Sendable {
     public let buildings: Int
     public let roads: Int
     public let sha256: String
+    public let operatingRules: String
 }
 
 public struct InspectionReport: Encodable, Sendable {
@@ -89,7 +90,8 @@ public enum SaveInspection {
             _ = try GameEngine(state: state, configuration: configuration)
             files.append(InspectedSave(relativePath: path, mapID: state.mapID, buildings: state.buildings.count,
                                        roads: state.roads?.count ?? 0,
-                                       sha256: SHA256.hash(data: bytes).map { String(format: "%02x", $0) }.joined()))
+                                       sha256: SHA256.hash(data: bytes).map { String(format: "%02x", $0) }.joined(),
+                                       operatingRules: state.operatingRules?.rawValue ?? "legacy"))
         }
         guard !files.isEmpty else { throw GameError.invalidSave("No recognized saves found.") }
         let store = GameLibraryStore(rootURL: root)

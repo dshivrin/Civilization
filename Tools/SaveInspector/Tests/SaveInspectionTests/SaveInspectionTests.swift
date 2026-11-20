@@ -149,3 +149,17 @@ func rejectsReviewWithoutTrueMarker(present: Bool, suffix: String) throws {
     #expect(throws: Error.self) { try SaveInspection.inspect(root: root) }
     #expect(try Data(contentsOf: file) == bytes)
 }
+
+@Test func validatesExplicitConnectivityAndLegacyBackupWithoutWrites() throws {
+    let root = try temporaryRoot(); defer { try? FileManager.default.removeItem(at: root) }
+    let file = root.appendingPathComponent("settlement-v1.json")
+    let c = try GameConfiguration.bundled()
+    var state = try GameEngine(configuration: c, now: Date(timeIntervalSince1970: 1000)).state
+    try SaveStore(url: file).save(state)
+    state.operatingRules = .connectedPathsV1; try SaveStore(url: file).save(state)
+    let bytes = try Data(contentsOf: file)
+    let report = try SaveInspection.inspect(root: root)
+    #expect(Set(report.files.map(\.operatingRules)) == Set(["legacy", "connectedPathsV1"]))
+    #expect(report.sourceByteIdentical && report.files.count == 2)
+    #expect(try Data(contentsOf: file) == bytes)
+}

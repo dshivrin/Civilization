@@ -101,6 +101,10 @@ public enum Goal: String, Codable, CaseIterable, Sendable {
     }
     public var building: BuildingKind? { BuildingKind(rawValue: rawValue) }
 }
+public enum SettlementOperatingRules: String, Codable, Sendable {
+    case connectedPathsV1
+}
+
 public struct GameState: Codable, Equatable, Sendable {
     public var mapID: String
     public var resources: ResourceAmounts
@@ -121,6 +125,8 @@ public struct GameState: Codable, Equatable, Sendable {
     public var depositRemaining: [String: Double]?
     public var roads: [RoadTile]?
     public var civicProgress: CivicProgress?
+    /// Absent in legacy games; explicit activation belongs to this save only.
+    public var operatingRules: SettlementOperatingRules?
 }
 public enum GameError: Error, Equatable, LocalizedError, Sendable {
     case invalidConfiguration(String), invalidSave(String), placement(String), researchUnavailable(String), insufficientResources, researchRequired, alreadyResearched, uniqueCampfire
