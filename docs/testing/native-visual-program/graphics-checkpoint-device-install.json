@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-21",
+  "productCommit": "6752e312745b729b5e11d169a408cbca5df85961",
+  "authority": "Latest direct owner request: install graphics checkpoint on available iPhone after completion",
+  "configuration": "Debug",
+  "bundle": "com.civilization.seed",
+  "device": "Dima iPhone 17 Pro Max",
+  "build": {
+    "status": "passed",
+    "log": "/tmp/civilization-graphics-6752e31-device-build.log",
+    "logSHA256": "a8558c69b2160701cada52208def062e6e75fea2d0231f3cc5b7e9c1e4ac6079",
+    "binaries": {
+      "Civilization": "cd33071e55980538aa0b694f4a00fd9c770472c25865ef420491883bcc246942",
+      "Civilization.debug.dylib": "d23afad26fea6c49277f0ac53612c50825a0776e938c80f8ab47c9da42b42955"
+    }
+  },
+  "signature": "codesign --verify --deep --strict --verbose=2 passed",
+  "installation": "passed",
+  "beforeBackup": "/tmp/civilization-graphics-6752e31-before-install",
+  "afterInstallBeforeLaunchBackup": "/tmp/civilization-graphics-6752e31-after-install",
+  "bothStableAndProductionValidated": true,
+  "preservation": {
+    "preserved": true,
+    "mode": "strict",
+    "originalFiles": 15,
+    "removed": [],
+    "added": [],
+    "changed": [],
+    "beforeSHA256": {
+      "games/15541F74-ECF9-4067-AEE2-B8D60C389173/settlement-v1.json": "661d0f0052f19d07f57affabad15b91f521396978ad46eca19827e6e7ea124e9",
+      "games/18001E9D-F656-4A79-A32F-6CD9D85D06C2/settlement-v1.json": "9cd39aef388b63ab20987c6d851b9ff584b82af7fbc5caefb5e49c8b42474728",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json": "ac97fa6ba6605844b415a3d442384b277bee3927189e2bc5575cb9df25753392",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json.review": "7a3449f5a9d9679cc40e7aee80eefdfeead8a553b3a25311c541b18967273980",
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/8361DA8B-B77B-4276-B2AB-649699D36877/settlement-v1.json": "cd9381f2ce615c9346e926e03a5b5f4136ebc056474ce1305032796e373baf67",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games/B27DCCB4-35AC-4659-B351-6F7D6C55BE23/settlement-v1.json": "c875307977a9d40013abd359511ef264e90d930a3d08d156b97a045a60a8e2b1",
+      "games/B27DCCB4-35AC-4659-B351-6F7D6C55BE23/settlement-v1.json.review": "a9e2711949fc650d2b9ce20fa56ead6e6cbfc576083c79f7f56674c60ce4fb9c",
+      "games/B27DCCB4-35AC-4659-B351-6F7D6C55BE23/settlement-v1.json.review.pre-connectivity-v6.bak": "f1d1b2368294d18981ebeb648d13edc134449bd00552553581aea26be2d38ff0",
+      "games-index.json": "e8f8bf675b8c8b6803a2a7873849e165302f8c8fa201c025e3c644b56a653885",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "afterSHA256": {
+      "games/15541F74-ECF9-4067-AEE2-B8D60C389173/settlement-v1.json": "661d0f0052f19d07f57affabad15b91f521396978ad46eca19827e6e7ea124e9",
+      "games/18001E9D-F656-4A79-A32F-6CD9D85D06C2/settlement-v1.json": "9cd39aef388b63ab20987c6d851b9ff584b82af7fbc5caefb5e49c8b42474728",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json": "ac97fa6ba6605844b415a3d442384b277bee3927189e2bc5575cb9df25753392",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json.review": "7a3449f5a9d9679cc40e7aee80eefdfeead8a553b3a25311c541b18967273980",
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/8361DA8B-B77B-4276-B2AB-649699D36877/settlement-v1.json": "cd9381f2ce615c9346e926e03a5b5f4136ebc056474ce1305032796e373baf67",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games/B27DCCB4-35AC-4659-B351-6F7D6C55BE23/settlement-v1.json": "c875307977a9d40013abd359511ef264e90d930a3d08d156b97a045a60a8e2b1",
+      "games/B27DCCB4-35AC-4659-B351-6F7D6C55BE23/settlement-v1.json.review": "a9e2711949fc650d2b9ce20fa56ead6e6cbfc576083c79f7f56674c60ce4fb9c",
+      "games/B27DCCB4-35AC-4659-B351-6F7D6C55BE23/settlement-v1.json.review.pre-connectivity-v6.bak": "f1d1b2368294d18981ebeb648d13edc134449bd00552553581aea26be2d38ff0",
+      "games-index.json": "e8f8bf675b8c8b6803a2a7873849e165302f8c8fa201c025e3c644b56a653885",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "note": "Byte/index comparison only; use validate-saves for production state validation."
+  },
+  "launch": {
+    "status": "passed",
+    "arguments": [],
+    "processIdentifier": 9695,
+    "processVerified": true
+  },
+  "limits": {
+    "physicalGameplayTaps": "not observed or automated",
+    "postLaunchByteComparison": "not performed; normal app may save",
+    "sustainedHardwareMetrics": "not measured",
+    "humanAcceptance": "pending",
+    "normalAppearanceOrTutorialActivation": false,
+    "r207Enabled": false,
+    "resetOrUninstall": false,
+    "saveInjection": false,
+    "signingOrAccountChanges": false
+  }
+}

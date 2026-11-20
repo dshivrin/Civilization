@@ -1,3 +1,11 @@
+## Graphics review checkpoint and fresh-context handoff — 21 November 2026
+
+Owner explicitly closes the CURRENT graphics/animations/menus review checkpoint before economy. Product6752e31; [delivery and exact checks](docs/milestones/2026-11-21-graphics-checkpoint.md).45Python/9Node, current native phone1/mini1menu audit pass; unchanged native279Debug/235Release+11exclusions carried with exact provenance. Roads/neighborhoods/loading, real-work construction, continuous atmosphere, eight-state provisional motion and onboarding correction are review deliverables; **no appearance/GateB/R2-07 approval or production activation**. Registered raster/art/rotation remains unaccepted; the32cell study improves margins4008→41but both fail, honestly preserved. Media02d9344local-only/no remote, original72records/20masters preserved.
+
+Latest directly requested iPhone update:6752e31signed install/normal launch and process9695verified;15files byte-identical before launch after fresh stable validated backups. [Evidence](docs/testing/native-visual-program/graphics-checkpoint-device-install.json). No physical tap/performance or post-launch preservation claim.
+
+Main3e1faa1instructions read. Latest direct owner ordering overrides historical same-context/continue-artwork/E0 wording: next is **fresh context Goal1 Riverbend Economy Lab**, separate worktree/`economy-lab-review` from verified graphics checkpoint; no economy implementation in this context. One explicit Goal/context per item, stop for Lab review before Finds; later Stone/storage, single craft and first-era review each fresh. Separate fresh V1actual-scene saturated-realism proof may run independently; unfinished art does not hold economy. No main merge/Empire/production/save/signing changes. Current owner additionally requests graphics-only iPhone installation if available after closeout; future economy contexts retain no-device-install boundary.
+
 ## Eight-state native motion review — 20 November 2026
 
 Product **248703c** is committed/pushed on the retained personal branch. The designated Master chat actually acknowledged the bounded delivery; [receipt](docs/design/sources/2026-11-20-villager-motion-handover.md). This is not human visual acceptance.

@@ -1,3 +1,7 @@
+# Current review checkpoint closed — 21 November 2026
+
+[Verified graphics/animations/menus handoff](../../milestones/2026-11-21-graphics-checkpoint.md), product6752e31. Review proposals are delivered; appearance, registered artwork and production onboarding remain unapproved. Latest owner schedules Economy Lab as fresh Goal1/context and actual-scene realistic V1 separately; this supersedes historical “broader Goal active” statements below. No normal appearance or R2-07 activation. Installation is tracked separately.
+
 # Native visual program — review handoff
 
 Owner feedback after the first install: the guide was not visible as a walkthrough, and visual appearance needs refinement before normal integration. **No appearance or onboarding Gate B approval has been given.**
