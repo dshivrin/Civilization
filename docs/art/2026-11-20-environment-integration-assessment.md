@@ -1,0 +1,27 @@
+# Environment graphics — integration assessment and visual pilot brief
+
+20 November2026. Authorized continuation after S1-Geography. This assessment starts the environment milestone; it does not claim final artwork or human art acceptance.
+
+## Evidence and target
+
+Reviewed the [actual production-map capture](../screenshots/s1-geography/phone-standard-start.png), `WorldDetails.swift`, `SettlementScene.swift`, runtime art catalog, canonical MEDIA_REQUIREMENTS and the media repository's ART_DIRECTION/MEDIA_BACKLOG. Media remains clean at697b486; its68records include existing20building masters/40exports, native terrain references and earlier concepts, but no standalone realistic terrain/forest/river/quarry/cloud asset pack. Current manifest accurately labels the older warm-miniature candidate. No production media source/export or rights claim was invented. One separately labeled game-repository review concept was subsequently generated; it is not an imported production asset.
+
+The approved target is historically inspired realism, high saturation, sharp materials/detail and warm natural lighting, within existing2:1isometric SpriteKit projection. Logical64×48terrain, river cells, quarry access, occupancy, resource distribution and campfire stay fixed. The latest functional clouds are opaque and readable but intentionally simple/repetitive; the current polygon river and nearly uniform flat ground do not yet meet the realism target. Existing campfire/buildings have more material detail than surrounding terrain. A large asset replacement now would obscure which change improved coherence and concealment.
+
+## Recommended integration
+
+Keep authoritative terrain/known-cell logic independent of appearance. Continue bounded16×16ground composites and depth-ordered scenery strips; use a compact reusable terrain/material atlas with deterministic variants, plus sparse tree/rock sprites at existing terrain anchors. Preserve procedural fallback. Avoid whole-map raster backgrounds: they bake river/unknown-content locations into art and multiply memory at device raster scales. Avoid a new3Drenderer: it exceeds authorization and is unnecessary for this target.
+
+Render warm soil/grass microdetail beneath existing occupancy, saturated blue-green water and readable shallow banks exactly on existing water edges, material-rich rocks at the existing quarry access, and varied woodland silhouettes on forest cells. Keep quarry reserve marker/UI separate from art. Fog should be a separate opaque material with soft *known-side* boundary detail; never use translucent coverage over hidden content or bake silhouettes into cloud tiles. Any reveal animation starts after authoritative completion and honors Reduce Motion. Art overhang must not reveal hidden neighbors or cover interaction affordances.
+
+Production exports must record stable asset IDs, source master/media commit, palette/light direction, dimensions/alpha,2:1ground contact anchors, deterministic variant selection, checksum, provenance/license evidence and transforms. Atlas packaging and pixel dimensions are engineering budgets to measure in the pilot, not newly approved universal limits. Preserve old masters and fallback exports. The game must not require the sibling media repository at runtime.
+
+## Small visual approval pilot
+
+Prepare **one representative contact sheet**, not a20building/all-biome batch: the same campfire/clearing/river-edge/quarry composition as the actual screenshot, with one forest/rock inset and a known/unknown boundary. Show current and proposed environment side by side at matching phone scale, plus tablet crop. Retain current buildings/UI and unchanged terrain geometry so Dima can judge environment materials, saturation, warmth, readability and coherent scale. Label it a concept until approved; do not import candidate pixels as final runtime terrain.
+
+After human visual approval of that direction, integrate only this bounded terrain/river/quarry/cloud set first, retain fallbacks, then review actual phone/mini/Pro screenshots at minimum/default/maximum zoom. Check no atlas seams, stable river banks, full fog concealment, quarry discoverability, scene-count stability, cache rebuild time, memory and frame samples. Compare against current short simulator baseline (median59.4FPS, max45.9MiB) under equivalent conditions; physical sustained performance remains a separate required measurement, not inferred from simulator timings. Broaden asset families only after the pilot passes visual and runtime review.
+
+## Scope retained
+
+This brief does not change normal footprints/rotation/art anchors for CLU, add NPC/animal simulation, audio, monuments, regions or additional eras/civilizations. FP/RD/LC/AUDIO/WND/GEO/UX/CLU/LOAD remain in their existing backlog. One [review-only environment concept](environment-pilot/realistic-landscape-concept-v1.png) was generated with the built-in imagegen tool from the actual landscape capture, with [exact prompt](environment-pilot/prompt.txt) and [provenance](environment-pilot/provenance.json). It demonstrates richer grass/soil/water and opaque volumetric clouds. Inspection found that generated UI/clearing/cloud edges are not pixel-identical: it is suitable for reviewing palette/material direction, **not** a runtime background or geometry specification. No runtime art or media-repository asset was replaced. Human review of this small concept precedes production asset integration or a broader batch; rebuild exact geography natively rather than importing the mockup wholesale.

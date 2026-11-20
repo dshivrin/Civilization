@@ -1,6 +1,10 @@
 # Riverbend — first-era review candidate
 
-Current Debug review build adds **Developer tools → Large grouped village (64×48)**: three residential neighborhoods, food/farming, quarry/crafting and civic/storage groups connected by566road tiles. Use **64×48 · Map overview**, pinch to inspect, Resume developer save to keep edits, or Return to normal settlement. Choosing/resetting a scenario replaces only that world's isolated developer state. Normal maps/saves retain32×24.64×48size is human-approved; normal-world expansion/migration remains gated. [Report](docs/milestones/large-developer-village.md).
+
+Normal gameplay now defaults to **64×48**, starting with the standard one-campfire Stone Age settlement and unchanged footprints. Development saves preserve progress through a validated, byte-backed-up additive transition. Near-side quarry access shares the original stone reserve; opaque exploration clouds and persistent45-second expeditions reveal the expanded valley. [Geography delivery/evidence](docs/milestones/s1-geography.md). [Environment assessment and review-only concept](docs/art/2026-11-20-environment-integration-assessment.md); no new runtime artwork accepted.
+
+Historical preview note (normal default superseded above):
+Current Debug review build adds **Developer tools → Large grouped village (64×48)**: three residential neighborhoods, food/farming, quarry/crafting and civic/storage groups connected by566road tiles. Use **64×48 · Map overview**, pinch to inspect, Resume developer save to keep edits, or Return to normal settlement. Choosing/resetting a scenario replaces only that world's isolated developer state. The preview was formerly separate from the32×24normal map; production activation is now delivered above. [Report](docs/milestones/large-developer-village.md).
 
 
 Latest: [decorative roads](docs/milestones/decorative-roads.md) add free Draw/Replace/Remove tools with persistent path, dirt and stone surfaces. Drag or tap to preview, then Confirm; invalid strokes change nothing. Roads never gate era progress. The signed update is installed on Dima’s iPhone; both saves were validated and preserved byte-identically before launch. The [geometry foundation](docs/milestones/building-geometry-foundation.md) preserves current building sizes; visible rotation and NPCs remain staged.
@@ -53,7 +57,7 @@ All exact values are experimental. Read the [economy](docs/design/seed-022-balan
 - **GamePersistence:** versioned Codable saves, strict validation, compatibility migration, original-file backups and atomic writes.
 - **GameApplication:** observable session, injected clock, command/lifecycle adapter and persistence warnings.
 
-`Civilization/UI` presents adaptive controls. `Civilization/Rendering` displays snapshots and submits commands, preserving logical tiles, footprints and ground anchors. ArtCatalog separates replaceable sprite paths, sizes and contact anchors from gameplay. The handcrafted 32×24 river valley and deposit identities persist.
+`Civilization/UI` presents adaptive controls. `Civilization/Rendering` displays snapshots and submits commands, preserving logical tiles, footprints and ground anchors. ArtCatalog separates replaceable sprite paths, sizes and contact anchors from gameplay. The handcrafted64×48valley retains the original768terrain cells and deposit identities.
 
 The engine jumps to construction, growth, exploration, resource/deposit depletion and achievement-threshold events. It never simulates rendering frames offline. Deterministic max-min input sharing operates within validated production tiers; upstream flow is immediately available at empty stocks. Worker allocation is deterministic and separate from input scarcity. Fractional balances are retained; presentation rounds down.
 

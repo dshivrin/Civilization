@@ -1,3 +1,17 @@
+# Current checkpoint — S1-Geography delivered; environment visual review —20November2026
+
+Latest direct Product Owner instruction: all saves are development/test data; activate approved64×48normal default and MAP-001–004, then environment graphics. Supersedes all production-migration gate/pending32×24default notes below. Implementation core181b0a8/rendering56f4124. [Milestone](milestones/s1-geography.md), [assessment/concept](art/2026-11-20-environment-integration-assessment.md), [execution evidence](testing/s1-geography/progress.md).
+
+Completed: authentic one-campfire new64×48games; original768terrain cells/deposit identities/normal footprints preserved; lazy backed-up additive development transition; normal/developer isolation; reachable shared-reserve quarry18,16; opaque clouds and hidden-content interaction guards; existing10food/45s/2tile expeditions with map-bound46cap, permanent completion-only reveals and optional full-map exploration. Existing-world progress is preserved, not reset. No general production migration framework.
+
+Fresh verification:187Debug15.489s/169Release1.729s, five Release API exclusions; Release simulator app build passes. Native phone/mini each six affected cases pass (three geography/save/navigation + three relocation/road/pinch), Pro three geography/save/navigation cases pass. Full selected Pro suite succeeds. Short phone simulator median59.4FPS/max45.9MiB/62nodes; not hardware/thermal/battery acceptance. Actual landscape screenshot inspected. No new physical install/launch claimed. One independent whole-change review: no Critical/Important; minor deferred old developer Modified-state label. Release-only road path64×48bound reproduced RED and fixed GREEN. Test-only localized3,072assertion corrected and rerun on all3profiles.
+
+Environment milestone: integration assessment complete, one built-in-imagegen review concept with exact prompt/provenance saved under docs/art/environment-pilot. Direction-only materials/clouds; generated edges/UI are not pixel exact, no runtime integration or batch production. Established human visual review precedes production art replacement. Media697b486/main clean/local-only; all FP/RD/LC/AUDIO/WND/GEO/UX/CLU/MAP-005backlog retained. Existing signing/account/renderer/economy/era constraints unchanged.
+
+Next: publish/report this verified scope to personal dshivrin/Civilization first-era-review, issue#1 and exact Master chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9; record actual receipts. Then human review of the single environment concept before broader/runtime artwork. Same native session retained; Goal tool returnednullin this runtime, no duplicate Goal/session or automation created. No active test/build processes remain after terminal logs below.
+
+---
+
 # Civilization durable development checkpoint
 
 ## Human navigation acceptance and reporting — 20 November 2026

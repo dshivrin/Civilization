@@ -1,0 +1,12 @@
+{
+  "id": "environment-realism-pilot-v1",
+  "status": "concept-awaiting-human-visual-review",
+  "tool": "built-in image_gen",
+  "source": "docs/screenshots/s1-geography/phone-standard-start.png",
+  "image": "realistic-landscape-concept-v1.png",
+  "prompt": "prompt.txt",
+  "runtimeIntegrated": false,
+  "mediaRepositoryChanged": false,
+  "review": "Direction-only reference. Generated UI/clearing/cloud edges are not pixel-identical; cannot be a runtime background or terrain specification. Use for palette/material discussion only; rebuild exact logical geometry natively if approved.",
+  "sha256": "210d400a88e1c9b6a8dc639f8116bf414a4c1b0a8d152fbc7b846c22d1ff3aaf"
+}

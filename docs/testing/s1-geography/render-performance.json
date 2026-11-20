@@ -1,0 +1,72 @@
+{
+  "environment": "iPhone 17 Pro Max simulator; Debug native standard-start expedition/relaunch tests; concurrent simulator/build load",
+  "hardwareBenchmark": false,
+  "samples": [
+    {
+      "fps": 56.9,
+      "p95FrameMs": 22.53,
+      "nodes": 62.0,
+      "memoryMiB": 44.9,
+      "samples": 223.0
+    },
+    {
+      "fps": 58.3,
+      "p95FrameMs": 17.31,
+      "nodes": 62.0,
+      "memoryMiB": 45.1,
+      "samples": 231.0
+    },
+    {
+      "fps": 59.6,
+      "p95FrameMs": 16.75,
+      "nodes": 62.0,
+      "memoryMiB": 45.0,
+      "samples": 298.0
+    },
+    {
+      "fps": 59.4,
+      "p95FrameMs": 17.31,
+      "nodes": 62.0,
+      "memoryMiB": 45.0,
+      "samples": 297.0
+    },
+    {
+      "fps": 59.6,
+      "p95FrameMs": 16.71,
+      "nodes": 62.0,
+      "memoryMiB": 45.0,
+      "samples": 299.0
+    },
+    {
+      "fps": 59.6,
+      "p95FrameMs": 16.92,
+      "nodes": 62.0,
+      "memoryMiB": 45.5,
+      "samples": 299.0
+    },
+    {
+      "fps": 59.6,
+      "p95FrameMs": 17.17,
+      "nodes": 62.0,
+      "memoryMiB": 45.9,
+      "samples": 298.0
+    },
+    {
+      "fps": 57.8,
+      "p95FrameMs": 17.47,
+      "nodes": 62.0,
+      "memoryMiB": 45.9,
+      "samples": 290.0
+    },
+    {
+      "fps": 58.2,
+      "p95FrameMs": 16.89,
+      "nodes": 62.0,
+      "memoryMiB": 45.8,
+      "samples": 291.0
+    }
+  ],
+  "medianFPS": 59.4,
+  "maximumMemoryMiB": 45.9,
+  "note": "Short opt-in render samples; excludes production device, thermal and battery acceptance."
+}

@@ -23,23 +23,23 @@ Preserve iOS18/signing, original terrain/IDs/reserves/history, normal footprints
 
 Files: Configuration.swift, Resources/seed.json, private legacy resource, SaveStore.swift, GameLibrary.swift, ProductionGeographyTests.swift.
 Interfaces: bundled() returns normal 64×48; SaveStore.load(configuration:) returns validated converted state after byte-verified backup; library prepares mapped metadata before publication.
-- [ ] Add tests proving default/start/core terrain/footprints, backed-up legacy progress and independent games; run RED.
-- [ ] Promote rows, map-derived radius and bounded old-save conversion; run focused GREEN and full core suite.
-- [ ] Commit coherent core/application changes.
+- [x] Add tests proving default/start/core terrain/footprints, backed-up legacy progress and independent games; run RED.
+- [x] Promote rows, map-derived radius and bounded old-save conversion; run focused GREEN and full core suite.
+- [x] Commit coherent core/application changes.
 
 ### Task 2: Quarry/clouds/expeditions
 
 Files: SettlementScene.swift, GameSession.swift, visibility policy/core tests, RelocationUITests.swift.
 Interfaces: known-footprint predicate shared by renderer/session; existing startExploration/advance retain economics.
-- [ ] Prove near-side quarry reachable/extractable; pin pending/duplicate/capped-offline/reload/full optional discovery behavior.
-- [ ] Add native regression for cloud/reveal/default dimensions and Release cache path; observe failures.
-- [ ] Implement opaque bounded cloud presentation and visibility/interaction filtering; run GREEN.
-- [ ] Run full Debug/Release, Release exclusions and native phone/mini/Pro; inspect captures and performance evidence.
-- [ ] Commit production rendering and native verification.
+- [x] Prove near-side quarry reachable/extractable; pin pending/duplicate/capped-offline/reload/full optional discovery behavior.
+- [x] Add native regression for cloud/reveal/default dimensions and Release cache path; observe failures.
+- [x] Implement opaque bounded cloud presentation and visibility/interaction filtering; run GREEN.
+- [x] Run full Debug/Release, Release exclusions and native phone/mini/Pro; inspect captures and performance evidence.
+- [x] Commit production rendering and native verification.
 
 ### Task 3: Review, publication and environment assessment
 
-- [ ] One independent whole-change review; correct consequential findings with regression evidence.
-- [ ] Update milestone/checkpoint/canonical status with actual results and limitations.
+- [x] One independent whole-change review; correct consequential findings with regression evidence.
+- [x] Update milestone/checkpoint/canonical status with actual results and limitations.
 - [ ] Fetch and push coherent commits to verified personal origin first-era-review; report issue #1 and exact Master chat.
-- [ ] Assess realistic saturated environment integration and define bounded visual approval pilot; do not batch-generate art.
+- [x] Assess realistic saturated environment integration and define bounded visual approval pilot; do not batch-generate art.
