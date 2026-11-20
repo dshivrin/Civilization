@@ -29,3 +29,7 @@ Store tests: legacy bytes untouched/index reload, multiple unique game paths, ma
 ## Exclusions and gates
 
 No deletion, cloud sync, extra playable cities in a game, world expansion, catalog-size activation, planner/neighborhood economics, audio/NPC/monuments, second era or renderer changes. S1-Geography exact dimensions/migration need the issue's review gate; slot map identity is recorded now without choosing those policies.
+
+## Independent review reconciliation — 20 November 2026
+
+One final independent review found recovery, failed-open target writes, root aliases and weak distinguishable-history evidence. Correct within this milestone: when a valid index selects a damaged/missing UUID save, startup must preserve it and explicitly offer other registered games. The player selects a healthy game; never auto-fallback/create/reset. A corrupt index still exposes no unvalidated recovery list. Existing-target restoration prepares in memory and defers its first save until index selection succeeds; failed open/cancellation leaves target bytes unchanged. New-game persistence-before-index remains necessary and may leave an unindexed candidate. Reject a symbolic link at the library root itself as well as below it. These safety/recovery corrections add no deletion/import/cloud/economy feature. Test distinct legitimate construction/roads/research/rewards and per-game developer companions, and native relaunch with UUID selected.

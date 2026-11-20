@@ -1,5 +1,9 @@
 # Design synchronization record and operating procedure
 
+## S1-Saves review reconciliation — 20 November 2026
+
+Independent review refines the active Saves safety contract: explicit healthy-game selection from a valid index after damaged selected-save startup failure; no automatic reset/fallback. Existing target stays memory-only until selected index commits; failed open/cancellation preserves target bytes. Reject root aliases. Strengthen distinguishable real gameplay/UUID relaunch/developer-companion evidence. See [bounded spec addendum](docs/superpowers/specs/2026-11-19-s1-saves-design.md). No future feature or geography activation.
+
 ## Active S1-Saves specification
 
 S1-UX is delivered; now execute authorized SAVE-001/DEV-001 per [reconciled design](docs/superpowers/specs/2026-11-19-s1-saves-design.md) and [plan](docs/superpowers/plans/2026-11-19-s1-saves.md). Separate version1 library index; existing normal/developer paths retained; new UUID games have independent files and actual starting state. Save-before-switch, validated targets, no silent resets on corruption, atomic selection publication, library-owned lifecycle, isolated Debug fixtures. Names/default presentation are delegated choices; no deletion/cloud/world expansion. Preserve all future backlog. No save-management product code preceded this design commit.
