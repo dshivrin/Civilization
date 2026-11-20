@@ -5,8 +5,15 @@ import GameApplication
 struct BuildingCatalogView: View {
     let session: GameSession
     @Binding var selectedCategory: String
+    var focusedBuildingKind: BuildingKind? = nil
+    @State private var highlightedKind: BuildingKind?
+    @State private var focusRequest = 0
+    @State private var researchTarget: String?
+    @State private var researchSource = "buildings"
+    @State private var researchPillar: DevelopmentPillar = .science
     @Environment(\.dismiss) private var dismiss
     @State private var search = ""
+    @FocusState private var searchFocused: Bool
     @State private var expanded: Set<BuildingKind> = []
     @Environment(\.dynamicTypeSize) private var typeSize
     private var categories: [String] { ["All"] + Set(session.configuration.buildings.map { $0.category ?? "Other" }).sorted() + ["Roads"] }
@@ -27,6 +34,7 @@ struct BuildingCatalogView: View {
                     TextField("Find building", text: $search, prompt: Text("Find building").foregroundStyle(parchment.opacity(0.65)))
                         .foregroundStyle(parchment).padding(10).background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
                         .frame(maxWidth: 220).accessibilityIdentifier("catalogSearch")
+                        .focused($searchFocused).submitLabel(.done).onSubmit { searchFocused = false }
                     Button("Done", systemImage: "xmark") { dismiss() }.frame(minWidth: 80, minHeight: 44).buttonStyle(.bordered)
                         .accessibilityIdentifier("closeBuildingCatalog")
                 }
@@ -34,19 +42,35 @@ struct BuildingCatalogView: View {
                     if wide { VStack(spacing: 8) { ForEach(categories, id: \.self) { category($0) }; Spacer() }.frame(width: 220) }
                     VStack(spacing: 8) {
                         if !wide { ScrollView(.horizontal) { HStack(spacing: 8) { ForEach(categories, id: \.self) { category($0) } } }.fixedSize(horizontal: false, vertical: true).accessibilityIdentifier("buildingCategories") }
+                        ScrollViewReader { proxy in
                         ScrollView {
                             LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 280), alignment: .top)], alignment: .leading, spacing: 10) {
                                 if selectedCategory == "Roads" {
                                     ForEach(RoadStyle.allCases, id: \.self) { style in roadCard(style) }
                                 }
-                                ForEach(definitions(selectedCategory).filter { search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }, id: \.kind) { card($0) }
-                            }.padding(.bottom, 20)
+                                ForEach(definitions(selectedCategory).filter { search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }, id: \.kind) { card($0).id($0.kind) }
+                            }.scrollTargetLayout().padding(.bottom, 20)
                             if selectedCategory != "Roads" && definitions(selectedCategory).filter({ search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) }).isEmpty { Text("No matching buildings.").padding() }
                         }.frame(maxHeight: .infinity).clipped().accessibilityIdentifier("buildingCatalog")
+                        .task(id: focusRequest) {
+                            guard let kind = highlightedKind else { return }
+                            await Task.yield()
+                            proxy.scrollTo(kind, anchor: .top)
+                        }
+                        }
                     }
                 }
             }.padding(12)
         }.background(panelColor).foregroundStyle(parchment).tint(.yellow)
+        .onAppear { if let focusedBuildingKind { focus(focusedBuildingKind) } }
+        .sheet(isPresented: Binding(get: { researchTarget != nil }, set: { if !$0 { researchTarget = nil } })) {
+            ResearchView(session: session, selectedPillar: $researchPillar, focusedTechnologyID: researchTarget, returnLabel: "Return to " + researchSource)
+        }
+
+    }
+    private func focus(_ kind: BuildingKind) {
+        searchFocused = false; search = ""; selectedCategory = session.configuration.definition(kind).category ?? "Other"
+        expanded.insert(kind); highlightedKind = kind; focusRequest += 1
     }
     private func category(_ title: String) -> some View {
         let entries = definitions(title)
@@ -112,14 +136,18 @@ struct BuildingCatalogView: View {
                     Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange)
                         .accessibilityIdentifier("building-reserve-" + definition.kind.rawValue)
                     Button("Show " + session.configuration.definition(supplier).name) {
-                        search = ""
-                        selectedCategory = session.configuration.definition(supplier).category ?? "Other"
+                        focus(supplier)
                     }.frame(minHeight: 44).buttonStyle(.bordered)
                         .accessibilityIdentifier("showBootstrapSupplier-" + definition.kind.rawValue)
                 }
                 Text(definition.description ?? definition.name).font(.subheadline).fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("building-description-" + definition.kind.rawValue)
                 DevelopmentCosts(cost: definition.cost, stored: session.state.resources, id: "building-detail-" + definition.kind.rawValue, detailed: true)
+                if locked, let prerequisite = prerequisites.first(where: { !session.researchedIDs.contains($0.id) }) {
+                    Button("Research " + prerequisite.name) {
+                        researchSource = definition.name; researchTarget = prerequisite.id
+                    }.frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("buildingResearch-" + definition.kind.rawValue)
+                }
                 Text("Research: " + (prerequisites.isEmpty ? "None" : prerequisites.map { $0.name + (session.researchedIDs.contains($0.id) ? " ✓" : "") }.joined(separator: ", "))).font(.caption)
                 ForEach(definition.recipes ?? [], id: \.id) { recipe in
                     Text(recipe.name + ": " + amounts(recipe.outputsPerMinute) + "/min" + (Resource.allCases.contains { recipe.inputsPerMinute[$0] > 0 } ? " · uses " + amounts(recipe.inputsPerMinute) + "/min" : ""))
@@ -131,5 +159,8 @@ struct BuildingCatalogView: View {
                 if definition.requiredNearbyTerrain != nil { Text("Requires revealed nearby water.").font(.caption) }
             }
         }.modifier(DevelopmentCardStyle(color: color))
+            .overlay(RoundedRectangle(cornerRadius: 14).stroke(highlightedKind == definition.kind ? Color.yellow : .clear, lineWidth: 2))
+            .accessibilityElement(children: .contain)
+            .accessibilityIdentifier(highlightedKind == definition.kind ? "focusedBuilding-" + definition.kind.rawValue : "buildingCard-" + definition.kind.rawValue)
     }
 }

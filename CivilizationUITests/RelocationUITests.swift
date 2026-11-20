@@ -38,6 +38,30 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue((map.value as? String ?? "").contains("2 buildings"))
     }
 
+    @MainActor func testLockedBuildingResearchLinkFindsExactPrerequisiteAndReturns() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout: 20)); app.buttons["Build"].tap()
+        app.buttons["buildingCategory-Culture and knowledge"].tap()
+        let details = app.buttons["details-building-storytellingCircle"]
+        XCTAssertTrue(details.waitForExistence(timeout: 5)); details.tap()
+        let link = app.buttons["buildingResearch-storytellingCircle"]
+        for _ in 0..<4 where !link.isHittable { app.scrollViews["buildingCatalog"].swipeUp() }
+        XCTAssertTrue(link.isHittable); link.tap()
+        let research = app.buttons["research-oralTradition"]
+        XCTAssertTrue(research.waitForExistence(timeout: 5)); XCTAssertTrue(research.isHittable)
+        XCTAssertTrue(app.staticTexts["research-description-oralTradition"].exists)
+        XCTAssertTrue(app.otherElements["focusedResearch-oralTradition"].exists)
+        app.buttons["returnToSource"].tap()
+        XCTAssertTrue(app.buttons["details-building-storytellingCircle"].waitForExistence(timeout: 5))
+        link.tap(); XCTAssertTrue(research.waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["research-description-oralTradition"].exists)
+        capture("locked-building-research-target", app: app)
+    }
+
     @MainActor func testGameplayReviewControlsKeepNormalProgressSeparate() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
@@ -111,6 +135,7 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["civicLevelName"].label.contains("Gathering Place"))
         reveal(locked); XCTAssertTrue(locked.label.contains("Social Order")); locked.tap()
         XCTAssertTrue(app.buttons["research-socialOrder"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["research-socialOrder"].isHittable)
         XCTAssertTrue(app.staticTexts["research-description-socialOrder"].exists)
         app.buttons["closeResearch"].tap() // Done also restores the same inspection.
         XCTAssertTrue(app.staticTexts["civicLevelName"].label.contains("Gathering Place"))
@@ -788,6 +813,8 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(app.buttons["research-oralTradition"].isEnabled)
         capture("guided-research", app: app)
         app.buttons["closeResearch"].tap()
+        XCTAssertTrue(app.navigationBars["Stone Age journey"].waitForExistence(timeout: 5))
+        app.navigationBars["Stone Age journey"].buttons["Done"].tap()
         XCTAssertTrue(next.label.contains("Oral Tradition"), next.label)
     }
 

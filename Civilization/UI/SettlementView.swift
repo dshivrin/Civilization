@@ -19,6 +19,9 @@ struct SettlementView: View {
     @State private var researchPillar: DevelopmentPillar = .science
     @State private var showResearch = false
     @State private var civicResearchID: String?
+    @State private var researchReturnLabel = "Return to civic center"
+    @State private var focusedBuildingKind: BuildingKind?
+    @State private var returnToJourney = false
     @State private var showCatalog = false
     @State private var showJourney = false
     @State private var pendingGuidanceAction: GuidanceAction?
@@ -143,11 +146,17 @@ struct SettlementView: View {
                     .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { showJourney = false }.frame(minHeight: 44) } }
             }
         }
-        .fullScreenCover(isPresented: $showCatalog) {
-            BuildingCatalogView(session: session, selectedCategory: $category)
+        .fullScreenCover(isPresented: $showCatalog, onDismiss: {
+            focusedBuildingKind = nil
+            if returnToJourney { returnToJourney = false; if !session.isDragMode && session.roadTool == nil { showJourney = true } }
+        }) {
+            BuildingCatalogView(session: session, selectedCategory: $category, focusedBuildingKind: focusedBuildingKind)
         }
-        .fullScreenCover(isPresented: $showResearch, onDismiss: { civicResearchID = nil }) {
-            ResearchView(session: session, selectedPillar: $researchPillar, focusedTechnologyID: civicResearchID)
+        .fullScreenCover(isPresented: $showResearch, onDismiss: {
+            civicResearchID = nil
+            if returnToJourney { returnToJourney = false; showJourney = true }
+        }) {
+            ResearchView(session: session, selectedPillar: $researchPillar, focusedTechnologyID: civicResearchID, returnLabel: researchReturnLabel)
         }
         #if DEBUG
         .sheet(isPresented: $showDeveloperTools) { DeveloperToolsView(session: session) }
@@ -255,7 +264,12 @@ struct SettlementView: View {
                 }
                 Text("Explores a wider ring around camp. An operational scout camp is needed for journeys beyond radius \(rules.requiresScoutAfterRadius).")
                     .font(.caption).foregroundStyle(parchment.opacity(0.65))
-                if let issue = session.explorationIssue { Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange) }
+                if let issue = session.explorationIssue {
+                    Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange)
+                    if min(session.configuration.maximumExplorationRadius, (session.state.explorationRadius ?? rules.initialRadius) + rules.revealRadiusStep) > rules.requiresScoutAfterRadius && !session.state.buildings.contains(where: { $0.kind == .scoutCamp && $0.isOperational }) {
+                        Button("Show Scout Camp") { navigateGuidance(.build(.scoutCamp)) }.frame(minHeight: 44).accessibilityIdentifier("explorationScoutLink")
+                    }
+                }
                 Button("Send expedition") { session.startExploration() }
                     .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
                     .disabled(session.explorationIssue != nil).accessibilityIdentifier("startExploration")
@@ -281,7 +295,11 @@ struct SettlementView: View {
                         .font(.caption).foregroundStyle(parchment.opacity(0.7))
                 } else { Text("No extraction available in this age.").font(.caption) }
             } else {
-                Text("Requires future knowledge to identify. Cannot be extracted.").font(.caption).foregroundStyle(parchment.opacity(0.65))
+                if let id = deposit.requiredTechnology, let technology = session.configuration.technologyDefinitions.first(where: { $0.id == id }) {
+                    Button("Research " + technology.name + " to identify") {
+                        civicResearchID = id; researchReturnLabel = "Return to Explore"; researchPillar = technology.pillar; showResearch = true
+                    }.frame(minHeight: 44).accessibilityIdentifier("depositResearch-" + deposit.id)
+                } else { Text("Requires future knowledge to identify. Cannot be extracted.").font(.caption).foregroundStyle(parchment.opacity(0.65)) }
             }
         }.padding(10).frame(maxWidth: .infinity, alignment: .leading)
             .background(Color.white.opacity(0.05), in: RoundedRectangle(cornerRadius: 10))
@@ -435,7 +453,10 @@ struct SettlementView: View {
     private func openGuidance() {
         let action = session.nextGuidance.action
         if showJourney {
-            if action != .journey && action != .complete { pendingGuidanceAction = action; showJourney = false }
+            if action != .journey && action != .complete {
+                switch action { case .build, .research: returnToJourney = true; default: returnToJourney = false }
+                pendingGuidanceAction = action; showJourney = false
+            }
             return
         }
         navigateGuidance(action)
@@ -444,9 +465,11 @@ struct SettlementView: View {
         session.cancel(); session.inspectedBuilding = nil
         switch action {
         case .build(let kind):
+            focusedBuildingKind = kind
             category = session.configuration.definition(kind).category ?? "Other"
             showJourney = false; showCatalog = true
         case .research(let id):
+            civicResearchID = id; researchReturnLabel = returnToJourney ? "Return to journey" : "Return to settlement"
             researchPillar = session.configuration.technologyDefinitions.first { $0.id == id }?.pillar ?? .science
             showJourney = false; showResearch = true
         case .recipe(let id, _), .priority(let id, _), .inspect(let id), .upgrade(let id):
@@ -538,6 +561,7 @@ struct SettlementView: View {
                         if let researchID = session.upgradeResearch(for: building), !session.researchedIDs.contains(researchID),
                            let technology = session.configuration.technologyDefinitions.first(where: { $0.id == researchID }) {
                             Button("Research " + technology.name + " to unlock") {
+                                researchReturnLabel = "Return to civic center"
                                 civicResearchID = technology.id; researchPillar = technology.pillar; showResearch = true
                             }.frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("civicPrerequisiteResearch")
                         }

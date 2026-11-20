@@ -7,11 +7,13 @@ struct ResearchView: View {
     let session: GameSession
     @Binding var selectedPillar: DevelopmentPillar
     var focusedTechnologyID: String? = nil
+    var returnLabel = "Return to civic center"
+    @State private var highlightedID: String?
     @Environment(\.dismiss) private var dismiss
     @State private var showReadiness = false
     @State private var expanded: Set<String> = []
     @Environment(\.dynamicTypeSize) private var typeSize
-    @State private var positions: [DevelopmentPillar: String] = [:]
+    @State private var focusRequest = 0
     private let pillars: [DevelopmentPillar] = [.economy, .science, .population, .culture, .militarySecurity]
     private var completedRequirements: Int { session.stoneAgeRequirements.filter(\.isComplete).count }
     var body: some View {
@@ -25,8 +27,8 @@ struct ResearchView: View {
                     }
                     Spacer()
                     if focusedTechnologyID != nil {
-                        Button("Return to civic center") { dismiss() }.frame(minHeight: 44).buttonStyle(.bordered)
-                            .accessibilityIdentifier("returnToCivicCenter")
+                        Button(returnLabel) { dismiss() }.frame(minHeight: 44).buttonStyle(.bordered)
+                            .accessibilityIdentifier(returnLabel == "Return to civic center" ? "returnToCivicCenter" : "returnToSource")
                     }
                     Button("Done", systemImage: "xmark") { dismiss() }.frame(minWidth: 80, minHeight: 44).buttonStyle(.bordered)
                         .accessibilityIdentifier("closeResearch")
@@ -52,13 +54,20 @@ struct ResearchView: View {
                         if !wide {
                             ScrollView(.horizontal) { HStack(spacing: 8) { ForEach(pillars, id: \.self) { category($0) } } }.fixedSize(horizontal: false, vertical: true)
                         }
+                        ScrollViewReader { proxy in
                         ScrollView {
                             LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 280), alignment: .top)], alignment: .leading, spacing: 10) {
                                 ForEach(session.configuration.technologyDefinitions.filter { $0.pillar == selectedPillar }) { technology in
                                     technologyCard(technology).id(technology.id)
                                 }
                             }.scrollTargetLayout().padding(.bottom, 20)
-                        }.frame(maxHeight: .infinity).clipped().scrollPosition(id: Binding(get: { positions[selectedPillar] }, set: { positions[selectedPillar] = $0 }))
+                        }.frame(maxHeight: .infinity).clipped()
+                        .task(id: focusRequest) {
+                            guard let id = highlightedID else { return }
+                            await Task.yield()
+                            proxy.scrollTo(id, anchor: .top)
+                        }
+                        }
                     }
                 }
             }.padding(12)
@@ -66,7 +75,7 @@ struct ResearchView: View {
         .background(panelColor).foregroundStyle(parchment).tint(.yellow)
         .onAppear {
             if let id = focusedTechnologyID, let technology = session.configuration.technologyDefinitions.first(where: { $0.id == id }) {
-                selectedPillar = technology.pillar; expanded.insert(id)
+                focus(technology.id)
             }
         }
         .sheet(isPresented: $showReadiness) {
@@ -90,6 +99,11 @@ struct ResearchView: View {
                     .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { showReadiness = false }.frame(minHeight: 44) } }
             }
         }
+    }
+    private func focus(_ id: String) {
+        guard let technology = session.configuration.technologyDefinitions.first(where: { $0.id == id }) else { return }
+        selectedPillar = technology.pillar; expanded.insert(id); highlightedID = id
+        focusRequest += 1
     }
     private func category(_ pillar: DevelopmentPillar) -> some View {
         let technologies = session.configuration.technologyDefinitions.filter { $0.pillar == pillar }
@@ -136,12 +150,19 @@ struct ResearchView: View {
                 Text("Prerequisites: " + (technology.prerequisites.isEmpty ? "None" : technology.prerequisites.map { id in
                     (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id) + (session.researchedIDs.contains(id) ? " ✓" : "")
                 }.joined(separator: ", "))).font(.caption).foregroundStyle(parchment.opacity(0.75))
+                ForEach(technology.prerequisites, id: \.self) { id in
+                    Button("Show " + (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id)) { focus(id) }
+                        .frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("researchPrerequisite-" + id)
+                }
                 VStack(alignment: .leading, spacing: 5) {
                     Text("BENEFITS").font(.caption2.bold()).tracking(1)
                     ForEach(effects(technology), id: \.self) { Text($0).font(.subheadline) }
                 }.foregroundStyle(.mint)
             }
         }.modifier(DevelopmentCardStyle(color: color))
+            .overlay(RoundedRectangle(cornerRadius: 14).stroke(highlightedID == technology.id ? Color.yellow : .clear, lineWidth: 2))
+            .accessibilityElement(children: .contain)
+            .accessibilityIdentifier(highlightedID == technology.id ? "focusedResearch-" + technology.id : "researchCard-" + technology.id)
     }
     private func effects(_ technology: TechnologyDefinition) -> [String] {
         var values: [String] = []
