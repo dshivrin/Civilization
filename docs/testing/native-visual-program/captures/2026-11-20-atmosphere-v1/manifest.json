@@ -1,0 +1,200 @@
+[
+  {
+    "profile": "phone",
+    "state": "atmosphere-day",
+    "file": "captures/2026-11-20-atmosphere-v1/phone/atmosphere-day.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "1669898efc2460b6fe02dbdf826df332394349d3ed7307d0fafa621109fab73f",
+    "source": "/tmp/civilization-atmosphere-final-phone/96FEC7D9-61FA-46A6-BAA1-0ADA1CE03549.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795203364.414
+  },
+  {
+    "profile": "phone",
+    "state": "atmosphere-dusk",
+    "file": "captures/2026-11-20-atmosphere-v1/phone/atmosphere-dusk.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "1eb3520985287282adebad2f53602d0f41eec8bffe1d954720dd8b316573c313",
+    "source": "/tmp/civilization-atmosphere-final-phone/3DA3B268-DD9B-4519-8DE1-5A4E5B33F241.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795203413.826
+  },
+  {
+    "profile": "phone",
+    "state": "atmosphere-night",
+    "file": "captures/2026-11-20-atmosphere-v1/phone/atmosphere-night.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "f8cc1c1651cf2c602b0822ed84b9884c3df5368294b6630fe455bc9b6a7509b1",
+    "source": "/tmp/civilization-atmosphere-final-phone/B900705C-3D0F-400F-8B1A-390A210D0ABA.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795203415.575
+  },
+  {
+    "profile": "phone",
+    "state": "atmosphere-dawn",
+    "file": "captures/2026-11-20-atmosphere-v1/phone/atmosphere-dawn.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "48e3cce19f22a1a896faa9f4a9407c513d390f1314d66115d30a2438cfabc47b",
+    "source": "/tmp/civilization-atmosphere-final-phone/BBD41EEF-B01B-4A0A-AD3E-A008008AA794.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795203417.715
+  },
+  {
+    "profile": "phone",
+    "state": "atmosphere-rain-static",
+    "file": "captures/2026-11-20-atmosphere-v1/phone/atmosphere-rain-static.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "ac749358fe6ac12adc9635bbea51f57ae20ff583cda7c7ae9f30220663041a1f",
+    "source": "/tmp/civilization-atmosphere-final-phone/31717E18-1874-4B71-93E9-A9FB34064B00.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795203420.664
+  },
+  {
+    "profile": "phone",
+    "state": "atmosphere-fog-static",
+    "file": "captures/2026-11-20-atmosphere-v1/phone/atmosphere-fog-static.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "9d4a3e9ea4349507289089daf99e018897e11aa8925bf0b877601ccc65484ec7",
+    "source": "/tmp/civilization-atmosphere-final-phone/75BE5784-6B58-4D68-98C2-7E9B8DC0B027.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795203421.266
+  },
+  {
+    "profile": "mini",
+    "state": "atmosphere-day",
+    "file": "captures/2026-11-20-atmosphere-v1/mini/atmosphere-day.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "f0cbf7a21ee5794dfe466cc294dc7d200cec1936fdb0e24b8f42f4925abe5af4",
+    "source": "/tmp/civilization-atmosphere-final-mini/3A23FC24-D920-40A9-B715-262241E2F9C6.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795203527.927
+  },
+  {
+    "profile": "mini",
+    "state": "atmosphere-dusk",
+    "file": "captures/2026-11-20-atmosphere-v1/mini/atmosphere-dusk.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "f27daf2d29a85c5416b4251a4ff2cc0640a5bfdec40cee879a9d8047ac7734de",
+    "source": "/tmp/civilization-atmosphere-final-mini/65234325-5E16-48F5-975D-C8F6414CEF47.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795203579.34
+  },
+  {
+    "profile": "mini",
+    "state": "atmosphere-night",
+    "file": "captures/2026-11-20-atmosphere-v1/mini/atmosphere-night.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "bdd70b36e0876a30e2397130d73b5eca6bc0eff238484be944df89a746e2d95e",
+    "source": "/tmp/civilization-atmosphere-final-mini/B1041370-D89D-4474-A864-242C90831B07.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795203581.022
+  },
+  {
+    "profile": "mini",
+    "state": "atmosphere-dawn",
+    "file": "captures/2026-11-20-atmosphere-v1/mini/atmosphere-dawn.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "465481f8cf799f911f62409c4995faa2b9e6d1598de5418b5da54d1dc5bf2dd2",
+    "source": "/tmp/civilization-atmosphere-final-mini/F0938DF7-7FBA-4BFC-811D-3DD19E9DA093.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795203583.107
+  },
+  {
+    "profile": "mini",
+    "state": "atmosphere-rain-static",
+    "file": "captures/2026-11-20-atmosphere-v1/mini/atmosphere-rain-static.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "b806dea32ed6c2e01b1331daf470520e6fb6b2efcca94fc94ca2cefcdc2cdfdd",
+    "source": "/tmp/civilization-atmosphere-final-mini/139D30AD-12D3-40C8-9751-9E19653C34D8.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795203586.113
+  },
+  {
+    "profile": "mini",
+    "state": "atmosphere-fog-static",
+    "file": "captures/2026-11-20-atmosphere-v1/mini/atmosphere-fog-static.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "69d0a1b0cdaccbc5fbc28f582180a0c847aa5f5cf5f0093f0ee741fec0b7e588",
+    "source": "/tmp/civilization-atmosphere-final-mini/AB1078E2-075E-478D-9BAF-08EB7DB8329F.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795203586.669
+  },
+  {
+    "profile": "pro",
+    "state": "atmosphere-day",
+    "file": "captures/2026-11-20-atmosphere-v1/pro/atmosphere-day.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "09ebba16159c120b4bd6fdf5fa66d7e4112d31c28bb55598239eff302fb9960d",
+    "source": "/tmp/civilization-atmosphere-final-pro/A5B09DAD-A6E6-4074-92B9-2BAB9B99CD0F.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795203682.74
+  },
+  {
+    "profile": "pro",
+    "state": "atmosphere-dusk",
+    "file": "captures/2026-11-20-atmosphere-v1/pro/atmosphere-dusk.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "c2babaa7857d0f051f07e8631318f8735e593350f7ff28cbccea51040afd7c47",
+    "source": "/tmp/civilization-atmosphere-final-pro/858B3563-98CF-42D8-99B4-98B47AFD77D5.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795203733.374
+  },
+  {
+    "profile": "pro",
+    "state": "atmosphere-night",
+    "file": "captures/2026-11-20-atmosphere-v1/pro/atmosphere-night.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "ef0d96f14315a637f712986386672cac10dae91e36b1a60c79b4d787a65fe492",
+    "source": "/tmp/civilization-atmosphere-final-pro/C91BD45E-51B3-4D21-919D-EE8A979E77C1.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795203735.089
+  },
+  {
+    "profile": "pro",
+    "state": "atmosphere-dawn",
+    "file": "captures/2026-11-20-atmosphere-v1/pro/atmosphere-dawn.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "b1d343a48ac627a6c0c8ffc6c296ad91cb21cc6e4684246b6e4fbffca56498f5",
+    "source": "/tmp/civilization-atmosphere-final-pro/B8CCA80C-4CB8-49E4-91E9-F1BFFF651DDA.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795203737.175
+  },
+  {
+    "profile": "pro",
+    "state": "atmosphere-rain-static",
+    "file": "captures/2026-11-20-atmosphere-v1/pro/atmosphere-rain-static.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "ce0c8af1928da732c15d16bb06b23a1027c2f22ec9157dce4e1723ed09eb7ae8",
+    "source": "/tmp/civilization-atmosphere-final-pro/D95B0AFF-D764-4534-A45F-CC5D4E42F82D.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795203740.112
+  },
+  {
+    "profile": "pro",
+    "state": "atmosphere-fog-static",
+    "file": "captures/2026-11-20-atmosphere-v1/pro/atmosphere-fog-static.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "d20a405dd0310229304872a7b20ced535f9bdd7c5f617683738fb9331fae73cd",
+    "source": "/tmp/civilization-atmosphere-final-pro/49355D0B-78CF-4679-9DA2-69134EE205BC.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795203740.674
+  }
+]

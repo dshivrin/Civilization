@@ -7,6 +7,8 @@ The corrected entry is **Developer tools → Onboarding walkthrough — start he
 **Installed product33073e9** fixes building drag, roof-tap jumps and repeated suggestions. Drag the preview or tap an open tile; **Next suggested site** chooses another valid location. All12save/library files match before launch. Corrected physical gestures await owner retry. [Current screenshots](walkthrough.html), [installation evidence](placement-device-install.json), [software verification](placement-verification.json). Prior467a26d/54d4f6e records and captures are retained. Broader onboarding awaits the owner’s forthcoming plan.
 
 
+[New atmosphere review](atmosphere.html) adds18native day/dusk/night/dawn/static-weather comparisons and an untrimmed full-cycle movie. The disposable lab supports continuous lighting, pause/resume and Static/power fallbacks that retain poses. The default120second visual period has a clearly labeled24second preview; neither defines game time. Proposed warm ground pools are capped at8. [Software evidence](atmosphere-verification.json), [recording provenance](clips/atmosphere-provenance.json). This slice is simulator-only; the physical phone remains33073e9. Owner excludes the new roadmap; only visual/graphics and existing onboarding continue.
+
 [Open the native screenshot gallery](index.html). The same interactive lab is under **Developer tools → Roads, neighborhoods, living world and loading** in Debug builds. It creates disposable fixtures and does not open, replace or save a player game.
 
 Implemented for review:

@@ -4,6 +4,120 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testAtmosphereFullCycleRecording() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        app.buttons["developerTools"].tap()
+        let entry = app.buttons["openNativeVisualReview"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 5)); entry.tap()
+        let fast = app.buttons["visualReviewFastCycle"]
+        XCTAssertTrue(fast.waitForExistence(timeout: 10))
+        let ready = XCTNSPredicateExpectation(predicate: NSPredicate(format: "enabled == true"), object: fast)
+        XCTAssertEqual(XCTWaiter.wait(for: [ready], timeout: 10), .completed)
+        app.buttons["Center"].tap()
+        app.buttons["visualReviewWeather-rain"].tap()
+        fast.tap()
+        let status = app.staticTexts["visualReviewAtmosphereStatus"]
+        func fraction() -> Double {
+            let value = status.value as? String ?? ""
+            let result = value.split(separator: " ").first { $0.hasPrefix("fraction=") }.flatMap { Double($0.dropFirst(9)) } ?? -1
+            print("ATMOSPHERE_CYCLE_SAMPLE \(result) \(value)")
+            return result
+        }
+        print("ATMOSPHERE_FULL_CYCLE_RECORDING_STARTED")
+        let dawn = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in fraction() > 0.75 }, object: nil)
+        XCTAssertEqual(XCTWaiter.wait(for: [dawn], timeout: 90), .completed)
+        app.buttons["visualReviewCycle"].tap()
+        XCTAssertTrue(status.label.contains("Dawn"), "Pausing must label the retained dawn appearance, not the old Day preset")
+        let frozen = fraction()
+        Thread.sleep(forTimeInterval: 1.2)
+        XCTAssertEqual(fraction(), frozen)
+        app.buttons["visualReviewCycle"].tap()
+        let wrapped = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in (0...0.15).contains(fraction()) }, object: nil)
+        XCTAssertEqual(XCTWaiter.wait(for: [wrapped], timeout: 45), .completed)
+        print("ATMOSPHERE_FULL_CYCLE_WRAPPED \(status.value as? String ?? "none")")
+        app.buttons["visualReviewStatic"].tap()
+        capture("atmosphere-cycle-wrapped", app: app)
+    }
+
+    @MainActor func testAtmosphereCycleAndStaticFallbackPreserveNormalGame() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        let original = app.otherElements["settlementMap"].value as? String
+        app.buttons["developerTools"].tap()
+        let gallery = app.buttons["openNativeVisualReview"]
+        XCTAssertTrue(gallery.waitForExistence(timeout: 5)); gallery.tap()
+        let cycle = app.buttons["visualReviewCycle"]
+        XCTAssertTrue(cycle.waitForExistence(timeout: 10))
+        let status = app.staticTexts["visualReviewAtmosphereStatus"]
+        func value(_ element: XCUIElement) -> String { element.value as? String ?? "" }
+        func number(_ name: String, _ element: XCUIElement) -> Double {
+            let field = value(element).split(separator: " ").first { $0.hasPrefix(name + "=") }
+            return field.flatMap { Double($0.dropFirst(name.count + 1)) } ?? -1
+        }
+        func awaitCondition(_ condition: @escaping () -> Bool) {
+            let expectation = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in condition() }, object: nil)
+            XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 8), .completed)
+        }
+        awaitCondition { cycle.isEnabled && number("nodes", status) > 0 }
+        app.buttons["visualReview-day"].tap(); capture("atmosphere-day", app: app)
+        let initial = number("fraction", status), nodes = number("nodes", status)
+        cycle.tap()
+        awaitCondition { number("fraction", status) > initial + 0.003 }
+        XCTAssertGreaterThan(number("tint", status), 0, "The actual tint must advance with the visual clock")
+        XCTAssertEqual(number("nodes", status), nodes, "Lighting updates must not allocate new actors/weather nodes")
+        let figureBuilds = number("figureBuilds", status)
+        app.buttons["visualReviewStatic"].tap()
+        awaitCondition { value(status).contains("moving=false") && number("buildingActions", status) == 0 }
+        XCTAssertEqual(number("figureBuilds", status), figureBuilds, "Static must retain the existing figures, not recreate them at route origins")
+        let frozen = number("fraction", status)
+        Thread.sleep(forTimeInterval: 1.2)
+        XCTAssertEqual(number("fraction", status), frozen)
+        app.buttons["visualReviewStatic"].tap()
+        awaitCondition { number("fraction", status) > frozen + 0.003 }
+        XCTAssertEqual(number("figureBuilds", status), figureBuilds, "Resuming motion must retain the frozen figure state")
+        app.buttons["visualReviewPower"].tap()
+        awaitCondition { value(status).contains("moving=false") && number("buildingActions", status) == 0 }
+        let lowPower = number("fraction", status)
+        Thread.sleep(forTimeInterval: 1.2)
+        XCTAssertEqual(number("fraction", status), lowPower)
+        app.buttons["visualReviewPower"].tap()
+        awaitCondition { value(status).contains("moving=true") }
+        app.buttons["Loading scenes"].tap()
+        let covered = app.staticTexts["visualReviewCoveredStatus"]
+        XCTAssertTrue(covered.waitForExistence(timeout: 5))
+        awaitCondition { value(covered).contains("moving=false") }
+        let paused = number("fraction", covered)
+        Thread.sleep(forTimeInterval: 1.2)
+        XCTAssertEqual(number("fraction", covered), paused)
+        app.buttons["closeLoadingReview"].tap()
+        awaitCondition { number("fraction", status) > paused + 0.003 }
+        for phase in ["dusk", "night", "dawn"] {
+            app.buttons["visualReview-" + phase].tap()
+            awaitCondition { value(status).contains("cycle=false") }
+            capture("atmosphere-" + phase, app: app)
+            if phase == "night" {
+                XCTAssertEqual(number("tint", status), 0.2, accuracy: 0.001)
+                XCTAssertGreaterThan(number("lights", status), 0)
+                XCTAssertLessThanOrEqual(number("lights", status), 8)
+                XCTAssertGreaterThan(number("light", status), 0.9)
+            }
+        }
+        app.buttons["visualReviewStatic"].tap()
+        app.buttons["visualReviewWeather-rain"].tap(); capture("atmosphere-rain-static", app: app)
+        app.buttons["visualReviewWeather-fog"].tap(); capture("atmosphere-fog-static", app: app)
+        XCTAssertEqual(number("buildingActions", status), 0)
+        app.buttons["closeNativeVisualReview"].tap(); app.buttons["Done"].tap()
+        XCTAssertEqual((app.otherElements["settlementMap"].value as? String)?.components(separatedBy: " sceneBuilds=").first,
+                       original?.components(separatedBy: " sceneBuilds=").first)
+    }
+
     @MainActor private func openWalkthroughPlacement() throws -> XCUIApplication {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"

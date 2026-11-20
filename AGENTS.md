@@ -1,10 +1,16 @@
+## Atmosphere visual review verified — 20 November 2026
+
+Owner explicitly limits work to visual/graphics and existing onboarding; **do not start the new roadmap**. Debug lab now has continuous day/dusk/night/dawn, retained-pose Static/power fallback, proposed bounded warm ground pools and explicit24second review mode (default120seconds). [18-capture gallery and full-cycle movie](docs/testing/native-visual-program/atmosphere.html), [verification](docs/testing/native-visual-program/atmosphere-verification.json). Core272Debug/235Release+9exclusions, six native executions across phone/mini/Pro, Release entry and actual dawn/pause/resume/wrap pass. Independent findings were reproduced and corrected; no production appearance acceptance inferred.
+
+Physical phone remains placement build33073e9; no device/save access in this slice. Authoritative GameCore, seed/art catalog, normal WorldView, dedicated onboarding walkthrough, original media and signing remain unchanged. No migration, normal visual activation or R2-07. Parent visual Goal remains active; continue only authorized visual refinement. Broader onboarding awaits the owner's forthcoming plan and production GateB review. New Empire/EconomyLab/MapFinds roadmap work is deferred by direct owner instruction.
+
 ## Onboarding placement correction installed — 20 November 2026
 
 Owner finds the guide useful but reports no building drag/suggestion effect and will supply a broader onboarding plan later. This is not GateB or appearance approval. Corrected product **33073e9** is committed/pushed and installed/launched on iPhone; process9418 verified. **Developer tools → Onboarding walkthrough — start here** now supports exact retained-offset candidate drag, roof-tap stability, separate empty-map pan/pinch and **Next suggested site** cycling through authoritative-valid sites. Heading/cost labels wrap. A measured62-point SwiftUI/SKView safe-area mismatch was corrected with actual SKView-local coordinates, without arbitrary offsets or changing normal WorldView.
 
 Core **272 Debug /235 Release +9exclusions**, nine native cases across phone/mini/Pro and ordinary Release entry pass; independent review finds no verified issues. [15-capture gallery](docs/testing/native-visual-program/walkthrough.html), [software](docs/testing/native-visual-program/placement-verification.json), [install](docs/testing/native-visual-program/placement-device-install.json). Fresh stable production-validated backups prove all **12 files byte-identical before launch**. Corrected physical gestures/performance/human acceptance and post-launch byte comparison are unverified. Prior467a26d/54d4f6e evidence is retained.
 
-Normal gameplay/tutorial/exploration, original media, signing, saves/history and R2-07 disabled remain unchanged. No broader onboarding redesign before the owner's forthcoming plan. The full visual Goal remains active; daylight-clock preparation95b50ad has no native activation yet. Do not mark the overall program complete or infer production approval from this correction.
+Normal gameplay/tutorial/exploration, original media, signing, saves/history and R2-07 disabled remain unchanged. No broader onboarding redesign before the owner's forthcoming plan. The full visual Goal remains active; daylight-clock preparation95b50ad was still pending native review at this historical checkpoint; see the newer atmosphere entry above. Do not mark the overall program complete or infer production approval from this correction.
 
 ## Native visual review installed; onboarding Gate A ready — 20 November 2026
 

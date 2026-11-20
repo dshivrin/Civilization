@@ -11,6 +11,9 @@ STATES = ['native-visual-review-day', 'native-visual-review-night', 'native-load
 WALKTHROUGH_STATES = ['walkthrough-01-hut-guide', 'walkthrough-02-expedition-guide',
                       'walkthrough-03-forest-woodcutter-guide', 'walkthrough-04-goals-handoff']
 
+ATMOSPHERE_STATES = ['atmosphere-day', 'atmosphere-dusk', 'atmosphere-night', 'atmosphere-dawn',
+                     'atmosphere-rain-static', 'atmosphere-fog-static']
+
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -21,10 +24,13 @@ def main():
     parser.add_argument('--render-only', action='store_true', help='Validate an existing archive and regenerate HTML only')
     parser.add_argument('--walkthrough', action='store_true', help='Archive the four interactive guide steps and build walkthrough.html')
     parser.add_argument('--include-placement', action='store_true', help='Include actual candidate drag screenshot in a walkthrough archive')
+    parser.add_argument('--atmosphere', action='store_true', help='Archive six lighting/weather comparisons and build atmosphere.html')
     args = parser.parse_args()
     if args.include_placement and not args.walkthrough:
         parser.error('Placement captures require --walkthrough')
-    states = WALKTHROUGH_STATES + (['walkthrough-placement-drag-suggest'] if args.include_placement else []) if args.walkthrough else STATES
+    if args.atmosphere and (args.walkthrough or args.include_placement):
+        parser.error('Atmosphere and walkthrough archives are separate')
+    states = ATMOSPHERE_STATES if args.atmosphere else WALKTHROUGH_STATES + (['walkthrough-placement-drag-suggest'] if args.include_placement else []) if args.walkthrough else STATES
     target = args.output.resolve()
     if not target.is_relative_to(GALLERY / 'captures') or args.output.is_symlink():
         parser.error('Output must be a new gallery/captures directory without aliases')
@@ -101,14 +107,22 @@ def main():
                 '<p>Open Developer tools → Onboarding walkthrough — start here. This is a fresh in-memory rehearsal; normal New Game has not changed. The guide runs real Hut construction, one paid expedition countdown and Woodcutter construction. Whole-forest discovery is a review proposal applied only to this disposable copy.</p>',
                 '<p>Drag the building or tap an open tile, then confirm. Next suggested site chooses another authoritative-valid site. Skip/reopen preserves this temporary progress. Explicit time advance is labeled; existing saves and R2-07 remain unchanged. Owner requested refinement before normal integration; no approval is inferred.</p>',
                 '<p><a href="index.html">Earlier visual/fog comparison</a> · <a href="progress.md">Verification ledger</a></p>']
-    clip_manifest = GALLERY / 'clips/provenance.json'
+    if args.atmosphere:
+        body = ['<h1>Continuous atmosphere review</h1>',
+                '<p>Simulator review only; the physical phone retains placement build33073e9. Normal rendering, saves, economy and R2-07 are unchanged. The same disposable grouped fixture is shown in day/dusk/night/dawn and static rain/fog.</p>',
+                '<p>The visual-only cycle defaults to120seconds, with an explicit24second preview. Static/power modes stop the clock, people, weather and existing fire/smoke. Eight or fewer warm ground-light pools are proposals, not accepted window/contact art. No hardware FPS, battery or human acceptance is claimed.</p>',
+                '<p><a href="walkthrough.html">Onboarding placement review</a> · <a href="index.html">Earlier visual review</a> · <a href="progress.md">Verification ledger</a></p>']
+    clip_manifest = GALLERY / ('clips/atmosphere-provenance.json' if args.atmosphere else 'clips/provenance.json')
     if clip_manifest.exists() and not args.walkthrough:
         clips = json.loads(clip_manifest.read_text())
         for clip in clips['records']:
             if digest(GALLERY / clip['file']) != clip['sha256']:
                 raise ValueError('Recorded clip hash mismatch')
         watch = next(c for c in clips['records'] if c['role'] == 'upright')
-        body.append('<h2>Recorded loading review</h2><video style="width:100%" controls preload="metadata" src="'+html.escape(watch['file'])+'"></video><p>Simulator loading scenes and decorative Skip; upright watch-copy. No living-agent/weather motion or hardware performance claim. <a href="clips/provenance.json">Recording provenance</a></p>')
+        heading = 'Recorded full visual cycle' if args.atmosphere else 'Recorded loading review'
+        note = 'Untrimmed simulator QA entry and an actual accelerated24second visual cycle; this does not measure startup or hardware performance.' if args.atmosphere else 'Simulator loading scenes and decorative Skip; upright watch-copy. No living-agent/weather motion or hardware performance claim.'
+        provenance = 'clips/atmosphere-provenance.json' if args.atmosphere else 'clips/provenance.json'
+        body.append('<h2>'+heading+'</h2><video style="width:100%" controls preload="metadata" src="'+html.escape(watch['file'])+'"></video><p>'+note+' <a href="'+provenance+'">Recording provenance</a></p>')
     for profile in ('phone','mini','pro'):
         body.append('<h2>'+profile.capitalize()+'</h2>')
         for record in records:
@@ -121,7 +135,7 @@ def main():
         body.append(f'<figure class="concept"><img loading="lazy" src="{file}" alt="Concept {html.escape(asset["id"])}"><figcaption>{html.escape(asset["id"])}</figcaption></figure>')
     body.append('</details>')
     style = 'body{max-width:1200px;margin:32px auto;padding:0 20px;background:#142322;color:#f0e8cf;font:17px/1.6 system-ui}a{color:#a9dddb}img{display:block;width:100%;height:auto}figure{margin:20px 0 36px}figcaption{padding:8px}.concept{background:#ddd;color:#111}summary{cursor:pointer;padding:18px}'
-    (GALLERY / ('walkthrough.html' if args.walkthrough else 'index.html')).write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Native visual review</title><style>'+style+'</style><main>'+''.join(body)+'</main></html>')
+    (GALLERY / ('atmosphere.html' if args.atmosphere else 'walkthrough.html' if args.walkthrough else 'index.html')).write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Native visual review</title><style>'+style+'</style><main>'+''.join(body)+'</main></html>')
     print(f'PASS:{len(records)} unchanged native captures,4 concept/prompt hashes; validated archive and local gallery')
 
 if __name__ == '__main__':

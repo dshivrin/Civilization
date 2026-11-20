@@ -14,6 +14,14 @@ struct NativeVisualReviewView: View {
     @State private var fixture: GameEngine?
     @State private var phase = LivingWorldLayer.Phase.day
     @State private var weather = LivingWorldLayer.Weather.clear
+    @State private var phaseRevision = 0
+    @State private var cyclesLighting = false
+    @State private var cycleDuration: Double = 120
+    @State private var staticPreview = false
+    @State private var powerPreview = false
+    private var effectiveReduceMotion: Bool {
+        reduceMotion || staticPreview || powerPreview || ProcessInfo.processInfo.isLowPowerModeEnabled
+    }
     @State private var loading = false
     @State private var onboarding = false
     @State private var onboardingSnapshot: OnboardingReviewSnapshot?
@@ -42,12 +50,13 @@ struct NativeVisualReviewView: View {
                 Text("VISUAL REVIEW · disposable snapshot · provisional people / shared-yard details")
                     .font(.caption).accessibilityIdentifier("visualReviewNotice")
                 HStack {
-                    ForEach([LivingWorldLayer.Phase.day, .dusk, .night], id: \.self) { value in
-                        Button(String(describing: value).capitalized) { phase = value; refresh() }
+                    ForEach(LivingWorldLayer.Phase.allCases, id: \.self) { value in
+                        Button(String(describing: value).capitalized) { phase = value; phaseRevision += 1; cyclesLighting = false; refresh() }
                             .accessibilityIdentifier("visualReview-" + String(describing: value))
                     }
                     ForEach([LivingWorldLayer.Weather.clear, .rain, .fog], id: \.self) { value in
                         Button(String(describing: value).capitalized) { weather = value; refresh() }
+                            .accessibilityIdentifier("visualReviewWeather-" + value.rawValue)
                     }
                     Button("Center") { scene?.recenter(); cameraRevision += 1 }
                     Button("Overview") { scene?.showMapOverview(); cameraRevision += 1 }
@@ -74,6 +83,34 @@ struct NativeVisualReviewView: View {
                     Text(expeditionDescription).font(.caption2)
                 }
             }.padding(10).foregroundStyle(parchment).background(panelColor.opacity(0.96))
+        }.overlay(alignment: .bottomTrailing) {
+            VStack(spacing: 4) {
+                HStack {
+                    Button(cyclesLighting ? "Pause cycle" : "Cycle light") { cyclesLighting.toggle(); refresh() }
+                        .disabled(!reviewFrameReady).accessibilityIdentifier("visualReviewCycle")
+                    Button(staticPreview ? "Static: on" : "Static world") { staticPreview.toggle(); refresh() }
+                        .accessibilityIdentifier("visualReviewStatic")
+                    Button(powerPreview ? "Power: low" : "Power preview") { powerPreview.toggle(); refresh() }
+                        .accessibilityIdentifier("visualReviewPower")
+                }.buttonStyle(.bordered).controlSize(.large).font(.caption)
+                HStack {
+                    Button(cycleDuration == 24 ? "120 s cycle" : "24 s preview") {
+                        cycleDuration = cycleDuration == 24 ? 120 : 24
+                        phase = .day; phaseRevision += 1; cyclesLighting = true; refresh()
+                    }.buttonStyle(.bordered).font(.caption).frame(minHeight: 44)
+                        .disabled(!reviewFrameReady).accessibilityIdentifier("visualReviewFastCycle")
+                    if let scene {
+                        TimelineView(.animation(minimumInterval: 0.25, paused: appPhase != .active || loading)) { _ in
+                            Text(scene.reviewAtmosphereCaption).font(.caption2)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .accessibilityLabel(scene.reviewAtmosphereCaption)
+                                .accessibilityValue(scene.reviewAtmosphereSummary)
+                                .accessibilityIdentifier("visualReviewAtmosphereStatus")
+                        }
+                    }
+                }
+            }.padding(8).frame(maxWidth: 380).foregroundStyle(parchment)
+                .background(panelColor.opacity(0.96), in: RoundedRectangle(cornerRadius: 12)).padding(10)
         }.task {
             do {
                 let engine = try DeveloperScenario.grouped.makeEngine(configuration: configuration, now: Date(timeIntervalSince1970: 0))
@@ -96,6 +133,11 @@ struct NativeVisualReviewView: View {
                     }
                     Button("Back to scene") { loading = false }.accessibilityIdentifier("closeLoadingReview")
                 }.buttonStyle(.bordered).padding()
+                TimelineView(.animation(minimumInterval: 0.5, paused: appPhase != .active)) { _ in
+                    Text("World preview paused").font(.caption2)
+                        .accessibilityValue(scene?.reviewAtmosphereSummary ?? "Preparing")
+                        .accessibilityIdentifier("visualReviewCoveredStatus")
+                }
                 SettlementLoadingView(stage: "Preview only · no game is loading", reviewPresentation: true, scenery: scenery)
             }.background(panelColor)
         }
@@ -133,7 +175,11 @@ struct NativeVisualReviewView: View {
         guard let scene, let fixture else { return }
         scene.isPaused = appPhase != .active || loading
         scene.reviewVisualsEnabled = true; scene.reviewPhase = phase; scene.reviewWeather = weather
-        scene.reduceMotion = reduceMotion
+        scene.reviewLightingSelectionRevision = phaseRevision
+        scene.reviewCyclesLighting = cyclesLighting; scene.reviewLowPowerPreview = powerPreview
+        scene.reviewLightingCycleDuration = cycleDuration
+        scene.reduceMotion = effectiveReduceMotion
+        if effectiveReduceMotion && forestRevealed { revealSettled = true }
         scene.activeProductionIDs = fixture.operatingProductionBuildingIDs
         scene.display(state: fixture.state, kind: onboarding && forestRevealed ? .woodcutter : nil,
                       tile: onboarding && forestRevealed ? onboardingSnapshot?.region.woodcutterOrigins.first : nil, valid: true, inspected: nil,

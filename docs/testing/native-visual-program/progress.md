@@ -81,3 +81,26 @@ Final placement0e2e44cd...nine native executions(three per phone/mini/Pro) pass:
 
 
 Installed correction33073e9: personal branch push, signed Debug build/signature, physical install, normal launch and process9418verified. Fresh stable validated before/after-install backups and reusable strict comparison prove12files identical before launch. The source backup already contained12files before this update; prior11-file467a26d evidence is historical. Both executable/debug-dylib hashes recorded. No reset/uninstall/save injection/signing/media change. Actual corrected physical gestures, sustained metrics and human acceptance remain unverified; no post-launch byte comparison claim. Owner's broader plan is forthcoming, not inferred. Full visual Goal active; no normal GateB/appearance/R2-07 activation.
+
+
+## Continuous atmosphere review resumed
+
+Previous goal turn was progress: installed/pushed placement33073e9/f50a5be. Owner's broader onboarding plan remains forthcoming. Native atmosphere controls RED9618586d...missingcycle→GREENc022f8cc...actual clock/tint, fixed node count, static/power freezes, zero building SKActions, covered pause, presets/warm pools and normal map preservation. Added explicit24second visual-only preview for full-cycle motion proof; REDd36b9a9b...missingfastcontrol. MCP recording session EC995F2A...1795202535450 started with QAphone defaults; full-cycle test currently running. No physical install or save action in this slice.
+
+
+Recording-v1 b3a5656d...full-cycle test failed waiting for dawn within50s. Raw MCP recording retained at /tmp/civilization-atmosphere-cycle-recording-v1.mp4 (not promoted); frames show the real24second visual mode progressing into Night→Dawn, but no passing wrap evidence. The clock intentionally caps frame dt; concurrent core compilation, automatic XCTest capture and MCP capture may slow visual time. Add bounded actual-fraction logs and allow more wall time, then rerun serially with no competing build; do not change game or visual timing to force a pass. First functional c022...remains passing for prior controls. Freshmain95b3ad1 Empire roadmap archivedexactly and classified as future direction, not new execution permission.
+
+
+Owner explicitly excludes the new Empire roadmap: finish visual/graphics and existing onboarding only. Full-cycle20d4efb5...passes observed0.7507dawn→0.9955→0.0225wrap with24second visual period; MCPv2retained locally, not final promotion because independent review found Static recreates figures. Add actual figure rebuild diagnostics/regression before fixing. Caption finding gradedMinor is regradedImportant for truthful review labels: paused Dawn must not say Day. Cost of this engineering ruling is a small caption-policy change, no gameplay. One final fix pass, no re-review. No core build competed withv2recording; bounded frame clock can run slower than wall time under capture/AXload.
+
+
+Independent review corrections REDdffeb435...: Static figureBuilds2vs1 confirms route-origin reset; pausedDawn caption saysDay. Fixed cache invalidation to depend on capacity/layout rather than motion permission, retained weather drift when time is frozen, and derived paused caption from actual fraction. No gameplay/model clock tuning. Final six-case phone/mini/Pro regression running; full-cycle recording will be repeated after these fixes. No further roadmap work is authorized or started; Empire document remains reference only per direct owner instruction.
+
+
+Scope reconciliation after direct owner exclusion: moved our unchanged/uncommitted Empire plan copy to /tmp/civilization-deferred-empire-roadmap-95b3ad1.md and removed only our new forward-roadmap link. The authoritative file remains untouched on origin/main95b3ad1. This visual commit will contain no new Empire plan or roadmap activation; no existing/backlog IDs removed.
+
+
+Final cache/caption fix8112b9e...phone2passes including stable figureBuilds across Static/resume, clock/power/covered suspension, phase presets and existing lab's camera/normal preservation. Tablet matrix and Release entry running. No native re-review requested after the one evidence-driven correction pass. Empire roadmap reference copy is outside this change; source and product scope remain visual/graphics plus existing onboarding.
+
+
+Final atmosphere verification:224e14d...core272Debug/235Release+9exclusions;8112b9e...two native cases each phone/mini/Pro=6pass;4dd8d28...Release entry1pass. Final recordingac9beb9e...1pass, actual0.7611dawn, pause0.8325unchanged,0.9986→0.0168wrap; Static at end. MCPv3stopped after terminal test report; raw136.34seconds/1537decodedframes, upright orientation-only watch copy preserves every presentation timestamp.18unchanged PNGs copied from finalmatrix. Reviewed phoneNight, miniStaticRain, ProDawn and close-up movie frame; controls readable, tint deliberately subtle, figures remain provisional. No physical performance/agent-atlas acceptance claim. Source/hash proofs in atmosphere-verification.json; dedicated walkthrough suffix equals f50a5be. No device/save access, art promotion, migration, normal activation or new-roadmap work. No broad completion claim for parentGoal.

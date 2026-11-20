@@ -1,0 +1,105 @@
+{
+  "status": "verified simulator review only; no production appearance acceptance",
+  "baseline": "f50a5be",
+  "reports": {
+    "core": {
+      "path": "/tmp/civilization-qa-224e14d1b4e64b929d319320cd7a0109/report.json",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 272
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null
+        }
+      ]
+    },
+    "nativeThreeProfiles": {
+      "path": "/tmp/civilization-qa-8112b9e7a4634bf8851ec6898ab47421/report.json",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 2
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "passed",
+          "tests": 2
+        },
+        {
+          "name": "ui-debug-3",
+          "status": "passed",
+          "tests": 2
+        }
+      ]
+    },
+    "releaseEntry": {
+      "path": "/tmp/civilization-qa-4dd8d28e4bf5470ab4317d1afa53f16a/report.json",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "status": "passed",
+          "tests": 1
+        }
+      ]
+    },
+    "fullCycleRecording": {
+      "path": "/tmp/civilization-qa-ac9beb9ebcef49c79e3b350e6cbdd05c/report.json",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1
+        }
+      ]
+    }
+  },
+  "sourceHashes": {
+    "Civilization/Rendering/LivingWorldLayer.swift": "28ed0fa49d73cde4f1ae0b630d91059f8652694220d51a5e807663c3cbb5eeff",
+    "Civilization/Rendering/SettlementScene.swift": "867f1a042b894bec86b658188945e4d12a1b48102c7e00ca180548df748a86d7",
+    "Civilization/UI/NativeVisualReviewView.swift": "86cd648d664379992c16fb2b4f9f311b1bdd25c98d03efa7a9487ed03e1e2201",
+    "CivilizationUITests/RelocationUITests.swift": "6ea6d92b0a6c42fc11fcd36028df353f3764c77b6e73139650a64e03ad2b6517",
+    "scripts/build-native-visual-gallery.py": "8448956f1cbc4740890066679c2462e4ec066a5434686ffd61b6c57e553aaefc"
+  },
+  "preservedAuthoritativePaths": {
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+    "Packages/GameCore/Sources/GameApplication/Resources/art-catalog.json": "f7e79340e138601539c4f1cae3f10df643770b02294551a98e6f7f9ff9373690"
+  },
+  "unchangedPaths": [
+    "Packages/GameCore/Sources/GameCore",
+    "Civilization/Rendering/WorldView.swift",
+    "Civilization.xcodeproj",
+    "Civilization/Art"
+  ],
+  "onboardingWalkthroughSuffixUnchanged": true,
+  "physicalPhoneProduct": "33073e9",
+  "physicalInstallThisSlice": false,
+  "playerSaveAccessThisSlice": false,
+  "r207Enabled": false,
+  "captures": 18,
+  "defaultCycleSeconds": 120,
+  "acceleratedReviewSeconds": 24,
+  "reviewFixes": [
+    "Static retains route poses and weather drift",
+    "Paused phase caption derives from retained visual fraction"
+  ],
+  "limits": [
+    "No normal rendering activation",
+    "No new-roadmap implementation",
+    "Original media and signing untouched",
+    "No physical FPS/thermal/battery or human acceptance claims"
+  ]
+}

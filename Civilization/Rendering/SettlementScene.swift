@@ -35,6 +35,15 @@ final class SettlementScene: SKScene {
     var reviewVisualsEnabled = false
     var reviewPhase = LivingWorldLayer.Phase.day
     var reviewWeather = LivingWorldLayer.Weather.clear
+    var reviewCyclesLighting = false
+    var reviewLightingCycleDuration: Double = 120
+    var reviewLightingSelectionRevision = 0
+    var reviewLowPowerPreview = false
+    var reviewAtmosphereSummary: String {
+        func actions(_ node: SKNode) -> Int { (node.hasActions() ? 1 : 0) + node.children.reduce(0) { $0 + actions($1) } }
+        return livingLayer.reviewSummary + " buildingActions=\(actions(buildingLayer))"
+    }
+    var reviewAtmosphereCaption: String { livingLayer.reviewCaption }
     override func update(_ currentTime: TimeInterval) {
         let width = size.width * worldCamera.xScale, height = size.height * worldCamera.yScale
         livingLayer.update(currentTime: currentTime, viewport: CGRect(x: worldCamera.position.x - width / 2,
@@ -202,7 +211,9 @@ final class SettlementScene: SKScene {
         } else { connectionLayer.clear() }
         livingLayer.display(state: state, configuration: configuration, reduceMotion: reduceMotion,
             reviewEnabled: reviewVisualsEnabled, phase: reviewPhase, weather: reviewWeather,
-            foreground: !isPaused, lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled)
+            foreground: !isPaused, lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled || reviewLowPowerPreview,
+            cycles: reviewCyclesLighting, selectionRevision: reviewLightingSelectionRevision,
+            activeProductionIDs: activeProductionIDs, cycleDuration: reviewLightingCycleDuration)
         #endif
         #if DEBUG
         if reviewContinuousFog != renderedContinuousFog { drawTerrain(discovered: state.discoveredTiles); renderedContinuousFog = reviewContinuousFog }

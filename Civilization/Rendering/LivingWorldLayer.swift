@@ -7,7 +7,7 @@ import GameApplication
 /// No game commands, authoritative clocks, resource transfers, bridge or gate inference.
 @MainActor
 final class LivingWorldLayer: SKNode {
-    enum Phase: String, CaseIterable { case day, dusk, night }
+    typealias Phase = VisualDayPhase
     enum Weather: String, CaseIterable { case clear, rain, fog }
 
     private struct Walker {
@@ -30,6 +30,12 @@ final class LivingWorldLayer: SKNode {
     }
     private var walkers: [Walker] = []
     private var wildlife: [Creature] = []
+    private var nightLights: [SKShapeNode] = []
+    private var figureBuildCount = 0
+    private var daylight = VisualDayCycle()
+    private var continuousLighting = false
+    private var cycleDuration: Double = 120
+    private var selectionRevision = -1
     private let atmosphere = SKNode()
     private let tint = SKSpriteNode(color: .clear, size: .zero)
     private var weatherNodes: [SKShapeNode] = []
@@ -40,6 +46,7 @@ final class LivingWorldLayer: SKNode {
         let origin: Tile
         let footprint: BuildingFootprint
         let operational: Bool
+        let productionActive: Bool
     }
     private var renderedBuildings: [LayoutBuilding] = []
     private var renderedRoads: [RoadTile] = []
@@ -56,7 +63,15 @@ final class LivingWorldLayer: SKNode {
     private(set) var routeCount = 0
     private(set) var routeTileCount = 0
     var reviewSummary: String {
-        "provisional villagers=\(walkers.count) routes=\(routeCount) routeTiles=\(routeTileCount) wildlife=\(wildlife.count) nodes=\(descendantCount(self)) phase=\(phase.rawValue) weather=\(weather.rawValue) moving=\(budget.animates)"
+        String(format: "fraction=%.4f tint=%.4f light=%.3f", daylight.fraction, tint.color.cgColor.alpha,
+            nightLights.first?.alpha ?? 0) +
+        " cycle=\(continuousLighting) period=\(Int(cycleDuration)) moving=\(budget.animates) figureBuilds=\(figureBuildCount) nodes=\(descendantCount(self)) lights=\(nightLights.count) weather=\(weather.rawValue)"
+    }
+    var reviewCaption: String {
+        let index = min(3, Int(daylight.fraction * 4))
+        let phases = Phase.allCases
+        let light = continuousLighting ? "\(phases[index].rawValue.capitalized) → \(phases[(index + 1) % 4].rawValue.capitalized) · \(Int(cycleDuration)) s" : phases[index].rawValue.capitalized
+        return light + (budget.animates ? " · Motion" : " · Static")
     }
 
     override init() {
@@ -71,24 +86,28 @@ final class LivingWorldLayer: SKNode {
 
     func display(state: GameState, configuration: GameConfiguration, reduceMotion: Bool,
                  reviewEnabled: Bool, phase: Phase = .day, weather: Weather = .clear,
-                 foreground: Bool = true, lowPower: Bool = false) {
+                 foreground: Bool = true, lowPower: Bool = false, cycles: Bool = false,
+                 selectionRevision: Int = 0, activeProductionIDs: Set<Int> = [], cycleDuration: Double = 120) {
         let nextBudget = VisualWorldBudget(reduceMotion: reduceMotion, lowPower: lowPower, foreground: foreground)
         let buildings = state.buildings.map {
             LayoutBuilding(id: $0.id, kind: $0.kind, origin: $0.origin,
-                           footprint: $0.occupiedFootprint(in: configuration), operational: $0.isOperational)
+                           footprint: $0.occupiedFootprint(in: configuration), operational: $0.isOperational,
+                           productionActive: activeProductionIDs.contains($0.id))
         }
-        let changed = !enabled || budget != nextBudget || renderedBuildings != buildings ||
+        let changed = !enabled || budget.agentCount != nextBudget.agentCount || renderedBuildings != buildings ||
             renderedRoads != (state.roads ?? []) || renderedDiscovery != state.discoveredTiles || renderedMap != configuration.map.id
+        let wasEnabled = enabled
         enabled = reviewEnabled
         budget = nextBudget
         isHidden = !reviewEnabled || !foreground
         if !reviewEnabled {
-            clearFigures(); lastTime = nil
+            clearFigures(); suspendClocks()
             atmosphere.isHidden = true
             return
         }
         atmosphere.isHidden = !foreground
         if changed {
+            figureBuildCount += 1
             clearFigures()
             renderedBuildings = buildings; renderedRoads = state.roads ?? []
             renderedDiscovery = state.discoveredTiles; renderedMap = configuration.map.id
@@ -96,20 +115,33 @@ final class LivingWorldLayer: SKNode {
             let routes = planner.destinationRoutes(maximumAgents: budget.agentCount)
             routeCount = routes.count; routeTileCount = routes.reduce(0) { $0 + $1.tiles.count }
             for (index, route) in routes.enumerated() { addWalker(route: route, index: index) }
-            if budget.agentCount > 0 { addWildlife(configuration: configuration, state: state, planner: planner) }
+            if budget.agentCount > 0 {
+                addWildlife(configuration: configuration, state: state, planner: planner)
+                addNightLights(state: state, configuration: configuration, activeProductionIDs: activeProductionIDs)
+            }
             lastTime = nil; frameDebt = 0
         }
-        if self.phase != phase || self.weather != weather || !atmosphereInitialized {
-            self.phase = phase; self.weather = weather
+        let duration = cycleDuration.isFinite && cycleDuration >= 1 ? cycleDuration : 120
+        if self.cycleDuration != duration {
+            self.cycleDuration = duration; daylight = VisualDayCycle(duration: duration); daylight.select(phase)
+        }
+        if self.phase != phase || self.selectionRevision != selectionRevision || !wasEnabled {
+            self.phase = phase; self.selectionRevision = selectionRevision; daylight.select(phase)
+        }
+        if continuousLighting != cycles { continuousLighting = cycles; daylight.suspend() }
+        if self.weather != weather || !atmosphereInitialized {
+            self.weather = weather
             rebuildAtmosphere()
         }
-        if !budget.animates { lastTime = nil }
+        applyLighting()
+        if !budget.animates { suspendClocks() }
     }
 
     /// Call with camera bounds in scene coordinates. Offscreen agents stop advancing.
     /// A clamped, presentation-only clock prevents background catch-up and large jumps.
     func update(currentTime: TimeInterval, viewport: CGRect) {
-        guard enabled, budget.agentCount > 0, !isHidden else { lastTime = nil; return }
+        guard enabled, budget.agentCount > 0, !isHidden, currentTime.isFinite else { suspendClocks(); return }
+        daylight.tick(timestamp: currentTime, animates: continuousLighting && budget.animates)
         self.viewport = viewport
         layoutAtmosphere()
         let delta = min(0.1, max(0, currentTime - (lastTime ?? currentTime)))
@@ -136,16 +168,23 @@ final class LivingWorldLayer: SKNode {
             wildlife[index].node.alpha = wildlife[index].aquatic ? 0.25 + CGFloat(sin(time) + 1) * 0.12 : 1
         }
         if budget.animates { weatherTime += dt }
+        applyLighting()
         layoutAtmosphere()
     }
 
     func suspend() {
-        lastTime = nil; frameDebt = 0; isHidden = true
+        suspendClocks(); isHidden = true
+    }
+
+    private func suspendClocks() {
+        daylight.suspend(); lastTime = nil; frameDebt = 0
     }
 
     private func clearFigures() {
         for walker in walkers { walker.node.removeFromParent() }
         for animal in wildlife { animal.node.removeFromParent() }
+        for light in nightLights { light.removeFromParent() }
+        nightLights.removeAll()
         walkers.removeAll(); wildlife.removeAll(); routeCount = 0; routeTileCount = 0
     }
 
@@ -265,11 +304,6 @@ final class LivingWorldLayer: SKNode {
         atmosphereInitialized = true
         for node in weatherNodes { node.removeFromParent() }
         weatherNodes.removeAll()
-        switch phase {
-        case .day: tint.color = .clear
-        case .dusk: tint.color = UIColor(red: 0.84, green: 0.42, blue: 0.15, alpha: 0.10)
-        case .night: tint.color = UIColor(red: 0.10, green: 0.20, blue: 0.40, alpha: 0.20)
-        }
         let count = weather == .rain ? 12 : weather == .fog ? 3 : 0
         for _ in 0..<count {
             let node: SKShapeNode
@@ -286,12 +320,36 @@ final class LivingWorldLayer: SKNode {
         layoutAtmosphere()
     }
 
+    private func addNightLights(state: GameState, configuration: GameConfiguration, activeProductionIDs: Set<Int>) {
+        func priority(_ kind: BuildingKind) -> Int { kind == .campfire ? 0 : kind == .potteryWorkshop ? 1 : 2 }
+        let sources = state.buildings.filter {
+            $0.isOperational && DiscoveryVisibility.isVisible($0, in: configuration, discovered: state.discoveredTiles) &&
+            ($0.kind == .campfire || $0.kind == .hut || ($0.kind == .potteryWorkshop && activeProductionIDs.contains($0.id)))
+        }.sorted {
+            priority($0.kind) == priority($1.kind) ? $0.id < $1.id : priority($0.kind) < priority($1.kind)
+        }.prefix(8)
+        for building in sources {
+            // Proposed hearth light pools, not accepted window/contact art or a fuel mechanic.
+            let center = building.occupiedFootprint(in: configuration).center(at: building.origin)
+            let light = ellipse(size: CGSize(width: 48, height: 24), color: UIColor(red: 1, green: 0.68, blue: 0.25, alpha: 0.18))
+            light.name = "review-warm-ground-pool"; light.position = CGPoint(x: center.x, y: center.y)
+            light.zPosition = -0.2 - light.position.y / 16
+            addChild(light); nightLights.append(light)
+        }
+    }
+
+    private func applyLighting() {
+        let sample = VisualLighting.sample(cycleFraction: daylight.fraction)
+        tint.color = UIColor(red: sample.red, green: sample.green, blue: sample.blue, alpha: sample.opacity)
+        for light in nightLights { light.alpha = CGFloat(sample.opacity / 0.20) }
+    }
+
     private func layoutAtmosphere() {
         guard !viewport.isEmpty else { return }
         tint.size = viewport.size; tint.position = CGPoint(x: viewport.midX, y: viewport.midY)
         for (index, node) in weatherNodes.enumerated() {
             let fraction = CGFloat(index + 1) / CGFloat(weatherNodes.count + 1)
-            let drift = budget.animates ? CGFloat(weatherTime) * (weather == .rain ? 42 : 2) : 0
+            let drift = CGFloat(weatherTime) * (weather == .rain ? 42 : 2)
             node.position = CGPoint(x: viewport.minX + viewport.width * fraction,
                                     y: viewport.minY + (viewport.height * CGFloat((index * 7 + 3) % 13) / 13 - drift).truncatingRemainder(dividingBy: max(1, viewport.height)))
             if node.position.y < viewport.minY { node.position.y += viewport.height }

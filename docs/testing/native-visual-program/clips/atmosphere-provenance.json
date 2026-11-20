@@ -1,0 +1,57 @@
+{
+  "scope": "Untrimmed isolated simulator QA entry, Center/Rain controls, accelerated visual cycle, dawn pause/resume, real wrap and Static. Visible rain/fire and lighting; no hardware performance or complete agent-animation certification.",
+  "qaReport": "/tmp/civilization-qa-ac9beb9ebcef49c79e3b350e6cbdd05c/report.json",
+  "records": [
+    {
+      "role": "raw",
+      "file": "clips/civilization-atmosphere-cycle-recording-v3.mp4",
+      "sha256": "53e1453695a83cedaff11536281f0b030bdbb18dafcab253ebe0302d4b2694da",
+      "bytes": 87027885,
+      "source": "/tmp/civilization-atmosphere-cycle-recording-v3.mp4"
+    },
+    {
+      "role": "upright",
+      "file": "clips/civilization-atmosphere-cycle-upright-v3.mp4",
+      "sha256": "b79ddc78711d79b3e8c93a8740a7d3310d886edb45e7ed15f7bad066611588e0",
+      "bytes": 19241520,
+      "source": "/tmp/civilization-atmosphere-cycle-upright-v3.mp4"
+    }
+  ],
+  "rawDurationSeconds": 136.34,
+  "uprightDurationSeconds": 136.313333,
+  "decodedFrames": 1537,
+  "allPresentationTimestampsPreserved": true,
+  "firstPresentationSeconds": 0.0,
+  "lastPresentationSeconds": 136.213333,
+  "normalization": "FFmpeg9.0.2; orientation-only transpose2(90degCCW), H264 CRF18. No trim/crop; all decoded frame presentation timestamps preserved. Container end accounting may differ.",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "warning",
+    "-noautorotate",
+    "-i",
+    "/tmp/civilization-atmosphere-cycle-recording-v3.mp4",
+    "-map",
+    "0:v:0",
+    "-vf",
+    "transpose=2",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-fps_mode",
+    "passthrough",
+    "-enc_time_base",
+    "demux",
+    "-an",
+    "-movflags",
+    "+faststart",
+    "-n",
+    "/tmp/civilization-atmosphere-cycle-upright-v3.mp4"
+  ],
+  "defaultVisualPeriodSeconds": 120,
+  "recordedVisualPeriodSeconds": 24,
+  "wallTimeLimit": "Clamped presentation clock can progress slower under capture/XCTest load; video frame rate is not a physical FPS measurement."
+}
