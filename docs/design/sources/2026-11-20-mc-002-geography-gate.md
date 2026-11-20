@@ -22,4 +22,3 @@ Retrieved 20 November 2026 from https://github.com/dshivrin/Civilization/issues/
 **Exclusions:** second era, new regions/civilizations, trade, warfare, backend, monetization, procedural replacement of existing world, altered original geography or rewards, forced reset, renderer/signing changes, large art batch, new functional roads, other deferred systems. Environment graphics follows Geography with separate provenance/assets and human art review.
 
 **Source of approved items:** DEVELOPMENT_ROADMAP.md MAP-001–005 and GEO-001–008; DESIGN_BASELINE.md; DESIGN_DECISIONS.md; MEDIA_REQUIREMENTS.md; AGENTS.md; DESIGN_SYNC.md; docs/milestones/s1-saves.md; docs/development-checkpoint.md; issue #1. Codex should reconcile this brief into canonical docs and request Dima's decisions before map mutation.
-
