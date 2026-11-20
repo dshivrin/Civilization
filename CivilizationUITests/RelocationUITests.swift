@@ -4,6 +4,66 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testOnboardingConstructionStagesUseActualWork() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = try openWalkthroughPlacement()
+        let pause = app.buttons["walkthroughPauseTime"]
+        XCTAssertTrue(pause.waitForExistence(timeout: 5)); pause.tap()
+        let map = app.descendants(matching: .any).matching(identifier: "onboardingWalkthroughMap").firstMatch
+        let tileParts = app.staticTexts["walkthroughPlacementLocation"].label.split { !($0.isNumber || $0 == "-") }.compactMap { Int($0) }
+        let builtTile = Tile(x: try XCTUnwrap(tileParts.first), y: try XCTUnwrap(tileParts.dropFirst().first))
+        app.buttons["walkthroughConfirmBuilding"].tap()
+        func summary() -> String { map.value as? String ?? "" }
+        func expectStage(_ stage: String, fraction: Double, frame: Int, walls: Int, roof: Int) {
+            let value = summary()
+            print("CONSTRUCTION_REVIEW_STAGE \(value)")
+            XCTAssertTrue(value.contains("construction=\(stage)"), value)
+            for (key, expected) in [("frameNodes", frame), ("wallNodes", walls), ("roofNodes", roof)] {
+                XCTAssertTrue(value.contains("\(key)=\(expected)"), value)
+            }
+            let actual = value.split(separator: " ").first { $0.hasPrefix("workFraction=") }.flatMap { Double($0.dropFirst(13)) }
+            XCTAssertEqual(actual ?? -1, fraction, accuracy: 0.001, value)
+        }
+        expectStage("foundation", fraction: 0, frame: 0, walls: 0, roof: 0)
+        let frozen = summary().components(separatedBy: " construction=").last
+        Thread.sleep(forTimeInterval: 2.2)
+        XCTAssertEqual(summary().components(separatedBy: " construction=").last, frozen)
+        capture("construction-01-foundation", app: app)
+        app.buttons["walkthroughAdvanceSmall"].tap()
+        expectStage("frame", fraction: 0.2, frame: 1, walls: 0, roof: 0)
+        capture("construction-02-frame", app: app)
+        app.buttons["walkthroughAdvanceSmall"].tap()
+        expectStage("walls", fraction: 0.4, frame: 1, walls: 1, roof: 0)
+        capture("construction-03-walls", app: app)
+        app.buttons["walkthroughAdvanceSmall"].tap(); app.buttons["walkthroughAdvanceSmall"].tap()
+        expectStage("roof", fraction: 0.8, frame: 1, walls: 1, roof: 1)
+        capture("construction-04-roof", app: app)
+        app.buttons["walkthroughAdvanceSmall"].tap()
+        expectStage("finished", fraction: 1, frame: 0, walls: 0, roof: 0)
+        XCTAssertTrue(summary().contains("temporaryNodes=0"), summary())
+        XCTAssertTrue(summary().contains("artAlpha=1.00"), summary())
+        XCTAssertEqual(app.staticTexts["onboardingWalkthroughStep"].value as? String, "expedition")
+        let fields = summary().split(separator: " ")
+        func field(_ key: String) throws -> Double {
+            try XCTUnwrap(Double(try XCTUnwrap(fields.first { $0.hasPrefix(key + "=") }).dropFirst(key.count + 1)))
+        }
+        let configuration = try GameConfiguration.bundled()
+        let center = configuration.definition(.hut).footprint.center(at: builtTile)
+        let civic = MapGeometry.point(for: configuration.map.campfire)
+        let zoom = try field("zoom")
+        let roof = map.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(
+            dx: try field("civicX") + (center.x - civic.x) / zoom,
+            dy: try field("civicY") - (center.y - civic.y + 55) / zoom))
+        roof.tap()
+        XCTAssertTrue(app.staticTexts["walkthroughInspectedBuilding"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.staticTexts["walkthroughInspectedBuilding"].value as? String, "hut")
+        XCTAssertTrue(summary().contains("inspectionTiles=4"), summary())
+        capture("construction-05-finished", app: app)
+        app.buttons["closeOnboardingWalkthrough"].tap()
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].exists)
+    }
+
     @MainActor func testAtmosphereFullCycleRecording() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"

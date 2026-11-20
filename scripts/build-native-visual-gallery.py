@@ -13,6 +13,8 @@ WALKTHROUGH_STATES = ['walkthrough-01-hut-guide', 'walkthrough-02-expedition-gui
 
 ATMOSPHERE_STATES = ['atmosphere-day', 'atmosphere-dusk', 'atmosphere-night', 'atmosphere-dawn',
                      'atmosphere-rain-static', 'atmosphere-fog-static']
+CONSTRUCTION_STATES = ['construction-01-foundation', 'construction-02-frame', 'construction-03-walls',
+                       'construction-04-roof', 'construction-05-finished']
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -25,12 +27,13 @@ def main():
     parser.add_argument('--walkthrough', action='store_true', help='Archive the four interactive guide steps and build walkthrough.html')
     parser.add_argument('--include-placement', action='store_true', help='Include actual candidate drag screenshot in a walkthrough archive')
     parser.add_argument('--atmosphere', action='store_true', help='Archive six lighting/weather comparisons and build atmosphere.html')
+    parser.add_argument('--construction', action='store_true', help='Archive five actual-work stages and build construction.html')
     args = parser.parse_args()
     if args.include_placement and not args.walkthrough:
         parser.error('Placement captures require --walkthrough')
-    if args.atmosphere and (args.walkthrough or args.include_placement):
-        parser.error('Atmosphere and walkthrough archives are separate')
-    states = ATMOSPHERE_STATES if args.atmosphere else WALKTHROUGH_STATES + (['walkthrough-placement-drag-suggest'] if args.include_placement else []) if args.walkthrough else STATES
+    if sum([args.atmosphere, args.walkthrough, args.construction]) > 1:
+        parser.error('Atmosphere, construction and walkthrough archives are separate')
+    states = CONSTRUCTION_STATES if args.construction else ATMOSPHERE_STATES if args.atmosphere else WALKTHROUGH_STATES + (['walkthrough-placement-drag-suggest'] if args.include_placement else []) if args.walkthrough else STATES
     target = args.output.resolve()
     if not target.is_relative_to(GALLERY / 'captures') or args.output.is_symlink():
         parser.error('Output must be a new gallery/captures directory without aliases')
@@ -112,8 +115,13 @@ def main():
                 '<p>Simulator review only; the physical phone retains placement build33073e9. Normal rendering, saves, economy and R2-07 are unchanged. The same disposable grouped fixture is shown in day/dusk/night/dawn and static rain/fog.</p>',
                 '<p>The visual-only cycle defaults to120seconds, with an explicit24second preview. Static/power modes stop the clock, people, weather and existing fire/smoke. Eight or fewer warm ground-light pools are proposals, not accepted window/contact art. No hardware FPS, battery or human acceptance is claimed.</p>',
                 '<p><a href="walkthrough.html">Onboarding placement review</a> · <a href="index.html">Earlier visual review</a> · <a href="progress.md">Verification ledger</a></p>']
+    if args.construction:
+        body = ['<h1>Construction through actual work</h1>',
+                '<p>Five native stages in the disposable onboarding walkthrough. A real Hut costs20wood and takes15seconds of engine construction work. Pause review time holds that temporary engine; labeled3second advances produce the frame, walls, roof and actual completion. No normal game or save changes.</p>',
+                '<p>Foundation, timber, walls and roof are procedural visual proposals within the existing logical footprint. The temporary geometry disappears at completion and the original building asset returns. No final contact/anchor, directional art or appearance acceptance is inferred. The phone still runs33073e9.</p>',
+                '<p><a href="walkthrough.html">Placement walkthrough</a> · <a href="atmosphere.html">Atmosphere</a> · <a href="construction-verification.json">Software evidence</a> · <a href="progress.md">Ledger</a></p>']
     clip_manifest = GALLERY / ('clips/atmosphere-provenance.json' if args.atmosphere else 'clips/provenance.json')
-    if clip_manifest.exists() and not args.walkthrough:
+    if clip_manifest.exists() and not args.walkthrough and not args.construction:
         clips = json.loads(clip_manifest.read_text())
         for clip in clips['records']:
             if digest(GALLERY / clip['file']) != clip['sha256']:
@@ -135,7 +143,7 @@ def main():
         body.append(f'<figure class="concept"><img loading="lazy" src="{file}" alt="Concept {html.escape(asset["id"])}"><figcaption>{html.escape(asset["id"])}</figcaption></figure>')
     body.append('</details>')
     style = 'body{max-width:1200px;margin:32px auto;padding:0 20px;background:#142322;color:#f0e8cf;font:17px/1.6 system-ui}a{color:#a9dddb}img{display:block;width:100%;height:auto}figure{margin:20px 0 36px}figcaption{padding:8px}.concept{background:#ddd;color:#111}summary{cursor:pointer;padding:18px}'
-    (GALLERY / ('atmosphere.html' if args.atmosphere else 'walkthrough.html' if args.walkthrough else 'index.html')).write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Native visual review</title><style>'+style+'</style><main>'+''.join(body)+'</main></html>')
+    (GALLERY / ('construction.html' if args.construction else 'atmosphere.html' if args.atmosphere else 'walkthrough.html' if args.walkthrough else 'index.html')).write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Native visual review</title><style>'+style+'</style><main>'+''.join(body)+'</main></html>')
     print(f'PASS:{len(records)} unchanged native captures,4 concept/prompt hashes; validated archive and local gallery')
 
 if __name__ == '__main__':

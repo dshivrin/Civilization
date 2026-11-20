@@ -15,7 +15,7 @@ Reads Xcode/Swift versions and required/optional executable availability. It doe
 ## Existing tests, one report
 
 ```sh
-# Full core Debug + Release and nine developer API exclusion probes.
+# Full core Debug + Release and ten developer API exclusion probes.
 python3 scripts/dev.py test
 
 # Deliberately scoped regression: report retains the exact filter/configuration.
@@ -124,3 +124,5 @@ Add `--include-placement` to `--walkthrough` when archiving the native candidate
 
 
 `--atmosphere` selects the six continuous-lighting/static-weather comparison captures on each of the same three profiles and builds `atmosphere.html`. Use a new capture directory; `--atmosphere --render-only --output EXISTING_ARCHIVE` validates its18pinned PNGs. It is separate from walkthrough/placement modes. If `clips/atmosphere-provenance.json` exists, its source/watch-copy hashes must match before rendering the recorded-cycle section. No normal appearance or save changes are implied.
+
+`--construction` archives five actual-work walkthrough stages per profile (15unchanged PNGs) and builds `construction.html`. It is separate from atmosphere/walkthrough modes. Pause review time and labeled3second steps drive only the disposable engine; they do not alter normal build timing or saved progress.

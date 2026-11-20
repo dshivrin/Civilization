@@ -1,0 +1,155 @@
+{
+  "status": "verified simulator-only visual proposal; owner appearance acceptance pending",
+  "baseline": "24c89b4",
+  "reports": {
+    "core": {
+      "path": "/tmp/civilization-qa-94d39ab1374446c3b8bfc7306ef44542/report.json",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "both",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 273
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null
+        }
+      ]
+    },
+    "nativeThreeProfiles": {
+      "path": "/tmp/civilization-qa-3136edaaeffe4184905501e674b82aaa/report.json",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150",
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+          "7FBB2956-E961-4389-B329-7D2689E96E4F"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testOnboardingConstructionStagesUseActualWork",
+          "CivilizationUITests/RelocationUITests/testOnboardingCandidateDragMovesBuildingWithoutPanning",
+          "CivilizationUITests/RelocationUITests/testOnboardingSuggestionButtonSelectsAnotherValidSite",
+          "CivilizationUITests/RelocationUITests/testOnboardingWalkthroughShowsAndPerformsEveryGuidedStep"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 4
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "passed",
+          "tests": 4
+        },
+        {
+          "name": "ui-debug-3",
+          "status": "passed",
+          "tests": 4
+        }
+      ]
+    },
+    "releaseEntry": {
+      "path": "/tmp/civilization-qa-c72c21b5b6254afc88bebacd1c91d6ef/report.json",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "release",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150"
+        ],
+        "only_testing": [
+          "CivilizationUITests/NormalEntryUITests"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "status": "passed",
+          "tests": 1
+        }
+      ]
+    }
+  },
+  "captures": 15,
+  "sourceHashes": {
+    "Civilization/Rendering/SettlementScene.swift": "aeb80963bd90e5914584ed01d59b455443f2ab28a3c0146cebce990d4d113fe9",
+    "Civilization/Rendering/WorldDetails.swift": "cc0994a1a2d7b6544a2149292f655b26d729e5648bf3bb4e5fcdfcc16d7eac22",
+    "Civilization/UI/NativeVisualReviewView.swift": "bbb7e604e20f619f32f245d53bb03e3a31507d51995261910ac3912f23495621",
+    "CivilizationUITests/RelocationUITests.swift": "7b1e38590e8e0d9bb8d68abb2c1d3827fc5ac9a953c03394fe89666a1b81f2ee",
+    "Packages/GameCore/Sources/GameApplication/ConstructionPresentation.swift": "af24711974ead54424d0591be96b86cc42ab1fa2eedfd7e1a432f71c68337a91",
+    "Packages/GameCore/Tests/GameCoreTests/ConstructionPresentationTests.swift": "19e06755f77ceac6ee9222a01efb4fad26093584e03c39a29a1f9ac88d7c13d5",
+    "scripts/verify-developer-release.py": "5e8f06a0f87c9bacdd20349aa31074132858b002c451ed971796d19c27c71834",
+    "scripts/build-native-visual-gallery.py": "223159d48af3b51be5539eeec5ff7da64a9f67d56125794d1a150c1156808c51"
+  },
+  "preservedAuthoritativePaths": {
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+    "Packages/GameCore/Sources/GameApplication/Resources/art-catalog.json": "f7e79340e138601539c4f1cae3f10df643770b02294551a98e6f7f9ff9373690"
+  },
+  "unchangedPaths": [
+    "Packages/GameCore/Sources/GameCore",
+    "Civilization/Rendering/WorldView.swift",
+    "Civilization.xcodeproj",
+    "Civilization/Art"
+  ],
+  "normalConstructionAppearance": "legacy stage/init behavior and renderer retained; new nodes opt-in Debug walkthrough only",
+  "physicalPhoneProduct": "33073e9",
+  "physicalInstallThisSlice": false,
+  "playerSaveAccessThisSlice": false,
+  "r207Enabled": false,
+  "newRoadmapStarted": false,
+  "media": {
+    "commit": "9545673e906354c00e59739c00a3ce7a345f645a",
+    "branch": "main",
+    "clean": true,
+    "remoteConfigured": false,
+    "modified": false,
+    "pushed": false
+  },
+  "review": {
+    "independent": true,
+    "corrected": [
+      "negative work review-stage guard; legacy fraction unchanged",
+      "completed opaque-roof selection and four actual inspection tiles"
+    ],
+    "redReports": [
+      "/tmp/civilization-qa-fb1a20faee4c4c4590af3a69953231e6/report.json",
+      "/tmp/civilization-qa-6cee07222db8498eae6e9fd378cd67f6/report.json"
+    ],
+    "deferredMinor": "Small/full review advances can share the same label; incremental label remains3seconds when remainder is shorter."
+  },
+  "limits": [
+    "No normal visual activation or onboarding Gate B",
+    "No accepted contact/anchor/directional art replacement",
+    "No physical touch/FPS/thermal/battery or human acceptance claim",
+    "Parent visual Goal remains active"
+  ]
+}

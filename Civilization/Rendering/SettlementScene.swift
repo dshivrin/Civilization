@@ -16,6 +16,19 @@ final class SettlementScene: SKScene {
     #if DEBUG
     private let connectionLayer = BuildingConnectionLayer()
     private let livingLayer = LivingWorldLayer()
+    var reviewConstructionEnabled = false
+    var reviewInspectionTileCount: Int { ghostLayer.children.filter { $0 is SKShapeNode }.count }
+    var reviewConstructionSummary: String {
+        guard let building = renderedBuildings.filter({ $0.kind != .campfire }).max(by: { $0.id < $1.id }),
+              let root = buildingLayer.children.first(where: { ($0.userData?["buildingID"] as? Int) == building.id }) else { return "construction=none" }
+        let work = ConstructionPresentation(remaining: building.constructionRemainingSeconds ?? 0, duration: building.constructionDurationSeconds ?? 0)
+        let preview = root.childNode(withName: "constructionReview") as? ConstructionReviewNode
+        let groups = preview?.visibleGroups ?? (frame: 0, walls: 0, roof: 0)
+        let fraction: Double = building.isOperational ? 1 : work.fraction
+        return "construction=\(building.isOperational ? "finished" : preview?.phase.rawValue ?? "legacy") " +
+            String(format: "workFraction=%.4f artAlpha=%.2f", fraction, root.childNode(withName: "artSprite")?.alpha ?? 0) +
+            " frameNodes=\(groups.frame) wallNodes=\(groups.walls) roofNodes=\(groups.roof) temporaryNodes=\(preview?.children.count ?? 0)"
+    }
     var reviewReservedRightWidth: CGFloat = 0
     var reviewFocusTiles: Set<Tile>? {
         didSet { if let tiles = reviewFocusTiles { fitReview(tiles) } }
@@ -254,6 +267,14 @@ final class SettlementScene: SKScene {
                 root.childNode(withName: "artSprite")?.alpha = fraction < 0.25 ? 0.12 : 0.25 + 0.60 * fraction
                 root.childNode(withName: "constructionScaffold")?.isHidden = construction.stage != .frame
                 root.childNode(withName: "constructionRoof")?.isHidden = construction.stage != .roof
+                #if DEBUG
+                if reviewConstructionEnabled, let preview = root.childNode(withName: "constructionReview") as? ConstructionReviewNode {
+                    preview.display(construction)
+                    root.childNode(withName: "artSprite")?.alpha = 0
+                    root.childNode(withName: "constructionScaffold")?.isHidden = true
+                    root.childNode(withName: "constructionRoof")?.isHidden = true
+                }
+                #endif
             }
         }
         if relocationGrid != renderedRelocationGrid {
@@ -503,6 +524,9 @@ final class SettlementScene: SKScene {
                 roof.name = "constructionRoof"; roof.isHidden = true; node.addChild(roof)
                 let bar = SKSpriteNode(color: .systemYellow, size: CGSize(width: 60, height: 3))
                 bar.anchorPoint = CGPoint(x: 0,y: 0.5); bar.position = CGPoint(x:-30,y: -15);bar.name = "constructionProgress";node.addChild(bar)
+                #if DEBUG
+                if reviewConstructionEnabled { node.addChild(ConstructionReviewNode(footprint: footprint)) }
+                #endif
             }
             if layer == nil && !reduceMotion && fireAnimationIDs.contains(building.id) {
                 let glow = SKShapeNode(ellipseOf: CGSize(width: building.kind == .campfire ? 23 : 12, height: 9))

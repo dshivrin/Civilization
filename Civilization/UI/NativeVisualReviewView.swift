@@ -200,6 +200,8 @@ struct OnboardingWalkthroughReviewView: View {
     @State private var errorMessage: String?
     @State private var revealSettled = true
     @State private var showGoals = false
+    @State private var reviewTimePaused = false
+    @State private var inspectedBuildingID: Int?
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -207,8 +209,17 @@ struct OnboardingWalkthroughReviewView: View {
                 WalkthroughMapSurface(scene: scene, isPaused: appPhase != .active, civicTile: configuration.map.campfire,
                     candidateAt: { point in isCandidate(point, in: scene) ? selectedTile : nil },
                     onTap: { point in
-                        guard selectedKind != nil, !isCandidate(point, in: scene) else { return }
-                        selectedTile = IsometricProjection.tile(point); errorMessage = nil; refresh()
+                        if selectedKind != nil {
+                            guard !isCandidate(point, in: scene) else { return }
+                            selectedTile = IsometricProjection.tile(point); errorMessage = nil
+                        } else {
+                            let tile = IsometricProjection.tile(point)
+                            inspectedBuildingID = scene.buildingID(at: point) ?? walkthrough?.engine.state.buildings.first {
+                                DiscoveryVisibility.isVisible($0, in: configuration, discovered: walkthrough?.engine.state.discoveredTiles) &&
+                                $0.tiles(in: configuration).contains(tile)
+                            }?.id
+                        }
+                        refresh()
                     }, onCandidateMove: { tile in
                         guard selectedKind != nil else { return }
                         selectedTile = tile; errorMessage = nil; refresh()
@@ -218,6 +229,8 @@ struct OnboardingWalkthroughReviewView: View {
                 HStack {
                     Text("ONBOARDING WALKTHROUGH · REVIEW ONLY").font(.caption.bold())
                     Spacer()
+                    Button(reviewTimePaused ? "Resume review time" : "Pause review time") { reviewTimePaused.toggle() }
+                        .font(.caption).accessibilityIdentifier("walkthroughPauseTime")
                     Button("Close") { dismiss() }.accessibilityIdentifier("closeOnboardingWalkthrough")
                 }
                 Text("Fresh temporary settlement. Your saved games are untouched. Area exploration is a proposal.")
@@ -236,7 +249,7 @@ struct OnboardingWalkthroughReviewView: View {
             prepare()
             while !Task.isCancelled {
                 do { try await Task.sleep(for: .seconds(1)) } catch { return }
-                guard appPhase == .active else { continue }
+                guard appPhase == .active, !reviewTimePaused else { continue }
                 advance(by: 1)
             }
         }
@@ -251,7 +264,7 @@ struct OnboardingWalkthroughReviewView: View {
                     .accessibilityIdentifier("onboardingWalkthroughStep")
                     .accessibilityValue(review.guide.nextStep.rawValue)
                 Spacer()
-                Button("Skip guide") { walkthrough?.skipGuide(); selectedKind = nil; selectedTile = nil; refresh() }
+                Button("Skip guide") { walkthrough?.skipGuide(); selectedKind = nil; selectedTile = nil; inspectedBuildingID = nil; refresh() }
                     .font(.caption).accessibilityIdentifier("skipOnboardingWalkthroughGuide")
             }
             Text(guideDescription(review)).font(.caption).fixedSize(horizontal: false, vertical: true)
@@ -275,6 +288,14 @@ struct OnboardingWalkthroughReviewView: View {
             } else if let remaining = remainingWork(review) {
                 Text("\(review.engine.state.explorationRemainingSeconds == nil ? "Construction" : "Expedition") · \(Int(ceil(remaining))) s remaining")
                     .font(.subheadline.monospacedDigit()).accessibilityIdentifier("onboardingWorkRemaining")
+                if review.engine.state.explorationRemainingSeconds == nil,
+                   let building = review.engine.state.buildings.last(where: { !$0.isOperational }) {
+                    Text("Visual stage: " + ConstructionPresentation(remaining: building.constructionRemainingSeconds ?? 0,
+                        duration: building.constructionDurationSeconds ?? 0).reviewStage.rawValue.capitalized)
+                        .font(.caption).accessibilityIdentifier("walkthroughConstructionStage")
+                }
+                Button("Advance review time by 3 s") { advance(by: min(3, remaining)) }
+                    .font(.caption).accessibilityIdentifier("walkthroughAdvanceSmall")
                 Button("Advance review time by \(Int(ceil(remaining))) s") { advance(by: remaining) }
                     .font(.caption).accessibilityIdentifier("walkthroughAdvanceTime")
             } else {
@@ -304,6 +325,11 @@ struct OnboardingWalkthroughReviewView: View {
             if let errorMessage { Text(errorMessage).font(.caption).foregroundStyle(.orange) }
             Text("Review stock: \(Int(review.engine.state.resources.food)) food · \(Int(review.engine.state.resources.wood)) wood · \(Int(review.engine.state.resources.stone)) stone")
                 .font(.caption2.monospacedDigit()).accessibilityIdentifier("walkthroughResourceStock")
+            if let building = review.engine.state.buildings.first(where: { $0.id == inspectedBuildingID }) {
+                Text("Selected: \(configuration.definition(building.kind).name) · Level \(building.level)")
+                    .font(.caption).accessibilityIdentifier("walkthroughInspectedBuilding")
+                    .accessibilityValue(building.kind.rawValue)
+            }
         }.padding(14).frame(maxWidth: 320, alignment: .leading)
             .background(panelColor.opacity(0.98), in: RoundedRectangle(cornerRadius: 16))
             .accessibilityElement(children: .contain).accessibilityIdentifier("onboardingGuidePanel")
@@ -341,6 +367,7 @@ struct OnboardingWalkthroughReviewView: View {
             walkthrough = review
             let world = SettlementScene(configuration: configuration)
             world.reviewContinuousFog = true
+            world.reviewConstructionEnabled = true
             world.reviewReservedRightWidth = 340
             world.reviewFocusTiles = review.snapshot.initialDiscoveredTiles
             let settled = $revealSettled
@@ -350,7 +377,7 @@ struct OnboardingWalkthroughReviewView: View {
     }
     private func choose(_ kind: BuildingKind, after previous: Tile? = nil) {
         guard let review = walkthrough else { return }
-        errorMessage = nil; selectedKind = kind; selectedTile = review.suggestedOrigin(for: kind, after: previous)
+        errorMessage = nil; inspectedBuildingID = nil; selectedKind = kind; selectedTile = review.suggestedOrigin(for: kind, after: previous)
         if selectedTile == nil { selectedKind = nil; errorMessage = "No valid site is currently available." }
         else if let previous, selectedTile == previous { errorMessage = "Only one valid site is available right now." }
         refresh()
@@ -383,7 +410,7 @@ struct OnboardingWalkthroughReviewView: View {
         scene.activeProductionIDs = review.engine.operatingProductionBuildingIDs
         let valid = selectedKind.flatMap { kind in selectedTile.map { review.engine.placementIssue(kind, at: $0) == nil } } ?? false
         scene.display(state: review.engine.state, kind: selectedKind, tile: selectedTile, valid: valid,
-            inspected: nil, movingBuildingID: nil, centerRequest: 0,
+            inspected: review.engine.state.buildings.first(where: { $0.id == inspectedBuildingID }), movingBuildingID: nil, centerRequest: 0,
             deposits: review.engine.discoveredDeposits,
             identifiedDepositIDs: Set(review.engine.discoveredDeposits.filter(review.engine.isIdentified).map(\.id)))
     }
@@ -435,7 +462,7 @@ private struct WalkthroughMapSurface: UIViewRepresentable {
         }
         func updateAccessibility(_ view: SKView) {
             let civic = parent.scene.convertPoint(toView: IsometricProjection.point(parent.civicTile))
-            view.accessibilityValue = "civicX=\(civic.x) civicY=\(civic.y) " + parent.scene.cameraAccessibilityValue
+            view.accessibilityValue = "civicX=\(civic.x) civicY=\(civic.y) " + parent.scene.cameraAccessibilityValue + " " + parent.scene.reviewConstructionSummary + " inspectionTiles=\(parent.scene.reviewInspectionTileCount)"
         }
         func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
             if gestureRecognizer is UIPanGestureRecognizer {

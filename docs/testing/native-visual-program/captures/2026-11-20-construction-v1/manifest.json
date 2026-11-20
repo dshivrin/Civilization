@@ -1,0 +1,167 @@
+[
+  {
+    "profile": "phone",
+    "state": "construction-01-foundation",
+    "file": "captures/2026-11-20-construction-v1/phone/construction-01-foundation.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "60a6a0434e99b91d4ef03f2570ecab6f9c0d908fc7d7796a0bc517ba69f2a893",
+    "source": "/tmp/civilization-construction-final-phone/2A867EE2-3BC0-4ACC-897C-A9A0C14B800F.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795205046.079
+  },
+  {
+    "profile": "phone",
+    "state": "construction-02-frame",
+    "file": "captures/2026-11-20-construction-v1/phone/construction-02-frame.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "650807b3bc2692f479f081984413791ae86a4d7c3a62bf480d28c3d4e726ea94",
+    "source": "/tmp/civilization-construction-final-phone/19694B99-6946-4A33-8D5C-660D160D57F7.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795205046.544
+  },
+  {
+    "profile": "phone",
+    "state": "construction-03-walls",
+    "file": "captures/2026-11-20-construction-v1/phone/construction-03-walls.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "5990e9b81a6f42d9a8f71f4b2b874d5587dd81339f73391c0bf0c9695295c371",
+    "source": "/tmp/civilization-construction-final-phone/448B8A9D-1D7E-4E55-A44D-100EA62E82F7.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795205046.995
+  },
+  {
+    "profile": "phone",
+    "state": "construction-04-roof",
+    "file": "captures/2026-11-20-construction-v1/phone/construction-04-roof.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "4d6da4fc1e9427a41035f741925eeb36fbb47781373bd399c8022d46d5af6a2f",
+    "source": "/tmp/civilization-construction-final-phone/C3A2E086-45FD-4748-9D3E-FFD217BE3E6E.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795205047.845
+  },
+  {
+    "profile": "phone",
+    "state": "construction-05-finished",
+    "file": "captures/2026-11-20-construction-v1/phone/construction-05-finished.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "77c16b8497b65453b985965f06aecc393988bd872ec393eed6fcf4c7fd651d2d",
+    "source": "/tmp/civilization-construction-final-phone/7F21B497-B704-414A-AC7A-E74024350FF6.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795205049.975
+  },
+  {
+    "profile": "mini",
+    "state": "construction-01-foundation",
+    "file": "captures/2026-11-20-construction-v1/mini/construction-01-foundation.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "55b76b514d1f93c06ec7958e89d9735ccadcedbbf700bb73e1436dd742110423",
+    "source": "/tmp/civilization-construction-final-mini/3691AF16-EA04-4593-8647-0BB5F3547B52.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795205124.11
+  },
+  {
+    "profile": "mini",
+    "state": "construction-02-frame",
+    "file": "captures/2026-11-20-construction-v1/mini/construction-02-frame.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "7dee798bf5f982f7de0a5ec52c87504932d89544f642e2e40ca68aee58bc300f",
+    "source": "/tmp/civilization-construction-final-mini/68242797-8E2A-49CE-B98F-6202852700CE.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795205124.556
+  },
+  {
+    "profile": "mini",
+    "state": "construction-03-walls",
+    "file": "captures/2026-11-20-construction-v1/mini/construction-03-walls.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "3789f1f49fdf393edb026108d28f0638bf22bfc9a88ec40ffc6c6678a4898c05",
+    "source": "/tmp/civilization-construction-final-mini/7F3C0743-29A3-421A-8E29-0E2676EDAC3A.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795205124.987
+  },
+  {
+    "profile": "mini",
+    "state": "construction-04-roof",
+    "file": "captures/2026-11-20-construction-v1/mini/construction-04-roof.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "913c883fe74bae19568a6d9b7c6eebcdd6f936e1f8af16ebacc6bdbe55002450",
+    "source": "/tmp/civilization-construction-final-mini/7048DD89-1F23-4EE3-9EA2-D5078770FEDF.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795205125.819
+  },
+  {
+    "profile": "mini",
+    "state": "construction-05-finished",
+    "file": "captures/2026-11-20-construction-v1/mini/construction-05-finished.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "d94efd9dcd5d74e0cd4a4b3d7e3fc73003cd06faf77ed06a8fb5e9a0d7ae225c",
+    "source": "/tmp/civilization-construction-final-mini/BC0EDF29-3CE1-465F-B514-64E90194B410.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795205127.882
+  },
+  {
+    "profile": "pro",
+    "state": "construction-01-foundation",
+    "file": "captures/2026-11-20-construction-v1/pro/construction-01-foundation.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "e3a87766bbb6140d32edbba214b42fb372668772012e0a5a5dff646372ac21ba",
+    "source": "/tmp/civilization-construction-final-pro/CE97EA08-EA23-441A-AA3E-74912231131B.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795205199.699
+  },
+  {
+    "profile": "pro",
+    "state": "construction-02-frame",
+    "file": "captures/2026-11-20-construction-v1/pro/construction-02-frame.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "669e5a6f4288d4dcd7420057c141267c24551349fe44b44a653179d8745f2e27",
+    "source": "/tmp/civilization-construction-final-pro/5CE2E0E9-46D9-45F1-A47C-B203DEC5B757.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795205200.164
+  },
+  {
+    "profile": "pro",
+    "state": "construction-03-walls",
+    "file": "captures/2026-11-20-construction-v1/pro/construction-03-walls.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "810f860b15b64039f94486ec714bbe60fb134c685accb7b960581f9d47a022ef",
+    "source": "/tmp/civilization-construction-final-pro/3E8F8115-B5CD-4397-9F5B-568ADC66CFB3.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795205200.63
+  },
+  {
+    "profile": "pro",
+    "state": "construction-04-roof",
+    "file": "captures/2026-11-20-construction-v1/pro/construction-04-roof.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "dd64eda3a064555a5d4628542902bb85066be5fa9fce5806b169170a8fa16b25",
+    "source": "/tmp/civilization-construction-final-pro/7E1E8F03-0488-438D-9893-FABC1EAE5E6F.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795205201.478
+  },
+  {
+    "profile": "pro",
+    "state": "construction-05-finished",
+    "file": "captures/2026-11-20-construction-v1/pro/construction-05-finished.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "cbf2324cde1d13c0cee813223a8ec6e418ac0dd011ce5d634f3c4d06e9dc241f",
+    "source": "/tmp/civilization-construction-final-pro/E289DF8C-D561-4D97-BB13-DAC28001D481.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795205203.577
+  }
+]

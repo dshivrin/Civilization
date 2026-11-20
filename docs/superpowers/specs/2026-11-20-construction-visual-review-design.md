@@ -1,0 +1,11 @@
+# Construction visual review
+
+Implement the missing five-stage construction comparison required by the Living World plan, inside the existing disposable onboarding walkthrough. User has delegated implementation and asks to finish visuals with onboarding; no new gameplay or onboarding roadmap is started.
+
+Use existing SpriteKit procedural geometry and current engine build transactions. The normal renderer and existing `ConstructionPresentation.stage` retain their behavior. A Debug-only `reviewStage` derives foundation/frame/walls/roof/finished from real fraction (engineering thresholds 15%,40%,75%,100%). No game timing change. Proposed geometry must fit captured logical footprint, use its existing projected contact center, remain selectable and disappear at completion. Original raster appears only after completion in this comparison. Show the actual stage with remaining work; no fake workers or completion timer.
+
+Add Pause/Resume review time and a 3-second incremental advance beside the current full remaining-time advance. These controls affect only the already disposable engine, allow the 15-second hut stages to be inspected and preserve normal saves. Pause does not imply system/game time control. Existing guide transaction/candidate gestures remain.
+
+Approaches considered: change normal construction rendering (rejected pending owner appearance review); static mock sequence (does not prove actual progress); opt-in real-state walkthrough comparison (selected engineering implementation under existing autonomous authorization). Current scaffold remains a fallback everywhere else. New layer is original source geometry, no media replacement or image asset generation.
+
+Verification: model boundaries including invalid work; native actual node diagnostics plus five stage screenshots on phone/mini/Pro; paused work remains stable, full completion removes temporary nodes and shows original art, roof drag/suggestions and complete existing onboarding still pass; Release entry and full core regressions. A clip can be recorded only after passing flow; simulator evidence is not physical performance/art acceptance. R2-07, saves/history, costs, resources, fixed footprints and signing remain unchanged.

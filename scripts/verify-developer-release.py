@@ -15,6 +15,7 @@ def module_dir(configuration):
     raise SystemExit(f'Build {configuration} modules first')
 debug, release = map(Path, sys.argv[1:]) if len(sys.argv) == 3 else (module_dir('Debug'), module_dir('Release'))
 probes = {
+    'reviewStage': 'import GameApplication\nlet stage = ConstructionPresentation(remaining: 10, duration: 20).reviewStage\n',
     'OnboardingReviewWalkthrough': 'import Foundation\nimport GameCore\nimport GameApplication\nfunc probe(_ c: GameConfiguration) throws { _ = try OnboardingReviewWalkthrough(configuration: c, now: Date()) }\n',
     'activateReviewConnectivity': 'import GameApplication\n@MainActor func probe(_ s: GameSession) { s.activateReviewConnectivity() }\n',
     'startGameplayReview': 'import GameApplication\n@MainActor func probe(_ s: GameSession) { s.startGameplayReview() }\n',

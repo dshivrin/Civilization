@@ -1,3 +1,9 @@
+## Construction visual comparison verified — 20 November 2026
+
+Visual-only continuation adds five actual-work stages to the disposable onboarding walkthrough, Pause/Resume review time, small explicit time advances and completed-building inspection. Normal construction appearance/timing, authoritative GameCore, fixed footprints, saves/history, original media and signing remain unchanged. [15-capture comparison](testing/native-visual-program/construction.html), [verification](testing/native-visual-program/construction-verification.json). Core **273 Debug / 235 Release + 10 exclusions**, twelve native executions across phone/mini/Pro and ordinary Release entry pass. Independent review's negative-input/selection findings were reproduced and corrected; minor time-label ambiguity is deferred.
+
+No phone update/save access in this slice; installed iPhone remains33073e9. No normal visual/Gate B/R2-07 activation. Continue only visual/graphics and existing onboarding; new roadmap deferred by owner. Parent Goal remains open for remaining artwork/audio and acceptance gates. Media9545673 on main is clean/local-only with no remote and untouched.
+
 ## Atmosphere visual review verified — 20 November 2026
 
 Owner explicitly limits work to visual/graphics and existing onboarding; **do not start the new roadmap**. Debug lab now has continuous day/dusk/night/dawn, retained-pose Static/power fallback, proposed bounded warm ground pools and explicit24second review mode (default120seconds). [18-capture gallery and full-cycle movie](testing/native-visual-program/atmosphere.html), [verification](testing/native-visual-program/atmosphere-verification.json). Core272Debug/235Release+9exclusions, six native executions across phone/mini/Pro, Release entry and actual dawn/pause/resume/wrap pass. Independent findings were reproduced and corrected; no production appearance acceptance inferred.

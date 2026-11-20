@@ -1,5 +1,8 @@
 import SpriteKit
 import GameCore
+#if DEBUG
+import GameApplication
+#endif
 
 /// Original deterministic vector terrain sources. Geography is read-only; no random simulation state.
 @MainActor enum WorldDetails {
@@ -69,3 +72,54 @@ import GameCore
         return root
     }
 }
+
+#if DEBUG
+/// Original procedural comparison; opt-in only, no asset or semantic contact replacement.
+@MainActor final class ConstructionReviewNode: SKNode {
+    private let timberFrame = SKNode(), walls = SKNode(), roof = SKNode()
+    private(set) var phase = ConstructionPresentation.ReviewStage.foundation
+    var visibleGroups: (frame: Int, walls: Int, roof: Int) {
+        (timberFrame.isHidden ? 0 : 1, walls.isHidden ? 0 : 1, roof.isHidden ? 0 : 1)
+    }
+    init(footprint: BuildingFootprint) {
+        super.init(); name = "constructionReview"
+        // Insets stay inside the actual captured footprint; all parts share its existing center.
+        let w = CGFloat(footprint.width) * 0.42, h = CGFloat(footprint.height) * 0.42
+        func projected(_ x: CGFloat, _ y: CGFloat) -> CGPoint { CGPoint(x: (x - y) * 32, y: -(x + y) * 16) }
+        let corners = [projected(-w, -h), projected(w, -h), projected(w, h), projected(-w, h)]
+        func face(_ points: [CGPoint], _ color: UIColor) -> SKShapeNode {
+            let path = CGMutablePath(); path.addLines(between: points); path.closeSubpath()
+            let node = SKShapeNode(path: path); node.fillColor = color; node.strokeColor = .clear; return node
+        }
+        let timber = UIColor(red: 0.55, green: 0.37, blue: 0.20, alpha: 1)
+        let soil = face(corners, UIColor(red: 0.52, green: 0.43, blue: 0.28, alpha: 0.7)); addChild(soil)
+        for point in corners {
+            let peg = SKShapeNode(ellipseOf: CGSize(width: 6, height: 3)); peg.fillColor = .lightGray; peg.strokeColor = .clear
+            peg.position = point; addChild(peg)
+        }
+        for point in corners {
+            let post = SKShapeNode(rectOf: CGSize(width: 3, height: 32)); post.fillColor = timber; post.strokeColor = .clear
+            post.position = CGPoint(x: point.x, y: point.y + 16); timberFrame.addChild(post)
+        }
+        let upper = corners.map { CGPoint(x: $0.x, y: $0.y + 32) }
+        let beamPath = CGMutablePath(); beamPath.addLines(between: upper); beamPath.closeSubpath()
+        let beams = SKShapeNode(path: beamPath); beams.strokeColor = timber; beams.lineWidth = 3; timberFrame.addChild(beams)
+        for (a,b) in [(1,2),(2,3)] {
+            walls.addChild(face([corners[a], corners[b], upper[b], upper[a]],
+                UIColor(red: a == 1 ? 0.64 : 0.75, green: 0.54, blue: 0.32, alpha: 1)))
+        }
+        let apex = CGPoint(x: 0, y: 60)
+        roof.addChild(face([upper[1], upper[2], apex], UIColor(red: 0.65, green: 0.46, blue: 0.23, alpha: 1)))
+        roof.addChild(face([upper[2], upper[3], apex], UIColor(red: 0.85, green: 0.65, blue: 0.31, alpha: 1)))
+        addChild(walls); addChild(timberFrame); addChild(roof)
+        display(ConstructionPresentation(remaining: 1, duration: 1))
+    }
+    required init?(coder: NSCoder) { fatalError("Programmatic review geometry") }
+    func display(_ work: ConstructionPresentation) {
+        phase = work.reviewStage
+        timberFrame.isHidden = phase == .foundation
+        walls.isHidden = phase == .foundation || phase == .frame
+        roof.isHidden = phase != .roof
+    }
+}
+#endif
