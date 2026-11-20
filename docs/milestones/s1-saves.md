@@ -1,5 +1,10 @@
 # S1-Saves — independent games and safe recovery
 
+## Physical follow-up — 20 November 2026
+
+Dima requested installation again. Signed product7f5e10c installed after fresh production-validated backup; both saves byte-identical before launch. Normal launch now succeeds. Production GameLibraryStore validates a version1, single-legacy-game index with original selected; SaveStore/GameEngine validate the loaded settlement. Five buildings/15roads, original geometry/map/discoveries/research/reserves/IDs preserved. Existing rewards retained; offline progress earned the knowledge goal. Developer save remains byte-identical after launch. [Current evidence](../testing/s1-saves/device-install-2026-11-20.json). This supersedes the historical locked-device launch/index blocker below. Geography proposal is not active; human gameplay and hardware performance acceptance remain open.
+
+
 Implemented20November2026; awaiting human acceptance. Final product7f5e10c (review fixes c124568, initial UI7d7608e, library18c758f, metadata c0de0b5). Branch first-era-review preserved. Media697b486/main unchanged. Signed update installed; physical first launch/library initialization is **pending device unlock**. Do not infer a successful physical launch from successful installation or simulator tests.
 
 ## Behavior

@@ -1,0 +1,35 @@
+{
+  "productCommit": "7f5e10c",
+  "installedOn": "2026-11-20",
+  "freshProductionValidation": true,
+  "signedInstallVerified": true,
+  "normalLaunchVerified": true,
+  "physicalLibraryInitializationVerified": true,
+  "library": {
+    "version": 1,
+    "activeGameID": "legacy",
+    "gameCount": 1
+  },
+  "files": [
+    {
+      "file": "settlement-v1.json",
+      "byteIdenticalBeforeLaunch": true,
+      "sha256": "d5cbc7950312dae5d7f999ab729eb64fa68f85eaa31713aa458808b1c5bc0128",
+      "bytes": 10173
+    },
+    {
+      "file": "settlement-v1.json.developer",
+      "byteIdenticalBeforeLaunch": true,
+      "sha256": "353c711af262319a1b484789aebcb289bf5dede105bd079eda9c9deb6c3ae03f",
+      "bytes": 10745
+    }
+  ],
+  "normalBuildings": 5,
+  "normalRoads": 15,
+  "mapID": "river-clearing-v1",
+  "buildingGeometryRoadsResearchDiscoveryReservesPreserved": true,
+  "preexistingRewardsPreserved": true,
+  "knowledgeGoalEarnedDuringOfflineProgress": true,
+  "developerByteIdenticalAfterLaunch": true,
+  "expandedGeographyActive": false
+}
