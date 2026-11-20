@@ -1,0 +1,74 @@
+[
+  {
+    "id": "stone-material",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-a63a22fb-dca9-4793-8fd5-561ab6603483.png",
+    "prompt": "prompts/stone-material.txt",
+    "file": "assets/stone-material.png",
+    "tool": "built-in image_gen",
+    "role": "unapproved material review sample",
+    "sha256": "eee8e0b297eb5b291dd457857c57d3b9e4fc0f984dd3a6ed528c7d16d7684148",
+    "promptSHA256": "356c62d3612c1faae80c6667ba93ef7d76c763f657bb967e020a38d70ef2625a"
+  },
+  {
+    "id": "papyrus-material",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-f752449d-f984-4308-8aaa-f997cf287b99.png",
+    "prompt": "prompts/papyrus-material.txt",
+    "file": "assets/papyrus-material.png",
+    "tool": "built-in image_gen",
+    "role": "unapproved material review sample",
+    "sha256": "e467ac36022b05ff0f9b2563a830ae14b54e6b5743aa9e26e84cba26f12f7a56",
+    "promptSHA256": "801e3fb23cea93616d2d3eed88041f6520ed2f7dad9127f47f6347d0fcb24f69"
+  },
+  {
+    "id": "clay-material",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-f6a8962b-63fe-40dd-91e4-89af8a12929c.png",
+    "prompt": "prompts/clay-material.txt",
+    "file": "assets/clay-material.png",
+    "tool": "built-in image_gen",
+    "role": "unapproved material review sample",
+    "sha256": "a1a9e3c61363847125f6eedb16c40c96aa038ed3c5f58753da120ee1cb073cbe",
+    "promptSHA256": "01d64adfa62bb365f930eb818707fa0270034ae77a55f73760c6518d84d0842e"
+  },
+  {
+    "id": "loading-founding",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-b2feade4-4e5c-4ef9-b77c-7e9941330a42.png",
+    "prompt": "prompts/loading-founding.txt",
+    "file": "assets/loading-founding.png",
+    "tool": "built-in image_gen",
+    "role": "unapproved loading-scene concept, no gameplay implementation",
+    "sha256": "d45821fd12187f06309c5227408a4a05058b57221490e9752b294af4f2751515",
+    "promptSHA256": "3bbf12480faa07cd2d345f19ad720bd5d4b71e398ad00f5545e4cda428ea0faf"
+  },
+  {
+    "id": "loading-river",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-0c53f322-a2ed-4629-8f9c-379cb8f5508f.png",
+    "prompt": "prompts/loading-river.txt",
+    "file": "assets/loading-river.png",
+    "tool": "built-in image_gen",
+    "role": "unapproved loading-scene concept, no gameplay implementation",
+    "sha256": "1e5a3b6f7753f6f9230dbe6129c1da226bad52efbc9ce14d46463da3e8940b1f",
+    "promptSHA256": "c6f4ecdbe33af093d10ed7b8128476e113d0dac1781fc128fdedeb1f4d9dc3f4"
+  },
+  {
+    "id": "loading-mountain",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-21e41075-1efa-4837-a633-59269ce8cd18.png",
+    "prompt": "prompts/loading-mountain.txt",
+    "file": "assets/loading-mountain.png",
+    "tool": "built-in image_gen",
+    "role": "unapproved loading-scene concept, no gameplay implementation",
+    "sha256": "956387d4c47dde39cb7a0ada395b4faf1109515e158135045799086e036b1d7c",
+    "promptSHA256": "c6970d62de56ffde94df5418f42def420cf21299299a1909bc3a5d771469c80b"
+  },
+  {
+    "id": "construction-frame",
+    "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-edb675b5-2ea1-4e84-838e-94b372d5049f.png",
+    "prompt": "prompts/construction-frame.txt",
+    "file": "assets/construction-frame.png",
+    "tool": "built-in image_gen",
+    "reference": "docs/art/sources/buildings/hut.png",
+    "role": "unapproved construction frame review layer",
+    "sha256": "0f631351bc68f206558303d9ecf5125ae5c3c35175559a2064813962abac7d91",
+    "promptSHA256": "f67fdca5bd32f88fe1823cadd8ca90110c4957f999de12954f1f435e054cadda",
+    "referenceSHA256": "7bef165ba154b891253d45487522819d42e3c6573696347e1a174d1e6cd0ac30"
+  }
+]

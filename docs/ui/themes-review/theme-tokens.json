@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "proposed-review-contract-not-runtime",
+  "brand": {"title":"CIVILIZATION","mark":"assets/native-icons/sunrise.png","eraSubtitleIndependent":true,"studioInternal":"Studio Placeholder","showStudio":false,"appIconReplaceable":true},
+  "layout": {"tapTargetMin":44,"readableBodyMin":14,"panelRadius":12,"gap":12,"resourceOrder":["food","wood","stone","water","flint","clay","animalHides","stoneTools","leather","pottery","knowledge","culture"],"hudAnchors":{"resources":"top","settlement":"upper-left","build":"upper-right-before-research","research":"upper-right","goals":"lower-left-before-explore","explore":"lower-left-before-games","games":"lower-left-after-explore"}},
+  "motion": {"compactPulseMs":750,"eraTransitionMs":1200,"constructionStageBounds":[0,0.35,0.8,1],"ambientDurationMs":4000,"reducedMotion":"static-state-no-pulse-no-ambient-no-crossfade","maxTransientAnimations":3,"ordinaryCompletion":"icon-adjacent-only","unreadClear":"exact-result-viewed","eraStateCommit":"before-playback","loadingProgress":"indeterminate-unless-real-work-measured"},
+  "themes": {
+    "stone-temperate": {"label":"Stone Age · temperate","era":"STONE AGE","region":"Reference temperate","material":"carved stone","texture":"assets/stone-material.png","panel":"#d9d9d0","ink":"#182c2b","muted":"#3c4f4a","accent":"#275b5d","onAccent":"#ffffff","danger":"#832e27","focus":"#242055"},
+    "bronze-egypt": {"label":"Bronze Age · Egypt comparison","era":"BRONZE AGE","region":"Egypt · visual comparison only","material":"papyrus regional exception","texture":"assets/papyrus-material.png","panel":"#efe1bd","ink":"#352719","muted":"#5c4730","accent":"#24585b","onAccent":"#ffffff","danger":"#832e27","focus":"#242055"},
+    "bronze-mesopotamia": {"label":"Bronze Age · Mesopotamia comparison","era":"BRONZE AGE","region":"Mesopotamia · visual comparison only","material":"clay regional exception","texture":"assets/clay-material.png","panel":"#dfb491","ink":"#30221d","muted":"#574035","accent":"#473d67","onAccent":"#ffffff","danger":"#74291f","focus":"#242055"}
+  }
+}

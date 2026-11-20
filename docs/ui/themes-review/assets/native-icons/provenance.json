@@ -1,0 +1,260 @@
+[
+  {
+    "file" : "resource-food.png",
+    "id" : "resource-food",
+    "sha256" : "8cf85150ebd7ee36cb9f96726c62e412648d0ce3d1f868c4d481cf9bd1f863c8",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.food"
+  },
+  {
+    "file" : "resource-wood.png",
+    "id" : "resource-wood",
+    "sha256" : "31a8fd760c3027f980825c15fd15f3163a1b46c7f6e453444bd843c0e1aebf41",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.wood"
+  },
+  {
+    "file" : "resource-stone.png",
+    "id" : "resource-stone",
+    "sha256" : "cc46fcd55453290b8e240ab4f228d0caa10e115c96717833a19a66828d6d7079",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.stone"
+  },
+  {
+    "file" : "resource-water.png",
+    "id" : "resource-water",
+    "sha256" : "53ae75cd5fdd9f7bfff51126ddf8960cb5e89348749035f9c7db9cf8a0e33106",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.water"
+  },
+  {
+    "file" : "resource-flint.png",
+    "id" : "resource-flint",
+    "sha256" : "7a381fdb81e4caeefc496a9ca1fb570915b3e25a5c199cc56448070917d3127c",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.flint"
+  },
+  {
+    "file" : "resource-clay.png",
+    "id" : "resource-clay",
+    "sha256" : "7dc9de0252f71784e0126a3782aed85a11dee36a88916068e6739e03b85f01a5",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.clay"
+  },
+  {
+    "file" : "resource-animalHides.png",
+    "id" : "resource-animalHides",
+    "sha256" : "776ddd4304178ef50b17fd1af934df1988e58e22c78237da95ffd874740ed388",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.animalHides"
+  },
+  {
+    "file" : "resource-stoneTools.png",
+    "id" : "resource-stoneTools",
+    "sha256" : "4d6532b0ee3be69759c0f88e0bd676597f7f581dca4e63b0e1d69959daf0603c",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.stoneTools"
+  },
+  {
+    "file" : "resource-leather.png",
+    "id" : "resource-leather",
+    "sha256" : "2cf390bd8ef4e47e8d78989081c10c22267700c8efc975ea11decddd12b3541f",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.leather"
+  },
+  {
+    "file" : "resource-pottery.png",
+    "id" : "resource-pottery",
+    "sha256" : "b4e2b3e8b2b8433af20c202470381835fb6bafe26c800a13b1d70413bcd03fe3",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.pottery"
+  },
+  {
+    "file" : "resource-knowledge.png",
+    "id" : "resource-knowledge",
+    "sha256" : "299903a90d9669d2b18512784993854ac4d97ba18f6dbfff8e3f580bdda170aa",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.knowledge"
+  },
+  {
+    "file" : "resource-culture.png",
+    "id" : "resource-culture",
+    "sha256" : "933a2651cae3af51b635e4fd8e142166694a3d50e954f2f164e72af3ea69408b",
+    "source" : "Civilization\/UI\/EraIcon.swift resource.culture"
+  },
+  {
+    "file" : "research-oralTradition.png",
+    "id" : "research-oralTradition",
+    "sha256" : "299903a90d9669d2b18512784993854ac4d97ba18f6dbfff8e3f580bdda170aa",
+    "source" : "Civilization\/UI\/EraIcon.swift research.oralTradition"
+  },
+  {
+    "file" : "research-stoneTools.png",
+    "id" : "research-stoneTools",
+    "sha256" : "4d6532b0ee3be69759c0f88e0bd676597f7f581dca4e63b0e1d69959daf0603c",
+    "source" : "Civilization\/UI\/EraIcon.swift research.stoneTools"
+  },
+  {
+    "file" : "research-socialOrder.png",
+    "id" : "research-socialOrder",
+    "sha256" : "cd316b502b176f9d71f0b9a0c363eda24d5e6ad16228cb6401fc076591230e1f",
+    "source" : "Civilization\/UI\/EraIcon.swift research.socialOrder"
+  },
+  {
+    "file" : "research-hunting.png",
+    "id" : "research-hunting",
+    "sha256" : "d438e35c0dfa51978cf8f4fb8caa1583382135f627e231301af8da0f560c94ca",
+    "source" : "Civilization\/UI\/EraIcon.swift research.hunting"
+  },
+  {
+    "file" : "research-fishing.png",
+    "id" : "research-fishing",
+    "sha256" : "10ce093555aca690dcce679c66e24dabcb7580c7cbc9c71664c7fab8290be860",
+    "source" : "Civilization\/UI\/EraIcon.swift research.fishing"
+  },
+  {
+    "file" : "research-cultivation.png",
+    "id" : "research-cultivation",
+    "sha256" : "462e5be36132d227c992ccd548962a8023c38207d6ed08e0bf1d654e158d968a",
+    "source" : "Civilization\/UI\/EraIcon.swift research.cultivation"
+  },
+  {
+    "file" : "research-animalDomestication.png",
+    "id" : "research-animalDomestication",
+    "sha256" : "71999b0807c8fee247ea28b07602cf4cef5ebbed075ae04496cae7845ba544db",
+    "source" : "Civilization\/UI\/EraIcon.swift research.animalDomestication"
+  },
+  {
+    "file" : "research-leatherworking.png",
+    "id" : "research-leatherworking",
+    "sha256" : "ffe46c96aeff880e38f0b2d1cce58872d4759fd90960bbbc8b8d044c7e0ff400",
+    "source" : "Civilization\/UI\/EraIcon.swift research.leatherworking"
+  },
+  {
+    "file" : "research-pottery.png",
+    "id" : "research-pottery",
+    "sha256" : "b4e2b3e8b2b8433af20c202470381835fb6bafe26c800a13b1d70413bcd03fe3",
+    "source" : "Civilization\/UI\/EraIcon.swift research.pottery"
+  },
+  {
+    "file" : "research-foodPreservation.png",
+    "id" : "research-foodPreservation",
+    "sha256" : "6ee6b258668f8355e1fceb65983e3ca2c7dbb410ba4c2c7db613b7ad44b7c845",
+    "source" : "Civilization\/UI\/EraIcon.swift research.foodPreservation"
+  },
+  {
+    "file" : "research-basketry.png",
+    "id" : "research-basketry",
+    "sha256" : "cb4282f060e335081e131eea4a5e2a42cffb84319fa774d22d8e2c938ec12979",
+    "source" : "Civilization\/UI\/EraIcon.swift research.basketry"
+  },
+  {
+    "file" : "research-construction.png",
+    "id" : "research-construction",
+    "sha256" : "ce71a734271ea41f22c8c1a4faa7556bc2cbaeef70cff0e44e2cea8a4d3f1104",
+    "source" : "Civilization\/UI\/EraIcon.swift research.construction"
+  },
+  {
+    "file" : "research-naturalKnowledge.png",
+    "id" : "research-naturalKnowledge",
+    "sha256" : "6fecabd7f27fcfb054d320e4246768de19854e53dbddb2bdd5b70571659ad84f",
+    "source" : "Civilization\/UI\/EraIcon.swift research.naturalKnowledge"
+  },
+  {
+    "file" : "research-permanentSettlement.png",
+    "id" : "research-permanentSettlement",
+    "sha256" : "59a40107c45f3d6c2adc75450c812cc99108adb3a39bd5db20e4621062353fb6",
+    "source" : "Civilization\/UI\/EraIcon.swift research.permanentSettlement"
+  },
+  {
+    "file" : "research-herbalMedicine.png",
+    "id" : "research-herbalMedicine",
+    "sha256" : "d7cdabcbf4ad351889d55a286d20e55f3b2c329b6ec131d6c63e325d46012592",
+    "source" : "Civilization\/UI\/EraIcon.swift research.herbalMedicine"
+  },
+  {
+    "file" : "research-rituals.png",
+    "id" : "research-rituals",
+    "sha256" : "933a2651cae3af51b635e4fd8e142166694a3d50e954f2f164e72af3ea69408b",
+    "source" : "Civilization\/UI\/EraIcon.swift research.rituals"
+  },
+  {
+    "file" : "research-burialTraditions.png",
+    "id" : "research-burialTraditions",
+    "sha256" : "5e60df5cca59494dcc850c8983e2c9e50e17293c6736425f49eb501fdd3d8aa8",
+    "source" : "Civilization\/UI\/EraIcon.swift research.burialTraditions"
+  },
+  {
+    "file" : "research-exploration.png",
+    "id" : "research-exploration",
+    "sha256" : "dd624ce0b0eba96b8f3a93129a755cd2cfc20854bf517f113e207aa05f0e69fe",
+    "source" : "Civilization\/UI\/EraIcon.swift research.exploration"
+  },
+  {
+    "file" : "research-surveillance.png",
+    "id" : "research-surveillance",
+    "sha256" : "69f3824e8e6c212d875ce9bfc596ef29dd828414d4849a17acea83b056937ea4",
+    "source" : "Civilization\/UI\/EraIcon.swift research.surveillance"
+  },
+  {
+    "file" : "research-fortification.png",
+    "id" : "research-fortification",
+    "sha256" : "fee531261209a3d23a3ab1548248407ce6cc04f639ca66ef4214485a3141a7d3",
+    "source" : "Civilization\/UI\/EraIcon.swift research.fortification"
+  },
+  {
+    "file" : "research.png",
+    "id" : "research",
+    "sha256" : "0caf4f66a6e686bc118f2ad9d56dee960e89895b66988c6f25ee6f762144364a",
+    "source" : "SF Symbols sparkles (review semantic mapping)"
+  },
+  {
+    "file" : "goals.png",
+    "id" : "goals",
+    "sha256" : "2f19d3662ea48f4e4fba912adc8888109ff864ef2f4d8917653a406d26c28d01",
+    "source" : "SF Symbols flag.checkered (review semantic mapping)"
+  },
+  {
+    "file" : "achievement.png",
+    "id" : "achievement",
+    "sha256" : "3f14c0cc8c846111b594d9455dac8f9ec317c1d529dc1269e6e582a5ced14903",
+    "source" : "SF Symbols seal (review semantic mapping)"
+  },
+  {
+    "file" : "build.png",
+    "id" : "build",
+    "sha256" : "305840aaada45e933e0c8ae5169fd41692564105414f70310e88ac1b62df543e",
+    "source" : "SF Symbols hammer (review semantic mapping)"
+  },
+  {
+    "file" : "explore.png",
+    "id" : "explore",
+    "sha256" : "8cdd43ec9b9b81ed840d258944088b0522270b075b5d928540dfbb5eaf25add7",
+    "source" : "SF Symbols map (review semantic mapping)"
+  },
+  {
+    "file" : "games.png",
+    "id" : "games",
+    "sha256" : "079232be34939b8e644d68f310ecbd48dac11134b765fce65eccdf3b8d32de4e",
+    "source" : "SF Symbols square.stack (review semantic mapping)"
+  },
+  {
+    "file" : "center.png",
+    "id" : "center",
+    "sha256" : "cafb8e047a731df16003d34f522b9ad052c2d451d2d08efe30fb133a209aa953",
+    "source" : "SF Symbols scope (review semantic mapping)"
+  },
+  {
+    "file" : "close.png",
+    "id" : "close",
+    "sha256" : "9a081134e93266c954d7dd73919d7f173b349b21b43bb51ef003117385ac9e05",
+    "source" : "SF Symbols xmark (review semantic mapping)"
+  },
+  {
+    "file" : "sunrise.png",
+    "id" : "sunrise",
+    "sha256" : "81bab73f0675a3119854ec91012d13aaebe80f421a61e50314af4aafcfa4d18c",
+    "source" : "SF Symbols sunrise.fill (review semantic mapping)"
+  },
+  {
+    "file" : "check.png",
+    "id" : "check",
+    "sha256" : "8bfc7bfd24f38e5d8b53ca7879824c07302eac05afb1704cdffabad1691fed81",
+    "source" : "SF Symbols checkmark (review semantic mapping)"
+  },
+  {
+    "file" : "menu.png",
+    "id" : "menu",
+    "sha256" : "ab716d5e1dc600e790d412faf0c6d708009fdfb6d793aff3c9975a4f2a7ca00e",
+    "source" : "SF Symbols line.3.horizontal (review semantic mapping)"
+  }
+]

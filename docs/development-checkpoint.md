@@ -1,3 +1,9 @@
+Latest fetch: origin/main c845b21 adds [Living World visual-production plan](../plans/2026-11-20-living-world-environmental-animation.md). Preserved verbatim for next independent audit/review prototypes; no branch merge or runtime activation. UI slice below remains the current handoff.
+
+## UI themes and motion prototypes — 20 November 2026
+
+Owner plan a7e38c2/direct implementation: pre-integration review gates delivered. [Workbench](ui/themes-review/index.html), [audit](ui/themes-review/audit.md), [contract](ui/themes-review/contract.md), [verification](testing/ui-themes-review/progress.md). Three material themes share HUD/catalog/research; seven generated review assets,43source-native icons and27fresh isolated native captures. Compact completion, selected-object construction, replaceable branding, loading and era-transition studies are review-only. Seven state tests and three native capture flows pass; independent review findings corrected. No runtime UI/art/schema/player-save/signing/device changes. R2-07 disabled; Gate2 building art separate. Next: owner visual review before bounded native integration; no human acceptance inferred.
+
 ## Building Art Gate 2 handoff — 20 November 2026
 
 Owner explicitly permits prototypes with unreviewed Gate 1 geometry. [Gallery](art/building-gate-2/index.html), [scope/limits](art/building-gate-2/README.md), [evidence](testing/building-art-gate-2/progress.md).13built-in imagegen outputs, each individual/transparent and copied unchanged; exact prompts/source/reference hashes. Hut/storage/fishingL1–L3, gatheringL1, opposite-fishingL1 and two bridge views; five cluster scenes, six level-pair choices, seven real map fixtures. Contact/anchor calibration and bridge offsets remain unapproved proposals. Browser desktop/phone checks and20tooling tests pass; no runtime integration or save/media mutation. Independent review findings fixed with four RED→GREEN regressions; final commit tracked in ledger/history.

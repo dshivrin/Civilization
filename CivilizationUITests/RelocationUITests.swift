@@ -4,6 +4,47 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testUIThemeAuditEvidence() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30))
+        capture("ui-audit-01-launch", app: app)
+        app.buttons["newNormalGame"].tap()
+        XCTAssertTrue(app.buttons["openResearch"].waitForExistence(timeout: 30))
+        capture("ui-audit-02-hud", app: app)
+        app.buttons["Build"].tap()
+        XCTAssertTrue(app.buttons["details-building-hut"].waitForExistence(timeout: 5))
+        capture("ui-audit-03-catalog", app: app)
+        app.buttons["details-building-hut"].tap()
+        XCTAssertTrue(app.staticTexts["building-description-hut"].waitForExistence(timeout: 5))
+        capture("ui-audit-04-catalog-detail", app: app)
+        app.buttons["closeBuildingCatalog"].tap()
+        app.buttons["openResearch"].tap()
+        XCTAssertTrue(app.buttons["details-research-oralTradition"].waitForExistence(timeout: 5))
+        capture("ui-audit-05-research", app: app)
+        app.buttons["details-research-oralTradition"].tap()
+        XCTAssertTrue(app.staticTexts["research-description-oralTradition"].waitForExistence(timeout: 5))
+        capture("ui-audit-06-research-detail", app: app)
+        app.buttons["closeResearch"].tap()
+        app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        let civic = app.descendants(matching: .any).matching(identifier: "inspectBuilding-0").firstMatch
+        XCTAssertTrue(civic.waitForExistence(timeout: 5)); civic.tap()
+        XCTAssertTrue(app.staticTexts["civicLevelName"].waitForExistence(timeout: 5))
+        capture("ui-audit-07-inspector", app: app)
+        app.otherElements["settlementMap"].coordinate(withNormalizedOffset: CGVector(dx: 0.85, dy: 0.5)).tap()
+        expandGoals(app)
+        app.buttons["openJourney"].tap()
+        XCTAssertTrue(app.navigationBars["Stone Age journey"].waitForExistence(timeout: 5))
+        capture("ui-audit-08-journey", app: app)
+        app.buttons["Done"].tap()
+        app.buttons["openGames"].tap()
+        XCTAssertTrue(app.staticTexts["activeGameName"].waitForExistence(timeout: 5))
+        capture("ui-audit-09-games", app: app)
+    }
+
     @MainActor private func launchNormal(_ app: XCUIApplication) {
         app.launch()
         let resume = app.buttons["continueGame"]

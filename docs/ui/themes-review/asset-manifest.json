@@ -1,0 +1,519 @@
+{
+  "schemaVersion": 1,
+  "status": "review-only-no-runtime-integration",
+  "assets": [
+    {
+      "id": "stone-material",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-a63a22fb-dca9-4793-8fd5-561ab6603483.png",
+      "prompt": "prompts/stone-material.txt",
+      "file": "assets/stone-material.png",
+      "tool": "built-in image_gen",
+      "role": "unapproved material review sample",
+      "sha256": "eee8e0b297eb5b291dd457857c57d3b9e4fc0f984dd3a6ed528c7d16d7684148",
+      "promptSHA256": "356c62d3612c1faae80c6667ba93ef7d76c763f657bb967e020a38d70ef2625a",
+      "width": 1774,
+      "height": 887,
+      "status": "unapproved-review-asset"
+    },
+    {
+      "id": "papyrus-material",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-f752449d-f984-4308-8aaa-f997cf287b99.png",
+      "prompt": "prompts/papyrus-material.txt",
+      "file": "assets/papyrus-material.png",
+      "tool": "built-in image_gen",
+      "role": "unapproved material review sample",
+      "sha256": "e467ac36022b05ff0f9b2563a830ae14b54e6b5743aa9e26e84cba26f12f7a56",
+      "promptSHA256": "801e3fb23cea93616d2d3eed88041f6520ed2f7dad9127f47f6347d0fcb24f69",
+      "width": 1774,
+      "height": 887,
+      "status": "unapproved-review-asset"
+    },
+    {
+      "id": "clay-material",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-f6a8962b-63fe-40dd-91e4-89af8a12929c.png",
+      "prompt": "prompts/clay-material.txt",
+      "file": "assets/clay-material.png",
+      "tool": "built-in image_gen",
+      "role": "unapproved material review sample",
+      "sha256": "a1a9e3c61363847125f6eedb16c40c96aa038ed3c5f58753da120ee1cb073cbe",
+      "promptSHA256": "01d64adfa62bb365f930eb818707fa0270034ae77a55f73760c6518d84d0842e",
+      "width": 1774,
+      "height": 887,
+      "status": "unapproved-review-asset"
+    },
+    {
+      "id": "loading-founding",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-b2feade4-4e5c-4ef9-b77c-7e9941330a42.png",
+      "prompt": "prompts/loading-founding.txt",
+      "file": "assets/loading-founding.png",
+      "tool": "built-in image_gen",
+      "role": "unapproved loading-scene concept, no gameplay implementation",
+      "sha256": "d45821fd12187f06309c5227408a4a05058b57221490e9752b294af4f2751515",
+      "promptSHA256": "3bbf12480faa07cd2d345f19ad720bd5d4b71e398ad00f5545e4cda428ea0faf",
+      "width": 1774,
+      "height": 887,
+      "status": "unapproved-review-asset"
+    },
+    {
+      "id": "loading-river",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-0c53f322-a2ed-4629-8f9c-379cb8f5508f.png",
+      "prompt": "prompts/loading-river.txt",
+      "file": "assets/loading-river.png",
+      "tool": "built-in image_gen",
+      "role": "unapproved loading-scene concept, no gameplay implementation",
+      "sha256": "1e5a3b6f7753f6f9230dbe6129c1da226bad52efbc9ce14d46463da3e8940b1f",
+      "promptSHA256": "c6f4ecdbe33af093d10ed7b8128476e113d0dac1781fc128fdedeb1f4d9dc3f4",
+      "width": 1774,
+      "height": 887,
+      "status": "unapproved-review-asset"
+    },
+    {
+      "id": "loading-mountain",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-21e41075-1efa-4837-a633-59269ce8cd18.png",
+      "prompt": "prompts/loading-mountain.txt",
+      "file": "assets/loading-mountain.png",
+      "tool": "built-in image_gen",
+      "role": "unapproved loading-scene concept, no gameplay implementation",
+      "sha256": "956387d4c47dde39cb7a0ada395b4faf1109515e158135045799086e036b1d7c",
+      "promptSHA256": "c6970d62de56ffde94df5418f42def420cf21299299a1909bc3a5d771469c80b",
+      "width": 1774,
+      "height": 887,
+      "status": "unapproved-review-asset"
+    },
+    {
+      "id": "construction-frame",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f8ee-498b-7e91-b896-7a1956c36d7f/exec-edb675b5-2ea1-4e84-838e-94b372d5049f.png",
+      "prompt": "prompts/construction-frame.txt",
+      "file": "assets/construction-frame.png",
+      "tool": "built-in image_gen",
+      "reference": "docs/art/sources/buildings/hut.png",
+      "role": "unapproved construction frame review layer",
+      "sha256": "0f631351bc68f206558303d9ecf5125ae5c3c35175559a2064813962abac7d91",
+      "promptSHA256": "f67fdca5bd32f88fe1823cadd8ca90110c4957f999de12954f1f435e054cadda",
+      "referenceSHA256": "7bef165ba154b891253d45487522819d42e3c6573696347e1a174d1e6cd0ac30",
+      "width": 1774,
+      "height": 887,
+      "status": "unapproved-review-asset"
+    }
+  ],
+  "nativeIcons": [
+    {
+      "file": "resource-food.png",
+      "id": "resource-food",
+      "sha256": "8cf85150ebd7ee36cb9f96726c62e412648d0ce3d1f868c4d481cf9bd1f863c8",
+      "source": "Civilization/UI/EraIcon.swift resource.food"
+    },
+    {
+      "file": "resource-wood.png",
+      "id": "resource-wood",
+      "sha256": "31a8fd760c3027f980825c15fd15f3163a1b46c7f6e453444bd843c0e1aebf41",
+      "source": "Civilization/UI/EraIcon.swift resource.wood"
+    },
+    {
+      "file": "resource-stone.png",
+      "id": "resource-stone",
+      "sha256": "cc46fcd55453290b8e240ab4f228d0caa10e115c96717833a19a66828d6d7079",
+      "source": "Civilization/UI/EraIcon.swift resource.stone"
+    },
+    {
+      "file": "resource-water.png",
+      "id": "resource-water",
+      "sha256": "53ae75cd5fdd9f7bfff51126ddf8960cb5e89348749035f9c7db9cf8a0e33106",
+      "source": "Civilization/UI/EraIcon.swift resource.water"
+    },
+    {
+      "file": "resource-flint.png",
+      "id": "resource-flint",
+      "sha256": "7a381fdb81e4caeefc496a9ca1fb570915b3e25a5c199cc56448070917d3127c",
+      "source": "Civilization/UI/EraIcon.swift resource.flint"
+    },
+    {
+      "file": "resource-clay.png",
+      "id": "resource-clay",
+      "sha256": "7dc9de0252f71784e0126a3782aed85a11dee36a88916068e6739e03b85f01a5",
+      "source": "Civilization/UI/EraIcon.swift resource.clay"
+    },
+    {
+      "file": "resource-animalHides.png",
+      "id": "resource-animalHides",
+      "sha256": "776ddd4304178ef50b17fd1af934df1988e58e22c78237da95ffd874740ed388",
+      "source": "Civilization/UI/EraIcon.swift resource.animalHides"
+    },
+    {
+      "file": "resource-stoneTools.png",
+      "id": "resource-stoneTools",
+      "sha256": "4d6532b0ee3be69759c0f88e0bd676597f7f581dca4e63b0e1d69959daf0603c",
+      "source": "Civilization/UI/EraIcon.swift resource.stoneTools"
+    },
+    {
+      "file": "resource-leather.png",
+      "id": "resource-leather",
+      "sha256": "2cf390bd8ef4e47e8d78989081c10c22267700c8efc975ea11decddd12b3541f",
+      "source": "Civilization/UI/EraIcon.swift resource.leather"
+    },
+    {
+      "file": "resource-pottery.png",
+      "id": "resource-pottery",
+      "sha256": "b4e2b3e8b2b8433af20c202470381835fb6bafe26c800a13b1d70413bcd03fe3",
+      "source": "Civilization/UI/EraIcon.swift resource.pottery"
+    },
+    {
+      "file": "resource-knowledge.png",
+      "id": "resource-knowledge",
+      "sha256": "299903a90d9669d2b18512784993854ac4d97ba18f6dbfff8e3f580bdda170aa",
+      "source": "Civilization/UI/EraIcon.swift resource.knowledge"
+    },
+    {
+      "file": "resource-culture.png",
+      "id": "resource-culture",
+      "sha256": "933a2651cae3af51b635e4fd8e142166694a3d50e954f2f164e72af3ea69408b",
+      "source": "Civilization/UI/EraIcon.swift resource.culture"
+    },
+    {
+      "file": "research-oralTradition.png",
+      "id": "research-oralTradition",
+      "sha256": "299903a90d9669d2b18512784993854ac4d97ba18f6dbfff8e3f580bdda170aa",
+      "source": "Civilization/UI/EraIcon.swift research.oralTradition"
+    },
+    {
+      "file": "research-stoneTools.png",
+      "id": "research-stoneTools",
+      "sha256": "4d6532b0ee3be69759c0f88e0bd676597f7f581dca4e63b0e1d69959daf0603c",
+      "source": "Civilization/UI/EraIcon.swift research.stoneTools"
+    },
+    {
+      "file": "research-socialOrder.png",
+      "id": "research-socialOrder",
+      "sha256": "cd316b502b176f9d71f0b9a0c363eda24d5e6ad16228cb6401fc076591230e1f",
+      "source": "Civilization/UI/EraIcon.swift research.socialOrder"
+    },
+    {
+      "file": "research-hunting.png",
+      "id": "research-hunting",
+      "sha256": "d438e35c0dfa51978cf8f4fb8caa1583382135f627e231301af8da0f560c94ca",
+      "source": "Civilization/UI/EraIcon.swift research.hunting"
+    },
+    {
+      "file": "research-fishing.png",
+      "id": "research-fishing",
+      "sha256": "10ce093555aca690dcce679c66e24dabcb7580c7cbc9c71664c7fab8290be860",
+      "source": "Civilization/UI/EraIcon.swift research.fishing"
+    },
+    {
+      "file": "research-cultivation.png",
+      "id": "research-cultivation",
+      "sha256": "462e5be36132d227c992ccd548962a8023c38207d6ed08e0bf1d654e158d968a",
+      "source": "Civilization/UI/EraIcon.swift research.cultivation"
+    },
+    {
+      "file": "research-animalDomestication.png",
+      "id": "research-animalDomestication",
+      "sha256": "71999b0807c8fee247ea28b07602cf4cef5ebbed075ae04496cae7845ba544db",
+      "source": "Civilization/UI/EraIcon.swift research.animalDomestication"
+    },
+    {
+      "file": "research-leatherworking.png",
+      "id": "research-leatherworking",
+      "sha256": "ffe46c96aeff880e38f0b2d1cce58872d4759fd90960bbbc8b8d044c7e0ff400",
+      "source": "Civilization/UI/EraIcon.swift research.leatherworking"
+    },
+    {
+      "file": "research-pottery.png",
+      "id": "research-pottery",
+      "sha256": "b4e2b3e8b2b8433af20c202470381835fb6bafe26c800a13b1d70413bcd03fe3",
+      "source": "Civilization/UI/EraIcon.swift research.pottery"
+    },
+    {
+      "file": "research-foodPreservation.png",
+      "id": "research-foodPreservation",
+      "sha256": "6ee6b258668f8355e1fceb65983e3ca2c7dbb410ba4c2c7db613b7ad44b7c845",
+      "source": "Civilization/UI/EraIcon.swift research.foodPreservation"
+    },
+    {
+      "file": "research-basketry.png",
+      "id": "research-basketry",
+      "sha256": "cb4282f060e335081e131eea4a5e2a42cffb84319fa774d22d8e2c938ec12979",
+      "source": "Civilization/UI/EraIcon.swift research.basketry"
+    },
+    {
+      "file": "research-construction.png",
+      "id": "research-construction",
+      "sha256": "ce71a734271ea41f22c8c1a4faa7556bc2cbaeef70cff0e44e2cea8a4d3f1104",
+      "source": "Civilization/UI/EraIcon.swift research.construction"
+    },
+    {
+      "file": "research-naturalKnowledge.png",
+      "id": "research-naturalKnowledge",
+      "sha256": "6fecabd7f27fcfb054d320e4246768de19854e53dbddb2bdd5b70571659ad84f",
+      "source": "Civilization/UI/EraIcon.swift research.naturalKnowledge"
+    },
+    {
+      "file": "research-permanentSettlement.png",
+      "id": "research-permanentSettlement",
+      "sha256": "59a40107c45f3d6c2adc75450c812cc99108adb3a39bd5db20e4621062353fb6",
+      "source": "Civilization/UI/EraIcon.swift research.permanentSettlement"
+    },
+    {
+      "file": "research-herbalMedicine.png",
+      "id": "research-herbalMedicine",
+      "sha256": "d7cdabcbf4ad351889d55a286d20e55f3b2c329b6ec131d6c63e325d46012592",
+      "source": "Civilization/UI/EraIcon.swift research.herbalMedicine"
+    },
+    {
+      "file": "research-rituals.png",
+      "id": "research-rituals",
+      "sha256": "933a2651cae3af51b635e4fd8e142166694a3d50e954f2f164e72af3ea69408b",
+      "source": "Civilization/UI/EraIcon.swift research.rituals"
+    },
+    {
+      "file": "research-burialTraditions.png",
+      "id": "research-burialTraditions",
+      "sha256": "5e60df5cca59494dcc850c8983e2c9e50e17293c6736425f49eb501fdd3d8aa8",
+      "source": "Civilization/UI/EraIcon.swift research.burialTraditions"
+    },
+    {
+      "file": "research-exploration.png",
+      "id": "research-exploration",
+      "sha256": "dd624ce0b0eba96b8f3a93129a755cd2cfc20854bf517f113e207aa05f0e69fe",
+      "source": "Civilization/UI/EraIcon.swift research.exploration"
+    },
+    {
+      "file": "research-surveillance.png",
+      "id": "research-surveillance",
+      "sha256": "69f3824e8e6c212d875ce9bfc596ef29dd828414d4849a17acea83b056937ea4",
+      "source": "Civilization/UI/EraIcon.swift research.surveillance"
+    },
+    {
+      "file": "research-fortification.png",
+      "id": "research-fortification",
+      "sha256": "fee531261209a3d23a3ab1548248407ce6cc04f639ca66ef4214485a3141a7d3",
+      "source": "Civilization/UI/EraIcon.swift research.fortification"
+    },
+    {
+      "file": "research.png",
+      "id": "research",
+      "sha256": "0caf4f66a6e686bc118f2ad9d56dee960e89895b66988c6f25ee6f762144364a",
+      "source": "SF Symbols sparkles (review semantic mapping)"
+    },
+    {
+      "file": "goals.png",
+      "id": "goals",
+      "sha256": "2f19d3662ea48f4e4fba912adc8888109ff864ef2f4d8917653a406d26c28d01",
+      "source": "SF Symbols flag.checkered (review semantic mapping)"
+    },
+    {
+      "file": "achievement.png",
+      "id": "achievement",
+      "sha256": "3f14c0cc8c846111b594d9455dac8f9ec317c1d529dc1269e6e582a5ced14903",
+      "source": "SF Symbols seal (review semantic mapping)"
+    },
+    {
+      "file": "build.png",
+      "id": "build",
+      "sha256": "305840aaada45e933e0c8ae5169fd41692564105414f70310e88ac1b62df543e",
+      "source": "SF Symbols hammer (review semantic mapping)"
+    },
+    {
+      "file": "explore.png",
+      "id": "explore",
+      "sha256": "8cdd43ec9b9b81ed840d258944088b0522270b075b5d928540dfbb5eaf25add7",
+      "source": "SF Symbols map (review semantic mapping)"
+    },
+    {
+      "file": "games.png",
+      "id": "games",
+      "sha256": "079232be34939b8e644d68f310ecbd48dac11134b765fce65eccdf3b8d32de4e",
+      "source": "SF Symbols square.stack (review semantic mapping)"
+    },
+    {
+      "file": "center.png",
+      "id": "center",
+      "sha256": "cafb8e047a731df16003d34f522b9ad052c2d451d2d08efe30fb133a209aa953",
+      "source": "SF Symbols scope (review semantic mapping)"
+    },
+    {
+      "file": "close.png",
+      "id": "close",
+      "sha256": "9a081134e93266c954d7dd73919d7f173b349b21b43bb51ef003117385ac9e05",
+      "source": "SF Symbols xmark (review semantic mapping)"
+    },
+    {
+      "file": "sunrise.png",
+      "id": "sunrise",
+      "sha256": "81bab73f0675a3119854ec91012d13aaebe80f421a61e50314af4aafcfa4d18c",
+      "source": "SF Symbols sunrise.fill (review semantic mapping)"
+    },
+    {
+      "file": "check.png",
+      "id": "check",
+      "sha256": "8bfc7bfd24f38e5d8b53ca7879824c07302eac05afb1704cdffabad1691fed81",
+      "source": "SF Symbols checkmark (review semantic mapping)"
+    },
+    {
+      "file": "menu.png",
+      "id": "menu",
+      "sha256": "ab716d5e1dc600e790d412faf0c6d708009fdfb6d793aff3c9975a4f2a7ca00e",
+      "source": "SF Symbols line.3.horizontal (review semantic mapping)"
+    }
+  ],
+  "nativeSourceSHA256": "336fba02a66c83602908d8737d30540396594d22c1cfb6a7110fa80e3d4d430e",
+  "captures": [
+    {
+      "file": "captures/mini-01-launch.png",
+      "label": "mini 01 launch",
+      "sha256": "a4fa08c93b0615a91c30f9c27a08b4cf420abb9f4dff0db505c26c42d68a5762"
+    },
+    {
+      "file": "captures/mini-02-hud.png",
+      "label": "mini 02 hud",
+      "sha256": "2442f51c58f7da235f4e7e28d3eb8d1bb3e25bf4d57aad8377657a87b2cd69c9"
+    },
+    {
+      "file": "captures/mini-03-catalog.png",
+      "label": "mini 03 catalog",
+      "sha256": "c3e8c75f419b351640ac66d8c65c365ee038f874dc7a30b50ccfe92b61955834"
+    },
+    {
+      "file": "captures/mini-04-catalog-detail.png",
+      "label": "mini 04 catalog detail",
+      "sha256": "b175238d357600607570d1773d7a4034fd0109e18fc33f8581b27a4f9b58224c"
+    },
+    {
+      "file": "captures/mini-05-research.png",
+      "label": "mini 05 research",
+      "sha256": "74b1e2927d305d0db9b671404c3a5f2a4036cab29a1e580d23fb356eb6beb736"
+    },
+    {
+      "file": "captures/mini-06-research-detail.png",
+      "label": "mini 06 research detail",
+      "sha256": "98853e918862970e8b6cfb9d24fff4cc7e5fdf85f2aa66467b94e52b59c7fa30"
+    },
+    {
+      "file": "captures/mini-07-inspector.png",
+      "label": "mini 07 inspector",
+      "sha256": "bb399355b41a18ff46eecab8cb7efcc45fdcae651b7c5048da6900b600171078"
+    },
+    {
+      "file": "captures/mini-08-journey.png",
+      "label": "mini 08 journey",
+      "sha256": "b491d289bda1604e95eb22425f3630b9ff7ac031977e8c8a6f5db4bce0931ea5"
+    },
+    {
+      "file": "captures/mini-09-games.png",
+      "label": "mini 09 games",
+      "sha256": "0577a770d45981e4013e95e4b2f4b3bd6df3c60dd7d7642382f43fc9616e3bc1"
+    },
+    {
+      "file": "captures/phone-01-launch.png",
+      "label": "phone 01 launch",
+      "sha256": "50584231177baacf1a01f9aa9ad9984c37a9cdc7c3d705d8e36cfef57591e2be"
+    },
+    {
+      "file": "captures/phone-02-hud.png",
+      "label": "phone 02 hud",
+      "sha256": "673898c9ca9d0dd3c053ae405462a61cf0289bd55634cc6000c296709c4beb54"
+    },
+    {
+      "file": "captures/phone-03-catalog.png",
+      "label": "phone 03 catalog",
+      "sha256": "fe7963262cfc1eeae874d06a5c3bd5d487d912f08408b2221c33227c36bc27ae"
+    },
+    {
+      "file": "captures/phone-04-catalog-detail.png",
+      "label": "phone 04 catalog detail",
+      "sha256": "535bff99eac58146b79d9d988c27c7bf27f0dfadba13f687012ce494af556fea"
+    },
+    {
+      "file": "captures/phone-05-research.png",
+      "label": "phone 05 research",
+      "sha256": "63259be23dcdd3f7a0ed46c74873d049c0a5d8f59269de0812c2f964f845bfc8"
+    },
+    {
+      "file": "captures/phone-06-research-detail.png",
+      "label": "phone 06 research detail",
+      "sha256": "21e6b33e767300d4b50af32f9efa804bb68fc5d3a2d20eb14becd36d3eee34b6"
+    },
+    {
+      "file": "captures/phone-07-inspector.png",
+      "label": "phone 07 inspector",
+      "sha256": "a9a70174ce52286b3f2f7a95aab847e67b89b3ba22af0bd11444cf7a8e1a0a39"
+    },
+    {
+      "file": "captures/phone-08-journey.png",
+      "label": "phone 08 journey",
+      "sha256": "bd04b58775ca47f2d62da1fb7869367cc7300bf1d351dbb5b9956f9426b13c8c"
+    },
+    {
+      "file": "captures/phone-09-games.png",
+      "label": "phone 09 games",
+      "sha256": "fd51155b7aa3287ede1f124c2b785af5fb3922ecaede74e3814cb5c43b548640"
+    },
+    {
+      "file": "captures/pro-01-launch.png",
+      "label": "pro 01 launch",
+      "sha256": "08564993661bf73c00a3f8819aa125b9b45e6f7f7e3d3fa9201f644164bd30b2"
+    },
+    {
+      "file": "captures/pro-02-hud.png",
+      "label": "pro 02 hud",
+      "sha256": "7b033288342b7386817de5d9a1619f7268cd1393f1c78329f2114941d55e74ab"
+    },
+    {
+      "file": "captures/pro-03-catalog.png",
+      "label": "pro 03 catalog",
+      "sha256": "2ef8eb08574f896476bc0964974c3958687df040f59948f7aba20f8777696605"
+    },
+    {
+      "file": "captures/pro-04-catalog-detail.png",
+      "label": "pro 04 catalog detail",
+      "sha256": "e334e4204a265e6c1810bdeb57833210c468295644a7a36174acc92413941d6e"
+    },
+    {
+      "file": "captures/pro-05-research.png",
+      "label": "pro 05 research",
+      "sha256": "c0af65410d453fbd3c3df9df33eab2d724de8fa0a85916a7ea2a730376de9e68"
+    },
+    {
+      "file": "captures/pro-06-research-detail.png",
+      "label": "pro 06 research detail",
+      "sha256": "9d5a13a06d8306fe0d37ae20237493e124e0653c8bbd77c51b1a4195343c653f"
+    },
+    {
+      "file": "captures/pro-07-inspector.png",
+      "label": "pro 07 inspector",
+      "sha256": "955b4d581fe35b2a83b4575bb3036cc63784eb27abb18ab931b94f0a92902696"
+    },
+    {
+      "file": "captures/pro-08-journey.png",
+      "label": "pro 08 journey",
+      "sha256": "34d2fb1aec8b33fa066952ce81ca5773e6012fb9c64e748ec1c43d334002ec7d"
+    },
+    {
+      "file": "captures/pro-09-games.png",
+      "label": "pro 09 games",
+      "sha256": "2947773b784638012c4512b4e754bae4d1a87ebd93bd285a522d7fd72b3d3fe3"
+    }
+  ],
+  "tokenContrast": {
+    "stone-temperate": {
+      "body": 10.31,
+      "secondary": 6.14,
+      "button": 7.66,
+      "error": 6.2
+    },
+    "bronze-egypt": {
+      "body": 11.11,
+      "secondary": 6.74,
+      "button": 8.01,
+      "error": 6.78
+    },
+    "bronze-mesopotamia": {
+      "body": 8.07,
+      "secondary": 5.06,
+      "button": 9.85,
+      "error": 5.33
+    }
+  },
+  "limits": "Nominal flat-token contrast, not full texture/screenshot/native VoiceOver certification",
+  "baseline": "ff94a05"
+}

@@ -102,3 +102,11 @@ The optional audit reserves a new output directory exclusively and rejects desti
 `swift scripts/verify-art.swift --inspect-images IMAGE.png ...` prints read-only native alpha/bounds/hash records without enforcing the historical512/144runtime limits on new review masters. It does not edit pixels or remove backgrounds.
 
 `python3 scripts/build-art-gallery.py` verifies the preserved Gate 2 receipts, prompts, PNG hashes and Gate 1 seed hash, then regenerates review-only `manifest.json` and `gallery-data.js`. The gallery uses local files and can open directly; serving the repository root over loopback also works. Its silhouette framing, yard joins and bridge deck endpoints are proposals, never gameplay/save or runtime art changes. See [review scope](../docs/art/building-gate-2/README.md).
+
+## UI themes and motion review tools
+
+`python3 scripts/build-ui-review.py` verifies seven generated review assets, prompt/reference receipts,43native icons and pinned sources,27native captures and nominal token contrast; regenerates review data/manifest. `node --test scripts/tests/ui_review.test.cjs` checks prototype event/persistence/construction/era behavior.
+
+`swift run --package-path Tools/UIReviewRenderer UIReviewRenderer NEW_DIRECTORY` exports existing native EraIcon source via symlink plus SF Symbols using a macOS-only bridge. The same tool accepts `--sheet SCREENSHOT_DIRECTORY NEW_PNG` to lay out nine unmodified native captures. Outputs must be new; existing output is never overwritten. Build cache access remains host-controlled.
+
+Use `python3 scripts/dev.py test --suite ui` with its documented destination arguments and `--only-testing CivilizationUITests/RelocationUITests/testUIThemeAuditEvidence` for the isolated nine-screen capture flow. Export its XCTest attachments with xcresulttool. [Review workbench and scope](../docs/ui/themes-review/README.md); no runtime integration or save migration.
