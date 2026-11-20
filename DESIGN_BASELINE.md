@@ -1,5 +1,10 @@
 # Design baseline
 
+## Active S1-PLAY-001 — normal entry and completion
+
+Dima authorizes normal New Game/Continue entry, authentic64×48Stone Age starts, canonical seven-chapter/era-completion audit and Debug/Release phone/tablet verification. Preserve all normal/developer progress; new games use independent files, never reset existing saves. Bronze Age unlock is readiness only, no Bronze Age gameplay. Full exploration optional;1–2hours is a tuning objective, not a timer. Commit/push and stop for human playtest. [Reconciled specification](docs/superpowers/specs/2026-11-20-s1-play-design.md), [plan](docs/superpowers/plans/2026-11-20-s1-play.md). All previous backlog retained.
+
+
 ## Active S1-Geography activation — 20 November 2026
 
 Dima confirms all existing saves are development/test data and authorizes the approved **64×48 default**, standard Stone Age start, unchanged normal footprints, MAP-001–004 implementation/verification and then environment graphics assessment. This supersedes earlier production migration approval gates and the 32×24 normal default. Backups must be created and validated before archiving/resetting any development progress; preserve independent normal/developer saves. [Bounded specification](docs/superpowers/specs/2026-11-20-s1-geography-design.md). Production implementation is verified and awaiting human review: core181b0a8/rendering56f4124,187Debug/169Release, five Release exclusions and native phone/mini/Pro checks. [Milestone](docs/milestones/s1-geography.md). Environment graphics has started with [integration assessment and one review concept](docs/art/2026-11-20-environment-integration-assessment.md); no runtime art replacement or batch production. All previous backlog and visual approval requirements remain.

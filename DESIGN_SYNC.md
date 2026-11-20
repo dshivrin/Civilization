@@ -1,5 +1,10 @@
 # Design synchronization record and operating procedure
 
+## Active S1-PLAY-001 — normal entry and completion
+
+Dima authorizes normal New Game/Continue entry, authentic64×48Stone Age starts, canonical seven-chapter/era-completion audit and Debug/Release phone/tablet verification. Preserve all normal/developer progress; new games use independent files, never reset existing saves. Bronze Age unlock is readiness only, no Bronze Age gameplay. Full exploration optional;1–2hours is a tuning objective, not a timer. Commit/push and stop for human playtest. [Reconciled specification](docs/superpowers/specs/2026-11-20-s1-play-design.md), [plan](docs/superpowers/plans/2026-11-20-s1-play.md). All previous backlog retained.
+
+
 ## S1-Geography actual publication —20November2026
 
 Verified implementation181b0a8/56f4124and report/environment-assessment10b8536pushed to verified personal dshivrin/Civilization first-era-review. [Actual issue#1 comment7034942171](https://github.com/dshivrin/Civilization/issues/1#issuecomment-7034942171). Full results/limits and review-concept links were actually submitted via native send to exact Master chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9. Send succeeded; acknowledgment is not inferred from the receipt. No private saves/device backups uploaded. Human visual review remains separate; one generated environment concept is direction-only and no runtime art was replaced.
