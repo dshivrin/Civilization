@@ -13,14 +13,16 @@ public struct MapDefinition: Codable, Sendable {
     }
 }
 public struct GameConfiguration: Codable, Sendable {
-    /// Production retains its legacy cap; only the explicitly named Debug review map expands it.
+    /// The farthest logical map corner, independent of build configuration.
     public var maximumExplorationRadius: Int {
-        #if DEBUG
-        if map.id == "river-clearing-review-64x48-v1", map.width == 64, map.height == 48 {
-            return max(map.campfire.x, map.width - 1 - map.campfire.x, map.campfire.y, map.height - 1 - map.campfire.y)
-        }
-        #endif
-        return 32
+        max(32, map.campfire.x, map.width - 1 - map.campfire.x, map.campfire.y, map.height - 1 - map.campfire.y)
+    }
+    /// Private compatibility data for validating development progress before the additive transition.
+    public static func legacyDevelopment() throws -> GameConfiguration {
+        let url = Bundle.module.url(forResource: "development-32x24", withExtension: "json")!
+        let c = try JSONDecoder().decode(Self.self, from: Data(contentsOf: url))
+        try c.validate()
+        return c
     }
     public var resourceCap: Double
     public var offlineCapSeconds: Double
@@ -60,7 +62,7 @@ public struct GameConfiguration: Codable, Sendable {
             try require(Resource.allCases.allSatisfy { amounts[$0].isFinite && amounts[$0] >= 0 }, "Amounts must be finite nonnegative units")
         }
         try require(Resource.allCases.allSatisfy { initialResources[$0] <= baseCapacities[$0] }, "Initial resource exceeds capacity")
-        var supportedDimensions = map.width == 32 && map.height == 24
+        var supportedDimensions = (map.width == 32 && map.height == 24) || (map.id == "river-clearing-64x48-v1" && map.width == 64 && map.height == 48)
         #if DEBUG
         supportedDimensions = supportedDimensions || (map.id == "river-clearing-review-64x48-v1" && map.width == 64 && map.height == 48)
         #endif

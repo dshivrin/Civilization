@@ -29,6 +29,12 @@ public final class GameLibrary {
         let existing = try await Task.detached { try store.load() }.value
         let original = SavedGame(id: "legacy", name: "Original settlement", createdAt: clock(), mapID: configuration.map.id)
         var index = existing ?? GameLibraryIndex(activeGameID: original.id, games: [original])
+        // Metadata adopts the same additive map identity; files convert lazily with verified backups.
+        if configuration.map.id == "river-clearing-64x48-v1" {
+            for i in index.games.indices where index.games[i].mapID == "river-clearing-v1" {
+                index.games[i].mapID = configuration.map.id
+            }
+        }
         if let selectedGameID {
             guard existing != nil, index.games.contains(where: { $0.id == selectedGameID }) else {
                 throw GameError.invalidSave("The requested saved game is unavailable.")
@@ -47,7 +53,7 @@ public final class GameLibrary {
             throw GameError.invalidSave("The selected game could not be opened. Existing files have been preserved.")
         }
         try Task.checkCancellation()
-        if existing == nil || index.activeGameID != existing?.activeGameID { try store.save(index) }
+        if existing != index { try store.save(index) }
         return GameLibrary(session: session, index: index, store: store, configuration: configuration, clock: clock)
     }
 

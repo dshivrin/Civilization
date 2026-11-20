@@ -8,6 +8,13 @@ public struct SaveStore: Sendable {
     public let url: URL
     public init(url: URL) { self.url = url }
     public func save(_ state: GameState) throws {
+        // A converted development world may replace old bytes only after a verified backup.
+        if FileManager.default.fileExists(atPath: url.path), state.mapID == "river-clearing-64x48-v1" {
+            let original = try Data(contentsOf: url)
+            if let old = try? JSONDecoder().decode(Envelope.self, from: original), old.state.mapID == "river-clearing-v1" {
+                _ = try load(configuration: .bundled())
+            }
+        }
         let data = try JSONEncoder().encode(Envelope(version: 5, state: state))
         try FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
         if FileManager.default.fileExists(atPath: url.path) {
@@ -28,6 +35,21 @@ public struct SaveStore: Sendable {
         let version = try JSONDecoder().decode(Header.self, from: data).version
         guard (1...5).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
         var state = try JSONDecoder().decode(Envelope.self, from: data).state
+        if state.mapID == "river-clearing-v1", configuration.map.id == "river-clearing-64x48-v1" {
+            let legacy = try GameConfiguration.legacyDevelopment()
+            guard let validated = try load(configuration: legacy) else { throw GameError.invalidSave("Missing development world") }
+            let backup = url.appendingPathExtension("pre-geography-64x48.bak")
+            if !FileManager.default.fileExists(atPath: backup.path) { try data.write(to: backup, options: .atomic) }
+            guard try Data(contentsOf: backup) == data else { throw GameError.invalidSave("Development backup differs from the source; original preserved.") }
+            state = validated
+            state.mapID = configuration.map.id
+            // Retain all irregular knowledge; the next expedition expands only the completed square.
+            let known = state.discoveredTiles ?? []
+            var radius = configuration.explorationRules?.initialRadius ?? 0
+            while radius < configuration.maximumExplorationRadius && configuration.tiles(within: radius + 1).isSubset(of: known) { radius += 1 }
+            state.explorationRadius = radius
+            return try GameEngine(state: state, configuration: configuration).state
+        }
         if version == 1 {
             state.researchedTechnologies = state.researchedOralTradition ? ["oralTradition"] : []
             state.populationGrowthSeconds = 0

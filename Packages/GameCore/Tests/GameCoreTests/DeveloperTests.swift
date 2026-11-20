@@ -23,7 +23,7 @@ import GamePersistence
         case .developed:
             #expect((20...30).contains(engine.state.population))
             #expect(engine.researchedIDs.count > 5 && engine.researchedIDs.count < config.technologyDefinitions.count)
-            #expect(engine.discoveredTileCount > config.initialDiscoveredTiles!.count && engine.discoveredTileCount < 768)
+            #expect(engine.discoveredTileCount > config.initialDiscoveredTiles!.count && engine.discoveredTileCount < config.map.width * config.map.height)
             #expect(engine.state.buildings.contains { $0.kind == .toolmaker && engine.workersAllocated(to: $0) > 0 })
         case .late:
             #expect((50...70).contains(engine.state.population))

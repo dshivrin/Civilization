@@ -20,7 +20,7 @@ import GameApplication
     #expect(state.resources == ResourceAmounts(food:40,wood:80,stone:50))
     #expect(state.buildings.count == 2 && state.buildings.allSatisfy(\.isOperational))
     #expect(state.completedGoals == [.hut, .oralTradition])
-    #expect(state.nextBuildingID == 2 && state.mapID == "river-clearing-v1")
+    #expect(state.nextBuildingID == 2 && state.mapID == config.map.id)
     #expect(try Data(contentsOf: url) == original) // Loading does not mutate the original.
     try store.save(state)
     let object = try #require(JSONSerialization.jsonObject(with: Data(contentsOf: url)) as? [String:Any])

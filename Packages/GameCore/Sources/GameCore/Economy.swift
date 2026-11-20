@@ -27,6 +27,8 @@ public struct NaturalDeposit: Codable, Sendable {
     public var requiredTechnology: String?
     public var origin: Tile
     public var radius: Int
+    /// Additional reachable work faces drawing from this same stable reserve.
+    public var accessSites: [Tile]?
     public var renewable: Bool
     public var capacity: Double
 }
@@ -132,9 +134,9 @@ extension GameEngine {
             }
             var deposit: NaturalDeposit?
             if let resource = recipe?.depositResource {
-                deposit = (configuration.naturalDeposits ?? []).filter {
-                    $0.resource == resource && isDiscovered($0.origin) && isIdentified($0) && abs($0.origin.x - building.origin.x) + abs($0.origin.y - building.origin.y) <= $0.radius &&
-                    ($0.renewable || (state.depositRemaining?[$0.id] ?? 0) > 1e-9)
+                deposit = (configuration.naturalDeposits ?? []).filter { deposit in
+                    deposit.resource == resource && isIdentified(deposit) && ([deposit.origin] + (deposit.accessSites ?? [])).contains(where: { site in isDiscovered(site) && abs(site.x - building.origin.x) + abs(site.y - building.origin.y) <= deposit.radius }) &&
+                    (deposit.renewable || (state.depositRemaining?[deposit.id] ?? 0) > 1e-9)
                 }.sorted {
                     let a = abs($0.origin.x - building.origin.x) + abs($0.origin.y - building.origin.y)
                     let b = abs($1.origin.x - building.origin.x) + abs($1.origin.y - building.origin.y)
@@ -197,6 +199,7 @@ public extension GameConfiguration {
         let deposits = naturalDeposits ?? []
         try require(!deposits.isEmpty && Set(deposits.map(\.id)).count == deposits.count, "Missing or duplicate deposits")
         for d in deposits {
+            try require((d.accessSites ?? []).allSatisfy { map.contains($0) && (map.terrain(at: $0) == .grass || map.terrain(at: $0) == .clearing) }, "Invalid deposit access site")
             try require(!d.id.isEmpty && !d.kind.isEmpty && map.contains(d.origin) && (0...64).contains(d.radius) && d.capacity.isFinite && (d.renewable ? d.capacity >= 0 : d.capacity > 0), "Invalid deposit")
         }
         let recipes = buildings.flatMap { $0.recipes ?? [] }

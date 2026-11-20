@@ -11,7 +11,7 @@ import GamePersistence
     let config = engine.configuration
     #expect(config.map.width == 64 && config.map.height == 48)
     #expect(config.map.id != original.map.id)
-    for y in 0..<24 { #expect(String(config.map.rows[y].prefix(32)) == original.map.rows[y]) }
+    for y in 0..<24 { #expect(String(config.map.rows[y].prefix(32)) == String(original.map.rows[y].prefix(32))) }
     #expect(config.map.campfire == original.map.campfire)
     #expect(engine.state.buildings.count == 64)
     #expect(engine.state.buildings.filter { $0.kind == .hut }.count == 24)
@@ -51,7 +51,7 @@ import GamePersistence
     #expect(try Data(contentsOf: url) == normal)
     let preview = session.state
     session.returnToNormalGame()
-    #expect(session.configuration.map.width == 32)
+    #expect(session.configuration.map.width == 64)
     #expect(session.mapIdentity == session.state.mapID)
     #expect(try SaveStore(url: url).load(configuration: .bundled()) == normalState)
     session.resumeDeveloperSettlement()
@@ -59,7 +59,7 @@ import GamePersistence
     #expect(session.mapIdentity == session.state.mapID)
     #expect(session.state == preview)
     session.loadDeveloperScenario(.early)
-    #expect(session.configuration.map.width == 32)
+    #expect(session.configuration.map.width == 64)
     #expect(session.state.buildings.count == 5)
     session.loadDeveloperScenario(.grouped)
     #expect(session.state == preview)
@@ -74,7 +74,7 @@ import GamePersistence
     let bytes = try Data(contentsOf: url)
     let task = Task { await session.prepareDeveloperScenario(.grouped) }
     while !session.isPreparingDeveloperScenario { await Task.yield() }
-    #expect(!session.isDeveloperMode && session.configuration.map.width == 32)
+    #expect(!session.isDeveloperMode && session.configuration.map.width == 64)
     task.cancel(); await task.value
     #expect(!session.isDeveloperMode && !session.isPreparingDeveloperScenario)
     #expect(try Data(contentsOf: url) == bytes)
