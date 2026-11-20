@@ -30,8 +30,10 @@
 - [x] Implement shared VillagerFigure joints/props and magnified pose sheet with explicit labels/static controls; adapt map walkers to pure journeys. Add only source-file project references, preserving signing/resources.
 - [x] Run focused then full core/Release exclusions and native phone/mini/Pro matrix for new sheet plus existing atmosphere/lab and onboarding; Release entry. Expected nonzero passing counts.
 - [x] Archive separately8pose captures per profile; inspect and record actual motion if available. Validate provenance and normal source/save invariants. Independent review once; Important corrections via RED→GREEN, no re-review.
-- [ ] Commit/push verified slice and concise report. Broader Goal remains active until remaining art and review gates are actually resolved.
+- [x] Commit/push verified slice and concise report. Broader Goal remains active until remaining art and review gates are actually resolved.
 
 Pre-flight: planner→journey→pose→figure→native sheet share immutable route and pose fields; state activity inputs come from existing operatingProductionIDs only. Legacy planner/normal renderer remain. Ruling: magnified examples can show all8activities without pretending the current capped village happens to exercise every destination; map journeys use context-gated poses only. Cost is a small Debug-only comparison surface.
 
 Final verification uses actual passed per-device executions, not a fabricated green aggregate: final phone/mini4f5415d4steps1/2, Pro2fed5ea8retry. Additional Pro missed Done action RED316865e0→GREEN810276a5; final hit area84×58. Final movie bbae1d8f,883timestamps preserved. Native test waits for sheet removal before scoped Developer toolbar dismissal. Original failed/zero-test/SIGTERM reports retained. See permanent progress ledger for all rulings and deferred minor.
+
+Delivery:248703c pushed with clean local/origin equality, and exact Master chat transmission/acknowledgment observed. No new roadmap authorization or whole-Goal completion inferred.

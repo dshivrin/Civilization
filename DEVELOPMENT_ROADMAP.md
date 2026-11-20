@@ -1,5 +1,7 @@
 ## Eight-state native motion review — 20 November 2026
 
+Product **248703c** is committed/pushed on the retained personal branch. The designated Master chat actually acknowledged the bounded delivery; [receipt](docs/design/sources/2026-11-20-villager-motion-handover.md). This is not human visual acceptance.
+
 Only visual/graphics and existing onboarding continue; the new roadmap and audio remain deferred. The disposable lab now shares eight provisional poses/four facings with validated exterior trips, contextual active-production work/wood props, endpoint turns and empty returns. Event-driven power handling, retained Static poses and an actual Pro Done hit-area correction are verified. [24-capture gallery and movie](docs/testing/native-visual-program/villagers.html), [exact evidence](docs/testing/native-visual-program/villager-verification.json).
 
 Core279Debug/235Release+11exclusions and35tooling checks pass. Final phone/mini motion steps and separate Pro retry pass; the failed aggregate/SIGTERM and earlier missed-tap/zero-selection results remain explicitly preserved. Prior guide drag/full walkthrough, atmosphere and lab regression cases pass. Movie883frames preserves all presentation timestamps. These are simulator/source-native proposals, not accepted realistic character atlases or physical metrics.

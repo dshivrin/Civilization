@@ -1,0 +1,13 @@
+# Villager motion delivery handover — 20 November 2026
+
+Recipient: [Civilization — Master Development Coordination](https://chatgpt.com/c/6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9), project g-p-f352f14f77788191b45d2e1e092aa7e7. Sent through the existing signed-in Chrome conversation after verifying its exact project/conversation URL. The temporary in-app browser was unauthenticated and was not used to send anything.
+
+Product **248703ccfcd7921959a44b07f7fc901d73ef453e** was committed/pushed to personal dshivrin/Civilization first-era-review; clean local/origin equality verified before sending. The report covered the eight provisional poses, contextual routes/props, stationary turns, power/Static handling, Pro missed-Done hit-area fix,279Debug/235Release+11exclusions,35tooling checks, final per-device motion results, existing onboarding/atmosphere regression,24unchanged captures and883-frame recording. It linked the pinned gallery, verification and progress ledger and explicitly retained earlier failures instead of relabeling a failed aggregate passed.
+
+The report stated: no physical install/player-save access or migration; no economy/resource/runtime-art/signing change; no normal visual/onboarding GateB/R2-07 activation; last verified phone33073e9 and media9545673 clean/local-only. Remaining realistic atlases/directional production artwork and human appearance/onboarding acceptance were disclosed. New roadmap/audio remain deferred under Dima's latest instruction. No additional roadmap execution or new development session was requested.
+
+## Observed receipt
+
+The visible transcript contains the submitted product248703c report under the UI's Today11:57PM separator. The following response is titled **Civilization — Visual Delivery Acknowledged**, names248703c/first-era-review and recognizes this as a bounded visual delivery rather than final acceptance. Its table records the eight states, exterior journeys/contextual props, endpoint turns/empty returns and Pro Done fix as implemented; automated tests are explicitly described as reported passing. Realistic atlases, physical installation and human visual acceptance remain pending/not performed. It repeats the graphics/visual-polish/existing-onboarding boundary, excludes new roadmap/audio/gameplay-economy/R2-07/production-atlas changes, and makes no new milestone authorization. The UI indicates Response complete.
+
+This is an actual observed transmission and acknowledgment, not independent code/art inspection or Dima's acceptance. No private player files, screenshots of unrelated chats or device backups were sent. The broader visual Goal remains active; production appearance and broader onboarding gates remain open.
