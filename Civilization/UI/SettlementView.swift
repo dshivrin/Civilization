@@ -79,10 +79,12 @@ struct SettlementView: View {
                             if let warning = session.persistenceWarning {
                                 Text(warning).font(.caption).foregroundStyle(.yellow).padding(10).background(panelColor, in: RoundedRectangle(cornerRadius: 12))
                             }
+                            if !session.isDragMode {
                             goalsPanel(compact: compact)
                             Text(session.message).font(.system(size: 12)).lineLimit(2).foregroundStyle(parchment.opacity(0.85))
                                 .padding(9).background(panelColor.opacity(0.94), in: RoundedRectangle(cornerRadius: 10))
                                 .accessibilityIdentifier("settlementMessage")
+                            }
                         }
                         .frame(maxWidth: compact ? 290 : 340, maxHeight: .infinity, alignment: .leading)
                         Spacer(minLength: 0)
@@ -118,15 +120,6 @@ struct SettlementView: View {
                 .padding(.horizontal, compact ? 12 : 22)
                 .padding(.vertical, compact ? 8 : 18)
                 .accessibilityHidden(!worldReady)
-            }
-            .overlay(alignment: .bottom) {
-                if session.movingBuildingID != nil {
-                    Button { session.cancel() } label: {
-                        Image(systemName: "xmark").font(.headline).frame(width: 48, height: 48)
-                    }
-                    .background(panelColor, in: Circle()).overlay(Circle().stroke(parchment.opacity(0.7)))
-                    .padding(.bottom, 10).accessibilityLabel("Cancel move").accessibilityIdentifier("cancelRelocation")
-                }
             }
             .foregroundStyle(parchment)
             .tint(Color(red: 0.91, green: 0.73, blue: 0.39))
@@ -240,13 +233,8 @@ struct SettlementView: View {
                 Text(session.placementIssue?.localizedDescription ?? "Valid location · \(session.previewFootprint?.width ?? definition.width)×\(session.previewFootprint?.height ?? definition.height) tiles")
                     .font(.caption).foregroundStyle(session.placementIssue == nil ? Color.mint : Color.orange)
                     .fixedSize(horizontal: false, vertical: true)
-                if let tile = session.selectedTile { Text("Tile \(tile.x), \(tile.y) · drag to move, release to place").accessibilityIdentifier("placementTile").font(.system(size: 10)).foregroundStyle(parchment.opacity(0.6)) }
-                HStack {
-                    if session.movingBuildingID == nil {
-                        Button("Cancel", action: session.cancel).frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.bordered)
-                    }
-                    Button("Confirm", action: session.confirm).frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent).disabled(session.placementIssue != nil).accessibilityIdentifier("confirmPlacement")
-                }
+                if let tile = session.selectedTile { Text("Tile \(tile.x), \(tile.y) · drag to move · green check confirms").accessibilityIdentifier("placementTile").font(.system(size: 10)).foregroundStyle(parchment.opacity(0.6)) }
+
             }
         }.padding(14) }.background(panelColor.opacity(0.97), in: RoundedRectangle(cornerRadius: 18))
     }

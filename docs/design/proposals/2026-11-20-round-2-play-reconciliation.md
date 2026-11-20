@@ -1,6 +1,6 @@
 # ROUND-2-PLAY reconciliation and proposed task breakdown
 
-Date: 2026-11-20. Status: **PROPOSED — owner scope review required before product code**.
+Date: 2026-11-20. Status: **R2-01–06 approved by [f313dd2](../../../plans/ROUND-2-PLAY-APPROVAL.md); R2-07 gated on pilot human acceptance**.
 Source: [owner playthrough brief](../../../plans/ROUND-2-PLAY.md), GitHub commit `29236f2`.
 Baseline: game `29236f2`; save envelope v6; approved 64×48 world; normal, developer and gameplay-review companions independent.
 

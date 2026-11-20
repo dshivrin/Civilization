@@ -11,6 +11,33 @@ final class RelocationUITests: XCTestCase {
         if resume.isEnabled { resume.tap() } else { app.buttons["newNormalGame"].tap() }
     }
 
+    @MainActor func testCandidateConfirmationSurvivesCameraGestures() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.buttons["Build"].waitForExistence(timeout: 20))
+        app.buttons["Build"].tap(); app.buttons["buildingCategory-Settlement"].tap(); app.buttons["build-hut"].tap()
+        let confirm = app.buttons["confirmPlacement"], cancel = app.buttons["cancelPlacement"]
+        XCTAssertTrue(confirm.waitForExistence(timeout: 5)); XCTAssertTrue(confirm.isEnabled)
+        XCTAssertTrue(cancel.isHittable); XCTAssertTrue(app.frame.contains(confirm.frame))
+        let tile = app.staticTexts["placementTile"].label
+        let map = app.otherElements["settlementMap"]
+        let start = map.value as? String
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.6, dy: 0.3)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx: 0.55, dy: 0.35)))
+        map.pinch(withScale: 1.2, velocity: 1)
+        XCTAssertTrue(confirm.isHittable); XCTAssertTrue(cancel.isHittable)
+        XCTAssertEqual(app.staticTexts["placementTile"].label, tile)
+        XCTAssertNotEqual(start, map.value as? String)
+        capture("candidate-camera-confirmation", app: app)
+        confirm.tap(); XCTAssertFalse(cancel.exists)
+        XCTAssertTrue((map.value as? String ?? "").contains("2 buildings"))
+        app.buttons["Build"].tap(); app.buttons["build-hut"].tap()
+        XCTAssertTrue(cancel.waitForExistence(timeout: 5)); cancel.tap()
+        XCTAssertTrue((map.value as? String ?? "").contains("2 buildings"))
+    }
+
     @MainActor func testGameplayReviewControlsKeepNormalProgressSeparate() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
@@ -151,6 +178,8 @@ final class RelocationUITests: XCTestCase {
             return $0 != config.map.campfire && earned.relocationIssue(buildingID: 0, at: $0) == nil && (0.35...0.55).contains(p.dx) && (0.40...0.66).contains(p.dy)
         })
         map.coordinate(withNormalizedOffset: point(config.map.campfire)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(site)))
+        XCTAssertTrue(app.buttons["cancelRelocation"].exists)
+        app.buttons["confirmPlacement"].tap()
         XCTAssertFalse(app.buttons["cancelRelocation"].exists)
         inspect()
         XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("Tile \(site.x), \(site.y)"), "Expected \(site), actual \(app.staticTexts["inspectedBuildingPosition"].label), frame \(frame), camera \(map.value as? String ?? "")")
@@ -400,6 +429,8 @@ final class RelocationUITests: XCTestCase {
         let start = map.coordinate(withNormalizedOffset: point(building.origin, roof: true))
         let end = map.coordinate(withNormalizedOffset: point(destination, roof: true))
         start.press(forDuration: 0.55, thenDragTo: end)
+        XCTAssertTrue(app.buttons["confirmPlacement"].waitForExistence(timeout: 5))
+        app.buttons["confirmPlacement"].tap()
         let position = app.staticTexts["inspectedBuildingPosition"]
         XCTAssertTrue(position.waitForExistence(timeout: 10))
         XCTAssertTrue(position.label.contains("Tile \(destination.x), \(destination.y)"), position.label)
@@ -447,7 +478,7 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue(cancel.waitForExistence(timeout: 5))
         XCTAssertFalse(app.buttons["confirmPlacement"].isEnabled)
         XCTAssertTrue(app.frame.contains(cancel.frame)); XCTAssertGreaterThanOrEqual(cancel.frame.height, 44)
-        XCTAssertEqual(cancel.frame.midX, app.frame.midX, accuracy: 2)
+        XCTAssertTrue(app.frame.contains(app.buttons["confirmPlacement"].frame))
         let preview = app.staticTexts["placementTile"].label
         map.coordinate(withNormalizedOffset: CGVector(dx: 0.55, dy: 0.30))
             .press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx: 0.60, dy: 0.35)))
@@ -499,6 +530,8 @@ final class RelocationUITests: XCTestCase {
             return g.relocationIssue(buildingID: b.id, at: t) == nil && p.dx > inner.dx + 0.04 && p.dx < 0.61 && (0.32...0.66).contains(p.dy)
         })
         map.coordinate(withNormalizedOffset: edge(0.45)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(Tile(x: destination.x + 1, y: destination.y))))
+        XCTAssertTrue(app.buttons["cancelRelocation"].exists)
+        app.buttons["confirmPlacement"].tap()
         XCTAssertFalse(app.buttons["cancelRelocation"].exists)
         XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("Tile \(destination.x), \(destination.y)"))
     }
@@ -529,7 +562,9 @@ final class RelocationUITests: XCTestCase {
             return engine.placementIssue(.hut, at: $0) == nil && (0.45...0.60).contains(screen.dx) && (0.35...0.65).contains(screen.dy)
         })
         // No long hold: catalog selection has already activated dragging. Camera must remain fixed.
-        map.coordinate(withNormalizedOffset: CGVector(dx: 0.35, dy: 0.5)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(destination)))
+        map.coordinate(withNormalizedOffset: point(destination)).tap()
+        XCTAssertTrue(indicator.exists)
+        app.buttons["confirmPlacement"].tap()
         XCTAssertFalse(indicator.exists)
         if frame.width > 1000 {
             var roof = point(destination)
@@ -723,7 +758,9 @@ final class RelocationUITests: XCTestCase {
             let screen = point($0)
             return engine.placementIssue(.gatheringShelter, at: $0) == nil && (0.45...0.60).contains(screen.dx) && (0.35...0.65).contains(screen.dy)
         })
-        map.coordinate(withNormalizedOffset: CGVector(dx: 0.42, dy: 0.76)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(tile)))
+        map.coordinate(withNormalizedOffset: point(tile)).tap()
+        XCTAssertTrue(indicator.exists)
+        app.buttons["confirmPlacement"].tap()
         capture("guided-drop-result", app: app)
         XCTAssertFalse(indicator.exists, app.staticTexts["settlementMessage"].label)
         app.buttons["toggleGoals"].tap()

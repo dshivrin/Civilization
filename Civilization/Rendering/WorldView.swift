@@ -10,8 +10,12 @@ struct WorldView: UIViewRepresentable {
     let onReady: () -> Void
     var isObscured = false
     func makeCoordinator() -> Coordinator { Coordinator(scene: scene, session: session) }
-    func makeUIView(context: Context) -> SKView {
+    func makeUIView(context: Context) -> WorldSurface {
+        let surface = WorldSurface()
         let view = SKView(); view.ignoresSiblingOrder = true; view.preferredFramesPerSecond = 60
+        surface.map = view
+        surface.addSubview(view)
+        surface.configure(session: session, scene: scene)
         view.presentScene(scene)
         let coordinator = context.coordinator
         let hold = UILongPressGestureRecognizer(target: coordinator, action: #selector(Coordinator.move(_:)))
@@ -27,10 +31,12 @@ struct WorldView: UIViewRepresentable {
         view.isAccessibilityElement = true
         view.accessibilityLabel = "Settlement map"
         view.accessibilityIdentifier = "settlementMap"
-        view.accessibilityHint = "Drag to pan, pinch to zoom. Choose a new building to enter drag mode automatically. Drag and release to place. Long-press an existing building to move it. Tap and Confirm are also available."
-        return view
+        view.accessibilityHint = "Drag to pan, pinch to zoom. Choose a new building to enter drag mode automatically. Drag the footprint, then use the green check to confirm. Long-press an existing building to move it. Tap and Confirm are also available."
+        return surface
     }
-    func updateUIView(_ view: SKView, context: Context) {
+    func updateUIView(_ surface: WorldSurface, context: Context) {
+        let view = surface.map!
+        surface.refreshControls(session: session, scene: scene)
         context.coordinator.updateAccessibility(in: view)
         scene.onReady = onReady
         view.isPaused = session.shouldPauseRendering || isObscured
@@ -122,11 +128,11 @@ struct WorldView: UIViewRepresentable {
                 let touched = tile(recognizer)
                 if session.movingBuildingID != nil {
                     session.tap(Tile(x: touched.x - dragOffset.x, y: touched.y - dragOffset.y))
-                    session.finishRelocation()
+                    session.finishDragging()
                 }
                 isDragging = false
             case .cancelled, .failed:
-                if isDragging { session.cancel() }; isDragging = false
+                isDragging = false
             default: break
             }
         }
@@ -160,7 +166,7 @@ struct WorldView: UIViewRepresentable {
                     session.tap(Tile(x: touched.x - dragOffset.x, y: touched.y - dragOffset.y))
                     if recognizer.state == .ended { session.finishDragging(); isDragging = false }
                 case .cancelled, .failed:
-                    session.cancel(); isDragging = false
+                    isDragging = false
                 default: break
                 }
                 recognizer.setTranslation(.zero, in: recognizer.view)
@@ -178,8 +184,54 @@ struct WorldView: UIViewRepresentable {
                 session.clearRoadStroke()
                 holdRecognizer?.isEnabled = false; holdRecognizer?.isEnabled = true
             }
-            if recognizer.state == .began, session.isDragMode { session.cancel(); isDragging = false }
+            if recognizer.state == .began { isDragging = false }
             scene.zoom(factor: recognizer.scale); recognizer.scale = 1
         }
+    }
+}
+
+/// Buttons are siblings of the accessible map, so map gestures never receive their touches.
+@MainActor final class WorldSurface: UIView {
+    var map: SKView?
+    private let cancelButton = UIButton(type: .system)
+    private let confirmButton = UIButton(type: .system)
+    func configure(session: GameSession, scene: SettlementScene) {
+        for (button, symbol, color, label) in [
+            (cancelButton, "xmark", UIColor.systemRed, "Cancel placement"),
+            (confirmButton, "checkmark", UIColor.systemGreen, "Confirm placement")
+        ] {
+            button.setImage(UIImage(systemName: symbol, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)), for: .normal)
+            button.tintColor = .white; button.backgroundColor = color
+            button.layer.cornerRadius = 24; button.accessibilityLabel = label
+            addSubview(button)
+        }
+        confirmButton.accessibilityIdentifier = "confirmPlacement"
+        cancelButton.addAction(UIAction { [weak session] _ in session?.cancel() }, for: .touchUpInside)
+        confirmButton.addAction(UIAction { [weak session] _ in session?.confirm() }, for: .touchUpInside)
+        scene.onCandidateLayout = { [weak self, weak scene] in
+            guard let self, let scene else { return }
+            self.layoutControls(scene: scene)
+        }
+        refreshControls(session: session, scene: scene)
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews(); map?.frame = bounds
+    }
+    func refreshControls(session: GameSession, scene: SettlementScene) {
+        let active = session.isDragMode
+        cancelButton.isHidden = !active; confirmButton.isHidden = !active
+        guard active else { return }
+        cancelButton.accessibilityIdentifier = session.movingBuildingID == nil ? "cancelPlacement" : "cancelRelocation"
+        confirmButton.isEnabled = session.placementIssue == nil
+        confirmButton.alpha = confirmButton.isEnabled ? 1 : 0.5
+        layoutControls(scene: scene)
+    }
+    private func layoutControls(scene: SettlementScene) {
+        guard !cancelButton.isHidden, let point = scene.candidateControlPoint() else { return }
+        let safe = bounds.inset(by: safeAreaInsets)
+        let x = min(max(point.x, safe.minX + 58), safe.maxX - 58)
+        let y = min(max(point.y + 12, safe.minY + 8), safe.maxY - 56)
+        cancelButton.frame = CGRect(x: x - 54, y: y, width: 48, height: 48)
+        confirmButton.frame = CGRect(x: x + 6, y: y, width: 48, height: 48)
     }
 }

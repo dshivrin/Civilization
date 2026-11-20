@@ -162,7 +162,7 @@ private func openTile(_ g: GameEngine, kind: BuildingKind, excluding: Set<Tile> 
     #expect(session.state == after)
 }
 
-@MainActor @Test func catalogChoiceEntersDragModeAndValidDropBuildsOnce() throws {
+@MainActor @Test func catalogChoiceRequiresExplicitConfirmationAfterValidDrop() throws {
     let url = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString).appendingPathComponent("save.json")
     defer { try? FileManager.default.removeItem(at: url.deletingLastPathComponent()) }
     let session = try GameSession(clock: { moveEpoch }, saveURL: url, configuration: moveConfiguration())
@@ -170,9 +170,13 @@ private func openTile(_ g: GameEngine, kind: BuildingKind, excluding: Set<Tile> 
     let before = session.state
     session.choose(.hut)
     #expect(session.isDragMode && session.previewKind == .hut)
+    #expect(!session.canDragPreview(from: Tile(x: 0, y: 0)))
     #expect(session.state == before)
     session.tap(Tile(x: 12, y: 12))
     session.finishDragging()
+    #expect(session.isDragMode)
+    #expect(session.state == before)
+    session.confirm()
     #expect(!session.isDragMode)
     #expect(session.state.buildings.count == before.buildings.count + 1)
     #expect(session.state.buildings.last?.origin == Tile(x: 12, y: 12))
@@ -272,4 +276,24 @@ private func openTile(_ g: GameEngine, kind: BuildingKind, excluding: Set<Tile> 
     #expect(grid[Tile(x: 0, y: 23)] == nil)
     #expect(s.state == before)
     s.cancel(); #expect(s.relocationGrid == nil && s.state == before)
+}
+
+@MainActor @Test func relocationDragReleaseDoesNotCommitUntilExplicitConfirmation() throws {
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let url = folder.appendingPathComponent("save.json")
+    let session = try GameSession(clock: { moveEpoch }, saveURL: url, configuration: moveConfiguration())
+    session.choose(.hut); session.tap(Tile(x: 12, y: 12)); session.confirm()
+    let before = session.state
+    let bytes = try Data(contentsOf: url)
+    let id = try #require(session.state.buildings.last?.id)
+    session.beginRelocation(buildingID: id); session.tap(Tile(x: 14, y: 12))
+    session.finishDragging()
+    #expect(session.state == before)
+    #expect(session.movingBuildingID == id)
+    #expect(try Data(contentsOf: url) == bytes)
+    session.confirm()
+    #expect(session.state.buildings.last?.origin == Tile(x: 14, y: 12))
+    let placed = session.state
+    session.confirm(); #expect(session.state == placed)
 }

@@ -270,10 +270,9 @@ public final class GameSession {
     public func isPreviewTileAvailable(_ tile: Tile) -> Bool {
         engine.siteTileIssue(at: tile, excludingBuildingID: movingBuildingID) == nil
     }
-    /// Relocation grabs only ground cells; new construction retains its approved drag-anywhere workflow.
+    /// Only the candidate footprint owns dragging; outside touches pan in every placement mode.
     public func canDragPreview(from tile: Tile) -> Bool {
         guard isDragMode else { return false }
-        guard movingBuildingID != nil else { return true }
         guard let origin = selectedTile, let footprint = previewFootprint else { return false }
         return footprint.tiles(at: origin).contains(tile)
     }
@@ -380,7 +379,7 @@ public final class GameSession {
         let candidates = (0..<map.height).flatMap { y in (0..<map.width).map { Tile(x: $0, y: y) } }
             .sorted { abs($0.x - center.x) + abs($0.y - center.y) < abs($1.x - center.x) + abs($1.y - center.y) }
         selectedTile = candidates.first { engine.placementIssue(kind, at: $0) == nil } ?? Tile(x: 13, y: 12)
-        message = "Drag mode · drag on the map and release to build, or tap and Confirm."
+        message = "Drag the footprint, pan outside it, pinch to zoom · green check confirms."
     }
     public func tap(_ tile: Tile) {
         if roadTool != nil { extendRoadStroke(to: tile); return }
@@ -403,12 +402,12 @@ public final class GameSession {
         if building.kind == .campfire && configuration.civicLevels == nil { message = "The campfire is the fixed settlement anchor."; return }
         exitRoadMode()
         selectedKind = nil; inspectedBuilding = nil; movingBuildingID = buildingID; selectedTile = building.origin
-        message = "Drag to move · release on valid land. Relocation is free."
+        message = "Drag the footprint · green check confirms. Relocation is free."
     }
-    /// A release commits only the active preview; repeated release callbacks cannot charge twice.
+    /// Pointer release only updates the candidate. Confirmation is the sole commit action.
     public func finishDragging() {
-        if movingBuildingID != nil { finishRelocation() }
-        else if selectedKind != nil { confirm() }
+        guard isDragMode else { return }
+        message = placementIssue?.localizedDescription ?? "Ready · tap the green check to confirm."
     }
     public func finishRelocation() {
         guard let id = movingBuildingID, let tile = selectedTile else { return }

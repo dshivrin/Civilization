@@ -1,3 +1,7 @@
+## Round 2 staged implementation active — 20 November 2026
+
+Approval f313dd2/direct owner instruction supersedes the plan-review stop below. R2-01 verified (211Debug/185Release +7 exclusions; native candidate phone/mini/Pro). [Execution ledger](testing/round-2/progress.md). Continue R2-02/03, then R2-04/05 and isolated R2-06. R2-07 normal activation waits for pilot verification and human acceptance; no deferred systems, save resets or physical work.
+
 ## ROUND-2-PLAY plan review checkpoint — 20 November 2026
 
 Owner requested next-step retrieval/review, creation of GitHub main, then preparation of the reconciled plan. Remote/local main and first-era-review verified at29236f2; historical local main retained as main-seed-027-baseline9e8e2cd. Default branch remains first-era-review. [Proposed reconciliation](design/proposals/2026-11-20-round-2-play-reconciliation.md) is prepared for review: R2-01–03 UX first; orientation decision for R2-04; graph/review-copy service pilot R2-05/06; explicit versioned normal activation R2-07 only after policy approval; bridges/local resource/defense/outpost/art remain later gates. No product/source/config/save changes or physical action. Next: owner reviews scope and proposed graph/service/transition decisions; implementation is not started by “Start” for plan preparation. Documentation checks and review are recorded with the completion report; historical test counts below are not fresh runs.

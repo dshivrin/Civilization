@@ -25,7 +25,17 @@ final class SettlementScene: SKScene {
     private var hasDisplayedSnapshot = false
     private var didReportReady = false
     private var renderedMovingID: Int?
+    var onCandidateLayout: (() -> Void)?
+    private var candidateTile: Tile?
+    private var candidateFootprint: BuildingFootprint?
+    func candidateControlPoint() -> CGPoint? {
+        guard let tile = candidateTile, let footprint = candidateFootprint else { return nil }
+        let bottom = footprint.tiles(at: tile).map(IsometricProjection.point).map(\.y).min() ?? 0
+        let center = footprint.center(at: tile)
+        return convertPoint(toView: CGPoint(x: center.x, y: bottom - 16))
+    }
     override func didFinishUpdate() {
+        onCandidateLayout?()
         #if DEBUG
         diagnostics.observe(self)
         #endif
@@ -132,6 +142,8 @@ final class SettlementScene: SKScene {
         worldCamera.position = CGPoint(x: point.x, y: point.y)
     }
     func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, relocationGrid: [Tile: Bool]? = nil, unavailablePreviewTiles: Set<Tile>? = nil, roadTool: RoadTool? = nil, roadDraft: [Tile] = [], roadInvalid: Bool = false, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
+        candidateTile = kind == nil ? nil : tile
+        candidateFootprint = kind.map { previewFootprint ?? configuration.definition($0).footprint }
         civicCenterTile = state.buildings.first { $0.kind == .campfire }?.origin
         if centerRequest != lastCenterRequest {
             #if DEBUG
