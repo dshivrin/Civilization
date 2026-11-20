@@ -1,0 +1,77 @@
+{
+  "core": {
+    "path": "/tmp/civilization-qa-9fc1e31ff24547c5826581e10a84ffb4",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 239
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 207
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  "phone": {
+    "path": "/tmp/civilization-qa-dcc021fcaff04372aa93edf7591ed7b1",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 3
+      }
+    ]
+  },
+  "tabletMatrix": {
+    "path": "/tmp/civilization-qa-0a6a0d4a2142411cb79245440a1ffc88",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 2,
+        "reason": "Selected tests were not executed: CivilizationUITests/RelocationUITests/testGatheringPlacementPhysicalButtonAndDragRegression"
+      },
+      {
+        "name": "ui-debug-2",
+        "status": "passed",
+        "tests": 3
+      }
+    ]
+  },
+  "miniRerun": {
+    "path": "/tmp/civilization-qa-aa53e6a45f874fadb23166a4e5cdd4aa",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  "releaseRerun": {
+    "path": "/tmp/civilization-qa-b12fc53a8eb1425485e4a83ab7b4565a",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  "debugDiagnosticBinaryFiles": [
+    "Civilization.debug.dylib"
+  ],
+  "releaseDiagnosticBinaryFiles": []
+}

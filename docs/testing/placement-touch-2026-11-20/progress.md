@@ -26,3 +26,11 @@ Tablet/Release and physical installation evidence follow below. Private backups 
 - Release65324489...: ordinary entry1pass, requested roof test absent because RelocationUITests is wholly DEBUG-only. Runner correctly failed the mixed selection; corrected entry-only rerun required. These are harness scope/discovery failures, not passing matrices.
 
 - Corrected mini aa53e6a4...: roof regression1/1pass. Corrected Release entry b12fc53a...:1/1pass. Total scoped Debug executions9 acrossphone/mini/Pro; Release entry1. Original failed/scope reports retained. Device signed build and host-trust strict signature check pass; fresh stable double-copy/production validation at /tmp/civilization-placement-touch-device-before-20261120.
+
+Diagnostic binary check: initial loader-only check failed because Debug code lives in Civilization.debug.dylib. Corrected scan covers app executable and adjacent dylibs: log path present only in Debug dylib, absent in Release. No code change required.
+
+## Installed handoff
+
+Product1d79a2f committed/pushed and installed on iPhone17ProMax. Fresh immediate pre-install stable double-copy and production validation pass; all9files identical after install/before launch. Normal launch succeeds, process9248 observed running. No reset, uninstall, injection, signing/art/schema/economy change. [Device evidence](device-install.json), [exact verification summaries](verification.json). No second post-launch save snapshot or human touch/performance acceptance claimed. Bounded logs available for subsequent reproduction.
+
+Next: owner retries placement. Visual turning remains undelivered; add approved directional views and renderer mapping under the building-art gate before claiming visible rotation. Initial unreproduced physical jump/confirmation sequence remains monitored, not independently certified resolved. R2-07 disabled; animation backlog stays paused for this feedback.

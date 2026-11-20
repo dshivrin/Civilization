@@ -1,3 +1,5 @@
+Installed placement touch correction1d79a2f:9files byte-identical before normal launch; process9248 verified. Core239/207+8exclusions, scoped nativeDebug9/Releaseentry1pass after documented selection reruns. [Handoff](testing/placement-touch-2026-11-20/progress.md). Visible sprite rotation remains a known missing directional-art requirement.
+
 ## Placement feedback investigation — 20 November 2026
 
 Owner confirms N/E/S/W letters change but building image stays fixed; initial jump no longer reproducible by owner. Logical rotation is implemented; actual directional sprite rendering remains missing behind the art review gate, not delivered by this patch. Separate native RED roof-tap origin jump and roof-drag camera pan are corrected with opaque candidate-body hit testing and retained grab offset; Debug-only bounded local geometry logs added. [Evidence](testing/placement-touch-2026-11-20/progress.md). No asset/schema/economy/signing change; saves preserved and R2-07 disabled. Animation work paused for this feedback; directional views/rendering remain the visual-rotation next requirement.

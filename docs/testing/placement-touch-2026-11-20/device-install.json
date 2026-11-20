@@ -1,0 +1,51 @@
+{
+  "productCommit": "1d79a2f",
+  "configuration": "Debug",
+  "signedBuildPassed": true,
+  "strictSignatureVerified": true,
+  "installed": true,
+  "stableProductionValidatedBackup": "/tmp/civilization-placement-touch-device-before-1d79a2f",
+  "preLaunchComparison": {
+    "preserved": true,
+    "mode": "strict",
+    "originalFiles": 9,
+    "removed": [],
+    "added": [],
+    "changed": [],
+    "beforeSHA256": {
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json": "ac97fa6ba6605844b415a3d442384b277bee3927189e2bc5575cb9df25753392",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json.review": "7a3449f5a9d9679cc40e7aee80eefdfeead8a553b3a25311c541b18967273980",
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "1a630b8f36a49abc1f03e9bc480d59fd54e69412e91266c678329afc8f64901b",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "afterSHA256": {
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json": "ac97fa6ba6605844b415a3d442384b277bee3927189e2bc5575cb9df25753392",
+      "games/1A496C82-F4D8-4059-A0E0-B5182F78B490/settlement-v1.json.review": "7a3449f5a9d9679cc40e7aee80eefdfeead8a553b3a25311c541b18967273980",
+      "games/753EF577-8782-439F-9720-B84AE85308EC/settlement-v1.json": "877d23bf1681a36040e75ff7b90ae22346e456124996ca9fb482ec96dc07931b",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json": "12ffce0e42749e8da6a34dfb55b790f70fac54d096543fa4448bef36ce1c32c7",
+      "games/B0300071-A4C7-441C-9FC8-A4AF15B9E536/settlement-v1.json.review": "d4decab143b7fbb6d785205fe8b77dbcc6634588888c0b5a09f47be7e3d39651",
+      "games-index.json": "1a630b8f36a49abc1f03e9bc480d59fd54e69412e91266c678329afc8f64901b",
+      "settlement-v1.json": "03d4d20927e1b17e6f18a62c79a15f160fefc08ab491f92fd7f0bcadd562c349",
+      "settlement-v1.json.developer": "1271bfdf1e18392a4ca43115a980a5ad7ff7920dbb47b6783d0c7c059884c6e8",
+      "settlement-v1.json.pre-geography-64x48.bak": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27"
+    },
+    "note": "Byte/index comparison only; use validate-saves for production state validation."
+  },
+  "runtimeAssetsChanged": false,
+  "directionalSpriteRotationDelivered": false,
+  "r207Enabled": false,
+  "resetUninstallSaveInjectionSigningChange": false,
+  "privateSaveBodiesUploaded": false,
+  "buildLog": "/tmp/civilization-placement-touch-device-build.log",
+  "appExecutableSHA256": "fefa072ed61fd50abab1d0bc2bea03d39c579ce05f6b24194497d4a0e986b73b",
+  "launchVerified": true,
+  "processRunningAfterLaunch": true,
+  "processIdentifier": 9248,
+  "physicalTapsAutomated": false,
+  "postLaunchSaveSnapshotTaken": false
+}
