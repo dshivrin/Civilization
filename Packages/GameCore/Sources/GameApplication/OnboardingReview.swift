@@ -15,7 +15,7 @@ public struct OnboardingReviewSnapshot: Equatable, Sendable {
 
     /// Builds an independent discovery proposal from real terrain and transaction checks.
     /// The six legacy known-resource routes are omitted only from this review snapshot.
-    public static func make(configuration: GameConfiguration, state: GameState) throws -> Self? {
+    public static func make(configuration: GameConfiguration, state: GameState, includeWholeForest: Bool = false) throws -> Self? {
         let engine = try GameEngine(state: state, configuration: configuration)
         guard let rules = configuration.explorationRules else { return nil }
         let map = configuration.map
@@ -55,14 +55,14 @@ public struct OnboardingReviewSnapshot: Equatable, Sendable {
         } }.sorted(by: nearer)
         var considered: Set<Tile> = []
         for seed in seeds where !considered.contains(seed) {
-            // A circular local lobe follows actual cardinal forest connectivity. The
-            // existing western forest continues to the map edge; revealing all of it
-            // would expose 232 cells for a first expedition, so this is a bounded proposal.
+            // Default local lobe versus explicit whole-component review alternative.
+            // Both follow actual cardinal forest connectivity; neither moves terrain.
+            // Whole western forest reveals the existing wood source but exposes232cells.
             var forest: Set<Tile> = [seed], queue = [seed], cursor = 0
             while cursor < queue.count {
                 for tile in neighbors(queue[cursor]) {
                     let dx = tile.x - seed.x, dy = tile.y - seed.y
-                    if dx * dx + dy * dy <= 25, map.terrain(at: tile) == .forest,
+                    if (includeWholeForest || dx * dx + dy * dy <= 25), map.terrain(at: tile) == .forest,
                        forest.insert(tile).inserted { queue.append(tile) }
                 }
                 cursor += 1

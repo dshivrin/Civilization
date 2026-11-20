@@ -1,0 +1,194 @@
+{
+  "status": "software verification passed; human/art activation pending",
+  "originMain": "d76e5a1",
+  "mediaCommit": "9545673",
+  "mediaRemoteConfigured": false,
+  "runtimeAssetPromotion": false,
+  "r207Enabled": false,
+  "reports": {
+    "core": {
+      "path": "/tmp/civilization-qa-ff3685e91a4c4fa2af36c85c4ee72686/report.json",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "both",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 263
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 231
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null
+        }
+      ]
+    },
+    "nativeThreeProfiles": {
+      "path": "/tmp/civilization-qa-063fb7df712946a0bffec06a17e9b626/report.json",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds-native-visual-contract-v4",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150",
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+          "7FBB2956-E961-4389-B329-7D2689E96E4F"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testNativeVisualReviewPreservesNormalGame"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "passed",
+          "tests": 1
+        },
+        {
+          "name": "ui-debug-3",
+          "status": "passed",
+          "tests": 1
+        }
+      ]
+    },
+    "strongNormalCameraPreservation": {
+      "path": "/tmp/civilization-qa-d197be648e9b4388b1c6a28cebce24fc/report.json",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds-native-visual-contract-v4",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testNativeVisualReviewPreservesNormalGame"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1
+        }
+      ]
+    },
+    "releaseEntry": {
+      "path": "/tmp/civilization-qa-05bdc2ba796b415899fc005de3916bff/report.json",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "release",
+        "derived_data": "/tmp/civilization-qa-builds-native-visual-contract-v3",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150"
+        ],
+        "only_testing": [
+          "CivilizationUITests/NormalEntryUITests"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "status": "passed",
+          "tests": 1
+        }
+      ]
+    },
+    "recordingFlow": {
+      "path": "/tmp/civilization-qa-d524866d666f456b8f50c4af98c7bb3f/report.json",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds-native-visual-contract-v4",
+        "filter": null,
+        "simulator": [
+          "EC995F2A-534A-4E57-A59C-0DE408729150"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testNativeVisualReviewPreservesNormalGame"
+        ],
+        "output": null
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1
+        }
+      ]
+    }
+  },
+  "sourceSHA256": {
+    "Civilization/CivilizationApp.swift": "422f379101335f7b350bae767b332e374fda9754efba922c124381cefbe75c2b",
+    "Civilization/Rendering/BuildingConnectionLayer.swift": "0ce895ff4f49fc68b0a0931a91af37e11a5c35af69063f9d11849f0c16dfe670",
+    "Civilization/Rendering/EraArt.swift": "0efc43b080c82eec08b0726b8a2c5b7e731d3674f36fd28f52afe59e8a41850b",
+    "Civilization/Rendering/IsometricProjection.swift": "1620f6cb77e40bb4eae54bcaa8b11c2f8a8f92c245126c8329c0af2c7c409fae",
+    "Civilization/Rendering/LivingWorldLayer.swift": "0201ea7a21fae02786a17322a895e0649c97ca9357d1a2b44003ef8584373548",
+    "Civilization/Rendering/RenderDiagnostics.swift": "6ae0324b8010607dd6175b4e9fc494524e5f5aec1209e5d16da5b8cbb8cf53d2",
+    "Civilization/Rendering/RoadSceneLayer.swift": "3348b2b374bde0cb086f89c29798b98886e4e9082c765bd8193a5a3e4dce6138",
+    "Civilization/Rendering/SettlementScene.swift": "2756c242ecdeff3c23bda154471755760e110b1c8fcc763acc64cfd4fe81d323",
+    "Civilization/Rendering/WorldDetails.swift": "0e1f15c37d023ba2ece5a1c1a6e82dc330f5932c5999f2d9bb6140f9a51ebd97",
+    "Civilization/Rendering/WorldView.swift": "abb86c755c23b2a901ff72eb3eb5fa798d75c7346ba0462145883ad5dc628065",
+    "Civilization/UI/BuildingCatalogView.swift": "0ce092b7d56075cd6b04d37042fa745fcab8eff864e8f05527b5783d84d466fd",
+    "Civilization/UI/DeveloperToolsView.swift": "f40149bba4da6f799261b1873c6e07f6a6c6f12d3117c15ae133b19a504a0978",
+    "Civilization/UI/DevelopmentComponents.swift": "00315757243a8f9652d544bfa7ee2261fe6bcfed3006bff4aed1e26c265d144d",
+    "Civilization/UI/EraIcon.swift": "336fba02a66c83602908d8737d30540396594d22c1cfb6a7110fa80e3d4d430e",
+    "Civilization/UI/LaunchMenuView.swift": "b68de4d156ad781a4b5d410042519c6c621f2c6c5d138f6b49beebc64cbf1782",
+    "Civilization/UI/LoadingSceneryView.swift": "ce3690beb120eb8d503d937598afbfd62f5fa67e862ae2410a692dbbd0533b3f",
+    "Civilization/UI/NativeVisualReviewView.swift": "da6530b76203673ecd2e5a3b2f54b27dabb4dbf3e1a4fe5719389bc9ca2ecc77",
+    "Civilization/UI/ResearchView.swift": "eb329527aa846aa8bed4085f6adb9811af13768810277f1e8492322bebcdb4bd",
+    "Civilization/UI/RoadControlsView.swift": "ccb42315e002fc40f1d4b1960c6edc0fd4b3c580c88012a9cbaaae4553f30a19",
+    "Civilization/UI/SavedGamesView.swift": "34646f46ef2704b6304b06d63106e5d8d84bcf0cebcb2ec66d8bee5d8c4473bb",
+    "Civilization/UI/SettlementLoadingView.swift": "64f9f61879ea93c38d53d256dc2a44292381f2efddd708025e6aa2bd91eaa96b",
+    "Civilization/UI/SettlementView.swift": "bc5de415b0b51baf7e2f36179d77e2b90db0023d51f563f1bf1476f9870d70a4",
+    "Civilization.xcodeproj/project.pbxproj": "3c0b09c58db3458d0770c4a2b3d757c4004f1f001f7bf0817647c577e77082c9",
+    "Packages/GameCore/Sources/GameApplication/ArtCatalog.swift": "cc93c04258bc6ea17ab5a01a22b7048a9060efdafe613438333fe52df015d4ac",
+    "Packages/GameCore/Sources/GameApplication/BuildingVisualConnections.swift": "5f6b0a6bde1b9670c6017cb5cc299a014f0ab2c14f8436ac0d0c7d3a75b91c89",
+    "Packages/GameCore/Sources/GameApplication/ConstructionPresentation.swift": "2b39e13e8d3b0637caf3f7926d5d9ee87f82f71d4e11e3d01579ccf5b20c7d75",
+    "Packages/GameCore/Sources/GameApplication/DeveloperScenario.swift": "2c0d46a1945f013c28fab2c0d4f82ea4fe507866c07c841d3c88b3467d5e8701",
+    "Packages/GameCore/Sources/GameApplication/GameLibrary.swift": "00b41d0a00d53ab14fc53b1caaf19ea53991417d11ce35731e2ce0957413a582",
+    "Packages/GameCore/Sources/GameApplication/GameSession.swift": "6ca897d89755e7fea918ee773b9de5ae08d3593265ea38c4a63010d6b1d921ae",
+    "Packages/GameCore/Sources/GameApplication/GameSessionRoads.swift": "b980c91174e95bd0f705cf66900eb092ec6a64ed6a00776c951d8b4f73af46b5",
+    "Packages/GameCore/Sources/GameApplication/GroupedDeveloperVillage.swift": "8fdb31be4e26d9105b460b8662f643c2d5adce6ccf34000049d175afd380cb0d",
+    "Packages/GameCore/Sources/GameApplication/LoadingPresentation.swift": "d08f10f68a947581b8d8bb9693f931b9155143dd79cb1811ab6227db557be17f",
+    "Packages/GameCore/Sources/GameApplication/OnboardingReview.swift": "7ca10cc4b033d880c0657148a8d5a61d1f8156ae71feed037d612ceecb9b5093",
+    "Packages/GameCore/Sources/GameApplication/SettlementGoalsDisclosure.swift": "f11f30feab905545ae5254e57db86d2c520286d3268108dc3a288817c204c6a6",
+    "Packages/GameCore/Sources/GameApplication/VisualRoutePlanner.swift": "74c09c888ac79f4572dc1c40165f4e43e93dd0261e8bdcd98ccb7e28d90d8805"
+  },
+  "preservedAuthoritativePaths": {
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+    "Packages/GameCore/Sources/GameApplication/Resources/art-catalog.json": "f7e79340e138601539c4f1cae3f10df643770b02294551a98e6f7f9ff9373690"
+  }
+}

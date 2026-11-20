@@ -1,0 +1,233 @@
+[
+  {
+    "profile": "phone",
+    "state": "native-visual-review-day",
+    "file": "captures/2026-11-20-final-v5/phone/native-visual-review-day.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "b5c50a7a613e2a6e236e95c69fd2bf013ba7f87d62ffd282d13618e0614c18c2",
+    "source": "/tmp/civilization-native-visual-v5-phone/CE8B982E-06CE-44BA-8BF3-4ACAB98F1570.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795197137.409
+  },
+  {
+    "profile": "phone",
+    "state": "native-visual-review-night",
+    "file": "captures/2026-11-20-final-v5/phone/native-visual-review-night.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "b99a05e44a0ab2734e9bdd3b4251cf9f0aaac62a6b642e75a069a20ba0087a1a",
+    "source": "/tmp/civilization-native-visual-v5-phone/F2A986CE-D2A7-4CFB-8E77-00B7EDF8EA92.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795197141.396
+  },
+  {
+    "profile": "phone",
+    "state": "native-loading-founding",
+    "file": "captures/2026-11-20-final-v5/phone/native-loading-founding.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "612d3b1e4ecffb0211388ef8cc82de1e36ea19489bfe9941c60865c53f59e69c",
+    "source": "/tmp/civilization-native-visual-v5-phone/9DAC0E13-3D10-4AEC-8659-BC4C136478A3.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795197147.761
+  },
+  {
+    "profile": "phone",
+    "state": "native-loading-river",
+    "file": "captures/2026-11-20-final-v5/phone/native-loading-river.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "25df2391270d9946480c9a62427577eaa0cc82bcfad498c836cd0bada5af3962",
+    "source": "/tmp/civilization-native-visual-v5-phone/EE3FC169-F7F3-4276-9EA6-9D3638BCF0F4.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795197152.589
+  },
+  {
+    "profile": "phone",
+    "state": "native-loading-mountain",
+    "file": "captures/2026-11-20-final-v5/phone/native-loading-mountain.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "fa93a47db9971089c7255fd2ced73afae91920160ed1cba846e72eb68944bf7f",
+    "source": "/tmp/civilization-native-visual-v5-phone/A3CB80DD-F79B-4DB9-80A4-16D4601E6809.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795197156.775
+  },
+  {
+    "profile": "phone",
+    "state": "onboarding-continuous-fog-initial",
+    "file": "captures/2026-11-20-final-v5/phone/onboarding-continuous-fog-initial.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "ec851b6eea631359fd58028c330c499e28ebec6a9111b7f10d3db912a434b787",
+    "source": "/tmp/civilization-native-visual-v5-phone/00B9ECDE-4E96-4A8C-A430-5FBB9448C15E.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795197172.695
+  },
+  {
+    "profile": "phone",
+    "state": "onboarding-continuous-fog-forest",
+    "file": "captures/2026-11-20-final-v5/phone/onboarding-continuous-fog-forest.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "e9cc0e005df1ef2f8cf0d92df22087994c33da0a4fcd4133b7164e19392df8a8",
+    "source": "/tmp/civilization-native-visual-v5-phone/D3A2B34F-4461-4038-B525-204744FA1B5D.png",
+    "device": "iPhone 17 Pro Max",
+    "timestamp": 1795197179.162
+  },
+  {
+    "profile": "mini",
+    "state": "native-visual-review-day",
+    "file": "captures/2026-11-20-final-v5/mini/native-visual-review-day.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "0999c8ac517660d40491c5c1a8ad7a832068dd86f2c82c03becdb466fc24ac17",
+    "source": "/tmp/civilization-native-visual-v5-mini/5D1AEF44-F39E-4D09-858C-00A847B26FA2.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795197202.586
+  },
+  {
+    "profile": "mini",
+    "state": "native-visual-review-night",
+    "file": "captures/2026-11-20-final-v5/mini/native-visual-review-night.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "5aff3b0bfd79b9c6da7521dedc55e4a809aecc2ed1aae9b4bfdb16e0f677dc7b",
+    "source": "/tmp/civilization-native-visual-v5-mini/D51E5B63-710C-423F-A0FA-763DFE0B1B89.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795197207.653
+  },
+  {
+    "profile": "mini",
+    "state": "native-loading-founding",
+    "file": "captures/2026-11-20-final-v5/mini/native-loading-founding.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "b8ff2bbc88e99d009bca6bfb81e25e8b9f082ccf861e13bd313a1015a598e883",
+    "source": "/tmp/civilization-native-visual-v5-mini/B9B9BDD3-B3E0-4289-8ADE-02FAC9ACAAA1.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795197215.152
+  },
+  {
+    "profile": "mini",
+    "state": "native-loading-river",
+    "file": "captures/2026-11-20-final-v5/mini/native-loading-river.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "8d84d71838637e0fa346fd93fbb0ba104cb4499614d0d4c809d63b78b122035f",
+    "source": "/tmp/civilization-native-visual-v5-mini/8CEC1505-7099-44B0-9302-E5C568831DEB.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795197220.018
+  },
+  {
+    "profile": "mini",
+    "state": "native-loading-mountain",
+    "file": "captures/2026-11-20-final-v5/mini/native-loading-mountain.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "d18520138ab50c5a157a8190da5d73c0318cf708b0caacd6db976b67b62e4765",
+    "source": "/tmp/civilization-native-visual-v5-mini/8F1376D2-5E7C-4576-87C4-639ED877E6A2.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795197224.053
+  },
+  {
+    "profile": "mini",
+    "state": "onboarding-continuous-fog-initial",
+    "file": "captures/2026-11-20-final-v5/mini/onboarding-continuous-fog-initial.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "810d513df211dc7c1881a3033ae46b0d421e4faa7891a7fd42979eda35779a4f",
+    "source": "/tmp/civilization-native-visual-v5-mini/8AED0BAC-AD02-4F75-8C21-D57E0238372C.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795197244.127
+  },
+  {
+    "profile": "mini",
+    "state": "onboarding-continuous-fog-forest",
+    "file": "captures/2026-11-20-final-v5/mini/onboarding-continuous-fog-forest.png",
+    "width": 1488,
+    "height": 2266,
+    "sha256": "977b8cf75d7a7d9d68c9f3993a6290b8ee05dd1988f59d5249887d4fefd5ab87",
+    "source": "/tmp/civilization-native-visual-v5-mini/86D6B055-E1C8-4C60-8D55-270A19DBAEA9.png",
+    "device": "iPad mini (A17 Pro)",
+    "timestamp": 1795197246.069
+  },
+  {
+    "profile": "pro",
+    "state": "native-visual-review-day",
+    "file": "captures/2026-11-20-final-v5/pro/native-visual-review-day.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "6c91b664e83a260a4a68d6b64df732fa82ab5ea1e3231092464a2f204694ecfb",
+    "source": "/tmp/civilization-native-visual-v5-pro/DE62D5B2-A6FC-4A89-B853-7C65FF78655B.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795197268.466
+  },
+  {
+    "profile": "pro",
+    "state": "native-visual-review-night",
+    "file": "captures/2026-11-20-final-v5/pro/native-visual-review-night.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "e4a01d4e616e138f9cfba74bc273b8451526c3c5dd9888db8e3e9d59c6e2036d",
+    "source": "/tmp/civilization-native-visual-v5-pro/FB04D36A-C519-44F9-BD38-F78D14F82D1B.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795197273.697
+  },
+  {
+    "profile": "pro",
+    "state": "native-loading-founding",
+    "file": "captures/2026-11-20-final-v5/pro/native-loading-founding.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "3992aba4412d2a4ec42593efbfbf5e13ee6ac4fb855af19ce6e927ba37cfc76f",
+    "source": "/tmp/civilization-native-visual-v5-pro/D3051234-374C-4E22-801D-5A3BB4D55163.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795197280.045
+  },
+  {
+    "profile": "pro",
+    "state": "native-loading-river",
+    "file": "captures/2026-11-20-final-v5/pro/native-loading-river.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "0e646a3a99ceb032b4c730228be991f3c8ead29ef73d5dd9b32623c0806dcb9e",
+    "source": "/tmp/civilization-native-visual-v5-pro/E22E6501-45E7-44F1-963B-87C0F7925028.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795197284.493
+  },
+  {
+    "profile": "pro",
+    "state": "native-loading-mountain",
+    "file": "captures/2026-11-20-final-v5/pro/native-loading-mountain.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "57cb4d2e08b1ba7eca5be2d1ae9fa7ec8a3408b8cd9f9e0a71afa8d34c120edc",
+    "source": "/tmp/civilization-native-visual-v5-pro/1ED99A06-9419-4F1F-B2EA-D1EC43F6C6FA.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795197288.585
+  },
+  {
+    "profile": "pro",
+    "state": "onboarding-continuous-fog-initial",
+    "file": "captures/2026-11-20-final-v5/pro/onboarding-continuous-fog-initial.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "2d6ce2d947d3122abf1a6de6578a82534cc31d4b27e7525829b9087422426244",
+    "source": "/tmp/civilization-native-visual-v5-pro/BD1FA33E-4569-4095-B8E6-BBCE182ADCA6.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795197313.625
+  },
+  {
+    "profile": "pro",
+    "state": "onboarding-continuous-fog-forest",
+    "file": "captures/2026-11-20-final-v5/pro/onboarding-continuous-fog-forest.png",
+    "width": 2064,
+    "height": 2752,
+    "sha256": "f1c6fa96c883985a9f8456f192376e25c6b02300e15e1da6ed94ad4d3b7873ad",
+    "source": "/tmp/civilization-native-visual-v5-pro/C2E5C493-299B-403C-8778-B48697790669.png",
+    "device": "iPad Pro 13-inch (M4)",
+    "timestamp": 1795197315.628
+  }
+]

@@ -35,12 +35,19 @@ struct SettlementView: View {
         self.session = session
         self.openGames = openGames; self.managesLifecycle = managesLifecycle
     }
+    private var worldIsObscured: Bool {
+        #if DEBUG
+        showResearch || showCatalog || showJourney || showDeveloperTools
+        #else
+        showResearch || showCatalog || showJourney
+        #endif
+    }
     var body: some View {
         GeometryReader { geometry in
             let compact = geometry.size.height < 500
             ZStack {
                 if let scene {
-                    WorldView(scene: scene, session: session, onReady: { worldReady = true }, isObscured: showResearch || showCatalog || showJourney).ignoresSafeArea()
+                    WorldView(scene: scene, session: session, onReady: { worldReady = true }, isObscured: worldIsObscured).ignoresSafeArea()
                 }
                 VStack(spacing: compact ? 8 : 14) {
                     resourceBar(compact: compact)

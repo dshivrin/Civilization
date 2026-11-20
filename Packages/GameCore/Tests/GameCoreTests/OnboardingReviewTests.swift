@@ -101,3 +101,19 @@ private let onboardingEpoch = Date(timeIntervalSince1970: 20_000_000)
     #expect(OnboardingReviewGuide(engine: engine, region: region).nextStep == .forest)
     #expect(engine.state == paid)
 }
+
+@Test func onboardingWholeForestAlternativeRevealsExistingWoodSourceAndSupportsRealProduction() throws {
+    let configuration = try GameConfiguration.bundled()
+    let source = try GameEngine(configuration: configuration, now: onboardingEpoch)
+    let review = try #require(try OnboardingReviewSnapshot.make(configuration: configuration, state: source.state, includeWholeForest: true))
+    let woodSource = try #require(configuration.naturalDeposits?.first { $0.id == "western-forest" })
+    #expect(review.revealedDiscoveredTiles.contains(woodSource.origin))
+    var copy = source.state; copy.discoveredTiles = review.revealedDiscoveredTiles
+    var engine = try GameEngine(state: copy, configuration: configuration)
+    try engine.build(.woodcutter, at: try #require(review.region.woodcutterOrigins.first))
+    engine.advance(to: onboardingEpoch.addingTimeInterval(21))
+    let before = engine.state.resources.wood
+    engine.advance(to: onboardingEpoch.addingTimeInterval(81))
+    #expect(engine.state.resources.wood > before)
+    #expect(source.state.discoveredTiles == review.sourceDiscoveredTiles)
+}

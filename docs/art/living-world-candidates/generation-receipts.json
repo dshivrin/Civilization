@@ -1,0 +1,223 @@
+{
+  "date": "2026-11-20",
+  "assetCount": 4,
+  "generationCalls": 4,
+  "status": "review concepts; standard browser RGBA composite checked; unregistered frames/directions/anchors; owner acceptance pending",
+  "styleReference": {
+    "path": "Civilization/Art/buildings/hut.png",
+    "sha256": "dbc0ed3af44832855df6921b1b0c54d9962f01380aaff617c0c253d51770a989",
+    "role": "Visually inspected style reference only, supplied in conversation context; no referenced_image_paths edit target",
+    "modified": false
+  },
+  "assets": [
+    {
+      "id": "villagers-review-v1",
+      "tool": "image_gen.imagegen",
+      "mode": "built-in generate; no CLI or API fallback",
+      "transparentBackgroundRequested": true,
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f9e5-34ad-7fe1-8cd4-ef2c8379b463/exec-be930253-0013-41fb-b851-38e366c1ab4a.png",
+      "workspacePath": "docs/art/living-world-candidates/assets/villagers-review-v1.png",
+      "promptPath": "docs/art/living-world-candidates/prompts/villagers-review-v1.txt",
+      "sha256": "f47028d551032a78bf8d7287ecb82a86247a8f5707e038fd86daa676dfc8c2b4",
+      "promptSha256": "086190c66c8425db199050d671604245d94fac7db7f13be44fc81da2fbed6896",
+      "copyUnchanged": true,
+      "pngColorType": "RGBA",
+      "pngBitDepth": 8,
+      "nativeInspection": {
+        "alphaThreshold": 32,
+        "bytes": 1977571,
+        "coveredEdgePixels": 0,
+        "coveredFraction": 0.3297837323298371,
+        "height": 1246,
+        "silhouetteBoundsTopLeftInclusive": [
+          39,
+          4,
+          1251,
+          1232
+        ],
+        "transparentFraction": 0.48438518699267585,
+        "width": 1263
+      },
+      "nativeInspectionCommand": "swift scripts/verify-art.swift --inspect-images docs/art/living-world-candidates/assets/villagers-review-v1.png",
+      "reviewStatus": "review-only concept; not a registered animation atlas; human acceptance pending",
+      "runtimePromoted": false,
+      "limits": [
+        "Final directional frames, contact anchors, stable bounding boxes, scale, timing and seamless loop registration remain unvalidated",
+        "No grid, text labels, scenery, baked ground or water; production compositing and alpha-edge quality require later validation"
+      ],
+      "observedReviewNotes": [
+        "Two repeated adult designs include idle, walking, wood carry, gathering, hand work, seated rest, social and turning studies",
+        "Paired social vignette and irregular final row mean the result is not a regular one-person-per-cell atlas",
+        "Camera elevation and foot-contact alignment vary across poses; final direction and frame design are still required",
+        "Raw preview fringe assessment superseded by actual browser compositing; PNG bytes unchanged"
+      ],
+      "alphaVisualReview": "Standard browser RGBA composite acceptable for concept review; no visible red/yellow fringe at review scale. Production frame/edge validation remains open.",
+      "priorRawPreviewAssessment": "failed: conspicuous red/yellow fringe; unsuitable as clean cutout candidate"
+    },
+    {
+      "id": "wildlife-review-v1",
+      "tool": "image_gen.imagegen",
+      "mode": "built-in generate; no CLI or API fallback",
+      "transparentBackgroundRequested": true,
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f9e5-34ad-7fe1-8cd4-ef2c8379b463/exec-1d79f09e-52c7-47c7-bc14-a45c7d588571.png",
+      "workspacePath": "docs/art/living-world-candidates/assets/wildlife-review-v1.png",
+      "promptPath": "docs/art/living-world-candidates/prompts/wildlife-review-v1.txt",
+      "sha256": "21887bae0abe891885342183f87e0d4dbf1ca8e5a9c526ee5c03594f8946759c",
+      "promptSha256": "f3ada9954539423c36d635259f2228cb87108735f6428c1052882ad9f312df45",
+      "copyUnchanged": true,
+      "pngColorType": "RGBA",
+      "pngBitDepth": 8,
+      "nativeInspection": {
+        "alphaThreshold": 32,
+        "bytes": 1633003,
+        "coveredEdgePixels": 0,
+        "coveredFraction": 0.2583788651140075,
+        "height": 1086,
+        "silhouetteBoundsTopLeftInclusive": [
+          32,
+          4,
+          1429,
+          1048
+        ],
+        "transparentFraction": 0.5914521076890205,
+        "width": 1448
+      },
+      "nativeInspectionCommand": "swift scripts/verify-art.swift --inspect-images docs/art/living-world-candidates/assets/wildlife-review-v1.png",
+      "reviewStatus": "review-only concept; not a registered animation atlas; human acceptance pending",
+      "runtimePromoted": false,
+      "limits": [
+        "Final directional frames, contact anchors, stable bounding boxes, scale, timing and seamless loop registration remain unvalidated",
+        "No grid, text labels, scenery, baked ground or water; production compositing and alpha-edge quality require later validation"
+      ],
+      "observedReviewNotes": [
+        "Four species rows: deer, rabbit, heron-like river bird and fish; four illustrative movement poses each",
+        "Profile poses have weak or variable isometric elevation and need camera review",
+        "Top-row deer ears have small canvas safety margin; covered edge pixels are zero at alpha threshold 32",
+        "Raw preview fringe assessment superseded by actual browser compositing; PNG bytes unchanged"
+      ],
+      "alphaVisualReview": "Standard browser RGBA composite acceptable for concept review; no visible red/yellow fringe at review scale. Production frame/edge validation remains open.",
+      "priorRawPreviewAssessment": "failed: conspicuous red/yellow fringe; unsuitable as clean cutout candidate"
+    },
+    {
+      "id": "villagers-review-v2",
+      "tool": "image_gen.imagegen",
+      "mode": "built-in edit; no CLI or API fallback",
+      "transparentBackgroundRequested": true,
+      "referencedImagePaths": [
+        "/Users/dima/dev/Civilazation/docs/art/living-world-candidates/assets/villagers-review-v1.png"
+      ],
+      "referenceSha256": "f47028d551032a78bf8d7287ecb82a86247a8f5707e038fd86daa676dfc8c2b4",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f9e5-34ad-7fe1-8cd4-ef2c8379b463/exec-cadc522a-a984-4010-9079-f0dfc66f3c28.png",
+      "workspacePath": "docs/art/living-world-candidates/assets/villagers-review-v2.png",
+      "promptPath": "docs/art/living-world-candidates/prompts/villagers-review-v2-edit.txt",
+      "sha256": "56bdeebcc8bf6c2bd3edc7556dc9a4d7b85d275f6a85cae25bd6470aa6055b17",
+      "promptSha256": "786babe79c58036f0d8be381ee94d00a1cd63acc43e56764bdd2f98419bc672b",
+      "copyUnchanged": true,
+      "pngColorType": "RGBA",
+      "pngBitDepth": 8,
+      "nativeInspection": {
+        "alphaThreshold": 32,
+        "bytes": 1967378,
+        "coveredEdgePixels": 0,
+        "coveredFraction": 0.3617835188200023,
+        "height": 1246,
+        "silhouetteBoundsTopLeftInclusive": [
+          31,
+          1,
+          1253,
+          1233
+        ],
+        "transparentFraction": 0.5597732220540409,
+        "width": 1263
+      },
+      "nativeInspectionCommand": "swift scripts/verify-art.swift --inspect-images docs/art/living-world-candidates/assets/villagers-review-v2.png",
+      "reviewStatus": "review-only concept; not a registered animation atlas; human acceptance pending",
+      "alphaVisualReview": "Standard browser RGBA composite acceptable for concept review; no visible red/yellow fringe at review scale. Production frame/edge validation remains open.",
+      "visuallyInspectedWith": "view_image on saved local v2 PNG",
+      "runtimePromoted": false,
+      "limits": [
+        "The targeted edit did not achieve clean cutout edges despite requesting true alpha",
+        "No further image generation beyond the single authorized edit per sheet",
+        "Poses/content broadly preserved but no pixel-identical subject preservation claimed",
+        "Final directional frames, frame contact anchors, scale, timing and loop registration remain unvalidated",
+        "No runtime integration, media repository, schema, save or signing changes"
+      ],
+      "observedReviewNotes": [
+        "Large halo clouds reduced, but red/yellow edge residue and background speckles remain obvious",
+        "Same repeated adults, activities and general layout are present",
+        "No production-clean alpha claim; do not integrate or promote",
+        "Raw preview fringe assessment superseded by actual browser compositing; PNG bytes unchanged"
+      ],
+      "priorRawPreviewAssessment": "failed: obvious red/yellow matte fringe and scattered speckles remain after targeted cleanup edit"
+    },
+    {
+      "id": "wildlife-review-v2",
+      "tool": "image_gen.imagegen",
+      "mode": "built-in edit; no CLI or API fallback",
+      "transparentBackgroundRequested": true,
+      "referencedImagePaths": [
+        "/Users/dima/dev/Civilazation/docs/art/living-world-candidates/assets/wildlife-review-v1.png"
+      ],
+      "referenceSha256": "21887bae0abe891885342183f87e0d4dbf1ca8e5a9c526ee5c03594f8946759c",
+      "sourcePath": "/Users/dima/.codex/generated_images/01a1f9e5-34ad-7fe1-8cd4-ef2c8379b463/exec-be1e5e23-5c8f-40e0-8d60-3cf6a127ed2d.png",
+      "workspacePath": "docs/art/living-world-candidates/assets/wildlife-review-v2.png",
+      "promptPath": "docs/art/living-world-candidates/prompts/wildlife-review-v2-edit.txt",
+      "sha256": "bf5ce35aa3f70e15a091b299f2afc18d9c0368b0394f262b2e96cc6136bc3dc5",
+      "promptSha256": "f7955133bceb1f4ab0153549a762b923a5393aeb44b3562a9b290b3b644f891c",
+      "copyUnchanged": true,
+      "pngColorType": "RGBA",
+      "pngBitDepth": 8,
+      "nativeInspection": {
+        "alphaThreshold": 32,
+        "bytes": 1737883,
+        "coveredEdgePixels": 0,
+        "coveredFraction": 0.2772440299950144,
+        "height": 1086,
+        "silhouetteBoundsTopLeftInclusive": [
+          30,
+          3,
+          1429,
+          1050
+        ],
+        "transparentFraction": 0.5781932022832026,
+        "width": 1448
+      },
+      "nativeInspectionCommand": "swift scripts/verify-art.swift --inspect-images docs/art/living-world-candidates/assets/wildlife-review-v2.png",
+      "reviewStatus": "review-only concept; not a registered animation atlas; human acceptance pending",
+      "alphaVisualReview": "Standard browser RGBA composite acceptable for concept review; no visible red/yellow fringe at review scale. Production frame/edge validation remains open.",
+      "visuallyInspectedWith": "view_image on saved local v2 PNG",
+      "runtimePromoted": false,
+      "limits": [
+        "The targeted edit did not achieve clean cutout edges despite requesting true alpha",
+        "No further image generation beyond the single authorized edit per sheet",
+        "Poses/content broadly preserved but no pixel-identical subject preservation claimed",
+        "Final directional frames, frame contact anchors, scale, timing and loop registration remain unvalidated",
+        "No runtime integration, media repository, schema, save or signing changes"
+      ],
+      "observedReviewNotes": [
+        "Red/yellow halo clouds and edge contamination remain conspicuous around all species",
+        "Same sixteen animal poses and species rows are present",
+        "No production-clean alpha claim; do not integrate or promote",
+        "Raw preview fringe assessment superseded by actual browser compositing; PNG bytes unchanged"
+      ],
+      "priorRawPreviewAssessment": "failed: obvious red/yellow matte fringe and scattered speckles remain after targeted cleanup edit"
+    }
+  ],
+  "generationCallBreakdown": {
+    "initialGenerate": 2,
+    "targetedCleanupEdit": 2
+  },
+  "selectedCleanAssets": [],
+  "selectedConceptAssets": [
+    "villagers-review-v1",
+    "wildlife-review-v1"
+  ],
+  "browserCompositeReview": {
+    "surface": "CUA in-app browser",
+    "background": "rgb(221,221,221)",
+    "assetsInspected": 4,
+    "result": "No visible red/yellow fringe under standard RGBA compositing at review scale",
+    "correction": "Earlier raw view_image rendering was misclassified as production alpha contamination. That rejection is superseded. No pixel editing or new generation was needed.",
+    "runtimeRegistrationValidated": false
+  }
+}

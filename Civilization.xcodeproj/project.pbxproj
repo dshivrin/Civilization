@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+        A08000000000000000000004 = {isa = PBXBuildFile; fileRef = A08100000000000000000004; };
+        A08000000000000000000003 = {isa = PBXBuildFile; fileRef = A08100000000000000000003; };
+        A08000000000000000000002 /* Civilization/Rendering/BuildingConnectionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08100000000000000000002; };
+        A08000000000000000000001 /* Civilization/UI/LoadingSceneryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08100000000000000000001; };
         A01300000000000000000001 /* LaunchMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01300000000000000000002; };
         A01200000000000000000001 /* SavedGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01200000000000000000002; };
         A01100000000000000000003 /* RoadControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01100000000000000000004 /* RoadControlsView.swift */; };
@@ -46,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+        A08100000000000000000004 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/NativeVisualReviewView.swift; sourceTree = SOURCE_ROOT; };
+        A08100000000000000000003 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/LivingWorldLayer.swift; sourceTree = SOURCE_ROOT; };
+        A08100000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/Rendering/BuildingConnectionLayer.swift; sourceTree = SOURCE_ROOT; };
+        A08100000000000000000001 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/LoadingSceneryView.swift; sourceTree = SOURCE_ROOT; };
         A01300000000000000000002 /* LaunchMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/LaunchMenuView.swift; sourceTree = SOURCE_ROOT; };
         A01200000000000000000002 /* SavedGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/SavedGamesView.swift; sourceTree = SOURCE_ROOT; };
         A01100000000000000000004 /* RoadControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/RoadControlsView.swift; sourceTree = SOURCE_ROOT; };
@@ -116,6 +124,10 @@
 				24B4F8E874CF59D2DE8A4F2D /* Civilization/Rendering/SettlementScene.swift */,
                 A01100000000000000000002 /* RoadSceneLayer.swift */,
                 A01100000000000000000004 /* RoadControlsView.swift */,
+                A08100000000000000000001,
+                A08100000000000000000002,
+                A08100000000000000000003,
+                A08100000000000000000004,
 				E1869522EAEC8033D828D556 /* Civilization/Rendering/WorldView.swift */,
 				1207C98C88630EE38F7F51FB /* Civilization/UI/SettlementView.swift */,
 				FBDC4F23F93125BBEEAE800C /* Products */,
@@ -233,6 +245,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+                A08000000000000000000004,
+                A08000000000000000000003,
+                A08000000000000000000002 /* Civilization/Rendering/BuildingConnectionLayer.swift in Sources */,
+                A08000000000000000000001 /* Civilization/UI/LoadingSceneryView.swift in Sources */,
 				1B9864AC305C2C9973F47BBF /* Civilization/UI/SettlementLoadingView.swift in Sources */,
 				C93687E1F4837695FDD1B417 /* Civilization/UI/DeveloperToolsView.swift in Sources */,
                 A01300000000000000000001 /* LaunchMenuView.swift in Sources */,

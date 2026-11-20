@@ -4,6 +4,49 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testNativeVisualReviewPreservesNormalGame() throws {
+        print("NATIVE_VISUAL_REVIEW_CONTRACT_V4_READY_REVEAL_PAN_ZOOM")
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        let before = app.otherElements["settlementMap"].value as? String
+        app.buttons["developerTools"].tap()
+        let gallery = app.buttons["openNativeVisualReview"]
+        XCTAssertTrue(gallery.waitForExistence(timeout: 5)); gallery.tap()
+        XCTAssertTrue(app.staticTexts["visualReviewNotice"].waitForExistence(timeout: 10))
+        capture("native-visual-review-day", app: app)
+        app.buttons["visualReview-night"].tap()
+        capture("native-visual-review-night", app: app)
+        app.buttons["Loading scenes"].tap()
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForExistence(timeout: 5))
+        capture("native-loading-founding", app: app)
+        app.buttons["River"].tap(); capture("native-loading-river", app: app)
+        app.buttons["Mountain"].tap(); capture("native-loading-mountain", app: app)
+        app.buttons["skipLoadingScenery"].tap()
+        XCTAssertTrue(app.staticTexts["loadingStage"].exists)
+        app.buttons["closeLoadingReview"].tap()
+        app.buttons["visualReviewOnboarding"].tap()
+        XCTAssertTrue(app.staticTexts["onboardingReviewCard"].waitForExistence(timeout: 10))
+        capture("onboarding-continuous-fog-initial", app: app)
+        app.buttons["onboardingReviewForest"].tap()
+        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "identifier == %@ AND label BEGINSWITH %@", "onboardingReviewCard", "Forest area revealed")).firstMatch.waitForExistence(timeout: 5))
+        capture("onboarding-continuous-fog-forest", app: app)
+        let reviewMap = app.descendants(matching: .any).matching(identifier: "nativeVisualReviewMap").firstMatch
+        let camera = (reviewMap.value as? String)?.components(separatedBy: " revision=").first
+        reviewMap.coordinate(withNormalizedOffset: CGVector(dx: 0.45, dy: 0.8))
+            .press(forDuration: 0.05, thenDragTo: reviewMap.coordinate(withNormalizedOffset: CGVector(dx: 0.55, dy: 0.75)))
+        XCTAssertNotEqual((reviewMap.value as? String)?.components(separatedBy: " revision=").first, camera)
+        let zoom = (reviewMap.value as? String)?.components(separatedBy: "zoom=").last?.components(separatedBy: " ").first
+        reviewMap.pinch(withScale: 1.2, velocity: 1)
+        XCTAssertNotEqual((reviewMap.value as? String)?.components(separatedBy: "zoom=").last?.components(separatedBy: " ").first, zoom)
+        app.buttons["closeNativeVisualReview"].tap()
+        app.buttons["Done"].tap()
+        XCTAssertEqual((app.otherElements["settlementMap"].value as? String)?.components(separatedBy: " sceneBuilds=").first,
+                       before?.components(separatedBy: " sceneBuilds=").first, "Review pan/zoom must preserve the normal camera as well as buildings/roads")
+    }
+
     @MainActor func testUIThemeAuditEvidence() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()

@@ -13,6 +13,32 @@ final class SettlementScene: SKScene {
     private let depositLayer = SKNode()
     private let buildingLayer = SKNode()
     private let roadLayer = RoadSceneLayer()
+    #if DEBUG
+    private let connectionLayer = BuildingConnectionLayer()
+    private let livingLayer = LivingWorldLayer()
+    var reviewFocusTiles: Set<Tile>? {
+        didSet { if let tiles = reviewFocusTiles { fitReview(tiles) } }
+    }
+    private func fitReview(_ tiles: Set<Tile>) {
+        let points = tiles.map(IsometricProjection.point)
+        guard let minX = points.map(\.x).min(), let maxX = points.map(\.x).max(),
+              let minY = points.map(\.y).min(), let maxY = points.map(\.y).max() else { return }
+        let scale = max((maxX - minX + 160) / max(1, size.width), (maxY - minY + 100) / max(1, size.height * 0.60))
+        worldCamera.setScale(max(0.8, scale))
+        worldCamera.position = CGPoint(x: (minX + maxX) / 2, y: (minY + maxY) / 2 + size.height * scale * 0.15)
+    }
+    var onReviewRevealComplete: (() -> Void)?
+    var reviewContinuousFog = false
+    private var renderedContinuousFog = false
+    var reviewVisualsEnabled = false
+    var reviewPhase = LivingWorldLayer.Phase.day
+    var reviewWeather = LivingWorldLayer.Weather.clear
+    override func update(_ currentTime: TimeInterval) {
+        let width = size.width * worldCamera.xScale, height = size.height * worldCamera.yScale
+        livingLayer.update(currentTime: currentTime, viewport: CGRect(x: worldCamera.position.x - width / 2,
+            y: worldCamera.position.y - height / 2, width: width, height: height))
+    }
+    #endif
     private var renderedDiscovery: Set<Tile>?
     private var renderedDepositSignature = ""
     private let ghostLayer = SKNode()
@@ -70,6 +96,10 @@ final class SettlementScene: SKScene {
         addChild(depositLayer)
         addChild(buildingLayer)
         addChild(roadLayer);addChild(roadLayer.preview)
+        #if DEBUG
+        addChild(connectionLayer); addChild(livingLayer)
+        livingLayer.zPosition = buildingLayer.zPosition
+        #endif
         relocationGridLayer.zPosition = 95
         addChild(relocationGridLayer)
         ghostLayer.zPosition = 2000
@@ -86,6 +116,9 @@ final class SettlementScene: SKScene {
             didCenter = true
         }
         clampCamera()
+        #if DEBUG
+        if let tiles = reviewFocusTiles { fitReview(tiles) }
+        #endif
     }
     /// The candidate's opaque sprite is a drag handle as well as its ground footprint.
     func previewContains(_ point: CGPoint) -> Bool {
@@ -159,6 +192,19 @@ final class SettlementScene: SKScene {
             #endif
             lastCenterRequest = centerRequest
         }
+        #if DEBUG
+        roadLayer.visualRefinementsEnabled = reviewVisualsEnabled
+        if reviewVisualsEnabled {
+            connectionLayer.display(buildings: state.buildings, discovered: state.discoveredTiles, configuration: configuration,
+                excludingIDs: movingBuildingID.map { Set([$0]) } ?? [])
+        } else { connectionLayer.clear() }
+        livingLayer.display(state: state, configuration: configuration, reduceMotion: reduceMotion,
+            reviewEnabled: reviewVisualsEnabled, phase: reviewPhase, weather: reviewWeather,
+            foreground: !isPaused, lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled)
+        #endif
+        #if DEBUG
+        if reviewContinuousFog != renderedContinuousFog { drawTerrain(discovered: state.discoveredTiles); renderedContinuousFog = reviewContinuousFog }
+        #endif
         let discoveryChanged = state.discoveredTiles != renderedDiscovery
         roadLayer.display(roads: state.roads ?? [], discovered: state.discoveredTiles, configuration: configuration, tool: roadTool, draft: roadDraft, invalid: roadInvalid)
         if discoveryChanged || reduceMotion != renderedReduceMotion {
@@ -189,10 +235,12 @@ final class SettlementScene: SKScene {
         renderedBuildings = state.buildings.filter { DiscoveryVisibility.isVisible($0, in: configuration, discovered: state.discoveredTiles) }
         for building in state.buildings where !building.isOperational {
             if let root = buildingLayer.children.first(where: { ($0.userData?["buildingID"] as? Int) == building.id }) {
-                let fraction = 1 - (building.constructionRemainingSeconds ?? 0) / max(1, building.constructionDurationSeconds ?? 1)
+                let construction = ConstructionPresentation(remaining: building.constructionRemainingSeconds ?? 0, duration: building.constructionDurationSeconds ?? 0)
+                let fraction = construction.fraction
                 root.childNode(withName: "constructionProgress")?.xScale = max(0.02, min(1, fraction))
                 root.childNode(withName: "artSprite")?.alpha = fraction < 0.25 ? 0.12 : 0.25 + 0.60 * fraction
-                root.childNode(withName: "constructionScaffold")?.isHidden = fraction < 0.25 || fraction > 0.85
+                root.childNode(withName: "constructionScaffold")?.isHidden = construction.stage != .frame
+                root.childNode(withName: "constructionRoof")?.isHidden = construction.stage != .roof
             }
         }
         if relocationGrid != renderedRelocationGrid {
@@ -268,6 +316,12 @@ final class SettlementScene: SKScene {
             if scenicChunks[key] == nil { scenicChunks[key] = SKNode() }
             return scenicChunks[key]!
         }
+        let continuousFogPath = CGMutablePath()
+        #if DEBUG
+        let continuousFog = reviewContinuousFog
+        #else
+        let continuousFog = false
+        #endif
         for y in 0..<configuration.map.height {
             for x in 0..<configuration.map.width {
                 let tile = Tile(x: x, y: y)
@@ -276,6 +330,7 @@ final class SettlementScene: SKScene {
                 let ground = chunked ? chunks[key]!.ground : ground
                 let point = IsometricProjection.point(tile)
                 if let discovered, !discovered.contains(tile) {
+                    if continuousFog { continuousFogPath.addPath(IsometricProjection.diamond(at: point)); continue }
                     // Opaque ground-independent clouds: no hidden terrain is rendered beneath them.
                     let shade = CGFloat((x * 17 + y * 31) % 7) / 150
                     ground.addChild(shape(IsometricProjection.diamond(at: point), fill: UIColor(white: 0.73 + shade, alpha: 1), stroke: UIColor(white: 0.77, alpha: 1), width: 1))
@@ -345,6 +400,28 @@ final class SettlementScene: SKScene {
                 let cached = SKEffectNode();cached.shouldRasterize = true;cached.addChild(staticWorld);terrainLayer.addChild(cached)
             }
         }
+        if continuousFog, !continuousFogPath.isEmpty {
+            let field = SKShapeNode(path: continuousFogPath)
+            field.fillColor = UIColor(red: 0.60, green: 0.65, blue: 0.67, alpha: 1)
+            field.strokeColor = field.fillColor; field.lineWidth = 1.5; field.glowWidth = 3
+            field.zPosition = 80; terrainLayer.addChild(field)
+            if !reduceMotion, let previous = renderedDiscovery, let discovered {
+                let newlyKnown = discovered.subtracting(previous)
+                if !newlyKnown.isEmpty {
+                    let revealPath = CGMutablePath()
+                    for tile in newlyKnown { revealPath.addPath(IsometricProjection.diamond(at: IsometricProjection.point(tile))) }
+                    let receding = SKShapeNode(path: revealPath)
+                    receding.fillColor = field.fillColor; receding.strokeColor = field.fillColor
+                    receding.lineWidth = 1.5; receding.zPosition = 81
+                    terrainLayer.addChild(receding)
+                    #if DEBUG
+                    receding.run(.sequence([.fadeOut(withDuration: 1.2), .removeFromParent(), .run { [weak self] in self?.onReviewRevealComplete?() }]))
+                    #else
+                    receding.run(.sequence([.fadeOut(withDuration: 1.2), .removeFromParent()]))
+                    #endif
+                }
+            }
+        }
         let waterEffects = SKNode();waterEffects.zPosition = 2;terrainLayer.addChild(waterEffects)
         if !reduceMotion {
             var ripples = 0
@@ -409,6 +486,8 @@ final class SettlementScene: SKScene {
                 let frame = polygon([CGPoint(x: -36,y: 0),CGPoint(x: -36,y: 40),CGPoint(x: 0,y: 65),CGPoint(x: 36,y: 40),CGPoint(x:36,y:0)], fill: .clear)
                 frame.name = "constructionScaffold"
                 frame.strokeColor = UIColor(red: 0.78,green: 0.65,blue: 0.43,alpha: 0.85); frame.lineWidth = 3; node.addChild(frame)
+                let roof = polygon([CGPoint(x: -38, y: 40), CGPoint(x: 0, y: 66), CGPoint(x: 38, y: 40)], fill: .brown.withAlphaComponent(0.45))
+                roof.name = "constructionRoof"; roof.isHidden = true; node.addChild(roof)
                 let bar = SKSpriteNode(color: .systemYellow, size: CGSize(width: 60, height: 3))
                 bar.anchorPoint = CGPoint(x: 0,y: 0.5); bar.position = CGPoint(x:-30,y: -15);bar.name = "constructionProgress";node.addChild(bar)
             }

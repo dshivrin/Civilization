@@ -110,3 +110,9 @@ The optional audit reserves a new output directory exclusively and rejects desti
 `swift run --package-path Tools/UIReviewRenderer UIReviewRenderer NEW_DIRECTORY` exports existing native EraIcon source via symlink plus SF Symbols using a macOS-only bridge. The same tool accepts `--sheet SCREENSHOT_DIRECTORY NEW_PNG` to lay out nine unmodified native captures. Outputs must be new; existing output is never overwritten. Build cache access remains host-controlled.
 
 Use `python3 scripts/dev.py test --suite ui` with its documented destination arguments and `--only-testing CivilizationUITests/RelocationUITests/testUIThemeAuditEvidence` for the isolated nine-screen capture flow. Export its XCTest attachments with xcresulttool. [Review workbench and scope](../docs/ui/themes-review/README.md); no runtime integration or save migration.
+
+## Native visual review archive
+
+`python3 scripts/build-native-visual-gallery.py --capture phone=EXPORTED_ATTACHMENTS --capture mini=EXPORTED_ATTACHMENTS --capture pro=EXPORTED_ATTACHMENTS --output docs/testing/native-visual-program/captures/NEW_RUN` validates all21required XCTestPNGcaptures and four concept/prompt hashes, copies original bytes into a new directory and regenerates a local review gallery. Use existing `xcrun xcresulttool export attachments` on passed per-profile result bundles first. The builder rejects missing/duplicate captures and existing output; no image transforms, player saves or network. Generated pose sheets remain review-only and unregistered; browser RGBA compositing supersedes the raw viewer fringe assessment.
+
+Use `--render-only --output EXISTING_ARCHIVE` to validate its pinned21images and regenerate HTML after metadata changes; PNGs/manifest remain untouched. Preserve raw generated PNGs and check alpha through actual browser/native compositing: the raw preview can display misleading colors in transparent pixels. [Native review handoff](../docs/testing/native-visual-program/README.md).

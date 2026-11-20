@@ -46,7 +46,7 @@ struct CivilizationApp: App {
                                    newGame: { Task { await restoreLibrary(newGame: true) } },
                                    resume: { Task { await restoreLibrary() } })
                 }
-                else { SettlementLoadingView(stage: "Preparing menu…") }
+                else { SettlementLoadingView(stage: "Preparing menu…", context: .brand) }
             }
             .sheet(isPresented: $showGames) {
                 if let library { SavedGamesView(library: library) }

@@ -1,0 +1,54 @@
+{
+  "scope": "Simulator loading scenery and decorative Skip only; no living-agent/weather or hardware FPS certification",
+  "qaReport": "/tmp/civilization-qa-d524866d666f456b8f50c4af98c7bb3f/report.json",
+  "records": [
+    {
+      "role": "raw",
+      "file": "clips/loading-review-raw-v5.mp4",
+      "sha256": "cdf6fb87f0ea64677ffefb3b0710f86e809add96bd839b97739e990440404030",
+      "bytes": 7191705,
+      "source": "/tmp/civilization-native-visual-animation-v5.mp4"
+    },
+    {
+      "role": "upright",
+      "file": "clips/loading-review-upright-v5.mp4",
+      "sha256": "b5e04f22425680cefa8493784c280f368a0ca0b46b9a0ce32ef956fedcae42e0",
+      "bytes": 2691379,
+      "source": "/tmp/civilization-native-visual-animation-v5-upright.mp4"
+    }
+  ],
+  "rawDurationSeconds": 22.946667,
+  "uprightDurationSeconds": 22.911667,
+  "decodedFrames": 255,
+  "allPresentationTimestampsPreserved": true,
+  "firstPresentationSeconds": 0,
+  "lastPresentationSeconds": 22.823333,
+  "normalization": "FFmpeg9.0.2; transpose2(90degCCW), no trim, reencode H264CRF18;35mscontainer-duration accounting difference",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "warning",
+    "-noautorotate",
+    "-i",
+    "/tmp/civilization-native-visual-animation-v5.mp4",
+    "-map",
+    "0:v:0",
+    "-vf",
+    "transpose=2",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-fps_mode",
+    "passthrough",
+    "-enc_time_base",
+    "demux",
+    "-an",
+    "-movflags",
+    "+faststart",
+    "-n",
+    "/tmp/civilization-native-visual-animation-v5-upright.mp4"
+  ]
+}

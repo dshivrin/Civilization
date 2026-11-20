@@ -5,10 +5,16 @@ import GameApplication
 struct DeveloperToolsView: View {
     let session: GameSession
     @Environment(\.dismiss) private var dismiss
+    @State private var showVisualReview = false
     @State private var preparation: Task<Void, Never>?
     var body: some View {
         NavigationStack {
             Form {
+                Section("Native visual review") {
+                    Button("Roads, neighborhoods, living world and loading") { showVisualReview = true }
+                        .frame(minHeight: 44).accessibilityIdentifier("openNativeVisualReview")
+                    Text("Disposable render snapshot; normal progress and developer companions are unchanged.").font(.caption)
+                }
                 if !session.isDeveloperMode {
                     Section("Quick gameplay review") {
                         Button(session.hasGameplayReview ? "Resume review copy" : "Review this game") {
@@ -96,7 +102,7 @@ struct DeveloperToolsView: View {
                 .onDisappear { preparation?.cancel() }
                 .navigationTitle("Developer tools")
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { preparation?.cancel(); dismiss() }.frame(minHeight: 44) } }
-        }
+        }.fullScreenCover(isPresented: $showVisualReview) { NativeVisualReviewView(configuration: session.configuration) }
     }
 }
 #endif

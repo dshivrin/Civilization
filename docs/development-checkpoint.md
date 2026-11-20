@@ -1,3 +1,7 @@
+## Active native visual program and onboarding — 20 November 2026
+
+Owner requests completion of visual goals and adds new onboarding plan. Same active Goal continues; do not mark wholeprogram complete from first slice. Origin/main ccf33c6; exact onboarding and roads/defense plans copied, existing branch retained. [Execution plan](superpowers/plans/2026-11-20-native-visual-program.md), [live ledger](testing/native-visual-program/progress.md). Pure derived visual/onboarding models committed/pushed d1a38bf; core262Debug/230Release+8exclusions and finalON6rerun pass. Native review gallery/roads/joins/agents/weather/loading/fog are currently uncommitted and under QA; initial stale-scene image and shared-simulator interruption failures are explicitly invalid evidence. R2-07 disabled. Production save/economy/exploration rules unchanged. Onboarding GateB resource-access/migration decisions and final artwork activation require their explicit review gates; approved future backlog preserved.
+
 Installed placement touch correction1d79a2f:9files byte-identical before normal launch; process9248 verified. Core239/207+8exclusions, scoped nativeDebug9/Releaseentry1pass after documented selection reruns. [Handoff](testing/placement-touch-2026-11-20/progress.md). Visible sprite rotation remains a known missing directional-art requirement.
 
 ## Placement feedback investigation — 20 November 2026
