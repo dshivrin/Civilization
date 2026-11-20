@@ -1,0 +1,88 @@
+{
+  "scope": "Interactive Debug-only onboarding walkthrough; no normal activation",
+  "r207Enabled": false,
+  "normalGateBApproved": false,
+  "appearanceApproved": false,
+  "reports": {
+    "core": {
+      "path": "/tmp/civilization-qa-487eb1113d774fe68867e25d47eb0575/report.json",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 270
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null
+        }
+      ]
+    },
+    "nativeThreeProfiles": {
+      "path": "/tmp/civilization-qa-a14f1241e1834fc483b36c87bda95318/report.json",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 2
+        },
+        {
+          "name": "ui-debug-2",
+          "status": "passed",
+          "tests": 2
+        },
+        {
+          "name": "ui-debug-3",
+          "status": "passed",
+          "tests": 2
+        }
+      ]
+    },
+    "releaseEntry": {
+      "path": "/tmp/civilization-qa-447c828d55cb473a9f28687bb74c1b20/report.json",
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "status": "passed",
+          "tests": 1
+        }
+      ]
+    }
+  },
+  "pythonTools": {
+    "tests": 20,
+    "status": "passed",
+    "log": "/tmp/civilization-walkthrough-tool-tests-host.log",
+    "initialSandboxFailureRetained": "/tmp/civilization-walkthrough-tool-tests.log"
+  },
+  "review": {
+    "mode": "independent read-only",
+    "findings": [],
+    "testsPerformedByReviewer": false
+  },
+  "sourceSHA256": {
+    "Civilization/UI/DeveloperToolsView.swift": "afb506327da8a16d17e248222bfad3f8cf3ae66dc93534ac2c541af2c5014bb0",
+    "Civilization/UI/NativeVisualReviewView.swift": "8a321765018c9d5aa8c2cec408dfa86a73a9215e25110b1140432b8f7f309cc2",
+    "Civilization/Rendering/SettlementScene.swift": "9309b3e474846e06ca36f54c333dc7dd7e1f2880d48830c81d0ec9c21d509c39",
+    "CivilizationUITests/RelocationUITests.swift": "62796df1c30555ac914de6ec69696855ad0a784382b1c2ad3753971d36778ce1",
+    "Packages/GameCore/Sources/GameApplication/OnboardingReviewWalkthrough.swift": "8bb58bfb13789d8364499e41f0268a225e65f0b9dc8a178f5812cc747ac5396f",
+    "Packages/GameCore/Tests/GameCoreTests/OnboardingWalkthroughTests.swift": "8b3c83f80df89d5c7964c1db2bb4669afb23c324f01c84363e67757e77ddd170",
+    "Packages/GameCore/Sources/GameApplication/VisualDayCycle.swift": "679b85e352df7a536994825a4341c8dbff5382697c181599028bcfe5bf78c3f1",
+    "Packages/GameCore/Tests/GameCoreTests/VisualDayCycleTests.swift": "7c1738541d2341c61fd8cb1322d4fe2182ad33ef1f4a402e7a75c133fb57892a",
+    "scripts/build-native-visual-gallery.py": "ba45943979f0429c09c3f2edac6f8377756dd5a567da43890338758f8583bdd7",
+    "scripts/verify-developer-release.py": "9a79fe4dd3338de34371649404fc9f8bf4dcaa7f8fb40cd395d24df427b71557"
+  },
+  "preservedAuthoritativePaths": {
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+    "Packages/GameCore/Sources/GameApplication/Resources/art-catalog.json": "f7e79340e138601539c4f1cae3f10df643770b02294551a98e6f7f9ff9373690"
+  },
+  "noAuthoritativeGameCoreChanges": true,
+  "captureManifest": "captures/2026-11-20-walkthrough-v1/manifest.json",
+  "physicalInstall": "Pending separate device evidence; previous54d4f6e record retained"
+}

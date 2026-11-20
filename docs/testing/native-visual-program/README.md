@@ -1,5 +1,12 @@
 # Native visual program — review handoff
 
+Owner feedback after the first install: the guide was not visible as a walkthrough, and visual appearance needs refinement before normal integration. **No appearance or onboarding Gate B approval has been given.**
+
+The corrected entry is **Developer tools → Onboarding walkthrough — start here**. It rehearses the complete guide on a fresh in-memory settlement: actual Hut placement/construction, one paid expedition with a real countdown, proposed whole-forest discovery, actual Woodcutter placement/construction and existing chapter guidance. Tap the map to choose a site; confirm or cancel. Skip/reopen retains this temporary progress. Explicit time advance is available for review. Closing discards only this temporary rehearsal. Normal New Game has no new tutorial yet.
+
+[Interactive walkthrough screenshots](walkthrough.html). Final verification/installation status is in the [ledger](progress.md); the prior product54d4f6e evidence below remains historical.
+
+
 [Open the native screenshot gallery](index.html). The same interactive lab is under **Developer tools → Roads, neighborhoods, living world and loading** in Debug builds. It creates disposable fixtures and does not open, replace or save a player game.
 
 Implemented for review:
@@ -10,7 +17,7 @@ Implemented for review:
 - Construction stages derive from actual remaining work. No new build duration or rewards.
 - Gate A onboarding audit, continuous opaque fog, whole-western-forest reveal and validated woodcutter preview. A production-engine test proves the existing wood source supports actual production. No deposit moves or resource-rule changes.
 
-The grouped village is the existing geometry-study fixture, not a production footprint migration. Onboarding uses a separate fresh production-map snapshot. Native tutorial display demonstrates the initial card and manual area preview; event order/deduplication/skip is model-tested. Production tutorial/area expeditions are not enabled.
+The grouped village is the existing geometry-study fixture, not a production footprint migration. Onboarding uses a separate fresh production-map snapshot. The earlier visual comparison demonstrates the initial card/manual area preview; the separate corrected walkthrough connects the guide to native actions, skip/reopen and actual construction/expedition transactions. Production tutorial/area expeditions are not enabled.
 
 [Execution/evidence ledger](progress.md), [onboarding audit and proposed migration policy](../../design/proposals/2026-11-20-onboarding-gate-a.md), [execution plan](../../superpowers/plans/2026-11-20-native-visual-program.md).
 

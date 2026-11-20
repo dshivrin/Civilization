@@ -8,6 +8,9 @@ STATES = ['native-visual-review-day', 'native-visual-review-night', 'native-load
           'native-loading-river', 'native-loading-mountain', 'onboarding-continuous-fog-initial',
           'onboarding-continuous-fog-forest']
 
+WALKTHROUGH_STATES = ['walkthrough-01-hut-guide', 'walkthrough-02-expedition-guide',
+                      'walkthrough-03-forest-woodcutter-guide', 'walkthrough-04-goals-handoff']
+
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -16,7 +19,9 @@ def main():
     parser.add_argument('--capture', action='append', default=[], help='phone|mini|pro=xcresulttool attachment directory')
     parser.add_argument('--output', type=Path, required=True, help='New directory inside gallery/captures')
     parser.add_argument('--render-only', action='store_true', help='Validate an existing archive and regenerate HTML only')
+    parser.add_argument('--walkthrough', action='store_true', help='Archive the four interactive guide steps and build walkthrough.html')
     args = parser.parse_args()
+    states = WALKTHROUGH_STATES if args.walkthrough else STATES
     target = args.output.resolve()
     if not target.is_relative_to(GALLERY / 'captures') or args.output.is_symlink():
         parser.error('Output must be a new gallery/captures directory without aliases')
@@ -37,7 +42,7 @@ def main():
             for test in json.loads((source / 'manifest.json').read_text()):
                 for attachment in test['attachments']:
                     suggested = attachment.get('suggestedHumanReadableName', '')
-                    for state in STATES:
+                    for state in states:
                         if suggested.startswith(state + '_') and not attachment.get('isAssociatedWithFailure', False):
                             name = attachment['exportedFileName']
                             if Path(name).name != name or state in found:
@@ -49,9 +54,9 @@ def main():
                             if not data.startswith(b'\x89PNG\r\n\x1a\n'):
                                 raise ValueError('Capture is not PNG')
                             found[state] = (path, struct.unpack('>II', data[16:24]), attachment)
-            if set(found) != set(STATES):
-                raise ValueError(f'{profile}: missing actual captures {set(STATES)-set(found)}')
-            for state in STATES:
+            if set(found) != set(states):
+                raise ValueError(f'{profile}: missing actual captures {set(states)-set(found)}')
+            for state in states:
                 path, size, attachment = found[state]
                 pending.append((profile, state, path, size, attachment))
     receipts = json.loads((ROOT / 'docs/art/living-world-candidates/generation-receipts.json').read_text())
@@ -65,8 +70,8 @@ def main():
         if args.capture:
             parser.error('Render-only reads its pinned archive, not new captures')
         records = json.loads((target / 'manifest.json').read_text())
-        if {(r['profile'], r['state']) for r in records} != {(p, s) for p in ('phone','mini','pro') for s in STATES} or len(records) != 21:
-            raise ValueError('Existing archive must contain21unique required captures')
+        if {(r['profile'], r['state']) for r in records} != {(p, s) for p in ('phone','mini','pro') for s in states} or len(records) != 3 * len(states):
+            raise ValueError('Existing archive must contain all unique required captures')
         for record in records:
             path = (GALLERY / record['file']).resolve()
             if not path.is_relative_to(target) or digest(path) != record['sha256']:
@@ -88,8 +93,13 @@ def main():
             '<p>Three procedural loading scenes; disposable village roads, shared-yard joins, day/night and provisional people. Onboarding compares continuous fog with a whole-forest reveal and validated woodcutter preview. Native card/reveal is demonstrated; out-of-order/skip tutorial behavior is model-tested.</p>',
             '<p>Grouped village uses the existing geometry-study fixture, not a production footprint migration. No physical performance certification, bridge/gate gameplay, final directional sprites or complete animation atlas is claimed.</p>',
             '<p><a href="../../ui/themes-review/index.html">Theme and notification workbench</a> · <a href="../../art/building-gate-2/index.html">Building Gate 2</a> · <a href="progress.md">Verification ledger</a></p>']
+    if args.walkthrough:
+        body = ['<h1>Interactive onboarding walkthrough</h1>',
+                '<p>Open Developer tools → Onboarding walkthrough — start here. This is a fresh in-memory rehearsal; normal New Game has not changed. The guide runs real Hut construction, one paid expedition countdown and Woodcutter construction. Whole-forest discovery is a review proposal applied only to this disposable copy.</p>',
+                '<p>Place buildings freely by tapping the map and confirming. Skip/reopen preserves this temporary progress. Explicit time advance is labeled; existing saves and R2-07 remain unchanged. Owner requested refinement before normal integration; no approval is inferred.</p>',
+                '<p><a href="index.html">Earlier visual/fog comparison</a> · <a href="progress.md">Verification ledger</a></p>']
     clip_manifest = GALLERY / 'clips/provenance.json'
-    if clip_manifest.exists():
+    if clip_manifest.exists() and not args.walkthrough:
         clips = json.loads(clip_manifest.read_text())
         for clip in clips['records']:
             if digest(GALLERY / clip['file']) != clip['sha256']:
@@ -108,8 +118,8 @@ def main():
         body.append(f'<figure class="concept"><img loading="lazy" src="{file}" alt="Concept {html.escape(asset["id"])}"><figcaption>{html.escape(asset["id"])}</figcaption></figure>')
     body.append('</details>')
     style = 'body{max-width:1200px;margin:32px auto;padding:0 20px;background:#142322;color:#f0e8cf;font:17px/1.6 system-ui}a{color:#a9dddb}img{display:block;width:100%;height:auto}figure{margin:20px 0 36px}figcaption{padding:8px}.concept{background:#ddd;color:#111}summary{cursor:pointer;padding:18px}'
-    (GALLERY / 'index.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Native visual review</title><style>'+style+'</style><main>'+''.join(body)+'</main></html>')
-    print('PASS:21 unchanged native captures,4 concept/prompt hashes; validated archive and local gallery')
+    (GALLERY / ('walkthrough.html' if args.walkthrough else 'index.html')).write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Native visual review</title><style>'+style+'</style><main>'+''.join(body)+'</main></html>')
+    print(f'PASS:{len(records)} unchanged native captures,4 concept/prompt hashes; validated archive and local gallery')
 
 if __name__ == '__main__':
     main()

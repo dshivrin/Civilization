@@ -16,6 +16,7 @@ final class SettlementScene: SKScene {
     #if DEBUG
     private let connectionLayer = BuildingConnectionLayer()
     private let livingLayer = LivingWorldLayer()
+    var reviewReservedRightWidth: CGFloat = 0
     var reviewFocusTiles: Set<Tile>? {
         didSet { if let tiles = reviewFocusTiles { fitReview(tiles) } }
     }
@@ -23,9 +24,10 @@ final class SettlementScene: SKScene {
         let points = tiles.map(IsometricProjection.point)
         guard let minX = points.map(\.x).min(), let maxX = points.map(\.x).max(),
               let minY = points.map(\.y).min(), let maxY = points.map(\.y).max() else { return }
-        let scale = max((maxX - minX + 160) / max(1, size.width), (maxY - minY + 100) / max(1, size.height * 0.60))
+        let scale = max((maxX - minX + 160) / max(1, size.width - reviewReservedRightWidth), (maxY - minY + 100) / max(1, size.height * 0.60))
         worldCamera.setScale(max(0.8, scale))
-        worldCamera.position = CGPoint(x: (minX + maxX) / 2, y: (minY + maxY) / 2 + size.height * scale * 0.15)
+        worldCamera.position = CGPoint(x: (minX + maxX) / 2 + reviewReservedRightWidth * scale / 2,
+            y: (minY + maxY) / 2 + size.height * scale * 0.15)
     }
     var onReviewRevealComplete: (() -> Void)?
     var reviewContinuousFog = false

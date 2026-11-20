@@ -6,11 +6,14 @@ struct DeveloperToolsView: View {
     let session: GameSession
     @Environment(\.dismiss) private var dismiss
     @State private var showVisualReview = false
+    @State private var showOnboardingWalkthrough = false
     @State private var preparation: Task<Void, Never>?
     var body: some View {
         NavigationStack {
             Form {
                 Section("Native visual review") {
+                    Button("Onboarding walkthrough — start here") { showOnboardingWalkthrough = true }
+                        .frame(minHeight: 44).accessibilityIdentifier("openOnboardingWalkthrough")
                     Button("Roads, neighborhoods, living world and loading") { showVisualReview = true }
                         .frame(minHeight: 44).accessibilityIdentifier("openNativeVisualReview")
                     Text("Disposable render snapshot; normal progress and developer companions are unchanged.").font(.caption)
@@ -103,6 +106,7 @@ struct DeveloperToolsView: View {
                 .navigationTitle("Developer tools")
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { preparation?.cancel(); dismiss() }.frame(minHeight: 44) } }
         }.fullScreenCover(isPresented: $showVisualReview) { NativeVisualReviewView(configuration: session.configuration) }
+        .fullScreenCover(isPresented: $showOnboardingWalkthrough) { OnboardingWalkthroughReviewView(configuration: session.configuration) }
     }
 }
 #endif

@@ -15,7 +15,7 @@ Reads Xcode/Swift versions and required/optional executable availability. It doe
 ## Existing tests, one report
 
 ```sh
-# Full core Debug + Release and eight developer API exclusion probes.
+# Full core Debug + Release and nine developer API exclusion probes.
 python3 scripts/dev.py test
 
 # Deliberately scoped regression: report retains the exact filter/configuration.
@@ -116,3 +116,6 @@ Use `python3 scripts/dev.py test --suite ui` with its documented destination arg
 `python3 scripts/build-native-visual-gallery.py --capture phone=EXPORTED_ATTACHMENTS --capture mini=EXPORTED_ATTACHMENTS --capture pro=EXPORTED_ATTACHMENTS --output docs/testing/native-visual-program/captures/NEW_RUN` validates all21required XCTestPNGcaptures and four concept/prompt hashes, copies original bytes into a new directory and regenerates a local review gallery. Use existing `xcrun xcresulttool export attachments` on passed per-profile result bundles first. The builder rejects missing/duplicate captures and existing output; no image transforms, player saves or network. Generated pose sheets remain review-only and unregistered; browser RGBA compositing supersedes the raw viewer fringe assessment.
 
 Use `--render-only --output EXISTING_ARCHIVE` to validate its pinned21images and regenerate HTML after metadata changes; PNGs/manifest remain untouched. Preserve raw generated PNGs and check alpha through actual browser/native compositing: the raw preview can display misleading colors in transparent pixels. [Native review handoff](../docs/testing/native-visual-program/README.md).
+
+
+`python3 scripts/build-native-visual-gallery.py --walkthrough --capture phone=EXPORTED_ATTACHMENTS --capture mini=EXPORTED_ATTACHMENTS --capture pro=EXPORTED_ATTACHMENTS --output docs/testing/native-visual-program/captures/NEW_WALKTHROUGH_RUN` uses the same new-directory/hash-preserving archive contract for the four interactive onboarding guide captures per profile and builds `walkthrough.html`. `--walkthrough --render-only --output EXISTING_ARCHIVE` validates its12pinned captures. This does not promote the guide into normal games.

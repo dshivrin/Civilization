@@ -4,6 +4,59 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testOnboardingWalkthroughShowsAndPerformsEveryGuidedStep() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        let before = app.otherElements["settlementMap"].value as? String
+        app.buttons["developerTools"].tap()
+        let entry = app.buttons["openOnboardingWalkthrough"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 5)); entry.tap()
+        let guide = app.staticTexts["onboardingWalkthroughStep"]
+        XCTAssertTrue(guide.waitForExistence(timeout: 10))
+        XCTAssertEqual(guide.value as? String, "hut")
+        let map = app.descendants(matching: .any).matching(identifier: "onboardingWalkthroughMap").firstMatch
+        let fields = try XCTUnwrap(map.value as? String).split(separator: " ")
+        let civicX = try XCTUnwrap(Double(try XCTUnwrap(fields.first { $0.hasPrefix("civicX=") }).dropFirst(7)))
+        let civicY = try XCTUnwrap(Double(try XCTUnwrap(fields.first { $0.hasPrefix("civicY=") }).dropFirst(7)))
+        let civicPoint = CGPoint(x: map.frame.minX + civicX, y: map.frame.minY + civicY)
+        XCTAssertFalse(app.descendants(matching: .any).matching(identifier: "onboardingGuidePanel").firstMatch.frame.insetBy(dx: -44, dy: -44).contains(civicPoint),
+                       "The first guide must leave the civic center and touch clearance visible")
+        capture("walkthrough-01-hut-guide", app: app)
+        app.buttons["skipOnboardingWalkthroughGuide"].tap()
+        XCTAssertFalse(guide.exists)
+        app.buttons["reopenOnboardingWalkthroughGuide"].tap()
+        app.buttons["walkthroughChooseHut"].tap()
+        let confirm = app.buttons["walkthroughConfirmBuilding"]
+        XCTAssertTrue(confirm.waitForExistence(timeout: 5)); XCTAssertTrue(confirm.isEnabled)
+        let location = app.staticTexts["walkthroughPlacementLocation"].label
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.20, dy: 0.60)).tap()
+        XCTAssertNotEqual(app.staticTexts["walkthroughPlacementLocation"].label, location, "Map taps must choose a different candidate")
+        app.buttons["walkthroughSuggestedSite"].tap()
+        XCTAssertTrue(confirm.isEnabled)
+        confirm.tap()
+        XCTAssertEqual(guide.value as? String, "hut", "Placement alone must not finish construction")
+        app.buttons["walkthroughAdvanceTime"].tap()
+        XCTAssertEqual(guide.value as? String, "expedition")
+        capture("walkthrough-02-expedition-guide", app: app)
+        app.buttons["walkthroughStartExpedition"].tap()
+        XCTAssertTrue(app.staticTexts["onboardingWorkRemaining"].exists)
+        app.buttons["walkthroughAdvanceTime"].tap()
+        XCTAssertTrue(app.buttons["walkthroughChooseWoodcutter"].waitForExistence(timeout: 8))
+        capture("walkthrough-03-forest-woodcutter-guide", app: app)
+        app.buttons["walkthroughChooseWoodcutter"].tap()
+        XCTAssertTrue(confirm.isEnabled); confirm.tap()
+        app.buttons["walkthroughAdvanceTime"].tap()
+        XCTAssertEqual(guide.value as? String, "handoff")
+        capture("walkthrough-04-goals-handoff", app: app)
+        app.buttons["closeOnboardingWalkthrough"].tap()
+        app.buttons["Done"].tap()
+        XCTAssertEqual((app.otherElements["settlementMap"].value as? String)?.components(separatedBy: " sceneBuilds=").first,
+                       before?.components(separatedBy: " sceneBuilds=").first)
+    }
+
     @MainActor func testNativeVisualReviewPreservesNormalGame() throws {
         print("NATIVE_VISUAL_REVIEW_CONTRACT_V4_READY_REVEAL_PAN_ZOOM")
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
