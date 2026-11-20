@@ -6,6 +6,7 @@ import GameApplication
 struct ResearchView: View {
     let session: GameSession
     @Binding var selectedPillar: DevelopmentPillar
+    var focusedTechnologyID: String? = nil
     @Environment(\.dismiss) private var dismiss
     @State private var showReadiness = false
     @State private var expanded: Set<String> = []
@@ -23,6 +24,10 @@ struct ResearchView: View {
                         Text("Stone Age · develop your settlement").font(.caption).foregroundStyle(parchment.opacity(0.7))
                     }
                     Spacer()
+                    if focusedTechnologyID != nil {
+                        Button("Return to civic center") { dismiss() }.frame(minHeight: 44).buttonStyle(.bordered)
+                            .accessibilityIdentifier("returnToCivicCenter")
+                    }
                     Button("Done", systemImage: "xmark") { dismiss() }.frame(minWidth: 80, minHeight: 44).buttonStyle(.bordered)
                         .accessibilityIdentifier("closeResearch")
                 }
@@ -59,11 +64,16 @@ struct ResearchView: View {
             }.padding(12)
         }
         .background(panelColor).foregroundStyle(parchment).tint(.yellow)
+        .onAppear {
+            if let id = focusedTechnologyID, let technology = session.configuration.technologyDefinitions.first(where: { $0.id == id }) {
+                selectedPillar = technology.pillar; expanded.insert(id)
+            }
+        }
         .sheet(isPresented: $showReadiness) {
             NavigationStack {
                 List {
                     Section {
-                        Text("Complete every Stone Age building type and technology, discover required resource territories, and finish all five pillars. Keep playing in this settlement when ready.")
+                        Text("Upgrade your civic center to Council Circle, construct every required Stone Age building type, research every technology, discover required resource territories, and finish all five pillars. Storytelling Circles are optional. Keep playing in this settlement when ready.")
                         if session.state.stoneAgeCompleted == true && !session.fullStoneAgeRequirementsMet { Text("Previously earned readiness is preserved. The expanded checklist below remains available.") }
                         ForEach(session.stoneAgeRequirements) { requirement in
                             Label(requirement.title + " · " + requirement.progress, systemImage: requirement.isComplete ? "checkmark.circle.fill" : "circle")
@@ -135,6 +145,9 @@ struct ResearchView: View {
     }
     private func effects(_ technology: TechnologyDefinition) -> [String] {
         var values: [String] = []
+        for level in session.configuration.civicLevels ?? [] where level.requiredTechnology == technology.id {
+            values.append("Civic center upgrade: " + level.name)
+        }
         if !technology.effects.unlockedBuildings.isEmpty {
             values.append("Unlocks: " + technology.effects.unlockedBuildings.map { session.configuration.definition($0).name }.joined(separator: ", "))
         }

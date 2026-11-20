@@ -1,0 +1,63 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "both",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [],
+    "only_testing": [],
+    "output": null
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/dev/Civilazation/Packages/GameCore"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 204,
+      "durationSeconds": 22.184,
+      "log": "/private/tmp/civilization-qa-3fc2ff66dba8485bafa651977b5d005a/core-debug.log"
+    },
+    {
+      "name": "core-release",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/dev/Civilazation/Packages/GameCore",
+        "-c",
+        "release"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 184,
+      "durationSeconds": 25.336,
+      "log": "/private/tmp/civilization-qa-3fc2ff66dba8485bafa651977b5d005a/core-release.log"
+    },
+    {
+      "name": "release-api-exclusions",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/dima/dev/Civilazation/scripts/verify-developer-release.py"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 1.445,
+      "log": "/private/tmp/civilization-qa-3fc2ff66dba8485bafa651977b5d005a/release-api-exclusions.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-20T10:58:39.542679+00:00",
+  "revision": {
+    "commit": "c7166709d14311be71f5a57d9d39c318bf33f3fa",
+    "dirty": true
+  },
+  "status": "passed"
+}

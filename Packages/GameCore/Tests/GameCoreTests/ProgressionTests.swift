@@ -21,6 +21,7 @@ private let progressionEpoch = Date(timeIntervalSince1970:10_000_000)
     var c = try GameConfiguration.bundled()
     c.requiresCompleteStoneAgeCatalog = false // Historical five-pillar contract, retained as a regression.
     for i in c.progressionGoals!.indices {
+        c.progressionGoals![i].requiredCivicLevel = nil
         c.progressionGoals![i].requiredBuildings = []; c.progressionGoals![i].requiredTechnologies = []
         c.progressionGoals![i].minimumPopulation = 0; c.progressionGoals![i].minimumResources = .init()
         c.progressionGoals![i].minimumNetRates = .init(); c.progressionGoals![i].minimumDiscoveredTiles = 0
@@ -57,7 +58,7 @@ private let progressionEpoch = Date(timeIntervalSince1970:10_000_000)
         if !g.researchedIDs.contains(id) { try afford(tech.cost); try g.research(id); print("PLAYTHROUGH research \(id) at \(Int(time))s") }
     }
     try construct(.gatheringShelter); try construct(.woodcutter); try construct(.stoneGatherer); try construct(.hut)
-    try research("oralTradition"); try construct(.storytellingCircle)
+    try research("oralTradition"); try afford(try #require(g.upgradeCost(for: g.state.buildings[0]))); try g.upgrade(buildingID: 0)
     try research("fishing"); try construct(.fishingShelter); try construct(.hut)
     try research("hunting"); try construct(.huntingLodge)
     try construct(.stoneGatherer); try g.setProductionMode(buildingID:g.state.buildings.last!.id,recipeID:"flint")
@@ -65,8 +66,9 @@ private let progressionEpoch = Date(timeIntervalSince1970:10_000_000)
     try research("stoneTools"); try construct(.toolmaker)
     try research("leatherworking"); try construct(.tannery)
     try research("pottery"); try construct(.potteryWorkshop); try construct(.storehouse)
-    // Complete every catalog entry; all are required in Seed 0.2.7.
+    // All active types remain required; optional circles may still be constructed.
     for tech in g.configuration.technologyDefinitions where !g.researchedIDs.contains(tech.id) { try research(tech.id) }
+    try afford(try #require(g.upgradeCost(for: g.state.buildings[0]))); try g.upgrade(buildingID: 0)
     for kind in g.configuration.buildings.map(\.kind) where !g.state.buildings.contains(where: { $0.kind == kind }) { try construct(kind) }
     while !g.stoneAgeRequirements.first(where: { $0.id == "discovery" })!.isComplete || g.discoveredTileCount < 600 { try afford(g.configuration.explorationRules!.cost); try g.startExploration(); wait(60) }
     var attempts = 0

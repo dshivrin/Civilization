@@ -10,6 +10,7 @@ public struct PillarGoalDefinition: Codable, Identifiable, Sendable {
     public var minimumResources: ResourceAmounts
     public var minimumDiscoveredTiles: Int
     public var minimumNetRates: ResourceAmounts
+    public var requiredCivicLevel: Int?
 }
 public extension GameEngine {
     var pillarGoals: [PillarGoalDefinition] { configuration.progressionGoals ?? [] }
@@ -21,6 +22,9 @@ public extension GameEngine {
     }
     func unmetRequirements(_ goal:PillarGoalDefinition) -> [String] {
         var missing: [String] = []
+        if let level = goal.requiredCivicLevel, civicLevel < level {
+            missing.append("Upgrade civic center to " + (configuration.civicLevels?.first { $0.level == level }?.name ?? "level \(level)"))
+        }
         for kind in goal.requiredBuildings where !state.buildings.contains(where: { $0.kind == kind && $0.isOperational }) {
             missing.append("Build " + configuration.definition(kind).name)
         }

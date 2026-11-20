@@ -1,0 +1,32 @@
+{
+  "scope": {
+    "command": "validate-saves",
+    "root": "/tmp/civilization-play-device-before-stable/Civilization",
+    "sourceByteIdentical": true
+  },
+  "steps": [
+    {
+      "name": "validate-saves",
+      "command": [
+        "swift",
+        "run",
+        "--package-path",
+        "/Users/dima/dev/Civilazation/Tools/SaveInspector",
+        "SaveInspector",
+        "/private/tmp/civilization-play-device-before-stable/Civilization"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 4.26,
+      "log": "/private/tmp/civilization-qa-091e80f524824afb950dd5a08a613de5/validate-saves.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-20T10:58:44.522950+00:00",
+  "revision": {
+    "commit": "c7166709d14311be71f5a57d9d39c318bf33f3fa",
+    "dirty": true
+  },
+  "status": "passed"
+}

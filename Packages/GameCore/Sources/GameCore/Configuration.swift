@@ -43,6 +43,7 @@ public struct GameConfiguration: Codable, Sendable {
     public var workforceRules: WorkforceRules?
     public var economyRules: EconomyRules?
     public var naturalDeposits: [NaturalDeposit]?
+    public var civicLevels: [CivicLevelDefinition]?
     public static func bundled() throws -> GameConfiguration {
         guard let url = Bundle.module.url(forResource: "seed", withExtension: "json") else { throw GameError.invalidConfiguration("Missing seed.json") }
         let config = try JSONDecoder().decode(Self.self, from: Data(contentsOf: url))
@@ -85,5 +86,6 @@ public struct GameConfiguration: Codable, Sendable {
         try validateWorkforce()
         try validateExploration()
         try validateProgression()
+        try validateCivicLevels()
     }
 }

@@ -97,6 +97,8 @@ func firstEraAlternativeNormalCostStrategies(strategy: Int) throws {
         print("PACING recovery: 20min craft/science priority stalled wood; reset priorities + normal-save reload +10min restored wood \(String(format: "%.2f", woodBeforeRecovery))->\(String(format: "%.2f", recovery.state.resources.wood)); population \(recovery.state.population)")
     }
     for technology in game.configuration.technologyDefinitions where !game.researchedIDs.contains(technology.id) { try research(technology.id) }
+    try afford(try #require(game.upgradeCost(for: game.state.buildings[0]))); try game.upgrade(buildingID: 0)
+    try afford(try #require(game.upgradeCost(for: game.state.buildings[0]))); try game.upgrade(buildingID: 0)
     checkpoint("all research")
     for kind in game.configuration.buildings.map(\.kind) where !game.state.buildings.contains(where: { $0.kind == kind }) { try build(kind) }
     while !game.stoneAgeRequirements.first(where: { $0.id == "discovery" })!.isComplete || game.discoveredTileCount < 600 {

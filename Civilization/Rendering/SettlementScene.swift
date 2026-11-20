@@ -34,6 +34,7 @@ final class SettlementScene: SKScene {
         onReady?()
     }
     private var renderedBuildings: [PlacedBuilding] = []
+    private var civicCenterTile: Tile?
     private var newlyPlacedIDs: Set<Int> = []
     private var renderedVisualSignature = ""
     var reduceMotion = false
@@ -93,7 +94,7 @@ final class SettlementScene: SKScene {
         return nil
     }
     func recenter() {
-        let point = IsometricProjection.point(configuration.map.campfire)
+        let point = IsometricProjection.point(civicCenterTile ?? configuration.map.campfire)
         worldCamera.position = CGPoint(x: point.x + 80, y: point.y + 30)
         worldCamera.setScale(size.width > 1000 ? 1.1 : 0.95)
         clampCamera()
@@ -131,6 +132,7 @@ final class SettlementScene: SKScene {
         worldCamera.position = CGPoint(x: point.x, y: point.y)
     }
     func display(state: GameState, kind: BuildingKind?, tile: Tile?, valid: Bool, inspected: PlacedBuilding?, movingBuildingID: Int?, previewFootprint: BuildingFootprint? = nil, relocationGrid: [Tile: Bool]? = nil, unavailablePreviewTiles: Set<Tile>? = nil, roadTool: RoadTool? = nil, roadDraft: [Tile] = [], roadInvalid: Bool = false, centerRequest: Int, deposits: [NaturalDeposit], identifiedDepositIDs: Set<String>) {
+        civicCenterTile = state.buildings.first { $0.kind == .campfire }?.origin
         if centerRequest != lastCenterRequest {
             #if DEBUG
             if lastCenterRequest == -1 && configuration.map.id == "river-clearing-review-64x48-v1" { showMapOverview() } else { recenter() }

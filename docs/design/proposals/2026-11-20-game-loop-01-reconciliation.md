@@ -1,5 +1,7 @@
 # GAME-LOOP-01 reconciliation and approval questions
 
+**Approved by the owner in [c716670](../../../plans/GAME-LOOP-01-APPROVAL.md).** The proposal and original blocked-status text below are retained as the decision record; implementation follows the approval, including the stronger completed-objective safeguard.
+
 20 November 2026. Authority: owner-approved [plan](../../../plans/GAME-LOOP-01.md), commit `661db65`, and direct Start GAME-LOOP-01 instruction. Fetched personal `dshivrin/Civilization` origin/first-era-review; local and remote both `b87ca0b`. Implementation is blocked on the explicit product decisions below, not engineering permission. No product code or player saves changed.
 
 ## Approved supersessions

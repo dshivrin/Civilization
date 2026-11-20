@@ -39,6 +39,7 @@ public enum DeveloperScenario: String, CaseIterable, Identifiable, Codable, Send
             let techs = self == .late ? configuration.technologyDefinitions.filter { $0.id != "fortification" }.map(\.id) :
                 ["oralTradition", "stoneTools", "socialOrder", "hunting", "fishing", "leatherworking", "pottery", "exploration"]
             for id in techs { try engine.developerUnlockTechnology(id) }
+            if configuration.civicLevels != nil { refill(); try engine.upgrade(buildingID: 0); refill(); try engine.upgrade(buildingID: 0) }
             engine.developerRevealTerritory(radius: self == .late ? 32 : 14)
             // Place water-dependent buildings before the central clearing fills.
             if self == .late { try place(.fishingShelter) }

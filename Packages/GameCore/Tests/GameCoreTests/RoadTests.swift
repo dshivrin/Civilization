@@ -131,6 +131,7 @@ private func roadSites(_ g:GameEngine) -> [Tile] {
         case .build(let kind):
             let site = try #require((0..<24).flatMap { y in (0..<32).map { Tile(x:$0,y:y) } }.first { g.placementIssue(kind,at:$0) == nil })
             try g.build(kind,at:site)
+        case .upgrade(let id):try g.upgrade(buildingID:id)
         case .research(let id):try g.research(id)
         case .recipe(let id,let mode):try g.setProductionMode(buildingID:id,recipeID:mode)
         case .priority(let id,let value):try g.setWorkerPriority(buildingID:id,priority:value)

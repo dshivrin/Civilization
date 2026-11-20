@@ -11,7 +11,7 @@ public final class GameSession {
     @ObservationIgnored private let store: SaveStore
     #if DEBUG
     private struct DeveloperEnvelope: Encodable {
-        let version = 5
+        let version: Int
         let state: GameState
         let developerScenario: DeveloperScenario
         let originalScenarioState: GameState?
@@ -85,7 +85,8 @@ public final class GameSession {
     public func producingBuildingCount(for resource: Resource) -> Int { engine.producingBuildingCount(for: resource) }
     public func productionSources(for resource: Resource) -> [BuildingDefinition] {
         configuration.buildings.filter { definition in
-            definition.ratesPerMinute[resource] > 0 || (definition.recipes?.contains { $0.outputsPerMinute[resource] > 0 } ?? false)
+            definition.ratesPerMinute[resource] > 0 || (definition.recipes?.contains { $0.outputsPerMinute[resource] > 0 } ?? false) ||
+                (definition.kind == .campfire && (configuration.civicLevels?.contains { $0.culturalOutputPerMinute[resource] > 0 } ?? false))
         }
     }
     public var selectedTile: Tile?
@@ -154,11 +155,15 @@ public final class GameSession {
         selectedKind = nil
         selectedTile = nil
         inspectedBuilding = building
-        message = configuration.definition(building.kind).name
+        message = engine.buildingName(building)
     }
     public var operatingProductionBuildingIDs: Set<Int> { economicOverview.productiveBuildingIDs }
     public func productivity(_ building: PlacedBuilding) -> Double { engine.productivity(building) }
     public func operatingStatus(_ building: PlacedBuilding) -> String { engine.operatingStatus(building) }
+    public func buildingName(_ building: PlacedBuilding) -> String { engine.buildingName(building) }
+    public func workersRequired(for building: PlacedBuilding) -> Double { engine.workersRequired(for: building) }
+    public func civicDefinition(for building: PlacedBuilding) -> CivicLevelDefinition? { engine.civicDefinition(for: building) }
+    public func upgradeResearch(for building: PlacedBuilding) -> String? { engine.upgradeResearch(for: building) }
     public func upgradeCost(for building: PlacedBuilding) -> ResourceAmounts? { engine.upgradeCost(for: building) }
     public func setProductionMode(buildingID: Int, recipeID: String) {
         perform {
@@ -304,7 +309,8 @@ public final class GameSession {
         do {
             #if DEBUG
             if isDeveloperMode {
-                let data = try JSONEncoder().encode(DeveloperEnvelope(state: engine.state, developerScenario: developerScenario, originalScenarioState: originalScenarioState))
+                try developerStore.preservePreviousVersion(beforeSaving: engine.state)
+                let data = try JSONEncoder().encode(DeveloperEnvelope(version: engine.state.civicProgress == nil ? 5 : 6, state: engine.state, developerScenario: developerScenario, originalScenarioState: originalScenarioState))
                 try FileManager.default.createDirectory(at: developerStore.url.deletingLastPathComponent(), withIntermediateDirectories: true)
                 try data.write(to: developerStore.url, options: .atomic)
             }
@@ -320,10 +326,11 @@ public final class GameSession {
         exitRoadMode()
         cancelRelocationPreview()
         selectedKind = kind; inspectedBuilding = nil
-        // Offer a valid initial ghost near the campfire; map taps can reposition it.
+        // Offer a valid initial ghost near the current civic entity, including after relocation.
+        let center = engine.civicCenter?.origin ?? configuration.map.campfire
         let map = configuration.map
         let candidates = (0..<map.height).flatMap { y in (0..<map.width).map { Tile(x: $0, y: y) } }
-            .sorted { abs($0.x - map.campfire.x) + abs($0.y - map.campfire.y) < abs($1.x - map.campfire.x) + abs($1.y - map.campfire.y) }
+            .sorted { abs($0.x - center.x) + abs($0.y - center.y) < abs($1.x - center.x) + abs($1.y - center.y) }
         selectedTile = candidates.first { engine.placementIssue(kind, at: $0) == nil } ?? Tile(x: 13, y: 12)
         message = "Drag mode · drag on the map and release to build, or tap and Confirm."
     }
@@ -333,7 +340,7 @@ public final class GameSession {
         else {
             guard isDiscovered(tile) else { inspectedBuilding = nil; message = "Unexplored terrain · send an expedition to reveal it."; return }
             inspectedBuilding = engine.building(at: tile).flatMap { isVisible($0) ? $0 : nil }
-            if let building = inspectedBuilding { message = configuration.definition(building.kind).name }
+            if let building = inspectedBuilding { message = engine.buildingName(building) }
             else if !isDiscovered(tile) { message = "Unexplored terrain · send an expedition to reveal it." }
             else if configuration.naturalDeposits?.contains(where: { ($0.accessSites ?? []).contains(tile) }) == true { message = "Stone quarry · shared valley stone reserve" }
             else if let terrain = configuration.map.terrain(at: tile) { message = "\(String(describing: terrain).capitalized) · tile \(tile.x), \(tile.y)" }
@@ -345,7 +352,7 @@ public final class GameSession {
     }
     public func beginRelocation(buildingID: Int) {
         guard let building = state.buildings.first(where: { $0.id == buildingID }), isVisible(building) else { return }
-        if building.kind == .campfire { message = "The campfire is the fixed settlement anchor."; return }
+        if building.kind == .campfire && configuration.civicLevels == nil { message = "The campfire is the fixed settlement anchor."; return }
         exitRoadMode()
         selectedKind = nil; inspectedBuilding = nil; movingBuildingID = buildingID; selectedTile = building.origin
         message = "Drag to move · release on valid land. Relocation is free."

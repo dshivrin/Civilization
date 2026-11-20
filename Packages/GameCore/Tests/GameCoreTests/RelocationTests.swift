@@ -41,7 +41,7 @@ private func openTile(_ g: GameEngine, kind: BuildingKind, excluding: Set<Tile> 
         #expect(throws: GameError.self) { try g.relocate(buildingID: 1, to: tile) }
         #expect(g.state == before)
     }
-    #expect(throws: GameError.self) { try g.relocate(buildingID: 0, to: Tile(x: 13, y: 14)) }
+    #expect(throws: GameError.self) { try g.relocate(buildingID: 0, to: Tile(x: 14, y: 12)) } // Occupied site, including for the movable civic center.
     #expect(throws: GameError.self) { try g.relocate(buildingID: 999, to: Tile(x: 13, y: 14)) }
     #expect(g.state == before)
 }

@@ -24,7 +24,7 @@ import GameApplication
     #expect(try Data(contentsOf: url) == original) // Loading does not mutate the original.
     try store.save(state)
     let object = try #require(JSONSerialization.jsonObject(with: Data(contentsOf: url)) as? [String:Any])
-    #expect(object["version"] as? Int == 5)
+    #expect(object["version"] as? Int == 6)
     #expect(try Data(contentsOf: url.appendingPathExtension("seed-0.1.bak")) == original)
     try store.save(state)
     #expect(try Data(contentsOf: url.appendingPathExtension("seed-0.1.bak")) == original)

@@ -29,21 +29,24 @@ public extension GameEngine {
             return resource
         })
     }
-    var stoneAgeRequirements: [JourneyObjective] {
-        let kinds = Set(configuration.buildings.map(\.kind))
+    var stoneAgeRequirements: [JourneyObjective] { requirementsForStoneAge(legacy: false) }
+    internal func requirementsForStoneAge(legacy: Bool) -> [JourneyObjective] {
+        let kinds = Set(configuration.buildings.map(\.kind)).subtracting(configuration.civicLevels == nil || legacy ? [] : [.storytellingCircle])
         let technologies = Set(configuration.technologyDefinitions.map(\.id))
-        return [
-            JourneyObjective(id: "buildings", title: "Construct every Stone Age building type", completed: constructedKinds.intersection(kinds).count, total: kinds.count),
+        var requirements = [
+            JourneyObjective(id: "buildings", title: configuration.civicLevels != nil && !legacy ? "Construct every required Stone Age building type (circles optional)" : "Construct every Stone Age building type", completed: constructedKinds.intersection(kinds).count, total: kinds.count),
             JourneyObjective(id: "research", title: "Research every Stone Age technology", completed: researchedIDs.intersection(technologies).count, total: technologies.count),
             JourneyObjective(id: "discovery", title: "Discover Stone Age resource territories", completed: discoveredRequiredResources.count, total: requiredDiscoveryResources.count),
             JourneyObjective(id: "pillars", title: "Complete all five development pillars", completed: pillarGoals.filter { isPillarGoalComplete(id: $0.id) }.count, total: pillarGoals.count)
         ]
+        if configuration.civicLevels != nil && !legacy { requirements.append(civicObjective(level: 3)) }
+        return requirements
     }
     var fullStoneAgeRequirementsMet: Bool { stoneAgeRequirements.allSatisfy(\.isComplete) }
     var missingDiscoveryResourceNames: [String] {
         Resource.allCases.filter { requiredDiscoveryResources.contains($0) && !discoveredRequiredResources.contains($0) }.map(\.rawValue)
     }
-    var journeyChapters: [JourneyChapter] {
+    internal func unretainedJourneyChapters(legacy: Bool = false) -> [JourneyChapter] {
         func building(_ kind: BuildingKind) -> JourneyObjective {
             JourneyObjective(id: "building-" + kind.rawValue, title: "Build " + configuration.definition(kind).name,
                              completed: constructedKinds.contains(kind) ? 1 : 0, total: 1)
@@ -63,10 +66,30 @@ public extension GameEngine {
             chapter(5, "Building a society", [.storytellingCircle, .shrine, .healersHut, .burialGround], ["socialOrder", "rituals", "permanentSettlement", "herbalMedicine", "burialTraditions"]),
             chapter(6, "Exploring and protecting", [.scoutCamp, .watchtower, .palisade], ["exploration", "surveillance", "fortification"])
         ]
+        if configuration.civicLevels != nil && !legacy {
+            result[0] = JourneyChapter(id: 1, title: result[0].title, objectives: result[0].objectives + [civicObjective(level: 2)])
+            result[4] = JourneyChapter(id: 5, title: result[4].title, objectives: result[4].objectives.filter { $0.id != "building-storytellingCircle" } + [civicObjective(level: 3)])
+        }
         // The original knowledge milestone is sticky in completedGoals; spending it never revokes credit.
         let knowledge = JourneyObjective(id: "onboarding-knowledge", title: "Accumulate \(Int(configuration.knowledgeGoalUnits)) knowledge", completed: state.completedGoals.contains(.knowledge) ? Int(configuration.knowledgeGoalUnits) : min(Int(state.resources.knowledge), Int(configuration.knowledgeGoalUnits)), total: Int(configuration.knowledgeGoalUnits))
         result[4] = JourneyChapter(id: 5, title: result[4].title, objectives: result[4].objectives + [knowledge])
-        result.append(JourneyChapter(id: 7, title: "Completing the Stone Age", objectives: stoneAgeRequirements))
+        result.append(JourneyChapter(id: 7, title: "Completing the Stone Age", objectives: requirementsForStoneAge(legacy: legacy)))
         return result
+    }
+    var journeyChapters: [JourneyChapter] {
+        let result = unretainedJourneyChapters()
+        guard let history = state.civicProgress else { return result }
+        return result.map { chapter in
+            let retainedChapter = history.completedChapters.contains(chapter.id)
+            return JourneyChapter(id: chapter.id, title: chapter.title, objectives: chapter.objectives.map { objective in
+                let replacedStorytelling = chapter.id == 5 && objective.id == "civic-level-3" && history.completedObjectives.contains("5:building-storytellingCircle")
+                let retained = retainedChapter || replacedStorytelling || history.completedObjectives.contains("\(chapter.id):\(objective.id)")
+                let title = retained && !objective.isComplete ? objective.title + " (prior objective credit retained)" : objective.title
+                return JourneyObjective(id: objective.id, title: title, completed: retained ? objective.total : objective.completed, total: objective.total)
+            })
+        }
+    }
+    func civicObjective(level: Int) -> JourneyObjective {
+        JourneyObjective(id: "civic-level-\(level)", title: "Upgrade civic center to " + (configuration.civicLevels?.first { $0.level == level }?.name ?? "level \(level)"), completed: civicLevel >= level ? 1 : 0, total: 1)
     }
 }

@@ -6,7 +6,7 @@ import GamePersistence
 @Test func completeEraRequirementsComeFromCatalog() throws {
     let c = try GameConfiguration.bundled()
     let g = try GameEngine(configuration: c, now: Date())
-    #expect(g.stoneAgeRequirements.first { $0.id == "buildings" }?.total == c.buildings.count)
+    #expect(g.stoneAgeRequirements.first { $0.id == "buildings" }?.total == c.buildings.count - 1)
     #expect(g.stoneAgeRequirements.first { $0.id == "research" }?.total == c.technologyDefinitions.count)
     #expect(g.requiredDiscoveryResources == Set(c.buildings.flatMap { ($0.recipes ?? []).compactMap(\.depositResource) }))
     #expect(!g.fullStoneAgeRequirementsMet)
@@ -38,6 +38,7 @@ import GamePersistence
 @Test func newReadinessRequiresMoreThanFivePillarsAndOldReadinessSurvives() throws {
     var c = try GameConfiguration.bundled()
     for i in c.progressionGoals!.indices {
+        c.progressionGoals![i].requiredCivicLevel = nil
         c.progressionGoals![i].requiredBuildings = [.campfire]
         c.progressionGoals![i].requiredTechnologies = []
         c.progressionGoals![i].minimumPopulation = 0
@@ -111,6 +112,8 @@ import GameApplication
     // Leave pillar history intact, but hide the only revealed wood source outside the full radius.
     state.discoveredTiles?.remove(c.naturalDeposits!.first { $0.resource == .wood }!.origin)
     state.explorationRadius = 11
+    state.civicProgress?.completedChapters.remove(7)
+    state.civicProgress?.completedObjectives.remove("7:discovery")
     // Validate discovery predicate independently; a preserved historical readiness remains sticky.
     let reduced = try GameEngine(state: state, configuration: c)
     #expect(reduced.stoneAgeRequirements.first { $0.id == "discovery" }?.isComplete == false)
@@ -123,6 +126,8 @@ import GameApplication
     var missingTechnology = g.state
     missingTechnology.stoneAgeCompleted = false
     missingTechnology.researchedTechnologies?.remove("foodPreservation")
+    missingTechnology.civicProgress?.completedChapters.subtract([3, 7])
+    missingTechnology.civicProgress?.completedObjectives.subtract(["3:technology-foodPreservation", "7:research"])
     let removedStorage = c.technologyDefinitions.first { $0.id == "foodPreservation" }!.effects.storageBonus
     for resource in Resource.allCases {
         missingTechnology.resources[resource] = min(missingTechnology.resources[resource], g.capacities[resource] - removedStorage[resource])
@@ -133,6 +138,8 @@ import GameApplication
     var missingBuilding = g.state
     missingBuilding.stoneAgeCompleted = false
     missingBuilding.buildings.removeAll { $0.kind == .animalPen }
+    missingBuilding.civicProgress?.completedChapters.subtract([3, 7])
+    missingBuilding.civicProgress?.completedObjectives.subtract(["3:building-animalPen", "7:buildings"])
     var unbuilt = try GameEngine(state: missingBuilding, configuration: c)
     unbuilt.advance(to: missingBuilding.lastUpdated.addingTimeInterval(1))
     #expect(unbuilt.state.stoneAgeCompleted == false)

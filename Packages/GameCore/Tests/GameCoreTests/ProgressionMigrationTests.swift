@@ -40,7 +40,7 @@ private struct ProgressionMigrationEnvelope: Codable { var version:Int; var stat
     try store.save(migrated)
     let backup = url.appendingPathExtension("seed-0.2.4.bak")
     #expect(try Data(contentsOf:backup) == original)
-    #expect(try JSONDecoder().decode(ProgressionMigrationEnvelope.self,from:Data(contentsOf:url)).version == 5)
+    #expect(try JSONDecoder().decode(ProgressionMigrationEnvelope.self,from:Data(contentsOf:url)).version == 6)
     try store.save(migrated)
     #expect(try Data(contentsOf:backup) == original)
     #expect(try store.load(configuration:config) == migrated)
@@ -53,6 +53,7 @@ private struct ProgressionMigrationEnvelope: Codable { var version:Int; var stat
     config.requiresCompleteStoneAgeCatalog = false // Preserve the historical completion contract under test.
     // Keep genuine permanent witnesses, while isolating sticky resource thresholds.
     for i in config.progressionGoals!.indices {
+        config.progressionGoals![i].requiredCivicLevel = nil
         config.progressionGoals![i].requiredBuildings = [.campfire]
         config.progressionGoals![i].requiredTechnologies = ["oralTradition"]
         config.progressionGoals![i].minimumPopulation = 3

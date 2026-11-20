@@ -9,12 +9,12 @@ public struct WorkforceRules: Codable, Sendable {
 public extension GameEngine {
     var workforceAvailable: Double { floor(Double(state.population) * (configuration.workforceRules?.workingPopulationFraction ?? 0)) }
     var workforceRequired: Double {
-        state.buildings.filter(\.isOperational).reduce(0) { $0 + (configuration.definition($1.kind).workersRequired ?? 0) }
+        state.buildings.filter(\.isOperational).reduce(0) { $0 + workersRequired(for: $1) }
     }
     func workersAllocated(to building: PlacedBuilding) -> Double { workforceAllocation[building.id,default:0] }
     func workforceProductivity(_ building: PlacedBuilding) -> Double {
         guard building.isOperational else { return 0 }
-        let demand = configuration.definition(building.kind).workersRequired ?? 0
+        let demand = workersRequired(for: building)
         return demand == 0 || configuration.workforceRules == nil ? 1 : min(1,workersAllocated(to:building) / demand)
     }
 }
@@ -25,11 +25,11 @@ extension GameEngine {
         var allocations: [Int:Double] = [:]
         var available = workforceAvailable
         func share(_ group: [PlacedBuilding], budget: Double) -> Double {
-            let unmet = group.reduce(0.0) { $0 + max(0,(configuration.definition($1.kind).workersRequired ?? 0) - allocations[$1.id,default:0]) }
+            let unmet = group.reduce(0.0) { $0 + max(0,workersRequired(for: $1) - allocations[$1.id,default:0]) }
             guard unmet > 0 else { return 0 }
             let used = min(budget,unmet)
             for b in group {
-                let need = max(0,(configuration.definition(b.kind).workersRequired ?? 0) - allocations[b.id,default:0])
+                let need = max(0,workersRequired(for: b) - allocations[b.id,default:0])
                 allocations[b.id,default:0] += used * need / unmet
             }
             return used

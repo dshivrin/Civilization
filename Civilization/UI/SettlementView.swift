@@ -18,6 +18,7 @@ struct SettlementView: View {
     @State private var category = "All"
     @State private var researchPillar: DevelopmentPillar = .science
     @State private var showResearch = false
+    @State private var civicResearchID: String?
     @State private var showCatalog = false
     @State private var showJourney = false
     @State private var pendingGuidanceAction: GuidanceAction?
@@ -152,8 +153,8 @@ struct SettlementView: View {
         .fullScreenCover(isPresented: $showCatalog) {
             BuildingCatalogView(session: session, selectedCategory: $category)
         }
-        .fullScreenCover(isPresented: $showResearch) {
-            ResearchView(session: session, selectedPillar: $researchPillar)
+        .fullScreenCover(isPresented: $showResearch, onDismiss: { civicResearchID = nil }) {
+            ResearchView(session: session, selectedPillar: $researchPillar, focusedTechnologyID: civicResearchID)
         }
         #if DEBUG
         .sheet(isPresented: $showDeveloperTools) { DeveloperToolsView(session: session) }
@@ -183,7 +184,7 @@ struct SettlementView: View {
                 Button {
                     session.inspect(buildingID: building.id)
                 } label: {
-                    Text("\(session.configuration.definition(building.kind).name) #\(building.id) · \(building.origin.x), \(building.origin.y)")
+                    Text("\(session.buildingName(building)) #\(building.id) · \(building.origin.x), \(building.origin.y)")
                 }.accessibilityIdentifier("inspectBuilding-\(building.id)")
             }
         } label: {
@@ -326,7 +327,7 @@ struct SettlementView: View {
                 Text("Producing now: \(session.producingBuildingCount(for: resource)) buildings").font(.subheadline.bold())
                     .accessibilityIdentifier("resourceProducerCount")
                 if resource == .knowledge {
-                    Text("Another storytelling circle can speed research. Natural Knowledge improves output; enough inhabitants and balanced worker priorities keep both knowledge and materials flowing.").font(.caption)
+                    Text("Upgrade the civic center for knowledge and culture. Optional storytelling circles can speed research. Natural Knowledge improves output; inhabitants and balanced worker priorities keep knowledge and materials flowing.").font(.caption)
                 }
                 Text("WHERE TO GATHER OR MAKE").font(.caption.bold())
                 ForEach(session.productionSources(for: resource), id: \.kind) { definition in
@@ -335,6 +336,11 @@ struct SettlementView: View {
                         ForEach((definition.recipes ?? []).filter { $0.outputsPerMinute[resource] > 0 }, id: \.id) { recipe in
                             Text(recipe.name + (amounts(recipe.inputsPerMinute).isEmpty ? "" : " · uses " + amounts(recipe.inputsPerMinute) + " / min"))
                                 .font(.caption).foregroundStyle(.secondary)
+                        }
+                        if definition.kind == .campfire, resource == .knowledge || resource == .culture {
+                            ForEach(session.configuration.civicLevels?.filter { $0.culturalOutputPerMinute[resource] > 0 } ?? [], id: \.level) { level in
+                                Text(level.name + " · " + amounts(level.culturalOutputPerMinute) + " / min · workers \(workforceNumber(level.workersRequired))").font(.caption)
+                            }
                         }
                         if definition.requiresResearch { Text(unlockRequirement(definition.kind)).font(.caption).foregroundStyle(.secondary) }
                     }
@@ -431,7 +437,7 @@ struct SettlementView: View {
         switch session.nextGuidance.action {
         case .build: "Open Buildings"
         case .research: "Open Research"
-        case .recipe, .priority, .inspect: "Inspect building"
+        case .recipe, .priority, .inspect, .upgrade: "Inspect building"
         case .explore: "Open Explore"
         case .resource: "Resource help"
         case .population: "Population and workers"
@@ -455,7 +461,7 @@ struct SettlementView: View {
         case .research(let id):
             researchPillar = session.configuration.technologyDefinitions.first { $0.id == id }?.pillar ?? .science
             showJourney = false; showResearch = true
-        case .recipe(let id, _), .priority(let id, _), .inspect(let id):
+        case .recipe(let id, _), .priority(let id, _), .inspect(let id), .upgrade(let id):
             showJourney = false; panel = nil; session.inspect(buildingID: id)
         case .explore: showJourney = false; panel = .explore
         case .resource(let resource): showJourney = false; inspectedResource = ResourceInspection(resource: resource)
@@ -504,7 +510,7 @@ struct SettlementView: View {
         return ScrollView {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
-                    Text(definition.name + " · Lv \(building.level)").font(.headline)
+                    Text(session.buildingName(building) + " · Lv \(building.level)").font(.headline).accessibilityIdentifier("civicLevelName")
                     Spacer()
                     Button { session.inspectedBuilding = nil } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close inspection")
                 }
@@ -514,7 +520,11 @@ struct SettlementView: View {
                         .font(.caption).accessibilityIdentifier("buildingProductivity")
                     if !effect(definition).isEmpty { Text("Base configuration: " + effect(definition)).font(.caption) }
                     if session.configuration.workforceRules != nil { workforceControls(building, definition: definition) }
-                    if let recipes = definition.recipes, !recipes.isEmpty {
+                    if let civic = session.civicDefinition(for: building) {
+                        Text("Founding provisions / min: " + amounts(definition.recipes?.first?.outputsPerMinute ?? definition.ratesPerMinute) + " · Housing \(definition.housing). Cultural staffing does not affect these provisions.").font(.caption)
+                        Text("Base cultural output / min: " + amounts(civic.culturalOutputPerMinute)).font(.caption).accessibilityIdentifier("civicCulturalOutput")
+                    }
+                    if session.civicDefinition(for: building) == nil, let recipes = definition.recipes, !recipes.isEmpty {
                         Text("PRODUCTION MODE").font(.system(size: 10, weight: .bold)).tracking(1)
                         ForEach(recipes, id: \.id) { recipe in
                             recipeButton(recipe, building: building, selected: building.productionModeID == recipe.id || (building.productionModeID == nil && recipes.first?.id == recipe.id))
@@ -537,7 +547,13 @@ struct SettlementView: View {
                         Button("Upgrade to level \(building.level + 1)") { session.upgrade(buildingID: building.id) }
                             .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
                             .disabled(session.upgradeIssue(buildingID: building.id) != nil).accessibilityIdentifier("upgradeBuilding")
-                        if let issue = session.bootstrapSpendIssue(for: upgradeCost) {
+                        if let researchID = session.upgradeResearch(for: building), !session.researchedIDs.contains(researchID),
+                           let technology = session.configuration.technologyDefinitions.first(where: { $0.id == researchID }) {
+                            Button("Research " + technology.name + " to unlock") {
+                                civicResearchID = technology.id; researchPillar = technology.pillar; showResearch = true
+                            }.frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("civicPrerequisiteResearch")
+                        }
+                        if let issue = session.upgradeIssue(buildingID: building.id) {
                             Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange)
                         }
                     } else if session.configuration.economyRules != nil {
@@ -549,17 +565,17 @@ struct SettlementView: View {
                     Text("\(Int(ceil(building.constructionRemainingSeconds ?? 0)))s remaining").font(.caption)
                 }
                 Text("Tile \(building.origin.x), \(building.origin.y) · \(building.occupiedFootprint(in: session.configuration).width)×\(building.occupiedFootprint(in: session.configuration).height) footprint").font(.caption).accessibilityIdentifier("inspectedBuildingPosition")
-                if building.kind != .campfire {
+                if building.kind != .campfire || session.configuration.civicLevels != nil {
                     Button("Move building") { session.beginRelocation(buildingID: building.id) }
                         .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("moveBuilding")
                 }
                 Button("Close inspection") { session.inspectedBuilding = nil }.frame(minHeight: 44)
             }.padding(16).frame(maxWidth: .infinity, alignment: .leading)
-        }.background(panelColor, in: RoundedRectangle(cornerRadius: 18))
+        }.background(panelColor, in: RoundedRectangle(cornerRadius: 18)).accessibilityIdentifier("buildingInspection")
     }
     private func workforceControls(_ building: PlacedBuilding, definition: BuildingDefinition) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            let required = definition.workersRequired ?? 0
+            let required = session.workersRequired(for: building)
             Text("Workers: \(workforceNumber(session.workersAllocated(to: building))) / \(workforceNumber(required))")
                 .font(.subheadline).accessibilityIdentifier("buildingWorkers")
             if required > 0 {

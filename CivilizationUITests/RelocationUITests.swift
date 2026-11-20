@@ -11,6 +11,126 @@ final class RelocationUITests: XCTestCase {
         if resume.isEnabled { resume.tap() } else { app.buttons["newNormalGame"].tap() }
     }
 
+    @MainActor func testCivicUpgradeResearchRoundTripAndRestart() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        func reveal(_ element: XCUIElement) {
+            for _ in 0..<6 where !element.isHittable { app.scrollViews["buildingInspection"].swipeUp() }
+            XCTAssertTrue(element.isHittable)
+        }
+        func inspect() {
+            XCTAssertTrue(app.buttons["settlementBuildings"].waitForExistence(timeout: 20))
+            app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            let center = app.descendants(matching: .any).matching(identifier: "inspectBuilding-0").firstMatch
+            XCTAssertTrue(center.waitForExistence(timeout: 5)); center.tap()
+        }
+        inspect()
+        let locked = app.buttons["civicPrerequisiteResearch"]
+        reveal(locked); XCTAssertTrue(locked.label.contains("Oral Tradition")); locked.tap()
+        let oral = app.buttons["research-oralTradition"]
+        XCTAssertTrue(oral.waitForExistence(timeout: 5)); XCTAssertTrue(oral.isHittable)
+        XCTAssertTrue(app.staticTexts["research-description-oralTradition"].exists)
+        oral.tap()
+        app.buttons["returnToCivicCenter"].tap()
+        let upgrade = app.buttons["upgradeBuilding"]
+        reveal(upgrade); XCTAssertTrue(upgrade.isEnabled); upgrade.tap()
+        XCTAssertTrue(app.staticTexts["civicLevelName"].label.contains("Gathering Place"))
+        reveal(locked); XCTAssertTrue(locked.label.contains("Social Order")); locked.tap()
+        XCTAssertTrue(app.buttons["research-socialOrder"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["research-description-socialOrder"].exists)
+        app.buttons["closeResearch"].tap() // Done also restores the same inspection.
+        XCTAssertTrue(app.staticTexts["civicLevelName"].label.contains("Gathering Place"))
+        capture("civic-gathering-place", app: app)
+        app.terminate(); launchNormal(app); inspect()
+        XCTAssertTrue(app.staticTexts["civicLevelName"].label.contains("Gathering Place"))
+        let move = app.buttons["moveBuilding"]; reveal(move); move.tap()
+        XCTAssertTrue(app.buttons["cancelRelocation"].waitForExistence(timeout: 5))
+        app.buttons["cancelRelocation"].tap()
+    }
+
+    @MainActor func testCivicCouncilCircleAndRelocationPersist() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        var earned = try GameEngine(configuration: .bundled(), now: Date().addingTimeInterval(-1080))
+        try earned.research("oralTradition"); try earned.upgrade(buildingID: 0)
+        earned.advance(to: earned.state.lastUpdated.addingTimeInterval(1080))
+        XCTAssertGreaterThanOrEqual(earned.state.resources.knowledge, 50)
+        let blockedRoad = try XCTUnwrap(earned.state.discoveredTiles?.sorted { $0.y == $1.y ? $0.x < $1.x : $0.y < $1.y }.first {
+            abs($0.x - earned.configuration.map.campfire.x) + abs($0.y - earned.configuration.map.campfire.y) == 1 && earned.roadIssue(at: $0) == nil
+        })
+        try earned.editRoads(at: [blockedRoad], style: .trodden)
+        struct Envelope: Encodable { let version = 6; let state: GameState }
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state: earned.state)).base64EncodedString()
+        launchNormal(app)
+        func reveal(_ element: XCUIElement) {
+            for _ in 0..<6 where !element.isHittable { app.scrollViews["buildingInspection"].swipeUp() }
+            XCTAssertTrue(element.isHittable)
+        }
+        func inspect() {
+            XCTAssertTrue(app.buttons["settlementBuildings"].waitForExistence(timeout: 20))
+            app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            let center = app.descendants(matching: .any).matching(identifier: "inspectBuilding-0").firstMatch
+            XCTAssertTrue(center.waitForExistence(timeout: 5)); center.tap()
+        }
+        inspect()
+        let research = app.buttons["civicPrerequisiteResearch"]; reveal(research); research.tap()
+        let social = app.buttons["research-socialOrder"]
+        XCTAssertTrue(social.waitForExistence(timeout: 5)); XCTAssertTrue(social.isEnabled); social.tap()
+        app.buttons["returnToCivicCenter"].tap()
+        let upgrade = app.buttons["upgradeBuilding"]; reveal(upgrade); upgrade.tap()
+        XCTAssertTrue(app.staticTexts["civicLevelName"].label.contains("Council Circle"))
+        let move = app.buttons["moveBuilding"]; reveal(move); move.tap()
+        let map = app.otherElements["settlementMap"], frame = map.frame
+        let config = earned.configuration
+        func camera() throws -> (x: Double, y: Double, zoom: Double) {
+            let value = map.value as? String ?? ""
+            let expression = try NSRegularExpression(pattern: "camera=(-?[0-9.]+),(-?[0-9.]+) zoom=([0-9.]+)")
+            let match = try XCTUnwrap(expression.firstMatch(in: value, range: NSRange(value.startIndex..., in: value)))
+            let text = value as NSString
+            return (try XCTUnwrap(Double(text.substring(with: match.range(at: 1)))),
+                    try XCTUnwrap(Double(text.substring(with: match.range(at: 2)))),
+                    try XCTUnwrap(Double(text.substring(with: match.range(at: 3)))))
+        }
+        let initialCamera = try camera()
+        func point(_ tile: Tile) -> CGVector {
+            let p = MapGeometry.point(for: tile)
+            return CGVector(dx: 0.5 + (p.x - initialCamera.x) / initialCamera.zoom / frame.width,
+                            dy: 0.5 - (p.y - initialCamera.y) / initialCamera.zoom / frame.height)
+        }
+        let site = try XCTUnwrap(earned.state.discoveredTiles?.sorted { $0.y == $1.y ? $0.x < $1.x : $0.y < $1.y }.first {
+            let p = point($0)
+            return $0 != config.map.campfire && earned.relocationIssue(buildingID: 0, at: $0) == nil && (0.35...0.55).contains(p.dx) && (0.40...0.66).contains(p.dy)
+        })
+        map.coordinate(withNormalizedOffset: point(config.map.campfire)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: point(site)))
+        XCTAssertFalse(app.buttons["cancelRelocation"].exists)
+        inspect()
+        XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("Tile \(site.x), \(site.y)"), "Expected \(site), actual \(app.staticTexts["inspectedBuildingPosition"].label), frame \(frame), camera \(map.value as? String ?? "")")
+        capture("civic-council-circle-moved", app: app)
+        app.terminate(); launchNormal(app); inspect()
+        XCTAssertTrue(app.staticTexts["civicLevelName"].label.contains("Council Circle"))
+        XCTAssertTrue(app.staticTexts["inspectedBuildingPosition"].label.contains("Tile \(site.x), \(site.y)"), "Expected \(site), actual \(app.staticTexts["inspectedBuildingPosition"].label), frame \(frame), camera \(map.value as? String ?? "")")
+        app.buttons.matching(identifier: "Close inspection").element(boundBy: 1).tap()
+        app.buttons["Center on settlement"].tap()
+        let movedPoint = MapGeometry.point(for: site)
+        let expectedCamera = String(format: "camera=%.2f,%.2f", movedPoint.x + 80, movedPoint.y + 30)
+        let centered = NSPredicate { _, _ in (map.value as? String ?? "").contains(expectedCamera) }
+        expectation(for: centered, evaluatedWith: nil); waitForExpectations(timeout: 5)
+        let centeredCamera = try camera()
+        func movedScreenPoint(_ tile: Tile) -> CGVector {
+            let p = MapGeometry.point(for: tile)
+            return CGVector(dx: 0.5 + (p.x - centeredCamera.x) / centeredCamera.zoom / frame.width,
+                            dy: 0.5 - (p.y - centeredCamera.y) / centeredCamera.zoom / frame.height)
+        }
+        map.coordinate(withNormalizedOffset: movedScreenPoint(site)).press(forDuration: 0.55, thenDragTo: map.coordinate(withNormalizedOffset: movedScreenPoint(blockedRoad)))
+        XCTAssertTrue(app.buttons["cancelRelocation"].waitForExistence(timeout: 5))
+        app.buttons["cancelRelocation"].tap()
+    }
+
     @MainActor func testNormalLaunchMenuNewGameAndContinue() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
@@ -604,6 +724,7 @@ final class RelocationUITests: XCTestCase {
             case .build(let kind):
                 let tile = try XCTUnwrap((0..<24).flatMap { y in (0..<32).map { Tile(x: $0, y: y) } }.first { game.placementIssue(kind, at: $0) == nil })
                 try game.build(kind, at: tile)
+            case .upgrade(let id): try game.upgrade(buildingID: id)
             case .research(let id): try game.research(id)
             case .recipe(let id, let mode): try game.setProductionMode(buildingID: id, recipeID: mode)
             case .priority(let id, let priority): try game.setWorkerPriority(buildingID: id, priority: priority)
@@ -614,7 +735,9 @@ final class RelocationUITests: XCTestCase {
         }
         XCTAssertTrue(game.fullStoneAgeRequirementsMet)
         XCTAssertEqual(game.state.stoneAgeCompleted, true)
-        struct Envelope: Encodable { let version = 5; let state: GameState }
+        XCTAssertNoThrow(try GameEngine(state: game.state, configuration: game.configuration))
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        struct Envelope: Encodable { let version = 6; let state: GameState }
         app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
         app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state: game.state)).base64EncodedString()
         launchNormal(app)
@@ -646,7 +769,7 @@ final class RelocationUITests: XCTestCase {
             game.advance(to: game.state.lastUpdated.addingTimeInterval(30))
         }
         XCTAssertEqual(game.state.resources[.wood], 20)
-        struct Envelope: Encodable { let version = 5; let state: GameState }
+        struct Envelope: Encodable { let version = 6; let state: GameState }
         app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
         app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state: game.state)).base64EncodedString()
         launchNormal(app)
@@ -757,7 +880,7 @@ final class RelocationUITests: XCTestCase {
         XCTAssertEqual(masks,Set(UInt8(0)...15))
         XCTAssertFalse(g.fullStoneAgeRequirementsMet)
         print("ROAD_DENSE_FIXTURE tiles=\(roads.count) masks=\(masks.sorted())")
-        struct Envelope:Encodable { let version = 5;let state:GameState }
+        struct Envelope:Encodable { let version = 6;let state:GameState }
         app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
         app.launchEnvironment["CIVILIZATION_UI_EARNED_SAVE"] = try JSONEncoder().encode(Envelope(state:g.state)).base64EncodedString()
         app.launchEnvironment["CIVILIZATION_RENDER_METRICS"] = "1";launchNormal(app)

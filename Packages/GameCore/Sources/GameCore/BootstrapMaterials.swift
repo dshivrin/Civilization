@@ -57,6 +57,9 @@ public extension GameEngine {
         guard let building = state.buildings.first(where: { $0.id == buildingID }), let cost = upgradeCost(for: building) else {
             return .placement("This building cannot be upgraded further.")
         }
+        if let id = upgradeResearch(for: building), !researchedIDs.contains(id) {
+            return .researchUnavailable("Requires " + (configuration.technologyDefinitions.first { $0.id == id }?.name ?? id) + ".")
+        }
         guard canAfford(cost) else { return .insufficientResources }
         return bootstrapSpendIssue(for: cost)
     }

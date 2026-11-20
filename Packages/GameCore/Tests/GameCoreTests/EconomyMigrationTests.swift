@@ -46,7 +46,7 @@ private struct EconomyMigrationEnvelope: Codable {
     try store.save(migrated)
     let backup = url.appendingPathExtension("seed-0.2.1.bak")
     #expect(try Data(contentsOf:backup) == original)
-    #expect(try JSONDecoder().decode(EconomyMigrationEnvelope.self,from:Data(contentsOf:url)).version == 5)
+    #expect(try JSONDecoder().decode(EconomyMigrationEnvelope.self,from:Data(contentsOf:url)).version == 6)
     try store.save(migrated)
     #expect(try Data(contentsOf:backup) == original)
     #expect(try store.load(configuration:configuration) == migrated)

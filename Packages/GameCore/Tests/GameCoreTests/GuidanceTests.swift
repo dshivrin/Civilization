@@ -23,7 +23,7 @@ private let guidanceEpoch = Date(timeIntervalSince1970: 20_000_000)
     }
     try game.research("oralTradition")
     let hint = game.guidance(for: "technology-hunting")
-    #expect(hint.action == .build(.storytellingCircle))
+    #expect(hint.action == .upgrade(0))
     #expect(hint.explanation.contains("knowledge") || hint.explanation.contains("Knowledge"))
     #expect(!game.journeyChapters[4].isComplete)
 }
@@ -79,6 +79,7 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
                 let map = game.configuration.map
                 let tile = try #require((0..<map.height).flatMap { y in (0..<map.width).map { Tile(x: $0, y: y) } }.first { game.placementIssue(kind, at: $0) == nil }, "No valid site: \(hint.title)")
                 try game.build(kind, at: tile); counts["build", default: 0] += 1
+            case .upgrade(let id): try game.upgrade(buildingID: id)
             case .research(let id): try game.research(id); counts["research", default: 0] += 1
             case .recipe(let id, let recipe): try game.setProductionMode(buildingID: id, recipeID: recipe); counts["recipe", default: 0] += 1
             case .priority(let id, let priority): try game.setWorkerPriority(buildingID: id, priority: priority); counts["priority", default: 0] += 1
@@ -120,7 +121,8 @@ func ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds: Double) throws
     #expect(game.state.stoneAgeCompleted == true, "Recent recommendations: \(last)")
     #expect(game.fullStoneAgeRequirementsMet)
     #expect(game.journeyChapters.allSatisfy { $0.isComplete })
-    #expect(game.constructedKinds == Set(game.configuration.buildings.map(\.kind)))
+    #expect(game.constructedKinds == Set(game.configuration.buildings.map(\.kind)).subtracting([.storytellingCircle]))
+    #expect(game.civicLevel == 3)
     #expect(game.researchedIDs == Set(game.configuration.technologyDefinitions.map(\.id)))
     #expect(game.state.completedPillarGoals?.count == 5)
     #expect(game.discoveredTileCount < game.configuration.map.width * game.configuration.map.height)

@@ -82,7 +82,7 @@ struct BuildingCatalogView: View {
         let affordable = session.canAfford(definition.cost)
         let supplier = locked || campfire ? nil : session.bootstrapRequirement(for: definition.cost, constructing: definition.kind)
         let supplierName = supplier.map { session.configuration.definition($0).name }
-        let status = locked ? "Research required" : supplierName.map { "Build " + $0 + " first" } ?? (campfire ? "Fixed anchor" : count > 0 ? "Constructed · \(count)" : affordable ? "Available" : "Need resources")
+        let status = locked ? "Research required" : supplierName.map { "Build " + $0 + " first" } ?? (campfire ? "Permanent civic center" : count > 0 ? "Constructed · \(count)" : affordable ? "Available" : "Need resources")
         let actionLabel = campfire ? "Campfire already placed" : locked ? definition.name + ": research required" : supplierName.map { definition.name + ": build " + $0 + " first" } ?? ("Build " + definition.name)
         let blocked = locked || campfire || supplier != nil
         let color: Color = supplier != nil ? .orange : locked ? parchment.opacity(0.6) : count > 0 ? .mint : .yellow

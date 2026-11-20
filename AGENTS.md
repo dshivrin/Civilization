@@ -1,3 +1,9 @@
+# GAME-LOOP-01 delivered; isolated playtest follow-up — 20 November 2026
+
+Owner approvalc716670 resolves the earlier civic design gate. [Delivery](docs/milestones/game-loop-01.md): same movable1×1founding civic ID, L2Gathering Place/L3Council Circle, paid research gates, fixed founding provisions, civic chapter/pillar/readiness objectives, exact prerequisite/return UI and non-destructive v6 progression history. 204Debug/184Release +5Release exclusions and targeted native phone/mini/Pro/Release entry checks pass; existing backup read-only validation preserves every original byte. No physical install/reset/save overwrite or art replacement. Commit/push to personal first-era-review.
+
+Next direct owner request: add existing time multipliers and resource grants for faster gameplay review. Owner explicitly selected **separate review copy; preserve normal progress**. Keep existing developer companions independent as well; do not overwrite normal or developer saves for this follow-up. No unrelated gameplay backlog.
+
 # Civilization Builder — Codex project instructions
 
 ## Permanent goal-based execution and reusable approvals — 20 November 2026

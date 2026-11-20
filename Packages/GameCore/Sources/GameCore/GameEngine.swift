@@ -23,6 +23,7 @@ public struct GameEngine: Sendable {
                           discoveredTiles: configuration.initialDiscoveredTiles,
                           explorationRemainingSeconds: nil, explorationRadius: configuration.explorationRules?.initialRadius,
                           depositRemaining: configuration.economyRules == nil ? nil : Dictionary(uniqueKeysWithValues: (configuration.naturalDeposits ?? []).filter { !$0.renewable }.map { ($0.id, $0.capacity) }))
+        if configuration.civicLevels != nil { state.civicProgress = CivicProgress(foundingBuildingID: 0) }
     }
     public init(state: GameState, configuration: GameConfiguration) throws {
         try configuration.validate()
@@ -65,7 +66,7 @@ public struct GameEngine: Sendable {
         }
         return result
     }
-    public var housingCapacity: Int { state.buildings.filter(\.isOperational).reduce(0) { $0 + configuration.definition($1.kind).housing * $1.level } }
+    public var housingCapacity: Int { state.buildings.filter(\.isOperational).reduce(0) { $0 + configuration.definition($1.kind).housing * (civicDefinition(for: $1) == nil ? $1.level : 1) } }
     public var growthIntervalSeconds: Double {
         activeTechnologies.reduce(configuration.populationRules?.growthIntervalSeconds ?? 0) { $0 * $1.effects.growthIntervalMultiplier }
     }
@@ -143,7 +144,7 @@ public struct GameEngine: Sendable {
     }
     public func relocationIssue(buildingID: Int, at origin: Tile, orientation: BuildingOrientation? = nil) -> GameError? {
         guard let building = state.buildings.first(where: { $0.id == buildingID }) else { return .placement("Choose an existing building to move.") }
-        guard building.kind != .campfire else { return .placement("The campfire is the fixed settlement anchor.") }
+        guard building.kind != .campfire || configuration.civicLevels != nil else { return .placement("The campfire is the fixed settlement anchor.") }
         let target = orientation ?? building.resolvedOrientation
         if target != building.resolvedOrientation && !configuration.definition(building.kind).resolvedOrientations.contains(target) {
             return .placement("This building does not support that orientation.")
@@ -229,6 +230,7 @@ public struct GameEngine: Sendable {
         evaluateGoals()
         spend(cost)
         state.buildings[index].upgradeLevel = state.buildings[index].level + 1
+        if state.buildings[index].kind == .campfire { state.civicProgress?.reachedLevels.append(state.buildings[index].level) }
         evaluateGoals()
     }
     /// Integrates constant rates between construction, food-threshold and growth events.
@@ -318,7 +320,8 @@ public struct GameEngine: Sendable {
     private mutating func evaluateGoals() {
         for goal in Goal.allCases where !state.completedGoals.contains(goal) {
             let achieved: Bool
-            if let kind = goal.building { achieved = state.buildings.contains { $0.kind == kind && $0.isOperational } }
+            if goal == .storytellingCircle && configuration.civicLevels != nil { achieved = civicLevel >= 2 }
+            else if let kind = goal.building { achieved = state.buildings.contains { $0.kind == kind && $0.isOperational } }
             else if goal == .oralTradition { achieved = state.researchedOralTradition }
             else { achieved = state.resources[.knowledge] >= configuration.knowledgeGoalUnits }
             if achieved {
@@ -332,6 +335,7 @@ public struct GameEngine: Sendable {
             }
             if state.completedPillarGoals?.count == pillarGoals.count && (configuration.requiresCompleteStoneAgeCatalog != true || fullStoneAgeRequirementsMet) { state.stoneAgeCompleted = true }
         }
+        recordJourneyProgress()
     }
     private func validateState() throws {
         func require(_ condition: Bool, _ reason: String) throws { if !condition { throw GameError.invalidSave(reason) } }
@@ -341,7 +345,17 @@ public struct GameEngine: Sendable {
         try require(state.buildings.allSatisfy { building in configuration.buildings.contains(where: { $0.kind == building.kind }) && building.level >= 1 && building.level <= (configuration.economyRules?.maximumUpgradeLevel ?? 1) }, "Unsupported building or invalid level")
         try require(Resource.allCases.allSatisfy { state.resources[$0].isFinite && state.resources[$0] >= 0 && state.resources[$0] <= capacities[$0] }, "Invalid resource balances")
         try require(state.buildings.count <= configuration.map.width * configuration.map.height && Set(state.buildings.map(\.id)).count == state.buildings.count, "Invalid building IDs")
-        try require(state.buildings.filter { $0.kind == .campfire }.count == 1 && state.buildings.first { $0.kind == .campfire }?.origin == configuration.map.campfire, "Missing or moved campfire")
+        try require(state.buildings.filter { $0.kind == .campfire }.count == 1 && (configuration.civicLevels != nil || civicCenter?.origin == configuration.map.campfire), "Missing or moved campfire")
+        if configuration.civicLevels != nil {
+            guard let history = state.civicProgress else { throw GameError.invalidSave("Missing civic progression history") }
+            try require(history.foundingBuildingID == civicCenter?.id && history.reachedLevels == Array(1...civicLevel), "Invalid civic identity or level history")
+            try require(history.completedChapters.isSubset(of: Set(1...7)), "Invalid chapter history")
+            let validObjectives = Set(journeyChapters.flatMap { chapter in chapter.objectives.map { "\(chapter.id):\($0.id)" } }).union(["5:building-storytellingCircle"])
+            try require(history.completedObjectives.isSubset(of: validObjectives), "Unknown completed objective")
+            for level in configuration.civicLevels! where level.level <= civicLevel {
+                if let id = level.requiredTechnology { try require(researchedIDs.contains(id), "Missing civic research prerequisite") }
+            }
+        }
         try require(state.nextBuildingID > (state.buildings.map(\.id).max() ?? -1) && state.nextBuildingID < Int.max - 768 && state.buildings.allSatisfy { $0.id >= 0 }, "Invalid next building ID")
         if configuration.progressionGoals != nil {
             let validGoals = Set(pillarGoals.map(\.id))
@@ -402,14 +416,23 @@ public struct GameEngine: Sendable {
         }
         try validateRoads()
         for goal in state.completedGoals {
+            if goal == .storytellingCircle && configuration.civicLevels != nil {
+                try require(civicLevel >= 2 || state.buildings.contains { $0.kind == .storytellingCircle && $0.isOperational }, "Storytelling reward has no witness")
+                continue
+            }
             if let kind = goal.building { try require(state.buildings.contains { $0.kind == kind && $0.isOperational }, "Goal has no building") }
             if goal == .oralTradition { try require(state.researchedOralTradition, "Research goal has no research") }
         }
         // All persistent achievements must match; otherwise a damaged save could regrant rewards.
         for goal in Goal.allCases {
+            if goal == .storytellingCircle && configuration.civicLevels != nil {
+                try require(civicLevel < 2 || state.completedGoals.contains(goal), "Civic reward history mismatch")
+                continue
+            }
             if let kind = goal.building { try require(state.completedGoals.contains(goal) == state.buildings.contains { $0.kind == kind && $0.isOperational }, "Construction reward history mismatch") }
         }
         try require(state.completedGoals.contains(.oralTradition) == state.researchedOralTradition, "Research history mismatch")
+        if configuration.civicLevels != nil { try validateCivicAchievementWitnesses() }
     }
 }
 
@@ -446,3 +469,15 @@ public extension GameEngine {
     mutating func developerRebaseClock(to now: Date) { state.lastUpdated = now }
 }
 #endif
+
+extension GameEngine {
+    mutating func recordJourneyProgress() {
+        guard state.civicProgress != nil else { return }
+        for chapter in journeyChapters {
+            for objective in chapter.objectives where objective.isComplete {
+                state.civicProgress?.completedObjectives.insert("\(chapter.id):\(objective.id)")
+            }
+            if chapter.isComplete { state.civicProgress?.completedChapters.insert(chapter.id) }
+        }
+    }
+}

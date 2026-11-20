@@ -3,7 +3,7 @@ import Foundation
 /// Read-only advice. UI actions navigate; they never bypass the engine's real transactions.
 public enum GuidanceAction: Equatable, Sendable {
     case build(BuildingKind), research(String), recipe(Int, String), priority(Int, Int)
-    case inspect(Int), explore, resource(Resource), population, journey, complete
+    case inspect(Int), upgrade(Int), explore, resource(Resource), population, journey, complete
 }
 public struct SettlementGuidance: Equatable, Sendable {
     public let title: String
@@ -15,6 +15,9 @@ public struct SettlementGuidance: Equatable, Sendable {
 public extension GameEngine {
     var settlementGuidance: SettlementGuidance {
         var resolver = GuidanceResolver(game: self, net: rates)
+        if state.stoneAgeCompleted == true && !fullStoneAgeRequirementsMet {
+            return SettlementGuidance(title: "Stone Age complete", explanation: "Bronze Age unlocked — your previously earned readiness, chapters and rewards are preserved. Further civic upgrades remain available at your pace. Bronze Age gameplay is not available yet.", action: .complete, waitSeconds: nil)
+        }
         if fullStoneAgeRequirementsMet {
             return SettlementGuidance(title: "Stone Age complete", explanation: "Bronze Age unlocked — readiness milestone earned. Every building type, technology, required resource territory and development pillar is complete. Bronze Age gameplay is not available yet. Keep building in this settlement.", action: .complete, waitSeconds: nil)
         }
@@ -43,16 +46,18 @@ private struct GuidanceResolver {
     mutating func objective(_ id: String) -> SettlementGuidance {
         if id.hasPrefix("building-"), let kind = BuildingKind(rawValue: String(id.dropFirst(9))) { return build(kind) }
         if id.hasPrefix("technology-") { return research(String(id.dropFirst(11))) }
+        if id.hasPrefix("civic-level-"), let level = Int(id.dropFirst(12)) { return civicUpgrade(to: level) }
         switch id {
         case "onboarding-knowledge": return resource(.knowledge, target: config.knowledgeGoalUnits)
         case "buildings":
-            if let definition = config.buildings.first(where: { !game.constructedKinds.contains($0.kind) }) { return build(definition.kind) }
+            if let definition = config.buildings.first(where: { !(config.civicLevels != nil && $0.kind == .storytellingCircle) && !game.constructedKinds.contains($0.kind) }) { return build(definition.kind) }
         case "research":
             if let technology = config.technologyDefinitions.first(where: { !game.researchedIDs.contains($0.id) }) { return research(technology.id) }
         case "discovery":
             for r in Resource.allCases where game.requiredDiscoveryResources.contains(r) && !game.discoveredRequiredResources.contains(r) { return discover(r) }
         case "pillars":
             if let goal = game.pillarGoals.first(where: { !game.isPillarGoalComplete(id: $0.id) }) {
+                if let level = goal.requiredCivicLevel, game.civicLevel < level { return civicUpgrade(to: level) }
                 for kind in goal.requiredBuildings where !game.constructedKinds.contains(kind) { return build(kind) }
                 for tech in goal.requiredTechnologies where !game.researchedIDs.contains(tech) { return research(tech) }
                 if game.state.population < goal.minimumPopulation { return grow() }
@@ -64,6 +69,14 @@ private struct GuidanceResolver {
         default: break
         }
         return help
+    }
+    mutating func civicUpgrade(to level: Int) -> SettlementGuidance {
+        guard enter("civic-\(level)"), let center = game.civicCenter,
+              let next = config.civicLevels?.first(where: { $0.level == center.level + 1 }), center.level < level else { return help }
+        if let id = next.requiredTechnology, !game.researchedIDs.contains(id) { return research(id) }
+        if let missing = Resource.allCases.first(where: { game.state.resources[$0] < next.cost[$0] }) { return resource(missing, target: next.cost[missing]) }
+        if let supplier = game.bootstrapRequirement(for: next.cost) { return build(supplier) }
+        return advice("Upgrade to " + next.name, "Inspect your permanent civic center and upgrade it. It produces knowledge and culture with one shared worker; founding food, water and housing remain available. No additional storytelling building is required.", .upgrade(center.id))
     }
     mutating func build(_ kind: BuildingKind, reason: String = "") -> SettlementGuidance {
         guard enter("build-" + kind.rawValue), let definition = config.buildings.first(where: { $0.kind == kind }), kind != .campfire else { return help }
@@ -106,17 +119,18 @@ private struct GuidanceResolver {
                     return build(source.kind, reason: "A second knowledge producer can shorten this research wait. Workers remain shared with other production. ")
                 }
             }
-            let detail = r == .knowledge ? " A storytelling circle makes knowledge. Another circle and Natural Knowledge can help, but workers are shared with material producers." : " You can work on other chapters while resources accumulate."
+            let detail = r == .knowledge ? " Your upgraded civic center makes knowledge. Optional storytelling circles and Natural Knowledge can help; cultural workers are shared with material producers." : " You can work on other chapters while resources accumulate."
             return advice("Gather " + name(r), "\(Int(game.state.resources[r]))/\(Int(ceil(target))) stored; net +\(String(format: "%.1f", net[r])) per minute. About \(Int(seconds))s at the current rate; staffing and growth can change it." + detail, .resource(r), wait: max(1, seconds))
         }
+        if config.civicLevels != nil && game.civicLevel < 2 && (r == .knowledge || r == .culture) { return civicUpgrade(to: 2) }
         let sources = config.buildings.filter { $0.kind != .campfire && ($0.recipes ?? []).contains { $0.outputsPerMinute[r] > 0 } }
         guard let source = sources.first, let recipe = source.recipes?.first(where: { $0.outputsPerMinute[r] > 0 }) else { return help }
-        let matching = game.state.buildings.filter { $0.isOperational && (game.recipe(for: $0)?.outputsPerMinute[r] ?? 0) > 0 }
+        let matching = game.state.buildings.filter { $0.isOperational && ((game.recipe(for: $0)?.outputsPerMinute[r] ?? 0) + (game.civicDefinition(for: $0)?.culturalOutputPerMinute[r] ?? 0)) > 0 }
         if let producer = matching.first {
             let inputs = game.recipe(for: producer)?.inputsPerMinute ?? ResourceAmounts()
             for input in Resource.allCases where inputs[input] > 0 && game.state.resources[input] < 1 && net[input] <= 0 { return resource(input, target: max(1, inputs[input])) }
             if let depositResource = game.recipe(for: producer)?.depositResource, !game.discoveredRequiredResources.contains(depositResource) { return discover(depositResource) }
-            if let altered = game.state.buildings.first(where: { $0.isOperational && (config.definition($0.kind).workersRequired ?? 0) > 0 && ($0.workerPriority ?? 1) != 1 }) {
+            if let altered = game.state.buildings.first(where: { $0.isOperational && game.workersRequired(for: $0) > 0 && ($0.workerPriority ?? 1) != 1 }) {
                 return advice("Balance worker priorities", "Set " + config.definition(altered.kind).name + " to Normal priority. High priorities can starve other production; food and water retain a protected share.", .priority(altered.id, 1))
             }
             if game.workforceProductivity(producer) == 0 {

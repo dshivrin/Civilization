@@ -75,6 +75,10 @@ public extension GameEngine {
         let factors = configuration.economyRules == nil ? nil : economySnapshot.factors
         return state.buildings.filter { building in
             guard building.isOperational else { return false }
+            if let civic = civicDefinition(for: building) {
+                let founding = recipe(for: building)?.outputsPerMinute ?? configuration.definition(building.kind).ratesPerMinute
+                return founding[resource] > 0 || (civic.culturalOutputPerMinute[resource] > 0 && workforceProductivity(building) > 1e-9)
+            }
             let outputs = recipe(for: building)?.outputsPerMinute ?? configuration.definition(building.kind).ratesPerMinute
             return outputs[resource] > 0 && (factors?[building.id] ?? (factors == nil ? 1 : 0)) > 1e-9
         }.count
@@ -84,6 +88,9 @@ public extension GameEngine {
         return recipes.first { $0.id == building.productionModeID } ?? recipes.first
     }
     func upgradeCost(for building: PlacedBuilding) -> ResourceAmounts? {
+        if building.kind == .campfire, building.isOperational, let levels = configuration.civicLevels {
+            return levels.first { $0.level == building.level + 1 }?.cost
+        }
         guard let rules = configuration.economyRules, building.kind != .campfire,
               building.isOperational, building.level < rules.maximumUpgradeLevel,
               var cost = configuration.definition(building.kind).upgradeCost else { return nil }
@@ -124,12 +131,15 @@ extension GameEngine {
             let recipe = recipe(for: building)
             var outputs = recipe?.outputsPerMinute ?? definition.ratesPerMinute
             var inputs = recipe?.inputsPerMinute ?? ResourceAmounts()
-            let scale = 1 + Double(building.level - 1) * (configuration.economyRules?.outputBonusPerLevel ?? 0)
+            let civic = civicDefinition(for: building)
+            let scale = civic == nil ? 1 + Double(building.level - 1) * (configuration.economyRules?.outputBonusPerLevel ?? 0) : 1
             let geo = geographicMultiplier(building)
-            let demand = definition.workersRequired ?? 0
+            let demand = workersRequired(for: building)
             let labor = configuration.workforceRules == nil || demand == 0 ? 1 : min(1,workers[building.id,default:0] / demand)
             for r in Resource.allCases {
-                outputs[r] *= labor * scale * geo * technologyMultipliers[r]
+                if let civic {
+                    outputs[r] = (outputs[r] + civic.culturalOutputPerMinute[r] * labor) * technologyMultipliers[r]
+                } else { outputs[r] *= labor * scale * geo * technologyMultipliers[r] }
                 inputs[r] = (inputs[r] + (definition.maintenancePerMinute?[r] ?? 0)) * scale * labor
             }
             var deposit: NaturalDeposit?

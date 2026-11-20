@@ -87,7 +87,7 @@ private func geometrySite(_ g: GameEngine, _ kind: BuildingKind, _ orientation: 
     try g.relocate(buildingID:1,to:tile)
     #expect(g.state == before)
     let envelope = try #require(JSONSerialization.jsonObject(with:Data(contentsOf:url)) as? [String:Any])
-    #expect(envelope["version"] as? Int == 5)
+    #expect(envelope["version"] as? Int == 6)
 }
 
 @Test func legacyMissingGeometryKeepsOriginalLayoutAndState() throws {

@@ -869,7 +869,7 @@
       "id": "oralTradition",
       "name": "Oral Tradition",
       "pillar": "science",
-      "summary": "Unlocks storytelling circles and the first knowledge production.",
+      "summary": "Unlocks the Gathering Place civic upgrade and optional storytelling circles for knowledge and culture.",
       "prerequisites": [],
       "cost": {
         "food": 20,
@@ -935,7 +935,7 @@
       "id": "socialOrder",
       "name": "Social Order",
       "pillar": "population",
-      "summary": "Reduces the eligible population growth interval to 90 seconds. Provisional foundation research.",
+      "summary": "Unlocks the Council Circle civic upgrade and reduces the eligible population growth interval to 90 seconds.",
       "prerequisites": [
         "oralTradition"
       ],
@@ -1538,7 +1538,6 @@
       "title": "Shared stories and traditions",
       "pillar": "culture",
       "requiredBuildings": [
-        "storytellingCircle",
         "shrine"
       ],
       "requiredTechnologies": [],
@@ -1547,7 +1546,8 @@
         "culture": 30
       },
       "minimumDiscoveredTiles": 0,
-      "minimumNetRates": {}
+      "minimumNetRates": {},
+      "requiredCivicLevel": 3
     },
     {
       "id": "securityFoundation",
@@ -1563,6 +1563,44 @@
       "minimumResources": {},
       "minimumDiscoveredTiles": 600,
       "minimumNetRates": {}
+    }
+  ],
+  "civicLevels": [
+    {
+      "level": 1,
+      "name": "Campfire",
+      "cost": {},
+      "culturalOutputPerMinute": {},
+      "workersRequired": 0
+    },
+    {
+      "level": 2,
+      "name": "Gathering Place",
+      "requiredTechnology": "oralTradition",
+      "cost": {
+        "food": 10,
+        "wood": 20,
+        "stone": 10
+      },
+      "culturalOutputPerMinute": {
+        "knowledge": 3,
+        "culture": 2
+      },
+      "workersRequired": 1
+    },
+    {
+      "level": 3,
+      "name": "Council Circle",
+      "requiredTechnology": "socialOrder",
+      "cost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "culturalOutputPerMinute": {
+        "knowledge": 3.75,
+        "culture": 2.5
+      },
+      "workersRequired": 1
     }
   ]
 }

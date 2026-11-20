@@ -1,3 +1,11 @@
+# GAME-LOOP-01 delivered for review — 20 November 2026
+
+Permanent unique movable civic identity, paid/research-gated L2/L3, shared cultural worker with fixed founding provisions, chapter/pillar/readiness replacement, exact research round trip and v6 permanent credit are implemented. Supported earlier save formats validate before snapshotting; exact backups, metadata-bearing developer saves, version-boundary/contradiction checks and no-repeat rewards are verified. [Milestone](milestones/game-loop-01.md), [evidence](testing/game-loop-01/progress.md). Core204Debug/184Release +5exclusions; targeted native phone/mini/Pro and ordinary Release iOS18 entry pass. Actual earlier backup read-only validation preserves all original bytes. No physical action or art replacement. Known minor old developer original-comparison label retained in backlog.
+
+Direct follow-up request: use existing time multipliers/resource grants for a quicker gameplay review. Owner explicitly selected a separate review copy preserving normal progress; implement next, separately from GAME-LOOP-01. Preserve existing developer companions too.
+
+---
+
 # GAME-LOOP-01 — blocked on explicit design decisions, 20 November 2026
 
 Fetched personal origin/first-era-review; clean baseline b87ca0b includes approved plan661db65 and completed tooling. Canonical documents now reconcile movable permanent civic identity and replacement of mandatory storytelling construction. [Decision proposal](design/proposals/2026-11-20-game-loop-01-reconciliation.md) records missing economy/research/chapter/legacy reward choices with catalog-grounded recommendations. Await owner approval before product code; no implementation, migration, device action or save modification. Media repo readable/clean; no new level-specific art found. Continue using reusable tools after decisions; preserve existing branch, player assets/progress and unrelated backlog.

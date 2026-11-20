@@ -1,11 +1,11 @@
 # Design decisions and unresolved details
 
-## GAME-LOOP-01 — approved direction; implementation decisions pending
+## GAME-LOOP-01 — approved for implementation
 
-The owner-approved [Permanent Civic Center Evolution plan](plans/GAME-LOOP-01.md) (`661db65`) and direct execution instruction supersede older fixed/immovable campfire requirements (FP-002 and the campfire restriction in MOVE-003). One permanent, relocatable civic center retains its entity identity and upgrade history: L1 Campfire → L2 Gathering Place → L3 Council Circle. Civic upgrades replace mandatory duplicate Storytelling Circle construction, including chapter/pillar/catalog requirements; existing assets and earned progress must survive. Historical unchanged-economy/fixed-campfire/stop-for-playtest passages do not prevent this newly authorized task. Other backlog and media approvals remain separate.
+Owner [approval c716670](plans/GAME-LOOP-01-APPROVAL.md) approves the [reconciliation](docs/design/proposals/2026-11-20-game-loop-01-reconciliation.md): permanent relocatable 1×1 civic identity, L2 after Oral Tradition (10 food/20 wood/10 stone; 3 knowledge/2 culture per minute), L3 after Social Order (10 wood/5 stone; 3.75 knowledge/2.5 culture). One cultural worker; founding 2 food/3 water per minute and 5 housing independent of level/staffing. L2 chapter1, L3 chapter5/culture pillar/readiness; circles optional and preserved. Earlier FP-002/MOVE-003 immovability and mandatory-circle predicates are superseded for this task. Preserve all completed chapters/objectives/pillars/readiness and old reward identifiers without repurchase or repeated rewards. No unrelated backlog, art production or second-era gameplay; no physical reinstall/reset/overwriting player saves. Implementation/verification in progress; [execution record](docs/testing/game-loop-01/progress.md).
 
-**Blocked before gameplay changes:** the plan supplies no approved civic costs/rates, level research gates or explicit legacy/reward policy and requires approval of unestablished values. [Reconciliation, catalog-grounded proposal and exact decisions](docs/design/proposals/2026-11-20-game-loop-01-reconciliation.md). Proposed values are not approved mechanics. No GAME-LOOP-01 implementation or migration is claimed; existing product/saves remain unchanged.
 
+GAME-LOOP-01 is implemented for review: 204Debug/184Release +5exclusions, targeted native phone/mini/Pro and Release entry checks pass. No physical install/reset. Save v6 retains civic identity, level and completed chapter/objective history; versions1–5 migrate through validated historical witnesses. Existing normal/developer files and backup bytes are preserved. [Delivery and scope](docs/milestones/game-loop-01.md).
 
 ## ENG-TOOLS-001 — reusable local engineering tools
 
