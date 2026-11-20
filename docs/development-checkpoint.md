@@ -1,5 +1,8 @@
 # Current checkpoint — S1-Geography delivered; environment visual review —20November2026
 
+Physical update now installed and first launch verified at Dima's direct request. Current56f4124signed product: fresh before/after backups production-validate and are byte-identical pre-launch; normal successfully converts to64×48with original5buildings/15roads/IDs/history and exact on-device backup; grouped developer64buildings/566roads remains byte-identical after normal launch. Existing legacy library selection retained, no new game/reset. [Metadata](testing/s1-geography/device-install.json). Earlier no-new-physical-install statements below are historical and superseded by this check. No runtime environment concept integration.
+
+
 Latest direct Product Owner instruction: all saves are development/test data; activate approved64×48normal default and MAP-001–004, then environment graphics. Supersedes all production-migration gate/pending32×24default notes below. Implementation core181b0a8/rendering56f4124. [Milestone](milestones/s1-geography.md), [assessment/concept](art/2026-11-20-environment-integration-assessment.md), [execution evidence](testing/s1-geography/progress.md).
 
 Completed: authentic one-campfire new64×48games; original768terrain cells/deposit identities/normal footprints preserved; lazy backed-up additive development transition; normal/developer isolation; reachable shared-reserve quarry18,16; opaque clouds and hidden-content interaction guards; existing10food/45s/2tile expeditions with map-bound46cap, permanent completion-only reveals and optional full-map exploration. Existing-world progress is preserved, not reset. No general production migration framework.

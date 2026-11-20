@@ -44,3 +44,7 @@ Next authorized stage has started with [environment integration assessment](../a
 ## Publication receipts
 
 Pushed through10b8536to personal dshivrin/Civilization first-era-review. [GitHub issue#1 actual report7034942171](https://github.com/dshivrin/Civilization/issues/1#issuecomment-7034942171). Native results handover submitted successfully to designated Master Development Coordination chat6aff4440-ac14-83eb-b7bd-1f2d8bd9a0a9; send receipt alone is not a designer/human acceptance claim. No private save contents uploaded.
+
+## Physical iPhone installation —20November2026
+
+At Dima's direct installation request, signed current product56f4124was built with unchanged signing/account settings, strict codesign verified, installed and launched successfully on his connected iPhone. Fresh backup production-validates normal5buildings/15roads and grouped developer64buildings/566roads. All3library/save files are byte-identical before first launch. Post-launch production validation confirms normal64×48identity with original buildings/roads/IDs/research/discovery histories preserved, exact on-device pre-Geography backup, unchanged developer bytes and original legacy selection/no extra game. Ordinary offline economy/time may advance. [Preservation metadata](../testing/s1-geography/device-install.json); private backups remain local under /tmp/civilization-geography-device-{before,after,launched}. No reset/uninstall/signing change or final-art integration. Human touch/cloud/art/enjoyment review and sustained hardware metrics remain open.

@@ -1,0 +1,46 @@
+{
+  "productCommit": "56f4124",
+  "installed": true,
+  "signedBuildVerified": true,
+  "freshBackupValidated": true,
+  "normalBefore": {
+    "map": "river-clearing-v1",
+    "buildings": 5,
+    "roads": 15
+  },
+  "developerBefore": {
+    "map": "river-clearing-review-64x48-v1",
+    "buildings": 64,
+    "roads": 566
+  },
+  "files": [
+    {
+      "file": "settlement-v1.json.developer",
+      "sha256": "52a0d141908bc570a40baaaba3fbddcf4e041bdc3ee28506cde14825407b6dfc",
+      "byteIdenticalBeforeLaunch": true
+    },
+    {
+      "file": "games-index.json",
+      "sha256": "eeb5c93da3ec09fce91d6325ed7c5ffecf5e41f6062082c1f34334a3df8d3811",
+      "byteIdenticalBeforeLaunch": true
+    },
+    {
+      "file": "settlement-v1.json",
+      "sha256": "ba945756d1bc878bed49be952f37fe8f1bc2fc2b168b63b58a872cb999a5cb27",
+      "byteIdenticalBeforeLaunch": true
+    }
+  ],
+  "launchVerified": true,
+  "privateSaveContentsCommitted": false,
+  "normalAfter": {
+    "map": "river-clearing-64x48-v1",
+    "width": 64,
+    "height": 48,
+    "buildings": 5,
+    "roads": 15
+  },
+  "originalGeometryHistoryAndDiscoveryPreserved": true,
+  "onDeviceTransitionBackupByteIdentical": true,
+  "developerByteIdenticalAfterNormalLaunch": true,
+  "librarySelectionPreserved": true
+}
