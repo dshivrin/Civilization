@@ -81,3 +81,5 @@ Pending Saves physical launch (hardware lock), then S1-Geography review/spec/imp
 ## Continuation/quota
 
 Native Goal remains active. Previous quota stop occurred; independent review initially failed from quota and was resumed only after user Continue/usage reset. Last post-reset read0%. Supported same-chat continuation exists; exact unattended quota-reset wake remains unverified and must not be promised. Respect host limits, retain coherent commits/checkpoint; no reset credits, purchases, alternate account, cron/launchd, duplicate agent development sessions or bypass. Do not mark Goal complete until all authorized stages truly meet requirements. This documentation commit follows verified product7f5e10c; retrieve its SHA with git log -1.
+
+Installation report actually sent to the designated Master chat; [returned acknowledgment](design/sources/2026-11-20-s1-play-installation-acknowledgment.md) retrieved. The chat confirms installed/awaiting human playtest, distinguishes proposals from authorization and preserves the existing DEV-001 identity. No further engineering milestone started.
