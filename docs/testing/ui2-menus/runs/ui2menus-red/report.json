@@ -1,0 +1,38 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": "foundingMenus",
+    "simulator": [],
+    "only_testing": [],
+    "output": "/tmp/ui2menus-red",
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/5e8f/Civilazation/Packages/GameCore",
+        "--filter",
+        "foundingMenus"
+      ],
+      "exitCode": 1,
+      "status": "failed",
+      "tests": 0,
+      "durationSeconds": 2.045,
+      "log": "/private/tmp/ui2menus-red/core-debug.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T02:19:14.751604+00:00",
+  "revision": {
+    "commit": "07e1011b8485cb245359ebe05afbe6dfca7eee32",
+    "dirty": true
+  },
+  "status": "failed"
+}

@@ -3,7 +3,7 @@ import Foundation
 import GameCore
 import GamePersistence
 
-/// UI2-1 only. Uses the ordinary engine and topology, never a second road graph.
+/// Isolated UI2 founding/menu review. Uses the ordinary engine and topology.
 public struct RiverbendFoundingReview {
     public private(set) var engine: GameEngine
     public init(now: Date) throws { engine = try GameEngine(configuration: .riverbendFoundingReview(), now: now) }
@@ -149,6 +149,60 @@ public struct RiverbendFoundingStore {
             return try Data(contentsOf: url)
         }
         review = checked; expectedBytes = bytes
+    }
+}
+public enum FoundingCatalogAction: Equatable { case build, materials, research(String) }
+public struct FoundingMaterialNeed {
+    public let resource: Resource
+    public let amount: Double
+    public let suppliers: [BuildingKind]
+}
+public extension RiverbendFoundingReview {
+    func catalogPlacementIssue(_ kind: BuildingKind, at tile: Tile) -> GameError? {
+        if kind == .hut { return hutIssue(at: tile) }
+        if let issue = engine.placementIssue(kind, at: tile) { return issue }
+        let center = engine.configuration.map.campfire
+        guard engine.configuration.definition(kind).footprint.tiles(at: tile).allSatisfy({ abs($0.x - center.x) + abs($0.y - center.y) >= 3 }) else {
+            return .placement("Keep the entire building outside the Lodge’s clear yard.")
+        }
+        return nil
+    }
+    func researchSupplier(_ id: String) -> BuildingKind? {
+        guard let tech = engine.configuration.technologyDefinitions.first(where: { $0.id == id }) else { return nil }
+        return engine.bootstrapRequirement(for: tech.cost)
+    }
+    func catalogAction(_ kind: BuildingKind) -> FoundingCatalogAction {
+        let definition = engine.configuration.definition(kind)
+        if !engine.isUnlocked(kind), let technology = engine.configuration.technologyDefinitions.first(where: { $0.effects.unlockedBuildings.contains(kind) }) {
+            return .research(nextRequiredTechnology(technology.id))
+        }
+        return !engine.canAfford(definition.cost) || engine.bootstrapRequirement(for: definition.cost, constructing: kind) != nil ? .materials : .build
+    }
+    func nextRequiredTechnology(_ id: String) -> String {
+        guard let technology = engine.configuration.technologyDefinitions.first(where: { $0.id == id }) else { return id }
+        if let prerequisite = technology.prerequisites.first(where: { !engine.researchedIDs.contains($0) }) {
+            return nextRequiredTechnology(prerequisite)
+        }
+        return id
+    }
+    func materialNeeds(for cost: ResourceAmounts) -> [FoundingMaterialNeed] {
+        Resource.allCases.compactMap { resource in
+            let missing = cost[resource] - engine.state.resources[resource]
+            guard missing > 0 else { return nil }
+            let suppliers = engine.configuration.buildings.filter { definition in
+                (definition.recipes ?? []).contains { $0.outputsPerMinute[resource] > 0 } || definition.ratesPerMinute[resource] > 0
+            }.map(\.kind)
+            return FoundingMaterialNeed(resource: resource, amount: missing, suppliers: suppliers)
+        }
+    }
+    mutating func research(_ id: String) throws { try engine.research(id) }
+    mutating func build(_ kind: BuildingKind, at tile: Tile) throws {
+        if kind == .hut { try buildHut(at: tile) }
+        else {
+            guard founded else { throw GameError.placement("Found the Lodge first.") }
+            if let issue = catalogPlacementIssue(kind, at: tile) { throw issue }
+            try engine.build(kind, at: tile)
+        }
     }
 }
 #endif

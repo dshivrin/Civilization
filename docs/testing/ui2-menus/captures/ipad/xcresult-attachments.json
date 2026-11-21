@@ -1,0 +1,323 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "4AB7EC22-BF38-4682-AC95-D62BFAAD1D26.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "economy-lab-positive-loop_0_72F17F7F-B460-45CA-BBB8-2ACA1A7FDDE1.png",
+        "timestamp" : 1795229106.128
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "65B74402-5EC5-4F8C-9864-4CB32A9DC959.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-09-reconnected_0_F837A05B-AED1-4164-B8F9-09772BB3FB51.png",
+        "timestamp" : 1795229149.124
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "BFB2D1A0-BAF1-4CA0-A582-A31F4C0A9284.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-08-reloaded_0_D89E8542-C257-41EC-AFC0-CB02C1B1E6DB.png",
+        "timestamp" : 1795229148.026
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "E627A1F2-BED0-4A03-94C0-584053902DEA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-07-disconnected-retained_0_2751B2CD-8F46-4D0F-8E35-2E825CD5058A.png",
+        "timestamp" : 1795229137.203
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "F393DC2E-AF6B-429C-9103-B6BF560EC94A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-06-connected_0_174EF977-31B7-4B9F-9437-B21FE23D2A6A.png",
+        "timestamp" : 1795229136.351
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "3F6B522C-A7CF-4680-8FC3-F0A30C84BD16.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-05-route-preview_0_5EA04890-BABF-4C54-8176-79C52A464463.png",
+        "timestamp" : 1795229135.618
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "695306ED-F6D3-48BC-906D-2D444578AF09.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-04-disconnected_0_CD51C13B-CF92-4DB8-9026-1A982F4041E3.png",
+        "timestamp" : 1795229133.024
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "C89CC218-3578-4594-92B7-50A786E31CDA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-03-visible-hut-fallback_0_6CAF1323-6CA3-4A6A-8C64-70CB7CC1D100.png",
+        "timestamp" : 1795229131.853
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "57FB673A-47D5-4E3A-B0A2-75E0A9603A24.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-02-lodge-free-path_0_73DCDAF5-87C2-47B7-ADDF-C782ABAD7A9D.png",
+        "timestamp" : 1795229129.639
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "C5BA1361-46BA-4CE8-9AC7-FC878501CEB6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-01-campfire_0_790D5853-E9BA-47B3-A81A-834A8695019D.png",
+        "timestamp" : 1795229128.699
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "4E74998F-2355-4516-9E4E-1148D500850A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-09-map-gestures_0_EF3EB163-1AE9-4EA9-A4C4-DD960F76A24C.png",
+        "timestamp" : 1795229208.443
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "AE8E38A6-85A2-4142-B4A5-41835E8B405D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-10-retained-scroll_0_BAC6102B-A12F-426C-9D90-406FE45CF2B5.png",
+        "timestamp" : 1795229204.072
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "7C3B96AB-3052-4150-9B7D-F4F7ECC34117.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-08-readable-roads_0_9E134F58-4125-4733-84E0-2584307B49F6.png",
+        "timestamp" : 1795229200.091
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "B1590D41-AD8E-4101-84D3-9FE1E6A21E44.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-07-exact-research-route_0_4AC60DD4-B8CC-4AAE-85D0-7747D552A440.png",
+        "timestamp" : 1795229192.795
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "D1091103-2339-49B2-9FDE-D86EA5D634C5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-06-research-locked_0_069AB7D5-2342-4238-AE2F-71E7201D5267.png",
+        "timestamp" : 1795229192.174
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "9CA6D2DD-E1E5-4FC7-B830-7F0129B21EC8.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-05-exact-material-route_0_F7A393EE-FCCD-46D7-90FB-7B117D3019ED.png",
+        "timestamp" : 1795229187.422
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "647360D7-6C13-43FB-AA2F-6C4D5A65B88E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-04-material-shortfall_0_1E9D3514-83EB-48B4-B698-47C5F5DB36B9.png",
+        "timestamp" : 1795229186.704
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "29AC2B63-0596-4CF1-9CDB-DF141F4F4730.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-03-dismiss-return_0_E8EB6428-CF2D-494D-BFF7-D1C36F8BF507.png",
+        "timestamp" : 1795229174.614
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "A59B69C9-243F-4A0F-888B-5758D2B7C5C6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-02-build_0_81BA95C0-A1E6-4B60-9C46-E3EE19038D48.png",
+        "timestamp" : 1795229169.7
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "25792AE8-A92B-49CE-9F8C-8A169CFEDDDD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-01-one-tap-goals_0_0850A375-DFCB-4C3A-95BC-7FD210398B88.png",
+        "timestamp" : 1795229163.345
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2MenusActionsAndRetainedReturn"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "116C54E0-335D-4A6E-9EB8-C7D240A318B5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-09-map-gestures_0_59780303-2EF5-4A36-8650-28F419FC7BA0.png",
+        "timestamp" : 1795229272.488
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "D3DAA9D2-6B73-4872-9CC5-0DA448C1FDE3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-10-retained-scroll_0_16266D9F-F485-43DE-9679-57AD6C000A55.png",
+        "timestamp" : 1795229268.142
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "68C08944-CDF7-4A14-866C-3D865D238580.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-13-roads-map-panel-tail_0_C1FFA13C-E1E6-4AF2-8980-460E5E810FC7.png",
+        "timestamp" : 1795229262.483
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "83B32D90-7DDC-43D0-BCD7-8036C1697B89.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-12-roads-map-panel_0_A3679698-5DA7-4F3A-B245-BD59A63876B3.png",
+        "timestamp" : 1795229261.323
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "858F6C00-0516-4443-B4E8-07E950FDDC9E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-11-roads-text-tail_0_8D4C19E5-F1A2-4C1F-B190-91299C6DE5E1.png",
+        "timestamp" : 1795229260.632
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "C834B87A-AD61-427C-80F2-9F242D455834.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-08-readable-roads_0_9D475445-E741-4D9D-85FC-09605519B0F9.png",
+        "timestamp" : 1795229259.485
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "315E80C0-EEDB-417B-AE6F-36BC26C6F2FD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-07-exact-research-route_0_3BC3C541-1A4E-487A-BF6F-359C7EC9F9A1.png",
+        "timestamp" : 1795229252.209
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "90F5D218-0392-4DA8-8194-FC420E2EF711.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-06-research-locked_0_F066393C-8BEF-4CF6-A92D-2C1A0C124E92.png",
+        "timestamp" : 1795229251.575
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "D88CCB7D-ECBC-45D9-B6D0-C1C06DBA50C1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-05-exact-material-route_0_142D770A-9668-4B18-947F-352A3268A132.png",
+        "timestamp" : 1795229246.825
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "5383CE1A-E33F-481A-8696-CF7B81F54059.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-04-material-shortfall_0_6020C09E-3F42-423D-9FB9-986BDC44A2C0.png",
+        "timestamp" : 1795229246.102
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "50693245-280E-4E74-8E70-87C0EBC8C29C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-03-dismiss-return_0_14DDDD63-A0DE-4704-AF86-84121777A013.png",
+        "timestamp" : 1795229234.114
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "6CFABEDF-9B9A-44B9-BD49-D9F59F0D75A5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-02-build_0_A491DC76-9D58-47AF-877C-FB1CA9C07C51.png",
+        "timestamp" : 1795229229.25
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "31FB9955-C3CC-40CC-9A01-AD87D629C550.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-01-one-tap-goals_0_8155004E-045D-4B67-BC58-4FB6B2CAF727.png",
+        "timestamp" : 1795229222.829
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2MenusLargerText()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2MenusLargerText"
+  }
+]

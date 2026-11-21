@@ -1,0 +1,52 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "both",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [],
+    "only_testing": [],
+    "output": "/tmp/ui2menus-core-review-fixed",
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/5e8f/Civilazation/Packages/GameCore"
+      ],
+      "exitCode": 1,
+      "status": "failed",
+      "tests": 320,
+      "durationSeconds": 26.991,
+      "log": "/private/tmp/ui2menus-core-review-fixed/core-debug.log"
+    },
+    {
+      "name": "core-release",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/5e8f/Civilazation/Packages/GameCore",
+        "-c",
+        "release"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 235,
+      "durationSeconds": 30.265,
+      "log": "/private/tmp/ui2menus-core-review-fixed/core-release.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T02:31:56.143122+00:00",
+  "revision": {
+    "commit": "07e1011b8485cb245359ebe05afbe6dfca7eee32",
+    "dirty": true
+  },
+  "status": "failed"
+}

@@ -1,0 +1,1190 @@
+[
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/economy-lab-positive-loop.png",
+    "sha256": "fa2e5dd5f45c5832602201155e1da8dda479380e143d2fd1fbfa135d327dfdb4",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "AA77CD46-92D9-4540-99FA-745ECE69DE3C.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "economy-lab-positive-loop_0_37B547BE-1ABC-4EBD-85BF-8696939329AE.png",
+      "timestamp": 1795229120.216
+    },
+    "test": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/ui2-09-reconnected.png",
+    "sha256": "2e154e63612d6bd2fd29d43e9975f6c973a5f49f6d03a8c1752ce692d92756e9",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "7D7B580B-C84D-4CA4-8993-25E39C3305A3.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-09-reconnected_0_DB13667B-CECE-4BA2-9F2D-78E74BE42FCF.png",
+      "timestamp": 1795229165.331
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/ui2-08-reloaded.png",
+    "sha256": "b676d6a162cf57895f6ff1f8e539ca0ce86f14701b3721a559e7c2a693579b27",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "93378A51-F91D-4E75-8945-B5BC030705CB.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-08-reloaded_0_932F4D32-23E5-49F2-AE44-308F2FF2F0BC.png",
+      "timestamp": 1795229164.31
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/ui2-07-disconnected-retained.png",
+    "sha256": "e7902ccc9d6a85113d1c3ec45643ce586c6d7adc50afc4143fbb119eb3695810",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "B544F10C-0819-49D6-8791-A5A0A887E52D.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-07-disconnected-retained_0_43BC3158-F3AD-4969-A0F1-C9FECA35E7C6.png",
+      "timestamp": 1795229153.543
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/ui2-06-connected.png",
+    "sha256": "62b851189d55dc9c3f5c5d9c0816e8617465d9aec0530176d2299c0113176df6",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "E761BB87-43DC-423C-8923-4CF23F5BE5F0.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-06-connected_0_C8BB9139-C2E3-4ABC-A536-983DEE9A4453.png",
+      "timestamp": 1795229152.827
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/ui2-05-route-preview.png",
+    "sha256": "59febd57d8cf3570e53796acc7324fc51eac8e7ff72931a020edf01f9ebffe65",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "B3FE2AAC-E469-4EBC-8C05-7BEB812BFCE8.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-05-route-preview_0_48AB32E1-00F5-49F5-8039-2CE3A2C7A391.png",
+      "timestamp": 1795229152.214
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/ui2-04-disconnected.png",
+    "sha256": "1e95a009c75e42fa250d3e5cce24beb7a7fcbb04fcd77547cdcfd6a9613ef7ac",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "BD34B63C-CE23-41B0-A4F3-F346F1D79583.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-04-disconnected_0_03EF50E0-11DB-4034-A67F-03280086910C.png",
+      "timestamp": 1795229148.227
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/ui2-03-visible-hut-fallback.png",
+    "sha256": "ac5e251fcb6adcb9698617e27e7e6d217529896866dc5f0f14daa44e22dbc9dc",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "C613C18E-195D-4EEF-8999-3CDC42568519.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-03-visible-hut-fallback_0_8EED5A2E-2139-4CF3-A9D6-C85CF51B2067.png",
+      "timestamp": 1795229145.382
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/ui2-02-lodge-free-path.png",
+    "sha256": "7223aa03aec7ff19045a110363855b0e965e12f7a1d75f5e62d904ad3da6f1ce",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "743A1EC5-B84E-43B5-A23F-D35627AF042B.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-02-lodge-free-path_0_9809346D-8AC6-4511-AF4D-78C6B6ADB936.png",
+      "timestamp": 1795229143.345
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/ui2-01-campfire.png",
+    "sha256": "6885275b2f2ca34625fabe2a909a97fe67a2ccf4ea8c8c5303b8698102725428",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "F9308665-C1A9-4866-A4B7-B56D38160BBB.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-01-campfire_0_FDF0B04B-C346-40D2-ACF3-389281AFB871.png",
+      "timestamp": 1795229142.534
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-09-map-gestures.png",
+    "sha256": "dbe2fdde5df9671517e160427b1766d4f45fd11c30fd09eb3750e2975f55cb40",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "E59D5247-212D-4626-AEC0-1958CD93673A.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-09-map-gestures_0_812320A5-E206-4B0E-A155-1DA2B79FEB28.png",
+      "timestamp": 1795229219.381
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-10-retained-scroll.png",
+    "sha256": "a47bd09bfe3d4847396a0a1ab3e6f2bf6ec85d4994ca6f968c114b1a09ee6cde",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "9BFF55A2-B089-4ADD-A1BC-C05A5CEFB7F3.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-10-retained-scroll_0_E9D2049E-E4AB-45FE-8F22-AB9CAD28AF52.png",
+      "timestamp": 1795229215.378
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-08-readable-roads.png",
+    "sha256": "a1d03edee7bae89845345d2b9959e7cb7526291e6e3424afcd30c1d2ddd755c1",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "9E496883-0C4B-44C0-BE8F-58E7692DD2BA.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-08-readable-roads_0_DEEB0109-476C-4BAC-BBC9-1B04173BE5AE.png",
+      "timestamp": 1795229210.041
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-07-exact-research-route.png",
+    "sha256": "6ebb1bad93bb58dd3e1670acf9457981acd45f2ff232cb94e277c5db1f2910f5",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "CDB3DA99-8973-46F5-B15F-8800E8E28A5A.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-07-exact-research-route_0_3A19B79C-F914-4CDF-A3CE-02E6CE984F69.png",
+      "timestamp": 1795229203.945
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-06-research-locked.png",
+    "sha256": "23e211f8a86de152f92c1ffa5ca22bddd5bac53dff47cc4739d50a3168ae8b37",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "828ED96D-AB4A-4EDC-BDBB-D3BBC3D452BA.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-06-research-locked_0_561C775A-F4C6-4D46-8B33-9B21902472F8.png",
+      "timestamp": 1795229203.375
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-05-exact-material-route.png",
+    "sha256": "05087ca94a2c545bcc9b84b84c478dfb3d5ba0fb561433bed08bf2cd40a067aa",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "EB1C9588-3EBF-4AA1-B01B-11868B42AE10.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-05-exact-material-route_0_BD0D418F-EA75-4CA1-B625-EC3311C2CC01.png",
+      "timestamp": 1795229199.297
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-04-material-shortfall.png",
+    "sha256": "0cd3eb0f5222a5f21c602fd509f6d79efc360ce5494c056c73488282d4299b55",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "7118C68A-C1AD-4AEC-900D-5024D124F281.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-04-material-shortfall_0_D793A542-9B8F-412F-BC1B-12834C6A98B6.png",
+      "timestamp": 1795229198.634
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-03-dismiss-return.png",
+    "sha256": "91746815c006ed66e42cc75dd7266dc9ae9ffd8b9a920b6e66a9b2f593dcc14a",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "C670470F-B637-4D95-939B-E48B1CFBCE11.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-03-dismiss-return_0_C50516DA-4D79-415B-9B94-80178E358606.png",
+      "timestamp": 1795229188.301
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-02-build.png",
+    "sha256": "4e4808086d59a44fa8c3ab1de5d35343966f13d556f14c64c0d9d2258c05cc23",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "18333F40-209F-45F6-8284-B5D9AADF5AF6.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-02-build_0_DDEA93BF-F227-4255-85BA-E57DC580DC66.png",
+      "timestamp": 1795229184.264
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-01-one-tap-goals.png",
+    "sha256": "526a0e73491e84ce5fd7cc71a602423e005285a8c7a1165ca6a86332c3c6e46d",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "E1F04BFA-6134-4ACA-9265-6B42B768928A.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-01-one-tap-goals_0_083D9675-31B1-4E84-942E-804030573D78.png",
+      "timestamp": 1795229179.434
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-09-map-gestures.png",
+    "sha256": "dea500629292aaa779b81c128ead38d2b7828145228fdb3fe63e1f48adb178af",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "3C8C24C7-F1D0-411C-91FD-2B05F514CDC6.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-09-map-gestures_0_2F991C5C-D3B5-441D-B0CC-42A0CB2CC533.png",
+      "timestamp": 1795229276.952
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-10-retained-scroll.png",
+    "sha256": "456b05cfa397c1a485cf7c2c760a7c5160e11fe46b691ccdc0eb856079a31a37",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "BBD03AAA-2B25-4310-AB8B-9AA7C3369E95.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-10-retained-scroll_0_8AD9F659-E615-491F-BF3E-28023300D4D4.png",
+      "timestamp": 1795229272.926
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-13-roads-map-panel-tail.png",
+    "sha256": "617b1646199686dddc2d0e3bae716b5e48790b39432d9cf99ae6116def58e053",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "AB8C31DF-0257-4997-BD75-6D565F999F9C.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-13-roads-map-panel-tail_0_F3E0DEB2-10C1-491A-B469-62E49F691AB6.png",
+      "timestamp": 1795229266.619
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-12-roads-map-panel.png",
+    "sha256": "e9a427b94738530da7a81d7c9517ca4556b7afbc6cdf71d82e27114cfab63eea",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "E46E1993-D4D8-4589-89E9-F0DD76894104.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-12-roads-map-panel_0_D1A09D0D-94B4-49AF-B68C-8CE4F3F64EB3.png",
+      "timestamp": 1795229265.647
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-11-roads-text-tail.png",
+    "sha256": "377b108b0b01c1f882dbf886f1b8c81296f6b64c138d6366ae3a5c1e50924f5c",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "B3967EC7-C2B3-4E09-9956-B32145D4C099.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-11-roads-text-tail_0_F1D04281-A26C-4B59-A3D2-27C025E47FA3.png",
+      "timestamp": 1795229265.052
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-08-readable-roads.png",
+    "sha256": "a89545e4c9fc74278f382aeae1128b3c5afe7ecab496293a85ef0e226896086a",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "E3A91312-90E8-4782-92D9-8BD216EF9417.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-08-readable-roads_0_122C1E38-D50B-414D-8630-2BE63DECCAA0.png",
+      "timestamp": 1795229263.967
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-07-exact-research-route.png",
+    "sha256": "580b461ecde4344de1ce63e8bb95a83601ecfaa7223943dea8174dbe8271a0b4",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "673F98E6-1226-41D4-9DB2-B7860584C1FB.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-07-exact-research-route_0_EA7A7D9B-8440-4A61-A3D3-D42F6C246A99.png",
+      "timestamp": 1795229257.899
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-06-research-locked.png",
+    "sha256": "4f4fac4d61d547e0f6f8d3afe1de6c2bfa5ca6f2e9e458d17eca7fe773f3fad1",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "00C0471A-8D30-449D-B502-32378511F8AD.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-06-research-locked_0_45736F4B-5090-476F-B0D8-947516BC8F7C.png",
+      "timestamp": 1795229257.318
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-05-exact-material-route.png",
+    "sha256": "2719472ce377436eeb3a1639cb9be80887a72706ca93b84cac4984de24c76464",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "8C89DA29-A0B0-41E9-8E4C-159208A355F0.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-05-exact-material-route_0_BEFB0587-6ECE-4BFD-B437-7FF1DF17F9D0.png",
+      "timestamp": 1795229253.197
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-04-material-shortfall.png",
+    "sha256": "1fe1279d093904a31fc7bacf8647457b9a3d641c5305765b71749ffdaa31edf0",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "03C8F304-E7BE-4BCF-9BCE-59134CA6EE9E.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-04-material-shortfall_0_65E302DB-4954-4045-BE1E-1418B4D30356.png",
+      "timestamp": 1795229252.563
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-03-dismiss-return.png",
+    "sha256": "ade94be9849d9cc3a112e917febaa6f130266ca536fbce4deff87e904385bcf5",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "48983C42-462D-43A7-960C-09A2C4F50582.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-03-dismiss-return_0_5B6383B9-DB2E-4F6F-BE3F-46458996AA0F.png",
+      "timestamp": 1795229242.17
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-02-build.png",
+    "sha256": "9398181f5ff5db06076e89f57e815f13c3655f9aaacb4eea9e62650f608718a4",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "3BBF5932-414E-42F9-A3BD-51D794271D43.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-02-build_0_0A32BA43-2F91-4BAE-95F6-1C0CF7D0BA10.png",
+      "timestamp": 1795229238.153
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "phone",
+    "path": "docs/testing/ui2-menus/captures/phone/menus-large-01-one-tap-goals.png",
+    "sha256": "29f933d08053a8d03dcef0992e080a0ef5c1c65cbd8c774f3dfdaac75251618b",
+    "width": 750,
+    "height": 1334,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "deviceName": "Riverbend UI2 Menus SE",
+      "exportedFileName": "9E4892EF-D11B-4B64-A902-C4E67782EF48.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-01-one-tap-goals_0_6B2050F2-0FB2-4DD0-829F-F710BE093764.png",
+      "timestamp": 1795229233.498
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-phone-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/economy-lab-positive-loop.png",
+    "sha256": "c6dde0b116ff7952f2a05b93457de7ea98cf943eaafb8460e2528b72337b1b67",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "4AB7EC22-BF38-4682-AC95-D62BFAAD1D26.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "economy-lab-positive-loop_0_72F17F7F-B460-45CA-BBB8-2ACA1A7FDDE1.png",
+      "timestamp": 1795229106.128
+    },
+    "test": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/ui2-09-reconnected.png",
+    "sha256": "2a1727cee06af15d3fff2f25706e2c2b5b8c0b7e12d9418cd97a6b03f1f72a8b",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "65B74402-5EC5-4F8C-9864-4CB32A9DC959.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-09-reconnected_0_F837A05B-AED1-4164-B8F9-09772BB3FB51.png",
+      "timestamp": 1795229149.124
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/ui2-08-reloaded.png",
+    "sha256": "539e1a7758a77fe7ada48c86688414f87fbfd4b5d3187ee89b86a193e711712a",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "BFB2D1A0-BAF1-4CA0-A582-A31F4C0A9284.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-08-reloaded_0_D89E8542-C257-41EC-AFC0-CB02C1B1E6DB.png",
+      "timestamp": 1795229148.026
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/ui2-07-disconnected-retained.png",
+    "sha256": "f7143eb24c7aa8ad8bd956eeba1567b2052c3f98f97ded6dc5a3b37b67182279",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "E627A1F2-BED0-4A03-94C0-584053902DEA.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-07-disconnected-retained_0_2751B2CD-8F46-4D0F-8E35-2E825CD5058A.png",
+      "timestamp": 1795229137.203
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/ui2-06-connected.png",
+    "sha256": "9fe94da46e3b99dc5069097a44e2fa91c6f4c5e075766a7768dc2ad2896264a0",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "F393DC2E-AF6B-429C-9103-B6BF560EC94A.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-06-connected_0_174EF977-31B7-4B9F-9437-B21FE23D2A6A.png",
+      "timestamp": 1795229136.351
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/ui2-05-route-preview.png",
+    "sha256": "c227fc89bfbbe94c0599e099e7dd0a82feab77405acbf4c2beb68c6e2e4aead4",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "3F6B522C-A7CF-4680-8FC3-F0A30C84BD16.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-05-route-preview_0_5EA04890-BABF-4C54-8176-79C52A464463.png",
+      "timestamp": 1795229135.618
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/ui2-04-disconnected.png",
+    "sha256": "66251a00cd6d80b5171862f81be6f961d4e9cf19d85a1fe80eee6fdafe22ca7e",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "695306ED-F6D3-48BC-906D-2D444578AF09.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-04-disconnected_0_CD51C13B-CF92-4DB8-9026-1A982F4041E3.png",
+      "timestamp": 1795229133.024
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/ui2-03-visible-hut-fallback.png",
+    "sha256": "18cad279a5f63fa454ffbf228a038481292a746a020ea81b71151eea0b188ac9",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "C89CC218-3578-4594-92B7-50A786E31CDA.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-03-visible-hut-fallback_0_6CAF1323-6CA3-4A6A-8C64-70CB7CC1D100.png",
+      "timestamp": 1795229131.853
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/ui2-02-lodge-free-path.png",
+    "sha256": "3b6259cedfd689a20a464993b862ed83990653c801dc367eeb86b542ccfb041f",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "57FB673A-47D5-4E3A-B0A2-75E0A9603A24.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-02-lodge-free-path_0_73DCDAF5-87C2-47B7-ADDF-C782ABAD7A9D.png",
+      "timestamp": 1795229129.639
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/ui2-01-campfire.png",
+    "sha256": "e172a199ad34c589d7ca3aa190e74f03c3200f9155eb104532d1994edeb156da",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "C5BA1361-46BA-4CE8-9AC7-FC878501CEB6.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ui2-01-campfire_0_790D5853-E9BA-47B3-A81A-834A8695019D.png",
+      "timestamp": 1795229128.699
+    },
+    "test": "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-09-map-gestures.png",
+    "sha256": "c25b21d42c5afea8f74f0380eaae6ec83af566cba8cc59a866021633b97f0405",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "4E74998F-2355-4516-9E4E-1148D500850A.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-09-map-gestures_0_EF3EB163-1AE9-4EA9-A4C4-DD960F76A24C.png",
+      "timestamp": 1795229208.443
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-10-retained-scroll.png",
+    "sha256": "8b62c814ccecb3aee1a48101f81ef8442bf0e5b384602a7b4160749d94142a8d",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "AE8E38A6-85A2-4142-B4A5-41835E8B405D.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-10-retained-scroll_0_BAC6102B-A12F-426C-9D90-406FE45CF2B5.png",
+      "timestamp": 1795229204.072
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-08-readable-roads.png",
+    "sha256": "be229fabffb916e8c3774f19b3ad1e0eb75f96172c328915495c9c86f19a6525",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "7C3B96AB-3052-4150-9B7D-F4F7ECC34117.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-08-readable-roads_0_9E134F58-4125-4733-84E0-2584307B49F6.png",
+      "timestamp": 1795229200.091
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-07-exact-research-route.png",
+    "sha256": "8517d9f1b0e6ccc392e063cdf8a8aa9d9b11f3180e490be453ba8f7b37c5f806",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "B1590D41-AD8E-4101-84D3-9FE1E6A21E44.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-07-exact-research-route_0_4AC60DD4-B8CC-4AAE-85D0-7747D552A440.png",
+      "timestamp": 1795229192.795
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-06-research-locked.png",
+    "sha256": "3ae3802fd974843a2ebd1b9ef34a2296f835f7d965b0190e87c194855ab0fcd8",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "D1091103-2339-49B2-9FDE-D86EA5D634C5.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-06-research-locked_0_069AB7D5-2342-4238-AE2F-71E7201D5267.png",
+      "timestamp": 1795229192.174
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-05-exact-material-route.png",
+    "sha256": "a1035a4959fb866f4d8f7812bd0fed851620e797632d905421e3a7024924c6eb",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "9CA6D2DD-E1E5-4FC7-B830-7F0129B21EC8.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-05-exact-material-route_0_F7A393EE-FCCD-46D7-90FB-7B117D3019ED.png",
+      "timestamp": 1795229187.422
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-04-material-shortfall.png",
+    "sha256": "043cc276213aabe413d64d8d165fb9349bfe2eac950e61a2d944e693b7f522db",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "647360D7-6C13-43FB-AA2F-6C4D5A65B88E.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-04-material-shortfall_0_1E9D3514-83EB-48B4-B698-47C5F5DB36B9.png",
+      "timestamp": 1795229186.704
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-03-dismiss-return.png",
+    "sha256": "9b7687570e62382a5ae8ad3b168ac2629259b4ef67bc3c2c83b070c8a35ba0d9",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "29AC2B63-0596-4CF1-9CDB-DF141F4F4730.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-03-dismiss-return_0_E8EB6428-CF2D-494D-BFF7-D1C36F8BF507.png",
+      "timestamp": 1795229174.614
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-02-build.png",
+    "sha256": "3c0aca031fe9ce0a1006e9296bc5e9ec302c6c205df13ccc13079e40c681f0b4",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "A59B69C9-243F-4A0F-888B-5758D2B7C5C6.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-02-build_0_81BA95C0-A1E6-4B60-9C46-E3EE19038D48.png",
+      "timestamp": 1795229169.7
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-01-one-tap-goals.png",
+    "sha256": "7c7f855dd5bed665dc7aef9792a40a23292bc1972596f427013dcc89fed932da",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "25792AE8-A92B-49CE-9F8C-8A169CFEDDDD.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-01-one-tap-goals_0_0850A375-DFCB-4C3A-95BC-7FD210398B88.png",
+      "timestamp": 1795229163.345
+    },
+    "test": "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-09-map-gestures.png",
+    "sha256": "ed141c653c4525065b45f872cb1fe09bd476ba43c6ae284d9ec342bdddec1ec3",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "116C54E0-335D-4A6E-9EB8-C7D240A318B5.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-09-map-gestures_0_59780303-2EF5-4A36-8650-28F419FC7BA0.png",
+      "timestamp": 1795229272.488
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-10-retained-scroll.png",
+    "sha256": "6fa311e5957d5a341ec84708dad50447f0f38caa5666eb370bae6f261356a9b0",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "D3DAA9D2-6B73-4872-9CC5-0DA448C1FDE3.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-10-retained-scroll_0_16266D9F-F485-43DE-9679-57AD6C000A55.png",
+      "timestamp": 1795229268.142
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-13-roads-map-panel-tail.png",
+    "sha256": "518d1ab7ed489b3047f60a8951cd5f48f29246ee7965f10e83899cbddbd82e5c",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "68C08944-CDF7-4A14-866C-3D865D238580.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-13-roads-map-panel-tail_0_C1FFA13C-E1E6-4AF2-8980-460E5E810FC7.png",
+      "timestamp": 1795229262.483
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-12-roads-map-panel.png",
+    "sha256": "e80b53a6ed107eb35cfd03826691d124ad222bd3f092fe9fdf49613c007c98d4",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "83B32D90-7DDC-43D0-BCD7-8036C1697B89.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-12-roads-map-panel_0_A3679698-5DA7-4F3A-B245-BD59A63876B3.png",
+      "timestamp": 1795229261.323
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-11-roads-text-tail.png",
+    "sha256": "e2eaed52ccc0b6023d2650c537eb4be03017bd7bc75ac2c130fb44c894ab955f",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "858F6C00-0516-4443-B4E8-07E950FDDC9E.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-11-roads-text-tail_0_8D4C19E5-F1A2-4C1F-B190-91299C6DE5E1.png",
+      "timestamp": 1795229260.632
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-08-readable-roads.png",
+    "sha256": "d7507ad7ede3331701fef78362a1e55fcc6c7b9b358c030c32dc8145e7478904",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "C834B87A-AD61-427C-80F2-9F242D455834.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-08-readable-roads_0_9D475445-E741-4D9D-85FC-09605519B0F9.png",
+      "timestamp": 1795229259.485
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-07-exact-research-route.png",
+    "sha256": "c804c141f4ddcb8048b108e0024410caebf1b734c278d72fd54500ec1482b121",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "315E80C0-EEDB-417B-AE6F-36BC26C6F2FD.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-07-exact-research-route_0_3BC3C541-1A4E-487A-BF6F-359C7EC9F9A1.png",
+      "timestamp": 1795229252.209
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-06-research-locked.png",
+    "sha256": "c502f2d2e54e2bee8ea46c71ca362421b0815257360edc2f3fe095b6d2e36efd",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "90F5D218-0392-4DA8-8194-FC420E2EF711.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-06-research-locked_0_F066393C-8BEF-4CF6-A92D-2C1A0C124E92.png",
+      "timestamp": 1795229251.575
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-05-exact-material-route.png",
+    "sha256": "aac398d2e868e34d505538ff7b0321e3e96d4110ba8402b09bea224464dbee90",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "D88CCB7D-ECBC-45D9-B6D0-C1C06DBA50C1.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-05-exact-material-route_0_142D770A-9668-4B18-947F-352A3268A132.png",
+      "timestamp": 1795229246.825
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-04-material-shortfall.png",
+    "sha256": "5e83fddac3f1e3e5df46bfe855b9a651ca7f194d82c5be500db05649647270ea",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "5383CE1A-E33F-481A-8696-CF7B81F54059.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-04-material-shortfall_0_6020C09E-3F42-423D-9FB9-986BDC44A2C0.png",
+      "timestamp": 1795229246.102
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-03-dismiss-return.png",
+    "sha256": "16105c6172093b80c7ec9f7a8513c7482a5c7e997d6ff3e7b7f4228cd89ebbe1",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "50693245-280E-4E74-8E70-87C0EBC8C29C.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-03-dismiss-return_0_14DDDD63-A0DE-4704-AF86-84121777A013.png",
+      "timestamp": 1795229234.114
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-02-build.png",
+    "sha256": "a7eee525f173084f5558d40985f0dac47567de3a42978d1886433fa83b02f1f6",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "6CFABEDF-9B9A-44B9-BD49-D9F59F0D75A5.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-02-build_0_A491DC76-9D58-47AF-877C-FB1CA9C07C51.png",
+      "timestamp": 1795229229.25
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  },
+  {
+    "profile": "ipad",
+    "path": "docs/testing/ui2-menus/captures/ipad/menus-large-01-one-tap-goals.png",
+    "sha256": "045013f872d1898d355050b9ec202d0f16142e0796de1e285f4200e5f4422c8c",
+    "width": 1488,
+    "height": 2266,
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "31FB9955-C3CC-40CC-9A01-AD87D629C550.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "menus-large-01-one-tap-goals_0_8155004E-045D-4B67-BC58-4FB6B2CAF727.png",
+      "timestamp": 1795229222.829
+    },
+    "test": "RelocationUITests/testUI2MenusLargerText()",
+    "run": "ui2menus-ipad-verified"
+  }
+]

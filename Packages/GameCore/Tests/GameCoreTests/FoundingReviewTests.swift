@@ -179,4 +179,50 @@ private let foundingEpoch = Date(timeIntervalSince1970: 9_000_000)
     #expect(throws: (any Error).self) { try RiverbendFoundingStore(directory: dir, now: foundingEpoch) }
     #expect(try Data(contentsOf: url) == damaged)
 }
+@Test func foundingMenusSelectExactBlockerAndKeepOptionalResearchSecondary() throws {
+    var r = try RiverbendFoundingReview(now: foundingEpoch)
+    try r.found()
+    #expect(r.catalogAction(.hut) == .build)
+    #expect(r.catalogAction(.storytellingCircle) == .research("oralTradition"))
+    #expect(r.catalogAction(.toolmaker) == .research("oralTradition"))
+    var state = r.engine.state
+    state.resources.wood = 16
+    r = try RiverbendFoundingReview(state: state)
+    #expect(r.catalogAction(.storehouse) == .materials)
+    #expect(r.materialNeeds(for: r.engine.configuration.definition(.storehouse).cost).map(\.resource) == [.wood])
+    #expect(r.materialNeeds(for: r.engine.configuration.definition(.storehouse).cost).first?.amount == 19)
+    #expect(r.materialNeeds(for: r.engine.configuration.definition(.storehouse).cost).first?.suppliers.contains(.woodcutter) == true)
+    // Toolmaking cannot replace the selected Storehouse's Wood requirement.
+    #expect(r.catalogAction(.storehouse) != .research("stoneTools"))
+}
+
+@Test func foundingMenusUseExistingResearchAndConstructionValidation() throws {
+    var r = try RiverbendFoundingReview(now: foundingEpoch); try r.found()
+    let before = r.engine.state.resources
+    try r.research("oralTradition")
+    #expect(r.engine.researchedIDs.contains("oralTradition"))
+    #expect(r.engine.state.resources.wood == before.wood - r.engine.configuration.technologyDefinitions.first { $0.id == "oralTradition" }!.cost.wood)
+    #expect(r.catalogAction(.toolmaker) == .research("stoneTools"))
+    let locked = r.engine.state
+    #expect(throws: GameError.self) { try r.build(.toolmaker, at: r.hutSites[0]) }
+    #expect(r.engine.state == locked)
+    try r.build(.hut, at: r.hutSites[0])
+    #expect(r.hut != nil)
+}
+
+@Test func foundingMenusRejectNonHutCivicYardAndExposeResearchReserve() throws {
+    var r = try RiverbendFoundingReview(now: foundingEpoch); try r.found()
+    let near = try #require(r.engine.configuration.tiles(within: 3).first { tile in
+        r.engine.placementIssue(.storehouse, at: tile) == nil && r.engine.configuration.definition(.storehouse).footprint.tiles(at: tile).contains { abs($0.x - r.engine.configuration.map.campfire.x) + abs($0.y - r.engine.configuration.map.campfire.y) < 3 }
+    })
+    #expect(r.catalogPlacementIssue(.storehouse, at: near) != nil)
+    let before = r.engine.state
+    #expect(throws: GameError.self) { try r.build(.storehouse, at: near) }
+    #expect(r.engine.state == before)
+    var state = before; state.resources.wood = 18
+    r = try RiverbendFoundingReview(state: state)
+    #expect(r.engine.canAfford(r.engine.configuration.technologyDefinitions.first { $0.id == "oralTradition" }!.cost))
+    #expect(r.researchSupplier("oralTradition") == .woodcutter)
+    #expect(r.catalogAction(.gatheringShelter) == .materials)
+}
 #endif

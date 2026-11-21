@@ -1,0 +1,54 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "debug",
+    "derived_data": "/tmp/ui2menus-se-build",
+    "filter": null,
+    "simulator": [
+      "E118C061-9C37-4E18-9B03-A633E7240149"
+    ],
+    "only_testing": [
+      "CivilizationUITests/RelocationUITests/testUI2MenusActionsAndRetainedReturn",
+      "CivilizationUITests/RelocationUITests/testUI2MenusLargerText"
+    ],
+    "output": "/tmp/ui2menus-phone-layout-final"
+  },
+  "steps": [
+    {
+      "name": "ui-debug-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/.codex/worktrees/5e8f/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=E118C061-9C37-4E18-9B03-A633E7240149",
+        "-derivedDataPath",
+        "/private/tmp/ui2menus-se-build/debug/E118C061-9C37-4E18-9B03-A633E7240149",
+        "-resultBundlePath",
+        "/private/tmp/ui2menus-phone-layout-final/ui-debug-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/RelocationUITests/testUI2MenusActionsAndRetainedReturn",
+        "-only-testing:CivilizationUITests/RelocationUITests/testUI2MenusLargerText"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 2,
+      "durationSeconds": 134.247,
+      "log": "/private/tmp/ui2menus-phone-layout-final/ui-debug-1.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T02:53:44.635177+00:00",
+  "revision": {
+    "commit": "07e1011b8485cb245359ebe05afbe6dfca7eee32",
+    "dirty": true
+  },
+  "status": "passed"
+}

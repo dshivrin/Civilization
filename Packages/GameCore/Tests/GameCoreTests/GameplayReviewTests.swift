@@ -91,7 +91,12 @@ func gameplayReviewCannotRacePendingScenarioPreparation(resume: Bool) async thro
     session.startGameplayReview(); session.addDeveloperResources(); session.returnToNormalGame()
     let retained = try Data(contentsOf: url.appendingPathExtension("review"))
     let preparation = Task { await session.prepareDeveloperScenario(.grouped) }
-    for _ in 0..<1000 { if session.isPreparingDeveloperScenario { break }; await Task.yield() }
+    // Yield-count polling can exhaust before the child task receives MainActor time.
+    // Wait for the same observable precondition with a bounded scheduling interval.
+    let deadline = ContinuousClock.now.advanced(by: .seconds(5))
+    while !session.isPreparingDeveloperScenario && ContinuousClock.now < deadline {
+        try await Task.sleep(for: .milliseconds(1))
+    }
     guard session.isPreparingDeveloperScenario else { preparation.cancel(); await preparation.value; Issue.record("Preparation did not start"); return }
     if resume { session.resumeGameplayReview() } else { session.startGameplayReview() }
     #expect(!session.isGameplayReview && !session.isDeveloperMode)

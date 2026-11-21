@@ -1,0 +1,341 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6AB198E6-1CAE-4A1F-B0CB-42120C5BE3FA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "economy-lab-positive-loop_0_15068526-4F1B-435E-A67D-CA096620B799.png",
+        "timestamp" : 1795229893.636
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "3C775650-FA2F-421A-BD49-BAC4A4E8C902.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-09-reconnected_0_0F55AD22-9990-4818-BFE3-E6B13859C225.png",
+        "timestamp" : 1795229938.588
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "04F95DB7-9152-4E1C-AE44-A767654488C1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-08-reloaded_0_CD818588-B874-4DAD-A7C1-B7B369B8580C.png",
+        "timestamp" : 1795229937.507
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5FA6E0AF-1BDD-4DA3-9AD6-AF7C6A3BB68F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-07-disconnected-retained_0_039AE456-8EB9-442E-86FD-3CABB49AA1E8.png",
+        "timestamp" : 1795229926.767
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "275FFB85-75C3-4924-8FF0-A408CCF5A7D0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-06-connected_0_254D7B52-ABA7-4D74-B38B-984307DD5D1E.png",
+        "timestamp" : 1795229926.095
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "841EC4CA-F4F5-45A4-B7B6-B65603964AFE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-05-route-preview_0_BE8B9336-9E07-4260-A7C3-989F485DCF3E.png",
+        "timestamp" : 1795229925.454
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E9E31AC0-F022-4666-9040-B42C40297542.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-04-disconnected_0_B1D94F8C-97CC-4F32-BCCA-FF1C6096BA77.png",
+        "timestamp" : 1795229921.391
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6FD9869C-50D5-45F7-9213-6CC9CBA6EC3A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-03-visible-hut-fallback_0_890C03EE-2CD8-41F0-A106-A0EA7BC96CAC.png",
+        "timestamp" : 1795229918.49
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2E08270B-E5E6-4A01-BABE-234B65762026.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-02-lodge-free-path_0_955074C5-3BF8-4B9F-B7AE-6FC4F68B415C.png",
+        "timestamp" : 1795229916.435
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "37FC441F-96DB-40C2-9E42-89C4470328EC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-01-campfire_0_0A1AC67F-B9B2-4CF9-975D-3884415AE1A5.png",
+        "timestamp" : 1795229915.617
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FABF4913-6F97-41F0-9E49-8AA9ED37E82F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-09-map-gestures_0_C7F7F2BF-084E-4018-982A-6783F54EF084.png",
+        "timestamp" : 1795230001.07
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "F1550E35-3592-463D-B7A6-56216BBCEF67.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-10-retained-scroll_0_8981C447-16E0-4A9C-9A05-C4A46A431677.png",
+        "timestamp" : 1795229995.448
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C3235A57-5D7C-486C-954D-FB4BEB2F5E83.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-08-readable-roads_0_4B4562A0-BF66-42E3-BEF4-0C42EDB4F58E.png",
+        "timestamp" : 1795229988.673
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "EC569C3A-5DD3-429C-ABD6-12C48FED109D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-07-exact-research-route_0_8A49120B-1EBB-4013-B0C8-9D8D4200D7D4.png",
+        "timestamp" : 1795229980.805
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1E8AA3FE-9D00-4E57-9B74-C87AC8E63AE3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-06-research-locked_0_6B263575-C29B-49C3-8A1F-C5A69A366CC1.png",
+        "timestamp" : 1795229979.76
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E3515E13-D789-453B-8737-17FF7280EB16.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-05-exact-material-route_0_77ED1D76-6174-412A-A14A-8513B64C3B3A.png",
+        "timestamp" : 1795229973.96
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4DF645E6-9B84-4591-99FA-E8C822376E73.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-04-material-shortfall_0_DEAD77C7-0DEA-4BD8-A2C3-D114F9AEA40B.png",
+        "timestamp" : 1795229972.95
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E5605628-583B-4FC8-AFF1-B004D6F99891.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-03-dismiss-return_0_DAE5932E-D8C6-42DB-9C24-B1092EBA29F4.png",
+        "timestamp" : 1795229961.623
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "91A23171-D7FD-4B00-A829-CF2F7F7CDFD3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-02-build_0_563800E0-DC2B-4E09-B6F1-8ACA59290B79.png",
+        "timestamp" : 1795229957.58
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FBABC757-8EF4-40FB-92B2-C5922621D9C5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-01-one-tap-goals_0_07603522-3D9D-4A31-8762-5DCE07887B8E.png",
+        "timestamp" : 1795229952.775
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2MenusActionsAndRetainedReturn"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8EE67EDA-DEA3-4894-8494-6118B6DD61C1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-09-map-gestures_0_FF1856AC-A791-4E9C-93CE-654356B3546A.png",
+        "timestamp" : 1795230062.353
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FA2BC279-9F35-4E46-9B23-8B5667908B8E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-10-retained-scroll_0_E4542998-AFCD-42AC-8B86-2BA2DC3EEF15.png",
+        "timestamp" : 1795230058.395
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "90974D62-A657-4FEA-B186-6C378087B274.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-13-roads-map-panel-tail_0_32674FB0-5588-495F-8F4B-DC54E058C1B8.png",
+        "timestamp" : 1795230052.402
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "7717B901-8198-4068-B5F5-990B8B0A4CC9.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-12-roads-map-panel_0_692E7CB4-2D9A-4725-896C-E3BA55F7314D.png",
+        "timestamp" : 1795230051.456
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "733F2830-15FE-4A3A-A49F-A20ED716E950.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-11-roads-text-tail_0_B83121DC-C1D6-4D4A-A55C-C4D16513E49A.png",
+        "timestamp" : 1795230050.886
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B97547BC-96CF-451C-A9A9-B8F2496F3DB6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-08-readable-roads_0_2BC629A5-5941-4180-9757-9BF7948FC9EE.png",
+        "timestamp" : 1795230049.809
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "466DF422-A912-4407-954D-4CBFE2E2FB84.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-07-exact-research-route_0_DA448331-8EEE-48F3-BE86-91C0F6C5EDA0.png",
+        "timestamp" : 1795230043.753
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8FDC6B8E-15D1-4A48-9036-89B46610BDC9.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-06-research-locked_0_2413D701-08CD-43FF-AF22-B4D65CA33AF6.png",
+        "timestamp" : 1795230043.18
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "12C67C08-2853-4A20-851C-48EEC015638D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-05-exact-material-route_0_912B6E1C-0CB4-49FA-A2EF-38CBF6AAE4FD.png",
+        "timestamp" : 1795230038.924
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "108FE3A1-1918-40D3-B779-78A8460D5A45.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-15-shortfall-output-tail_0_85EF41CF-DAA7-4396-A075-D32A2D3C3871.png",
+        "timestamp" : 1795230037.306
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4FFCA1F3-0C08-4F65-A9B9-318739835D63.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-04-material-shortfall_0_CCA31C89-8E0A-4142-A3DE-E44A2FFE632F.png",
+        "timestamp" : 1795230036.303
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4E87833F-CDD3-440B-9535-CD6768F21703.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-03-dismiss-return_0_2423F0EF-C58E-4C56-8AC4-BE12FFBBF063.png",
+        "timestamp" : 1795230026.027
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B2E7D9FB-4099-48B6-A0D7-3A0A63844497.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-14-inspector-output-tail_0_0FE18614-EBA2-446F-8DF3-7D331FE662ED.png",
+        "timestamp" : 1795230021.171
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "86B8EC71-86AB-4305-B513-590BA6EA9F2E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-02-build_0_154E4AB6-2CD4-4224-9996-417F8A6BF55D.png",
+        "timestamp" : 1795230020.222
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "99ED981C-A738-4C19-BB64-088AC9F0EFBE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-01-one-tap-goals_0_F5C2C846-6083-4DC8-A734-C135E80F85B7.png",
+        "timestamp" : 1795230015.596
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2MenusLargerText()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2MenusLargerText"
+  }
+]

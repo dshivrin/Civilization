@@ -1,0 +1,499 @@
+[
+  {
+    "run": "ui2menus-baseline",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1
+      }
+    ],
+    "reportSHA256": "485772ebb313cd6e496c744ece4eae59233fb92a0b8c9c916c8d831e1713dcec"
+  },
+  {
+    "run": "ui2menus-baseline-authorized",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 9,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "74a207b5e5720c177a30a6d24d63d06e135b10dbb156abc1c30096d4c01df0cd"
+  },
+  {
+    "run": "ui2menus-core-final",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 320,
+        "exitCode": 1
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "283589d84cdceac5f1a07735db773d179db63e689954b96c56cf7153f7f8558e"
+  },
+  {
+    "run": "ui2menus-core-full-1",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 319,
+        "exitCode": 0
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "23279837b2e87358cfe0b39cc7eb63a96225165b870e4399a3cd33db1cf9cd9b"
+  },
+  {
+    "run": "ui2menus-core-review-fixed",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 320,
+        "exitCode": 1
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "821dc1d5dfa50ed350dbeac55ebd324429534ffedc05fcaf3b8b614e97c626e6"
+  },
+  {
+    "run": "ui2menus-core-verified",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 320,
+        "exitCode": 0
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "09b738f8cc3f207f6afab156a9bde341e1535acaf5efed9df469f93d85fc7ab4"
+  },
+  {
+    "run": "ui2menus-green",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "fbba3a1c38dd9093e838a2ae48f2ccfab56f0ca6e4239ce2a670f6416c73f18b"
+  },
+  {
+    "run": "ui2menus-ipad-1",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 4,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "86e0100c4a7c1d2b024b788cf7e52767c54c63153b1c4cbbeccaeb07dadb73d0"
+  },
+  {
+    "run": "ui2menus-ipad-2",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 4,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "6f57088e20c1d5c12664106e3127d30ea5a2fd6c7f47a655ba900558045bbb16"
+  },
+  {
+    "run": "ui2menus-ipad-delivery",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 4,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "dcef221d3e68095f05f6e54e6d67252b8f0544a45c948ea3c6db984d1b152c9c"
+  },
+  {
+    "run": "ui2menus-ipad-final",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 4,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "cde1c3fcd0a5cd38bf15a9ec38f65c39abb6a7a62e49a1ae462bb4a78eb07cb6"
+  },
+  {
+    "run": "ui2menus-ipad-layout-final",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "52c923cd8461cae6d1c11c3b2920ce5bf5c0fb6e6cec3d4c5a84aa5d41e18446"
+  },
+  {
+    "run": "ui2menus-ipad-regression-final",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "240ecef86c66ec85d945c743ccf0a9a302f401843a710ab7dcf4a13af81b676f"
+  },
+  {
+    "run": "ui2menus-ipad-verified",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 4,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "dfb3714f10de3bd3295c6e16792fed3b651d60abcbe32bfdb8627b617aedfa64"
+  },
+  {
+    "run": "ui2menus-native-compile",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "9c2ac60894b1ba228fb608968289dc217dbe3d7040a58e70e5d7c4a3ee4b1412"
+  },
+  {
+    "run": "ui2menus-native-flow-1",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "b82e4758f28d234328dc75703948fbae60a03a95fdb7a5986b4752c7a70c9277"
+  },
+  {
+    "run": "ui2menus-native-flow-2",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 2,
+        "exitCode": 65
+      },
+      {
+        "name": "ui-debug-2",
+        "status": "failed",
+        "tests": 2,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "ba60e141787c96cc2bfdc3e85fffe26478fdc93adc23a337283332be8c1472d0"
+  },
+  {
+    "run": "ui2menus-native-red",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "c10f649faf626bb61949a7dda8fc957ed4e8222802acbce0a61d9909e3b5835c"
+  },
+  {
+    "run": "ui2menus-phone-delivery",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 4,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "77a859f79dc9d7bbad1592930608a25a93d0ab410d79d8f6dce8c254e2ff14d9"
+  },
+  {
+    "run": "ui2menus-phone-final",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 4,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "8b1daa186d264d66010c3869a537b22cbd6b02c530eaaa722e886b2db805f26f"
+  },
+  {
+    "run": "ui2menus-phone-layout-final",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "765e959c5cb7b01876a6672a16ce0f5953c79cf4601909da45f9f40c1661e892"
+  },
+  {
+    "run": "ui2menus-phone-regression-final",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "cb53bbc1440339db7b7569fc82828d279d99a3c57eac6890bace2460774bfe1f"
+  },
+  {
+    "run": "ui2menus-phone-verified",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 4,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "5c117752502e28c39fbaf3bd5424efc7e3290453d507265fa1c724aa1cd32f6f"
+  },
+  {
+    "run": "ui2menus-red",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1
+      }
+    ],
+    "reportSHA256": "33b8d2a9cc92b26ba782218596badc576504408e394f363bc1d5f1404c352b0c"
+  },
+  {
+    "run": "ui2menus-red-runtime",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 2,
+        "exitCode": 1
+      }
+    ],
+    "reportSHA256": "9a93fab350af2a346d94a6539d14d412bdbdf48fda04a4c8ff80e0b15e560ff2"
+  },
+  {
+    "run": "ui2menus-release-ipad",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "4472dfeeef84b0ab3edbf4421d135b4844dc520144120f4156a8761f29814c35"
+  },
+  {
+    "run": "ui2menus-release-phone",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "bc398df225df1b1f56c3c44792c364496e67ebf8f6e5b81287fb9142cb09e275"
+  },
+  {
+    "run": "ui2menus-release-se",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "71a6782c9878d9e0f9b2b4eff071c5caee644b8c69919f164f4aff6dff48d136"
+  },
+  {
+    "run": "ui2menus-review-green",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 3,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "ef9a2b755b4f97dd08a8cdf48fe865c781706de20f00d64b8f1161f7d5a18999"
+  },
+  {
+    "run": "ui2menus-review-red",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 1
+      }
+    ],
+    "reportSHA256": "673af7e099bef0554e904e920be5e9e9d8dae37d5d5eab1c5d88239141a0f0a6"
+  },
+  {
+    "run": "ui2menus-se-1",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 2,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "0d94ec7419e2a7f0a16764fa280e87490c74666321db7beaa5419245c8513a4f"
+  },
+  {
+    "run": "ui2menus-se-2",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 2,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "46565a6ba3b87e6aef5597a18bf63116a931e01176389cbb047aca62cbf936cb"
+  },
+  {
+    "run": "ui2menus-se-3",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 4,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "02dfb3c501346a14f0be70119ba30edf2d9721cecd0648fa8d925d2648dc3eff"
+  },
+  {
+    "run": "ui2menus-se-4",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65
+      }
+    ],
+    "reportSHA256": "3281b1b2e7cd47b70348fdfb393ea73ecf3b298907ed259178289799d2755bdb"
+  },
+  {
+    "run": "ui2menus-se-5",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0
+      }
+    ],
+    "reportSHA256": "aa3ee2fe70f172e21970786ce8a17d384191d2a03210c68309e1e0062d072d49"
+  }
+]

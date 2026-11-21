@@ -1,0 +1,117 @@
+{
+  "goal": "UI2-2 Riverbend Menus",
+  "date": "2026-11-21",
+  "branch": "riverbend-ui2-menus-review",
+  "base": "07e1011b8485cb245359ebe05afbe6dfca7eee32",
+  "specCommit": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
+  "status": "verified tests and artifacts; branch receipt recorded in milestone",
+  "requiredRuns": [
+    "ui2menus-core-verified",
+    "ui2menus-phone-delivery",
+    "ui2menus-ipad-delivery",
+    "ui2menus-release-se",
+    "ui2menus-release-ipad"
+  ],
+  "counts": {
+    "coreDebug": {
+      "passed": 320,
+      "failed": 0,
+      "skipped": 0
+    },
+    "coreRelease": {
+      "passed": 235,
+      "failed": 0,
+      "skipped": 0
+    },
+    "releaseExclusions": {
+      "passed": 19,
+      "failed": 0
+    },
+    "nativeDebugPerProfile": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    "ordinaryReleasePerProfile": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "devices": [
+    {
+      "profile": "phone",
+      "name": "iPhone SE (3rd generation)",
+      "id": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "runtime": "iOS18.6",
+      "landscapePoints": [
+        667,
+        375
+      ]
+    },
+    {
+      "profile": "ipad",
+      "name": "iPad mini (A17 Pro)",
+      "id": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "runtime": "iOS18.6",
+      "landscapePoints": [
+        1133,
+        744
+      ]
+    }
+  ],
+  "largerText": "UICTContentSizeCategoryAccessibilityM",
+  "captures": {
+    "final": 70,
+    "menus": 50,
+    "founding": 18,
+    "lab": 2,
+    "earlierOriginals": 66
+  },
+  "runnerReceipts": 35,
+  "sourceFiles": [
+    {
+      "path": "Civilization/UI/FoundingReviewView.swift",
+      "sha256": "880ad4d210618d84a709286bc9f6fa50ccabad8cd91e8df5ec5261b360845762"
+    },
+    {
+      "path": "CivilizationUITests/RelocationUITests.swift",
+      "sha256": "8c854beb59c8f702c2545f70ad739b4d26dd094b8d3f6528e4b7a92bcc3afff7"
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/RiverbendFoundingReview.swift",
+      "sha256": "80403625ac85b9cd8b2e0b7a3aa04a663668041a073973b3ff5a1ab078c33b1c"
+    },
+    {
+      "path": "Packages/GameCore/Tests/GameCoreTests/FoundingReviewTests.swift",
+      "sha256": "6c16283333016df4ba3e07a8b8799927065ad5d2639442b06d2f067998de38ef"
+    },
+    {
+      "path": "Packages/GameCore/Tests/GameCoreTests/GameplayReviewTests.swift",
+      "sha256": "ff7d1d1e9bf914d8d668919737e14a177c976f2caebcf34eb57eb4fc6311509d"
+    }
+  ],
+  "protectedFiles": 415,
+  "checks": [
+    "one-tap objective and direct action; chapters collapsed",
+    "three exact catalog action labels and exact requirement/supplier return",
+    "selection/search/category/scroll and card size retained",
+    "rail/action/search/chapters 44-point bounds and labels; primary inside app bounds",
+    "whole large-text card fits compact grid; inspector outputs reachable by scrolling",
+    "Roads instructions top/tail and unobstructed confirmation",
+    "actual map pan/pinch; founding disconnect/reconnect/reload; Lab gesture/route/reload",
+    "full ordinary earned-readiness and Lab-through-craft core coverage; generated authentic preservation fixtures"
+  ],
+  "independentReview": {
+    "sourceOnly": true,
+    "importantFindings": 4,
+    "corrected": 4,
+    "secondReview": false
+  },
+  "limitations": [
+    "Debug isolated review only; UI state transient to open review",
+    "compact/larger-text details scroll; one opening hut; provisional existing art",
+    "maximum Dynamic Type, VoiceOver comprehension, human acceptance and physical performance not established"
+  ],
+  "nextGoal": "UI2-3, fresh coordinator context only"
+}

@@ -4,6 +4,179 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testUI2MenusActionsAndRetainedReturn() throws {
+        try menusFlow(largerText: false)
+    }
+    @MainActor func testUI2MenusLargerText() throws {
+        try menusFlow(largerText: true)
+    }
+    @MainActor private func menusFlow(largerText: Bool) throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        if largerText { app.launchArguments += ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityM"] }
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 15))
+        app.buttons["developerTools"].tap(); XCTAssertTrue(app.buttons["openFoundingReview"].waitForExistence(timeout: 10)); app.buttons["openFoundingReview"].tap()
+        XCTAssertTrue(app.staticTexts["foundingStatus"].waitForExistence(timeout: 15))
+        func capture(_ name: String) {
+            let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); a.name = "menus-" + (largerText ? "large-" : "") + name; a.lifetime = .keepAlways; add(a)
+        }
+        func tap(_ id: String) {
+            let b = app.buttons[id]
+            if !b.isHittable, app.scrollViews["foundingControls"].exists {
+                let scroll = app.scrollViews["foundingControls"]
+                for _ in 0..<40 {
+                    if b.isHittable { break }
+                    let below = b.frame.isEmpty || b.frame.midY > scroll.frame.midY
+                    scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: below ? 0.7 : 0.3)).press(forDuration: 0.02,
+                        thenDragTo: scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)))
+                }
+            }
+            if !b.isHittable {
+                capture("failure-" + id)
+                let diagnostic = XCTAttachment(string: app.debugDescription); diagnostic.name = "menus-failure-hierarchy"; diagnostic.lifetime = .keepAlways; add(diagnostic)
+            }
+            XCTAssertTrue(b.isHittable, id); b.tap()
+        }
+        func search(_ text: String, submit: Bool = true) {
+            let field = app.textFields["foundingSearch"]
+            field.tap()
+            let old = field.value as? String ?? ""
+            field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: old == "Search buildings" ? 0 : old.count) + text + (submit ? "\n" : ""))
+        }
+        let goals = app.buttons["foundingRail-Goals"], explore = app.buttons["foundingRail-Explore"], games = app.buttons["foundingRail-Games"]
+        for button in [goals, explore, games] {
+            XCTAssertGreaterThanOrEqual(button.frame.height, 44); XCTAssertGreaterThanOrEqual(button.frame.width, 44); XCTAssertFalse(button.label.isEmpty)
+        }
+        XCTAssertLessThan(goals.frame.midY, explore.frame.midY); XCTAssertLessThan(explore.frame.midY, games.frame.midY)
+        tap("foundingRail-Goals")
+        XCTAssertEqual(app.staticTexts["foundingObjective"].label, "Upgrade Campfire to Founder’s Lodge")
+        XCTAssertTrue(app.buttons["foundingGoalAction"].isHittable)
+        XCTAssertGreaterThanOrEqual(app.buttons["foundingChapters"].frame.height, 44)
+        XCTAssertEqual(app.buttons["foundingChapters"].value as? String, "Collapsed")
+        capture("01-one-tap-goals")
+        tap("foundingGoalAction")
+        tap("foundingCatalog")
+        search("Hut", submit: false)
+        tap("foundingCatalogDone")
+        XCTAssertFalse(app.keyboards.firstMatch.exists)
+        tap("foundingCatalog")
+        tap("foundingCard-hut")
+        XCTAssertEqual(app.buttons["foundingCatalogAction"].label, "Build")
+        XCTAssertGreaterThanOrEqual(app.buttons["foundingCatalogAction"].frame.height, 44)
+        XCTAssertGreaterThanOrEqual(app.buttons["foundingCatalogAction"].frame.width, 44)
+        XCTAssertGreaterThanOrEqual(app.buttons["foundingCatalogAction"].frame.minY, app.frame.minY)
+        XCTAssertLessThanOrEqual(app.buttons["foundingCatalogAction"].frame.maxY, app.frame.maxY)
+        XCTAssertEqual(app.staticTexts.matching(identifier: "foundingPrice").count, 1)
+        XCTAssertGreaterThanOrEqual(app.textFields["foundingSearch"].frame.height, 44)
+        let cardSize = app.buttons["foundingCard-hut"].frame.size
+        capture("02-build")
+        if largerText {
+            let grid = app.scrollViews["foundingCatalogGrid"]
+            XCTAssertLessThanOrEqual(app.buttons["foundingCard-hut"].frame.maxY, grid.frame.maxY + 2)
+            let details = app.scrollViews["foundingInspectorDetails"]
+            details.swipeUp(velocity: .slow); capture("14-inspector-output-tail"); details.swipeDown(velocity: .slow)
+        }
+        tap("foundingCatalogAction")
+        XCTAssertFalse(app.keyboards.firstMatch.exists)
+        tap("foundingConfirmHut")
+        tap("foundingCatalog")
+        XCTAssertEqual(app.textFields["foundingSearch"].value as? String, "Hut")
+        XCTAssertEqual(app.staticTexts["foundingSelectedName"].label, "Hut")
+        XCTAssertEqual(app.buttons["foundingCard-hut"].frame.size, cardSize)
+        app.textFields["foundingSearch"].tap()
+        tap("foundingCatalogDone")
+        XCTAssertFalse(app.keyboards.firstMatch.exists)
+        tap("foundingCatalog")
+        XCTAssertEqual(app.textFields["foundingSearch"].value as? String, "Hut")
+        capture("03-dismiss-return")
+        search("Storehouse"); tap("foundingCard-storehouse")
+        XCTAssertEqual(app.buttons["foundingCatalogAction"].label, "Build")
+        tap("foundingCatalogAction"); tap("foundingConfirmBuilding")
+        tap("foundingCatalog")
+        search("Gathering shelter"); tap("foundingCard-gatheringShelter")
+        XCTAssertEqual(app.buttons["foundingCatalogAction"].label, "Build")
+        tap("foundingCatalogAction"); tap("foundingConfirmBuilding")
+        tap("foundingCatalog")
+        search("Storehouse"); tap("foundingCard-storehouse")
+        XCTAssertEqual(app.buttons["foundingCatalogAction"].label, "Find materials")
+        capture("04-material-shortfall")
+        if largerText {
+            let details = app.scrollViews["foundingInspectorDetails"]
+            details.swipeUp(velocity: .slow); capture("15-shortfall-output-tail"); details.swipeDown(velocity: .slow)
+        }
+        tap("foundingCatalogAction")
+        XCTAssertEqual(app.staticTexts["foundingRequiredMaterials"].label, "Materials for Storehouse")
+        XCTAssertTrue(app.buttons["foundingSource-woodcutter"].exists)
+        XCTAssertFalse(app.staticTexts["foundingRequiredTechnology"].exists)
+        capture("05-exact-material-route")
+        tap("foundingSource-woodcutter")
+        XCTAssertEqual(app.staticTexts["foundingSelectedName"].label, "Woodcutter")
+        tap("foundingSourceBack")
+        XCTAssertEqual(app.staticTexts["foundingRequiredMaterials"].label, "Materials for Storehouse")
+        tap("foundingRequirementBack")
+        XCTAssertEqual(app.staticTexts["foundingSelectedName"].label, "Storehouse")
+        XCTAssertEqual(app.textFields["foundingSearch"].value as? String, "Storehouse")
+        search("Toolmaker"); tap("foundingCard-toolmaker")
+        XCTAssertEqual(app.buttons["foundingCatalogAction"].label, "Open required research")
+        capture("06-research-locked")
+        tap("foundingCatalogAction")
+        XCTAssertEqual(app.staticTexts["foundingRequiredTechnology"].label, "Oral Tradition")
+        capture("07-exact-research-route")
+        XCTAssertTrue(app.buttons["foundingResearchSupplier"].exists)
+        tap("foundingResearchSupplier")
+        XCTAssertEqual(app.staticTexts["foundingSelectedName"].label, "Woodcutter")
+        tap("foundingSourceBack")
+        XCTAssertEqual(app.staticTexts["foundingRequiredTechnology"].label, "Oral Tradition")
+        tap("foundingRequirementBack")
+        XCTAssertEqual(app.staticTexts["foundingSelectedName"].label, "Toolmaker")
+        XCTAssertEqual(app.textFields["foundingSearch"].value as? String, "Toolmaker")
+        search("No matching item")
+        XCTAssertTrue(app.staticTexts["foundingNoMatches"].exists)
+        XCTAssertEqual(app.staticTexts["foundingSelectedName"].label, "Toolmaker")
+        search("")
+        tap("foundingCategory-Roads")
+        XCTAssertTrue(app.staticTexts["foundingCatalogRoadHelp"].exists)
+        capture("08-readable-roads")
+        if largerText {
+            let help = app.staticTexts["foundingCatalogRoadHelp"]
+            let roads = app.scrollViews["foundingRoadInstructions"]
+            XCTAssertTrue(help.exists)
+            roads.swipeUp(velocity: .slow)
+            capture("11-roads-text-tail")
+            tap("foundingCatalogRoads")
+            XCTAssertTrue(app.staticTexts["foundingRoadHelp"].exists)
+            XCTAssertGreaterThanOrEqual(app.buttons["foundingConfirmPath"].frame.height, 44)
+            capture("12-roads-map-panel")
+            app.scrollViews["foundingControls"].swipeUp(velocity: .slow)
+            capture("13-roads-map-panel-tail")
+            tap("foundingToolsDone")
+            tap("foundingCatalog")
+        }
+        tap("foundingCatalogDone"); tap("foundingCatalog")
+        XCTAssertEqual(app.buttons["foundingCategory-Roads"].value as? String, "Selected")
+        tap("foundingCategory-All")
+        let grid = app.scrollViews["foundingCatalogGrid"]
+        grid.swipeUp(velocity: .slow)
+        let savedScroll = grid.value as? String
+        tap("foundingCatalogDone"); tap("foundingCatalog")
+        XCTAssertEqual(grid.value as? String, savedScroll)
+        capture("10-retained-scroll")
+        tap("foundingCatalogDone")
+        tap("foundingRail-Explore"); tap("foundingExploreMap")
+        let map = app.otherElements["onboardingWalkthroughMap"]
+        let before = map.value as? String ?? ""
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.45)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx: 0.45, dy: 0.5)))
+        map.pinch(withScale: 1.15, velocity: 1)
+        XCTAssertNotEqual(map.value as? String ?? "", before)
+        capture("09-map-gestures")
+        tap("closeFoundingReview")
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 10))
+    }
+
     @MainActor func testUI2FoundingMapInteractionAndReload() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
@@ -16,6 +189,7 @@ final class RelocationUITests: XCTestCase {
             XCTAssertTrue(app.buttons["openFoundingReview"].waitForExistence(timeout: 10))
             app.buttons["openFoundingReview"].tap()
             XCTAssertTrue(app.staticTexts["foundingStatus"].waitForExistence(timeout: 15))
+            app.buttons["foundingRail-Games"].tap(); app.buttons["foundingTools"].tap()
         }
         open()
         let status = app.staticTexts["foundingStatus"]
