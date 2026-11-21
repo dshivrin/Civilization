@@ -4,7 +4,7 @@
   "branch": "riverbend-ui2-foothill-review",
   "baseLocalAndRemote": "8f0146300e3efdca1a2b7cd87d36e7fcb3d9be5c",
   "specReadWithoutMerge": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
-  "sourceCommit": "Recorded in post-push milestone receipt",
+  "sourceCommit": "d31c25e370b8d62faaf33abb781d08e562fe2fc3",
   "sourceManifest": "source-manifest.json",
   "core": {
     "run": "ui2-foothill-core-final-verified",
@@ -293,5 +293,7 @@
     "No device install/current-save access/signing/migration.",
     "No ordinary/Release activation, ordinary economy/Water/schema/seed changes.",
     "No runtime raster/media changes, main/first-era-review push/merge, production/GateB/R2-07/Empire or next queued goal."
-  ]
+  ],
+  "verifiedRemoteImplementationTip": "d31c25e370b8d62faaf33abb781d08e562fe2fc3",
+  "documentationReceipt": "../../milestones/2026-11-21-ui2-foothill.md"
 }

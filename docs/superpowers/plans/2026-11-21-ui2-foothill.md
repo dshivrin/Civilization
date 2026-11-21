@@ -24,6 +24,8 @@
 - [x] 2. Parameterize founding review/store with separate Foothill envelope; preserve civic/footpath/hut and atomic mutation; test costs, collision, reload, stale/corrupt rejection.
 - [x] 3. Integrate Developer entry, inherited founding menus, procedural cliff/wall/gate and actual traversal controls/animation. Add native phone/iPad route and save-isolation cases and Release exclusions.
 - [x] 4. Full core Debug/Release/probes; phone/iPad Foothill, inherited founding/menu/fog-motion, Lab-through-craft, ordinary Release entry/save. Export original captures/receipts; inspect visually and review source independently. Fix verified blockers.
-- [ ] 5. Record exact counts/failures/limitations/preservation, owner guide and gallery. Push only review branch, verify remote, add exact implementation ancestry/remote receipt handoff, push receipt and verify; stop.
+- [x] 5. Record exact counts/failures/limitations/preservation, owner guide and gallery. Push only review branch, verify remote, add exact implementation ancestry/remote receipt handoff, push receipt and verify; stop.
 
 Ruling: inherited5sMainActor setup guard repeatedly expired behind~20sof unrelated synchronous fixtures; test-only30sbound preserves race/byte assertions. Runtime RED receipts and final independent follow-up retained. Final full327/235/23pass,16unique Debug device/case passes plus2ordinary Release passes; failed aggregate bundles stay failed. UI-only fitted cost-column reruns pass1each.
+
+Verified source push d31c25e370b8d62faaf33abb781d08e562fe2fc3, sole parent8f0146300e3efdca1a2b7cd87d36e7fcb3d9be5c, remote matched. Final documentation receipt only follows, then stop; no next goal.

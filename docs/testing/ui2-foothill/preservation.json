@@ -3,6 +3,7 @@
   "protectedFiles": 1871,
   "mismatches": [],
   "expectedModified": [
+    "AGENTS.md",
     "Civilization/Rendering/LivingWorldLayer.swift",
     "Civilization/Rendering/SettlementScene.swift",
     "Civilization/UI/DeveloperToolsView.swift",
@@ -1887,5 +1888,6 @@
     "scripts/verify-art.swift": "ee465e34961c696d20631194afbe58cc996c5357cf578a5ce7f4b0dfaf6de6f4"
   },
   "originalAGENTSSHA256": "7fbbc44503514dcad9580afcf93ea3a552ecdc0a569343189acdd28c1546eb08",
-  "note": "All other base blobs/link texts match; AGENTS original suffix verified again in final receipt."
+  "note": "All other base blobs/link texts match; AGENTS original suffix verified again in final receipt.",
+  "originalAGENTSSuffixByteIdentical": true
 }
