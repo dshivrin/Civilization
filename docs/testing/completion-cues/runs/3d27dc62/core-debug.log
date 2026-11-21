@@ -1,0 +1,23 @@
+Building for debugging...
+[1 / 1]
+[2 / 12] GameApplication
+[4 / 14] GameApplication
+[11 / 13] GameCoreTests-product
+Build complete! (1.08 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() started.
+✘ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() recorded an issue at CompletionCueTests.swift:232:107: Expectation failed: !hidden
+↳ !hidden → <not evaluated>
+↳   hidden → <not evaluated>
+✘ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() recorded an issue at CompletionCueTests.swift:233:5: Expectation failed: p.pending == [.research, .goals] && p.pulsing.isEmpty
+↳ p.pending == [.research, .goals] && p.pulsing.isEmpty → false
+↳   p.pending == [.research, .goals] → false
+↳   p.pulsing.isEmpty → <not evaluated>
+✘ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() recorded an issue at CompletionCueTests.swift:234:105: Expectation failed: shown
+↳ shown → <not evaluated>
+✘ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() failed after 0.001 seconds with 3 issues.
+✘ Test run with 1 test in 0 suites failed after 0.001 seconds with 3 issues.
+Note: Some test targets reported failures:
+  - GameCoreTests (Swift Testing)

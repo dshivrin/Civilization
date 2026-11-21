@@ -1,0 +1,143 @@
+[
+  {
+    "profile": "phone",
+    "kind": "research",
+    "archive": "clips/phone-research-short.mp4",
+    "sha256": "00ea9f5acd1dba033d1b39bc17f44c3bb44aa1b9889c49b7c57ca3271f5575ab",
+    "source": "/private/tmp/completion-cues-2495193-phone-original.mp4",
+    "sourceSha256": "da357596538dcd2262fb0d9231e8d97681d450c9f12f22aa22a605aeb40e39dc",
+    "sourceMetadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1206,
+          "height": 2622
+        }
+      ],
+      "format": {
+        "duration": "307.980000",
+        "tags": {
+          "creation_time": "2026-11-21T12:41:20.000000Z"
+        }
+      }
+    },
+    "sourceRecordingExitCode": 0,
+    "sourceDeviceID": "2361BBE2-9172-41D7-AD30-A353CACD332F",
+    "captureAnchor": "captures/phone/completion--completion-cues-02-research-return.png",
+    "captureTimestamp": 1795264921.267,
+    "containerTimeAnchorApproximate": true,
+    "command": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-ss",
+      "39.267",
+      "-i",
+      "/private/tmp/completion-cues-2495193-phone-original.mp4",
+      "-t",
+      "3.5",
+      "-map",
+      "0:v:0",
+      "-c",
+      "copy",
+      "docs/testing/completion-cues/clips/phone-research-short.mp4"
+    ],
+    "encodedPacketCount": 291,
+    "allEncodedPacketsFoundInSource": true,
+    "fullDecodeExitCode": 0,
+    "note": "Stream-copy excerpt; no video/image recomposition. Includes ordinary automated navigation/relaunch around the cue.",
+    "decodeCommand": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-i",
+      "docs/testing/completion-cues/clips/phone-research-short.mp4",
+      "-fps_mode",
+      "passthrough",
+      "-enc_time_base",
+      "demux",
+      "-f",
+      "null",
+      "-"
+    ],
+    "initialDecodeNote": "Default null-muxer time-base quantization emitted duplicate-DTS messages; a demux time-base passthrough decode is clean. Original encoded source packets remain unchanged.",
+    "fullDecodeStderr": ""
+  },
+  {
+    "profile": "ipad",
+    "kind": "games-return",
+    "archive": "clips/ipad-games-return-short.mp4",
+    "sha256": "9231efb01b17c92da1d1a237f753f3eec1835a516d4d79ab27ea9bde31ed93b9",
+    "source": "/private/tmp/completion-cues-2495193-ipad-original.mp4",
+    "sourceSha256": "1eef5a16a25170db832f3ff7e5ea6019d4de5ae2e05361be5ff4104e633344f7",
+    "sourceMetadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1488,
+          "height": 2266,
+          "side_data_list": [
+            {
+              "rotation": 90
+            }
+          ]
+        }
+      ],
+      "format": {
+        "duration": "288.871667",
+        "tags": {
+          "creation_time": "2026-11-21T12:41:20.000000Z"
+        }
+      }
+    },
+    "sourceRecordingExitCode": 0,
+    "sourceDeviceID": "248B6E1A-8719-40B6-88D8-36593DAE9119",
+    "captureAnchor": "captures/ipad/completion--completion-cues-07-earned-chapter-one.png",
+    "captureTimestamp": 1795265024.236,
+    "containerTimeAnchorApproximate": true,
+    "command": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-ss",
+      "142.236",
+      "-i",
+      "/private/tmp/completion-cues-2495193-ipad-original.mp4",
+      "-t",
+      "3.5",
+      "-map",
+      "0:v:0",
+      "-c",
+      "copy",
+      "docs/testing/completion-cues/clips/ipad-games-return-short.mp4"
+    ],
+    "encodedPacketCount": 199,
+    "allEncodedPacketsFoundInSource": true,
+    "fullDecodeExitCode": 0,
+    "note": "Stream-copy excerpt; no video/image recomposition. Includes ordinary automated navigation/relaunch around the cue.",
+    "decodeCommand": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-i",
+      "docs/testing/completion-cues/clips/ipad-games-return-short.mp4",
+      "-fps_mode",
+      "passthrough",
+      "-enc_time_base",
+      "demux",
+      "-f",
+      "null",
+      "-"
+    ],
+    "initialDecodeNote": "Default null-muxer time-base quantization emitted duplicate-DTS messages; a demux time-base passthrough decode is clean. Original encoded source packets remain unchanged.",
+    "fullDecodeStderr": ""
+  }
+]

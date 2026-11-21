@@ -1,0 +1,53 @@
+Building for debugging...
+[1 / 5]
+[2 / 6] GameApplication
+[3 / 7] GameApplication
+[8 / 11] GameApplication
+[10 / 13] GameApplication
+[13 / 16] GameCoreTests-product
+[26 / 29] GameCoreTests-product
+[32 / 34] GameCoreTests-product
+Build complete! (4.78 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() started.
+◇ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() started.
+◇ Test completionCueDurablePulseAndTargetedAcknowledgement() started.
+◇ Test completionCueNewGameAndLegacySnapshotStartQuiet() started.
+◇ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() started.
+✔ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() passed after 0.021 seconds.
+✘ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() recorded an issue at CompletionCueTests.swift:109:5: Expectation failed: s.completionSequence == 1
+↳ s.completionSequence == 1 → false
+↳   s.completionSequence → 0
+✘ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() failed after 0.030 seconds with 1 issue.
+↳ // Catches falsely celebrating an action that could not be durably saved.
+✔ Test completionCueNewGameAndLegacySnapshotStartQuiet() passed after 0.035 seconds.
+✔ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() passed after 0.052 seconds.
+✘ Test completionCueDurablePulseAndTargetedAcknowledgement() recorded an issue at CompletionCueTests.swift:72:5: Expectation failed: s.completionSequence == 1
+↳ s.completionSequence == 1 → false
+↳   s.completionSequence → 0
+✘ Test completionCueDurablePulseAndTargetedAcknowledgement() recorded an issue at CompletionCueTests.swift:73:5: Expectation failed: Set(s.latestCompletions.map(\.destination)) == [.research, .goals]
+↳ Set(s.latestCompletions.map(\.destination)) == [.research, .goals] → false
+↳   Set(s.latestCompletions.map(\.destination)) → []
+↳   [.research, .goals] → [GameCore.CompletionDestination.research, GameCore.CompletionDestination.goals]
+✘ Test completionCueDurablePulseAndTargetedAcknowledgement() recorded an issue at CompletionCueTests.swift:77:5: Expectation failed: s.completionSequence == 1
+↳ s.completionSequence == 1 → false
+↳   s.completionSequence → 0
+✘ Test completionCueDurablePulseAndTargetedAcknowledgement() recorded an issue at CompletionCueTests.swift:82:5: Expectation failed: loaded.unreadCompletions(for: .research).isEmpty
+↳ loaded.unreadCompletions(for: .research).isEmpty → false
+↳   loaded.unreadCompletions(for: .research) → ["research:oralTradition"]
+↳   isEmpty → false
+✘ Test completionCueDurablePulseAndTargetedAcknowledgement() recorded an issue at CompletionCueTests.swift:85:5: Expectation failed: again.unreadCompletions(for: .research).isEmpty
+↳ again.unreadCompletions(for: .research).isEmpty → false
+↳   again.unreadCompletions(for: .research) → ["research:oralTradition"]
+↳   isEmpty → false
+✘ Test completionCueDurablePulseAndTargetedAcknowledgement() recorded an issue at CompletionCueTests.swift:88:5: Expectation failed: again.unreadCompletions(for: .goals).isEmpty
+↳ again.unreadCompletions(for: .goals).isEmpty → false
+↳   again.unreadCompletions(for: .goals) → ["objective:3:technology-oralTradition"]
+↳   isEmpty → false
+✘ Test completionCueDurablePulseAndTargetedAcknowledgement() failed after 0.071 seconds with 6 issues.
+↳ // Catches replay on reload/foreground and loss of an unrelated unread destination.
+✘ Test run with 5 tests in 0 suites failed after 0.071 seconds with 7 issues.
+Note: Some test targets reported failures:
+  - GameCoreTests (Swift Testing)

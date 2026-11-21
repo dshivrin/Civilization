@@ -1,0 +1,20 @@
+Building for debugging...
+[Pre-planning 1 / 299]
+[Planning deferred tasks]
+[12 / 21] GameCoreTests-product
+[14 / 23] GameCoreTests-product
+[20 / 22] GameCoreTests-product
+Build complete! (1.96 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueNewGameAndLegacySnapshotStartQuiet() started.
+✘ Test completionCueNewGameAndLegacySnapshotStartQuiet() recorded an issue at CompletionCueTests.swift:21:5: Expectation failed: inbox["unread"] as? [String] == []
+↳ inbox["unread"] as? [String] == [] → false
+↳   inbox["unread"] as? [String] → nil
+↳     some → []
+✘ Test completionCueNewGameAndLegacySnapshotStartQuiet() failed after 0.010 seconds with 1 issue.
+↳ // Catches missing compatible per-game delivery state and historical snapshot inference.
+✘ Test run with 1 test in 0 suites failed after 0.010 seconds with 1 issue.
+Note: Some test targets reported failures:
+  - GameCoreTests (Swift Testing)

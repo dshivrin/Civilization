@@ -1,0 +1,39 @@
+Building for debugging...
+[1 / 1]
+[2 / 12] GameApplication
+[4 / 14] GameApplication
+[7 / 18] GameApplication
+[11 / 13] GameCoreTests-product
+Build complete! (1.84 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() started.
+◇ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() started.
+◇ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() started.
+◇ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() started.
+◇ Test completionCueDurablePulseAndTargetedAcknowledgement() started.
+◇ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() started.
+◇ Test completionCueFirstLegacyContinueKeepsNewOfflineEarnUnread() started.
+◇ Test completionCueLegacyAutosaveDoesNotExposeUnpublishedEarn() started.
+◇ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() started.
+◇ Test completionCueLibraryGamesKeepIndependentUnreadForIdenticalEarnIDs() started.
+◇ Test completionCueBurstRetainsAllCategoriesUntilConsumed() started.
+◇ Test completionCueDeveloperCopyCannotExposeOrAcknowledgeNormalUnread() started.
+◇ Test completionCueNewGameAndLegacySnapshotStartQuiet() started.
+◇ Test completionCueLegacyHUDWaitsForSuccessfulPublication() started.
+✔ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() passed after 0.001 seconds.
+✔ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() passed after 0.024 seconds.
+✔ Test completionCueDurablePulseAndTargetedAcknowledgement() passed after 0.043 seconds.
+✔ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() passed after 0.054 seconds.
+✔ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() passed after 0.081 seconds.
+✔ Test completionCueFirstLegacyContinueKeepsNewOfflineEarnUnread() passed after 0.100 seconds.
+✔ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() passed after 0.121 seconds.
+✔ Test completionCueLegacyAutosaveDoesNotExposeUnpublishedEarn() passed after 0.141 seconds.
+✔ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() passed after 0.162 seconds.
+✔ Test completionCueDeveloperCopyCannotExposeOrAcknowledgeNormalUnread() passed after 0.233 seconds.
+✔ Test completionCueBurstRetainsAllCategoriesUntilConsumed() passed after 0.240 seconds.
+✔ Test completionCueNewGameAndLegacySnapshotStartQuiet() passed after 0.245 seconds.
+✔ Test completionCueLegacyHUDWaitsForSuccessfulPublication() passed after 0.278 seconds.
+✔ Test completionCueLibraryGamesKeepIndependentUnreadForIdenticalEarnIDs() passed after 0.312 seconds.
+✔ Test run with 14 tests in 0 suites passed after 0.312 seconds.

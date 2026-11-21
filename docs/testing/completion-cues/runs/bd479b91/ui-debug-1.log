@@ -1,0 +1,918 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project /private/tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj -scheme Civilization -configuration Debug -destination "platform=iOS Simulator,id=2361BBE2-9172-41D7-AD30-A353CACD332F" -derivedDataPath /private/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F -resultBundlePath /private/tmp/civilization-qa-bd479b91cbe84692b74960e91af12b9e/ui-debug-1.xcresult CODE_SIGNING_ALLOWED=NO PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa.earned.a08454b6-2d21-4e92-b55a-6f0020673589 -parallel-testing-enabled NO "-only-testing:CivilizationUITests/NormalEntryUITests/testOrdinaryCompletionCuesWithSystemReduceMotion"
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+    PRODUCT_BUNDLE_IDENTIFIER = com.civilization.seed.qa.earned.a08454b6-2d21-4e92-b55a-6f0020673589
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  CivilizationCore: /tmp/civilization-stone-age-completion-cues/Packages/GameCore @ local
+
+Writing result bundle at path:
+	/private/tmp/civilization-qa-bd479b91cbe84692b74960e91af12b9e/ui-debug-1.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (10 targets)
+    Target 'CivilizationUITests' in project 'Civilization'
+        ➜ Explicit dependency on target 'Civilization' in project 'Civilization'
+        ➜ Explicit dependency on target 'GameCore-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameApplication-product' in project 'CivilizationCore'
+    Target 'Civilization' in project 'Civilization'
+        ➜ Explicit dependency on target 'GameApplication-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GamePersistence-product' in project 'CivilizationCore'
+    Target 'GamePersistence-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GamePersistence' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+    Target 'GameCore-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'CivilizationCore_GameCore' in project 'CivilizationCore'
+    Target 'GameApplication-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameApplication' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'CivilizationCore_GameApplication' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GamePersistence' in project 'CivilizationCore'
+    Target 'GameApplication' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'CivilizationCore_GameApplication' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GamePersistence' in project 'CivilizationCore'
+    Target 'GamePersistence' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+    Target 'GameCore' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'CivilizationCore_GameCore' in project 'CivilizationCore'
+    Target 'CivilizationCore_GameCore' in project 'CivilizationCore' (no dependencies)
+    Target 'CivilizationCore_GameApplication' in project 'CivilizationCore' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /tmp/civilization-stone-age-completion-cues/Civilization/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+Build description signature: 8aee1c88154be306093005ba82cc82da
+Build description path: /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/XCBuildData/8aee1c88154be306093005ba82cc82da.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache
+    cd /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache
+
+ProcessInfoPlistFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameApplication.bundle/Info.plist /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/CivilizationCore_GameApplication-b.build/empty-CivilizationCore_GameApplication.plist (in target 'CivilizationCore_GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    builtin-infoPlistUtility /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/CivilizationCore_GameApplication-b.build/empty-CivilizationCore_GameApplication.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameApplication.bundle/Info.plist
+
+WriteAuxiliaryFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftConstValuesFileList (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    write-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    write-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList
+
+WriteAuxiliaryFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    write-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json
+
+WriteAuxiliaryFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.LinkFileList (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    write-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.LinkFileList
+
+ProcessInfoPlistFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameCore.bundle/Info.plist /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/CivilizationCore_GameCore-b.build/empty-CivilizationCore_GameCore.plist (in target 'CivilizationCore_GameCore' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    builtin-infoPlistUtility /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/CivilizationCore_GameCore-b.build/empty-CivilizationCore_GameCore.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameCore.bundle/Info.plist
+
+SwiftDriver GameApplication normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name GameApplication -Onone @/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -sdk-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name gamecore -emit-const-values -const-gather-protocols-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_const_extract_protocols.json -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources-normal/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-Swift.h -working-directory /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ GameApplication (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftCompile normal arm64 (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj
+    
+
+SwiftCompile normal arm64 Compiling\ GameSession.swift /private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Sources/GameApplication/GameSession.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftCompile normal arm64 /private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Sources/GameApplication/GameSession.swift (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj
+    builtin-SwiftPerFileCompile GameSession.swift
+
+SwiftCompile normal arm64 Compiling\ CompletionCuePresentation.swift /private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Sources/GameApplication/CompletionCuePresentation.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftCompile normal arm64 /private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Sources/GameApplication/CompletionCuePresentation.swift (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj
+    builtin-SwiftPerFileCompile CompletionCuePresentation.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling CompletionCuePresentation.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for GameApplication (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftDriver\ Compilation\ Requirements GameApplication normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name GameApplication -Onone @/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -sdk-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name gamecore -emit-const-values -const-gather-protocols-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_const_extract_protocols.json -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources-normal/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-Swift.h -working-directory /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.swiftmodule /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.abi.json (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.abi.json /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.swiftdoc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftdoc (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftdoc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftsourceinfo (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftsourceinfo /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriver Civilization normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Civilization -Onone @/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Index.noindex/DataStore -swift-version 6 -I /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -sdk-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-generated-files.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-own-target-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-project-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources-normal/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-Swift.h -working-directory /tmp/civilization-stone-age-completion-cues -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ FoundingReviewView.swift,\ VillagerMotionReviewView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/FoundingReviewView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/VillagerMotionReviewView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/FoundingReviewView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile FoundingReviewView.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/VillagerMotionReviewView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile VillagerMotionReviewView.swift
+
+/tmp/civilization-stone-age-completion-cues/Civilization/UI/FoundingReviewView.swift:26:17: warning: cannot use generic class 'Autoconnect' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 24 |     @State private var paused = true
+ 25 |     @State private var inspection = ""
+ 26 |     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    |                 `- warning: cannot use generic class 'Autoconnect' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 27 |     @State private var menu: String?
+ 28 |     @State private var tools = false
+
+Combine.Publishers.Autoconnect:2:14: note: generic class declared here
+ 1 | enum Publishers {
+ 2 | public class Autoconnect<Upstream> : Publisher where Upstream : ConnectablePublisher {
+   |              `- note: generic class declared here
+ 3 |     public typealias Output = Upstream.Output
+ 4 |     public typealias Failure = Upstream.Failure
+
+/tmp/civilization-stone-age-completion-cues/Civilization/UI/FoundingReviewView.swift:26:17: warning: cannot use enum 'Publishers' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 24 |     @State private var paused = true
+ 25 |     @State private var inspection = ""
+ 26 |     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    |                 `- warning: cannot use enum 'Publishers' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 27 |     @State private var menu: String?
+ 28 |     @State private var tools = false
+
+Combine.Publishers:2:13: note: enum declared here
+1 | @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+2 | public enum Publishers {
+  |             `- note: enum declared here
+3 | }
+SwiftCompile normal arm64 Compiling\ LaunchMenuView.swift,\ SavedGamesView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/LaunchMenuView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/SavedGamesView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/LaunchMenuView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile LaunchMenuView.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/SavedGamesView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile SavedGamesView.swift
+
+SwiftCompile normal arm64 Compiling\ SettlementLoadingView.swift,\ DeveloperToolsView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/SettlementLoadingView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/DeveloperToolsView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/SettlementLoadingView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile SettlementLoadingView.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/DeveloperToolsView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile DeveloperToolsView.swift
+
+SwiftCompile normal arm64 Compiling\ RoadControlsView.swift,\ WorldView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/RoadControlsView.swift /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/WorldView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/RoadControlsView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile RoadControlsView.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/WorldView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile WorldView.swift
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ Civilization (in target 'Civilization' from project 'Civilization')
+/tmp/civilization-stone-age-completion-cues/Civilization/UI/FoundingReviewView.swift:26:17: warning: cannot use generic class 'Autoconnect' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 24 |     @State private var paused = true
+ 25 |     @State private var inspection = ""
+ 26 |     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    |                 `- warning: cannot use generic class 'Autoconnect' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 27 |     @State private var menu: String?
+ 28 |     @State private var tools = false
+
+Combine.Publishers.Autoconnect:2:14: note: generic class declared here
+ 1 | enum Publishers {
+ 2 | public class Autoconnect<Upstream> : Publisher where Upstream : ConnectablePublisher {
+   |              `- note: generic class declared here
+ 3 |     public typealias Output = Upstream.Output
+ 4 |     public typealias Failure = Upstream.Failure
+
+/tmp/civilization-stone-age-completion-cues/Civilization/UI/FoundingReviewView.swift:26:17: warning: cannot use enum 'Publishers' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 24 |     @State private var paused = true
+ 25 |     @State private var inspection = ""
+ 26 |     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    |                 `- warning: cannot use enum 'Publishers' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 27 |     @State private var menu: String?
+ 28 |     @State private var tools = false
+
+Combine.Publishers:2:13: note: enum declared here
+1 | @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+2 | public enum Publishers {
+  |             `- note: enum declared here
+3 | }
+
+SwiftCompile normal arm64 (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    
+
+SwiftCompile normal arm64 Compiling\ VillagerFigure.swift,\ LivingWorldLayer.swift /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/VillagerFigure.swift /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/LivingWorldLayer.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/VillagerFigure.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile VillagerFigure.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/LivingWorldLayer.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile LivingWorldLayer.swift
+
+SwiftCompile normal arm64 Compiling\ BuildingConnectionLayer.swift,\ LoadingSceneryView.swift /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/BuildingConnectionLayer.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/LoadingSceneryView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/BuildingConnectionLayer.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile BuildingConnectionLayer.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/LoadingSceneryView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile LoadingSceneryView.swift
+
+SwiftCompile normal arm64 Compiling\ BuildingCatalogView.swift,\ ResearchView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/BuildingCatalogView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/ResearchView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/BuildingCatalogView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile BuildingCatalogView.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/ResearchView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile ResearchView.swift
+
+SwiftCompile normal arm64 Compiling\ NativeVisualReviewView.swift,\ EconomyLabView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/NativeVisualReviewView.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/EconomyLabView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/NativeVisualReviewView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile NativeVisualReviewView.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/EconomyLabView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile EconomyLabView.swift
+
+SwiftCompile normal arm64 Compiling\ SettlementView.swift,\ GeneratedAssetSymbols.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/SettlementView.swift /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/SettlementView.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile SettlementView.swift
+
+SwiftCompile normal arm64 /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile GeneratedAssetSymbols.swift
+
+SwiftCompile normal arm64 Compiling\ CivilizationApp.swift,\ SettlementScene.swift /tmp/civilization-stone-age-completion-cues/Civilization/CivilizationApp.swift /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/SettlementScene.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/CivilizationApp.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile CivilizationApp.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/SettlementScene.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile SettlementScene.swift
+
+SwiftCompile normal arm64 Compiling\ EraIcon.swift,\ EraArt.swift /tmp/civilization-stone-age-completion-cues/Civilization/UI/EraIcon.swift /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/EraArt.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/UI/EraIcon.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile EraIcon.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/EraArt.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile EraArt.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling LaunchMenuView.swift, SavedGamesView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 Compiling\ RenderDiagnostics.swift,\ WorldDetails.swift /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/RenderDiagnostics.swift /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/WorldDetails.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/RenderDiagnostics.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile RenderDiagnostics.swift
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/Civilization/Rendering/WorldDetails.swift (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile WorldDetails.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling BuildingConnectionLayer.swift, LoadingSceneryView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling VillagerFigure.swift, LivingWorldLayer.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling GameSession.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftCompile normal arm64 Compiling\ GameSessionRoads.swift /private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Sources/GameApplication/GameSessionRoads.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftCompile normal arm64 /private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Sources/GameApplication/GameSessionRoads.swift (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj
+    builtin-SwiftPerFileCompile GameSessionRoads.swift
+
+SwiftCompile normal arm64 Compiling\ GameLibrary.swift /private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Sources/GameApplication/GameLibrary.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftCompile normal arm64 /private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Sources/GameApplication/GameLibrary.swift (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj
+    builtin-SwiftPerFileCompile GameLibrary.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling EraIcon.swift, EraArt.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling RoadControlsView.swift, WorldView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling RenderDiagnostics.swift, WorldDetails.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettlementLoadingView.swift, DeveloperToolsView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling GameSessionRoads.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftDriverJobDiscovery normal arm64 Compiling GameLibrary.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftDriver\ Compilation GameApplication normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name GameApplication -Onone @/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -sdk-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name gamecore -emit-const-values -const-gather-protocols-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_const_extract_protocols.json -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources-normal/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-Swift.h -working-directory /tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.o normal (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios18.0-simulator -r -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -O0 -Xlinker -no_warn_duplicate_libraries -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -filelist /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.LinkFileList -nostdlib -Xlinker -object_path_lto -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_lto.o -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.o
+
+ExtractAppIntentsMetadata (in target 'GameApplication' from project 'CivilizationCore')
+    cd /tmp/civilization-stone-age-completion-cues/Packages/GameCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name GameApplication --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk --xcode-version 27B52 --platform-family iOS --deployment-target 18.0 --bundle-identifier com.civilization.seed.qa.earned.a08454b6-2d21-4e92-b55a-6f0020673589 --output /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.appintents --target-triple arm64-apple-ios18.0-simulator --binary-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/GameApplication.o --dependency-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_dependency_info.dat --stringsdata-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList --metadata-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/GameApplication.DependencyMetadataFileList --static-metadata-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/GameApplication.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftConstValuesFileList --force --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-11-21 14:07:38.504 appintentsmetadataprocessor[35262:11656782] Starting App Intents metadata extraction
+2026-11-21 14:07:38.551 appintentsmetadataprocessor[35262:11656782] Extracted no relevant App Intents symbols, skipping writing output
+
+SwiftDriverJobDiscovery normal arm64 Compiling CivilizationApp.swift, SettlementScene.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling NativeVisualReviewView.swift, EconomyLabView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling BuildingCatalogView.swift, ResearchView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling FoundingReviewView.swift, VillagerMotionReviewView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettlementView.swift, GeneratedAssetSymbols.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriver\ Compilation Civilization normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Civilization -Onone @/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Index.noindex/DataStore -swift-version 6 -I /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -sdk-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-generated-files.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-own-target-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-project-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources-normal/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-Swift.h -working-directory /tmp/civilization-stone-age-completion-cues -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for Civilization (in target 'Civilization' from project 'Civilization')
+
+SwiftDriver\ Compilation\ Requirements Civilization normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Civilization -Onone @/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Index.noindex/DataStore -swift-version 6 -I /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -sdk-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-generated-files.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-own-target-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-project-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources-normal/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-Swift.h -working-directory /tmp/civilization-stone-age-completion-cues -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.abi.json (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.abi.json /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/arm64-apple-ios-simulator.swiftmodule /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftsourceinfo (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftsourceinfo /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+Ld /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib normal (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios18.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -Os -Xlinker -no_warn_duplicate_libraries -L/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -filelist /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.LinkFileList -install_name @rpath/Civilization.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_lto.o -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib
+
+ConstructStubExecutorLinkFileList /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-ExecutorLinkFileList-normal-arm64.txt (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    construct-stub-executor-link-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'Civilization' from project 'Civilization')
+
+Ld /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization normal (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios18.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -Os -Xlinker -no_warn_duplicate_libraries -L/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-ExecutorLinkFileList-normal-arm64.txt /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization
+
+ExtractAppIntentsMetadata (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Civilization --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk --xcode-version 27B52 --platform-family iOS --deployment-target 18.0 --bundle-identifier com.civilization.seed.qa.earned.a08454b6-2d21-4e92-b55a-6f0020673589 --output /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app --target-triple arm64-apple-ios18.0-simulator --binary-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization --dependency-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_dependency_info.dat --stringsdata-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftFileList --metadata-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization.DependencyMetadataFileList --static-metadata-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-11-21 14:07:43.425 appintentsmetadataprocessor[35290:11656967] Starting App Intents metadata extraction
+2026-11-21 14:07:43.426 appintentsmetadataprocessor[35290:11656967] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+SwiftDriver CivilizationUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name CivilizationUITests -O @/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -swift-version 6 -I /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -sdk-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-generated-files.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-own-target-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-project-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-Swift.h -working-directory /tmp/civilization-stone-age-completion-cues -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/CivilizationCore_GameApplication.bundle /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameApplication.bundle (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameApplication.bundle /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/CivilizationCore_GameCore.bundle /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameCore.bundle (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameCore.bundle /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app
+
+ProcessInfoPlistFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Info.plist /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/empty-Civilization.plist (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-infoPlistUtility /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/empty-Civilization.plist -producttype com.apple.product-type.application -genpkginfo /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/LaunchScreen-SBPartialInfo.plist -additionalcontentfile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/assetcatalog_generated_info.plist -scanforprivacyfile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/CivilizationCore_GameApplication.bundle -scanforprivacyfile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/CivilizationCore_GameCore.bundle -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Info.plist
+
+CopySwiftLibs /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib --scan-folder /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Frameworks --scan-folder /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/PlugIns --scan-folder /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/SystemExtensions --scan-folder /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+GenerateDSYMFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app.dSYM /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/dima/.codex/tmp/arg0-macos/codex-arg0owWcE4:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app.dSYM
+
+GenerateDSYMFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app.dSYM /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization (in target 'Civilization' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/dima/.codex/tmp/arg0-macos/codex-arg0owWcE4:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil -q /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/Civilization.app.dSYM
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ CivilizationUITests (in target 'CivilizationUITests' from project 'Civilization')
+
+SwiftCompile normal arm64 (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    
+
+SwiftCompile normal arm64 Compiling\ RelocationUITests.swift /tmp/civilization-stone-age-completion-cues/CivilizationUITests/RelocationUITests.swift (in target 'CivilizationUITests' from project 'Civilization')
+
+SwiftCompile normal arm64 /tmp/civilization-stone-age-completion-cues/CivilizationUITests/RelocationUITests.swift (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-SwiftPerFileCompile RelocationUITests.swift
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationCore_GameApplication.bundle /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameApplication.bundle (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameApplication.bundle /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationCore_GameCore.bundle /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameCore.bundle (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationCore_GameCore.bundle /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest
+
+ProcessInfoPlistFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Info.plist /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/empty-CivilizationUITests.plist (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-infoPlistUtility /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/empty-CivilizationUITests.plist -producttype com.apple.product-type.bundle.ui-testing -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/ProductTypeInfoPlistAdditions.plist -scanforprivacyfile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationCore_GameApplication.bundle -scanforprivacyfile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationCore_GameCore.bundle -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Info.plist
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for CivilizationUITests (in target 'CivilizationUITests' from project 'Civilization')
+
+SwiftDriver\ Compilation\ Requirements CivilizationUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name CivilizationUITests -O @/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -swift-version 6 -I /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -sdk-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-generated-files.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-own-target-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-project-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-Swift.h -working-directory /tmp/civilization-stone-age-completion-cues -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftsourceinfo (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftsourceinfo /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+Copy /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.abi.json (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.abi.json /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+SwiftDriverJobDiscovery normal arm64 Compiling RelocationUITests.swift (in target 'CivilizationUITests' from project 'Civilization')
+
+SwiftDriver\ Compilation CivilizationUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name CivilizationUITests -O @/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -swift-version 6 -I /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex -sdk-module-cache-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-generated-files.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-own-target-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-project-headers.hmap -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources/arm64 -Xcc -I/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-Swift.h -working-directory /tmp/civilization-stone-age-completion-cues -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests normal (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios18.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -Os -Xlinker -no_warn_duplicate_libraries -L/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -filelist /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_lto.o -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests
+
+CopySwiftLibs /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests --scan-folder /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Frameworks --scan-folder /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/PlugIns --scan-folder /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/SystemExtensions --scan-folder /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name CivilizationUITests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk --xcode-version 27B52 --platform-family iOS --deployment-target 18.0 --bundle-identifier com.civilization.seed.qa.earned.a08454b6-2d21-4e92-b55a-6f0020673589 --output /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest --target-triple arm64-apple-ios18.0-simulator --binary-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests --dependency-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_dependency_info.dat --stringsdata-file /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftFileList --metadata-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests.DependencyMetadataFileList --static-metadata-file-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-11-21 14:07:49.224 appintentsmetadataprocessor[35316:11657191] Starting App Intents metadata extraction
+2026-11-21 14:07:49.225 appintentsmetadataprocessor[35316:11657191] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+GenerateDSYMFile /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest.dSYM /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests (in target 'CivilizationUITests' from project 'Civilization')
+    cd /tmp/civilization-stone-age-completion-cues
+    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/dima/.codex/tmp/arg0-macos/codex-arg0owWcE4:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests -o /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest.dSYM
+
+PruneExplicitPrecompiledModules /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/completion-cues-native-builds/debug/2361BBE2-9172-41D7-AD30-A353CACD332F/SDKExplicitPrecompiledModules
+
+2026-11-21 14:07:49.918459+0200 CivilizationUITests-Runner[35318:11657430] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'Selected tests' started at 2026-11-21 14:07:50.266.
+Test Suite 'CivilizationUITests.xctest' started at 2026-11-21 14:07:50.267.
+Test Suite 'NormalEntryUITests' started at 2026-11-21 14:07:50.267.
+Test Case '-[CivilizationUITests.NormalEntryUITests testOrdinaryCompletionCuesWithSystemReduceMotion]' started.
+    t =     0.00s Start Test at 2026-11-21 14:07:50.267
+    t =     0.02s Set Up
+    t =     0.02s Setting device orientation to Landscape Left
+    t =     0.03s     Wait for com.apple.Preferences to idle
+    t =     0.03s Open com.apple.Preferences
+    t =     0.03s     Launch com.apple.Preferences
+    t =     0.03s         Terminate com.apple.Preferences:33183
+    t =     1.15s         Setting up automation session
+    t =     1.63s         Wait for com.apple.Preferences to idle
+    t =     3.06s Checking existence of `"Done" Button`
+    t =     3.16s Checking existence of `"Reduce Motion" Switch`
+    t =     3.18s Checking existence of `"Accessibility" Cell`
+    t =     3.20s Checking existence of `Button (Element at index 0)`
+    t =     3.21s Tap Button (Element at index 0)
+    t =     3.21s     Wait for com.apple.Preferences to idle
+    t =     3.22s     Find the Button (Element at index 0)
+    t =     3.23s     Check for interrupting elements affecting "Dictate" Button
+    t =     3.25s     Synthesize event
+    t =     3.54s     Wait for com.apple.Preferences to idle
+    t =     3.62s Checking existence of `"Reduce Motion" Switch`
+    t =     3.65s Checking existence of `"Accessibility" Cell`
+    t =     3.68s Checking existence of `Button (Element at index 0)`
+    t =     3.70s Tap Button (Element at index 0)
+    t =     3.70s     Wait for com.apple.Preferences to idle
+    t =     3.86s     Find the Button (Element at index 0)
+    t =     3.89s     Check for interrupting elements affecting "Cancel" Button
+    t =     3.89s         Wait for com.apple.springboard to idle
+    t =     4.04s     Found 1 interrupting element:
+    t =     4.04s         Find the "Enable Dictation?" Alert
+    t =     4.06s "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =     4.06s     Invoking UI interruption monitors for "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =     4.06s         Find the "Enable Dictation?" Alert
+    t =     4.08s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =     4.10s         Get all elements bound by accessibility element for: Elements matching predicate 'userTestingAttributes CONTAINS "default-button"'
+    t =     4.13s         Checking existence of `"About Siri, Dictation & Privacy…" Button`
+    t =     4.15s Default interruption handler attempting to dismiss alert by tapping "About Siri, Dictation & Privacy…" Button.
+    t =     4.15s         Tap "About Siri, Dictation & Privacy…" Button
+    t =     4.15s             Wait for com.apple.springboard to idle
+    t =     4.15s             Find the "About Siri, Dictation & Privacy…" Button
+    t =     4.17s             Check for interrupting elements affecting "About Siri, Dictation & Privacy…" Button
+    t =     4.20s             Synthesize event
+    t =     4.60s             Wait for com.apple.springboard to idle
+    t =     4.81s         Waiting 1.0s for Alert to not exist
+    t =     5.82s             Checking `Expect predicate `existsNoRetry == 0` for object Alert`
+    t =     5.82s                 Checking existence of `Alert`
+    t =     5.85s             Checking existence of `Alert`
+    t =     5.87s         Verifying handling...
+    t =     5.91s Confirmed successful handling of interrupting element
+    t =     5.91s     Synthesize event
+    t =     5.91s         Scroll element to visible
+    t =     5.91s         Find the "Cancel" Button
+    t =     5.94s         Computed hit point {369.16666666666669, 100} after scrolling to visible
+    t =     6.23s     Wait for com.apple.Preferences to idle
+    t =     6.55s Checking existence of `"Reduce Motion" Switch`
+    t =     6.64s Checking existence of `"Accessibility" Cell`
+    t =     6.71s Checking existence of `Button (Element at index 0)`
+    t =     6.74s Tap Button (Element at index 0)
+    t =     6.74s     Wait for com.apple.Preferences to idle
+    t =     7.16s     Find the Button (Element at index 0)
+    t =     7.20s     Check for interrupting elements affecting "Cancel" Button
+    t =     7.20s         Wait for com.apple.springboard to idle
+    t =     7.23s     Found 1 interrupting element:
+    t =     7.23s         Find the "Enable Dictation?" Alert
+    t =     7.25s "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =     7.25s     Invoking UI interruption monitors for "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =     7.25s         Find the "Enable Dictation?" Alert
+    t =     7.26s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =     7.28s         Get all elements bound by accessibility element for: Elements matching predicate 'userTestingAttributes CONTAINS "default-button"'
+    t =     7.30s         Checking existence of `"About Siri, Dictation & Privacy…" Button`
+    t =     7.32s Default interruption handler attempting to dismiss alert by tapping "About Siri, Dictation & Privacy…" Button.
+    t =     7.32s         Tap "About Siri, Dictation & Privacy…" Button
+    t =     7.32s             Wait for com.apple.springboard to idle
+    t =     7.32s             Find the "About Siri, Dictation & Privacy…" Button
+    t =     7.34s             Check for interrupting elements affecting "About Siri, Dictation & Privacy…" Button
+    t =     7.36s             Synthesize event
+    t =     7.65s             Wait for com.apple.springboard to idle
+    t =     7.87s         Waiting 1.0s for Alert to not exist
+    t =     8.88s             Checking `Expect predicate `existsNoRetry == 0` for object Alert`
+    t =     8.88s                 Checking existence of `Alert`
+    t =     8.91s             Checking existence of `Alert`
+    t =     8.93s         Verifying handling...
+    t =     8.97s Confirmed successful handling of interrupting element
+    t =     8.97s     Synthesize event
+    t =     8.97s         Scroll element to visible
+    t =     8.97s         Find the "Cancel" Button
+    t =     9.01s         Computed hit point {369.16666666666669, 100} after scrolling to visible
+    t =     9.29s     Wait for com.apple.Preferences to idle
+    t =     9.62s Checking existence of `"Reduce Motion" Switch`
+    t =     9.69s Checking existence of `"Accessibility" Cell`
+    t =     9.75s Checking existence of `Button (Element at index 0)`
+    t =     9.77s Tap Button (Element at index 0)
+    t =     9.77s     Wait for com.apple.Preferences to idle
+    t =    10.22s     Find the Button (Element at index 0)
+    t =    10.27s     Check for interrupting elements affecting "Cancel" Button
+    t =    10.27s         Wait for com.apple.springboard to idle
+    t =    10.30s     Found 1 interrupting element:
+    t =    10.30s         Find the "Enable Dictation?" Alert
+    t =    10.32s "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    10.32s     Invoking UI interruption monitors for "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    10.32s         Find the "Enable Dictation?" Alert
+    t =    10.33s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =    10.35s         Get all elements bound by accessibility element for: Elements matching predicate 'userTestingAttributes CONTAINS "default-button"'
+    t =    10.37s         Checking existence of `"About Siri, Dictation & Privacy…" Button`
+    t =    10.39s Default interruption handler attempting to dismiss alert by tapping "About Siri, Dictation & Privacy…" Button.
+    t =    10.39s         Tap "About Siri, Dictation & Privacy…" Button
+    t =    10.39s             Wait for com.apple.springboard to idle
+    t =    10.39s             Find the "About Siri, Dictation & Privacy…" Button
+    t =    10.41s             Check for interrupting elements affecting "About Siri, Dictation & Privacy…" Button
+    t =    10.43s             Synthesize event
+    t =    10.72s             Wait for com.apple.springboard to idle
+    t =    10.94s         Waiting 1.0s for Alert to not exist
+    t =    11.95s             Checking `Expect predicate `existsNoRetry == 0` for object Alert`
+    t =    11.95s                 Checking existence of `Alert`
+    t =    11.97s             Checking existence of `Alert`
+    t =    11.98s         Verifying handling...
+    t =    12.02s Confirmed successful handling of interrupting element
+    t =    12.02s     Synthesize event
+    t =    12.03s         Scroll element to visible
+    t =    12.03s         Find the "Cancel" Button
+    t =    12.06s         Computed hit point {369.16666666666669, 100} after scrolling to visible
+    t =    12.35s     Wait for com.apple.Preferences to idle
+    t =    12.66s Checking existence of `"Reduce Motion" Switch`
+    t =    12.73s Checking existence of `"Accessibility" Cell`
+    t =    12.79s Checking existence of `Button (Element at index 0)`
+    t =    12.82s Tap Button (Element at index 0)
+    t =    12.82s     Wait for com.apple.Preferences to idle
+    t =    13.24s     Find the Button (Element at index 0)
+    t =    13.28s     Check for interrupting elements affecting "Cancel" Button
+    t =    13.28s         Wait for com.apple.springboard to idle
+    t =    13.32s     Found 1 interrupting element:
+    t =    13.32s         Find the "Enable Dictation?" Alert
+    t =    13.34s "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    13.35s     Invoking UI interruption monitors for "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    13.35s         Find the "Enable Dictation?" Alert
+    t =    13.37s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =    13.39s         Get all elements bound by accessibility element for: Elements matching predicate 'userTestingAttributes CONTAINS "default-button"'
+    t =    13.42s         Checking existence of `"About Siri, Dictation & Privacy…" Button`
+    t =    13.44s Default interruption handler attempting to dismiss alert by tapping "About Siri, Dictation & Privacy…" Button.
+    t =    13.44s         Tap "About Siri, Dictation & Privacy…" Button
+    t =    13.44s             Wait for com.apple.springboard to idle
+    t =    13.45s             Find the "About Siri, Dictation & Privacy…" Button
+    t =    13.47s             Check for interrupting elements affecting "About Siri, Dictation & Privacy…" Button
+    t =    13.51s             Synthesize event
+    t =    13.81s             Wait for com.apple.springboard to idle
+    t =    14.04s         Waiting 1.0s for Alert to not exist
+    t =    15.05s             Checking `Expect predicate `existsNoRetry == 0` for object Alert`
+    t =    15.05s                 Checking existence of `Alert`
+    t =    15.07s             Checking existence of `Alert`
+    t =    15.08s         Verifying handling...
+    t =    15.12s Confirmed successful handling of interrupting element
+    t =    15.12s     Synthesize event
+    t =    15.12s         Scroll element to visible
+    t =    15.12s         Find the "Cancel" Button
+    t =    15.16s         Computed hit point {369.16666666666669, 100} after scrolling to visible
+    t =    15.44s     Wait for com.apple.Preferences to idle
+    t =    15.74s Checking existence of `"Reduce Motion" Switch`
+    t =    15.80s Checking existence of `"Accessibility" Cell`
+    t =    15.86s Checking existence of `Button (Element at index 0)`
+    t =    15.89s Tap Button (Element at index 0)
+    t =    15.89s     Wait for com.apple.Preferences to idle
+    t =    16.30s     Find the Button (Element at index 0)
+    t =    16.34s     Check for interrupting elements affecting "Cancel" Button
+    t =    16.34s         Wait for com.apple.springboard to idle
+    t =    16.37s     Found 1 interrupting element:
+    t =    16.37s         Find the "Enable Dictation?" Alert
+    t =    16.39s "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    16.39s     Invoking UI interruption monitors for "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    16.39s         Find the "Enable Dictation?" Alert
+    t =    16.41s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =    16.42s         Get all elements bound by accessibility element for: Elements matching predicate 'userTestingAttributes CONTAINS "default-button"'
+    t =    16.45s         Checking existence of `"About Siri, Dictation & Privacy…" Button`
+    t =    16.47s Default interruption handler attempting to dismiss alert by tapping "About Siri, Dictation & Privacy…" Button.
+    t =    16.47s         Tap "About Siri, Dictation & Privacy…" Button
+    t =    16.47s             Wait for com.apple.springboard to idle
+    t =    16.47s             Find the "About Siri, Dictation & Privacy…" Button
+    t =    16.49s             Check for interrupting elements affecting "About Siri, Dictation & Privacy…" Button
+    t =    16.51s             Synthesize event
+    t =    16.80s             Wait for com.apple.springboard to idle
+    t =    17.03s         Waiting 1.0s for Alert to not exist
+    t =    18.03s             Checking `Expect predicate `existsNoRetry == 0` for object Alert`
+    t =    18.03s                 Checking existence of `Alert`
+    t =    18.06s             Checking existence of `Alert`
+    t =    18.08s         Verifying handling...
+    t =    18.12s Confirmed successful handling of interrupting element
+    t =    18.12s     Synthesize event
+    t =    18.12s         Scroll element to visible
+    t =    18.12s         Find the "Cancel" Button
+    t =    18.16s         Computed hit point {369.16666666666669, 100} after scrolling to visible
+    t =    18.45s     Wait for com.apple.Preferences to idle
+    t =    18.77s Checking existence of `"Reduce Motion" Switch`
+    t =    18.85s Checking existence of `"Accessibility" Cell`
+    t =    18.90s Checking existence of `Button (Element at index 0)`
+    t =    18.92s Tap Button (Element at index 0)
+    t =    18.92s     Wait for com.apple.Preferences to idle
+    t =    19.36s     Find the Button (Element at index 0)
+    t =    19.40s     Check for interrupting elements affecting "Cancel" Button
+    t =    19.40s         Wait for com.apple.springboard to idle
+    t =    19.43s     Found 1 interrupting element:
+    t =    19.43s         Find the "Enable Dictation?" Alert
+    t =    19.45s "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    19.45s     Invoking UI interruption monitors for "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    19.45s         Find the "Enable Dictation?" Alert
+    t =    19.46s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =    19.48s         Get all elements bound by accessibility element for: Elements matching predicate 'userTestingAttributes CONTAINS "default-button"'
+    t =    19.50s         Checking existence of `"About Siri, Dictation & Privacy…" Button`
+    t =    19.52s Default interruption handler attempting to dismiss alert by tapping "About Siri, Dictation & Privacy…" Button.
+    t =    19.52s         Tap "About Siri, Dictation & Privacy…" Button
+    t =    19.52s             Wait for com.apple.springboard to idle
+    t =    19.52s             Find the "About Siri, Dictation & Privacy…" Button
+    t =    19.54s             Check for interrupting elements affecting "About Siri, Dictation & Privacy…" Button
+    t =    19.57s             Synthesize event
+    t =    19.85s             Wait for com.apple.springboard to idle
+    t =    20.08s         Waiting 1.0s for Alert to not exist
+    t =    21.09s             Checking `Expect predicate `existsNoRetry == 0` for object Alert`
+    t =    21.09s                 Checking existence of `Alert`
+    t =    21.12s             Checking existence of `Alert`
+    t =    21.13s         Verifying handling...
+    t =    21.17s Confirmed successful handling of interrupting element
+    t =    21.17s     Synthesize event
+    t =    21.18s         Scroll element to visible
+    t =    21.18s         Find the "Cancel" Button
+    t =    21.21s         Computed hit point {369.16666666666669, 100} after scrolling to visible
+    t =    21.50s     Wait for com.apple.Preferences to idle
+    t =    21.82s Checking existence of `"Reduce Motion" Switch`
+    t =    21.89s Checking existence of `"Accessibility" Cell`
+    t =    21.95s Checking existence of `Button (Element at index 0)`
+    t =    21.97s Tap Button (Element at index 0)
+    t =    21.97s     Wait for com.apple.Preferences to idle
+    t =    22.41s     Find the Button (Element at index 0)
+    t =    22.45s     Check for interrupting elements affecting "Cancel" Button
+    t =    22.45s         Wait for com.apple.springboard to idle
+    t =    22.48s     Found 1 interrupting element:
+    t =    22.48s         Find the "Enable Dictation?" Alert
+    t =    22.50s "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    22.50s     Invoking UI interruption monitors for "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    22.50s         Find the "Enable Dictation?" Alert
+    t =    22.51s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =    22.53s         Get all elements bound by accessibility element for: Elements matching predicate 'userTestingAttributes CONTAINS "default-button"'
+    t =    22.55s         Checking existence of `"About Siri, Dictation & Privacy…" Button`
+    t =    22.57s Default interruption handler attempting to dismiss alert by tapping "About Siri, Dictation & Privacy…" Button.
+    t =    22.57s         Tap "About Siri, Dictation & Privacy…" Button
+    t =    22.57s             Wait for com.apple.springboard to idle
+    t =    22.57s             Find the "About Siri, Dictation & Privacy…" Button
+    t =    22.59s             Check for interrupting elements affecting "About Siri, Dictation & Privacy…" Button
+    t =    22.62s             Synthesize event
+    t =    22.90s             Wait for com.apple.springboard to idle
+    t =    23.13s         Waiting 1.0s for Alert to not exist
+    t =    24.13s             Checking `Expect predicate `existsNoRetry == 0` for object Alert`
+    t =    24.13s                 Checking existence of `Alert`
+    t =    24.16s             Checking existence of `Alert`
+    t =    24.18s         Verifying handling...
+    t =    24.22s Confirmed successful handling of interrupting element
+    t =    24.22s     Synthesize event
+    t =    24.22s         Scroll element to visible
+    t =    24.22s         Find the "Cancel" Button
+    t =    24.26s         Computed hit point {369.16666666666669, 100} after scrolling to visible
+    t =    24.55s     Wait for com.apple.Preferences to idle
+    t =    24.87s Checking existence of `"Reduce Motion" Switch`
+    t =    24.95s Find the "Accessibility" Cell
+    t =    26.00s     Find the "Accessibility" Cell (retry 1)
+    t =    27.05s     Find the "Accessibility" Cell (retry 2)
+    t =    27.11s Swipe up Application 'com.apple.Preferences'
+    t =    27.11s     Wait for com.apple.Preferences to idle
+    t =    27.11s     Find the Application 'com.apple.Preferences'
+    t =    27.13s     Check for interrupting elements affecting "Settings" Application
+    t =    27.13s         Wait for com.apple.springboard to idle
+    t =    27.16s     Found 1 interrupting element:
+    t =    27.16s         Find the "Enable Dictation?" Alert
+    t =    27.18s "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    27.18s     Invoking UI interruption monitors for "Enable Dictation?" Alert from Application 'com.apple.springboard'
+    t =    27.18s         Find the "Enable Dictation?" Alert
+    t =    27.19s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =    27.21s         Get all elements bound by accessibility element for: Elements matching predicate 'userTestingAttributes CONTAINS "default-button"'
+    t =    27.23s         Checking existence of `"About Siri, Dictation & Privacy…" Button`
+    t =    27.25s Default interruption handler attempting to dismiss alert by tapping "About Siri, Dictation & Privacy…" Button.
+    t =    27.25s         Tap "About Siri, Dictation & Privacy…" Button
+    t =    27.25s             Wait for com.apple.springboard to idle
+    t =    27.25s             Find the "About Siri, Dictation & Privacy…" Button
+    t =    27.27s             Check for interrupting elements affecting "About Siri, Dictation & Privacy…" Button
+    t =    27.29s             Synthesize event
+    t =    27.58s             Wait for com.apple.springboard to idle
+    t =    27.81s         Waiting 1.0s for Alert to not exist
+    t =    28.82s             Checking `Expect predicate `existsNoRetry == 0` for object Alert`
+    t =    28.82s                 Checking existence of `Alert`
+    t =    28.85s             Checking existence of `Alert`
+    t =    28.86s         Verifying handling...
+    t =    28.90s Confirmed successful handling of interrupting element
+    t =    28.90s     Synthesize event
+    t =    29.32s     Wait for com.apple.Preferences to idle
+    t =    31.43s Find the "Accessibility" Cell
+    t =    32.50s     Find the "Accessibility" Cell (retry 1)
+    t =    33.57s     Find the "Accessibility" Cell (retry 2)
+    t =    33.63s Swipe up Application 'com.apple.Preferences'
+    t =    33.63s     Wait for com.apple.Preferences to idle
+    t =    33.63s     Find the Application 'com.apple.Preferences'
+    t =    33.66s     Check for interrupting elements affecting "Settings" Application
+    t =    33.69s     Synthesize event
+    t =    34.12s     Wait for com.apple.Preferences to idle
+    t =    36.22s Find the "Accessibility" Cell
+    t =    37.28s     Find the "Accessibility" Cell (retry 1)
+    t =    38.35s     Find the "Accessibility" Cell (retry 2)
+    t =    38.42s Swipe up Application 'com.apple.Preferences'
+    t =    38.42s     Wait for com.apple.Preferences to idle
+    t =    38.42s     Find the Application 'com.apple.Preferences'
+    t =    38.45s     Check for interrupting elements affecting "Settings" Application
+    t =    38.48s     Synthesize event
+    t =    38.90s     Wait for com.apple.Preferences to idle
+    t =    41.00s Find the "Accessibility" Cell
+    t =    42.07s     Find the "Accessibility" Cell (retry 1)
+    t =    43.14s     Find the "Accessibility" Cell (retry 2)
+    t =    43.20s Swipe up Application 'com.apple.Preferences'
+    t =    43.20s     Wait for com.apple.Preferences to idle
+    t =    43.20s     Find the Application 'com.apple.Preferences'
+    t =    43.23s     Check for interrupting elements affecting "Settings" Application
+    t =    43.26s     Synthesize event
+    t =    43.68s     Wait for com.apple.Preferences to idle
+    t =    45.78s Find the "Accessibility" Cell
+    t =    46.85s     Find the "Accessibility" Cell (retry 1)
+    t =    47.92s     Find the "Accessibility" Cell (retry 2)
+    t =    47.99s Swipe up Application 'com.apple.Preferences'
+    t =    47.99s     Wait for com.apple.Preferences to idle
+    t =    47.99s     Find the Application 'com.apple.Preferences'
+    t =    48.02s     Check for interrupting elements affecting "Settings" Application
+    t =    48.05s     Synthesize event
+    t =    48.47s     Wait for com.apple.Preferences to idle
+    t =    50.57s Find the "Accessibility" Cell
+    t =    51.63s     Find the "Accessibility" Cell (retry 1)
+    t =    52.70s     Find the "Accessibility" Cell (retry 2)
+    t =    52.77s Swipe up Application 'com.apple.Preferences'
+    t =    52.77s     Wait for com.apple.Preferences to idle
+    t =    52.77s     Find the Application 'com.apple.Preferences'
+    t =    52.80s     Check for interrupting elements affecting "Settings" Application
+    t =    52.83s     Synthesize event
+    t =    53.25s     Wait for com.apple.Preferences to idle
+    t =    55.35s Find the "Accessibility" Cell
+    t =    56.42s     Find the "Accessibility" Cell (retry 1)
+    t =    57.48s     Find the "Accessibility" Cell (retry 2)
+    t =    57.54s Swipe up Application 'com.apple.Preferences'
+    t =    57.54s     Wait for com.apple.Preferences to idle
+    t =    57.54s     Find the Application 'com.apple.Preferences'
+    t =    57.57s     Check for interrupting elements affecting "Settings" Application
+    t =    57.60s     Synthesize event
+    t =    58.02s     Wait for com.apple.Preferences to idle
+    t =    60.13s Find the "Accessibility" Cell
+    t =    61.20s     Find the "Accessibility" Cell (retry 1)
+    t =    62.27s     Find the "Accessibility" Cell (retry 2)
+    t =    62.33s Swipe up Application 'com.apple.Preferences'
+    t =    62.33s     Wait for com.apple.Preferences to idle
+    t =    62.33s     Find the Application 'com.apple.Preferences'
+    t =    62.36s     Check for interrupting elements affecting "Settings" Application
+    t =    62.39s     Synthesize event
+    t =    62.81s     Wait for com.apple.Preferences to idle
+    t =    63.52s Find the "Accessibility" Cell
+    t =    64.59s     Find the "Accessibility" Cell (retry 1)
+    t =    65.67s     Find the "Accessibility" Cell (retry 2)
+/tmp/civilization-stone-age-completion-cues/CivilizationUITests/RelocationUITests.swift:2787: error: -[CivilizationUITests.NormalEntryUITests testOrdinaryCompletionCuesWithSystemReduceMotion] : XCTAssertTrue failed
+    t =    65.74s Tear Down
+Test Case '-[CivilizationUITests.NormalEntryUITests testOrdinaryCompletionCuesWithSystemReduceMotion]' failed (65.962 seconds).
+Test Suite 'NormalEntryUITests' failed at 2026-11-21 14:08:56.229.
+	 Executed 1 test, with 1 failure (0 unexpected) in 65.962 (65.962) seconds
+Test Suite 'CivilizationUITests.xctest' failed at 2026-11-21 14:08:56.230.
+	 Executed 1 test, with 1 failure (0 unexpected) in 65.962 (65.964) seconds
+Test Suite 'Selected tests' failed at 2026-11-21 14:08:56.231.
+	 Executed 1 test, with 1 failure (0 unexpected) in 65.962 (65.965) seconds
+2026-11-21 14:09:06.829 xcodebuild[35198:11656330] [MT] IDETestOperationsObserverDebug: 77.487 elapsed -- Testing started completed.
+2026-11-21 14:09:06.829 xcodebuild[35198:11656330] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-21 14:09:06.829 xcodebuild[35198:11656330] [MT] IDETestOperationsObserverDebug: 77.487 sec, +77.487 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/civilization-qa-bd479b91cbe84692b74960e91af12b9e/ui-debug-1.xcresult
+
+Failing tests:
+	NormalEntryUITests.testOrdinaryCompletionCuesWithSystemReduceMotion()
+
+** TEST FAILED **
+
+Testing started

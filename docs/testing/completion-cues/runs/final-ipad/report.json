@@ -1,0 +1,64 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "release",
+    "derived_data": "/private/tmp/completion-cues-native-builds",
+    "qa_identity": "6B8DC41B-C627-4615-AB15-7088438250FA",
+    "prepared_earned_container": false,
+    "filter": null,
+    "simulator": [
+      "248B6E1A-8719-40B6-88D8-36593DAE9119"
+    ],
+    "only_testing": [
+      "CivilizationUITests/NormalEntryUITests/testOrdinaryCompletionCuesEarnContinueAndViewExactResults",
+      "CivilizationUITests/NormalEntryUITests/testOrdinaryCompletionCuesWithSystemReduceMotion",
+      "CivilizationUITests/NormalEntryUITests/testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+      "CivilizationUITests/NormalEntryUITests/testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+      "CivilizationUITests/NormalEntryUITests/testNormalEntryPersistenceWithoutDeveloperHooks"
+    ],
+    "output": null
+  },
+  "steps": [
+    {
+      "name": "ui-release-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/private/tmp/civilization-stone-age-completion-cues/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Release",
+        "-destination",
+        "platform=iOS Simulator,id=248B6E1A-8719-40B6-88D8-36593DAE9119",
+        "-derivedDataPath",
+        "/private/tmp/completion-cues-native-builds/release/248B6E1A-8719-40B6-88D8-36593DAE9119",
+        "-resultBundlePath",
+        "/private/tmp/civilization-qa-d370ffed4efa4eb1b5f21a138145216d/ui-release-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa.earned.6b8dc41b-c627-4615-ab15-7088438250fa",
+        "-parallel-testing-enabled",
+        "NO",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testOrdinaryCompletionCuesEarnContinueAndViewExactResults",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testOrdinaryCompletionCuesWithSystemReduceMotion",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testNormalEntryPersistenceWithoutDeveloperHooks"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 5,
+      "durationSeconds": 303.112,
+      "log": "/private/tmp/civilization-qa-d370ffed4efa4eb1b5f21a138145216d/ui-release-1.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T12:46:09.186003+00:00",
+  "revision": {
+    "commit": "2495193e1e1f9818f41fdf2d41c92f5031d84e43",
+    "dirty": true
+  },
+  "status": "passed"
+}

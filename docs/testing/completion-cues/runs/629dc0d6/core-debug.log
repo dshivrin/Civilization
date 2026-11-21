@@ -1,0 +1,17 @@
+Building for debugging...
+[1 / 5]
+[2 / 6] GameCore
+[3 / 7] GameCore
+[7 / 9] GameCore
+[10 / 11] GameCoreTests-product
+Build complete! (1.31 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() started.
+◇ Test completionCueNewGameAndLegacySnapshotStartQuiet() started.
+◇ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() started.
+✔ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() passed after 0.023 seconds.
+✔ Test completionCueNewGameAndLegacySnapshotStartQuiet() passed after 0.027 seconds.
+✔ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() passed after 0.043 seconds.
+✔ Test run with 3 tests in 0 suites passed after 0.043 seconds.

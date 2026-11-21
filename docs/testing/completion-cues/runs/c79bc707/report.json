@@ -1,0 +1,65 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "both",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "qa_identity": null,
+    "prepared_earned_container": false,
+    "filter": null,
+    "simulator": [],
+    "only_testing": [],
+    "output": null
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/private/tmp/civilization-stone-age-completion-cues/Packages/GameCore"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 362,
+      "durationSeconds": 27.151,
+      "log": "/private/tmp/civilization-qa-c79bc70707094d1a908e4a02ca909b77/core-debug.log"
+    },
+    {
+      "name": "core-release",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/private/tmp/civilization-stone-age-completion-cues/Packages/GameCore",
+        "-c",
+        "release"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 268,
+      "durationSeconds": 33.989,
+      "log": "/private/tmp/civilization-qa-c79bc70707094d1a908e4a02ca909b77/core-release.log"
+    },
+    {
+      "name": "release-api-exclusions",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/private/tmp/civilization-stone-age-completion-cues/scripts/verify-developer-release.py"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 5.95,
+      "log": "/private/tmp/civilization-qa-c79bc70707094d1a908e4a02ca909b77/release-api-exclusions.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T12:35:39.086010+00:00",
+  "revision": {
+    "commit": "001024ded76cb0a5dab57db870fa1d3567f6a2c4",
+    "dirty": true
+  },
+  "status": "passed"
+}

@@ -1,0 +1,55 @@
+Filtering the log data using "subsystem == "CivilizationCompletionCue""
+Timestamp               Ty Process[PID:TID]
+2026-11-21 14:29:40.942 Df Civilization[43473:b2f6c3] [CivilizationCompletionCue:HUD] receive count=0 phase=active obscured=false reduce=false
+2026-11-21 14:29:48.039 Df Civilization[43473:b2f6c3] [CivilizationCompletionCue:HUD] receive count=2 phase=active obscured=true reduce=false
+2026-11-21 14:29:48.039 Df Civilization[43473:b2f6c3] [CivilizationCompletionCue:HUD] begin pending=2 unreadDestinations=2 phase=active obscured=true reduce=false
+2026-11-21 14:29:48.934 Df Civilization[43473:b2f6c3] [CivilizationCompletionCue:HUD] receive count=0 phase=active obscured=false reduce=false
+2026-11-21 14:29:48.934 Df Civilization[43473:b2f6c3] [CivilizationCompletionCue:HUD] begin pending=2 unreadDestinations=2 phase=active obscured=false reduce=false
+2026-11-21 14:31:36.927 Df Civilization[44117:b30bef] [CivilizationCompletionCue:HUD] receive count=0 phase=active obscured=false reduce=false
+2026-11-21 14:31:44.059 Df Civilization[44117:b30bef] [CivilizationCompletionCue:HUD] receive count=2 phase=active obscured=true reduce=false
+2026-11-21 14:31:44.060 Df Civilization[44117:b30bef] [CivilizationCompletionCue:HUD] begin pending=2 unreadDestinations=2 phase=active obscured=true reduce=false
+2026-11-21 14:31:44.060 Df Civilization[44117:b30bef] [CivilizationCompletionCue:HUD] began=false pulsing=0
+2026-11-21 14:31:44.936 Df Civilization[44117:b30bef] [CivilizationCompletionCue:HUD] receive count=0 phase=active obscured=false reduce=false
+2026-11-21 14:31:44.936 Df Civilization[44117:b30bef] [CivilizationCompletionCue:HUD] begin pending=2 unreadDestinations=2 phase=active obscured=false reduce=false
+2026-11-21 14:31:44.936 Df Civilization[44117:b30bef] [CivilizationCompletionCue:HUD] began=true pulsing=2
+2026-11-21 14:31:44.957 Df Civilization[44117:b30bef] [CivilizationCompletionCue:HUD] task started pulsing=2
+2026-11-21 14:34:44.278 Df Civilization[45243:b3316e] [CivilizationCompletionCue:HUD] receive count=0 phase=active obscured=false reduce=false
+2026-11-21 14:34:51.323 Df Civilization[45243:b3316e] [CivilizationCompletionCue:HUD] receive count=2 phase=active obscured=true reduce=false
+2026-11-21 14:34:51.324 Df Civilization[45243:b3316e] [CivilizationCompletionCue:HUD] begin pending=2 unreadDestinations=2 phase=active obscured=true reduce=false
+2026-11-21 14:34:51.324 Df Civilization[45243:b3316e] [CivilizationCompletionCue:HUD] began=false pulsing=0
+2026-11-21 14:34:52.199 Df Civilization[45243:b3316e] [CivilizationCompletionCue:HUD] receive count=0 phase=active obscured=false reduce=false
+2026-11-21 14:34:52.199 Df Civilization[45243:b3316e] [CivilizationCompletionCue:HUD] begin pending=2 unreadDestinations=2 phase=active obscured=false reduce=false
+2026-11-21 14:34:52.199 Df Civilization[45243:b3316e] [CivilizationCompletionCue:HUD] began=true pulsing=2
+2026-11-21 14:34:52.213 Df Civilization[45243:b3316e] [CivilizationCompletionCue:HUD] task started pulsing=2
+2026-11-21 14:36:23.920 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:23.943 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] receive count=0 phase=active obscured=false reduce=false
+2026-11-21 14:36:24.779 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:26.508 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:26.538 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:26.691 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:27.565 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:28.604 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:29.673 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:29.975 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=goals pulsing=0
+2026-11-21 14:36:29.975 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:29.977 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] receive count=2 phase=active obscured=true reduce=false
+2026-11-21 14:36:29.978 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] begin object=ObjectIdentifier(0x0000600000c795c0) pending=2 unreadDestinations=2 phase=active obscured=true reduce=false
+2026-11-21 14:36:29.978 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] began=false pulsing=0
+2026-11-21 14:36:30.340 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=goals pulsing=0
+2026-11-21 14:36:30.340 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:30.729 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=goals pulsing=0
+2026-11-21 14:36:30.729 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:30.862 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] receive count=0 phase=active obscured=false reduce=false
+2026-11-21 14:36:30.862 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] begin object=ObjectIdentifier(0x0000600000c795c0) pending=2 unreadDestinations=2 phase=active obscured=false reduce=false
+2026-11-21 14:36:30.862 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] began=true pulsing=2
+2026-11-21 14:36:30.871 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] task started pulsing=2
+2026-11-21 14:36:30.871 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=goals pulsing=2
+2026-11-21 14:36:30.871 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=2
+2026-11-21 14:36:30.925 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=goals pulsing=2
+2026-11-21 14:36:30.925 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=2
+2026-11-21 14:36:31.713 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] task finishing pulsing=2
+2026-11-21 14:36:31.714 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=goals pulsing=0
+2026-11-21 14:36:31.714 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+2026-11-21 14:36:31.769 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=goals pulsing=0
+2026-11-21 14:36:31.770 Df Civilization[45910:b347d3] [CivilizationCompletionCue:HUD] AX render object=ObjectIdentifier(0x0000600000c795c0) destination=research pulsing=0
+

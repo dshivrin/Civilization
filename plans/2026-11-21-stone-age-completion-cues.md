@@ -130,3 +130,20 @@ history is connected only when already durable and relevant to a real destinatio
   logging, reference controller or diagnostic sleeps remain in product/tests.
 - Final source freeze follows. Full core and five ordinary Release cases per phone/
   iPad run on the committed source before branch integration.
+
+- Task 2: complete on frozen2495193. Final five-case ordinary Release matrix passes
+  on phone (ff985ea1855b4e2c878792de7bcd374b) and iPad
+  (d370ffed4efa4eb1b5f21a138145216d),0failures. Both observe actual research and
+  Games-deferred chapter pulses start/end, persistence/no replay/acknowledgement,
+  static OS setting, standard and XXXL HUD and independent Continue.
+- Final core362Debug/268Release/23exclusions pass at2495193 in
+  bfc142d568424a3a94e48c3b34176c53.38original PNGs and two short stream-copy clips
+  are hash-pinned; source packets match and demux-time-base decode is clean.
+- Task 3 evidence: complete; same-branch clean-checkout/remote verification and
+  fast-forward/non-force push are the final remaining operations.
+- Pre-integration receipt: target checkout is clean on riverbend-stone-age-hud-review;
+  local and personal remote both still equal approvedca1426b.38native PNG archives
+  compare byte-identically with exports; every gallery link exists; two short clips
+  retain original encoded packets and decode cleanly.138protected entries match.
+  Final completion report supplies the exact local/remote delivery commit SHA after
+  the fast-forward and normal push; this ledger retains the pre-publication checkpoint.

@@ -25,7 +25,7 @@ presentation are checked together. Merely opening a category/menu does not clear
 items in another category or outside the viewport. Acknowledging one ID never
 clears unrelated unread IDs.
 
-## Verification record (in progress)
+## Development record (historical; final matrix below)
 
 - Initial new-game baseline test observed an expected missing-inbox RED.
 - Command recording tests observed missing unread RED; delivery/acknowledgement
@@ -66,4 +66,55 @@ Deterministic regressions reproduce the legacy/burst issues. A negative control
 that ignores HUD visibility fails the presentation regression; restoring the guard
 passes. Reduce Motion and background clearing are covered in that same real production
 presentation controller. Core full matrix before these review fixes was356Debug/
-263Release+23exclusions; final matrix below must supersede it.
+263Release+23exclusions; final matrix below supersedes it.
+
+## Final frozen-source verification
+
+Tested product source: **2495193e1e1f9818f41fdf2d41c92f5031d84e43**.
+The retained plan precedes all implementation at0b9b754. Code and tests remain
+identical while the final evidence/documentation commit is prepared.
+
+| Final check | Result | Receipt |
+|---|---:|---|
+| Full core Debug |362passed,0failures |[report](runs/core-2495193/report.md) |
+| Full core Release |268passed,0failures |[report](runs/core-2495193/report.md) |
+| Debug-present / Release-absent exclusions |23passed |[probes](runs/core-2495193/release-api-exclusions.log) |
+| Ordinary iPhone Release |5passed,0failures |[report](runs/final-phone/report.md) |
+| Ordinary iPad Release |5passed,0failures |[report](runs/final-ipad/report.md) |
+
+Each native profile runs independent New Game/Continue persistence, earned completion
+start/end and exact viewing, real OS Reduce Motion, standard HUD and XXXL HUD audits.
+The primary completion test temporarily disables OS Reduce Motion; the static test
+enables it. Both restore and assert the original setting. A bounded30ms AX poll
+observes the actual0.8second pulse, followed by its end; no test-only app delivery
+hook is present. The native chapter uses22seconds of real construction behind Games
+and confirms the expanded Goals button's frame stays fixed. All native earned paths
+use ordinary costs and time, with no fixture/grant/developer controls.
+
+[38original full-display PNG captures and two short motion clips](index.html) are
+hash-pinned in [verification.json](verification.json). The clips preserve encoded
+packets from the original simulator recordings and decode cleanly with demux time-base
+passthrough. A default null-muxer decode initially printed duplicate-DTS messages due
+to frame-time-base quantization; the explicit demux time-base decode is clean. Full
+original recordings and earlier larger derivatives remain local under the recorded
+`/private/tmp` paths; they were not recomposed or uploaded to another service.
+
+The machine ledger verifies138protected original runtime/configuration/asset/link/tool
+entries retain exact Git mode/type/blob IDs. Signing/project files, configuration,
+runtime art, scripts and inspector tools are unchanged. Owner-save/device/media access
+was not used. The delivery is only the existing personal review branch, with final
+local/remote SHA verification after a clean-checkout fast-forward and non-force push.
+
+Earlier receipts retain expected REDs, compile and permission errors, wrong native
+category/budget/scroll setup, OS Settings navigation failures, stale-cache executions,
+partial native aggregates, immediate/one-second pulse-sampling failures and a temporary
+observation experiment. Only the three final reports above establish final source
+credit. Temporary lifecycle diagnostics confirmed earned events reached the HUD;
+the returning cue was sampled before onDismiss, rather than a failed earn. All such
+diagnostics and the unnecessary reference-controller experiment were removed.
+
+One design ruling: old gameplay-state equality assertions ignore only the new
+presentation inbox, which is checked by14dedicated Debug/13Release completion tests.
+If that division is wrong, those old tests alone would not catch inbox regressions.
+No minor source findings remain deferred; spoken VoiceOver quality, maximum accessibility
+text, human acceptance and physical metrics remain unverified limits.

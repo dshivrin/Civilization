@@ -1,0 +1,38 @@
+Building for debugging...
+[4 / 25]
+[5 / 26] GameCore
+[7 / 27] GameCore
+[13 / 28] GameApplication
+[15 / 29] GameApplication
+[18 / 27] GameCoreTests-product
+[20 / 29] GameCoreTests-product
+[23 / 32] GameCoreTests-product
+[27 / 31] GameCoreTests-product
+[29 / 31] GameCoreTests-product
+Build complete! (3.56 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueBurstRetainsAllCategoriesUntilConsumed() started.
+◇ Test completionCueLegacyHUDWaitsForSuccessfulPublication() started.
+◇ Test completionCueFirstLegacyContinueKeepsNewOfflineEarnUnread() started.
+✘ Test completionCueFirstLegacyContinueKeepsNewOfflineEarnUnread() recorded an issue at CompletionCueTests.swift:193:5: Expectation failed: s.unreadCompletions(for: .goals).contains("objective:1:building-hut")
+↳ s.unreadCompletions(for: .goals).contains("objective:1:building-hut") → false
+↳   s.unreadCompletions(for: .goals) → []
+✘ Test completionCueFirstLegacyContinueKeepsNewOfflineEarnUnread() failed after 0.022 seconds with 1 issue.
+✘ Test completionCueLegacyHUDWaitsForSuccessfulPublication() recorded an issue at CompletionCueTests.swift:211:5: Expectation failed: s.unreadCompletions(for: .research).isEmpty
+↳ s.unreadCompletions(for: .research).isEmpty → false
+↳   s.unreadCompletions(for: .research) → ["research:oralTradition"]
+↳   isEmpty → false
+✘ Test completionCueLegacyHUDWaitsForSuccessfulPublication() failed after 0.052 seconds with 1 issue.
+✘ Test completionCueBurstRetainsAllCategoriesUntilConsumed() recorded an issue at CompletionCueTests.swift:223:5: Expectation failed: Set(s.latestCompletions.map(\.destination)) == [.research, .goals]
+↳ Set(s.latestCompletions.map(\.destination)) == [.research, .goals] → false
+↳   Set(s.latestCompletions.map(\.destination)) → [GameCore.CompletionDestination.goals]
+↳   [.research, .goals] → [GameCore.CompletionDestination.research, GameCore.CompletionDestination.goals]
+✘ Test completionCueBurstRetainsAllCategoriesUntilConsumed() recorded an issue at CompletionCueTests.swift:224:5: Expectation failed: Set(s.latestCompletions.map(\.id)).isSuperset(of: ["research:oralTradition", "objective:1:civic-level-2"])
+↳ Set(s.latestCompletions.map(\.id)).isSuperset(of: ["research:oralTradition", "objective:1:civic-level-2"]) → false
+↳   Set(s.latestCompletions.map(\.id)) → ["objective:1:civic-level-2"]
+✘ Test completionCueBurstRetainsAllCategoriesUntilConsumed() failed after 0.058 seconds with 2 issues.
+✘ Test run with 3 tests in 0 suites failed after 0.059 seconds with 4 issues.
+Note: Some test targets reported failures:
+  - GameCoreTests (Swift Testing)

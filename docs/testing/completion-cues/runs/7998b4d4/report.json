@@ -1,0 +1,40 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "qa_identity": null,
+    "prepared_earned_container": false,
+    "filter": "completionCue",
+    "simulator": [],
+    "only_testing": [],
+    "output": null,
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/private/tmp/civilization-stone-age-completion-cues/Packages/GameCore",
+        "--filter",
+        "completionCue"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 14,
+      "durationSeconds": 6.553,
+      "log": "/private/tmp/civilization-qa-7998b4d43578474cacaf4dcf651bad46/core-debug.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T12:33:53.562259+00:00",
+  "revision": {
+    "commit": "001024ded76cb0a5dab57db870fa1d3567f6a2c4",
+    "dirty": true
+  },
+  "status": "passed"
+}

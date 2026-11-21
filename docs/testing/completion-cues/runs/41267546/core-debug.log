@@ -1,0 +1,60 @@
+Building for debugging...
+[2 / 12] GamePersistence
+[8 / 19] GameApplication
+[11 / 19] GameApplication
+[15 / 18] GameCoreTests-product
+[28 / 31] GameCoreTests-product
+/private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Tests/GameCoreTests/VisualAgentMotionTests.swift:121:14: warning: weak variable 'retained' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+119 |     power = false; center.post(name: .NSProcessInfoPowerStateDidChange, object: nil)
+120 |     #expect(observer?.lowPower == false)
+121 |     weak var retained = observer; observer = nil
+    |              `- warning: weak variable 'retained' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+122 |     #expect(retained == nil)
+123 |     let before = reads
+
+/private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Tests/GameCoreTests/VisualAgentMotionTests.swift:119:11: warning: 'power' mutated after capture by sendable closure
+110 | @Test @MainActor func visualAgentPowerObservationUpdatesWithoutInteractionAndReleasesObserver() {
+111 |     let center = NotificationCenter()
+112 |     var power = false, reads = 0
+    |         `- note: variable defined here
+113 |     var observer: VisualAgentPowerObservation? = VisualAgentPowerObservation(center: center, readLowPower: {
+    |                                                                                                            `- note: variable captured by sendable closure
+114 |         reads += 1; return power
+    |                            `- note: capturing use
+115 |     })
+116 |     #expect(observer?.lowPower == false)
+117 |     power = true; center.post(name: .NSProcessInfoPowerStateDidChange, object: nil)
+118 |     #expect(observer?.lowPower == true)
+119 |     power = false; center.post(name: .NSProcessInfoPowerStateDidChange, object: nil)
+    |           `- warning: 'power' mutated after capture by sendable closure
+120 |     #expect(observer?.lowPower == false)
+121 |     weak var retained = observer; observer = nil
+
+[#VariableNeverMutated]: <https://docs.swift.org/compiler/documentation/diagnostics/variable-never-mutated>
+[#WeakMutability]: <https://docs.swift.org/compiler/documentation/diagnostics/weak-mutability>
+[34 / 36] GameCoreTests-product
+Build complete! (5.66 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() started.
+◇ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() started.
+◇ Test completionCueNewGameAndLegacySnapshotStartQuiet() started.
+✔ Test completionCueNewGameAndLegacySnapshotStartQuiet() passed after 0.009 seconds.
+✘ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() recorded an issue at CompletionCueTests.swift:59:5: Expectation failed: cueUnread(loaded.state) == ["research:hunting", "objective:2:technology-hunting"]
+↳ cueUnread(loaded.state) == ["research:hunting", "objective:2:technology-hunting"] → false
+↳   cueUnread(loaded.state) → []
+↳   ["research:hunting", "objective:2:technology-hunting"] → ["objective:2:technology-hunting", "research:hunting"]
+✘ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() failed after 0.027 seconds with 1 issue.
+↳ // Catches bootstrapping a pre-feature completed snapshot as newly earned.
+✘ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() recorded an issue at CompletionCueTests.swift:34:5: Expectation failed: cueUnread(session.state).contains("research:oralTradition")
+↳ cueUnread(session.state).contains("research:oralTradition") → false
+↳   cueUnread(session.state) → []
+✘ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() recorded an issue at CompletionCueTests.swift:35:5: Expectation failed: cueUnread(session.state).contains("objective:1:technology-oralTradition")
+↳ cueUnread(session.state).contains("objective:1:technology-oralTradition") → false
+↳   cueUnread(session.state) → []
+✘ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() failed after 0.043 seconds with 2 issues.
+↳ // Catches missing authoritative command delivery, duplicate pulses and cross-destination clearing.
+✘ Test run with 3 tests in 0 suites failed after 0.043 seconds with 3 issues.
+Note: Some test targets reported failures:
+  - GameCoreTests (Swift Testing)

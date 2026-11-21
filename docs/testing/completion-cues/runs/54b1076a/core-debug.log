@@ -1,0 +1,841 @@
+Building for debugging...
+[1 / 1]
+Build complete! (0.25 secs)
+Test Suite 'All tests' started at 2026-11-21 14:01:59.964.
+Test Suite 'All tests' passed at 2026-11-21 14:01:59.965.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test productionCatalogAllowsFourLogicalOrientationsIncludingCivic() started.
+◇ Test retirementRetryRetainsExactOriginalIndexBytes() started.
+◇ Test roadModesDrawReplaceAndEraseIndependently() started.
+◇ Test gameplayReviewCannotCloneProtectedFallbackFromDamagedNormalSave() started.
+◇ Test eachNormalGameResumesItsOwnDeveloperCompanion() started.
+◇ Test reviewActualCostBootstrapSurvivesHighNonFoodPriorityAndConstruction() started.
+◇ Test loadingDecorativeMotionHonorsEverySuspensionReason() started.
+◇ Test riverbendPlayerCraftStorageEnclosureEarnedRoutePersists() started.
+◇ Test relocationPreviewUsesCapturedOrientedGeometry() started.
+◇ Test populationConsumptionAndHousingAreEventDriven() started.
+◇ Test simultaneousCreationIsRejectedAndOnlyOneGameIsPublished() started.
+◇ Test ordinaryFirstEraStillCompletesAfterDecorativeRoadEdits() started.
+◇ Test legacyPendingExpeditionRetainsPaidTimerThroughConversion() started.
+◇ Test denseVillageFractionalLaborKeepsProductionFactorsAndNetAccounting() started.
+◇ Test reviewUnseenForestBonusActivatesExactlyAtExpeditionCompletion() started.
+◇ Test inspectionDiscardsRoadDraftAndShowsBuildingWithoutApplyingStroke() started.
+◇ Test reviewUnevenFlowsRemainEquivalentAcrossIrregularPartitions() started.
+◇ Test progressionSaveRoundTripsStickyAchievementHistory() started.
+◇ Test economySaveRoundTripsModeUpgradeAndDepletedDeposit() started.
+◇ Test permanentUpgradeIsAtomicAndKeepsIdentity() started.
+◇ Test connectivityPilotRedistributesWorkersAndKeepsIntrinsicCivicOutput() started.
+◇ Test playerFoundingPreservesPrelaidEntranceAndContinue(style:) started.
+◇ Test capturedFootprintSurvivesCatalogEditReloadAndRelocation() started.
+◇ Test visualDayCycleSuspensionDoesNotCatchUp() started.
+◇ Test corruptLegacyCanBeLeftWithoutOverwritingItsBytes() started.
+◇ Test reviewFreshSettlementCanFundScoutAndRevealWholeValleyWithoutRepeatCharge() started.
+◇ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() started.
+◇ Test visualAgentPosesHaveDistinctReadableActivitiesAndFiniteJoints() started.
+◇ Test visualConnectionsJoinCardinalMixedLevelHomesOnce() started.
+◇ Test firstCraftUnlockIsLaterFreeAndModesExclusive() started.
+◇ Test civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test productionActivityUsesActualOutputAndExcludesHousing() started.
+◇ Test onboardingWalkthroughSuggestionsMoveToDifferentValidSitesWithoutSpending() started.
+◇ Test reviewInvalidPrioritySaveIsRejectedWithoutChangingDisk() started.
+◇ Test reviewInheritedConstructionKnowledgeRequiresAnExistingBuildingWitness() started.
+◇ Test civicCenterModifiersAndProducerCountsIncludeCultureWithoutScalingProvisions() started.
+◇ Test geographySaveMigratesWithoutFreeResearchOrLostConstructionKnowledge() started.
+◇ Test approvedCatalogAndResourcesArePresent() started.
+◇ Test fishingNeedsDiscoveredRiverAndCopperRemainsFutureOnly() started.
+◇ Test simultaneousEventsAndOfflineCapDoNotDuplicateTime() started.
+◇ Test foundingReviewUpgradeConservesStocksIdentityAndHistory() started.
+◇ Test roadCommandsAreFreeAtomicAndIdempotent() started.
+◇ Test foundingReviewPreservesAuthenticNormalDeveloperRound2LibraryAndLab() started.
+◇ Test foundingReviewAtomicSaveIsolationAndFailure() started.
+◇ Test largePreviewPendingExpeditionBeyondLegacyAreaRoundTrips() started.
+◇ Test guidanceOffersCapacityInsteadOfLongKnowledgeIdle() started.
+◇ Test economyLabSurveyIsContiguousPaidOnceAndReloadable() started.
+◇ Test workforceWaterGrowthAndElapsedPartitionsAgree() started.
+◇ Test sparseRoadRetraceCanRemoveOneCommittedTileWithoutChangingOtherSurfaces() started.
+◇ Test stoneStorageRejectsMetadataLossHiddenSourceAndOverCapWithoutReset() started.
+◇ Test visualAgentJourneysGateWorkByExistingProductionAndUseGatheringDestinations() started.
+◇ Test libraryBootstrapKeepsOriginalSaveBytesAndReferencesLegacyPath() started.
+◇ Test renderBenchmarkNeverTouchesExistingSettlementFiles() started.
+◇ Test chaptersCreditOutOfOrderAndRetainOriginalRewardHistory() started.
+◇ Test relocationGridExcludesFogAndKeepsSourceCellsAvailable() started.
+◇ Test foundingReviewStaleWindowCannotOverwritePaidProgress() started.
+◇ Test relocationIsFreePreservesIdentityAndAllowsSelfOverlap() started.
+◇ Test foothillFoundingPurchaseAtomicIsolationAndReload() started.
+◇ Test currentExplorationSaveCannotSilentlyRepairMissingOrInvalidProgress() started.
+◇ Test smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+◇ Test actualFoundationSaveMigratesWithoutResettingProgressAndBacksUpExactly() started.
+◇ Suite ReviewFogBoundaryTests started.
+◇ Test economyLabOpeningCostsWorkersAndWaterlessGrowth() started.
+◇ Test roadDraftCancelAndBackgroundNeverPersistPendingEdits() started.
+◇ Test connectivityPilotStopsAndRestartsOutputsInputsAndDepositUse() started.
+◇ Test economyLabPreservesAuthenticNormalDeveloperRound2AndLibraryFiles() started.
+◇ Test workforceSaveMigrationPreservesValleyIdentityAndEarlierVisibility() started.
+◇ Test civicCenterOldEnvelopeCannotSupplyNewHistory() started.
+◇ Test mapFindsFullCapacityRejectsWholeRewardAndAllowsLaterRetry() started.
+◇ Test constructionReviewShowsWallsWithoutChangingLegacyStages() started.
+◇ Test cameraCannotLeaveMapDiamond() started.
+◇ Test mapFindsFailedWriteRetryAndRelaunchAreExactlyOnce() started.
+◇ Test playerSourcesAppearContextuallyAndRequireLocalWorksites() started.
+◇ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() started.
+◇ Test civicQuarterTurnRetainsIdentityAndSingleTileGeometry() started.
+◇ Test roadRendererInvalidationIsLocalAndIncludesNeighbors() started.
+◇ Test developerScenarioSelectionAndOriginalStateSurviveResume() started.
+◇ Test developerDoesNotRemoveCorruptNormalSaveProtection() started.
+◇ Test stoneStorageAtomicFailureRetryAndBothRoles() started.
+◇ Test newReadinessRequiresMoreThanFivePillarsAndOldReadinessSurvives() started.
+◇ Test modeChangesAndStorageUpgradesAreAtomic() started.
+◇ Test civicCenterConstructionPreviewFollowsMovedCenterAndResourceHelpNamesIt() started.
+◇ Test reviewUnevenMultiInputConsumersUseAvailableFlowWithoutOrderDependence() started.
+◇ Test backgroundCancelsRotatedNewCandidateWithoutCharging() started.
+◇ Test loadingBrandStageDoesNotClaimAnEraOrShowScenery() started.
+◇ Test foothillGateCorridorAndStoreIdentityAreProtected() started.
+◇ Test visualConnectionsRejectInvalidAndAmbiguousSnapshots() started.
+◇ Test buildingsRequireExplicitRoadRemovalBeforeConstructionOrMove() started.
+◇ Test visualRoutesPreferConnectedRoadsAndRemainDeterministicBounded() started.
+◇ Test discoveryExcludesFutureDepositsAndCatalogTotalsAdapt() started.
+◇ Test developerFastConstructionIsExactlyThreeSeconds() started.
+◇ Test sessionPreservesCorruptSaveAcrossActions() started.
+◇ Test failedIndexCommitKeepsOldSessionAndPreservesOriginalSave() started.
+◇ Test firstCraftSpendLastingBenefitExactlyOnceAndNoUpkeep() started.
+◇ Test riverbendPlayerRecoveryIsBoundedAndLegacyRulesRejectIt() started.
+◇ Test connectivityPilotRoadCommitCapturesNewPillarBeforeDisconnectAndReload() started.
+◇ Test connectivityV7EnvelopeRetainsExplicitRulesAndHistoricalState() started.
+◇ Test civicCenterSaveCannotDowngradeAndDiscardEarnedHistory() started.
+◇ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() started.
+◇ Test reviewCompletedScienceCannotExistWithoutItsPermanentResearchHistory() started.
+◇ Test onboardingWholeForestAlternativeRevealsExistingWoodSourceAndSupportsRealProduction() started.
+◇ Test connectivityV7RejectsMissingUnknownAndDowngradedMarkersWithoutWrites() started.
+◇ Test growthAndConstructionAtSameInstantMatchPartitionedUpdates() started.
+◇ Test lateScenarioFinalObjectiveIsReachable() started.
+◇ Test finiteDepositExhaustionPersistsAndSurvivalIsIndependent() started.
+◇ Test foothillRejectsCorruptEnvelopeWithoutResetAndSourcesAreReal() started.
+◇ Test foundingReviewHistoryIsScopedBeforeUpgradeAndRejectsLegacyCreditOnReload() started.
+◇ Test realVersionOneSaveMigratesAndBacksUpBeforeReplacement() started.
+◇ Test roadSaveValidationAndLegacyNilRoundTrip() started.
+◇ Test visualDestinationRoutesUseRealBuildingEdgesWithoutMutatingGame() started.
+◇ Test pausedGrowthCanBeSavedAfterResearchShortensInterval() started.
+◇ Test incompleteCatalogAndResourceDiscoveryAreIndividuallyRejected() started.
+◇ Test renderPauseFollowsLifecycleWithoutChangingSaveState() started.
+◇ Test saveRoundtripAndOfflineResume() started.
+◇ Test reviewExpeditionTimerSavesAndUsesOfflineCapWithoutClockReplay() started.
+◇ Test firstCraftFullAndInsufficientRejectBeforeAnyDebit() started.
+◇ Test mapFindsGatherObserveAndDuplicatesPersistWithoutProgressOrReveal() started.
+◇ Test stoneStorageFreeRevealDoesNotRequireGathererFunds() started.
+◇ Test onboardingForestProposalIsDeterministicConnectedAndContainsOnlyRealTerrain() started.
+◇ Test case passing 1 argument style → .trodden to playerFoundingPreservesPrelaidEntranceAndContinue(style:) started.
+◇ Test ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test firstCraftOldEnvelopeAndMalformedMetadata() started.
+◇ Test insufficientFundsDoesNotCharge() started.
+◇ Test case passing 1 argument style → .dirt to playerFoundingPreservesPrelaidEntranceAndContinue(style:) started.
+◇ Test reserveAllowsAnySafeSupplierOrderAndDoesNotLockCombinedCost() started.
+◇ Test civicCenterChaptersReplaceMandatoryStorytelling() started.
+◇ Test foundingMenusRejectNonHutCivicYardAndExposeResearchReserve() started.
+◇ Test relocationTileIndicatorsDistinguishSelfOpenOccupiedRoadAndBounds() started.
+◇ Test case passing 1 argument style → .stone to playerFoundingPreservesPrelaidEntranceAndContinue(style:) started.
+◇ Test previewQuarterTurnsRoundTripAndPersistOnlyOnConfirmation() started.
+◇ Test libraryRejectsAliasAtRootWithoutTouchingReferencedLibrary() started.
+◇ Test foundingMenusSelectExactBlockerAndKeepOptionalResearchSecondary() started.
+◇ Test corruptCapturedGeometryIsRejectedBeforeTileEnumeration() started.
+◇ Test reviewSaveRejectsRadiusThatClaimsUnrevealedCompletedRings() started.
+◇ Test reviewHistoricalRulesetRejectsUnsupportedBuildingBeforeLookingUpEffects() started.
+◇ Test visualAgentJourneysUseValidContactsAndReturnWithoutCargo() started.
+◇ Test roadMasksCoverAllSixteenLogicalCombinations() started.
+◇ Test connectedRoadGraphRefreshesAfterCompletionRemovalAndCivicMove() started.
+◇ Test developerResetArchivesCorruptDeveloperFile() started.
+◇ Test foothillProfileAndFullMapCollision() started.
+◇ Test riverbendPlayerReviewCommandsNeverWriteNormalStore() started.
+◇ Test frameSummaryRejectsSuspensionAndNonfiniteSamples() started.
+◇ Test civicCenterWorkerShortageDoesNotScaleFoodWaterOrHousing() started.
+◇ Test connectivityPilotRetainsAllLegacyChaptersPillarsReadinessAndStockThroughV7() started.
+◇ Test guidanceFindsKnowledgeProducerBeforeLaterChapter() started.
+◇ Test reviewPriorityAndPendingConstructionSurviveSaveWithEquivalentCatchup() started.
+◇ Test atomicPlacementValidation() started.
+◇ Test backgroundInactiveForegroundUsesOfflineCapOnce() started.
+◇ Test independentGamesResumeTheirOwnProgressAndSelection() started.
+◇ Test invalidRelocationDropRetainsPreviewThenCanRetryOrCancelWithoutSaveLeak() started.
+◇ Test playerFailedRoadConfirmRetainsDraftAndReportsFailure() started.
+◇ Test pausedGrowthFromEarlierLongerIntervalSurvivesResearchAndReload() started.
+◇ Test goalsStartCollapsedAndOnlyEraChangeAutomaticallyOpensThem() started.
+◇ Test currentSeedStillCompletesWithoutDeadlock() started.
+◇ Test economyLabRecoveryHandlesEmptyBeforeAndAfterHutAndDelayedStart() started.
+◇ Test gameplayReviewResumesWithoutOfflineGrantsOrPersistedDebugSettings() started.
+◇ Test failedCurrentSaveBlocksSwitchAndKeepsLibrarySelection() started.
+◇ Test developerSaveResumesWithoutOfflineOrSettings() started.
+◇ Test failedOpenDoesNotWriteOfflineProgressIntoUnopenedTarget() started.
+◇ Test invalidRoadDraftAndPinchStyleClearAreBoundedAndAtomic() started.
+◇ Test catalogChoiceRequiresExplicitConfirmationAfterValidDrop() started.
+◇ Test launchNewGamePreservesUnopenedDamagedProgress(indexed:) started.
+◇ Test visualAgentPowerObservationUpdatesWithoutInteractionAndReleasesObserver() started.
+◇ Test stoneStorageHiddenSourceAndOpeningRemainIndependent() started.
+◇ Test automaticWorkersShareShortageAndPrioritiesPreserveSurvival() started.
+◇ Test configurationRejectsInvalidData() started.
+◇ Test oldRulesAndAlreadyInsolventSavesDoNotGainResourcesOrReset() started.
+◇ Test libraryRejectsSymlinkAliasesToOtherGamesAndIndexFiles() started.
+◇ Test rotatedConstructionUsesExactOccupancyAndChargesOnce() started.
+◇ Test starterReserveDerivesSupplierCostsFromCatalog() started.
+◇ Test developerScenarioCannotBeSwitchedIntoRegularGameLibrary() started.
+◇ Test completionCueLibraryGamesKeepIndependentUnreadForIdenticalEarnIDs() started.
+◇ Test relocationDragReleaseDoesNotCommitUntilExplicitConfirmation() started.
+◇ Test unidentifiedAndUndiscoveredDepositsDoNotProduce() started.
+◇ Test onboardingReviewReturnsNoInventedForestWhenMapHasNone() started.
+◇ Test constructionChargesReservesAndCompletesBeforeBenefits() started.
+◇ Test noWaterPausesGrowthAndPassiveCollectionRecovers() started.
+◇ Test firstCraftAtomicFailureRetryReloadAtEveryCommit() started.
+◇ Test visualDayLightingInterpolatesContinuouslyAndWraps() started.
+◇ Test completionCueDurablePulseAndTargetedAcknowledgement() started.
+◇ Test firstCraftDeterministicBalanceTrace() started.
+◇ Test connectivityPilotRetainsOverCapStocksAcrossTickCreditsSpendingAndReload() started.
+◇ Test reviewFiniteExtractionSplitsAtActualReserveBoundary() started.
+◇ Test clearingTerrainMessageExplainsOpenBuildableGround() started.
+◇ Test civicCenterGuidanceOffersUpgradeBeforeDuplicateCircle() started.
+◇ Test largePreviewResumesAndSwitchesWithoutChangingNormalWorld() started.
+◇ Test connectivityReviewBackupFailurePreservesSourceThenCanRetry() started.
+◇ Test riverbendPlayerFoundingAndWholeForestUseOrdinaryCommands() started.
+◇ Test asyncLoadedSessionWaitsForActivationAndCapsStartupSuspension() started.
+◇ Test connectedRoadGraphCannotTraverseWaterOrBuildings() started.
+◇ Test connectivityReviewRejectsDamagedSourceWithoutReplacingIt() started.
+◇ Test connectivityReviewActivationRetainsFastConstructionControl() started.
+◇ Test backgroundDuringAsyncSwitchDoesNotActivateTargetOrDoubleCountCatchup() started.
+◇ Test developerSaveAndClockAreIsolated() started.
+◇ Test developmentConversionBacksUpProgressAndKeepsAnnexHidden() started.
+◇ Test case passing 1 argument version → 1 to civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test connectivityVersionBoundariesAndBackupPreserveSource() started.
+◇ Test relocationCannotUseUnknownTerritory() started.
+◇ Test visualAgentTurnsFaceTheDepartureDirectionBeforeLeavingContact() started.
+◇ Test invalidNewBuildingDropStaysInDragModeWithoutCharging() started.
+◇ Test case passing 1 argument version → 2 to civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test seedCanCompleteAndRewardsSurviveReload() started.
+◇ Test oppositeTechnologyMultipliersCannotHideOverflow() started.
+◇ Test visualConnectionsHideIncompleteFoggedAndMovingBuildings() started.
+◇ Test foundingReviewRejectsUnroutableOpeningBeforePayment() started.
+◇ Test undoRoadPreviewRemovesOneTileAndNeverEditsCommittedRoads() started.
+◇ Test case passing 1 argument version → 3 to civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test civicCenterLegacyMigrationRetainsCompletedChapterAndObjectiveCreditWithoutRewards() started.
+◇ Test playerAdoptedProducerDefaultsRemainSelectable() started.
+◇ Test roadsRejectFogAndProtectedTerrainWithoutChangingState() started.
+◇ Test civicCenterMigrationProtectsAllSevenLegacyChaptersAndReadiness() started.
+◇ Test case passing 1 argument version → 4 to civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test rectangularGeometrySwapsAxesAndCentersBothDimensions() started.
+◇ Test sessionReloadKeepsBuildingsAndDoesNotRegrantGoalReward() started.
+◇ Test unsupportedVersionAndInvalidStateAreRejected() started.
+◇ Test connectivityPilotTickAndOfflineAgreeAndHistorySurvivesDisconnection() started.
+◇ Test gameplayReviewCannotRacePendingScenarioPreparation(resume:) started.
+◇ Test starterReservePreventsRepeatedShelterInsolvencyAtomically() started.
+◇ Test allProductionUsesPerResourceCapacity() started.
+◇ Test firstCraftStockyardOnlyAddsUnlockedCapsAndSplitTimeMatches() started.
+◇ Test productionExpeditionsPersistAndRevealOnlyAtCompletionWithoutDuplicateCharge() started.
+◇ Test consumersShareInputsRegardlessOfBuildingArrayOrder() started.
+◇ Test visualConnectionsJoinStorageAcrossLevelsWithoutGameplayRules() started.
+◇ Test visualAnchorsAndAnimationBudgetsAreIndependentOfEconomy() started.
+◇ Test mapFindsOccupiedFallbackAndInvalidHiddenStaleActions() started.
+◇ Test visualDayCycleManualSelectionAndFrozenFramesAreDeterministic() started.
+◇ Test visualDayCycleRejectsBadTimeAndClampsStalls() started.
+◇ Test gameplayReviewFailedWritesKeepModeAndUnsavedProgress() started.
+◇ Test foundingReviewHutConnectionRetainsPaidWorkStocksAndCompletedHistory() started.
+◇ Test connectedRoadGraphJoinsAllCivicSidesAndStylesWithoutCornerAccess() started.
+◇ Test reviewWaterReserveBoundaryPreservesEarnedGrowthExactly() started.
+◇ Test developerSpeedPauseAndBackgroundRespectConstructionClock() started.
+◇ Test researchPrerequisitesModifiersAndRepeatedPurchases() started.
+◇ Test currentSaveMissingOrCorruptDepositAccountingIsRejectedWithoutRepair() started.
+◇ Test economyLabInvalidTransactionsAndCapacityStayDeterministic() started.
+◇ Test riverbendPlayerContinueClassifiesLargeBodyBeforeRelabel() started.
+◇ Test mapFindsOverlappingTargetsSelectNearestNotFirst() started.
+◇ Test visualConnectionsAreStableBoundedAndReadOnly() started.
+◇ Test manufacturingConsumesInputsAndRecoversFromEmptyStocks() started.
+◇ Test relocationRejectsInvalidSitesAtomically() started.
+◇ Test connectivityReviewTopologyCommitsSettlePriorTimeAndIgnorePreviews() started.
+◇ Test relocationRecalculatesGeographyAndHonorsFishingRestriction() started.
+◇ Test foundingReviewKeepsEntireHutFootprintOutsideCivicYard() started.
+◇ Test stoneStorageDistinctCapsCollectSpendAndReload() started.
+◇ Test connectedRoadGraphRetainsLegacyEconomyWithoutPaths() started.
+◇ Test developmentLibraryRetiresSmallPrimaryWithoutChangingDeveloperCompanion() started.
+◇ Test relocationPreviewCancelAndCommitDoNotLeakIntoSaves() started.
+◇ Test economicPresentationRefreshesAfterRealStateChanges() started.
+◇ Test pendingAndSelectableRecipeSourcesRemainUsable() started.
+◇ Test gameplayReviewClonesNormalAndKeepsDeveloperCompanionIndependent() started.
+◇ Test relocationRetainsConstructionAndRecipeThroughSave() started.
+◇ Test completionCueNewGameAndLegacySnapshotStartQuiet() started.
+◇ Test developerUnlockIncludesDependenciesAndPopulationClamps() started.
+◇ Test visualRoutesRejectWaterFootprintsFogAndOutsideEndpoints() started.
+◇ Test civicCenterPaidResearchGatedLevelsPreserveFoundingProvisions() started.
+◇ Test visualConnectionsRejectCornersGapsAndUnrelatedFamilies() started.
+◇ Test economyLabInsufficientSurveyAndFailedCompletionCannotChargeOrReveal() started.
+◇ Test reviewEffectiveRecipeRatesRejectResearchOverflow() started.
+◇ Test guidanceStartsWithUsefulBuildAndNeverMutatesState() started.
+◇ Test constructionPresentationUsesActualRemainingWorkAndClampsCorruptProgress() started.
+◇ Test smallMapRetirementUsesDecodedValidatedHistoricalIdentity() started.
+◇ Test orientationCatalogDefaultsAndRestrictionsAreValidated() started.
+◇ Test libraryGamesResolveIndependentValidatedUUIDPaths() started.
+◇ Test riverbendPlayerFindsCannotDoubleGrantOrPublishFailedSave() started.
+◇ Test developerScenariosValidateAndRoundTrip() started.
+◇ Test roadStrokeFillsFourConnectedGapsAndBoundsBeforeTraversal() started.
+◇ Test researchIsAtomicAndUnique() started.
+◇ Test visualWorldBudgetsSuspendBackgroundAndReduceMotion() started.
+◇ Test riverbendPlayerNormalNewGameUsesDistinctLargeRulesWithoutWater() started.
+◇ Test asyncRestorationPreservesSaveAndCorruptFileProtection() started.
+◇ Test connectivityPilotDisconnectedWorkshopConsumesNoInputsOrMaintenance() started.
+◇ Test developmentBackupFailurePreservesOriginalBytes() started.
+◇ Test economyLabTenMinuteTrace() started.
+◇ Test corruptLibraryIndexIsPreservedOnBootstrapAndSave() started.
+◇ Test completeEraRequirementsComeFromCatalog() started.
+◇ Test connectivityReviewActivationIsExplicitAndKeepsCompanionsIndependent() started.
+◇ Test unknownFootprintsCannotChargeAndExplorationRevealsExistingMap() started.
+◇ Test resourceProducerCountsFollowActualOperatingOutput() started.
+◇ Test corruptSaveIsPreserved() started.
+◇ Test threeStateGoalsStartMinimalAndCycleToSummaryThenGuidance() started.
+◇ Test backtrackedRoadPointerDoesNotInventOffRouteTiles() started.
+◇ Test explorationSaveRoundTripsPendingExpeditionAndDiscoveryExactly() started.
+◇ Test cancelledLargePreviewPreparationDoesNotPublishOrWriteNormalSave() started.
+◇ Test thresholdCrossingAndPartitionedSimulationAgree() started.
+◇ Test settlementSideQuarrySharesOriginalStoneReserve() started.
+◇ Test connectivityMigrationBackupConflictKeepsV6SourceIntact() started.
+◇ Test unindexedRetirementFailureCannotPublishNewSelection() started.
+◇ Test civicCenterMigrationRefusesConflictingBackupWithoutChangingSource() started.
+◇ Test foundingMenusUseExistingResearchAndConstructionValidation() started.
+◇ Test productionRoadStrokesCoverAnnexInRelease() started.
+◇ Test effectiveCapacitiesValidateProgressionAndStartingBalances() started.
+◇ Test connectivityPilotCompletesDisconnectedConstructionWithoutEviction() started.
+◇ Test mapFindsOldLabEnvelopeUpgradesAndIgnoringBothCompletesRoute() started.
+◇ Test civicCenterDeveloperMigrationBacksUpCompanionAndLeavesNormalBytesUntouched() started.
+◇ Test fullFootprintChecksTerrainAndOccupancy() started.
+◇ Test normalEntryMetadataDoesNotCreateOrAdvanceGames() started.
+◇ Test reviewTransientConfiguredAchievementIsIndependentOfElapsedPartition() started.
+◇ Test cloudVisibilityRequiresWholeFootprintAndKnownInteractionTile() started.
+◇ Test offlineCapAndClockRollback() started.
+◇ Test onboardingGuideRequiresConnectionOnlyUnderExplicitConnectedRules() started.
+◇ Test researchAndUpgradeCannotBypassStarterReserve() started.
+◇ Test pillarCompletionIsStickyAndDoesNotGrantRepeatRewards() started.
+◇ Test projectionRoundtripsEveryMapTile() started.
+◇ Test loadingProgressRequiresAnActualValidMeasurement() started.
+◇ Test civicCenterRelocationPersistsIdentityWithoutChangingGeographicalOrigin() started.
+◇ Test connectivityPilotReserveAndGuidanceDoNotCountDisconnectedSuppliers() started.
+◇ Test transparentSpriteCornersCannotStealMapTaps() started.
+◇ Test onboardingWalkthroughSkipReopenDoesNotResetIndependentProgress() started.
+◇ Test manufacturingAndMaintenanceStayPartitionIndependent() started.
+◇ Test rectangularTurnRejectsOnlyNewlyCoveredUndiscoveredEdge() started.
+◇ Test loadingSkipOnlyHidesSceneryAndNeverChangesReadinessInformation() started.
+◇ Test freshSettlementReachesEveryProductionChainWithRealCosts() started.
+◇ Test onboardingGuideRetainsOutOfOrderFactsWithoutInventingEarlierCompletion() started.
+◇ Test smallMapRetirementPreservesMigratedLargePrimaryAndOldBackup() started.
+◇ Test temporaryForestHutSuggestionIsIndependentOfRetainedPoorSave() started.
+◇ Test foundingReviewRejectsBadTerrainAndPreservesDamagedFile() started.
+◇ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() started.
+◇ Test riverbendPlayerNormalContinueAndIndependentGamesKeepRules() started.
+◇ Test wholeProductionMapIsOptionalAndFullyExplorableAtUnchangedExpeditionPrice() started.
+◇ Test onboardingWalkthroughInvalidPlacementAndTimeLeaveFixtureUnchanged() started.
+◇ Test initialSettlement() started.
+◇ Test onboardingWalkthroughUsesRealConstructionPaidExpeditionAndWoodProduction() started.
+◇ Test firstEraAlternativeNormalCostStrategies(strategy:) started.
+◇ Test configurationRejectsBrokenResearchAndNumericRules() started.
+◇ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() started.
+◇ Test visualConnectionsHonorCapturedOrientedFootprints() started.
+◇ Test productionWorldUsesApprovedAnnexAndAuthenticStart() started.
+◇ Test visualRoutesNeverInferGatesOrBridgesFromDecorativeRoads() started.
+◇ Test currentProgressionSaveCannotSilentlyRepairMissingHistory() started.
+◇ Test rectangularRelocationRotationPreservesProgressAndIsAtomic() started.
+◇ Test largeGroupedVillagePreservesCoreAndConnectsEveryBuilding() started.
+◇ Test costsRatesHousingAndRewards() started.
+◇ Test ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds:) started.
+◇ Test researchGatesAreAtomicAndFivePillarsAreConfigured() started.
+◇ Test legacyMissingGeometryKeepsOriginalLayoutAndState() started.
+◇ Test missingOrCorruptRegisteredGamesNeverResetOrReplaceCurrentGame() started.
+◇ Test riverbendPlayerRejectsUnadoptedCatalogWithoutSpending() started.
+◇ Test sessionGuidanceRefreshesAfterRealConstructionWithoutSpendingOnRead() started.
+◇ Test economyLabStoreFailureNeverPublishesAndOtherModesRemainByteIdentical() started.
+◇ Test gameplayReviewDamagedCopyIsPreservedAndNeverEntersDeveloperMode() started.
+◇ Test firstCraftModeSwitchDuringPaidBatchAndMidStorageCompletion() started.
+◇ Test mixedRoadStylesReconnectAfterRemovalAndReload() started.
+◇ Test growthProgressPausesAndResumes() started.
+◇ Test onboardingWalkthroughWoodSuggestionsStayInReviewedForestSites() started.
+◇ Test connectivityPilotScoutDispatchNeedsPathButPaidExpeditionSurvivesDisconnection() started.
+◇ Test visualAgentJourneyRejectsBadPathsAndSuspendsWithoutChangingPoseOrPosition() started.
+◇ Test smallMapRetirementFailureKeepsSelectionAndCanRecover() started.
+◇ Test freshStoneAgeCompletesThroughRealResearchAndProduction() started.
+◇ Test partialConstructionAndGrowthSurviveCurrentSave() started.
+◇ Test economyLabRejectsWrongProfileAndSurveyContradictions() started.
+◇ Test onboardingProposedWoodcutterSitesPassActualTransactionValidationWithoutSpending() started.
+◇ Test civicCenterRejectsContradictoryChapterAndObjectiveWitnesses() started.
+◇ Test foodExhaustionHasNoDeathsOrNegativeBalances() started.
+◇ Test damagedSelectedGameCanExplicitlyRecoverHealthyGameWithoutReset(missing:) started.
+◇ Test mapFindsAppearDuringRealWaitAtDeterministicReachableDistinctSites() started.
+◇ Test libraryRejectsBadIdentityVersionSelectionAndDoesNotOverwriteValidIndex() started.
+◇ Test case passing 1 argument kind → "large" to smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+◇ Test artCatalogCoversCompleteEraAndRejectsUnsafePaths() started.
+◇ Test fractionsAndFrameIndependence() started.
+◇ Test currentSessionReloadResumesConstructionWithoutChargingAgain() started.
+◇ Test onboardingGuideCanReconstructActualCompletedBuildingsAndPaidExpedition() started.
+◇ Test researchCapacityAndConstructionModifiersApplyOnce() started.
+◇ Test case passing 1 argument kind → "unknown" to smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+◇ Test case passing 1 argument kind → "corrupt" to smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+◇ Test case passing 1 argument kind → "review" to smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+✔ Test loadingDecorativeMotionHonorsEverySuspensionReason() passed after 0.784 seconds.
+✔ Test populationConsumptionAndHousingAreEventDriven() passed after 0.974 seconds.
+✔ Test permanentUpgradeIsAtomicAndKeepsIdentity() passed after 0.990 seconds.
+✔ Test productionCatalogAllowsFourLogicalOrientationsIncludingCivic() passed after 1.053 seconds.
+✔ Test visualDayCycleSuspensionDoesNotCatchUp() passed after 1.372 seconds.
+◇ Test case passing 2 arguments map → "small", marker → "review" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "small", marker → "reviewFalse" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+✔ Test reviewUnseenForestBonusActivatesExactlyAtExpeditionCompletion() passed after 1.466 seconds.
+◇ Test case passing 2 arguments map → "small", marker → "developer" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "small", marker → "profile" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "small", marker → "unknown" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "review" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "reviewFalse" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "developer" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "profile" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "unknown" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+✔ Test visualAgentPosesHaveDistinctReadableActivitiesAndFiniteJoints() passed after 1.734 seconds.
+✔ Test economySaveRoundTripsModeUpgradeAndDepletedDeposit() passed after 2.229 seconds.
+✔ Test reviewActualCostBootstrapSurvivesHighNonFoodPriorityAndConstruction() passed after 2.247 seconds.
+◇ Test case passing 1 argument indexed → false to launchNewGamePreservesUnopenedDamagedProgress(indexed:) started.
+◇ Test case passing 1 argument indexed → true to launchNewGamePreservesUnopenedDamagedProgress(indexed:) started.
+✔ Test visualConnectionsJoinCardinalMixedLevelHomesOnce() passed after 2.737 seconds.
+✔ Test reviewUnevenFlowsRemainEquivalentAcrossIrregularPartitions() passed after 2.834 seconds.
+CRAFT_TRACE opening-and-stone seconds=810.0 food=60.0 wood=56.0 stone=3.3333333333333335 flint=0.0 tools=0.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE opportunity-free seconds=810.0 food=60.0 wood=56.0 stone=3.3333333333333335 flint=0.0 tools=0.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE six-flint seconds=900.0 food=60.0 wood=60.0 stone=3.3333333333333335 flint=6.0 tools=0.0 woodNet=6.0 batch=0.0 improved=false
+✔ Test progressionSaveRoundTripsStickyAchievementHistory() passed after 3.228 seconds.
+✔ Test reviewFreshSettlementCanFundScoutAndRevealWholeValleyWithoutRepeatCharge() passed after 3.228 seconds.
+CRAFT_TRACE batch-1-paid seconds=900.0 food=60.0 wood=58.0 stone=3.3333333333333335 flint=4.0 tools=0.0 woodNet=6.0 batch=60.0 improved=false
+CRAFT_TRACE batch-1-complete seconds=960.0 food=60.0 wood=60.0 stone=8.333333333333334 flint=4.0 tools=1.0 woodNet=6.0 batch=0.0 improved=false
+✔ Test reviewInvalidPrioritySaveIsRejectedWithoutChangingDisk() passed after 3.291 seconds.
+CRAFT_TRACE batch-2-paid seconds=960.0 food=60.0 wood=58.0 stone=8.333333333333334 flint=2.0 tools=1.0 woodNet=6.0 batch=60.0 improved=false
+✔ Test retirementRetryRetainsExactOriginalIndexBytes() passed after 3.304 seconds.
+◇ Test case passing 2 arguments timer → "tool", operation → "tick" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "tool", operation → "resume" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "tool", operation → "background" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "tool", operation → "action" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "survey", operation → "tick" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "survey", operation → "resume" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "survey", operation → "background" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "survey", operation → "action" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+CRAFT_TRACE batch-2-complete seconds=1020.0 food=60.0 wood=60.0 stone=13.333333333333334 flint=2.0 tools=2.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE batch-3-paid seconds=1020.0 food=60.0 wood=58.0 stone=13.333333333333334 flint=0.0 tools=2.0 woodNet=6.0 batch=60.0 improved=false
+✔ Test productionActivityUsesActualOutputAndExcludesHousing() passed after 3.334 seconds.
+CRAFT_TRACE batch-3-complete seconds=1080.0 food=60.0 wood=60.0 stone=18.333333333333336 flint=0.0 tools=3.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE three-tools-spent seconds=1080.0 food=60.0 wood=60.0 stone=18.333333333333336 flint=0.0 tools=0.0 woodNet=8.0 batch=0.0 improved=true
+✔ Test connectivityPilotRedistributesWorkersAndKeepsIntrinsicCivicOutput() passed after 3.472 seconds.
+✔ Test capturedFootprintSurvivesCatalogEditReloadAndRelocation() passed after 3.472 seconds.
+✔ Test reviewInheritedConstructionKnowledgeRequiresAnExistingBuildingWitness() passed after 3.472 seconds.
+✔ Test fishingNeedsDiscoveredRiverAndCopperRemainsFutureOnly() passed after 3.474 seconds.
+✔ Test civicCenterMigrationProtectsEveryOlderBackup(version:) with 4 test cases passed after 3.475 seconds.
+◇ Test case passing 1 argument resume → false to gameplayReviewCannotRacePendingScenarioPreparation(resume:) started.
+◇ Test case passing 1 argument resume → true to gameplayReviewCannotRacePendingScenarioPreparation(resume:) started.
+✔ Test approvedCatalogAndResourcesArePresent() passed after 3.512 seconds.
+CRAFT_TRACE reloaded seconds=1080.0 food=60.0 wood=60.0 stone=18.333333333333336 flint=0.0 tools=0.0 woodNet=8.0 batch=0.0 improved=true
+✔ Test simultaneousEventsAndOfflineCapDoNotDuplicateTime() passed after 4.037 seconds.
+✔ Test civicCenterModifiersAndProducerCountsIncludeCultureWithoutScalingProvisions() passed after 4.145 seconds.
+✔ Test legacyPendingExpeditionRetainsPaidTimerThroughConversion() passed after 4.529 seconds.
+✔ Test roadCommandsAreFreeAtomicAndIdempotent() passed after 4.544 seconds.
+✔ Test foundingReviewUpgradeConservesStocksIdentityAndHistory() passed after 4.561 seconds.
+CRAFT_TRACE stockyard-headroom seconds=1200.0 food=60.0 wood=58.0 stone=22.333333333333336 flint=0.0 tools=0.0 woodNet=8.0 batch=0.0 improved=true
+LAB_TRACE start seconds=0.0 food=32.0 wood=32.0 foodNet=-1.0 woodNet=0.0 people=3
+CRAFT_TRACE improved-one-minute-output seconds=1260.0 food=60.0 wood=66.0 stone=27.333333333333336 flint=0.0 tools=0.0 woodNet=8.0 batch=0.0 improved=true
+LAB_TRACE hut seconds=15.0 food=31.75 wood=20.0 foodNet=-1.0 woodNet=0.0 people=3
+LAB_TRACE survey-paid seconds=15.0 food=23.75 wood=20.0 foodNet=-1.0 woodNet=0.0 people=3
+LAB_TRACE forest seconds=75.0 food=22.75 wood=20.0 foodNet=-1.0 woodNet=0.0 people=3
+✔ Test visualAgentJourneysGateWorkByExistingProductionAndUseGatheringDestinations() passed after 4.753 seconds.
+LAB_TRACE woodcutter seconds=95.0 food=22.416666666666668 wood=16.0 foodNet=-1.0 woodNet=6.0 people=3
+LAB_TRACE gatherer seconds=115.0 food=22.083333333333336 wood=10.0 foodNet=7.0 woodNet=6.0 people=3
+LAB_TRACE minute10 seconds=600.0 food=60.0 wood=58.5 foodNet=5.0 woodNet=6.0 people=5
+✔ Test libraryBootstrapKeepsOriginalSaveBytesAndReferencesLegacyPath() passed after 4.974 seconds.
+✔ Test geographySaveMigratesWithoutFreeResearchOrLostConstructionKnowledge() passed after 6.037 seconds.
+✔ Test foundingReviewAtomicSaveIsolationAndFailure() passed after 6.101 seconds.
+ROADS_FULL_ERA seconds=8813.0 roads=2
+✔ Test chaptersCreditOutOfOrderAndRetainOriginalRewardHistory() passed after 6.119 seconds.
+◇ Test case passing 1 argument strategy → 1 to firstEraAlternativeNormalCostStrategies(strategy:) started.
+◇ Test case passing 1 argument strategy → 2 to firstEraAlternativeNormalCostStrategies(strategy:) started.
+◇ Test case passing 1 argument strategy → 3 to firstEraAlternativeNormalCostStrategies(strategy:) started.
+◇ Test case passing 1 argument strategy → 4 to firstEraAlternativeNormalCostStrategies(strategy:) started.
+✔ Test foundingReviewStaleWindowCannotOverwritePaidProgress() passed after 7.638 seconds.
+✔ Test relocationIsFreePreservesIdentityAndAllowsSelfOverlap() passed after 7.686 seconds.
+◇ Test case passing 1 argument pollSeconds → 15.0 to ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds:) started.
+PACING recovery: 20min craft/science priority stalled wood; reset priorities + normal-save reload +10min restored wood 0.00->53.33; population 15
+◇ Test case passing 1 argument pollSeconds → 60.0 to ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds:) started.
+PACING strategy=2 longest cost wait=360s; bootstrap=720s pop=6 knowledge/min=1.29 food/min=16.57 water/min=12.34 workers=3.0/5.0; knowledge investment=1080s pop=9 knowledge/min=5.40 food/min=17.00 water/min=12.90 workers=5.0/6.0; craft economy=1980s pop=15 knowledge/min=4.80 food/min=21.00 water/min=7.90 workers=9.0/12.0; all research=4740s pop=15 knowledge/min=7.02 food/min=28.20 water/min=9.84 workers=9.0/13.0; complete=5400s pop=15 knowledge/min=6.25 food/min=40.76 water/min=8.11 workers=9.0/20.0; chapters=[(key: 1, value: 4800), (key: 2, value: 1260), (key: 3, value: 4860), (key: 4, value: 3420), (key: 5, value: 5040), (key: 6, value: 5220), (key: 7, value: 5400)]
+✔ Test currentExplorationSaveCannotSilentlyRepairMissingOrInvalidProgress() passed after 10.814 seconds.
+PACING strategy=3 longest cost wait=780s; bootstrap=720s pop=6 knowledge/min=1.29 food/min=16.57 water/min=12.34 workers=3.0/5.0; knowledge investment=1020s pop=9 knowledge/min=6.48 food/min=17.00 water/min=12.90 workers=5.0/7.0; craft economy=2340s pop=15 knowledge/min=6.48 food/min=21.00 water/min=8.10 workers=9.0/13.0; all research=3780s pop=15 knowledge/min=8.35 food/min=28.20 water/min=10.00 workers=9.0/14.0; complete=6780s pop=15 knowledge/min=7.10 food/min=40.20 water/min=8.31 workers=9.0/21.0; chapters=[(key: 1, value: 3840), (key: 2, value: 1200), (key: 3, value: 3900), (key: 4, value: 2820), (key: 5, value: 4800), (key: 6, value: 6600), (key: 7, value: 6780)]
+◇ Test holesAndNarrowRoutesHaveOpaqueBoundaryWithoutChangingDiscovery() started.
+◇ Test edgesAreDeterministicAndOnlyOnDiscoveryBoundary() started.
+✔ Test guidanceOffersCapacityInsteadOfLongKnowledgeIdle() passed after 11.146 seconds.
+PACING strategy=1 longest cost wait=960s; bootstrap=720s pop=6 knowledge/min=1.29 food/min=16.57 water/min=12.34 workers=3.0/5.0; knowledge investment=1140s pop=10 knowledge/min=3.60 food/min=16.00 water/min=12.40 workers=6.0/5.0; craft economy=2280s pop=15 knowledge/min=2.70 food/min=21.00 water/min=7.65 workers=9.0/11.0; all research=7500s pop=15 knowledge/min=5.40 food/min=28.20 water/min=9.64 workers=9.0/12.0; complete=8160s pop=15 knowledge/min=5.29 food/min=41.40 water/min=7.89 workers=9.0/19.0; chapters=[(key: 1, value: 7560), (key: 2, value: 1380), (key: 3, value: 7620), (key: 4, value: 5100), (key: 5, value: 7800), (key: 6, value: 7980), (key: 7, value: 8160)]
+PLAYTHROUGH build gatheringShelter at 60s
+PLAYTHROUGH build woodcutter at 120s
+PLAYTHROUGH build stoneGatherer at 180s
+◇ Test case passing 1 argument missing → false to damagedSelectedGameCanExplicitlyRecoverHealthyGameWithoutReset(missing:) started.
+◇ Test case passing 1 argument missing → true to damagedSelectedGameCanExplicitlyRecoverHealthyGameWithoutReset(missing:) started.
+PLAYTHROUGH build hut at 240s
+PLAYTHROUGH research oralTradition at 240s
+✔ Test smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) with 4 test cases passed after 11.298 seconds.
+✔ Test workforceWaterGrowthAndElapsedPartitionsAgree() passed after 11.323 seconds.
+✔ Test onboardingWalkthroughSuggestionsMoveToDifferentValidSitesWithoutSpending() passed after 11.323 seconds.
+✔ Test actualFoundationSaveMigratesWithoutResettingProgressAndBacksUpExactly() passed after 11.323 seconds.
+✔ Test connectivityPilotStopsAndRestartsOutputsInputsAndDepositUse() passed after 11.323 seconds.
+✔ Test constructionReviewShowsWallsWithoutChangingLegacyStages() passed after 11.323 seconds.
+✔ Test workforceSaveMigrationPreservesValleyIdentityAndEarlierVisibility() passed after 11.323 seconds.
+✔ Test cameraCannotLeaveMapDiamond() passed after 11.323 seconds.
+✔ Test civicCenterOldEnvelopeCannotSupplyNewHistory() passed after 11.323 seconds.
+✔ Test civicQuarterTurnRetainsIdentityAndSingleTileGeometry() passed after 11.323 seconds.
+✔ Test roadRendererInvalidationIsLocalAndIncludesNeighbors() passed after 11.323 seconds.
+✔ Test economyLabOpeningCostsWorkersAndWaterlessGrowth() passed after 11.323 seconds.
+✔ Test newReadinessRequiresMoreThanFivePillarsAndOldReadinessSurvives() passed after 11.323 seconds.
+✔ Test modeChangesAndStorageUpgradesAreAtomic() passed after 11.323 seconds.
+✔ Test reviewUnevenMultiInputConsumersUseAvailableFlowWithoutOrderDependence() passed after 11.323 seconds.
+✔ Test loadingBrandStageDoesNotClaimAnEraOrShowScenery() passed after 11.323 seconds.
+✔ Test visualConnectionsRejectInvalidAndAmbiguousSnapshots() passed after 11.323 seconds.
+✔ Test playerSourcesAppearContextuallyAndRequireLocalWorksites() passed after 11.323 seconds.
+✔ Test buildingsRequireExplicitRoadRemovalBeforeConstructionOrMove() passed after 11.323 seconds.
+✔ Test visualRoutesPreferConnectedRoadsAndRemainDeterministicBounded() passed after 11.323 seconds.
+✔ Test discoveryExcludesFutureDepositsAndCatalogTotalsAdapt() passed after 11.323 seconds.
+✔ Test foothillFoundingPurchaseAtomicIsolationAndReload() passed after 11.323 seconds.
+✔ Test foothillGateCorridorAndStoreIdentityAreProtected() passed after 11.323 seconds.
+✔ Test riverbendPlayerRecoveryIsBoundedAndLegacyRulesRejectIt() passed after 11.323 seconds.
+✔ Test economyLabSurveyIsContiguousPaidOnceAndReloadable() passed after 11.323 seconds.
+✔ Test connectivityV7EnvelopeRetainsExplicitRulesAndHistoricalState() passed after 11.323 seconds.
+✔ Test firstCraftUnlockIsLaterFreeAndModesExclusive() passed after 11.324 seconds.
+✔ Test civicCenterSaveCannotDowngradeAndDiscardEarnedHistory() passed after 11.323 seconds.
+✔ Test reviewCompletedScienceCannotExistWithoutItsPermanentResearchHistory() passed after 11.323 seconds.
+✔ Test connectivityV7RejectsMissingUnknownAndDowngradedMarkersWithoutWrites() passed after 11.323 seconds.
+✔ Test connectivityPilotRoadCommitCapturesNewPillarBeforeDisconnectAndReload() passed after 11.323 seconds.
+✔ Test onboardingWholeForestAlternativeRevealsExistingWoodSourceAndSupportsRealProduction() passed after 11.323 seconds.
+✔ Test finiteDepositExhaustionPersistsAndSurvivalIsIndependent() passed after 11.323 seconds.
+✔ Test mapFindsFullCapacityRejectsWholeRewardAndAllowsLaterRetry() passed after 11.323 seconds.
+✔ Test foundingReviewHistoryIsScopedBeforeUpgradeAndRejectsLegacyCreditOnReload() passed after 11.323 seconds.
+✔ Test foothillRejectsCorruptEnvelopeWithoutResetAndSourcesAreReal() passed after 11.323 seconds.
+✔ Test growthAndConstructionAtSameInstantMatchPartitionedUpdates() passed after 11.323 seconds.
+✔ Test visualDestinationRoutesUseRealBuildingEdgesWithoutMutatingGame() passed after 11.308 seconds.
+✔ Test roadSaveValidationAndLegacyNilRoundTrip() passed after 11.309 seconds.
+✔ Test pausedGrowthCanBeSavedAfterResearchShortensInterval() passed after 11.308 seconds.
+✔ Test saveRoundtripAndOfflineResume() passed after 11.308 seconds.
+✔ Test reviewExpeditionTimerSavesAndUsesOfflineCapWithoutClockReplay() passed after 11.308 seconds.
+✔ Test realVersionOneSaveMigratesAndBacksUpBeforeReplacement() passed after 11.309 seconds.
+✔ Test mapFindsGatherObserveAndDuplicatesPersistWithoutProgressOrReveal() passed after 11.306 seconds.
+✔ Test mapFindsFailedWriteRetryAndRelaunchAreExactlyOnce() passed after 11.323 seconds.
+✔ Test onboardingForestProposalIsDeterministicConnectedAndContainsOnlyRealTerrain() passed after 11.306 seconds.
+✔ Test firstCraftSpendLastingBenefitExactlyOnceAndNoUpkeep() passed after 11.323 seconds.
+✔ Test insufficientFundsDoesNotCharge() passed after 11.305 seconds.
+✔ Test reserveAllowsAnySafeSupplierOrderAndDoesNotLockCombinedCost() passed after 11.305 seconds.
+✔ Test stoneStorageFreeRevealDoesNotRequireGathererFunds() passed after 11.306 seconds.
+✔ Test civicCenterChaptersReplaceMandatoryStorytelling() passed after 11.305 seconds.
+✔ Test relocationTileIndicatorsDistinguishSelfOpenOccupiedRoadAndBounds() passed after 11.305 seconds.
+✔ Test libraryRejectsAliasAtRootWithoutTouchingReferencedLibrary() passed after 11.305 seconds.
+✔ Test foundingMenusRejectNonHutCivicYardAndExposeResearchReserve() passed after 11.305 seconds.
+✔ Test foundingMenusSelectExactBlockerAndKeepOptionalResearchSecondary() passed after 11.305 seconds.
+✔ Test corruptCapturedGeometryIsRejectedBeforeTileEnumeration() passed after 11.305 seconds.
+✔ Test reviewHistoricalRulesetRejectsUnsupportedBuildingBeforeLookingUpEffects() passed after 11.305 seconds.
+✔ Test reviewSaveRejectsRadiusThatClaimsUnrevealedCompletedRings() passed after 11.305 seconds.
+✔ Test roadMasksCoverAllSixteenLogicalCombinations() passed after 11.305 seconds.
+✔ Test visualAgentJourneysUseValidContactsAndReturnWithoutCargo() passed after 11.305 seconds.
+✔ Test connectedRoadGraphRefreshesAfterCompletionRemovalAndCivicMove() passed after 11.305 seconds.
+✔ Test frameSummaryRejectsSuspensionAndNonfiniteSamples() passed after 11.305 seconds.
+✔ Test civicCenterWorkerShortageDoesNotScaleFoodWaterOrHousing() passed after 11.305 seconds.
+✔ Test foothillProfileAndFullMapCollision() passed after 11.305 seconds.
+✔ Test guidanceFindsKnowledgeProducerBeforeLaterChapter() passed after 11.305 seconds.
+✔ Test stoneStorageRejectsMetadataLossHiddenSourceAndOverCapWithoutReset() passed after 11.324 seconds.
+✔ Test atomicPlacementValidation() passed after 11.304 seconds.
+✔ Test pausedGrowthFromEarlierLongerIntervalSurvivesResearchAndReload() passed after 11.304 seconds.
+✔ Test goalsStartCollapsedAndOnlyEraChangeAutomaticallyOpensThem() passed after 11.304 seconds.
+✔ Test reviewPriorityAndPendingConstructionSurviveSaveWithEquivalentCatchup() passed after 11.305 seconds.
+✔ Test currentSeedStillCompletesWithoutDeadlock() passed after 11.304 seconds.
+✔ Test firstCraftFullAndInsufficientRejectBeforeAnyDebit() passed after 11.306 seconds.
+✔ Test automaticWorkersShareShortageAndPrioritiesPreserveSurvival() passed after 11.304 seconds.
+✔ Test configurationRejectsInvalidData() passed after 11.304 seconds.
+✔ Test stoneStorageHiddenSourceAndOpeningRemainIndependent() passed after 11.304 seconds.
+✔ Test libraryRejectsSymlinkAliasesToOtherGamesAndIndexFiles() passed after 11.304 seconds.
+✔ Test rotatedConstructionUsesExactOccupancyAndChargesOnce() passed after 11.304 seconds.
+✔ Test starterReserveDerivesSupplierCostsFromCatalog() passed after 11.304 seconds.
+✔ Test unidentifiedAndUndiscoveredDepositsDoNotProduce() passed after 11.304 seconds.
+✔ Test oldRulesAndAlreadyInsolventSavesDoNotGainResourcesOrReset() passed after 11.304 seconds.
+✔ Test constructionChargesReservesAndCompletesBeforeBenefits() passed after 11.303 seconds.
+✔ Test onboardingReviewReturnsNoInventedForestWhenMapHasNone() passed after 11.304 seconds.
+✔ Test noWaterPausesGrowthAndPassiveCollectionRecovers() passed after 11.303 seconds.
+✔ Test gameplayReviewCannotCloneProtectedFallbackFromDamagedNormalSave() passed after 11.325 seconds.
+✔ Test visualDayLightingInterpolatesContinuouslyAndWraps() passed after 11.298 seconds.
+✔ Test firstCraftOldEnvelopeAndMalformedMetadata() passed after 11.306 seconds.
+✔ Test connectivityPilotRetainsOverCapStocksAcrossTickCreditsSpendingAndReload() passed after 11.298 seconds.
+✔ Test reviewFiniteExtractionSplitsAtActualReserveBoundary() passed after 11.296 seconds.
+✔ Test civicCenterGuidanceOffersUpgradeBeforeDuplicateCircle() passed after 11.296 seconds.
+✔ Test riverbendPlayerFoundingAndWholeForestUseOrdinaryCommands() passed after 11.296 seconds.
+✔ Test connectedRoadGraphCannotTraverseWaterOrBuildings() passed after 11.296 seconds.
+✔ Test economyLabRecoveryHandlesEmptyBeforeAndAfterHutAndDelayedStart() passed after 11.305 seconds.
+✔ Test connectivityVersionBoundariesAndBackupPreserveSource() passed after 11.289 seconds.
+✔ Test developmentConversionBacksUpProgressAndKeepsAnnexHidden() passed after 11.296 seconds.
+✔ Test visualAgentTurnsFaceTheDepartureDirectionBeforeLeavingContact() passed after 11.289 seconds.
+✔ Test seedCanCompleteAndRewardsSurviveReload() passed after 11.287 seconds.
+✔ Test oppositeTechnologyMultipliersCannotHideOverflow() passed after 11.287 seconds.
+✔ Test relocationCannotUseUnknownTerritory() passed after 11.289 seconds.
+✔ Test visualConnectionsHideIncompleteFoggedAndMovingBuildings() passed after 11.287 seconds.
+✔ Test foundingReviewRejectsUnroutableOpeningBeforePayment() passed after 11.287 seconds.
+✔ Test playerAdoptedProducerDefaultsRemainSelectable() passed after 11.277 seconds.
+✔ Test roadsRejectFogAndProtectedTerrainWithoutChangingState() passed after 11.277 seconds.
+✔ Test civicCenterLegacyMigrationRetainsCompletedChapterAndObjectiveCreditWithoutRewards() passed after 11.283 seconds.
+✔ Test rectangularGeometrySwapsAxesAndCentersBothDimensions() passed after 11.269 seconds.
+✔ Test unsupportedVersionAndInvalidStateAreRejected() passed after 11.269 seconds.
+✔ Test roadModesDrawReplaceAndEraseIndependently() passed after 11.326 seconds.
+✔ Test developerFastConstructionIsExactlyThreeSeconds() passed after 11.325 seconds.
+✔ Test connectivityPilotTickAndOfflineAgreeAndHistorySurvivesDisconnection() passed after 11.260 seconds.
+✔ Test allProductionUsesPerResourceCapacity() passed after 11.260 seconds.
+✔ Test lateScenarioFinalObjectiveIsReachable() passed after 11.324 seconds.
+✔ Test starterReservePreventsRepeatedShelterInsolvencyAtomically() passed after 11.260 seconds.
+✔ Test productionExpeditionsPersistAndRevealOnlyAtCompletionWithoutDuplicateCharge() passed after 11.260 seconds.
+✔ Test consumersShareInputsRegardlessOfBuildingArrayOrder() passed after 11.260 seconds.
+✔ Test visualAnchorsAndAnimationBudgetsAreIndependentOfEconomy() passed after 11.260 seconds.
+✔ Test visualConnectionsJoinStorageAcrossLevelsWithoutGameplayRules() passed after 11.260 seconds.
+✔ Test visualDayCycleManualSelectionAndFrozenFramesAreDeterministic() passed after 11.259 seconds.
+✔ Test visualDayCycleRejectsBadTimeAndClampsStalls() passed after 11.259 seconds.
+✔ Test foundingReviewHutConnectionRetainsPaidWorkStocksAndCompletedHistory() passed after 11.259 seconds.
+✔ Test connectedRoadGraphJoinsAllCivicSidesAndStylesWithoutCornerAccess() passed after 11.259 seconds.
+✔ Test mapFindsOccupiedFallbackAndInvalidHiddenStaleActions() passed after 11.260 seconds.
+✔ Test researchPrerequisitesModifiersAndRepeatedPurchases() passed after 11.257 seconds.
+✔ Test reviewWaterReserveBoundaryPreservesEarnedGrowthExactly() passed after 11.259 seconds.
+✔ Test currentSaveMissingOrCorruptDepositAccountingIsRejectedWithoutRepair() passed after 11.257 seconds.
+✔ Test incompleteCatalogAndResourceDiscoveryAreIndividuallyRejected() passed after 11.310 seconds.
+✔ Test visualConnectionsAreStableBoundedAndReadOnly() passed after 11.252 seconds.
+✔ Test manufacturingConsumesInputsAndRecoversFromEmptyStocks() passed after 11.252 seconds.
+✔ Test relocationRejectsInvalidSitesAtomically() passed after 11.252 seconds.
+✔ Test mapFindsOverlappingTargetsSelectNearestNotFirst() passed after 11.252 seconds.
+✔ Test foundingReviewKeepsEntireHutFootprintOutsideCivicYard() passed after 11.246 seconds.
+✔ Test economyLabInvalidTransactionsAndCapacityStayDeterministic() passed after 11.258 seconds.
+✔ Test connectedRoadGraphRetainsLegacyEconomyWithoutPaths() passed after 11.246 seconds.
+✔ Test relocationRecalculatesGeographyAndHonorsFishingRestriction() passed after 11.252 seconds.
+✔ Test relocationRetainsConstructionAndRecipeThroughSave() passed after 11.245 seconds.
+✔ Test developerUnlockIncludesDependenciesAndPopulationClamps() passed after 11.245 seconds.
+✔ Test pendingAndSelectableRecipeSourcesRemainUsable() passed after 11.246 seconds.
+✔ Test visualRoutesRejectWaterFootprintsFogAndOutsideEndpoints() passed after 11.245 seconds.
+✔ Test visualConnectionsRejectCornersGapsAndUnrelatedFamilies() passed after 11.245 seconds.
+✔ Test civicCenterPaidResearchGatedLevelsPreserveFoundingProvisions() passed after 11.245 seconds.
+✔ Test reviewEffectiveRecipeRatesRejectResearchOverflow() passed after 11.245 seconds.
+✔ Test connectivityPilotRetainsAllLegacyChaptersPillarsReadinessAndStockThroughV7() passed after 11.306 seconds.
+✔ Test constructionPresentationUsesActualRemainingWorkAndClampsCorruptProgress() passed after 11.245 seconds.
+✔ Test guidanceStartsWithUsefulBuildAndNeverMutatesState() passed after 11.245 seconds.
+✔ Test orientationCatalogDefaultsAndRestrictionsAreValidated() passed after 11.236 seconds.
+✔ Test libraryGamesResolveIndependentValidatedUUIDPaths() passed after 11.236 seconds.
+✔ Test smallMapRetirementUsesDecodedValidatedHistoricalIdentity() passed after 11.237 seconds.
+✔ Test roadStrokeFillsFourConnectedGapsAndBoundsBeforeTraversal() passed after 11.227 seconds.
+✔ Test researchIsAtomicAndUnique() passed after 11.227 seconds.
+✔ Test visualWorldBudgetsSuspendBackgroundAndReduceMotion() passed after 11.227 seconds.
+✔ Test connectivityPilotDisconnectedWorkshopConsumesNoInputsOrMaintenance() passed after 11.224 seconds.
+✔ Test developmentBackupFailurePreservesOriginalBytes() passed after 11.224 seconds.
+✔ Test firstCraftDeterministicBalanceTrace() passed after 11.299 seconds.
+✔ Test corruptLibraryIndexIsPreservedOnBootstrapAndSave() passed after 11.224 seconds.
+✔ Test completeEraRequirementsComeFromCatalog() passed after 11.224 seconds.
+✔ Test unknownFootprintsCannotChargeAndExplorationRevealsExistingMap() passed after 11.224 seconds.
+✔ Test resourceProducerCountsFollowActualOperatingOutput() passed after 11.224 seconds.
+✔ Test corruptSaveIsPreserved() passed after 11.223 seconds.
+✔ Test threeStateGoalsStartMinimalAndCycleToSummaryThenGuidance() passed after 11.223 seconds.
+✔ Test explorationSaveRoundTripsPendingExpeditionAndDiscoveryExactly() passed after 11.212 seconds.
+✔ Test economyLabTenMinuteTrace() passed after 11.224 seconds.
+✔ Test settlementSideQuarrySharesOriginalStoneReserve() passed after 11.212 seconds.
+✔ Test connectivityMigrationBackupConflictKeepsV6SourceIntact() passed after 11.210 seconds.
+✔ Test civicCenterMigrationRefusesConflictingBackupWithoutChangingSource() passed after 11.210 seconds.
+✔ Test thresholdCrossingAndPartitionedSimulationAgree() passed after 11.212 seconds.
+✔ Test productionRoadStrokesCoverAnnexInRelease() passed after 11.210 seconds.
+✔ Test effectiveCapacitiesValidateProgressionAndStartingBalances() passed after 11.210 seconds.
+✔ Test connectivityPilotCompletesDisconnectedConstructionWithoutEviction() passed after 11.210 seconds.
+✔ Test foundingMenusUseExistingResearchAndConstructionValidation() passed after 11.210 seconds.
+✔ Test fullFootprintChecksTerrainAndOccupancy() passed after 11.210 seconds.
+✔ Test mapFindsOldLabEnvelopeUpgradesAndIgnoringBothCompletesRoute() passed after 11.210 seconds.
+✔ Test cloudVisibilityRequiresWholeFootprintAndKnownInteractionTile() passed after 11.210 seconds.
+✔ Test economyLabInsufficientSurveyAndFailedCompletionCannotChargeOrReveal() passed after 11.246 seconds.
+✔ Test onboardingGuideRequiresConnectionOnlyUnderExplicitConnectedRules() passed after 11.210 seconds.
+✔ Test offlineCapAndClockRollback() passed after 11.210 seconds.
+✔ Test pillarCompletionIsStickyAndDoesNotGrantRepeatRewards() passed after 11.210 seconds.
+✔ Test projectionRoundtripsEveryMapTile() passed after 11.210 seconds.
+✔ Test loadingProgressRequiresAnActualValidMeasurement() passed after 11.210 seconds.
+✔ Test researchAndUpgradeCannotBypassStarterReserve() passed after 11.210 seconds.
+✔ Test civicCenterRelocationPersistsIdentityWithoutChangingGeographicalOrigin() passed after 11.210 seconds.
+✔ Test transparentSpriteCornersCannotStealMapTaps() passed after 11.209 seconds.
+✔ Test connectivityPilotReserveAndGuidanceDoNotCountDisconnectedSuppliers() passed after 11.210 seconds.
+✔ Test onboardingWalkthroughSkipReopenDoesNotResetIndependentProgress() passed after 11.209 seconds.
+✔ Test rectangularTurnRejectsOnlyNewlyCoveredUndiscoveredEdge() passed after 11.209 seconds.
+✔ Test loadingSkipOnlyHidesSceneryAndNeverChangesReadinessInformation() passed after 11.209 seconds.
+✔ Test freshSettlementReachesEveryProductionChainWithRealCosts() passed after 11.209 seconds.
+✔ Test onboardingGuideRetainsOutOfOrderFactsWithoutInventingEarlierCompletion() passed after 11.209 seconds.
+✔ Test manufacturingAndMaintenanceStayPartitionIndependent() passed after 11.210 seconds.
+✔ Test smallMapRetirementPreservesMigratedLargePrimaryAndOldBackup() passed after 11.209 seconds.
+✔ Test foundingReviewRejectsBadTerrainAndPreservesDamagedFile() passed after 11.209 seconds.
+✔ Test relocationPreviewUsesCapturedOrientedGeometry() passed after 11.327 seconds.
+✔ Test inspectionDiscardsRoadDraftAndShowsBuildingWithoutApplyingStroke() passed after 11.327 seconds.
+✔ Test temporaryForestHutSuggestionIsIndependentOfRetainedPoorSave() passed after 11.209 seconds.
+✔ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() passed after 11.327 seconds.
+✔ Test ordinaryFirstEraStillCompletesAfterDecorativeRoadEdits() passed after 11.327 seconds.
+✔ Test initialSettlement() passed after 11.079 seconds.
+✔ Test onboardingWalkthroughInvalidPlacementAndTimeLeaveFixtureUnchanged() passed after 11.079 seconds.
+✔ Test civicCenterMigrationProtectsAllSevenLegacyChaptersAndReadiness() passed after 11.279 seconds.
+✔ Test onboardingWalkthroughUsesRealConstructionPaidExpeditionAndWoodProduction() passed after 11.064 seconds.
+✔ Test wholeProductionMapIsOptionalAndFullyExplorableAtUnchangedExpeditionPrice() passed after 11.143 seconds.
+✔ Test largePreviewPendingExpeditionBeyondLegacyAreaRoundTrips() passed after 11.332 seconds.
+✔ Test configurationRejectsBrokenResearchAndNumericRules() passed after 11.070 seconds.
+✔ Test visualConnectionsHonorCapturedOrientedFootprints() passed after 11.064 seconds.
+✔ Test productionWorldUsesApprovedAnnexAndAuthenticStart() passed after 11.064 seconds.
+✔ Test visualRoutesNeverInferGatesOrBridgesFromDecorativeRoads() passed after 11.064 seconds.
+✔ Test sparseRoadRetraceCanRemoveOneCommittedTileWithoutChangingOtherSurfaces() passed after 11.332 seconds.
+✔ Test currentProgressionSaveCannotSilentlyRepairMissingHistory() passed after 11.054 seconds.
+✔ Test rectangularRelocationRotationPreservesProgressAndIsAtomic() passed after 11.054 seconds.
+✔ Test stoneStorageDistinctCapsCollectSpendAndReload() passed after 11.252 seconds.
+✔ Test costsRatesHousingAndRewards() passed after 11.054 seconds.
+✔ Test denseVillageFractionalLaborKeepsProductionFactorsAndNetAccounting() passed after 11.333 seconds.
+✔ Test firstCraftAtomicFailureRetryReloadAtEveryCommit() passed after 11.311 seconds.
+✔ Test researchGatesAreAtomicAndFivePillarsAreConfigured() passed after 11.054 seconds.
+✔ Test legacyMissingGeometryKeepsOriginalLayoutAndState() passed after 11.054 seconds.
+✔ Test riverbendPlayerRejectsUnadoptedCatalogWithoutSpending() passed after 11.054 seconds.
+✔ Test mixedRoadStylesReconnectAfterRemovalAndReload() passed after 11.050 seconds.
+✔ Test growthProgressPausesAndResumes() passed after 11.050 seconds.
+✔ Test onboardingWalkthroughWoodSuggestionsStayInReviewedForestSites() passed after 11.050 seconds.
+✔ Test economyLabStoreFailureNeverPublishesAndOtherModesRemainByteIdentical() passed after 11.055 seconds.
+✔ Test visualAgentJourneyRejectsBadPathsAndSuspendsWithoutChangingPoseOrPosition() passed after 11.050 seconds.
+✔ Test connectivityPilotScoutDispatchNeedsPathButPaidExpeditionSurvivesDisconnection() passed after 11.050 seconds.
+✔ Test smallMapRetirementFailureKeepsSelectionAndCanRecover() passed after 11.050 seconds.
+✔ Test partialConstructionAndGrowthSurviveCurrentSave() passed after 11.049 seconds.
+✔ Test firstCraftStockyardOnlyAddsUnlockedCapsAndSplitTimeMatches() passed after 11.267 seconds.
+✔ Test civicCenterRejectsContradictoryChapterAndObjectiveWitnesses() passed after 11.049 seconds.
+✔ Test foodExhaustionHasNoDeathsOrNegativeBalances() passed after 11.048 seconds.
+✔ Test economyLabRejectsWrongProfileAndSurveyContradictions() passed after 11.049 seconds.
+✔ Test libraryRejectsBadIdentityVersionSelectionAndDoesNotOverwriteValidIndex() passed after 11.048 seconds.
+✔ Test artCatalogCoversCompleteEraAndRejectsUnsafePaths() passed after 11.018 seconds.
+✔ Test onboardingProposedWoodcutterSitesPassActualTransactionValidationWithoutSpending() passed after 11.049 seconds.
+✔ Test fractionsAndFrameIndependence() passed after 11.018 seconds.
+✔ Test researchCapacityAndConstructionModifiersApplyOnce() passed after 11.018 seconds.
+✔ Test renderBenchmarkNeverTouchesExistingSettlementFiles() passed after 11.333 seconds.
+✔ Test relocationGridExcludesFogAndKeepsSourceCellsAvailable() passed after 11.333 seconds.
+✔ Test roadDraftCancelAndBackgroundNeverPersistPendingEdits() passed after 11.333 seconds.
+✔ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() passed after 11.333 seconds.
+✔ Test developerScenarioSelectionAndOriginalStateSurviveResume() passed after 11.333 seconds.
+✔ Test developerDoesNotRemoveCorruptNormalSaveProtection() passed after 11.333 seconds.
+✔ Test civicCenterConstructionPreviewFollowsMovedCenterAndResourceHelpNamesIt() passed after 11.333 seconds.
+✔ Test backgroundCancelsRotatedNewCandidateWithoutCharging() passed after 11.333 seconds.
+✔ Test sessionPreservesCorruptSaveAcrossActions() passed after 11.333 seconds.
+✔ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() passed after 11.333 seconds.
+✔ Test renderPauseFollowsLifecycleWithoutChangingSaveState() passed after 11.318 seconds.
+✔ Test previewQuarterTurnsRoundTripAndPersistOnlyOnConfirmation() passed after 11.315 seconds.
+✔ Test developerResetArchivesCorruptDeveloperFile() passed after 11.314 seconds.
+✔ Test backgroundInactiveForegroundUsesOfflineCapOnce() passed after 11.314 seconds.
+✔ Test invalidRelocationDropRetainsPreviewThenCanRetryOrCancelWithoutSaveLeak() passed after 11.314 seconds.
+✔ Test gameplayReviewResumesWithoutOfflineGrantsOrPersistedDebugSettings() passed after 11.314 seconds.
+✔ Test holesAndNarrowRoutesHaveOpaqueBoundaryWithoutChangingDiscovery() passed after 0.393 seconds.
+✔ Test edgesAreDeterministicAndOnlyOnDiscoveryBoundary() passed after 0.247 seconds.
+✔ Test developerSaveResumesWithoutOfflineOrSettings() passed after 11.314 seconds.
+✔ Test invalidRoadDraftAndPinchStyleClearAreBoundedAndAtomic() passed after 11.314 seconds.
+✔ Test catalogChoiceRequiresExplicitConfirmationAfterValidDrop() passed after 11.314 seconds.
+✔ Test visualAgentPowerObservationUpdatesWithoutInteractionAndReleasesObserver() passed after 11.313 seconds.
+✔ Test relocationDragReleaseDoesNotCommitUntilExplicitConfirmation() passed after 11.313 seconds.
+✔ Suite ReviewFogBoundaryTests passed after 11.334 seconds.
+✔ Test completionCueDurablePulseAndTargetedAcknowledgement() passed after 11.344 seconds.
+✔ Test clearingTerrainMessageExplainsOpenBuildableGround() passed after 11.352 seconds.
+✔ Test onboardingGuideCanReconstructActualCompletedBuildingsAndPaidExpedition() passed after 11.071 seconds.
+PLAYTHROUGH research fishing at 600s
+PLAYTHROUGH build fishingShelter at 660s
+PLAYTHROUGH build hut at 720s
+PLAYTHROUGH research hunting at 900s
+✔ Test mapFindsAppearDuringRealWaitAtDeterministicReachableDistinctSites() passed after 11.295 seconds.
+PLAYTHROUGH build huntingLodge at 960s
+PLAYTHROUGH build stoneGatherer at 1020s
+PLAYTHROUGH build stoneGatherer at 1080s
+✔ Test reviewTransientConfiguredAchievementIsIndependentOfElapsedPartition() passed after 11.651 seconds.
+PLAYTHROUGH research stoneTools at 1440s
+PLAYTHROUGH build toolmaker at 1500s
+PLAYTHROUGH research leatherworking at 1800s
+PLAYTHROUGH build tannery at 1860s
+PLAYTHROUGH research pottery at 2160s
+PLAYTHROUGH build potteryWorkshop at 2220s
+GUIDED recovery: wood0 after poor priorities; advice restored ordinary hut affordability and reload at wood=20.0, no grants
+PLAYTHROUGH build storehouse at 2280s
+PLAYTHROUGH research socialOrder at 3480s
+PLAYTHROUGH research cultivation at 4020s
+PLAYTHROUGH research animalDomestication at 4560s
+PACING strategy=4 longest cost wait=720s; bootstrap=600s pop=6 knowledge/min=1.29 food/min=16.57 water/min=12.34 workers=3.0/5.0; knowledge investment=840s pop=8 knowledge/min=3.60 food/min=18.00 water/min=13.40 workers=4.0/6.0; craft economy=2220s pop=15 knowledge/min=4.80 food/min=21.00 water/min=7.90 workers=9.0/12.0; all research=3720s pop=15 knowledge/min=7.02 food/min=28.20 water/min=9.84 workers=9.0/13.0; complete=6480s pop=15 knowledge/min=6.25 food/min=40.76 water/min=8.11 workers=9.0/20.0; chapters=[(key: 1, value: 3780), (key: 2, value: 960), (key: 3, value: 3840), (key: 4, value: 2880), (key: 5, value: 4620), (key: 6, value: 6300), (key: 7, value: 6480)]
+✔ Test firstEraAlternativeNormalCostStrategies(strategy:) with 4 test cases passed after 12.737 seconds.
+PLAYTHROUGH research foodPreservation at 5100s
+PLAYTHROUGH research basketry at 5340s
+PLAYTHROUGH research construction at 5580s
+PLAYTHROUGH research naturalKnowledge at 6120s
+PLAYTHROUGH research permanentSettlement at 6480s
+PLAYTHROUGH research herbalMedicine at 6900s
+PLAYTHROUGH research rituals at 7260s
+✔ Test firstCraftModeSwitchDuringPaidBatchAndMidStorageCompletion() passed after 13.349 seconds.
+PLAYTHROUGH research burialTraditions at 7560s
+PLAYTHROUGH research exploration at 7800s
+PLAYTHROUGH research surveillance at 8280s
+PLAYTHROUGH research fortification at 8580s
+PLAYTHROUGH build farm at 8640s
+PLAYTHROUGH build animalPen at 8700s
+PLAYTHROUGH build storytellingCircle at 8760s
+PLAYTHROUGH build healersHut at 8820s
+PLAYTHROUGH build shrine at 8880s
+PLAYTHROUGH build burialGround at 8940s
+PLAYTHROUGH build scoutCamp at 9000s
+PLAYTHROUGH build watchtower at 9060s
+PLAYTHROUGH build palisade at 9120s
+PLAYTHROUGH complete at 9300s; population 15; buildings 23; technologies 20; discovered 704
+PLAYTHROUGH build hut at 9360s
+✔ Test freshStoneAgeCompletesThroughRealResearchAndProduction() passed after 14.122 seconds.
+✔ Test largeGroupedVillagePreservesCoreAndConnectsEveryBuilding() passed after 14.245 seconds.
+GUIDED pace=60.0s total=8813s actions=48 wait=5933s longestCostOrConstructionWait=721s chapters=[(key: 1, value: 300), (key: 2, value: 1678), (key: 3, value: 4014), (key: 4, value: 4876), (key: 5, value: 7253), (key: 6, value: 7973), (key: 7, value: 8813)] choices=["recipe": 2, "build": 21, "research": 20, "explore": 3] pop=15 workers=9.0/18.0 netFood=39.72 netWater=7.639999999999999 knowledge=4.199999999999999 discovery=704
+✔ Test stoneStorageAtomicFailureRetryAndBothRoles() passed after 14.841 seconds.
+✔ Test developerScenariosValidateAndRoundTrip() passed after 15.321 seconds.
+GUIDED pace=15.0s total=7765s actions=48 wait=7045s longestCostOrConstructionWait=807s chapters=[(key: 1, value: 85), (key: 2, value: 1599), (key: 3, value: 3147), (key: 4, value: 3969), (key: 5, value: 6287), (key: 6, value: 7012), (key: 7, value: 7765)] choices=["recipe": 2, "research": 20, "explore": 3, "build": 21] pop=15 workers=9.0/18.0 netFood=39.72 netWater=7.639999999999999 knowledge=4.199999999999999 discovery=704
+✔ Test ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds:) with 2 test cases passed after 17.774 seconds.
+✔ Test largePreviewResumesAndSwitchesWithoutChangingNormalWorld() passed after 19.062 seconds.
+✔ Test connectivityReviewBackupFailurePreservesSourceThenCanRetry() passed after 19.083 seconds.
+✔ Test connectivityReviewRejectsDamagedSourceWithoutReplacingIt() passed after 19.090 seconds.
+✔ Test connectivityReviewActivationRetainsFastConstructionControl() passed after 19.103 seconds.
+✔ Test developerSaveAndClockAreIsolated() passed after 19.192 seconds.
+✔ Test invalidNewBuildingDropStaysInDragModeWithoutCharging() passed after 19.196 seconds.
+✔ Test undoRoadPreviewRemovesOneTileAndNeverEditsCommittedRoads() passed after 19.200 seconds.
+✔ Test sessionReloadKeepsBuildingsAndDoesNotRegrantGoalReward() passed after 19.533 seconds.
+✔ Test gameplayReviewFailedWritesKeepModeAndUnsavedProgress() passed after 19.555 seconds.
+✔ Test developerSpeedPauseAndBackgroundRespectConstructionClock() passed after 19.667 seconds.
+✔ Test connectivityReviewTopologyCommitsSettlePriorTimeAndIgnorePreviews() passed after 19.697 seconds.
+✔ Test relocationPreviewCancelAndCommitDoNotLeakIntoSaves() passed after 19.713 seconds.
+✔ Test economicPresentationRefreshesAfterRealStateChanges() passed after 19.733 seconds.
+✔ Test gameplayReviewClonesNormalAndKeepsDeveloperCompanionIndependent() passed after 19.815 seconds.
+✔ Test completionCueNewGameAndLegacySnapshotStartQuiet() passed after 19.821 seconds.
+Riverbend earned route: civic upgrade ResourceAmounts(values: [GameCore.Resource.food: 120.0, GameCore.Resource.wood: 120.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.water: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 100.0, GameCore.Resource.leather: 0.0, GameCore.Resource.flint: 6.0, GameCore.Resource.knowledge: 25.599999999999998, GameCore.Resource.pottery: 0.0, GameCore.Resource.clay: 0.0, GameCore.Resource.stoneTools: 0.0])
+Riverbend earned route: enclosure ResourceAmounts(values: [GameCore.Resource.food: 120.0, GameCore.Resource.wood: 120.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.water: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 100.0, GameCore.Resource.leather: 0.0, GameCore.Resource.flint: 6.0, GameCore.Resource.knowledge: 77.6, GameCore.Resource.pottery: 0.0, GameCore.Resource.clay: 0.0, GameCore.Resource.stoneTools: 0.0])
+✔ Test connectivityReviewActivationIsExplicitAndKeepsCompanionsIndependent() passed after 20.185 seconds.
+✔ Test backtrackedRoadPointerDoesNotInventOffRouteTiles() passed after 20.181 seconds.
+✔ Test civicCenterDeveloperMigrationBacksUpCompanionAndLeavesNormalBytesUntouched() passed after 20.883 seconds.
+✔ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() passed after 20.895 seconds.
+✔ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() passed after 20.804 seconds.
+✔ Test sessionGuidanceRefreshesAfterRealConstructionWithoutSpendingOnRead() passed after 20.821 seconds.
+✔ Test gameplayReviewDamagedCopyIsPreservedAndNeverEntersDeveloperMode() passed after 20.828 seconds.
+✔ Test currentSessionReloadResumesConstructionWithoutChargingAgain() passed after 20.828 seconds.
+✔ Test riverbendPlayerReviewCommandsNeverWriteNormalStore() passed after 21.134 seconds.
+✔ Test playerFailedRoadConfirmRetainsDraftAndReportsFailure() passed after 21.137 seconds.
+✔ Test asyncLoadedSessionWaitsForActivationAndCapsStartupSuspension() passed after 21.179 seconds.
+✔ Test riverbendPlayerNormalNewGameUsesDistinctLargeRulesWithoutWater() passed after 21.182 seconds.
+✔ Test unindexedRetirementFailureCannotPublishNewSelection() passed after 21.181 seconds.
+✔ Test foundingReviewPreservesAuthenticNormalDeveloperRound2LibraryAndLab() passed after 21.641 seconds.
+✔ Test economyLabPreservesAuthenticNormalDeveloperRound2AndLibraryFiles() passed after 23.179 seconds.
+✔ Test ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) with 10 test cases passed after 23.174 seconds.
+✔ Test riverbendPlayerContinueClassifiesLargeBodyBeforeRelabel() passed after 23.349 seconds.
+✔ Test asyncRestorationPreservesSaveAndCorruptFileProtection() passed after 23.332 seconds.
+Riverbend earned simulated model seconds: 5880.0
+✔ Test riverbendPlayerCraftStorageEnclosureEarnedRoutePersists() passed after 23.435 seconds.
+✔ Test playerFoundingPreservesPrelaidEntranceAndContinue(style:) with 3 test cases passed after 23.467 seconds.
+✔ Test corruptLegacyCanBeLeftWithoutOverwritingItsBytes() passed after 24.607 seconds.
+✔ Test gameplayReviewCannotRacePendingScenarioPreparation(resume:) with 2 test cases passed after 24.560 seconds.
+✔ Test developerScenarioCannotBeSwitchedIntoRegularGameLibrary() passed after 24.648 seconds.
+✔ Test playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) with 8 test cases passed after 24.731 seconds.
+✔ Test riverbendPlayerFindsCannotDoubleGrantOrPublishFailedSave() passed after 24.681 seconds.
+✔ Test cancelledLargePreviewPreparationDoesNotPublishOrWriteNormalSave() passed after 24.666 seconds.
+✔ Test normalEntryMetadataDoesNotCreateOrAdvanceGames() passed after 24.664 seconds.
+✔ Test completionCueLibraryGamesKeepIndependentUnreadForIdenticalEarnIDs() passed after 24.798 seconds.
+✔ Test failedIndexCommitKeepsOldSessionAndPreservesOriginalSave() passed after 24.822 seconds.
+✔ Test simultaneousCreationIsRejectedAndOnlyOneGameIsPublished() passed after 24.909 seconds.
+✔ Test eachNormalGameResumesItsOwnDeveloperCompanion() passed after 24.941 seconds.
+✔ Test failedCurrentSaveBlocksSwitchAndKeepsLibrarySelection() passed after 24.922 seconds.
+✔ Test launchNewGamePreservesUnopenedDamagedProgress(indexed:) with 2 test cases passed after 24.993 seconds.
+✔ Test backgroundDuringAsyncSwitchDoesNotActivateTargetOrDoubleCountCatchup() passed after 24.990 seconds.
+✔ Test developmentLibraryRetiresSmallPrimaryWithoutChangingDeveloperCompanion() passed after 24.951 seconds.
+✔ Test riverbendPlayerNormalContinueAndIndependentGamesKeepRules() passed after 24.849 seconds.
+✔ Test independentGamesResumeTheirOwnProgressAndSelection() passed after 25.013 seconds.
+✔ Test failedOpenDoesNotWriteOfflineProgressIntoUnopenedTarget() passed after 25.037 seconds.
+✔ Test missingOrCorruptRegisteredGamesNeverResetOrReplaceCurrentGame() passed after 24.779 seconds.
+✔ Test damagedSelectedGameCanExplicitlyRecoverHealthyGameWithoutReset(missing:) with 2 test cases passed after 24.783 seconds.
+✔ Test run with 356 tests in 1 suite passed after 25.069 seconds.

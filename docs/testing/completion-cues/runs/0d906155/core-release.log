@@ -1,0 +1,880 @@
+Building for production...
+[Pre-planning 1 / 299]
+[Planning deferred tasks]
+[63 / 102]
+[64 / 103] GameCore
+[77 / 138]
+[82 / 138]
+[84 / 138]
+[88 / 138]
+[91 / 138]
+[96 / 138]
+[97 / 138]
+[98 / 138]
+[99 / 138]
+[100 / 138] GameCore
+[108 / 139] GamePersistence
+[110 / 140] GamePersistence
+[118 / 141] GameApplication
+[120 / 142] GameApplication
+[133 / 143] GameCoreTests-product
+[135 / 146]
+[137 / 146] GameCoreTests-product
+[142 / 146] GameCoreTests-product
+[144 / 146] GameCoreTests-product
+Build complete! (33.65 secs)
+Test Suite 'All tests' started at 2026-11-21 13:49:57.641.
+Test Suite 'All tests' passed at 2026-11-21 13:49:57.643.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test researchGatesAreAtomicAndFivePillarsAreConfigured() started.
+◇ Test frameSummaryRejectsSuspensionAndNonfiniteSamples() started.
+◇ Test catalogChoiceRequiresExplicitConfirmationAfterValidDrop() started.
+◇ Test civicCenterMigrationRefusesConflictingBackupWithoutChangingSource() started.
+◇ Test civicCenterPaidResearchGatedLevelsPreserveFoundingProvisions() started.
+◇ Test riverbendPlayerRecoveryIsBoundedAndLegacyRulesRejectIt() started.
+◇ Test smallMapRetirementFailureKeepsSelectionAndCanRecover() started.
+◇ Test pillarCompletionIsStickyAndDoesNotGrantRepeatRewards() started.
+◇ Test civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test realVersionOneSaveMigratesAndBacksUpBeforeReplacement() started.
+◇ Test completionCueNewGameAndLegacySnapshotStartQuiet() started.
+◇ Test starterReserveDerivesSupplierCostsFromCatalog() started.
+◇ Test visualRoutesNeverInferGatesOrBridgesFromDecorativeRoads() started.
+◇ Test researchIsAtomicAndUnique() started.
+◇ Test automaticWorkersShareShortageAndPrioritiesPreserveSurvival() started.
+◇ Test cameraCannotLeaveMapDiamond() started.
+◇ Test connectedRoadGraphRetainsLegacyEconomyWithoutPaths() started.
+◇ Test connectedRoadGraphJoinsAllCivicSidesAndStylesWithoutCornerAccess() started.
+◇ Test visualConnectionsHideIncompleteFoggedAndMovingBuildings() started.
+◇ Test guidanceStartsWithUsefulBuildAndNeverMutatesState() started.
+◇ Test reviewUnevenFlowsRemainEquivalentAcrossIrregularPartitions() started.
+◇ Test fishingNeedsDiscoveredRiverAndCopperRemainsFutureOnly() started.
+◇ Test invalidNewBuildingDropStaysInDragModeWithoutCharging() started.
+◇ Test reviewPriorityAndPendingConstructionSurviveSaveWithEquivalentCatchup() started.
+◇ Test discoveryExcludesFutureDepositsAndCatalogTotalsAdapt() started.
+◇ Test visualConnectionsRejectCornersGapsAndUnrelatedFamilies() started.
+◇ Test invalidRoadDraftAndPinchStyleClearAreBoundedAndAtomic() started.
+◇ Test capturedFootprintSurvivesCatalogEditReloadAndRelocation() started.
+◇ Test simultaneousEventsAndOfflineCapDoNotDuplicateTime() started.
+◇ Test onboardingWholeForestAlternativeRevealsExistingWoodSourceAndSupportsRealProduction() started.
+◇ Test onboardingGuideCanReconstructActualCompletedBuildingsAndPaidExpedition() started.
+◇ Test backgroundCancelsRotatedNewCandidateWithoutCharging() started.
+◇ Test missingOrCorruptRegisteredGamesNeverResetOrReplaceCurrentGame() started.
+◇ Test legacyMissingGeometryKeepsOriginalLayoutAndState() started.
+◇ Test backgroundDuringAsyncSwitchDoesNotActivateTargetOrDoubleCountCatchup() started.
+◇ Test rectangularGeometrySwapsAxesAndCentersBothDimensions() started.
+◇ Test relocationTileIndicatorsDistinguishSelfOpenOccupiedRoadAndBounds() started.
+◇ Test riverbendPlayerNormalContinueAndIndependentGamesKeepRules() started.
+◇ Test clearingTerrainMessageExplainsOpenBuildableGround() started.
+◇ Test connectedRoadGraphRefreshesAfterCompletionRemovalAndCivicMove() started.
+◇ Test thresholdCrossingAndPartitionedSimulationAgree() started.
+◇ Test visualDayCycleManualSelectionAndFrozenFramesAreDeterministic() started.
+◇ Test connectivityPilotRoadCommitCapturesNewPillarBeforeDisconnectAndReload() started.
+◇ Test manufacturingConsumesInputsAndRecoversFromEmptyStocks() started.
+◇ Test visualWorldBudgetsSuspendBackgroundAndReduceMotion() started.
+◇ Test productionActivityUsesActualOutputAndExcludesHousing() started.
+◇ Test visualDestinationRoutesUseRealBuildingEdgesWithoutMutatingGame() started.
+◇ Test resourceProducerCountsFollowActualOperatingOutput() started.
+◇ Test reviewCompletedScienceCannotExistWithoutItsPermanentResearchHistory() started.
+◇ Test relocationRecalculatesGeographyAndHonorsFishingRestriction() started.
+◇ Test newReadinessRequiresMoreThanFivePillarsAndOldReadinessSurvives() started.
+◇ Test invalidRelocationDropRetainsPreviewThenCanRetryOrCancelWithoutSaveLeak() started.
+◇ Test civicCenterRejectsContradictoryChapterAndObjectiveWitnesses() started.
+◇ Test playerSourcesAppearContextuallyAndRequireLocalWorksites() started.
+◇ Test civicCenterGuidanceOffersUpgradeBeforeDuplicateCircle() started.
+◇ Test reviewHistoricalRulesetRejectsUnsupportedBuildingBeforeLookingUpEffects() started.
+◇ Test completionCueDurablePulseAndTargetedAcknowledgement() started.
+◇ Test playerAdoptedProducerDefaultsRemainSelectable() started.
+◇ Test corruptSaveIsPreserved() started.
+◇ Test visualConnectionsJoinStorageAcrossLevelsWithoutGameplayRules() started.
+◇ Test reviewSaveRejectsRadiusThatClaimsUnrevealedCompletedRings() started.
+◇ Test buildingsRequireExplicitRoadRemovalBeforeConstructionOrMove() started.
+◇ Test manufacturingAndMaintenanceStayPartitionIndependent() started.
+◇ Test smallMapRetirementPreservesMigratedLargePrimaryAndOldBackup() started.
+◇ Test ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test finiteDepositExhaustionPersistsAndSurvivalIsIndependent() started.
+◇ Test failedCurrentSaveBlocksSwitchAndKeepsLibrarySelection() started.
+◇ Test offlineCapAndClockRollback() started.
+◇ Test reviewTransientConfiguredAchievementIsIndependentOfElapsedPartition() started.
+◇ Test oppositeTechnologyMultipliersCannotHideOverflow() started.
+◇ Test backgroundInactiveForegroundUsesOfflineCapOnce() started.
+◇ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() started.
+◇ Test case passing 1 argument version → 1 to civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test riverbendPlayerCraftStorageEnclosureEarnedRoutePersists() started.
+◇ Test roadModesDrawReplaceAndEraseIndependently() started.
+◇ Test relocationGridExcludesFogAndKeepsSourceCellsAvailable() started.
+◇ Test case passing 1 argument version → 2 to civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test relocationCannotUseUnknownTerritory() started.
+◇ Test orientationCatalogDefaultsAndRestrictionsAreValidated() started.
+◇ Test approvedCatalogAndResourcesArePresent() started.
+◇ Test case passing 1 argument version → 3 to civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test developmentBackupFailurePreservesOriginalBytes() started.
+◇ Test unknownFootprintsCannotChargeAndExplorationRevealsExistingMap() started.
+◇ Test guidanceOffersCapacityInsteadOfLongKnowledgeIdle() started.
+◇ Test case passing 1 argument version → 4 to civicCenterMigrationProtectsEveryOlderBackup(version:) started.
+◇ Test oldRulesAndAlreadyInsolventSavesDoNotGainResourcesOrReset() started.
+◇ Test currentProgressionSaveCannotSilentlyRepairMissingHistory() started.
+◇ Test playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test currentSeedStillCompletesWithoutDeadlock() started.
+◇ Test roadStrokeFillsFourConnectedGapsAndBoundsBeforeTraversal() started.
+◇ Test projectionRoundtripsEveryMapTile() started.
+◇ Test onboardingForestProposalIsDeterministicConnectedAndContainsOnlyRealTerrain() started.
+◇ Test visualDayLightingInterpolatesContinuouslyAndWraps() started.
+◇ Test atomicPlacementValidation() started.
+◇ Test reserveAllowsAnySafeSupplierOrderAndDoesNotLockCombinedCost() started.
+◇ Test civicCenterSaveCannotDowngradeAndDiscardEarnedHistory() started.
+◇ Test progressionSaveRoundTripsStickyAchievementHistory() started.
+◇ Test growthProgressPausesAndResumes() started.
+◇ Test roadCommandsAreFreeAtomicAndIdempotent() started.
+◇ Test partialConstructionAndGrowthSurviveCurrentSave() started.
+◇ Test relocationIsFreePreservesIdentityAndAllowsSelfOverlap() started.
+◇ Test visualDayCycleSuspensionDoesNotCatchUp() started.
+◇ Test relocationDragReleaseDoesNotCommitUntilExplicitConfirmation() started.
+◇ Test asyncRestorationPreservesSaveAndCorruptFileProtection() started.
+◇ Test insufficientFundsDoesNotCharge() started.
+◇ Test loadingBrandStageDoesNotClaimAnEraOrShowScenery() started.
+◇ Test pendingAndSelectableRecipeSourcesRemainUsable() started.
+◇ Test reviewInvalidPrioritySaveIsRejectedWithoutChangingDisk() started.
+◇ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() started.
+◇ Test currentSessionReloadResumesConstructionWithoutChargingAgain() started.
+◇ Test costsRatesHousingAndRewards() started.
+◇ Test civicCenterWorkerShortageDoesNotScaleFoodWaterOrHousing() started.
+◇ Test roadMasksCoverAllSixteenLogicalCombinations() started.
+◇ Test asyncLoadedSessionWaitsForActivationAndCapsStartupSuspension() started.
+◇ Test inspectionDiscardsRoadDraftAndShowsBuildingWithoutApplyingStroke() started.
+◇ Test civicQuarterTurnRetainsIdentityAndSingleTileGeometry() started.
+◇ Test rectangularRelocationRotationPreservesProgressAndIsAtomic() started.
+◇ Test loadingSkipOnlyHidesSceneryAndNeverChangesReadinessInformation() started.
+◇ Test connectivityPilotScoutDispatchNeedsPathButPaidExpeditionSurvivesDisconnection() started.
+◇ Test rectangularTurnRejectsOnlyNewlyCoveredUndiscoveredEdge() started.
+◇ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() started.
+◇ Test riverbendPlayerFindsCannotDoubleGrantOrPublishFailedSave() started.
+◇ Test playerFoundingPreservesPrelaidEntranceAndContinue(style:) started.
+◇ Test rotatedConstructionUsesExactOccupancyAndChargesOnce() started.
+◇ Test constructionChargesReservesAndCompletesBeforeBenefits() started.
+◇ Test onboardingProposedWoodcutterSitesPassActualTransactionValidationWithoutSpending() started.
+◇ Test sessionGuidanceRefreshesAfterRealConstructionWithoutSpendingOnRead() started.
+◇ Test reviewFiniteExtractionSplitsAtActualReserveBoundary() started.
+◇ Test smallMapRetirementUsesDecodedValidatedHistoricalIdentity() started.
+◇ Test fractionsAndFrameIndependence() started.
+◇ Test reviewFreshSettlementCanFundScoutAndRevealWholeValleyWithoutRepeatCharge() started.
+◇ Test visualConnectionsRejectInvalidAndAmbiguousSnapshots() started.
+◇ Test failedIndexCommitKeepsOldSessionAndPreservesOriginalSave() started.
+◇ Test ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds:) started.
+◇ Test workforceWaterGrowthAndElapsedPartitionsAgree() started.
+◇ Test connectedRoadGraphCannotTraverseWaterOrBuildings() started.
+◇ Test sparseRoadRetraceCanRemoveOneCommittedTileWithoutChangingOtherSurfaces() started.
+◇ Test fullFootprintChecksTerrainAndOccupancy() started.
+◇ Test modeChangesAndStorageUpgradesAreAtomic() started.
+◇ Test civicCenterOldEnvelopeCannotSupplyNewHistory() started.
+◇ Test researchPrerequisitesModifiersAndRepeatedPurchases() started.
+◇ Test previewQuarterTurnsRoundTripAndPersistOnlyOnConfirmation() started.
+◇ Test connectivityPilotRedistributesWorkersAndKeepsIntrinsicCivicOutput() started.
+◇ Test connectivityPilotRetainsOverCapStocksAcrossTickCreditsSpendingAndReload() started.
+◇ Test smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+◇ Test riverbendPlayerFoundingAndWholeForestUseOrdinaryCommands() started.
+◇ Test damagedSelectedGameCanExplicitlyRecoverHealthyGameWithoutReset(missing:) started.
+◇ Test corruptLegacyCanBeLeftWithoutOverwritingItsBytes() started.
+◇ Test riverbendPlayerNormalNewGameUsesDistinctLargeRulesWithoutWater() started.
+◇ Test productionExpeditionsPersistAndRevealOnlyAtCompletionWithoutDuplicateCharge() started.
+◇ Test libraryRejectsBadIdentityVersionSelectionAndDoesNotOverwriteValidIndex() started.
+◇ Test loadingProgressRequiresAnActualValidMeasurement() started.
+◇ Test visualDayCycleRejectsBadTimeAndClampsStalls() started.
+◇ Test researchAndUpgradeCannotBypassStarterReserve() started.
+◇ Test civicCenterChaptersReplaceMandatoryStorytelling() started.
+◇ Test corruptLibraryIndexIsPreservedOnBootstrapAndSave() started.
+◇ Test sessionPreservesCorruptSaveAcrossActions() started.
+◇ Test independentGamesResumeTheirOwnProgressAndSelection() started.
+◇ Test libraryRejectsAliasAtRootWithoutTouchingReferencedLibrary() started.
+◇ Test reviewActualCostBootstrapSurvivesHighNonFoodPriorityAndConstruction() started.
+◇ Test roadsRejectFogAndProtectedTerrainWithoutChangingState() started.
+◇ Test roadSaveValidationAndLegacyNilRoundTrip() started.
+◇ Test undoRoadPreviewRemovesOneTileAndNeverEditsCommittedRoads() started.
+◇ Test transparentSpriteCornersCannotStealMapTaps() started.
+◇ Test initialSettlement() started.
+◇ Test seedCanCompleteAndRewardsSurviveReload() started.
+◇ Test consumersShareInputsRegardlessOfBuildingArrayOrder() started.
+◇ Test ordinaryFirstEraStillCompletesAfterDecorativeRoadEdits() started.
+◇ Test freshStoneAgeCompletesThroughRealResearchAndProduction() started.
+◇ Test failedOpenDoesNotWriteOfflineProgressIntoUnopenedTarget() started.
+◇ Test unidentifiedAndUndiscoveredDepositsDoNotProduce() started.
+◇ Test foodExhaustionHasNoDeathsOrNegativeBalances() started.
+◇ Test noWaterPausesGrowthAndPassiveCollectionRecovers() started.
+◇ Test libraryRejectsSymlinkAliasesToOtherGamesAndIndexFiles() started.
+◇ Test geographySaveMigratesWithoutFreeResearchOrLostConstructionKnowledge() started.
+◇ Test riverbendPlayerContinueClassifiesLargeBodyBeforeRelabel() started.
+◇ Test settlementSideQuarrySharesOriginalStoneReserve() started.
+◇ Test visualRoutesPreferConnectedRoadsAndRemainDeterministicBounded() started.
+◇ Test developmentLibraryRetiresSmallPrimaryWithoutChangingDeveloperCompanion() started.
+◇ Test threeStateGoalsStartMinimalAndCycleToSummaryThenGuidance() started.
+◇ Test starterReservePreventsRepeatedShelterInsolvencyAtomically() started.
+◇ Test pausedGrowthFromEarlierLongerIntervalSurvivesResearchAndReload() started.
+◇ Test reviewUnseenForestBonusActivatesExactlyAtExpeditionCompletion() started.
+◇ Test firstEraAlternativeNormalCostStrategies(strategy:) started.
+◇ Test currentSaveMissingOrCorruptDepositAccountingIsRejectedWithoutRepair() started.
+◇ Test civicCenterRelocationPersistsIdentityWithoutChangingGeographicalOrigin() started.
+◇ Test goalsStartCollapsedAndOnlyEraChangeAutomaticallyOpensThem() started.
+◇ Test connectivityPilotDisconnectedWorkshopConsumesNoInputsOrMaintenance() started.
+◇ Test reviewEffectiveRecipeRatesRejectResearchOverflow() started.
+◇ Test mixedRoadStylesReconnectAfterRemovalAndReload() started.
+◇ Test currentExplorationSaveCannotSilentlyRepairMissingOrInvalidProgress() started.
+◇ Test connectivityPilotReserveAndGuidanceDoNotCountDisconnectedSuppliers() started.
+◇ Test unindexedRetirementFailureCannotPublishNewSelection() started.
+◇ Test growthAndConstructionAtSameInstantMatchPartitionedUpdates() started.
+◇ Test onboardingGuideRetainsOutOfOrderFactsWithoutInventingEarlierCompletion() started.
+◇ Test productionWorldUsesApprovedAnnexAndAuthenticStart() started.
+◇ Test connectivityPilotCompletesDisconnectedConstructionWithoutEviction() started.
+◇ Test normalEntryMetadataDoesNotCreateOrAdvanceGames() started.
+◇ Test roadRendererInvalidationIsLocalAndIncludesNeighbors() started.
+◇ Test corruptCapturedGeometryIsRejectedBeforeTileEnumeration() started.
+◇ Test backtrackedRoadPointerDoesNotInventOffRouteTiles() started.
+◇ Test chaptersCreditOutOfOrderAndRetainOriginalRewardHistory() started.
+◇ Test reviewExpeditionTimerSavesAndUsesOfflineCapWithoutClockReplay() started.
+◇ Test permanentUpgradeIsAtomicAndKeepsIdentity() started.
+◇ Test connectivityPilotTickAndOfflineAgreeAndHistorySurvivesDisconnection() started.
+◇ Test developmentConversionBacksUpProgressAndKeepsAnnexHidden() started.
+◇ Test releaseUsesNormalConstructionAndPersistence() started.
+◇ Test productionRoadStrokesCoverAnnexInRelease() started.
+◇ Test artCatalogCoversCompleteEraAndRejectsUnsafePaths() started.
+◇ Test cloudVisibilityRequiresWholeFootprintAndKnownInteractionTile() started.
+◇ Test configurationRejectsInvalidData() started.
+◇ Test visualRoutesRejectWaterFootprintsFogAndOutsideEndpoints() started.
+◇ Test visualConnectionsJoinCardinalMixedLevelHomesOnce() started.
+◇ Test libraryGamesResolveIndependentValidatedUUIDPaths() started.
+◇ Test relocationRejectsInvalidSitesAtomically() started.
+◇ Test visualAnchorsAndAnimationBudgetsAreIndependentOfEconomy() started.
+◇ Test unsupportedVersionAndInvalidStateAreRejected() started.
+◇ Test onboardingReviewReturnsNoInventedForestWhenMapHasNone() started.
+◇ Test connectivityPilotStopsAndRestartsOutputsInputsAndDepositUse() started.
+◇ Test saveRoundtripAndOfflineResume() started.
+◇ Test reviewInheritedConstructionKnowledgeRequiresAnExistingBuildingWitness() started.
+◇ Test connectivityV7RejectsMissingUnknownAndDowngradedMarkersWithoutWrites() started.
+◇ Test relocationPreviewUsesCapturedOrientedGeometry() started.
+◇ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() started.
+◇ Test workforceSaveMigrationPreservesValleyIdentityAndEarlierVisibility() started.
+◇ Test effectiveCapacitiesValidateProgressionAndStartingBalances() started.
+◇ Test sessionReloadKeepsBuildingsAndDoesNotRegrantGoalReward() started.
+◇ Test actualFoundationSaveMigratesWithoutResettingProgressAndBacksUpExactly() started.
+◇ Test pausedGrowthCanBeSavedAfterResearchShortensInterval() started.
+◇ Test explorationSaveRoundTripsPendingExpeditionAndDiscoveryExactly() started.
+◇ Test productionCatalogAllowsFourLogicalOrientationsIncludingCivic() started.
+◇ Test relocationPreviewCancelAndCommitDoNotLeakIntoSaves() started.
+◇ Test civicCenterModifiersAndProducerCountsIncludeCultureWithoutScalingProvisions() started.
+◇ Test freshSettlementReachesEveryProductionChainWithRealCosts() started.
+◇ Test wholeProductionMapIsOptionalAndFullyExplorableAtUnchangedExpeditionPrice() started.
+◇ Test retirementRetryRetainsExactOriginalIndexBytes() started.
+◇ Test visualConnectionsAreStableBoundedAndReadOnly() started.
+◇ Test populationConsumptionAndHousingAreEventDriven() started.
+◇ Test connectivityV7EnvelopeRetainsExplicitRulesAndHistoricalState() started.
+◇ Test roadDraftCancelAndBackgroundNeverPersistPendingEdits() started.
+◇ Test riverbendPlayerRejectsUnadoptedCatalogWithoutSpending() started.
+◇ Test researchCapacityAndConstructionModifiersApplyOnce() started.
+◇ Test simultaneousCreationIsRejectedAndOnlyOneGameIsPublished() started.
+◇ Test playerFailedRoadConfirmRetainsDraftAndReportsFailure() started.
+◇ Test economicPresentationRefreshesAfterRealStateChanges() started.
+◇ Test onboardingGuideRequiresConnectionOnlyUnderExplicitConnectedRules() started.
+◇ Test visualConnectionsHonorCapturedOrientedFootprints() started.
+◇ Test economySaveRoundTripsModeUpgradeAndDepletedDeposit() started.
+◇ Test launchNewGamePreservesUnopenedDamagedProgress(indexed:) started.
+◇ Test guidanceFindsKnowledgeProducerBeforeLaterChapter() started.
+◇ Test completeEraRequirementsComeFromCatalog() started.
+◇ Test relocationRetainsConstructionAndRecipeThroughSave() started.
+◇ Test connectivityVersionBoundariesAndBackupPreserveSource() started.
+◇ Test renderPauseFollowsLifecycleWithoutChangingSaveState() started.
+◇ Test connectivityMigrationBackupConflictKeepsV6SourceIntact() started.
+◇ Test reviewUnevenMultiInputConsumersUseAvailableFlowWithoutOrderDependence() started.
+◇ Test loadingDecorativeMotionHonorsEverySuspensionReason() started.
+◇ Test configurationRejectsBrokenResearchAndNumericRules() started.
+✔ Test frameSummaryRejectsSuspensionAndNonfiniteSamples() passed after 0.024 seconds.
+◇ Test civicCenterLegacyMigrationRetainsCompletedChapterAndObjectiveCreditWithoutRewards() started.
+◇ Test constructionPresentationUsesActualRemainingWorkAndClampsCorruptProgress() started.
+◇ Test reviewWaterReserveBoundaryPreservesEarnedGrowthExactly() started.
+◇ Test libraryBootstrapKeepsOriginalSaveBytesAndReferencesLegacyPath() started.
+◇ Test civicCenterConstructionPreviewFollowsMovedCenterAndResourceHelpNamesIt() started.
+◇ Test legacyPendingExpeditionRetainsPaidTimerThroughConversion() started.
+◇ Test allProductionUsesPerResourceCapacity() started.
+◇ Test case passing 2 arguments map → "small", marker → "review" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "small", marker → "reviewFalse" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "small", marker → "developer" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "small", marker → "profile" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "small", marker → "unknown" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "review" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "reviewFalse" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "developer" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "profile" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+◇ Test case passing 2 arguments map → "large", marker → "unknown" to ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) started.
+✔ Test cameraCannotLeaveMapDiamond() passed after 0.032 seconds.
+✔ Test researchIsAtomicAndUnique() passed after 0.032 seconds.
+✔ Test researchGatesAreAtomicAndFivePillarsAreConfigured() passed after 0.032 seconds.
+✔ Test automaticWorkersShareShortageAndPrioritiesPreserveSurvival() passed after 0.034 seconds.
+✔ Test visualRoutesNeverInferGatesOrBridgesFromDecorativeRoads() passed after 0.035 seconds.
+✔ Test starterReserveDerivesSupplierCostsFromCatalog() passed after 0.035 seconds.
+◇ Test case passing 2 arguments timer → "tool", operation → "tick" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "tool", operation → "resume" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "tool", operation → "background" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "tool", operation → "action" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "survey", operation → "tick" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "survey", operation → "resume" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "survey", operation → "background" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+◇ Test case passing 2 arguments timer → "survey", operation → "action" to playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) started.
+✔ Test pillarCompletionIsStickyAndDoesNotGrantRepeatRewards() passed after 0.039 seconds.
+✔ Test connectedRoadGraphRetainsLegacyEconomyWithoutPaths() passed after 0.042 seconds.
+✔ Test civicCenterPaidResearchGatedLevelsPreserveFoundingProvisions() passed after 0.045 seconds.
+✔ Test riverbendPlayerRecoveryIsBoundedAndLegacyRulesRejectIt() passed after 0.046 seconds.
+✔ Test visualConnectionsHideIncompleteFoggedAndMovingBuildings() passed after 0.046 seconds.
+✔ Test connectedRoadGraphJoinsAllCivicSidesAndStylesWithoutCornerAccess() passed after 0.046 seconds.
+✔ Test civicCenterMigrationRefusesConflictingBackupWithoutChangingSource() passed after 0.046 seconds.
+✔ Test guidanceStartsWithUsefulBuildAndNeverMutatesState() passed after 0.046 seconds.
+✔ Test discoveryExcludesFutureDepositsAndCatalogTotalsAdapt() passed after 0.048 seconds.
+✔ Test fishingNeedsDiscoveredRiverAndCopperRemainsFutureOnly() passed after 0.048 seconds.
+◇ Test case passing 1 argument style → .trodden to playerFoundingPreservesPrelaidEntranceAndContinue(style:) started.
+◇ Test case passing 1 argument style → .dirt to playerFoundingPreservesPrelaidEntranceAndContinue(style:) started.
+◇ Test case passing 1 argument style → .stone to playerFoundingPreservesPrelaidEntranceAndContinue(style:) started.
+✔ Test reviewUnevenFlowsRemainEquivalentAcrossIrregularPartitions() passed after 0.052 seconds.
+✔ Test visualConnectionsRejectCornersGapsAndUnrelatedFamilies() passed after 0.054 seconds.
+✔ Test civicCenterMigrationProtectsEveryOlderBackup(version:) with 4 test cases passed after 0.056 seconds.
+◇ Test case passing 1 argument pollSeconds → 15.0 to ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds:) started.
+◇ Test case passing 1 argument pollSeconds → 60.0 to ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds:) started.
+✔ Test simultaneousEventsAndOfflineCapDoNotDuplicateTime() passed after 0.064 seconds.
+◇ Test case passing 1 argument kind → "large" to smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+◇ Test case passing 1 argument kind → "unknown" to smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+◇ Test case passing 1 argument kind → "corrupt" to smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+◇ Test case passing 1 argument kind → "review" to smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) started.
+◇ Test case passing 1 argument missing → false to damagedSelectedGameCanExplicitlyRecoverHealthyGameWithoutReset(missing:) started.
+◇ Test case passing 1 argument missing → true to damagedSelectedGameCanExplicitlyRecoverHealthyGameWithoutReset(missing:) started.
+✔ Test rectangularGeometrySwapsAxesAndCentersBothDimensions() passed after 0.074 seconds.
+PLAYTHROUGH build gatheringShelter at 60s
+PLAYTHROUGH build woodcutter at 120s
+✔ Test reviewPriorityAndPendingConstructionSurviveSaveWithEquivalentCatchup() passed after 0.086 seconds.
+◇ Test case passing 1 argument strategy → 1 to firstEraAlternativeNormalCostStrategies(strategy:) started.
+PLAYTHROUGH build stoneGatherer at 180s
+◇ Test case passing 1 argument strategy → 2 to firstEraAlternativeNormalCostStrategies(strategy:) started.
+◇ Test case passing 1 argument strategy → 3 to firstEraAlternativeNormalCostStrategies(strategy:) started.
+◇ Test case passing 1 argument strategy → 4 to firstEraAlternativeNormalCostStrategies(strategy:) started.
+✔ Test visualDayCycleManualSelectionAndFrozenFramesAreDeterministic() passed after 0.105 seconds.
+PLAYTHROUGH build hut at 240s
+PLAYTHROUGH research oralTradition at 240s
+✔ Test capturedFootprintSurvivesCatalogEditReloadAndRelocation() passed after 0.110 seconds.
+✔ Test visualWorldBudgetsSuspendBackgroundAndReduceMotion() passed after 0.123 seconds.
+✔ Test connectedRoadGraphRefreshesAfterCompletionRemovalAndCivicMove() passed after 0.123 seconds.
+PLAYTHROUGH research fishing at 600s
+✔ Test manufacturingConsumesInputsAndRecoversFromEmptyStocks() passed after 0.136 seconds.
+✔ Test relocationTileIndicatorsDistinguishSelfOpenOccupiedRoadAndBounds() passed after 0.138 seconds.
+PLAYTHROUGH build fishingShelter at 660s
+PLAYTHROUGH build hut at 720s
+✔ Test legacyMissingGeometryKeepsOriginalLayoutAndState() passed after 0.160 seconds.
+✔ Test productionActivityUsesActualOutputAndExcludesHousing() passed after 0.160 seconds.
+PLAYTHROUGH research hunting at 900s
+PLAYTHROUGH build huntingLodge at 960s
+◇ Test case passing 1 argument indexed → false to launchNewGamePreservesUnopenedDamagedProgress(indexed:) started.
+◇ Test case passing 1 argument indexed → true to launchNewGamePreservesUnopenedDamagedProgress(indexed:) started.
+PLAYTHROUGH build stoneGatherer at 1020s
+PLAYTHROUGH build stoneGatherer at 1080s
+✔ Test reviewCompletedScienceCannotExistWithoutItsPermanentResearchHistory() passed after 0.219 seconds.
+✔ Test smallMapRetirementFailureKeepsSelectionAndCanRecover() passed after 0.219 seconds.
+✔ Test onboardingGuideCanReconstructActualCompletedBuildingsAndPaidExpedition() passed after 0.219 seconds.
+✔ Test realVersionOneSaveMigratesAndBacksUpBeforeReplacement() passed after 0.219 seconds.
+✔ Test visualDestinationRoutesUseRealBuildingEdgesWithoutMutatingGame() passed after 0.219 seconds.
+✔ Test reviewHistoricalRulesetRejectsUnsupportedBuildingBeforeLookingUpEffects() passed after 0.218 seconds.
+✔ Test resourceProducerCountsFollowActualOperatingOutput() passed after 0.219 seconds.
+✔ Test corruptSaveIsPreserved() passed after 0.218 seconds.
+✔ Test newReadinessRequiresMoreThanFivePillarsAndOldReadinessSurvives() passed after 0.219 seconds.
+✔ Test visualConnectionsJoinStorageAcrossLevelsWithoutGameplayRules() passed after 0.219 seconds.
+✔ Test civicCenterRejectsContradictoryChapterAndObjectiveWitnesses() passed after 0.219 seconds.
+✔ Test reviewSaveRejectsRadiusThatClaimsUnrevealedCompletedRings() passed after 0.219 seconds.
+✔ Test offlineCapAndClockRollback() passed after 0.218 seconds.
+✔ Test civicCenterGuidanceOffersUpgradeBeforeDuplicateCircle() passed after 0.219 seconds.
+✔ Test finiteDepositExhaustionPersistsAndSurvivalIsIndependent() passed after 0.219 seconds.
+✔ Test connectivityPilotRoadCommitCapturesNewPillarBeforeDisconnectAndReload() passed after 0.219 seconds.
+✔ Test oppositeTechnologyMultipliersCannotHideOverflow() passed after 0.219 seconds.
+✔ Test onboardingWholeForestAlternativeRevealsExistingWoodSourceAndSupportsRealProduction() passed after 0.219 seconds.
+✔ Test thresholdCrossingAndPartitionedSimulationAgree() passed after 0.219 seconds.
+✔ Test buildingsRequireExplicitRoadRemovalBeforeConstructionOrMove() passed after 0.219 seconds.
+✔ Test orientationCatalogDefaultsAndRestrictionsAreValidated() passed after 0.211 seconds.
+✔ Test approvedCatalogAndResourcesArePresent() passed after 0.211 seconds.
+✔ Test playerSourcesAppearContextuallyAndRequireLocalWorksites() passed after 0.219 seconds.
+✔ Test playerAdoptedProducerDefaultsRemainSelectable() passed after 0.219 seconds.
+✔ Test roadStrokeFillsFourConnectedGapsAndBoundsBeforeTraversal() passed after 0.210 seconds.
+✔ Test projectionRoundtripsEveryMapTile() passed after 0.210 seconds.
+✔ Test currentSeedStillCompletesWithoutDeadlock() passed after 0.210 seconds.
+✔ Test smallMapRetirementPreservesMigratedLargePrimaryAndOldBackup() passed after 0.219 seconds.
+✔ Test completionCueNewGameAndLegacySnapshotStartQuiet() passed after 0.220 seconds.
+✔ Test unknownFootprintsCannotChargeAndExplorationRevealsExistingMap() passed after 0.211 seconds.
+✔ Test relocationCannotUseUnknownTerritory() passed after 0.211 seconds.
+✔ Test visualDayLightingInterpolatesContinuouslyAndWraps() passed after 0.209 seconds.
+✔ Test currentProgressionSaveCannotSilentlyRepairMissingHistory() passed after 0.210 seconds.
+✔ Test atomicPlacementValidation() passed after 0.209 seconds.
+✔ Test growthProgressPausesAndResumes() passed after 0.209 seconds.
+✔ Test developmentBackupFailurePreservesOriginalBytes() passed after 0.211 seconds.
+✔ Test progressionSaveRoundTripsStickyAchievementHistory() passed after 0.209 seconds.
+✔ Test visualDayCycleSuspensionDoesNotCatchUp() passed after 0.206 seconds.
+✔ Test reserveAllowsAnySafeSupplierOrderAndDoesNotLockCombinedCost() passed after 0.209 seconds.
+✔ Test loadingBrandStageDoesNotClaimAnEraOrShowScenery() passed after 0.205 seconds.
+✔ Test insufficientFundsDoesNotCharge() passed after 0.205 seconds.
+✔ Test roadCommandsAreFreeAtomicAndIdempotent() passed after 0.209 seconds.
+✔ Test costsRatesHousingAndRewards() passed after 0.205 seconds.
+✔ Test relocationIsFreePreservesIdentityAndAllowsSelfOverlap() passed after 0.208 seconds.
+✔ Test roadMasksCoverAllSixteenLogicalCombinations() passed after 0.205 seconds.
+✔ Test civicCenterSaveCannotDowngradeAndDiscardEarnedHistory() passed after 0.209 seconds.
+✔ Test civicCenterWorkerShortageDoesNotScaleFoodWaterOrHousing() passed after 0.205 seconds.
+✔ Test loadingSkipOnlyHidesSceneryAndNeverChangesReadinessInformation() passed after 0.205 seconds.
+✔ Test civicQuarterTurnRetainsIdentityAndSingleTileGeometry() passed after 0.205 seconds.
+✔ Test rectangularRelocationRotationPreservesProgressAndIsAtomic() passed after 0.205 seconds.
+✔ Test reviewInvalidPrioritySaveIsRejectedWithoutChangingDisk() passed after 0.205 seconds.
+✔ Test constructionChargesReservesAndCompletesBeforeBenefits() passed after 0.204 seconds.
+✔ Test rotatedConstructionUsesExactOccupancyAndChargesOnce() passed after 0.205 seconds.
+✔ Test rectangularTurnRejectsOnlyNewlyCoveredUndiscoveredEdge() passed after 0.205 seconds.
+✔ Test relocationRecalculatesGeographyAndHonorsFishingRestriction() passed after 0.220 seconds.
+✔ Test connectivityPilotScoutDispatchNeedsPathButPaidExpeditionSurvivesDisconnection() passed after 0.205 seconds.
+✔ Test fractionsAndFrameIndependence() passed after 0.204 seconds.
+✔ Test pendingAndSelectableRecipeSourcesRemainUsable() passed after 0.205 seconds.
+✔ Test partialConstructionAndGrowthSurviveCurrentSave() passed after 0.209 seconds.
+✔ Test onboardingForestProposalIsDeterministicConnectedAndContainsOnlyRealTerrain() passed after 0.210 seconds.
+✔ Test visualConnectionsRejectInvalidAndAmbiguousSnapshots() passed after 0.204 seconds.
+✔ Test reviewFreshSettlementCanFundScoutAndRevealWholeValleyWithoutRepeatCharge() passed after 0.204 seconds.
+✔ Test fullFootprintChecksTerrainAndOccupancy() passed after 0.204 seconds.
+✔ Test connectedRoadGraphCannotTraverseWaterOrBuildings() passed after 0.204 seconds.
+✔ Test modeChangesAndStorageUpgradesAreAtomic() passed after 0.204 seconds.
+✔ Test civicCenterOldEnvelopeCannotSupplyNewHistory() passed after 0.204 seconds.
+✔ Test researchPrerequisitesModifiersAndRepeatedPurchases() passed after 0.204 seconds.
+✔ Test onboardingProposedWoodcutterSitesPassActualTransactionValidationWithoutSpending() passed after 0.205 seconds.
+✔ Test oldRulesAndAlreadyInsolventSavesDoNotGainResourcesOrReset() passed after 0.210 seconds.
+✔ Test guidanceOffersCapacityInsteadOfLongKnowledgeIdle() passed after 0.211 seconds.
+✔ Test smallMapRetirementUsesDecodedValidatedHistoricalIdentity() passed after 0.205 seconds.
+✔ Test connectivityPilotRetainsOverCapStocksAcrossTickCreditsSpendingAndReload() passed after 0.205 seconds.
+✔ Test smallMapRetirementPreservesAnythingNotPositivelyObsolete(kind:) with 4 test cases passed after 0.205 seconds.
+✔ Test connectivityPilotRedistributesWorkersAndKeepsIntrinsicCivicOutput() passed after 0.205 seconds.
+✔ Test loadingProgressRequiresAnActualValidMeasurement() passed after 0.205 seconds.
+✔ Test visualDayCycleRejectsBadTimeAndClampsStalls() passed after 0.205 seconds.
+✔ Test libraryRejectsBadIdentityVersionSelectionAndDoesNotOverwriteValidIndex() passed after 0.205 seconds.
+✔ Test riverbendPlayerFoundingAndWholeForestUseOrdinaryCommands() passed after 0.205 seconds.
+✔ Test corruptLibraryIndexIsPreservedOnBootstrapAndSave() passed after 0.205 seconds.
+✔ Test researchAndUpgradeCannotBypassStarterReserve() passed after 0.205 seconds.
+✔ Test libraryRejectsAliasAtRootWithoutTouchingReferencedLibrary() passed after 0.205 seconds.
+✔ Test transparentSpriteCornersCannotStealMapTaps() passed after 0.205 seconds.
+✔ Test initialSettlement() passed after 0.205 seconds.
+✔ Test reviewActualCostBootstrapSurvivesHighNonFoodPriorityAndConstruction() passed after 0.205 seconds.
+✔ Test roadsRejectFogAndProtectedTerrainWithoutChangingState() passed after 0.205 seconds.
+✔ Test seedCanCompleteAndRewardsSurviveReload() passed after 0.205 seconds.
+✔ Test civicCenterChaptersReplaceMandatoryStorytelling() passed after 0.205 seconds.
+✔ Test consumersShareInputsRegardlessOfBuildingArrayOrder() passed after 0.205 seconds.
+✔ Test foodExhaustionHasNoDeathsOrNegativeBalances() passed after 0.205 seconds.
+✔ Test roadSaveValidationAndLegacyNilRoundTrip() passed after 0.206 seconds.
+✔ Test productionExpeditionsPersistAndRevealOnlyAtCompletionWithoutDuplicateCharge() passed after 0.206 seconds.
+✔ Test libraryRejectsSymlinkAliasesToOtherGamesAndIndexFiles() passed after 0.205 seconds.
+✔ Test unidentifiedAndUndiscoveredDepositsDoNotProduce() passed after 0.205 seconds.
+✔ Test noWaterPausesGrowthAndPassiveCollectionRecovers() passed after 0.205 seconds.
+✔ Test threeStateGoalsStartMinimalAndCycleToSummaryThenGuidance() passed after 0.205 seconds.
+✔ Test reviewFiniteExtractionSplitsAtActualReserveBoundary() passed after 0.207 seconds.
+✔ Test visualRoutesPreferConnectedRoadsAndRemainDeterministicBounded() passed after 0.206 seconds.
+✔ Test pausedGrowthFromEarlierLongerIntervalSurvivesResearchAndReload() passed after 0.204 seconds.
+✔ Test reviewUnseenForestBonusActivatesExactlyAtExpeditionCompletion() passed after 0.204 seconds.
+✔ Test workforceWaterGrowthAndElapsedPartitionsAgree() passed after 0.207 seconds.
+✔ Test geographySaveMigratesWithoutFreeResearchOrLostConstructionKnowledge() passed after 0.206 seconds.
+✔ Test settlementSideQuarrySharesOriginalStoneReserve() passed after 0.206 seconds.
+✔ Test manufacturingAndMaintenanceStayPartitionIndependent() passed after 0.222 seconds.
+✔ Test currentSaveMissingOrCorruptDepositAccountingIsRejectedWithoutRepair() passed after 0.204 seconds.
+✔ Test goalsStartCollapsedAndOnlyEraChangeAutomaticallyOpensThem() passed after 0.204 seconds.
+✔ Test civicCenterRelocationPersistsIdentityWithoutChangingGeographicalOrigin() passed after 0.205 seconds.
+✔ Test connectivityPilotDisconnectedWorkshopConsumesNoInputsOrMaintenance() passed after 0.205 seconds.
+✔ Test reviewEffectiveRecipeRatesRejectResearchOverflow() passed after 0.205 seconds.
+✔ Test catalogChoiceRequiresExplicitConfirmationAfterValidDrop() passed after 0.223 seconds.
+✔ Test mixedRoadStylesReconnectAfterRemovalAndReload() passed after 0.205 seconds.
+✔ Test currentExplorationSaveCannotSilentlyRepairMissingOrInvalidProgress() passed after 0.205 seconds.
+✔ Test connectivityPilotReserveAndGuidanceDoNotCountDisconnectedSuppliers() passed after 0.205 seconds.
+✔ Test onboardingGuideRetainsOutOfOrderFactsWithoutInventingEarlierCompletion() passed after 0.205 seconds.
+✔ Test productionWorldUsesApprovedAnnexAndAuthenticStart() passed after 0.205 seconds.
+✔ Test starterReservePreventsRepeatedShelterInsolvencyAtomically() passed after 0.206 seconds.
+✔ Test roadRendererInvalidationIsLocalAndIncludesNeighbors() passed after 0.205 seconds.
+✔ Test growthAndConstructionAtSameInstantMatchPartitionedUpdates() passed after 0.206 seconds.
+✔ Test corruptCapturedGeometryIsRejectedBeforeTileEnumeration() passed after 0.205 seconds.
+✔ Test reviewExpeditionTimerSavesAndUsesOfflineCapWithoutClockReplay() passed after 0.205 seconds.
+✔ Test connectivityPilotCompletesDisconnectedConstructionWithoutEviction() passed after 0.206 seconds.
+✔ Test permanentUpgradeIsAtomicAndKeepsIdentity() passed after 0.205 seconds.
+✔ Test chaptersCreditOutOfOrderAndRetainOriginalRewardHistory() passed after 0.205 seconds.
+✔ Test releaseUsesNormalConstructionAndPersistence() passed after 0.205 seconds.
+✔ Test productionRoadStrokesCoverAnnexInRelease() passed after 0.204 seconds.
+✔ Test artCatalogCoversCompleteEraAndRejectsUnsafePaths() passed after 0.204 seconds.
+✔ Test cloudVisibilityRequiresWholeFootprintAndKnownInteractionTile() passed after 0.204 seconds.
+✔ Test configurationRejectsInvalidData() passed after 0.204 seconds.
+✔ Test visualRoutesRejectWaterFootprintsFogAndOutsideEndpoints() passed after 0.203 seconds.
+✔ Test developmentConversionBacksUpProgressAndKeepsAnnexHidden() passed after 0.205 seconds.
+✔ Test visualConnectionsJoinCardinalMixedLevelHomesOnce() passed after 0.203 seconds.
+✔ Test connectivityPilotTickAndOfflineAgreeAndHistorySurvivesDisconnection() passed after 0.205 seconds.
+✔ Test visualAnchorsAndAnimationBudgetsAreIndependentOfEconomy() passed after 0.203 seconds.
+✔ Test unsupportedVersionAndInvalidStateAreRejected() passed after 0.203 seconds.
+✔ Test libraryGamesResolveIndependentValidatedUUIDPaths() passed after 0.203 seconds.
+✔ Test relocationRejectsInvalidSitesAtomically() passed after 0.203 seconds.
+✔ Test connectivityPilotStopsAndRestartsOutputsInputsAndDepositUse() passed after 0.203 seconds.
+✔ Test saveRoundtripAndOfflineResume() passed after 0.203 seconds.
+✔ Test reviewInheritedConstructionKnowledgeRequiresAnExistingBuildingWitness() passed after 0.203 seconds.
+✔ Test onboardingReviewReturnsNoInventedForestWhenMapHasNone() passed after 0.203 seconds.
+✔ Test effectiveCapacitiesValidateProgressionAndStartingBalances() passed after 0.202 seconds.
+✔ Test invalidNewBuildingDropStaysInDragModeWithoutCharging() passed after 0.226 seconds.
+✔ Test connectivityV7RejectsMissingUnknownAndDowngradedMarkersWithoutWrites() passed after 0.203 seconds.
+✔ Test pausedGrowthCanBeSavedAfterResearchShortensInterval() passed after 0.202 seconds.
+✔ Test explorationSaveRoundTripsPendingExpeditionAndDiscoveryExactly() passed after 0.202 seconds.
+✔ Test workforceSaveMigrationPreservesValleyIdentityAndEarlierVisibility() passed after 0.203 seconds.
+✔ Test productionCatalogAllowsFourLogicalOrientationsIncludingCivic() passed after 0.202 seconds.
+✔ Test civicCenterModifiersAndProducerCountsIncludeCultureWithoutScalingProvisions() passed after 0.202 seconds.
+✔ Test actualFoundationSaveMigratesWithoutResettingProgressAndBacksUpExactly() passed after 0.202 seconds.
+✔ Test retirementRetryRetainsExactOriginalIndexBytes() passed after 0.202 seconds.
+✔ Test visualConnectionsAreStableBoundedAndReadOnly() passed after 0.202 seconds.
+✔ Test populationConsumptionAndHousingAreEventDriven() passed after 0.202 seconds.
+✔ Test connectivityV7EnvelopeRetainsExplicitRulesAndHistoricalState() passed after 0.202 seconds.
+✔ Test riverbendPlayerRejectsUnadoptedCatalogWithoutSpending() passed after 0.202 seconds.
+✔ Test researchCapacityAndConstructionModifiersApplyOnce() passed after 0.202 seconds.
+✔ Test onboardingGuideRequiresConnectionOnlyUnderExplicitConnectedRules() passed after 0.202 seconds.
+✔ Test visualConnectionsHonorCapturedOrientedFootprints() passed after 0.202 seconds.
+✔ Test economySaveRoundTripsModeUpgradeAndDepletedDeposit() passed after 0.202 seconds.
+✔ Test wholeProductionMapIsOptionalAndFullyExplorableAtUnchangedExpeditionPrice() passed after 0.203 seconds.
+✔ Test completeEraRequirementsComeFromCatalog() passed after 0.203 seconds.
+✔ Test guidanceFindsKnowledgeProducerBeforeLaterChapter() passed after 0.203 seconds.
+✔ Test connectivityVersionBoundariesAndBackupPreserveSource() passed after 0.203 seconds.
+✔ Test connectivityMigrationBackupConflictKeepsV6SourceIntact() passed after 0.203 seconds.
+✔ Test relocationRetainsConstructionAndRecipeThroughSave() passed after 0.203 seconds.
+✔ Test loadingDecorativeMotionHonorsEverySuspensionReason() passed after 0.203 seconds.
+✔ Test reviewUnevenMultiInputConsumersUseAvailableFlowWithoutOrderDependence() passed after 0.203 seconds.
+✔ Test configurationRejectsBrokenResearchAndNumericRules() passed after 0.203 seconds.
+✔ Test constructionPresentationUsesActualRemainingWorkAndClampsCorruptProgress() passed after 0.203 seconds.
+✔ Test reviewWaterReserveBoundaryPreservesEarnedGrowthExactly() passed after 0.203 seconds.
+✔ Test libraryBootstrapKeepsOriginalSaveBytesAndReferencesLegacyPath() passed after 0.203 seconds.
+✔ Test freshSettlementReachesEveryProductionChainWithRealCosts() passed after 0.204 seconds.
+✔ Test allProductionUsesPerResourceCapacity() passed after 0.203 seconds.
+✔ Test invalidRoadDraftAndPinchStyleClearAreBoundedAndAtomic() passed after 0.227 seconds.
+✔ Test backgroundCancelsRotatedNewCandidateWithoutCharging() passed after 0.227 seconds.
+✔ Test clearingTerrainMessageExplainsOpenBuildableGround() passed after 0.227 seconds.
+✔ Test invalidRelocationDropRetainsPreviewThenCanRetryOrCancelWithoutSaveLeak() passed after 0.227 seconds.
+✔ Test completionCueDurablePulseAndTargetedAcknowledgement() passed after 0.227 seconds.
+✔ Test backgroundInactiveForegroundUsesOfflineCapOnce() passed after 0.227 seconds.
+✔ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() passed after 0.227 seconds.
+✔ Test roadModesDrawReplaceAndEraseIndependently() passed after 0.227 seconds.
+✔ Test relocationGridExcludesFogAndKeepsSourceCellsAvailable() passed after 0.227 seconds.
+✔ Test legacyPendingExpeditionRetainsPaidTimerThroughConversion() passed after 0.204 seconds.
+✔ Test civicCenterLegacyMigrationRetainsCompletedChapterAndObjectiveCreditWithoutRewards() passed after 0.214 seconds.
+PLAYTHROUGH research stoneTools at 1440s
+PLAYTHROUGH build toolmaker at 1500s
+✔ Test relocationDragReleaseDoesNotCommitUntilExplicitConfirmation() passed after 0.271 seconds.
+✔ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() passed after 0.283 seconds.
+✔ Test currentSessionReloadResumesConstructionWithoutChargingAgain() passed after 0.292 seconds.
+✔ Test inspectionDiscardsRoadDraftAndShowsBuildingWithoutApplyingStroke() passed after 0.295 seconds.
+✔ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() passed after 0.301 seconds.
+PLAYTHROUGH research leatherworking at 1800s
+✔ Test sessionGuidanceRefreshesAfterRealConstructionWithoutSpendingOnRead() passed after 0.315 seconds.
+✔ Test sparseRoadRetraceCanRemoveOneCommittedTileWithoutChangingOtherSurfaces() passed after 0.321 seconds.
+✔ Test previewQuarterTurnsRoundTripAndPersistOnlyOnConfirmation() passed after 0.325 seconds.
+PLAYTHROUGH build tannery at 1860s
+✔ Test sessionPreservesCorruptSaveAcrossActions() passed after 0.331 seconds.
+✔ Test undoRoadPreviewRemovesOneTileAndNeverEditsCommittedRoads() passed after 0.335 seconds.
+✔ Test backtrackedRoadPointerDoesNotInventOffRouteTiles() passed after 0.357 seconds.
+PLAYTHROUGH research pottery at 2160s
+✘ Test relocationPreviewUsesCapturedOrientedGeometry() recorded an issue at BuildingGeometryTests.swift:157:5: Expectation failed: session.state == g.state
+↳ session.state == g.state → false
+↳   session.state → GameState(completionInbox: Optional(GameCore.CompletionInbox(seen: Set(["objective:7:discovery", "objective:7:pillars"]), unread: Set([]))), riverbend: nil, mapID: "river-clearing-64x48-v1", resources: GameCore.ResourceAmounts(values: [GameCore.Resource.knowledge: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.food: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.stone: 50.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.flint: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.clay: 0.0, GameCore.Resource.leather: 0.0]), population: 3, buildings: [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil), GameCore.PlacedBuilding(id: 1, kind: GameCore.BuildingKind.hut, origin: GameCore.Tile(x: 12, y: 0), footprint: Optional(GameCore.BuildingFootprint(width: 3, height: 2)), orientation: Optional(GameCore.BuildingOrientation.east), constructionRemainingSeconds: Optional(15.0), constructionDurationSeconds: Optional(15.0), workerPriority: nil, productionModeID: nil, upgradeLevel: nil)], researchedOralTradition: false, completedGoals: Set([]), nextBuildingID: 2, lastUpdated: 1971-04-08 23:06:40 +0000, populationGrowthSeconds: Optional(0.0), researchedTechnologies: Optional(Set([])), completedPillarGoals: nil, stoneAgeCompleted: nil, grandfatheredBuildingKinds: nil, discoveredTiles: nil, explorationRemainingSeconds: nil, explorationRadius: nil, depositRemaining: Optional(["valley-flint": 6000.0, "river-clay": 8000.0, "valley-stone": 12000.0, "hill-copper": 3000.0]), roads: nil, civicProgress: Optional(GameCore.CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:discovery", "7:pillars"]))), operatingRules: nil)
+↳     completionInbox → CompletionInbox(seen: Set(["objective:7:discovery", "objective:7:pillars"]), unread: Set([]))
+↳       some → CompletionInbox(seen: Set(["objective:7:discovery", "objective:7:pillars"]), unread: Set([]))
+↳         seen → ["objective:7:discovery", "objective:7:pillars"]
+↳         unread → []
+↳     riverbend → nil
+↳     mapID → "river-clearing-64x48-v1"
+↳     resources → ResourceAmounts(values: [GameCore.Resource.knowledge: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.food: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.stone: 50.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.flint: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.clay: 0.0, GameCore.Resource.leather: 0.0])
+↳       values → [GameCore.Resource.knowledge: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.food: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.stone: 50.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.flint: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.clay: 0.0, GameCore.Resource.leather: 0.0]
+↳     population → 3
+↳     buildings → [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil), GameCore.PlacedBuilding(id: 1, kind: GameCore.BuildingKind.hut, origin: GameCore.Tile(x: 12, y: 0), footprint: Optional(GameCore.BuildingFootprint(width: 3, height: 2)), orientation: Optional(GameCore.BuildingOrientation.east), constructionRemainingSeconds: Optional(15.0), constructionDurationSeconds: Optional(15.0), workerPriority: nil, productionModeID: nil, upgradeLevel: nil)]
+↳     researchedOralTradition → false
+↳     completedGoals → []
+↳     nextBuildingID → 2
+↳     lastUpdated → 1971-04-08 23:06:40 +0000
+↳       timeIntervalSinceReferenceDate → -938307200.0
+↳     populationGrowthSeconds → 0.0
+↳       some → 0.0
+↳     researchedTechnologies → []
+↳       some → []
+↳     completedPillarGoals → nil
+↳     stoneAgeCompleted → nil
+↳     grandfatheredBuildingKinds → nil
+↳     discoveredTiles → nil
+↳     explorationRemainingSeconds → nil
+↳     explorationRadius → nil
+↳     depositRemaining → ["valley-flint": 6000.0, "river-clay": 8000.0, "valley-stone": 12000.0, "hill-copper": 3000.0]
+↳       some → ["valley-flint": 6000.0, "river-clay": 8000.0, "valley-stone": 12000.0, "hill-copper": 3000.0]
+↳     roads → nil
+↳     civicProgress → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:discovery", "7:pillars"]))
+↳       some → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:discovery", "7:pillars"]))
+↳         foundingBuildingID → 0
+↳         reachedLevels → [1]
+↳         completedChapters → []
+↳         completedObjectives → ["7:discovery", "7:pillars"]
+↳     operatingRules → nil
+↳   g.state → GameState(completionInbox: nil, riverbend: nil, mapID: "river-clearing-64x48-v1", resources: GameCore.ResourceAmounts(values: [GameCore.Resource.clay: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.flint: 0.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 50.0]), population: 3, buildings: [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil), GameCore.PlacedBuilding(id: 1, kind: GameCore.BuildingKind.hut, origin: GameCore.Tile(x: 12, y: 0), footprint: Optional(GameCore.BuildingFootprint(width: 3, height: 2)), orientation: Optional(GameCore.BuildingOrientation.east), constructionRemainingSeconds: Optional(15.0), constructionDurationSeconds: Optional(15.0), workerPriority: nil, productionModeID: nil, upgradeLevel: nil)], researchedOralTradition: false, completedGoals: Set([]), nextBuildingID: 2, lastUpdated: 1971-04-08 23:06:40 +0000, populationGrowthSeconds: Optional(0.0), researchedTechnologies: Optional(Set([])), completedPillarGoals: nil, stoneAgeCompleted: nil, grandfatheredBuildingKinds: nil, discoveredTiles: nil, explorationRemainingSeconds: nil, explorationRadius: nil, depositRemaining: Optional(["river-clay": 8000.0, "valley-stone": 12000.0, "valley-flint": 6000.0, "hill-copper": 3000.0]), roads: nil, civicProgress: Optional(GameCore.CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:pillars", "7:discovery"]))), operatingRules: nil)
+↳     completionInbox → nil
+↳     riverbend → nil
+↳     mapID → "river-clearing-64x48-v1"
+↳     resources → ResourceAmounts(values: [GameCore.Resource.clay: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.flint: 0.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 50.0])
+↳       values → [GameCore.Resource.clay: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.flint: 0.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 50.0]
+↳     population → 3
+↳     buildings → [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil), GameCore.PlacedBuilding(id: 1, kind: GameCore.BuildingKind.hut, origin: GameCore.Tile(x: 12, y: 0), footprint: Optional(GameCore.BuildingFootprint(width: 3, height: 2)), orientation: Optional(GameCore.BuildingOrientation.east), constructionRemainingSeconds: Optional(15.0), constructionDurationSeconds: Optional(15.0), workerPriority: nil, productionModeID: nil, upgradeLevel: nil)]
+↳     researchedOralTradition → false
+↳     completedGoals → []
+↳     nextBuildingID → 2
+↳     lastUpdated → 1971-04-08 23:06:40 +0000
+↳       timeIntervalSinceReferenceDate → -938307200.0
+↳     populationGrowthSeconds → 0.0
+↳       some → 0.0
+↳     researchedTechnologies → []
+↳       some → []
+↳     completedPillarGoals → nil
+↳     stoneAgeCompleted → nil
+↳     grandfatheredBuildingKinds → nil
+↳     discoveredTiles → nil
+↳     explorationRemainingSeconds → nil
+↳     explorationRadius → nil
+↳     depositRemaining → ["river-clay": 8000.0, "valley-stone": 12000.0, "valley-flint": 6000.0, "hill-copper": 3000.0]
+↳       some → ["river-clay": 8000.0, "valley-stone": 12000.0, "valley-flint": 6000.0, "hill-copper": 3000.0]
+↳     roads → nil
+↳     civicProgress → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:pillars", "7:discovery"]))
+↳       some → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:pillars", "7:discovery"]))
+↳         foundingBuildingID → 0
+↳         reachedLevels → [1]
+↳         completedChapters → []
+↳         completedObjectives → ["7:pillars", "7:discovery"]
+↳     operatingRules → nil
+✘ Test relocationPreviewUsesCapturedOrientedGeometry() recorded an issue at BuildingGeometryTests.swift:163:5: Expectation failed: session.state == g.state
+↳ session.state == g.state → false
+↳   session.state → GameState(completionInbox: Optional(GameCore.CompletionInbox(seen: Set(["objective:7:discovery", "objective:7:pillars"]), unread: Set([]))), riverbend: nil, mapID: "river-clearing-64x48-v1", resources: GameCore.ResourceAmounts(values: [GameCore.Resource.knowledge: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.food: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.stone: 50.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.flint: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.clay: 0.0, GameCore.Resource.leather: 0.0]), population: 3, buildings: [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil), GameCore.PlacedBuilding(id: 1, kind: GameCore.BuildingKind.hut, origin: GameCore.Tile(x: 12, y: 0), footprint: Optional(GameCore.BuildingFootprint(width: 3, height: 2)), orientation: Optional(GameCore.BuildingOrientation.east), constructionRemainingSeconds: Optional(15.0), constructionDurationSeconds: Optional(15.0), workerPriority: nil, productionModeID: nil, upgradeLevel: nil)], researchedOralTradition: false, completedGoals: Set([]), nextBuildingID: 2, lastUpdated: 1971-04-08 23:06:40 +0000, populationGrowthSeconds: Optional(0.0), researchedTechnologies: Optional(Set([])), completedPillarGoals: nil, stoneAgeCompleted: nil, grandfatheredBuildingKinds: nil, discoveredTiles: nil, explorationRemainingSeconds: nil, explorationRadius: nil, depositRemaining: Optional(["valley-flint": 6000.0, "river-clay": 8000.0, "valley-stone": 12000.0, "hill-copper": 3000.0]), roads: nil, civicProgress: Optional(GameCore.CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:discovery", "7:pillars"]))), operatingRules: nil)
+↳     completionInbox → CompletionInbox(seen: Set(["objective:7:discovery", "objective:7:pillars"]), unread: Set([]))
+↳       some → CompletionInbox(seen: Set(["objective:7:discovery", "objective:7:pillars"]), unread: Set([]))
+↳         seen → ["objective:7:discovery", "objective:7:pillars"]
+↳         unread → []
+↳     riverbend → nil
+↳     mapID → "river-clearing-64x48-v1"
+↳     resources → ResourceAmounts(values: [GameCore.Resource.knowledge: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.food: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.stone: 50.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.flint: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.clay: 0.0, GameCore.Resource.leather: 0.0])
+↳       values → [GameCore.Resource.knowledge: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.food: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.stone: 50.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.flint: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.clay: 0.0, GameCore.Resource.leather: 0.0]
+↳     population → 3
+↳     buildings → [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil), GameCore.PlacedBuilding(id: 1, kind: GameCore.BuildingKind.hut, origin: GameCore.Tile(x: 12, y: 0), footprint: Optional(GameCore.BuildingFootprint(width: 3, height: 2)), orientation: Optional(GameCore.BuildingOrientation.east), constructionRemainingSeconds: Optional(15.0), constructionDurationSeconds: Optional(15.0), workerPriority: nil, productionModeID: nil, upgradeLevel: nil)]
+↳     researchedOralTradition → false
+↳     completedGoals → []
+↳     nextBuildingID → 2
+↳     lastUpdated → 1971-04-08 23:06:40 +0000
+↳       timeIntervalSinceReferenceDate → -938307200.0
+↳     populationGrowthSeconds → 0.0
+↳       some → 0.0
+↳     researchedTechnologies → []
+↳       some → []
+↳     completedPillarGoals → nil
+↳     stoneAgeCompleted → nil
+↳     grandfatheredBuildingKinds → nil
+↳     discoveredTiles → nil
+↳     explorationRemainingSeconds → nil
+↳     explorationRadius → nil
+↳     depositRemaining → ["valley-flint": 6000.0, "river-clay": 8000.0, "valley-stone": 12000.0, "hill-copper": 3000.0]
+↳       some → ["valley-flint": 6000.0, "river-clay": 8000.0, "valley-stone": 12000.0, "hill-copper": 3000.0]
+↳     roads → nil
+↳     civicProgress → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:discovery", "7:pillars"]))
+↳       some → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:discovery", "7:pillars"]))
+↳         foundingBuildingID → 0
+↳         reachedLevels → [1]
+↳         completedChapters → []
+↳         completedObjectives → ["7:discovery", "7:pillars"]
+↳     operatingRules → nil
+↳   g.state → GameState(completionInbox: nil, riverbend: nil, mapID: "river-clearing-64x48-v1", resources: GameCore.ResourceAmounts(values: [GameCore.Resource.clay: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.flint: 0.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 50.0]), population: 3, buildings: [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil), GameCore.PlacedBuilding(id: 1, kind: GameCore.BuildingKind.hut, origin: GameCore.Tile(x: 12, y: 0), footprint: Optional(GameCore.BuildingFootprint(width: 3, height: 2)), orientation: Optional(GameCore.BuildingOrientation.east), constructionRemainingSeconds: Optional(15.0), constructionDurationSeconds: Optional(15.0), workerPriority: nil, productionModeID: nil, upgradeLevel: nil)], researchedOralTradition: false, completedGoals: Set([]), nextBuildingID: 2, lastUpdated: 1971-04-08 23:06:40 +0000, populationGrowthSeconds: Optional(0.0), researchedTechnologies: Optional(Set([])), completedPillarGoals: nil, stoneAgeCompleted: nil, grandfatheredBuildingKinds: nil, discoveredTiles: nil, explorationRemainingSeconds: nil, explorationRadius: nil, depositRemaining: Optional(["river-clay": 8000.0, "valley-stone": 12000.0, "valley-flint": 6000.0, "hill-copper": 3000.0]), roads: nil, civicProgress: Optional(GameCore.CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:pillars", "7:discovery"]))), operatingRules: nil)
+↳     completionInbox → nil
+↳     riverbend → nil
+↳     mapID → "river-clearing-64x48-v1"
+↳     resources → ResourceAmounts(values: [GameCore.Resource.clay: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.flint: 0.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 50.0])
+↳       values → [GameCore.Resource.clay: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.wood: 80.0, GameCore.Resource.flint: 0.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 50.0]
+↳     population → 3
+↳     buildings → [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil), GameCore.PlacedBuilding(id: 1, kind: GameCore.BuildingKind.hut, origin: GameCore.Tile(x: 12, y: 0), footprint: Optional(GameCore.BuildingFootprint(width: 3, height: 2)), orientation: Optional(GameCore.BuildingOrientation.east), constructionRemainingSeconds: Optional(15.0), constructionDurationSeconds: Optional(15.0), workerPriority: nil, productionModeID: nil, upgradeLevel: nil)]
+↳     researchedOralTradition → false
+↳     completedGoals → []
+↳     nextBuildingID → 2
+↳     lastUpdated → 1971-04-08 23:06:40 +0000
+↳       timeIntervalSinceReferenceDate → -938307200.0
+↳     populationGrowthSeconds → 0.0
+↳       some → 0.0
+↳     researchedTechnologies → []
+↳       some → []
+↳     completedPillarGoals → nil
+↳     stoneAgeCompleted → nil
+↳     grandfatheredBuildingKinds → nil
+↳     discoveredTiles → nil
+↳     explorationRemainingSeconds → nil
+↳     explorationRadius → nil
+↳     depositRemaining → ["river-clay": 8000.0, "valley-stone": 12000.0, "valley-flint": 6000.0, "hill-copper": 3000.0]
+↳       some → ["river-clay": 8000.0, "valley-stone": 12000.0, "valley-flint": 6000.0, "hill-copper": 3000.0]
+↳     roads → nil
+↳     civicProgress → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:pillars", "7:discovery"]))
+↳       some → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set(["7:pillars", "7:discovery"]))
+↳         foundingBuildingID → 0
+↳         reachedLevels → [1]
+↳         completedChapters → []
+↳         completedObjectives → ["7:pillars", "7:discovery"]
+↳     operatingRules → nil
+✘ Test relocationPreviewUsesCapturedOrientedGeometry() failed after 0.365 seconds with 2 issues.
+✔ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() passed after 0.369 seconds.
+✔ Test sessionReloadKeepsBuildingsAndDoesNotRegrantGoalReward() passed after 0.371 seconds.
+PLAYTHROUGH build potteryWorkshop at 2220s
+✔ Test relocationPreviewCancelAndCommitDoNotLeakIntoSaves() passed after 0.377 seconds.
+✔ Test roadDraftCancelAndBackgroundNeverPersistPendingEdits() passed after 0.382 seconds.
+PLAYTHROUGH build storehouse at 2280s
+✔ Test economicPresentationRefreshesAfterRealStateChanges() passed after 0.391 seconds.
+✔ Test renderPauseFollowsLifecycleWithoutChangingSaveState() passed after 0.402 seconds.
+✔ Test civicCenterConstructionPreviewFollowsMovedCenterAndResourceHelpNamesIt() passed after 0.405 seconds.
+PACING recovery: 20min craft/science priority stalled wood; reset priorities + normal-save reload +10min restored wood 0.00->53.33; population 15
+Riverbend earned route: civic upgrade ResourceAmounts(values: [GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 100.0, GameCore.Resource.wood: 120.0, GameCore.Resource.flint: 6.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 120.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.clay: 0.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.knowledge: 25.599999999999998, GameCore.Resource.water: 0.0, GameCore.Resource.pottery: 0.0])
+Riverbend earned route: enclosure ResourceAmounts(values: [GameCore.Resource.culture: 0.0, GameCore.Resource.stone: 100.0, GameCore.Resource.wood: 120.0, GameCore.Resource.flint: 6.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 120.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.clay: 0.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.knowledge: 77.6, GameCore.Resource.water: 0.0, GameCore.Resource.pottery: 0.0])
+PLAYTHROUGH research socialOrder at 3480s
+✔ Test asyncLoadedSessionWaitsForActivationAndCapsStartupSuspension() passed after 0.535 seconds.
+✔ Test reviewTransientConfiguredAchievementIsIndependentOfElapsedPartition() passed after 0.567 seconds.
+✔ Test riverbendPlayerNormalNewGameUsesDistinctLargeRulesWithoutWater() passed after 0.558 seconds.
+PLAYTHROUGH research cultivation at 4020s
+✔ Test unindexedRetirementFailureCannotPublishNewSelection() passed after 0.565 seconds.
+✘ Test normalEntryMetadataDoesNotCreateOrAdvanceGames() recorded an issue at GameLibraryTests.swift:211:5: Expectation failed: library.session.state == (try GameEngine(configuration: c, now: gamesEpoch).state)
+↳ library.session.state == (try GameEngine(configuration: c, now: gamesEpoch).state) → <not evaluated>
+✔ Test playerFailedRoadConfirmRetainsDraftAndReportsFailure() passed after 0.568 seconds.
+✘ Test launchNewGamePreservesUnopenedDamagedProgress(indexed:) recorded an issue with 1 argument indexed → false at GameLibraryTests.swift:235:5: Expectation failed: library.session.state == (try GameEngine(configuration: c, now: gamesEpoch).state)
+↳ library.session.state == (try GameEngine(configuration: c, now: gamesEpoch).state) → <not evaluated>
+PLAYTHROUGH research animalDomestication at 4560s
+✔ Test ordinaryContinuePreservesMarkedPrimaryAndAllBackups(map:marker:) with 10 test cases passed after 0.641 seconds.
+PLAYTHROUGH research foodPreservation at 5100s
+GUIDED recovery: wood0 after poor priorities; advice restored ordinary hut affordability and reload at wood=20.0, no grants
+✔ Test asyncRestorationPreservesSaveAndCorruptFileProtection() passed after 0.657 seconds.
+PLAYTHROUGH research basketry at 5340s
+PLAYTHROUGH research construction at 5580s
+✘ Test riverbendPlayerContinueClassifiesLargeBodyBeforeRelabel() recorded an issue at RiverbendPlayerTests.swift:270:5: Expectation failed: library.session.state == state
+↳ library.session.state == state → false
+↳   library.session.state → GameState(completionInbox: Optional(GameCore.CompletionInbox(seen: Set(["objective:7:discovery"]), unread: Set([]))), riverbend: nil, mapID: "river-clearing-64x48-v1", resources: GameCore.ResourceAmounts(values: [GameCore.Resource.clay: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.stone: 50.0, GameCore.Resource.culture: 0.0, GameCore.Resource.wood: 100.0, GameCore.Resource.flint: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.leather: 0.0]), population: 3, buildings: [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil)], researchedOralTradition: false, completedGoals: Set([]), nextBuildingID: 1, lastUpdated: 1972-11-07 16:00:00 +0000, populationGrowthSeconds: Optional(0.0), researchedTechnologies: Optional(Set([])), completedPillarGoals: Optional(Set([])), stoneAgeCompleted: Optional(false), grandfatheredBuildingKinds: Optional(Set([])), discoveredTiles: Optional(Set([GameCore.Tile(x: 23, y: 7), GameCore.Tile(x: 23, y: 10), GameCore.Tile(x: 15, y: 18), GameCore.Tile(x: 21, y: 10), GameCore.Tile(x: 16, y: 14), GameCore.Tile(x: 19, y: 15), GameCore.Tile(x: 16, y: 12), GameCore.Tile(x: 17, y: 6), GameCore.Tile(x: 22, y: 13), GameCore.Tile(x: 24, y: 14), GameCore.Tile(x: 13, y: 7), GameCore.Tile(x: 19, y: 17), GameCore.Tile(x: 23, y: 9), GameCore.Tile(x: 12, y: 10), GameCore.Tile(x: 21, y: 7), GameCore.Tile(x: 12, y: 9), GameCore.Tile(x: 14, y: 9), GameCore.Tile(x: 21, y: 13), GameCore.Tile(x: 22, y: 19), GameCore.Tile(x: 11, y: 15), GameCore.Tile(x: 24, y: 15), GameCore.Tile(x: 16, y: 7), GameCore.Tile(x: 24, y: 8), GameCore.Tile(x: 5, y: 8), GameCore.Tile(x: 10, y: 5), GameCore.Tile(x: 20, y: 19), GameCore.Tile(x: 24, y: 11), GameCore.Tile(x: 16, y: 13), GameCore.Tile(x: 16, y: 15), GameCore.Tile(x: 11, y: 17), GameCore.Tile(x: 11, y: 10), GameCore.Tile(x: 15, y: 13), GameCore.Tile(x: 15, y: 14), GameCore.Tile(x: 9, y: 12), GameCore.Tile(x: 18, y: 9), GameCore.Tile(x: 19, y: 16), GameCore.Tile(x: 16, y: 9), GameCore.Tile(x: 27, y: 11), GameCore.Tile(x: 23, y: 13), GameCore.Tile(x: 16, y: 11), GameCore.Tile(x: 3, y: 12), GameCore.Tile(x: 21, y: 17), GameCore.Tile(x: 11, y: 5), GameCore.Tile(x: 26, y: 9), GameCore.Tile(x: 22, y: 8), GameCore.Tile(x: 22, y: 12), GameCore.Tile(x: 11, y: 12), GameCore.Tile(x: 13, y: 15), GameCore.Tile(x: 19, y: 13), GameCore.Tile(x: 14, y: 10), GameCore.Tile(x: 23, y: 6), GameCore.Tile(x: 11, y: 8), GameCore.Tile(x: 12, y: 7), GameCore.Tile(x: 22, y: 10), GameCore.Tile(x: 11, y: 18), GameCore.Tile(x: 21, y: 14), GameCore.Tile(x: 20, y: 13), GameCore.Tile(x: 14, y: 13), GameCore.Tile(x: 24, y: 10), GameCore.Tile(x: 12, y: 13), GameCore.Tile(x: 16, y: 5), GameCore.Tile(x: 14, y: 18), GameCore.Tile(x: 13, y: 11), GameCore.Tile(x: 23, y: 15), GameCore.Tile(x: 22, y: 16), GameCore.Tile(x: 13, y: 14), GameCore.Tile(x: 23, y: 19), GameCore.Tile(x: 17, y: 19), GameCore.Tile(x: 14, y: 19), GameCore.Tile(x: 12, y: 6), GameCore.Tile(x: 17, y: 18), GameCore.Tile(x: 14, y: 8), GameCore.Tile(x: 24, y: 6), GameCore.Tile(x: 11, y: 6), GameCore.Tile(x: 14, y: 11), GameCore.Tile(x: 15, y: 6), GameCore.Tile(x: 12, y: 19), GameCore.Tile(x: 13, y: 10), GameCore.Tile(x: 13, y: 6), GameCore.Tile(x: 22, y: 7), GameCore.Tile(x: 27, y: 12), GameCore.Tile(x: 17, y: 14), GameCore.Tile(x: 11, y: 14), GameCore.Tile(x: 5, y: 10), GameCore.Tile(x: 21, y: 11), GameCore.Tile(x: 17, y: 15), GameCore.Tile(x: 10, y: 6), GameCore.Tile(x: 17, y: 17), GameCore.Tile(x: 15, y: 9), GameCore.Tile(x: 17, y: 13), GameCore.Tile(x: 15, y: 19), GameCore.Tile(x: 16, y: 17), GameCore.Tile(x: 2, y: 12), GameCore.Tile(x: 26, y: 5), GameCore.Tile(x: 15, y: 17), GameCore.Tile(x: 24, y: 9), GameCore.Tile(x: 13, y: 19), GameCore.Tile(x: 11, y: 11), GameCore.Tile(x: 23, y: 8), GameCore.Tile(x: 18, y: 12), GameCore.Tile(x: 16, y: 6), GameCore.Tile(x: 22, y: 18), GameCore.Tile(x: 10, y: 12), GameCore.Tile(x: 24, y: 7), GameCore.Tile(x: 10, y: 11), GameCore.Tile(x: 11, y: 19), GameCore.Tile(x: 19, y: 6), GameCore.Tile(x: 24, y: 16), GameCore.Tile(x: 20, y: 8), GameCore.Tile(x: 15, y: 10), GameCore.Tile(x: 16, y: 16), GameCore.Tile(x: 22, y: 14), GameCore.Tile(x: 14, y: 12), GameCore.Tile(x: 19, y: 11), GameCore.Tile(x: 23, y: 11), GameCore.Tile(x: 27, y: 9), GameCore.Tile(x: 10, y: 16), GameCore.Tile(x: 17, y: 8), GameCore.Tile(x: 12, y: 8), GameCore.Tile(x: 14, y: 16), GameCore.Tile(x: 21, y: 15), GameCore.Tile(x: 27, y: 7), GameCore.Tile(x: 19, y: 7), GameCore.Tile(x: 16, y: 19), GameCore.Tile(x: 20, y: 16), GameCore.Tile(x: 19, y: 9), GameCore.Tile(x: 19, y: 19), GameCore.Tile(x: 11, y: 16), GameCore.Tile(x: 17, y: 16), GameCore.Tile(x: 24, y: 5), GameCore.Tile(x: 20, y: 12), GameCore.Tile(x: 10, y: 18), GameCore.Tile(x: 4, y: 12), GameCore.Tile(x: 5, y: 7), GameCore.Tile(x: 23, y: 17), GameCore.Tile(x: 10, y: 15), GameCore.Tile(x: 17, y: 5), GameCore.Tile(x: 26, y: 6), GameCore.Tile(x: 18, y: 6), GameCore.Tile(x: 14, y: 14), GameCore.Tile(x: 21, y: 8), GameCore.Tile(x: 15, y: 12), GameCore.Tile(x: 7, y: 12), GameCore.Tile(x: 22, y: 5), GameCore.Tile(x: 19, y: 5), GameCore.Tile(x: 5, y: 11), GameCore.Tile(x: 15, y: 15), GameCore.Tile(x: 5, y: 6), GameCore.Tile(x: 15, y: 11), GameCore.Tile(x: 12, y: 15), GameCore.Tile(x: 18, y: 8), GameCore.Tile(x: 12, y: 17), GameCore.Tile(x: 10, y: 14), GameCore.Tile(x: 18, y: 19), GameCore.Tile(x: 20, y: 15), GameCore.Tile(x: 10, y: 13), GameCore.Tile(x: 12, y: 18), GameCore.Tile(x: 18, y: 17), GameCore.Tile(x: 16, y: 10), GameCore.Tile(x: 12, y: 16), GameCore.Tile(x: 13, y: 13), GameCore.Tile(x: 5, y: 9), GameCore.Tile(x: 22, y: 17), GameCore.Tile(x: 21, y: 19), GameCore.Tile(x: 26, y: 10), GameCore.Tile(x: 17, y: 7), GameCore.Tile(x: 13, y: 16), GameCore.Tile(x: 14, y: 17), GameCore.Tile(x: 26, y: 7), GameCore.Tile(x: 26, y: 12), GameCore.Tile(x: 18, y: 18), GameCore.Tile(x: 20, y: 9), GameCore.Tile(x: 21, y: 16), GameCore.Tile(x: 13, y: 8), GameCore.Tile(x: 19, y: 18), GameCore.Tile(x: 23, y: 12), GameCore.Tile(x: 24, y: 13), GameCore.Tile(x: 13, y: 18), GameCore.Tile(x: 13, y: 12), GameCore.Tile(x: 22, y: 6), GameCore.Tile(x: 13, y: 17), GameCore.Tile(x: 27, y: 10), GameCore.Tile(x: 10, y: 17), GameCore.Tile(x: 18, y: 15), GameCore.Tile(x: 11, y: 7), GameCore.Tile(x: 19, y: 12), GameCore.Tile(x: 10, y: 9), GameCore.Tile(x: 27, y: 8), GameCore.Tile(x: 14, y: 7), GameCore.Tile(x: 23, y: 18), GameCore.Tile(x: 27, y: 5), GameCore.Tile(x: 20, y: 18), GameCore.Tile(x: 16, y: 18), GameCore.Tile(x: 10, y: 8), GameCore.Tile(x: 22, y: 9), GameCore.Tile(x: 19, y: 14), GameCore.Tile(x: 12, y: 11), GameCore.Tile(x: 19, y: 10), GameCore.Tile(x: 11, y: 13), GameCore.Tile(x: 22, y: 15), GameCore.Tile(x: 12, y: 14), GameCore.Tile(x: 21, y: 12), GameCore.Tile(x: 27, y: 4), GameCore.Tile(x: 18, y: 10), GameCore.Tile(x: 24, y: 18), GameCore.Tile(x: 22, y: 11), GameCore.Tile(x: 10, y: 7), GameCore.Tile(x: 12, y: 5), GameCore.Tile(x: 27, y: 6), GameCore.Tile(x: 26, y: 8), GameCore.Tile(x: 14, y: 6), GameCore.Tile(x: 20, y: 10), GameCore.Tile(x: 18, y: 5), GameCore.Tile(x: 14, y: 15), GameCore.Tile(x: 18, y: 16), GameCore.Tile(x: 24, y: 12), GameCore.Tile(x: 11, y: 9), GameCore.Tile(x: 21, y: 5), GameCore.Tile(x: 17, y: 10), GameCore.Tile(x: 24, y: 17), GameCore.Tile(x: 20, y: 14), GameCore.Tile(x: 20, y: 5), GameCore.Tile(x: 18, y: 11), GameCore.Tile(x: 21, y: 6), GameCore.Tile(x: 13, y: 9), GameCore.Tile(x: 19, y: 8), GameCore.Tile(x: 8, y: 12), GameCore.Tile(x: 18, y: 7), GameCore.Tile(x: 15, y: 5), GameCore.Tile(x: 21, y: 9), GameCore.Tile(x: 25, y: 12), GameCore.Tile(x: 23, y: 14), GameCore.Tile(x: 23, y: 5), GameCore.Tile(x: 16, y: 8), GameCore.Tile(x: 12, y: 12), GameCore.Tile(x: 24, y: 19), GameCore.Tile(x: 20, y: 17), GameCore.Tile(x: 15, y: 8), GameCore.Tile(x: 17, y: 11), GameCore.Tile(x: 18, y: 13), GameCore.Tile(x: 18, y: 14), GameCore.Tile(x: 6, y: 12), GameCore.Tile(x: 5, y: 12), GameCore.Tile(x: 20, y: 11), GameCore.Tile(x: 26, y: 11), GameCore.Tile(x: 23, y: 16), GameCore.Tile(x: 14, y: 5), GameCore.Tile(x: 17, y: 12), GameCore.Tile(x: 13, y: 5), GameCore.Tile(x: 20, y: 6), GameCore.Tile(x: 21, y: 18), GameCore.Tile(x: 15, y: 7), GameCore.Tile(x: 10, y: 19), GameCore.Tile(x: 10, y: 10), GameCore.Tile(x: 15, y: 16), GameCore.Tile(x: 20, y: 7), GameCore.Tile(x: 17, y: 9)])), explorationRemainingSeconds: nil, explorationRadius: Optional(7), depositRemaining: Optional(["hill-copper": 3000.0, "river-clay": 8000.0, "valley-stone": 12000.0, "valley-flint": 6000.0]), roads: nil, civicProgress: Optional(GameCore.CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set([]))), operatingRules: nil)
+↳     completionInbox → CompletionInbox(seen: Set(["objective:7:discovery"]), unread: Set([]))
+↳       some → CompletionInbox(seen: Set(["objective:7:discovery"]), unread: Set([]))
+↳         seen → ["objective:7:discovery"]
+↳         unread → []
+↳     riverbend → nil
+↳     mapID → "river-clearing-64x48-v1"
+↳     resources → ResourceAmounts(values: [GameCore.Resource.clay: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.stone: 50.0, GameCore.Resource.culture: 0.0, GameCore.Resource.wood: 100.0, GameCore.Resource.flint: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.leather: 0.0])
+↳       values → [GameCore.Resource.clay: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.stone: 50.0, GameCore.Resource.culture: 0.0, GameCore.Resource.wood: 100.0, GameCore.Resource.flint: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.stoneTools: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.leather: 0.0]
+↳     population → 3
+↳     buildings → [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil)]
+↳     researchedOralTradition → false
+↳     completedGoals → []
+↳     nextBuildingID → 1
+↳     lastUpdated → 1972-11-07 16:00:00 +0000
+↳       timeIntervalSinceReferenceDate → -888307200.0
+↳     populationGrowthSeconds → 0.0
+↳       some → 0.0
+↳     researchedTechnologies → []
+↳       some → []
+↳     completedPillarGoals → []
+↳       some → []
+↳     stoneAgeCompleted → false
+↳       some → false
+↳     grandfatheredBuildingKinds → []
+↳       some → []
+↳     discoveredTiles → [GameCore.Tile(x: 23, y: 7), GameCore.Tile(x: 23, y: 10), GameCore.Tile(x: 15, y: 18), GameCore.Tile(x: 21, y: 10), GameCore.Tile(x: 16, y: 14), GameCore.Tile(x: 19, y: 15), GameCore.Tile(x: 16, y: 12), GameCore.Tile(x: 17, y: 6), GameCore.Tile(x: 22, y: 13), GameCore.Tile(x: 24, y: 14), GameCore.Tile(x: 13, y: 7), GameCore.Tile(x: 19, y: 17), GameCore.Tile(x: 23, y: 9), GameCore.Tile(x: 12, y: 10), GameCore.Tile(x: 21, y: 7), GameCore.Tile(x: 12, y: 9), GameCore.Tile(x: 14, y: 9), GameCore.Tile(x: 21, y: 13), GameCore.Tile(x: 22, y: 19), GameCore.Tile(x: 11, y: 15), GameCore.Tile(x: 24, y: 15), GameCore.Tile(x: 16, y: 7), GameCore.Tile(x: 24, y: 8), GameCore.Tile(x: 5, y: 8), GameCore.Tile(x: 10, y: 5), GameCore.Tile(x: 20, y: 19), GameCore.Tile(x: 24, y: 11), GameCore.Tile(x: 16, y: 13), GameCore.Tile(x: 16, y: 15), GameCore.Tile(x: 11, y: 17), GameCore.Tile(x: 11, y: 10), GameCore.Tile(x: 15, y: 13), GameCore.Tile(x: 15, y: 14), GameCore.Tile(x: 9, y: 12), GameCore.Tile(x: 18, y: 9), GameCore.Tile(x: 19, y: 16), GameCore.Tile(x: 16, y: 9), GameCore.Tile(x: 27, y: 11), GameCore.Tile(x: 23, y: 13), GameCore.Tile(x: 16, y: 11), GameCore.Tile(x: 3, y: 12), GameCore.Tile(x: 21, y: 17), GameCore.Tile(x: 11, y: 5), GameCore.Tile(x: 26, y: 9), GameCore.Tile(x: 22, y: 8), GameCore.Tile(x: 22, y: 12), GameCore.Tile(x: 11, y: 12), GameCore.Tile(x: 13, y: 15), GameCore.Tile(x: 19, y: 13), GameCore.Tile(x: 14, y: 10), GameCore.Tile(x: 23, y: 6), GameCore.Tile(x: 11, y: 8), GameCore.Tile(x: 12, y: 7), GameCore.Tile(x: 22, y: 10), GameCore.Tile(x: 11, y: 18), GameCore.Tile(x: 21, y: 14), GameCore.Tile(x: 20, y: 13), GameCore.Tile(x: 14, y: 13), GameCore.Tile(x: 24, y: 10), GameCore.Tile(x: 12, y: 13), GameCore.Tile(x: 16, y: 5), GameCore.Tile(x: 14, y: 18), GameCore.Tile(x: 13, y: 11), GameCore.Tile(x: 23, y: 15), GameCore.Tile(x: 22, y: 16), GameCore.Tile(x: 13, y: 14), GameCore.Tile(x: 23, y: 19), GameCore.Tile(x: 17, y: 19), GameCore.Tile(x: 14, y: 19), GameCore.Tile(x: 12, y: 6), GameCore.Tile(x: 17, y: 18), GameCore.Tile(x: 14, y: 8), GameCore.Tile(x: 24, y: 6), GameCore.Tile(x: 11, y: 6), GameCore.Tile(x: 14, y: 11), GameCore.Tile(x: 15, y: 6), GameCore.Tile(x: 12, y: 19), GameCore.Tile(x: 13, y: 10), GameCore.Tile(x: 13, y: 6), GameCore.Tile(x: 22, y: 7), GameCore.Tile(x: 27, y: 12), GameCore.Tile(x: 17, y: 14), GameCore.Tile(x: 11, y: 14), GameCore.Tile(x: 5, y: 10), GameCore.Tile(x: 21, y: 11), GameCore.Tile(x: 17, y: 15), GameCore.Tile(x: 10, y: 6), GameCore.Tile(x: 17, y: 17), GameCore.Tile(x: 15, y: 9), GameCore.Tile(x: 17, y: 13), GameCore.Tile(x: 15, y: 19), GameCore.Tile(x: 16, y: 17), GameCore.Tile(x: 2, y: 12), GameCore.Tile(x: 26, y: 5), GameCore.Tile(x: 15, y: 17), GameCore.Tile(x: 24, y: 9), GameCore.Tile(x: 13, y: 19), GameCore.Tile(x: 11, y: 11), GameCore.Tile(x: 23, y: 8), GameCore.Tile(x: 18, y: 12), GameCore.Tile(x: 16, y: 6), GameCore.Tile(x: 22, y: 18), GameCore.Tile(x: 10, y: 12), GameCore.Tile(x: 24, y: 7), GameCore.Tile(x: 10, y: 11), GameCore.Tile(x: 11, y: 19), GameCore.Tile(x: 19, y: 6), GameCore.Tile(x: 24, y: 16), GameCore.Tile(x: 20, y: 8), GameCore.Tile(x: 15, y: 10), GameCore.Tile(x: 16, y: 16), GameCore.Tile(x: 22, y: 14), GameCore.Tile(x: 14, y: 12), GameCore.Tile(x: 19, y: 11), GameCore.Tile(x: 23, y: 11), GameCore.Tile(x: 27, y: 9), GameCore.Tile(x: 10, y: 16), GameCore.Tile(x: 17, y: 8), GameCore.Tile(x: 12, y: 8), GameCore.Tile(x: 14, y: 16), GameCore.Tile(x: 21, y: 15), GameCore.Tile(x: 27, y: 7), GameCore.Tile(x: 19, y: 7), GameCore.Tile(x: 16, y: 19), GameCore.Tile(x: 20, y: 16), GameCore.Tile(x: 19, y: 9), GameCore.Tile(x: 19, y: 19), GameCore.Tile(x: 11, y: 16), GameCore.Tile(x: 17, y: 16), GameCore.Tile(x: 24, y: 5), GameCore.Tile(x: 20, y: 12), GameCore.Tile(x: 10, y: 18), GameCore.Tile(x: 4, y: 12), GameCore.Tile(x: 5, y: 7), GameCore.Tile(x: 23, y: 17), GameCore.Tile(x: 10, y: 15), GameCore.Tile(x: 17, y: 5), GameCore.Tile(x: 26, y: 6), GameCore.Tile(x: 18, y: 6), GameCore.Tile(x: 14, y: 14), GameCore.Tile(x: 21, y: 8), GameCore.Tile(x: 15, y: 12), GameCore.Tile(x: 7, y: 12), GameCore.Tile(x: 22, y: 5), GameCore.Tile(x: 19, y: 5), GameCore.Tile(x: 5, y: 11), GameCore.Tile(x: 15, y: 15), GameCore.Tile(x: 5, y: 6), GameCore.Tile(x: 15, y: 11), GameCore.Tile(x: 12, y: 15), GameCore.Tile(x: 18, y: 8), GameCore.Tile(x: 12, y: 17), GameCore.Tile(x: 10, y: 14), GameCore.Tile(x: 18, y: 19), GameCore.Tile(x: 20, y: 15), GameCore.Tile(x: 10, y: 13), GameCore.Tile(x: 12, y: 18), GameCore.Tile(x: 18, y: 17), GameCore.Tile(x: 16, y: 10), GameCore.Tile(x: 12, y: 16), GameCore.Tile(x: 13, y: 13), GameCore.Tile(x: 5, y: 9), GameCore.Tile(x: 22, y: 17), GameCore.Tile(x: 21, y: 19), GameCore.Tile(x: 26, y: 10), GameCore.Tile(x: 17, y: 7), GameCore.Tile(x: 13, y: 16), GameCore.Tile(x: 14, y: 17), GameCore.Tile(x: 26, y: 7), GameCore.Tile(x: 26, y: 12), GameCore.Tile(x: 18, y: 18), GameCore.Tile(x: 20, y: 9), GameCore.Tile(x: 21, y: 16), GameCore.Tile(x: 13, y: 8), GameCore.Tile(x: 19, y: 18), GameCore.Tile(x: 23, y: 12), GameCore.Tile(x: 24, y: 13), GameCore.Tile(x: 13, y: 18), GameCore.Tile(x: 13, y: 12), GameCore.Tile(x: 22, y: 6), GameCore.Tile(x: 13, y: 17), GameCore.Tile(x: 27, y: 10), GameCore.Tile(x: 10, y: 17), GameCore.Tile(x: 18, y: 15), GameCore.Tile(x: 11, y: 7), GameCore.Tile(x: 19, y: 12), GameCore.Tile(x: 10, y: 9), GameCore.Tile(x: 27, y: 8), GameCore.Tile(x: 14, y: 7), GameCore.Tile(x: 23, y: 18), GameCore.Tile(x: 27, y: 5), GameCore.Tile(x: 20, y: 18), GameCore.Tile(x: 16, y: 18), GameCore.Tile(x: 10, y: 8), GameCore.Tile(x: 22, y: 9), GameCore.Tile(x: 19, y: 14), GameCore.Tile(x: 12, y: 11), GameCore.Tile(x: 19, y: 10), GameCore.Tile(x: 11, y: 13), GameCore.Tile(x: 22, y: 15), GameCore.Tile(x: 12, y: 14), GameCore.Tile(x: 21, y: 12), GameCore.Tile(x: 27, y: 4), GameCore.Tile(x: 18, y: 10), GameCore.Tile(x: 24, y: 18), GameCore.Tile(x: 22, y: 11), GameCore.Tile(x: 10, y: 7), GameCore.Tile(x: 12, y: 5), GameCore.Tile(x: 27, y: 6), GameCore.Tile(x: 26, y: 8), GameCore.Tile(x: 14, y: 6), GameCore.Tile(x: 20, y: 10), GameCore.Tile(x: 18, y: 5), GameCore.Tile(x: 14, y: 15), GameCore.Tile(x: 18, y: 16), GameCore.Tile(x: 24, y: 12), GameCore.Tile(x: 11, y: 9), GameCore.Tile(x: 21, y: 5), GameCore.Tile(x: 17, y: 10), GameCore.Tile(x: 24, y: 17), GameCore.Tile(x: 20, y: 14), GameCore.Tile(x: 20, y: 5), GameCore.Tile(x: 18, y: 11), GameCore.Tile(x: 21, y: 6), GameCore.Tile(x: 13, y: 9), GameCore.Tile(x: 19, y: 8), GameCore.Tile(x: 8, y: 12), GameCore.Tile(x: 18, y: 7), GameCore.Tile(x: 15, y: 5), GameCore.Tile(x: 21, y: 9), GameCore.Tile(x: 25, y: 12), GameCore.Tile(x: 23, y: 14), GameCore.Tile(x: 23, y: 5), GameCore.Tile(x: 16, y: 8), GameCore.Tile(x: 12, y: 12), GameCore.Tile(x: 24, y: 19), GameCore.Tile(x: 20, y: 17), GameCore.Tile(x: 15, y: 8), GameCore.Tile(x: 17, y: 11), GameCore.Tile(x: 18, y: 13), GameCore.Tile(x: 18, y: 14), GameCore.Tile(x: 6, y: 12), GameCore.Tile(x: 5, y: 12), GameCore.Tile(x: 20, y: 11), GameCore.Tile(x: 26, y: 11), GameCore.Tile(x: 23, y: 16), GameCore.Tile(x: 14, y: 5), GameCore.Tile(x: 17, y: 12), GameCore.Tile(x: 13, y: 5), GameCore.Tile(x: 20, y: 6), GameCore.Tile(x: 21, y: 18), GameCore.Tile(x: 15, y: 7), GameCore.Tile(x: 10, y: 19), GameCore.Tile(x: 10, y: 10), GameCore.Tile(x: 15, y: 16), GameCore.Tile(x: 20, y: 7), GameCore.Tile(x: 17, y: 9)]
+↳       some → [GameCore.Tile(x: 23, y: 7), GameCore.Tile(x: 23, y: 10), GameCore.Tile(x: 15, y: 18), GameCore.Tile(x: 21, y: 10), GameCore.Tile(x: 16, y: 14), GameCore.Tile(x: 19, y: 15), GameCore.Tile(x: 16, y: 12), GameCore.Tile(x: 17, y: 6), GameCore.Tile(x: 22, y: 13), GameCore.Tile(x: 24, y: 14), GameCore.Tile(x: 13, y: 7), GameCore.Tile(x: 19, y: 17), GameCore.Tile(x: 23, y: 9), GameCore.Tile(x: 12, y: 10), GameCore.Tile(x: 21, y: 7), GameCore.Tile(x: 12, y: 9), GameCore.Tile(x: 14, y: 9), GameCore.Tile(x: 21, y: 13), GameCore.Tile(x: 22, y: 19), GameCore.Tile(x: 11, y: 15), GameCore.Tile(x: 24, y: 15), GameCore.Tile(x: 16, y: 7), GameCore.Tile(x: 24, y: 8), GameCore.Tile(x: 5, y: 8), GameCore.Tile(x: 10, y: 5), GameCore.Tile(x: 20, y: 19), GameCore.Tile(x: 24, y: 11), GameCore.Tile(x: 16, y: 13), GameCore.Tile(x: 16, y: 15), GameCore.Tile(x: 11, y: 17), GameCore.Tile(x: 11, y: 10), GameCore.Tile(x: 15, y: 13), GameCore.Tile(x: 15, y: 14), GameCore.Tile(x: 9, y: 12), GameCore.Tile(x: 18, y: 9), GameCore.Tile(x: 19, y: 16), GameCore.Tile(x: 16, y: 9), GameCore.Tile(x: 27, y: 11), GameCore.Tile(x: 23, y: 13), GameCore.Tile(x: 16, y: 11), GameCore.Tile(x: 3, y: 12), GameCore.Tile(x: 21, y: 17), GameCore.Tile(x: 11, y: 5), GameCore.Tile(x: 26, y: 9), GameCore.Tile(x: 22, y: 8), GameCore.Tile(x: 22, y: 12), GameCore.Tile(x: 11, y: 12), GameCore.Tile(x: 13, y: 15), GameCore.Tile(x: 19, y: 13), GameCore.Tile(x: 14, y: 10), GameCore.Tile(x: 23, y: 6), GameCore.Tile(x: 11, y: 8), GameCore.Tile(x: 12, y: 7), GameCore.Tile(x: 22, y: 10), GameCore.Tile(x: 11, y: 18), GameCore.Tile(x: 21, y: 14), GameCore.Tile(x: 20, y: 13), GameCore.Tile(x: 14, y: 13), GameCore.Tile(x: 24, y: 10), GameCore.Tile(x: 12, y: 13), GameCore.Tile(x: 16, y: 5), GameCore.Tile(x: 14, y: 18), GameCore.Tile(x: 13, y: 11), GameCore.Tile(x: 23, y: 15), GameCore.Tile(x: 22, y: 16), GameCore.Tile(x: 13, y: 14), GameCore.Tile(x: 23, y: 19), GameCore.Tile(x: 17, y: 19), GameCore.Tile(x: 14, y: 19), GameCore.Tile(x: 12, y: 6), GameCore.Tile(x: 17, y: 18), GameCore.Tile(x: 14, y: 8), GameCore.Tile(x: 24, y: 6), GameCore.Tile(x: 11, y: 6), GameCore.Tile(x: 14, y: 11), GameCore.Tile(x: 15, y: 6), GameCore.Tile(x: 12, y: 19), GameCore.Tile(x: 13, y: 10), GameCore.Tile(x: 13, y: 6), GameCore.Tile(x: 22, y: 7), GameCore.Tile(x: 27, y: 12), GameCore.Tile(x: 17, y: 14), GameCore.Tile(x: 11, y: 14), GameCore.Tile(x: 5, y: 10), GameCore.Tile(x: 21, y: 11), GameCore.Tile(x: 17, y: 15), GameCore.Tile(x: 10, y: 6), GameCore.Tile(x: 17, y: 17), GameCore.Tile(x: 15, y: 9), GameCore.Tile(x: 17, y: 13), GameCore.Tile(x: 15, y: 19), GameCore.Tile(x: 16, y: 17), GameCore.Tile(x: 2, y: 12), GameCore.Tile(x: 26, y: 5), GameCore.Tile(x: 15, y: 17), GameCore.Tile(x: 24, y: 9), GameCore.Tile(x: 13, y: 19), GameCore.Tile(x: 11, y: 11), GameCore.Tile(x: 23, y: 8), GameCore.Tile(x: 18, y: 12), GameCore.Tile(x: 16, y: 6), GameCore.Tile(x: 22, y: 18), GameCore.Tile(x: 10, y: 12), GameCore.Tile(x: 24, y: 7), GameCore.Tile(x: 10, y: 11), GameCore.Tile(x: 11, y: 19), GameCore.Tile(x: 19, y: 6), GameCore.Tile(x: 24, y: 16), GameCore.Tile(x: 20, y: 8), GameCore.Tile(x: 15, y: 10), GameCore.Tile(x: 16, y: 16), GameCore.Tile(x: 22, y: 14), GameCore.Tile(x: 14, y: 12), GameCore.Tile(x: 19, y: 11), GameCore.Tile(x: 23, y: 11), GameCore.Tile(x: 27, y: 9), GameCore.Tile(x: 10, y: 16), GameCore.Tile(x: 17, y: 8), GameCore.Tile(x: 12, y: 8), GameCore.Tile(x: 14, y: 16), GameCore.Tile(x: 21, y: 15), GameCore.Tile(x: 27, y: 7), GameCore.Tile(x: 19, y: 7), GameCore.Tile(x: 16, y: 19), GameCore.Tile(x: 20, y: 16), GameCore.Tile(x: 19, y: 9), GameCore.Tile(x: 19, y: 19), GameCore.Tile(x: 11, y: 16), GameCore.Tile(x: 17, y: 16), GameCore.Tile(x: 24, y: 5), GameCore.Tile(x: 20, y: 12), GameCore.Tile(x: 10, y: 18), GameCore.Tile(x: 4, y: 12), GameCore.Tile(x: 5, y: 7), GameCore.Tile(x: 23, y: 17), GameCore.Tile(x: 10, y: 15), GameCore.Tile(x: 17, y: 5), GameCore.Tile(x: 26, y: 6), GameCore.Tile(x: 18, y: 6), GameCore.Tile(x: 14, y: 14), GameCore.Tile(x: 21, y: 8), GameCore.Tile(x: 15, y: 12), GameCore.Tile(x: 7, y: 12), GameCore.Tile(x: 22, y: 5), GameCore.Tile(x: 19, y: 5), GameCore.Tile(x: 5, y: 11), GameCore.Tile(x: 15, y: 15), GameCore.Tile(x: 5, y: 6), GameCore.Tile(x: 15, y: 11), GameCore.Tile(x: 12, y: 15), GameCore.Tile(x: 18, y: 8), GameCore.Tile(x: 12, y: 17), GameCore.Tile(x: 10, y: 14), GameCore.Tile(x: 18, y: 19), GameCore.Tile(x: 20, y: 15), GameCore.Tile(x: 10, y: 13), GameCore.Tile(x: 12, y: 18), GameCore.Tile(x: 18, y: 17), GameCore.Tile(x: 16, y: 10), GameCore.Tile(x: 12, y: 16), GameCore.Tile(x: 13, y: 13), GameCore.Tile(x: 5, y: 9), GameCore.Tile(x: 22, y: 17), GameCore.Tile(x: 21, y: 19), GameCore.Tile(x: 26, y: 10), GameCore.Tile(x: 17, y: 7), GameCore.Tile(x: 13, y: 16), GameCore.Tile(x: 14, y: 17), GameCore.Tile(x: 26, y: 7), GameCore.Tile(x: 26, y: 12), GameCore.Tile(x: 18, y: 18), GameCore.Tile(x: 20, y: 9), GameCore.Tile(x: 21, y: 16), GameCore.Tile(x: 13, y: 8), GameCore.Tile(x: 19, y: 18), GameCore.Tile(x: 23, y: 12), GameCore.Tile(x: 24, y: 13), GameCore.Tile(x: 13, y: 18), GameCore.Tile(x: 13, y: 12), GameCore.Tile(x: 22, y: 6), GameCore.Tile(x: 13, y: 17), GameCore.Tile(x: 27, y: 10), GameCore.Tile(x: 10, y: 17), GameCore.Tile(x: 18, y: 15), GameCore.Tile(x: 11, y: 7), GameCore.Tile(x: 19, y: 12), GameCore.Tile(x: 10, y: 9), GameCore.Tile(x: 27, y: 8), GameCore.Tile(x: 14, y: 7), GameCore.Tile(x: 23, y: 18), GameCore.Tile(x: 27, y: 5), GameCore.Tile(x: 20, y: 18), GameCore.Tile(x: 16, y: 18), GameCore.Tile(x: 10, y: 8), GameCore.Tile(x: 22, y: 9), GameCore.Tile(x: 19, y: 14), GameCore.Tile(x: 12, y: 11), GameCore.Tile(x: 19, y: 10), GameCore.Tile(x: 11, y: 13), GameCore.Tile(x: 22, y: 15), GameCore.Tile(x: 12, y: 14), GameCore.Tile(x: 21, y: 12), GameCore.Tile(x: 27, y: 4), GameCore.Tile(x: 18, y: 10), GameCore.Tile(x: 24, y: 18), GameCore.Tile(x: 22, y: 11), GameCore.Tile(x: 10, y: 7), GameCore.Tile(x: 12, y: 5), GameCore.Tile(x: 27, y: 6), GameCore.Tile(x: 26, y: 8), GameCore.Tile(x: 14, y: 6), GameCore.Tile(x: 20, y: 10), GameCore.Tile(x: 18, y: 5), GameCore.Tile(x: 14, y: 15), GameCore.Tile(x: 18, y: 16), GameCore.Tile(x: 24, y: 12), GameCore.Tile(x: 11, y: 9), GameCore.Tile(x: 21, y: 5), GameCore.Tile(x: 17, y: 10), GameCore.Tile(x: 24, y: 17), GameCore.Tile(x: 20, y: 14), GameCore.Tile(x: 20, y: 5), GameCore.Tile(x: 18, y: 11), GameCore.Tile(x: 21, y: 6), GameCore.Tile(x: 13, y: 9), GameCore.Tile(x: 19, y: 8), GameCore.Tile(x: 8, y: 12), GameCore.Tile(x: 18, y: 7), GameCore.Tile(x: 15, y: 5), GameCore.Tile(x: 21, y: 9), GameCore.Tile(x: 25, y: 12), GameCore.Tile(x: 23, y: 14), GameCore.Tile(x: 23, y: 5), GameCore.Tile(x: 16, y: 8), GameCore.Tile(x: 12, y: 12), GameCore.Tile(x: 24, y: 19), GameCore.Tile(x: 20, y: 17), GameCore.Tile(x: 15, y: 8), GameCore.Tile(x: 17, y: 11), GameCore.Tile(x: 18, y: 13), GameCore.Tile(x: 18, y: 14), GameCore.Tile(x: 6, y: 12), GameCore.Tile(x: 5, y: 12), GameCore.Tile(x: 20, y: 11), GameCore.Tile(x: 26, y: 11), GameCore.Tile(x: 23, y: 16), GameCore.Tile(x: 14, y: 5), GameCore.Tile(x: 17, y: 12), GameCore.Tile(x: 13, y: 5), GameCore.Tile(x: 20, y: 6), GameCore.Tile(x: 21, y: 18), GameCore.Tile(x: 15, y: 7), GameCore.Tile(x: 10, y: 19), GameCore.Tile(x: 10, y: 10), GameCore.Tile(x: 15, y: 16), GameCore.Tile(x: 20, y: 7), GameCore.Tile(x: 17, y: 9)]
+↳     explorationRemainingSeconds → nil
+↳     explorationRadius → 7
+↳       some → 7
+↳     depositRemaining → ["hill-copper": 3000.0, "river-clay": 8000.0, "valley-stone": 12000.0, "valley-flint": 6000.0]
+↳       some → ["hill-copper": 3000.0, "river-clay": 8000.0, "valley-stone": 12000.0, "valley-flint": 6000.0]
+↳     roads → nil
+↳     civicProgress → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set([]))
+↳       some → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set([]))
+↳         foundingBuildingID → 0
+↳         reachedLevels → [1]
+↳         completedChapters → []
+↳         completedObjectives → []
+↳     operatingRules → nil
+↳   state → GameState(completionInbox: nil, riverbend: nil, mapID: "river-clearing-64x48-v1", resources: GameCore.ResourceAmounts(values: [GameCore.Resource.culture: 0.0, GameCore.Resource.flint: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.clay: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.wood: 100.0, GameCore.Resource.stone: 50.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.stoneTools: 0.0]), population: 3, buildings: [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil)], researchedOralTradition: false, completedGoals: Set([]), nextBuildingID: 1, lastUpdated: 1972-11-07 16:00:00 +0000, populationGrowthSeconds: Optional(0.0), researchedTechnologies: Optional(Set([])), completedPillarGoals: Optional(Set([])), stoneAgeCompleted: Optional(false), grandfatheredBuildingKinds: Optional(Set([])), discoveredTiles: Optional(Set([GameCore.Tile(x: 11, y: 19), GameCore.Tile(x: 22, y: 9), GameCore.Tile(x: 18, y: 5), GameCore.Tile(x: 15, y: 13), GameCore.Tile(x: 22, y: 13), GameCore.Tile(x: 12, y: 19), GameCore.Tile(x: 14, y: 9), GameCore.Tile(x: 15, y: 15), GameCore.Tile(x: 19, y: 9), GameCore.Tile(x: 24, y: 15), GameCore.Tile(x: 27, y: 10), GameCore.Tile(x: 8, y: 12), GameCore.Tile(x: 14, y: 16), GameCore.Tile(x: 13, y: 12), GameCore.Tile(x: 18, y: 17), GameCore.Tile(x: 22, y: 19), GameCore.Tile(x: 27, y: 8), GameCore.Tile(x: 21, y: 18), GameCore.Tile(x: 9, y: 12), GameCore.Tile(x: 14, y: 5), GameCore.Tile(x: 12, y: 11), GameCore.Tile(x: 14, y: 7), GameCore.Tile(x: 24, y: 5), GameCore.Tile(x: 14, y: 12), GameCore.Tile(x: 12, y: 14), GameCore.Tile(x: 16, y: 11), GameCore.Tile(x: 5, y: 11), GameCore.Tile(x: 23, y: 13), GameCore.Tile(x: 19, y: 6), GameCore.Tile(x: 11, y: 8), GameCore.Tile(x: 5, y: 7), GameCore.Tile(x: 21, y: 8), GameCore.Tile(x: 22, y: 17), GameCore.Tile(x: 20, y: 17), GameCore.Tile(x: 17, y: 6), GameCore.Tile(x: 11, y: 16), GameCore.Tile(x: 24, y: 13), GameCore.Tile(x: 10, y: 15), GameCore.Tile(x: 18, y: 9), GameCore.Tile(x: 17, y: 10), GameCore.Tile(x: 16, y: 13), GameCore.Tile(x: 19, y: 8), GameCore.Tile(x: 18, y: 15), GameCore.Tile(x: 18, y: 16), GameCore.Tile(x: 16, y: 10), GameCore.Tile(x: 18, y: 8), GameCore.Tile(x: 18, y: 13), GameCore.Tile(x: 20, y: 13), GameCore.Tile(x: 17, y: 18), GameCore.Tile(x: 10, y: 11), GameCore.Tile(x: 27, y: 12), GameCore.Tile(x: 21, y: 16), GameCore.Tile(x: 20, y: 16), GameCore.Tile(x: 17, y: 14), GameCore.Tile(x: 19, y: 7), GameCore.Tile(x: 26, y: 5), GameCore.Tile(x: 13, y: 5), GameCore.Tile(x: 12, y: 12), GameCore.Tile(x: 23, y: 17), GameCore.Tile(x: 12, y: 6), GameCore.Tile(x: 23, y: 14), GameCore.Tile(x: 5, y: 10), GameCore.Tile(x: 20, y: 9), GameCore.Tile(x: 19, y: 16), GameCore.Tile(x: 3, y: 12), GameCore.Tile(x: 14, y: 15), GameCore.Tile(x: 22, y: 15), GameCore.Tile(x: 17, y: 19), GameCore.Tile(x: 19, y: 11), GameCore.Tile(x: 27, y: 4), GameCore.Tile(x: 23, y: 16), GameCore.Tile(x: 11, y: 17), GameCore.Tile(x: 20, y: 14), GameCore.Tile(x: 5, y: 8), GameCore.Tile(x: 23, y: 18), GameCore.Tile(x: 14, y: 11), GameCore.Tile(x: 19, y: 14), GameCore.Tile(x: 11, y: 5), GameCore.Tile(x: 23, y: 9), GameCore.Tile(x: 14, y: 18), GameCore.Tile(x: 19, y: 5), GameCore.Tile(x: 26, y: 6), GameCore.Tile(x: 13, y: 6), GameCore.Tile(x: 26, y: 10), GameCore.Tile(x: 17, y: 17), GameCore.Tile(x: 13, y: 16), GameCore.Tile(x: 11, y: 14), GameCore.Tile(x: 18, y: 6), GameCore.Tile(x: 11, y: 7), GameCore.Tile(x: 16, y: 5), GameCore.Tile(x: 15, y: 17), GameCore.Tile(x: 19, y: 18), GameCore.Tile(x: 20, y: 5), GameCore.Tile(x: 24, y: 14), GameCore.Tile(x: 17, y: 9), GameCore.Tile(x: 20, y: 6), GameCore.Tile(x: 15, y: 19), GameCore.Tile(x: 15, y: 16), GameCore.Tile(x: 20, y: 8), GameCore.Tile(x: 13, y: 13), GameCore.Tile(x: 22, y: 7), GameCore.Tile(x: 22, y: 5), GameCore.Tile(x: 23, y: 6), GameCore.Tile(x: 26, y: 8), GameCore.Tile(x: 18, y: 11), GameCore.Tile(x: 21, y: 5), GameCore.Tile(x: 15, y: 6), GameCore.Tile(x: 10, y: 6), GameCore.Tile(x: 11, y: 9), GameCore.Tile(x: 11, y: 6), GameCore.Tile(x: 13, y: 11), GameCore.Tile(x: 13, y: 15), GameCore.Tile(x: 14, y: 10), GameCore.Tile(x: 23, y: 8), GameCore.Tile(x: 4, y: 12), GameCore.Tile(x: 24, y: 17), GameCore.Tile(x: 5, y: 9), GameCore.Tile(x: 10, y: 9), GameCore.Tile(x: 15, y: 8), GameCore.Tile(x: 22, y: 10), GameCore.Tile(x: 11, y: 10), GameCore.Tile(x: 24, y: 11), GameCore.Tile(x: 11, y: 11), GameCore.Tile(x: 23, y: 15), GameCore.Tile(x: 20, y: 19), GameCore.Tile(x: 10, y: 5), GameCore.Tile(x: 13, y: 10), GameCore.Tile(x: 17, y: 7), GameCore.Tile(x: 20, y: 10), GameCore.Tile(x: 5, y: 6), GameCore.Tile(x: 13, y: 7), GameCore.Tile(x: 15, y: 14), GameCore.Tile(x: 20, y: 18), GameCore.Tile(x: 22, y: 12), GameCore.Tile(x: 13, y: 14), GameCore.Tile(x: 21, y: 13), GameCore.Tile(x: 24, y: 7), GameCore.Tile(x: 11, y: 13), GameCore.Tile(x: 18, y: 10), GameCore.Tile(x: 2, y: 12), GameCore.Tile(x: 16, y: 8), GameCore.Tile(x: 14, y: 14), GameCore.Tile(x: 15, y: 9), GameCore.Tile(x: 11, y: 18), GameCore.Tile(x: 19, y: 10), GameCore.Tile(x: 13, y: 18), GameCore.Tile(x: 14, y: 19), GameCore.Tile(x: 13, y: 9), GameCore.Tile(x: 21, y: 9), GameCore.Tile(x: 17, y: 11), GameCore.Tile(x: 21, y: 15), GameCore.Tile(x: 15, y: 11), GameCore.Tile(x: 15, y: 10), GameCore.Tile(x: 23, y: 5), GameCore.Tile(x: 21, y: 19), GameCore.Tile(x: 24, y: 8), GameCore.Tile(x: 19, y: 12), GameCore.Tile(x: 27, y: 7), GameCore.Tile(x: 12, y: 7), GameCore.Tile(x: 17, y: 13), GameCore.Tile(x: 22, y: 14), GameCore.Tile(x: 21, y: 11), GameCore.Tile(x: 21, y: 17), GameCore.Tile(x: 16, y: 19), GameCore.Tile(x: 23, y: 10), GameCore.Tile(x: 20, y: 15), GameCore.Tile(x: 23, y: 19), GameCore.Tile(x: 10, y: 10), GameCore.Tile(x: 23, y: 11), GameCore.Tile(x: 16, y: 16), GameCore.Tile(x: 12, y: 13), GameCore.Tile(x: 10, y: 17), GameCore.Tile(x: 24, y: 9), GameCore.Tile(x: 17, y: 12), GameCore.Tile(x: 12, y: 16), GameCore.Tile(x: 18, y: 14), GameCore.Tile(x: 19, y: 17), GameCore.Tile(x: 26, y: 12), GameCore.Tile(x: 22, y: 16), GameCore.Tile(x: 17, y: 15), GameCore.Tile(x: 24, y: 6), GameCore.Tile(x: 16, y: 6), GameCore.Tile(x: 16, y: 15), GameCore.Tile(x: 14, y: 17), GameCore.Tile(x: 19, y: 13), GameCore.Tile(x: 16, y: 9), GameCore.Tile(x: 16, y: 12), GameCore.Tile(x: 11, y: 12), GameCore.Tile(x: 23, y: 12), GameCore.Tile(x: 10, y: 12), GameCore.Tile(x: 13, y: 17), GameCore.Tile(x: 12, y: 18), GameCore.Tile(x: 24, y: 16), GameCore.Tile(x: 14, y: 6), GameCore.Tile(x: 10, y: 8), GameCore.Tile(x: 12, y: 9), GameCore.Tile(x: 24, y: 18), GameCore.Tile(x: 12, y: 10), GameCore.Tile(x: 16, y: 18), GameCore.Tile(x: 18, y: 19), GameCore.Tile(x: 7, y: 12), GameCore.Tile(x: 13, y: 19), GameCore.Tile(x: 20, y: 7), GameCore.Tile(x: 13, y: 8), GameCore.Tile(x: 22, y: 6), GameCore.Tile(x: 14, y: 8), GameCore.Tile(x: 18, y: 7), GameCore.Tile(x: 16, y: 7), GameCore.Tile(x: 20, y: 12), GameCore.Tile(x: 27, y: 9), GameCore.Tile(x: 15, y: 18), GameCore.Tile(x: 21, y: 10), GameCore.Tile(x: 24, y: 19), GameCore.Tile(x: 6, y: 12), GameCore.Tile(x: 26, y: 9), GameCore.Tile(x: 17, y: 5), GameCore.Tile(x: 15, y: 5), GameCore.Tile(x: 17, y: 8), GameCore.Tile(x: 11, y: 15), GameCore.Tile(x: 15, y: 7), GameCore.Tile(x: 10, y: 13), GameCore.Tile(x: 18, y: 12), GameCore.Tile(x: 15, y: 12), GameCore.Tile(x: 10, y: 14), GameCore.Tile(x: 10, y: 18), GameCore.Tile(x: 5, y: 12), GameCore.Tile(x: 16, y: 17), GameCore.Tile(x: 20, y: 11), GameCore.Tile(x: 22, y: 11), GameCore.Tile(x: 21, y: 14), GameCore.Tile(x: 25, y: 12), GameCore.Tile(x: 22, y: 8), GameCore.Tile(x: 21, y: 12), GameCore.Tile(x: 12, y: 17), GameCore.Tile(x: 12, y: 5), GameCore.Tile(x: 19, y: 19), GameCore.Tile(x: 27, y: 11), GameCore.Tile(x: 27, y: 5), GameCore.Tile(x: 24, y: 10), GameCore.Tile(x: 21, y: 6), GameCore.Tile(x: 24, y: 12), GameCore.Tile(x: 27, y: 6), GameCore.Tile(x: 26, y: 7), GameCore.Tile(x: 22, y: 18), GameCore.Tile(x: 18, y: 18), GameCore.Tile(x: 14, y: 13), GameCore.Tile(x: 12, y: 8), GameCore.Tile(x: 16, y: 14), GameCore.Tile(x: 19, y: 15), GameCore.Tile(x: 26, y: 11), GameCore.Tile(x: 10, y: 16), GameCore.Tile(x: 21, y: 7), GameCore.Tile(x: 10, y: 7), GameCore.Tile(x: 12, y: 15), GameCore.Tile(x: 23, y: 7), GameCore.Tile(x: 17, y: 16), GameCore.Tile(x: 10, y: 19)])), explorationRemainingSeconds: nil, explorationRadius: Optional(7), depositRemaining: Optional(["valley-stone": 12000.0, "hill-copper": 3000.0, "valley-flint": 6000.0, "river-clay": 8000.0]), roads: nil, civicProgress: Optional(GameCore.CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set([]))), operatingRules: nil)
+↳     completionInbox → nil
+↳     riverbend → nil
+↳     mapID → "river-clearing-64x48-v1"
+↳     resources → ResourceAmounts(values: [GameCore.Resource.culture: 0.0, GameCore.Resource.flint: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.clay: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.wood: 100.0, GameCore.Resource.stone: 50.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.stoneTools: 0.0])
+↳       values → [GameCore.Resource.culture: 0.0, GameCore.Resource.flint: 0.0, GameCore.Resource.water: 60.0, GameCore.Resource.clay: 0.0, GameCore.Resource.knowledge: 0.0, GameCore.Resource.wood: 100.0, GameCore.Resource.stone: 50.0, GameCore.Resource.animalHides: 0.0, GameCore.Resource.pottery: 0.0, GameCore.Resource.leather: 0.0, GameCore.Resource.food: 60.0, GameCore.Resource.stoneTools: 0.0]
+↳     population → 3
+↳     buildings → [GameCore.PlacedBuilding(id: 0, kind: GameCore.BuildingKind.campfire, origin: GameCore.Tile(x: 17, y: 12), footprint: nil, orientation: nil, constructionRemainingSeconds: nil, constructionDurationSeconds: nil, workerPriority: nil, productionModeID: nil, upgradeLevel: nil)]
+↳     researchedOralTradition → false
+↳     completedGoals → []
+↳     nextBuildingID → 1
+↳     lastUpdated → 1972-11-07 16:00:00 +0000
+↳       timeIntervalSinceReferenceDate → -888307200.0
+↳     populationGrowthSeconds → 0.0
+↳       some → 0.0
+↳     researchedTechnologies → []
+↳       some → []
+↳     completedPillarGoals → []
+↳       some → []
+↳     stoneAgeCompleted → false
+↳       some → false
+↳     grandfatheredBuildingKinds → []
+↳       some → []
+↳     discoveredTiles → [GameCore.Tile(x: 11, y: 19), GameCore.Tile(x: 22, y: 9), GameCore.Tile(x: 18, y: 5), GameCore.Tile(x: 15, y: 13), GameCore.Tile(x: 22, y: 13), GameCore.Tile(x: 12, y: 19), GameCore.Tile(x: 14, y: 9), GameCore.Tile(x: 15, y: 15), GameCore.Tile(x: 19, y: 9), GameCore.Tile(x: 24, y: 15), GameCore.Tile(x: 27, y: 10), GameCore.Tile(x: 8, y: 12), GameCore.Tile(x: 14, y: 16), GameCore.Tile(x: 13, y: 12), GameCore.Tile(x: 18, y: 17), GameCore.Tile(x: 22, y: 19), GameCore.Tile(x: 27, y: 8), GameCore.Tile(x: 21, y: 18), GameCore.Tile(x: 9, y: 12), GameCore.Tile(x: 14, y: 5), GameCore.Tile(x: 12, y: 11), GameCore.Tile(x: 14, y: 7), GameCore.Tile(x: 24, y: 5), GameCore.Tile(x: 14, y: 12), GameCore.Tile(x: 12, y: 14), GameCore.Tile(x: 16, y: 11), GameCore.Tile(x: 5, y: 11), GameCore.Tile(x: 23, y: 13), GameCore.Tile(x: 19, y: 6), GameCore.Tile(x: 11, y: 8), GameCore.Tile(x: 5, y: 7), GameCore.Tile(x: 21, y: 8), GameCore.Tile(x: 22, y: 17), GameCore.Tile(x: 20, y: 17), GameCore.Tile(x: 17, y: 6), GameCore.Tile(x: 11, y: 16), GameCore.Tile(x: 24, y: 13), GameCore.Tile(x: 10, y: 15), GameCore.Tile(x: 18, y: 9), GameCore.Tile(x: 17, y: 10), GameCore.Tile(x: 16, y: 13), GameCore.Tile(x: 19, y: 8), GameCore.Tile(x: 18, y: 15), GameCore.Tile(x: 18, y: 16), GameCore.Tile(x: 16, y: 10), GameCore.Tile(x: 18, y: 8), GameCore.Tile(x: 18, y: 13), GameCore.Tile(x: 20, y: 13), GameCore.Tile(x: 17, y: 18), GameCore.Tile(x: 10, y: 11), GameCore.Tile(x: 27, y: 12), GameCore.Tile(x: 21, y: 16), GameCore.Tile(x: 20, y: 16), GameCore.Tile(x: 17, y: 14), GameCore.Tile(x: 19, y: 7), GameCore.Tile(x: 26, y: 5), GameCore.Tile(x: 13, y: 5), GameCore.Tile(x: 12, y: 12), GameCore.Tile(x: 23, y: 17), GameCore.Tile(x: 12, y: 6), GameCore.Tile(x: 23, y: 14), GameCore.Tile(x: 5, y: 10), GameCore.Tile(x: 20, y: 9), GameCore.Tile(x: 19, y: 16), GameCore.Tile(x: 3, y: 12), GameCore.Tile(x: 14, y: 15), GameCore.Tile(x: 22, y: 15), GameCore.Tile(x: 17, y: 19), GameCore.Tile(x: 19, y: 11), GameCore.Tile(x: 27, y: 4), GameCore.Tile(x: 23, y: 16), GameCore.Tile(x: 11, y: 17), GameCore.Tile(x: 20, y: 14), GameCore.Tile(x: 5, y: 8), GameCore.Tile(x: 23, y: 18), GameCore.Tile(x: 14, y: 11), GameCore.Tile(x: 19, y: 14), GameCore.Tile(x: 11, y: 5), GameCore.Tile(x: 23, y: 9), GameCore.Tile(x: 14, y: 18), GameCore.Tile(x: 19, y: 5), GameCore.Tile(x: 26, y: 6), GameCore.Tile(x: 13, y: 6), GameCore.Tile(x: 26, y: 10), GameCore.Tile(x: 17, y: 17), GameCore.Tile(x: 13, y: 16), GameCore.Tile(x: 11, y: 14), GameCore.Tile(x: 18, y: 6), GameCore.Tile(x: 11, y: 7), GameCore.Tile(x: 16, y: 5), GameCore.Tile(x: 15, y: 17), GameCore.Tile(x: 19, y: 18), GameCore.Tile(x: 20, y: 5), GameCore.Tile(x: 24, y: 14), GameCore.Tile(x: 17, y: 9), GameCore.Tile(x: 20, y: 6), GameCore.Tile(x: 15, y: 19), GameCore.Tile(x: 15, y: 16), GameCore.Tile(x: 20, y: 8), GameCore.Tile(x: 13, y: 13), GameCore.Tile(x: 22, y: 7), GameCore.Tile(x: 22, y: 5), GameCore.Tile(x: 23, y: 6), GameCore.Tile(x: 26, y: 8), GameCore.Tile(x: 18, y: 11), GameCore.Tile(x: 21, y: 5), GameCore.Tile(x: 15, y: 6), GameCore.Tile(x: 10, y: 6), GameCore.Tile(x: 11, y: 9), GameCore.Tile(x: 11, y: 6), GameCore.Tile(x: 13, y: 11), GameCore.Tile(x: 13, y: 15), GameCore.Tile(x: 14, y: 10), GameCore.Tile(x: 23, y: 8), GameCore.Tile(x: 4, y: 12), GameCore.Tile(x: 24, y: 17), GameCore.Tile(x: 5, y: 9), GameCore.Tile(x: 10, y: 9), GameCore.Tile(x: 15, y: 8), GameCore.Tile(x: 22, y: 10), GameCore.Tile(x: 11, y: 10), GameCore.Tile(x: 24, y: 11), GameCore.Tile(x: 11, y: 11), GameCore.Tile(x: 23, y: 15), GameCore.Tile(x: 20, y: 19), GameCore.Tile(x: 10, y: 5), GameCore.Tile(x: 13, y: 10), GameCore.Tile(x: 17, y: 7), GameCore.Tile(x: 20, y: 10), GameCore.Tile(x: 5, y: 6), GameCore.Tile(x: 13, y: 7), GameCore.Tile(x: 15, y: 14), GameCore.Tile(x: 20, y: 18), GameCore.Tile(x: 22, y: 12), GameCore.Tile(x: 13, y: 14), GameCore.Tile(x: 21, y: 13), GameCore.Tile(x: 24, y: 7), GameCore.Tile(x: 11, y: 13), GameCore.Tile(x: 18, y: 10), GameCore.Tile(x: 2, y: 12), GameCore.Tile(x: 16, y: 8), GameCore.Tile(x: 14, y: 14), GameCore.Tile(x: 15, y: 9), GameCore.Tile(x: 11, y: 18), GameCore.Tile(x: 19, y: 10), GameCore.Tile(x: 13, y: 18), GameCore.Tile(x: 14, y: 19), GameCore.Tile(x: 13, y: 9), GameCore.Tile(x: 21, y: 9), GameCore.Tile(x: 17, y: 11), GameCore.Tile(x: 21, y: 15), GameCore.Tile(x: 15, y: 11), GameCore.Tile(x: 15, y: 10), GameCore.Tile(x: 23, y: 5), GameCore.Tile(x: 21, y: 19), GameCore.Tile(x: 24, y: 8), GameCore.Tile(x: 19, y: 12), GameCore.Tile(x: 27, y: 7), GameCore.Tile(x: 12, y: 7), GameCore.Tile(x: 17, y: 13), GameCore.Tile(x: 22, y: 14), GameCore.Tile(x: 21, y: 11), GameCore.Tile(x: 21, y: 17), GameCore.Tile(x: 16, y: 19), GameCore.Tile(x: 23, y: 10), GameCore.Tile(x: 20, y: 15), GameCore.Tile(x: 23, y: 19), GameCore.Tile(x: 10, y: 10), GameCore.Tile(x: 23, y: 11), GameCore.Tile(x: 16, y: 16), GameCore.Tile(x: 12, y: 13), GameCore.Tile(x: 10, y: 17), GameCore.Tile(x: 24, y: 9), GameCore.Tile(x: 17, y: 12), GameCore.Tile(x: 12, y: 16), GameCore.Tile(x: 18, y: 14), GameCore.Tile(x: 19, y: 17), GameCore.Tile(x: 26, y: 12), GameCore.Tile(x: 22, y: 16), GameCore.Tile(x: 17, y: 15), GameCore.Tile(x: 24, y: 6), GameCore.Tile(x: 16, y: 6), GameCore.Tile(x: 16, y: 15), GameCore.Tile(x: 14, y: 17), GameCore.Tile(x: 19, y: 13), GameCore.Tile(x: 16, y: 9), GameCore.Tile(x: 16, y: 12), GameCore.Tile(x: 11, y: 12), GameCore.Tile(x: 23, y: 12), GameCore.Tile(x: 10, y: 12), GameCore.Tile(x: 13, y: 17), GameCore.Tile(x: 12, y: 18), GameCore.Tile(x: 24, y: 16), GameCore.Tile(x: 14, y: 6), GameCore.Tile(x: 10, y: 8), GameCore.Tile(x: 12, y: 9), GameCore.Tile(x: 24, y: 18), GameCore.Tile(x: 12, y: 10), GameCore.Tile(x: 16, y: 18), GameCore.Tile(x: 18, y: 19), GameCore.Tile(x: 7, y: 12), GameCore.Tile(x: 13, y: 19), GameCore.Tile(x: 20, y: 7), GameCore.Tile(x: 13, y: 8), GameCore.Tile(x: 22, y: 6), GameCore.Tile(x: 14, y: 8), GameCore.Tile(x: 18, y: 7), GameCore.Tile(x: 16, y: 7), GameCore.Tile(x: 20, y: 12), GameCore.Tile(x: 27, y: 9), GameCore.Tile(x: 15, y: 18), GameCore.Tile(x: 21, y: 10), GameCore.Tile(x: 24, y: 19), GameCore.Tile(x: 6, y: 12), GameCore.Tile(x: 26, y: 9), GameCore.Tile(x: 17, y: 5), GameCore.Tile(x: 15, y: 5), GameCore.Tile(x: 17, y: 8), GameCore.Tile(x: 11, y: 15), GameCore.Tile(x: 15, y: 7), GameCore.Tile(x: 10, y: 13), GameCore.Tile(x: 18, y: 12), GameCore.Tile(x: 15, y: 12), GameCore.Tile(x: 10, y: 14), GameCore.Tile(x: 10, y: 18), GameCore.Tile(x: 5, y: 12), GameCore.Tile(x: 16, y: 17), GameCore.Tile(x: 20, y: 11), GameCore.Tile(x: 22, y: 11), GameCore.Tile(x: 21, y: 14), GameCore.Tile(x: 25, y: 12), GameCore.Tile(x: 22, y: 8), GameCore.Tile(x: 21, y: 12), GameCore.Tile(x: 12, y: 17), GameCore.Tile(x: 12, y: 5), GameCore.Tile(x: 19, y: 19), GameCore.Tile(x: 27, y: 11), GameCore.Tile(x: 27, y: 5), GameCore.Tile(x: 24, y: 10), GameCore.Tile(x: 21, y: 6), GameCore.Tile(x: 24, y: 12), GameCore.Tile(x: 27, y: 6), GameCore.Tile(x: 26, y: 7), GameCore.Tile(x: 22, y: 18), GameCore.Tile(x: 18, y: 18), GameCore.Tile(x: 14, y: 13), GameCore.Tile(x: 12, y: 8), GameCore.Tile(x: 16, y: 14), GameCore.Tile(x: 19, y: 15), GameCore.Tile(x: 26, y: 11), GameCore.Tile(x: 10, y: 16), GameCore.Tile(x: 21, y: 7), GameCore.Tile(x: 10, y: 7), GameCore.Tile(x: 12, y: 15), GameCore.Tile(x: 23, y: 7), GameCore.Tile(x: 17, y: 16), GameCore.Tile(x: 10, y: 19)]
+↳       some → [GameCore.Tile(x: 11, y: 19), GameCore.Tile(x: 22, y: 9), GameCore.Tile(x: 18, y: 5), GameCore.Tile(x: 15, y: 13), GameCore.Tile(x: 22, y: 13), GameCore.Tile(x: 12, y: 19), GameCore.Tile(x: 14, y: 9), GameCore.Tile(x: 15, y: 15), GameCore.Tile(x: 19, y: 9), GameCore.Tile(x: 24, y: 15), GameCore.Tile(x: 27, y: 10), GameCore.Tile(x: 8, y: 12), GameCore.Tile(x: 14, y: 16), GameCore.Tile(x: 13, y: 12), GameCore.Tile(x: 18, y: 17), GameCore.Tile(x: 22, y: 19), GameCore.Tile(x: 27, y: 8), GameCore.Tile(x: 21, y: 18), GameCore.Tile(x: 9, y: 12), GameCore.Tile(x: 14, y: 5), GameCore.Tile(x: 12, y: 11), GameCore.Tile(x: 14, y: 7), GameCore.Tile(x: 24, y: 5), GameCore.Tile(x: 14, y: 12), GameCore.Tile(x: 12, y: 14), GameCore.Tile(x: 16, y: 11), GameCore.Tile(x: 5, y: 11), GameCore.Tile(x: 23, y: 13), GameCore.Tile(x: 19, y: 6), GameCore.Tile(x: 11, y: 8), GameCore.Tile(x: 5, y: 7), GameCore.Tile(x: 21, y: 8), GameCore.Tile(x: 22, y: 17), GameCore.Tile(x: 20, y: 17), GameCore.Tile(x: 17, y: 6), GameCore.Tile(x: 11, y: 16), GameCore.Tile(x: 24, y: 13), GameCore.Tile(x: 10, y: 15), GameCore.Tile(x: 18, y: 9), GameCore.Tile(x: 17, y: 10), GameCore.Tile(x: 16, y: 13), GameCore.Tile(x: 19, y: 8), GameCore.Tile(x: 18, y: 15), GameCore.Tile(x: 18, y: 16), GameCore.Tile(x: 16, y: 10), GameCore.Tile(x: 18, y: 8), GameCore.Tile(x: 18, y: 13), GameCore.Tile(x: 20, y: 13), GameCore.Tile(x: 17, y: 18), GameCore.Tile(x: 10, y: 11), GameCore.Tile(x: 27, y: 12), GameCore.Tile(x: 21, y: 16), GameCore.Tile(x: 20, y: 16), GameCore.Tile(x: 17, y: 14), GameCore.Tile(x: 19, y: 7), GameCore.Tile(x: 26, y: 5), GameCore.Tile(x: 13, y: 5), GameCore.Tile(x: 12, y: 12), GameCore.Tile(x: 23, y: 17), GameCore.Tile(x: 12, y: 6), GameCore.Tile(x: 23, y: 14), GameCore.Tile(x: 5, y: 10), GameCore.Tile(x: 20, y: 9), GameCore.Tile(x: 19, y: 16), GameCore.Tile(x: 3, y: 12), GameCore.Tile(x: 14, y: 15), GameCore.Tile(x: 22, y: 15), GameCore.Tile(x: 17, y: 19), GameCore.Tile(x: 19, y: 11), GameCore.Tile(x: 27, y: 4), GameCore.Tile(x: 23, y: 16), GameCore.Tile(x: 11, y: 17), GameCore.Tile(x: 20, y: 14), GameCore.Tile(x: 5, y: 8), GameCore.Tile(x: 23, y: 18), GameCore.Tile(x: 14, y: 11), GameCore.Tile(x: 19, y: 14), GameCore.Tile(x: 11, y: 5), GameCore.Tile(x: 23, y: 9), GameCore.Tile(x: 14, y: 18), GameCore.Tile(x: 19, y: 5), GameCore.Tile(x: 26, y: 6), GameCore.Tile(x: 13, y: 6), GameCore.Tile(x: 26, y: 10), GameCore.Tile(x: 17, y: 17), GameCore.Tile(x: 13, y: 16), GameCore.Tile(x: 11, y: 14), GameCore.Tile(x: 18, y: 6), GameCore.Tile(x: 11, y: 7), GameCore.Tile(x: 16, y: 5), GameCore.Tile(x: 15, y: 17), GameCore.Tile(x: 19, y: 18), GameCore.Tile(x: 20, y: 5), GameCore.Tile(x: 24, y: 14), GameCore.Tile(x: 17, y: 9), GameCore.Tile(x: 20, y: 6), GameCore.Tile(x: 15, y: 19), GameCore.Tile(x: 15, y: 16), GameCore.Tile(x: 20, y: 8), GameCore.Tile(x: 13, y: 13), GameCore.Tile(x: 22, y: 7), GameCore.Tile(x: 22, y: 5), GameCore.Tile(x: 23, y: 6), GameCore.Tile(x: 26, y: 8), GameCore.Tile(x: 18, y: 11), GameCore.Tile(x: 21, y: 5), GameCore.Tile(x: 15, y: 6), GameCore.Tile(x: 10, y: 6), GameCore.Tile(x: 11, y: 9), GameCore.Tile(x: 11, y: 6), GameCore.Tile(x: 13, y: 11), GameCore.Tile(x: 13, y: 15), GameCore.Tile(x: 14, y: 10), GameCore.Tile(x: 23, y: 8), GameCore.Tile(x: 4, y: 12), GameCore.Tile(x: 24, y: 17), GameCore.Tile(x: 5, y: 9), GameCore.Tile(x: 10, y: 9), GameCore.Tile(x: 15, y: 8), GameCore.Tile(x: 22, y: 10), GameCore.Tile(x: 11, y: 10), GameCore.Tile(x: 24, y: 11), GameCore.Tile(x: 11, y: 11), GameCore.Tile(x: 23, y: 15), GameCore.Tile(x: 20, y: 19), GameCore.Tile(x: 10, y: 5), GameCore.Tile(x: 13, y: 10), GameCore.Tile(x: 17, y: 7), GameCore.Tile(x: 20, y: 10), GameCore.Tile(x: 5, y: 6), GameCore.Tile(x: 13, y: 7), GameCore.Tile(x: 15, y: 14), GameCore.Tile(x: 20, y: 18), GameCore.Tile(x: 22, y: 12), GameCore.Tile(x: 13, y: 14), GameCore.Tile(x: 21, y: 13), GameCore.Tile(x: 24, y: 7), GameCore.Tile(x: 11, y: 13), GameCore.Tile(x: 18, y: 10), GameCore.Tile(x: 2, y: 12), GameCore.Tile(x: 16, y: 8), GameCore.Tile(x: 14, y: 14), GameCore.Tile(x: 15, y: 9), GameCore.Tile(x: 11, y: 18), GameCore.Tile(x: 19, y: 10), GameCore.Tile(x: 13, y: 18), GameCore.Tile(x: 14, y: 19), GameCore.Tile(x: 13, y: 9), GameCore.Tile(x: 21, y: 9), GameCore.Tile(x: 17, y: 11), GameCore.Tile(x: 21, y: 15), GameCore.Tile(x: 15, y: 11), GameCore.Tile(x: 15, y: 10), GameCore.Tile(x: 23, y: 5), GameCore.Tile(x: 21, y: 19), GameCore.Tile(x: 24, y: 8), GameCore.Tile(x: 19, y: 12), GameCore.Tile(x: 27, y: 7), GameCore.Tile(x: 12, y: 7), GameCore.Tile(x: 17, y: 13), GameCore.Tile(x: 22, y: 14), GameCore.Tile(x: 21, y: 11), GameCore.Tile(x: 21, y: 17), GameCore.Tile(x: 16, y: 19), GameCore.Tile(x: 23, y: 10), GameCore.Tile(x: 20, y: 15), GameCore.Tile(x: 23, y: 19), GameCore.Tile(x: 10, y: 10), GameCore.Tile(x: 23, y: 11), GameCore.Tile(x: 16, y: 16), GameCore.Tile(x: 12, y: 13), GameCore.Tile(x: 10, y: 17), GameCore.Tile(x: 24, y: 9), GameCore.Tile(x: 17, y: 12), GameCore.Tile(x: 12, y: 16), GameCore.Tile(x: 18, y: 14), GameCore.Tile(x: 19, y: 17), GameCore.Tile(x: 26, y: 12), GameCore.Tile(x: 22, y: 16), GameCore.Tile(x: 17, y: 15), GameCore.Tile(x: 24, y: 6), GameCore.Tile(x: 16, y: 6), GameCore.Tile(x: 16, y: 15), GameCore.Tile(x: 14, y: 17), GameCore.Tile(x: 19, y: 13), GameCore.Tile(x: 16, y: 9), GameCore.Tile(x: 16, y: 12), GameCore.Tile(x: 11, y: 12), GameCore.Tile(x: 23, y: 12), GameCore.Tile(x: 10, y: 12), GameCore.Tile(x: 13, y: 17), GameCore.Tile(x: 12, y: 18), GameCore.Tile(x: 24, y: 16), GameCore.Tile(x: 14, y: 6), GameCore.Tile(x: 10, y: 8), GameCore.Tile(x: 12, y: 9), GameCore.Tile(x: 24, y: 18), GameCore.Tile(x: 12, y: 10), GameCore.Tile(x: 16, y: 18), GameCore.Tile(x: 18, y: 19), GameCore.Tile(x: 7, y: 12), GameCore.Tile(x: 13, y: 19), GameCore.Tile(x: 20, y: 7), GameCore.Tile(x: 13, y: 8), GameCore.Tile(x: 22, y: 6), GameCore.Tile(x: 14, y: 8), GameCore.Tile(x: 18, y: 7), GameCore.Tile(x: 16, y: 7), GameCore.Tile(x: 20, y: 12), GameCore.Tile(x: 27, y: 9), GameCore.Tile(x: 15, y: 18), GameCore.Tile(x: 21, y: 10), GameCore.Tile(x: 24, y: 19), GameCore.Tile(x: 6, y: 12), GameCore.Tile(x: 26, y: 9), GameCore.Tile(x: 17, y: 5), GameCore.Tile(x: 15, y: 5), GameCore.Tile(x: 17, y: 8), GameCore.Tile(x: 11, y: 15), GameCore.Tile(x: 15, y: 7), GameCore.Tile(x: 10, y: 13), GameCore.Tile(x: 18, y: 12), GameCore.Tile(x: 15, y: 12), GameCore.Tile(x: 10, y: 14), GameCore.Tile(x: 10, y: 18), GameCore.Tile(x: 5, y: 12), GameCore.Tile(x: 16, y: 17), GameCore.Tile(x: 20, y: 11), GameCore.Tile(x: 22, y: 11), GameCore.Tile(x: 21, y: 14), GameCore.Tile(x: 25, y: 12), GameCore.Tile(x: 22, y: 8), GameCore.Tile(x: 21, y: 12), GameCore.Tile(x: 12, y: 17), GameCore.Tile(x: 12, y: 5), GameCore.Tile(x: 19, y: 19), GameCore.Tile(x: 27, y: 11), GameCore.Tile(x: 27, y: 5), GameCore.Tile(x: 24, y: 10), GameCore.Tile(x: 21, y: 6), GameCore.Tile(x: 24, y: 12), GameCore.Tile(x: 27, y: 6), GameCore.Tile(x: 26, y: 7), GameCore.Tile(x: 22, y: 18), GameCore.Tile(x: 18, y: 18), GameCore.Tile(x: 14, y: 13), GameCore.Tile(x: 12, y: 8), GameCore.Tile(x: 16, y: 14), GameCore.Tile(x: 19, y: 15), GameCore.Tile(x: 26, y: 11), GameCore.Tile(x: 10, y: 16), GameCore.Tile(x: 21, y: 7), GameCore.Tile(x: 10, y: 7), GameCore.Tile(x: 12, y: 15), GameCore.Tile(x: 23, y: 7), GameCore.Tile(x: 17, y: 16), GameCore.Tile(x: 10, y: 19)]
+↳     explorationRemainingSeconds → nil
+↳     explorationRadius → 7
+↳       some → 7
+↳     depositRemaining → ["valley-stone": 12000.0, "hill-copper": 3000.0, "valley-flint": 6000.0, "river-clay": 8000.0]
+↳       some → ["valley-stone": 12000.0, "hill-copper": 3000.0, "valley-flint": 6000.0, "river-clay": 8000.0]
+↳     roads → nil
+↳     civicProgress → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set([]))
+↳       some → CivicProgress(foundingBuildingID: 0, reachedLevels: [1], completedChapters: Set([]), completedObjectives: Set([]))
+↳         foundingBuildingID → 0
+↳         reachedLevels → [1]
+↳         completedChapters → []
+↳         completedObjectives → []
+↳     operatingRules → nil
+✘ Test riverbendPlayerContinueClassifiesLargeBodyBeforeRelabel() failed after 0.719 seconds with 1 issue.
+PLAYTHROUGH research naturalKnowledge at 6120s
+Riverbend earned simulated model seconds: 5880.0
+✔ Test riverbendPlayerCraftStorageEnclosureEarnedRoutePersists() passed after 0.755 seconds.
+PACING strategy=3 longest cost wait=780s; bootstrap=720s pop=6 knowledge/min=1.29 food/min=16.57 water/min=12.34 workers=3.0/5.0; knowledge investment=1020s pop=9 knowledge/min=6.48 food/min=17.00 water/min=12.90 workers=5.0/7.0; craft economy=2340s pop=15 knowledge/min=6.48 food/min=21.00 water/min=8.10 workers=9.0/13.0; all research=3780s pop=15 knowledge/min=8.35 food/min=28.20 water/min=10.00 workers=9.0/14.0; complete=6780s pop=15 knowledge/min=7.10 food/min=40.20 water/min=8.31 workers=9.0/21.0; chapters=[(key: 1, value: 3840), (key: 2, value: 1200), (key: 3, value: 3900), (key: 4, value: 2820), (key: 5, value: 4800), (key: 6, value: 6600), (key: 7, value: 6780)]
+PLAYTHROUGH research permanentSettlement at 6480s
+PLAYTHROUGH research herbalMedicine at 6900s
+PACING strategy=2 longest cost wait=360s; bootstrap=720s pop=6 knowledge/min=1.29 food/min=16.57 water/min=12.34 workers=3.0/5.0; knowledge investment=1080s pop=9 knowledge/min=5.40 food/min=17.00 water/min=12.90 workers=5.0/6.0; craft economy=1980s pop=15 knowledge/min=4.80 food/min=21.00 water/min=7.90 workers=9.0/12.0; all research=4740s pop=15 knowledge/min=7.02 food/min=28.20 water/min=9.84 workers=9.0/13.0; complete=5400s pop=15 knowledge/min=6.25 food/min=40.76 water/min=8.11 workers=9.0/20.0; chapters=[(key: 1, value: 4800), (key: 2, value: 1260), (key: 3, value: 4860), (key: 4, value: 3420), (key: 5, value: 5040), (key: 6, value: 5220), (key: 7, value: 5400)]
+✔ Test playerFailedWritesDoNotPublishCompletedTimers(timer:operation:) with 8 test cases passed after 0.808 seconds.
+✔ Test riverbendPlayerFindsCannotDoubleGrantOrPublishFailedSave() passed after 0.804 seconds.
+✔ Test playerFoundingPreservesPrelaidEntranceAndContinue(style:) with 3 test cases passed after 0.806 seconds.
+✔ Test corruptLegacyCanBeLeftWithoutOverwritingItsBytes() passed after 0.816 seconds.
+PACING strategy=1 longest cost wait=960s; bootstrap=720s pop=6 knowledge/min=1.29 food/min=16.57 water/min=12.34 workers=3.0/5.0; knowledge investment=1140s pop=10 knowledge/min=3.60 food/min=16.00 water/min=12.40 workers=6.0/5.0; craft economy=2280s pop=15 knowledge/min=2.70 food/min=21.00 water/min=7.65 workers=9.0/11.0; all research=7500s pop=15 knowledge/min=5.40 food/min=28.20 water/min=9.64 workers=9.0/12.0; complete=8160s pop=15 knowledge/min=5.29 food/min=41.40 water/min=7.89 workers=9.0/19.0; chapters=[(key: 1, value: 7560), (key: 2, value: 1380), (key: 3, value: 7620), (key: 4, value: 5100), (key: 5, value: 7800), (key: 6, value: 7980), (key: 7, value: 8160)]
+PLAYTHROUGH research rituals at 7260s
+✘ Test normalEntryMetadataDoesNotCreateOrAdvanceGames() failed after 0.827 seconds with 1 issue.
+PLAYTHROUGH research burialTraditions at 7560s
+✔ Test failedIndexCommitKeepsOldSessionAndPreservesOriginalSave() passed after 0.864 seconds.
+PLAYTHROUGH research exploration at 7800s
+PLAYTHROUGH research surveillance at 8280s
+✘ Test launchNewGamePreservesUnopenedDamagedProgress(indexed:) recorded an issue with 1 argument indexed → true at GameLibraryTests.swift:235:5: Expectation failed: library.session.state == (try GameEngine(configuration: c, now: gamesEpoch).state)
+↳ library.session.state == (try GameEngine(configuration: c, now: gamesEpoch).state) → <not evaluated>
+✔ Test failedCurrentSaveBlocksSwitchAndKeepsLibrarySelection() passed after 0.918 seconds.
+PLAYTHROUGH research fortification at 8580s
+✔ Test simultaneousCreationIsRejectedAndOnlyOneGameIsPublished() passed after 0.907 seconds.
+PLAYTHROUGH build farm at 8640s
+PLAYTHROUGH build animalPen at 8700s
+✔ Test riverbendPlayerNormalContinueAndIndependentGamesKeepRules() passed after 0.944 seconds.
+✔ Test backgroundDuringAsyncSwitchDoesNotActivateTargetOrDoubleCountCatchup() passed after 0.946 seconds.
+PLAYTHROUGH build storytellingCircle at 8760s
+PLAYTHROUGH build healersHut at 8820s
+✔ Test developmentLibraryRetiresSmallPrimaryWithoutChangingDeveloperCompanion() passed after 0.950 seconds.
+✘ Test launchNewGamePreservesUnopenedDamagedProgress(indexed:) with 2 test cases failed after 0.943 seconds with 2 issues.
+PLAYTHROUGH build shrine at 8880s
+✔ Test independentGamesResumeTheirOwnProgressAndSelection() passed after 0.963 seconds.
+✔ Test missingOrCorruptRegisteredGamesNeverResetOrReplaceCurrentGame() passed after 0.980 seconds.
+✔ Test failedOpenDoesNotWriteOfflineProgressIntoUnopenedTarget() passed after 0.967 seconds.
+PLAYTHROUGH build burialGround at 8940s
+✔ Test damagedSelectedGameCanExplicitlyRecoverHealthyGameWithoutReset(missing:) with 2 test cases passed after 0.971 seconds.
+PLAYTHROUGH build scoutCamp at 9000s
+PLAYTHROUGH build watchtower at 9060s
+PLAYTHROUGH build palisade at 9120s
+ROADS_FULL_ERA seconds=8813.0 roads=2
+✔ Test ordinaryFirstEraStillCompletesAfterDecorativeRoadEdits() passed after 1.002 seconds.
+PLAYTHROUGH complete at 9300s; population 15; buildings 23; technologies 20; discovered 704
+PLAYTHROUGH build hut at 9360s
+✔ Test freshStoneAgeCompletesThroughRealResearchAndProduction() passed after 1.019 seconds.
+PACING strategy=4 longest cost wait=720s; bootstrap=600s pop=6 knowledge/min=1.29 food/min=16.57 water/min=12.34 workers=3.0/5.0; knowledge investment=840s pop=8 knowledge/min=3.60 food/min=18.00 water/min=13.40 workers=4.0/6.0; craft economy=2220s pop=15 knowledge/min=4.80 food/min=21.00 water/min=7.90 workers=9.0/12.0; all research=3720s pop=15 knowledge/min=7.02 food/min=28.20 water/min=9.84 workers=9.0/13.0; complete=6480s pop=15 knowledge/min=6.25 food/min=40.76 water/min=8.11 workers=9.0/20.0; chapters=[(key: 1, value: 3780), (key: 2, value: 960), (key: 3, value: 3840), (key: 4, value: 2880), (key: 5, value: 4620), (key: 6, value: 6300), (key: 7, value: 6480)]
+✔ Test firstEraAlternativeNormalCostStrategies(strategy:) with 4 test cases passed after 1.119 seconds.
+GUIDED pace=60.0s total=8813s actions=48 wait=5933s longestCostOrConstructionWait=721s chapters=[(key: 1, value: 300), (key: 2, value: 1678), (key: 3, value: 4014), (key: 4, value: 4876), (key: 5, value: 7253), (key: 6, value: 7973), (key: 7, value: 8813)] choices=["explore": 3, "build": 21, "research": 20, "recipe": 2] pop=15 workers=9.0/18.0 netFood=39.72 netWater=7.639999999999999 knowledge=4.199999999999999 discovery=704
+GUIDED pace=15.0s total=7765s actions=48 wait=7045s longestCostOrConstructionWait=807s chapters=[(key: 1, value: 85), (key: 2, value: 1599), (key: 3, value: 3147), (key: 4, value: 3969), (key: 5, value: 6287), (key: 6, value: 7012), (key: 7, value: 7765)] choices=["build": 21, "recipe": 2, "explore": 3, "research": 20] pop=15 workers=9.0/18.0 netFood=39.72 netWater=7.639999999999999 knowledge=4.199999999999999 discovery=704
+✔ Test ordinaryPlayerCanFollowGuidanceThroughEntireEra(pollSeconds:) with 2 test cases passed after 2.182 seconds.
+✘ Test run with 261 tests in 0 suites failed after 2.198 seconds with 6 issues.
+Note: Some test targets reported failures:
+  - GameCoreTests (Swift Testing)

@@ -1,0 +1,18 @@
+Building for debugging...
+[1 / 15] GamePersistence
+[2 / 12] GameApplication
+[4 / 14] GameApplication
+[8 / 18] GameApplication
+[10 / 20] GameApplication
+[14 / 20] GameApplication-product
+[14 / 20] GameCoreTests-product
+[27 / 33] GameCoreTests-product
+[29 / 33] GameCoreTests-product
+[31 / 33] GameCoreTests-product
+Build complete! (5.37 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() started.
+✔ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() passed after 0.029 seconds.
+✔ Test run with 1 test in 0 suites passed after 0.029 seconds.

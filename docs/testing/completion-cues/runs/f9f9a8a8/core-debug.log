@@ -1,0 +1,12 @@
+Building for debugging...
+[1 / 15] GamePersistence
+[2 / 12] GameApplication
+[4 / 14] GameApplication
+[11 / 13] GameCoreTests-product
+Build complete! (0.92 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() started.
+✔ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() passed after 0.001 seconds.
+✔ Test run with 1 test in 0 suites passed after 0.001 seconds.

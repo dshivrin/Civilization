@@ -1,0 +1,30 @@
+Building for debugging...
+[4 / 19] CivilizationCore_GameCoreTests
+[5 / 26] GameCore
+[7 / 27] GameCore
+[13 / 28] GameApplication
+[15 / 29] GameApplication
+[18 / 24] GameCoreTests-product
+[20 / 26] GameCoreTests-product
+[23 / 29] GameCoreTests-product
+[27 / 31] GameCoreTests-product
+[29 / 31] GameCoreTests-product
+Build complete! (3.83 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() started.
+◇ Test completionCueLibraryGamesKeepIndependentUnreadForIdenticalEarnIDs() started.
+◇ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() started.
+◇ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() started.
+◇ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() started.
+◇ Test completionCueDurablePulseAndTargetedAcknowledgement() started.
+◇ Test completionCueNewGameAndLegacySnapshotStartQuiet() started.
+✔ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() passed after 0.015 seconds.
+✔ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() passed after 0.035 seconds.
+✔ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() passed after 0.062 seconds.
+✔ Test completionCueDurablePulseAndTargetedAcknowledgement() passed after 0.082 seconds.
+✔ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() passed after 0.100 seconds.
+✔ Test completionCueNewGameAndLegacySnapshotStartQuiet() passed after 0.108 seconds.
+✔ Test completionCueLibraryGamesKeepIndependentUnreadForIdenticalEarnIDs() passed after 0.139 seconds.
+✔ Test run with 7 tests in 0 suites passed after 0.139 seconds.

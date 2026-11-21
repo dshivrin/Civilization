@@ -1,0 +1,20 @@
+Building for debugging...
+[1 / 2]
+[2 / 5] GameCoreTests-product
+[4 / 7] GameCoreTests-product
+[7 / 10] GameCoreTests-product
+[9 / 10] GameCoreTests-product
+Build complete! (2.78 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() started.
+✘ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() recorded an issue at CompletionCueTests.swift:182:5: Expectation failed: s.completionSequence == 0 && s.latestCompletions.isEmpty
+↳ s.completionSequence == 0 && s.latestCompletions.isEmpty → false
+↳   s.completionSequence == 0 → false
+↳   s.latestCompletions.isEmpty → <not evaluated>
+✘ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() failed after 0.026 seconds with 1 issue.
+↳ // Foreground catch-up can earn legacy progress, but must never start a HUD pulse.
+✘ Test run with 1 test in 0 suites failed after 0.026 seconds with 1 issue.
+Note: Some test targets reported failures:
+  - GameCoreTests (Swift Testing)

@@ -1,0 +1,71 @@
+Building for debugging...
+[1 / 18] GameApplication
+[5 / 26] GameCore
+[7 / 27] GameCore
+[13 / 28] GameApplication
+[15 / 30] GameApplication
+[24 / 33] GameCoreTests-product
+[37 / 46] GameCoreTests-product
+[41 / 45] GameCoreTests-product
+/private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Tests/GameCoreTests/VisualAgentMotionTests.swift:121:14: warning: weak variable 'retained' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+119 |     power = false; center.post(name: .NSProcessInfoPowerStateDidChange, object: nil)
+120 |     #expect(observer?.lowPower == false)
+121 |     weak var retained = observer; observer = nil
+    |              `- warning: weak variable 'retained' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+122 |     #expect(retained == nil)
+123 |     let before = reads
+
+/private/tmp/civilization-stone-age-completion-cues/Packages/GameCore/Tests/GameCoreTests/VisualAgentMotionTests.swift:119:11: warning: 'power' mutated after capture by sendable closure
+110 | @Test @MainActor func visualAgentPowerObservationUpdatesWithoutInteractionAndReleasesObserver() {
+111 |     let center = NotificationCenter()
+112 |     var power = false, reads = 0
+    |         `- note: variable defined here
+113 |     var observer: VisualAgentPowerObservation? = VisualAgentPowerObservation(center: center, readLowPower: {
+    |                                                                                                            `- note: variable captured by sendable closure
+114 |         reads += 1; return power
+    |                            `- note: capturing use
+115 |     })
+116 |     #expect(observer?.lowPower == false)
+117 |     power = true; center.post(name: .NSProcessInfoPowerStateDidChange, object: nil)
+118 |     #expect(observer?.lowPower == true)
+119 |     power = false; center.post(name: .NSProcessInfoPowerStateDidChange, object: nil)
+    |           `- warning: 'power' mutated after capture by sendable closure
+120 |     #expect(observer?.lowPower == false)
+121 |     weak var retained = observer; observer = nil
+
+[#VariableNeverMutated]: <https://docs.swift.org/compiler/documentation/diagnostics/variable-never-mutated>
+[#WeakMutability]: <https://docs.swift.org/compiler/documentation/diagnostics/weak-mutability>
+[43 / 45] GameCoreTests-product
+Build complete! (4.88 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() started.
+◇ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() started.
+◇ Test completionCueFirstLegacyContinueKeepsNewOfflineEarnUnread() started.
+◇ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() started.
+◇ Test completionCueBurstRetainsAllCategoriesUntilConsumed() started.
+◇ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() started.
+◇ Test completionCueNewGameAndLegacySnapshotStartQuiet() started.
+◇ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() started.
+◇ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() started.
+◇ Test completionCueLibraryGamesKeepIndependentUnreadForIdenticalEarnIDs() started.
+◇ Test completionCueDurablePulseAndTargetedAcknowledgement() started.
+◇ Test completionCueLegacyAutosaveDoesNotExposeUnpublishedEarn() started.
+◇ Test completionCueLegacyHUDWaitsForSuccessfulPublication() started.
+◇ Test completionCueDeveloperCopyCannotExposeOrAcknowledgeNormalUnread() started.
+✔ Test completionCueFailedSaveRollsBackEarnAndAcknowledgement() passed after 0.015 seconds.
+✔ Test completionCueHistoricalResearchStaysReadAndGamesStayIndependent() passed after 0.035 seconds.
+✔ Test completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() passed after 0.055 seconds.
+✔ Test completionCueBurstRetainsAllCategoriesUntilConsumed() passed after 0.062 seconds.
+✔ Test completionCueNewGameAndLegacySnapshotStartQuiet() passed after 0.067 seconds.
+✔ Test completionCueSuccessfulResearchAndObjectivesCoalesceAndPersist() passed after 0.085 seconds.
+✔ Test completionCueFirstLegacyContinueKeepsNewOfflineEarnUnread() passed after 0.104 seconds.
+✔ Test completionCueChapterCompletionAndLegacyReadBaselineAreDurable() passed after 0.131 seconds.
+✔ Test completionCueLegacyAutosaveDoesNotExposeUnpublishedEarn() passed after 0.151 seconds.
+✔ Test completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() passed after 0.151 seconds.
+✔ Test completionCueDurablePulseAndTargetedAcknowledgement() passed after 0.170 seconds.
+✔ Test completionCueLegacyHUDWaitsForSuccessfulPublication() passed after 0.197 seconds.
+✔ Test completionCueDeveloperCopyCannotExposeOrAcknowledgeNormalUnread() passed after 0.269 seconds.
+✔ Test completionCueLibraryGamesKeepIndependentUnreadForIdenticalEarnIDs() passed after 0.300 seconds.
+✔ Test run with 14 tests in 0 suites passed after 0.300 seconds.
