@@ -133,6 +133,9 @@ private func cueUnread(_ state: GameState) -> Set<String> { state.completionInbo
     let loaded = try GameSession(clock: { now }, saveURL: url, configuration: c)
     #expect(loaded.unreadCompletions(for: .goals) == s.unreadCompletions(for: .goals))
     #expect(loaded.completionSequence == 0)
+    loaded.acknowledgeCompletions(["chapter:1"])
+    #expect(!loaded.unreadCompletions(for: .goals).contains("chapter:1"))
+    #expect(loaded.unreadCompletions(for: .goals).isSuperset(of: ["objective:1:civic-level-2", "objective:1:building-hut"]))
     var legacy = s.state; legacy.completionInbox = nil
     let legacyURL = root.appendingPathComponent("legacy.json")
     try SaveStore(url: legacyURL).save(legacy)
@@ -181,3 +184,92 @@ func withoutCompletionInbox(_ state: GameState) -> GameState {
     #expect(s.unreadCompletions(for: .goals).contains("objective:1:building-hut"))
     #expect(s.completionSequence == 0 && s.latestCompletions.isEmpty)
 }
+
+@Test @MainActor func completionCueFirstLegacyContinueKeepsNewOfflineEarnUnread() throws {
+    let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: root) }
+    let url = root.appendingPathComponent("save.json"), c = try GameConfiguration.bundled()
+    var engine = try GameEngine(configuration: c, now: cueEpoch)
+    try engine.build(.hut, at: Tile(x: 12, y: 12))
+    try SaveStore(url: url).save(engine.state)
+    let s = try GameSession(clock: { cueEpoch.addingTimeInterval(60) }, saveURL: url, configuration: c)
+    #expect(s.unreadCompletions(for: .goals).contains("objective:1:building-hut"))
+    #expect(s.completionSequence == 0 && s.latestCompletions.isEmpty)
+}
+
+@Test @MainActor func completionCueLegacyHUDWaitsForSuccessfulPublication() throws {
+    let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    let held = root.appendingPathExtension("held")
+    defer { try? FileManager.default.removeItem(at: root); try? FileManager.default.removeItem(at: held) }
+    let url = root.appendingPathComponent("save.json")
+    var c = try GameConfiguration.bundled(); c.initialResources.knowledge = 100
+    var now = cueEpoch
+    let s = try GameSession(clock: { now }, saveURL: url, configuration: c)
+    s.choose(.hut); s.tap(Tile(x: 12, y: 12)); s.confirm()
+    now = now.addingTimeInterval(60); s.tick() // Prior autosave completes construction.
+    s.choose(.gatheringShelter); s.tap(Tile(x: 14, y: 14)); s.confirm()
+    // A research action whose file publication fails must not expose a new HUD marker.
+    try FileManager.default.moveItem(at: root, to: held); try Data("blocked".utf8).write(to: root)
+    s.research("oralTradition")
+    #expect(s.unreadCompletions(for: .research).isEmpty)
+    try FileManager.default.removeItem(at: root); try FileManager.default.moveItem(at: held, to: root)
+    s.save()
+    #expect(s.unreadCompletions(for: .research) == ["research:oralTradition"])
+}
+
+@Test @MainActor func completionCueBurstRetainsAllCategoriesUntilConsumed() throws {
+    let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: root) }
+    let s = try GameSession(clock: { cueEpoch }, saveURL: root.appendingPathComponent("save.json"), configuration: .riverbendPlayer())
+    s.research("oralTradition"); s.upgrade(buildingID: 0)
+    #expect(s.completionSequence == 2)
+    #expect(Set(s.latestCompletions.map(\.destination)) == [.research, .goals])
+    #expect(Set(s.latestCompletions.map(\.id)).isSuperset(of: ["research:oralTradition", "objective:1:civic-level-2"]))
+    #expect(Set(s.consumeCompletionDelivery().map(\.destination)) == [.research, .goals])
+    #expect(s.consumeCompletionDelivery().isEmpty)
+}
+
+@Test func completionCueHiddenGamesSheetDefersOnePulseAndReduceMotionStaysStatic() {
+    var p = CompletionCuePresentation()
+    p.enqueue([.research]); p.enqueue([.goals])
+    let hidden = p.begin(visible: false, active: true, reduceMotion: false, unread: [.research, .goals]); #expect(!hidden)
+    #expect(p.pending == [.research, .goals] && p.pulsing.isEmpty)
+    let shown = p.begin(visible: true, active: true, reduceMotion: false, unread: [.research, .goals]); #expect(shown)
+    #expect(p.pending.isEmpty && p.pulsing == [.research, .goals])
+    p.finish()
+    let replay = p.begin(visible: true, active: true, reduceMotion: false, unread: [.research, .goals]); #expect(!replay)
+    p.enqueue([.research])
+    let reduced = p.begin(visible: true, active: true, reduceMotion: true, unread: [.research]); #expect(!reduced)
+    #expect(p.pending.isEmpty && p.pulsing.isEmpty)
+    p.enqueue([.goals]); p.clear()
+    let foreground = p.begin(visible: true, active: true, reduceMotion: false, unread: [.goals]); #expect(!foreground)
+}
+
+@Test @MainActor func completionCueLegacyAutosaveDoesNotExposeUnpublishedEarn() throws {
+    let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: root) }
+    var c = try GameConfiguration.bundled()
+    c.buildings[c.buildings.firstIndex { $0.kind == .hut }!].constructionSeconds = 1
+    var now = cueEpoch
+    let s = try GameSession(clock: { now }, saveURL: root.appendingPathComponent("save.json"), configuration: c)
+    s.choose(.hut); s.tap(Tile(x: 12, y: 12)); s.confirm()
+    now = now.addingTimeInterval(2); s.tick()
+    #expect(s.state.civicProgress?.completedObjectives.contains("1:building-hut") == true)
+    #expect(!s.unreadCompletions(for: .goals).contains("objective:1:building-hut"))
+    now = now.addingTimeInterval(15); s.tick()
+    #expect(s.unreadCompletions(for: .goals).contains("objective:1:building-hut"))
+}
+
+#if DEBUG
+@Test @MainActor func completionCueDeveloperCopyCannotExposeOrAcknowledgeNormalUnread() throws {
+    let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: root) }
+    let s = try GameSession(clock: { cueEpoch }, saveURL: root.appendingPathComponent("save.json"), configuration: .riverbendPlayer())
+    s.research("oralTradition")
+    s.loadDeveloperScenario(.early)
+    #expect(s.unreadCompletions(for: .research).isEmpty)
+    s.acknowledgeCompletions(["research:oralTradition"])
+    #expect(s.returnToNormalGame())
+    #expect(s.unreadCompletions(for: .research) == ["research:oralTradition"])
+}
+#endif

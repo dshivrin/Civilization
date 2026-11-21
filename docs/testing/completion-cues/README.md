@@ -50,3 +50,20 @@ counts, preserves exact menu routing/labels, posts a concise new-result VoiceOve
 announcement, and uses static markers under the system Reduce Motion setting.
 Simulator screenshot/AX checks do not establish spoken VoiceOver quality, human
 visual acceptance, maximum text-size behavior or physical performance.
+
+## Independent source review and corrections
+
+A single fresh-context source review found six important lifecycle/visibility cases.
+First legacy Continue now establishes its historical baseline before offline catch-up.
+HUD unread reads only successfully published IDs, preserving the existing legacy
+autosave policy. Undrained transient events accumulate across rapid transactions.
+Readiness-sheet pillar/requirement results share exact visible-content acknowledgement.
+The expanded Goals panel keeps its badge/outline attached to the button. Saved Games
+explicitly gates HUD cue presentation until its dismissal, retaining same-game pending
+cues. Switching games constructs a fresh transient presentation identity.
+
+Deterministic regressions reproduce the legacy/burst issues. A negative control
+that ignores HUD visibility fails the presentation regression; restoring the guard
+passes. Reduce Motion and background clearing are covered in that same real production
+presentation controller. Core full matrix before these review fixes was356Debug/
+263Release+23exclusions; final matrix below must supersede it.

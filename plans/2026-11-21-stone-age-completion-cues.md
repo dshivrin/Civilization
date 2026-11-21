@@ -70,3 +70,36 @@ history is connected only when already durable and relevant to a real destinatio
   static fallback, concise announcement, post-dismissal queued pulses and exact
   scroll-visible result acknowledgement. Retained older ordinary HUD layouts use
   the same markers. Native evidence and final review remain pending.
+- Final whole-branch fresh-context review (c11dbd3) found six Important cases:
+  first pre-cue legacy Continue catch-up baseline ordering; unpublished legacy HUD
+  unread; rapid transaction overwrite; readiness-sheet exact-item acknowledgement;
+  expanded Goals badge anchor; Games sheet pulse occlusion.
+- One fix pass: first three reproduce as deterministic RED in
+  /private/tmp/civilization-qa-8aecd8b2e8c648838bcf59d51d1774a3. Publication uses
+  committed unread IDs; burst delivery is accumulated and consumed exactly once;
+  baseline precedes legacy offline advance. All13 completion tests pass in
+  /private/tmp/civilization-qa-d7f218d80b9443b4ab210e21a5c4cb06.
+- Hidden-HUD presentation guard has a semantic negative-control RED in
+  /private/tmp/civilization-qa-3d27dc62ca58459289fac519143fb85a; restored guard is
+  included in final verification. Earlier presentation test compile failure from
+  mutating calls inside #expect is retained (not credited as behavioral RED).
+- Readiness rows reuse exact scroll-visible acknowledgement; Goals decoration is
+  attached to its button; parent Games presentation explicitly gates the transient
+  controller until dismissal. Native chapter test now waits real construction behind
+  Games and captures the expanded-button anchor after return.
+- Reviewer minor (repeated earned-model reconstruction for HUD counts) is removed
+  incidentally by the required committed-ID publication fix; no performance claim.
+- Reviewer declined final native/spoken VoiceOver/human acceptance pending evidence.
+  Native checks remain required; spoken quality, human acceptance and hardware
+  metrics remain explicit limits, not inferred approvals.
+- Additional independent-save isolation regression: existing developer companion
+  must not display/acknowledge the normal game's published IDs. RED in
+  /private/tmp/civilization-qa-9e7426eafefd40a59f4e89fd9673c03d; all14 cue tests
+  GREEN in /private/tmp/civilization-qa-7eb09da98a504ad29ba355695e00ebe8.
+- Fresh-cache phone ordinary route and genuine OS Reduce Motion both pass in
+  /private/tmp/civilization-qa-f6b4e1daa9c8472697a18bbd69a691e5 (2 tests).
+  Ordinary route uses two real New Games, real construction behind Saved Games,
+  Continue, no replay, exact viewing/independent markers and fixed expanded Goals.
+  Settings first-launch privacy navigation failures are preserved; successful test
+  retains/restores the original Reduce Motion value. Final committed-source matrix
+  and evidence archive follow; no final acceptance claim yet.

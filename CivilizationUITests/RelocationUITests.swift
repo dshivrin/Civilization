@@ -2752,12 +2752,18 @@ final class NormalEntryUITests: XCTestCase {
         if !app.buttons["nextStepAction"].exists { app.buttons["toggleGoals"].tap() }
         app.buttons["nextStepAction"].tap(); app.buttons["build-hut"].tap()
         app.buttons["confirmPlacement"].tap()
-        // Normal construction and ordinary model time; no fixtures, grants or speed controls.
-        let menu = app.buttons["settlementMenu"]
-        menu.tap(); let hut = app.descendants(matching: .any).matching(identifier: "inspectBuilding-1").firstMatch
-        XCTAssertTrue(hut.waitForExistence(timeout: 5)); hut.tap()
-        XCTAssertTrue(app.buttons["connectBuildingPaths"].waitForExistence(timeout: 30))
-        app.buttons["closeBuildingInspection"].tap()
+        // Keep the real construction running behind the ordinary Saved Games sheet.
+        app.buttons["toggleGoals"].tap()
+        let expandedGoalsFrame = app.buttons["toggleGoals"].frame
+        app.buttons["settlementMenu"].tap(); app.buttons["openGames"].tap()
+        XCTAssertTrue(app.staticTexts["activeGameName"].waitForExistence(timeout: 5))
+        let started = Date()
+        let realWait = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in Date().timeIntervalSince(started) >= 22 }, object: nil)
+        XCTAssertEqual(XCTWaiter.wait(for: [realWait], timeout: 30), .completed)
+        print("COMPLETION real construction behind Games seconds=", Date().timeIntervalSince(started))
+        app.buttons["Done"].tap()
+        XCTAssertEqual(app.buttons["toggleGoals"].frame, expandedGoalsFrame)
+        XCTAssertTrue(app.buttons["toggleGoals"].label.contains("1/7 chapters"))
         XCTAssertTrue(value("toggleGoals").contains("unread"))
         capture("07-earned-chapter-one")
         app.terminate(); app.launch(); app.buttons["continueGame"].tap()
@@ -2775,16 +2781,19 @@ final class NormalEntryUITests: XCTestCase {
     @MainActor func testOrdinaryCompletionCuesWithSystemReduceMotion() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences"); settings.launch()
+        if settings.buttons["Done"].waitForExistence(timeout: 5) { settings.buttons["Done"].tap() }
         // Navigate the real OS setting, retaining and restoring its original value.
-        for _ in 0..<8 where !settings.switches["Reduce Motion"].exists && !settings.cells["Accessibility"].exists {
+        for _ in 0..<8 where !settings.switches["Reduce Motion"].exists && !settings.staticTexts["Accessibility"].exists {
+            if settings.buttons["Done"].exists { settings.buttons["Done"].tap(); continue }
             let back = settings.navigationBars.buttons.element(boundBy: 0)
             if back.exists { back.tap() } else { settings.swipeUp() }
         }
         if !settings.switches["Reduce Motion"].exists {
-            let accessibility = settings.cells["Accessibility"]
+            let accessibility = settings.staticTexts["Accessibility"]
             for _ in 0..<8 where !accessibility.isHittable { settings.swipeUp() }
+            let tree = XCTAttachment(string: settings.debugDescription); tree.name = "completion-settings-navigation"; tree.lifetime = .keepAlways; add(tree)
             XCTAssertTrue(accessibility.isHittable); accessibility.tap()
-            let motion = settings.cells["Motion"]
+            let motion = settings.staticTexts["Motion"]
             for _ in 0..<5 where !motion.isHittable { settings.swipeUp() }
             XCTAssertTrue(motion.isHittable); motion.tap()
         }

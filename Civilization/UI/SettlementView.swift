@@ -11,9 +11,9 @@ struct SettlementView: View {
     let session: GameSession
     let openGames: (() -> Void)?
     let managesLifecycle: Bool
+    let isExternallyObscured: Bool
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var pendingCompletionCues: Set<CompletionDestination> = []
-    @State private var pulsingCompletionCues: Set<CompletionDestination> = []
+    @State private var completionCues = CompletionCuePresentation()
     @State private var completionPulseOpacity = 0.0
     @State private var completionPulseTask: Task<Void, Never>?
     @State private var scene: SettlementScene? = nil
@@ -38,15 +38,16 @@ struct SettlementView: View {
     private struct ResourceInspection: Identifiable { let resource: Resource; var id: String { resource.rawValue } }
     @State private var panel: Panel?
     enum Panel { case build, explore }
-    init(session: GameSession, openGames: (() -> Void)? = nil, managesLifecycle: Bool = true) {
+    init(session: GameSession, openGames: (() -> Void)? = nil, managesLifecycle: Bool = true, isExternallyObscured: Bool = false) {
         self.session = session
         self.openGames = openGames; self.managesLifecycle = managesLifecycle
+        self.isExternallyObscured = isExternallyObscured
     }
     private var worldIsObscured: Bool {
         #if DEBUG
-        showResearch || showCatalog || showJourney || showDeveloperTools
+        isExternallyObscured || showResearch || showCatalog || showJourney || showDeveloperTools
         #else
-        showResearch || showCatalog || showJourney
+        isExternallyObscured || showResearch || showCatalog || showJourney
         #endif
     }
     var body: some View {
@@ -138,14 +139,16 @@ struct SettlementView: View {
             }
         }
         .onChange(of: session.completionSequence) { _, _ in
-            guard phase == .active else { return }
-            let destinations = Set(session.latestCompletions.map(\.destination))
-            pendingCompletionCues.formUnion(destinations)
+            let events = session.consumeCompletionDelivery()
+            guard phase == .active, !events.isEmpty else { return }
+            let destinations = Set(events.map(\.destination))
+            completionCues.enqueue(destinations)
             let announcement = [destinations.contains(.research) ? "Research complete." : nil,
                                 destinations.contains(.goals) ? "Goals updated." : nil].compactMap { $0 }.joined(separator: " ")
             UIAccessibility.post(notification: .announcement, argument: announcement)
             presentCompletionCues()
         }
+        .onChange(of: isExternallyObscured) { _, obscured in if !obscured { presentCompletionCues() } }
         .onChange(of: reduceMotion) { _, enabled in if enabled { clearCompletionPulses() } }
         .onDisappear { clearCompletionPulses() }
         .onChange(of: hasContextPanel) { _, active in if active && session.configuration.isRiverbendPlayer { goals.isExpanded = false } }
@@ -329,16 +332,17 @@ struct SettlementView: View {
             }.buttonStyle(.plain).accessibilityIdentifier("toggleGoals")
                 .accessibilityLabel("Goals, \(session.journeyChapters.filter(\.isComplete).count)/7 chapters, \(session.nextGuidance.title)")
                 .accessibilityValue(goals.state.rawValue + (session.unreadCompletions(for: .goals).isEmpty ? "" : ", " + completionAccessibilityValue(.goals)))
-        }.stoneSurface().overlay { completionDecoration(.goals) }
+                .overlay { completionDecoration(.goals) }
+        }.stoneSurface()
     }
     private func completionAccessibilityValue(_ destination: CompletionDestination) -> String {
         let count = session.unreadCompletions(for: destination).count
         guard count > 0 else { return "" }
-        return (pulsingCompletionCues.contains(destination) ? "New completion, " : "") + "\(count) unread completed results"
+        return (completionCues.pulsing.contains(destination) ? "New completion, " : "") + "\(count) unread completed results"
     }
     private func completionDecoration(_ destination: CompletionDestination) -> some View {
         let unread = !session.unreadCompletions(for: destination).isEmpty
-        let pulsing = pulsingCompletionCues.contains(destination)
+        let pulsing = completionCues.pulsing.contains(destination)
         return ZStack(alignment: .topTrailing) {
             RoundedRectangle(cornerRadius: 12).stroke(StonePalette.accent, lineWidth: 2)
                 .opacity(pulsing ? completionPulseOpacity : 0)
@@ -351,21 +355,18 @@ struct SettlementView: View {
     }
     private func clearCompletionPulses() {
         completionPulseTask?.cancel(); completionPulseTask = nil
-        pendingCompletionCues = []; pulsingCompletionCues = []; completionPulseOpacity = 0
+        completionCues.clear(); completionPulseOpacity = 0
     }
     private func presentCompletionCues() {
-        guard !worldIsObscured, phase == .active, !pendingCompletionCues.isEmpty else { return }
-        let destinations = pendingCompletionCues.filter { !session.unreadCompletions(for: $0).isEmpty }
-        pendingCompletionCues = []
-        guard !reduceMotion, !destinations.isEmpty else { return }
-        completionPulseTask?.cancel()
-        pulsingCompletionCues.formUnion(destinations); completionPulseOpacity = 1
+        let destinations: Set<CompletionDestination> = Set([CompletionDestination.research, .goals].filter { !session.unreadCompletions(for: $0).isEmpty })
+        guard completionCues.begin(visible: !worldIsObscured, active: phase == .active, reduceMotion: reduceMotion, unread: destinations) else { return }
+        completionPulseTask?.cancel(); completionPulseOpacity = 1
         completionPulseTask = Task { @MainActor in
             do {
                 try await Task.sleep(for: .milliseconds(50))
                 withAnimation(.easeOut(duration: 0.75)) { completionPulseOpacity = 0 }
                 try await Task.sleep(for: .milliseconds(750))
-                pulsingCompletionCues = []
+                completionCues.finish()
             } catch { }
         }
     }
@@ -1029,7 +1030,7 @@ struct ViewedCompletion: ViewModifier {
             .onScrollVisibilityChange(threshold: 0.7) { value in visible = value; acknowledge() }
             .onChange(of: earned) { _, _ in acknowledge() }
             .onChange(of: active) { _, _ in acknowledge() }
-            .onChange(of: session.state.completionInbox?.unread) { _, _ in acknowledge() }
+            .onChange(of: session.unreadCompletionIDs) { _, _ in acknowledge() }
             .onDisappear { visible = false }
     }
     private func acknowledge() {

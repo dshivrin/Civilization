@@ -134,16 +134,27 @@ public final class GameSession {
     @ObservationIgnored private var lastSaved = Date.distantPast
     public private(set) var completionSequence = 0
     public private(set) var latestCompletions: [EarnedCompletion] = []
+    public private(set) var unreadCompletionIDs: Set<String> = []
     public func unreadCompletions(for destination: CompletionDestination) -> Set<String> {
-        Set(engine.earnedCompletions.filter { $0.destination == destination && (state.completionInbox?.unread.contains($0.id) ?? false) }.map(\.id))
+        #if DEBUG
+        guard !isDeveloperMode else { return [] }
+        #endif
+        return unreadCompletionIDs.filter { id in
+            destination == .research ? id.hasPrefix("research:") :
+                ["objective:", "chapter:", "pillar:"].contains { id.hasPrefix($0) }
+        }
+    }
+    /// SwiftUI may coalesce multiple successful transactions into one render.
+    public func consumeCompletionDelivery() -> [EarnedCompletion] {
+        let result = latestCompletions; latestCompletions = []; return result
     }
     public func acknowledgeCompletions(_ ids: Set<String>) {
-        guard savesEnabled, !(state.completionInbox?.unread.intersection(ids).isEmpty ?? true) else { return }
+        guard savesEnabled, !unreadCompletionIDs.intersection(ids).isEmpty else { return }
         #if DEBUG
         guard !isDeveloperMode else { return }
         #endif
         let before = engine
-        engine.acknowledgeCompletions(ids)
+        engine.acknowledgeCompletions(ids.intersection(unreadCompletionIDs))
         do { try writeCurrentState(); lastSaved = clock(); persistenceWarning = nil }
         catch { engine = before; persistenceWarning = "Results could not be marked read: " + error.localizedDescription }
     }
@@ -338,6 +349,7 @@ public final class GameSession {
         var url: URL
         var message: String
         var warning: String?
+        var durableUnread: Set<String>
     }
     /// Read and simulate off the UI thread. Invalid save bytes remain untouched.
     nonisolated private static func restore(now: Date, saveURL: URL?, configuration providedConfiguration: GameConfiguration?, requireExistingSave: Bool = false) throws -> Restoration {
@@ -349,9 +361,12 @@ public final class GameSession {
             ? "Welcome to Riverbend. Open Goals for your current objective."
             : "Welcome to Riverbend. Build your first gathering shelter."
         var warning: String?
+        var durableUnread: Set<String> = []
         do {
             if let saved = try SaveStore(url: url).loadNormal(configuration: configuration) {
                 engine = try GameEngine(state: saved, configuration: configuration)
+                durableUnread = saved.completionInbox?.unread ?? []
+                engine.prepareCompletionInbox()
                 if !configuration.isRiverbendPlayer { engine.advance(to: now, offline: true) }
                 message = configuration.isRiverbendPlayer
                     ? "Welcome back. Open Goals to continue your Stone Age journey. Time resumes while you play."
@@ -362,7 +377,7 @@ public final class GameSession {
         } catch {
             warning = "Your existing save could not be loaded and has been preserved. This temporary settlement will not overwrite it. \(error.localizedDescription)"
         }
-        return Restoration(engine: engine, url: url, message: message, warning: warning)
+        return Restoration(engine: engine, url: url, message: message, warning: warning, durableUnread: durableUnread)
     }
     public convenience init(clock: @escaping () -> Date = Date.init, saveURL: URL? = nil, configuration: GameConfiguration? = nil) throws {
         self.init(restoration: try Self.restore(now: clock(), saveURL: saveURL, configuration: configuration), clock: clock)
@@ -378,10 +393,11 @@ public final class GameSession {
         mapIdentity = restoration.engine.state.mapID
         engine.prepareCompletionInbox()
         deliveredCompletionIDs = engine.state.completionInbox?.seen ?? []
+        unreadCompletionIDs = restoration.durableUnread
         message = restoration.message
         persistenceWarning = restoration.warning
         savesEnabled = restoration.warning == nil
-        if savesEnabled && saveAfterRestoration { save() }
+        if savesEnabled && saveAfterRestoration { save(announcingCompletions: false) }
     }
     public static func load(clock: @escaping () -> Date = Date.init, saveURL: URL? = nil, configuration: GameConfiguration? = nil, requireExistingSave: Bool = false, saveAfterRestoration: Bool = true) async throws -> GameSession {
         let now = clock()
@@ -404,7 +420,7 @@ public final class GameSession {
     }
     public func setActive(_ active: Bool) {
         guard active != isActive else { return }
-        if active { resume() } else { background() }
+        if active { resume() } else { background(); latestCompletions = [] }
         isActive = active
     }
     public func resume() {
@@ -430,11 +446,16 @@ public final class GameSession {
         }
         #endif
         try store.save(engine.state)
+        unreadCompletionIDs = state.completionInbox?.unread ?? []
         let fresh = engine.earnedCompletions.filter {
             (state.completionInbox?.unread.contains($0.id) ?? false) && !deliveredCompletionIDs.contains($0.id)
         }
         deliveredCompletionIDs.formUnion(state.completionInbox?.seen ?? [])
-        if announcingCompletions && !fresh.isEmpty { latestCompletions = fresh; completionSequence += 1 }
+        if announcingCompletions && !fresh.isEmpty {
+            var pending = Dictionary(uniqueKeysWithValues: latestCompletions.map { ($0.id, $0) })
+            for event in fresh { pending[event.id] = event }
+            latestCompletions = pending.values.sorted { $0.id < $1.id }; completionSequence += 1
+        }
     }
     public func save() { save(announcingCompletions: true) }
     private func save(announcingCompletions: Bool) {

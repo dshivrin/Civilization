@@ -92,13 +92,16 @@ struct ResearchView: View {
                         if session.state.stoneAgeCompleted == true && !session.fullStoneAgeRequirementsMet { Text("Previously earned readiness is preserved. The expanded checklist below remains available.") }
                         ForEach(session.stoneAgeRequirements) { requirement in
                             Label(requirement.title + " · " + requirement.progress, systemImage: requirement.isComplete ? "checkmark.circle.fill" : "circle")
+                                .modifier(ViewedCompletion(session: session, ids: ["objective:7:" + requirement.id], earned: requirement.isComplete, active: showReadiness && phase == .active))
                         }
                         if !session.missingDiscoveryResourceNames.isEmpty { Text("Find territories containing: " + session.missingDiscoveryResourceNames.map { Resource(rawValue: $0)?.title ?? $0 }.joined(separator: ", ")) }
                     }
                     ForEach(session.pillarGoals) { goal in
                         Section(goal.pillar.title) {
-                            Label(goal.title, systemImage: session.isPillarGoalComplete(goal.id) ? "checkmark.seal.fill" : "circle")
-                            Text(session.pillarGoalProgress(id: goal.id)).font(.subheadline)
+                            VStack(alignment: .leading, spacing: 4) {
+                                Label(goal.title, systemImage: session.isPillarGoalComplete(goal.id) ? "checkmark.seal.fill" : "circle")
+                                Text(session.pillarGoalProgress(id: goal.id)).font(.subheadline)
+                            }.modifier(ViewedCompletion(session: session, ids: ["pillar:" + goal.id], earned: session.isPillarGoalComplete(goal.id), active: showReadiness && phase == .active))
                         }
                     }
                 }.navigationTitle("Stone Age readiness")

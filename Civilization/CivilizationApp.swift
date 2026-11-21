@@ -9,6 +9,7 @@ struct CivilizationApp: App {
     @State private var benchmarkSession: GameSession?
     @State private var startupError: String?
     @State private var showGames = false
+    @State private var gamesCoveringHUD = false
     @State private var sceneIsActive = false
     @State private var libraryRoot: URL?
     @State private var recoveryGames: [SavedGame] = []
@@ -19,7 +20,7 @@ struct CivilizationApp: App {
         WindowGroup {
             Group {
                 if let library {
-                    SettlementView(session: library.session, openGames: { showGames = true }, managesLifecycle: false)
+                    SettlementView(session: library.session, openGames: { gamesCoveringHUD = true; showGames = true }, managesLifecycle: false, isExternallyObscured: gamesCoveringHUD)
                         .id(library.activeGameID + ":" + library.session.mapIdentity)
                 } else if let benchmarkSession { SettlementView(session: benchmarkSession) }
                 else if isRestoring { SettlementLoadingView(stage: "Restoring settlement…", reviewPresentation: true) }
@@ -48,7 +49,7 @@ struct CivilizationApp: App {
                 }
                 else { SettlementLoadingView(stage: "Preparing menu…", reviewPresentation: true, context: .brand) }
             }
-            .sheet(isPresented: $showGames) {
+            .sheet(isPresented: $showGames, onDismiss: { gamesCoveringHUD = false }) {
                 if let library { SavedGamesView(library: library) }
             }
             .onChange(of: phase, initial: true) { _, phase in
