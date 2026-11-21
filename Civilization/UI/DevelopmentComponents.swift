@@ -25,7 +25,7 @@ struct DevelopmentCardStyle: ViewModifier {
     let color: Color
     func body(content: Content) -> some View {
         content.padding(10).frame(maxWidth: .infinity, alignment: .leading)
-            .background(LinearGradient(colors: [Color(red: 0.19, green: 0.235, blue: 0.18), Color(red: 0.135, green: 0.185, blue: 0.145)], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 16))
+            .background(LinearGradient(colors: [StonePalette.raised, StonePalette.recessed], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 16))
             .overlay(RoundedRectangle(cornerRadius: 16).stroke(color.opacity(0.3), lineWidth: 1))
     }
 }
@@ -112,4 +112,24 @@ struct DevelopmentCosts: View {
                 .accessibilityIdentifier("cost-" + id + "-" + resource.rawValue)
         }
     }
+}
+
+/// Stone Age material tokens. Icon meanings and navigation are independent of era styling.
+enum StonePalette {
+    static let accent = Color(red: 0.94, green: 0.78, blue: 0.48)
+    static let raised = Color(red: 0.235, green: 0.25, blue: 0.24)
+    static let recessed = Color(red: 0.12, green: 0.135, blue: 0.13)
+}
+struct StoneSurface: ViewModifier {
+    func body(content: Content) -> some View {
+        content.background {
+            RoundedRectangle(cornerRadius: 12)
+                .fill(LinearGradient(colors: [StonePalette.raised, panelColor, StonePalette.recessed], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(.white.opacity(0.16), lineWidth: 1))
+                .overlay(RoundedRectangle(cornerRadius: 10).inset(by: 3).strokeBorder(.black.opacity(0.22), lineWidth: 1))
+        }
+    }
+}
+extension View {
+    func stoneSurface() -> some View { modifier(StoneSurface()) }
 }

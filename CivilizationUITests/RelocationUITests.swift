@@ -2687,6 +2687,119 @@ final class RelocationUITests: XCTestCase {
 
 /// Compiles in both Debug and Release; exercises ordinary entry without fixture hooks.
 final class NormalEntryUITests: XCTestCase {
+    @MainActor func testStoneAgeHUDHierarchyAndOrdinaryRoutes() throws { try verifyStoneAgeHUD(largeText: false) }
+    @MainActor func testStoneAgeHUDLargerTextAndOrdinaryRoutes() throws { try verifyStoneAgeHUD(largeText: true) }
+    @MainActor private func verifyStoneAgeHUD(largeText: Bool) throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        if largeText { app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryXXXL"] }
+        app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertTrue(app.buttons["settlementMenu"].waitForExistence(timeout: 5))
+        for id in ["toggleGoals", "openExplore", "openResearch", "openBuild", "settlementMenu"] {
+            let button = app.buttons[id]
+            XCTAssertTrue(button.isHittable, id)
+            XCTAssertFalse(button.label.isEmpty, id)
+            XCTAssertTrue(app.frame.contains(button.frame), id)
+            XCTAssertGreaterThanOrEqual(button.frame.width, 44, id); XCTAssertGreaterThanOrEqual(button.frame.height, 44, id)
+        }
+        let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); shot.name = "stone-hud-01-ordinary-new-game"; shot.lifetime = .keepAlways; add(shot)
+        app.buttons["toggleGoals"].tap()
+        XCTAssertTrue(app.buttons["nextStepAction"].waitForExistence(timeout: 5)); app.buttons["nextStepAction"].tap()
+        XCTAssertTrue(app.buttons["upgradeBuilding"].waitForExistence(timeout: 5)); app.buttons["upgradeBuilding"].tap()
+        app.buttons["closeBuildingInspection"].tap()
+        app.buttons["toggleGoals"].tap(); app.buttons["nextStepAction"].tap()
+        XCTAssertTrue(app.buttons["build-hut"].waitForExistence(timeout: 5)); app.buttons["build-hut"].tap()
+        XCTAssertTrue(app.buttons["confirmPlacement"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["cancelPlacement"].isHittable)
+        XCTAssertTrue(app.buttons["toggleGoals"].isHittable)
+        let map = app.otherElements["settlementMap"]
+        let start = map.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.35))
+        start.press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx: 0.4, dy: 0.35)))
+        map.pinch(withScale: 1.05, velocity: 0.5)
+        XCTAssertTrue(app.buttons["cancelPlacement"].isHittable)
+        let placement = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); placement.name = "stone-hud-02-placement"; placement.lifetime = .keepAlways; add(placement)
+        app.buttons["cancelPlacement"].tap()
+        app.buttons["openBuild"].tap(); app.buttons["build-hut"].tap(); app.buttons["confirmPlacement"].tap()
+        app.buttons["openExplore"].tap()
+        XCTAssertTrue(app.buttons["riverbendRecoverFood"].waitForExistence(timeout: 5))
+        app.buttons["Close panel"].tap()
+        app.buttons["settlementMenu"].tap()
+        XCTAssertTrue(app.buttons["Center on settlement"].waitForExistence(timeout: 5)); app.buttons["Center on settlement"].tap()
+        app.terminate(); app.launch(); XCTAssertTrue(app.buttons["continueGame"].waitForExistence(timeout: 30)); app.buttons["continueGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertTrue((app.otherElements["settlementMap"].value as? String ?? "").contains("2 buildings"))
+        XCTAssertTrue(app.buttons["toggleGoals"].isHittable)
+        let resumed = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); resumed.name = "stone-hud-03-ordinary-continue"; resumed.lifetime = .keepAlways; add(resumed)
+        app.buttons["settlementMenu"].tap(); app.buttons["inspectBuilding-1"].tap()
+        let move = app.buttons["moveBuilding"]
+        XCTAssertTrue(move.waitForExistence(timeout: 5))
+        for _ in 0..<12 where !move.isHittable { app.scrollViews["buildingInspection"].swipeUp() }
+        XCTAssertTrue(move.isHittable); move.tap()
+        XCTAssertTrue(app.buttons["cancelRelocation"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["toggleGoals"].isHittable)
+        XCTAssertTrue(app.buttons["confirmPlacement"].isHittable)
+        let relocating = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); relocating.name = "stone-hud-06-relocation"; relocating.lifetime = .keepAlways; add(relocating)
+        app.buttons["cancelRelocation"].tap()
+        XCTAssertTrue((map.value as? String ?? "").contains("2 buildings"))
+    }
+
+    @MainActor func testStoneAgeExploreResearchAndReturn() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
+        XCTAssertTrue(app.buttons["openExplore"].waitForExistence(timeout: 30)); app.buttons["openExplore"].tap()
+        let link = app.buttons["explorationResearch"]
+        XCTAssertTrue(link.waitForExistence(timeout: 5))
+        let panel = app.scrollViews["riverbendExploreContent"]
+        for _ in 0..<8 where !link.isHittable { panel.swipeUp() }
+        XCTAssertTrue(link.isHittable); link.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["focusedResearch-exploration"].waitForExistence(timeout: 5))
+        let research = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); research.name = "stone-hud-04-exact-expedition-research"; research.lifetime = .keepAlways; add(research)
+        app.buttons["returnToSource"].tap()
+        XCTAssertTrue(panel.waitForExistence(timeout: 5)); XCTAssertTrue(link.isHittable)
+        let returned = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); returned.name = "stone-hud-05-explore-return"; returned.lifetime = .keepAlways; add(returned)
+    }
+
+    @MainActor func testStoneAgeMapFeedback() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertTrue(app.staticTexts["settlementMessage"].exists)
+    }
+
+    @MainActor func testStoneAgeGoalsStayAvailableDuringContext() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
+        XCTAssertTrue(app.buttons["openExplore"].waitForExistence(timeout: 30)); app.buttons["openExplore"].tap()
+        XCTAssertTrue(app.buttons["toggleGoals"].isHittable)
+        app.buttons["toggleGoals"].tap()
+        XCTAssertTrue(app.buttons["nextStepAction"].waitForExistence(timeout: 5))
+        app.buttons["nextStepAction"].tap()
+        XCTAssertTrue(app.buttons["upgradeBuilding"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["toggleGoals"].isHittable)
+        app.buttons["toggleGoals"].tap(); XCTAssertTrue(app.buttons["nextStepAction"].isHittable)
+        app.buttons["toggleGoals"].tap()
+        app.buttons["openBuild"].tap(); app.buttons["buildingCategory-Roads"].tap(); app.buttons["roadCatalog-trodden"].tap()
+        XCTAssertTrue(app.buttons["toggleGoals"].isHittable)
+        app.buttons["toggleGoals"].tap(); XCTAssertTrue(app.buttons["nextStepAction"].waitForExistence(timeout: 5))
+    }
+
+    @MainActor func testStoneAgeHomeScreenIcon() throws {
+        continueAfterFailure = false
+        let app = XCUIApplication(); app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30))
+        XCUIDevice.shared.press(.home)
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        XCTAssertTrue(springboard.icons["Riverbend"].firstMatch.waitForExistence(timeout: 10))
+        let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); shot.name = "stone-hud-home-screen-icon"; shot.lifetime = .keepAlways; add(shot)
+        springboard.icons["Riverbend"].firstMatch.tap()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 15))
+    }
+
     @MainActor func testPlayerCatalogContextualActionsAndReturn() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
@@ -2755,7 +2868,7 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertTrue(app.buttons["riverbendRecoverFood"].waitForExistence(timeout: 5))
         let resumed = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); resumed.name = "riverbend-ordinary-continue"; resumed.lifetime = .keepAlways; add(resumed)
         app.buttons["Close panel"].tap()
-        app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        app.buttons["settlementMenu"].tap()
         let hut = app.descendants(matching: .any).matching(identifier: "inspectBuilding-1").firstMatch
         XCTAssertTrue(hut.waitForExistence(timeout: 5)); hut.tap()
         let connected = app.buttons["connectBuildingPaths"]
@@ -2763,7 +2876,7 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertTrue(app.buttons["confirmRoadStroke"].waitForExistence(timeout: 5)); app.buttons["confirmRoadStroke"].tap()
         app.buttons["closeRoads"].tap()
         map.swipeLeft(); map.swipeRight(); map.pinch(withScale: 1.1, velocity: 1)
-        app.buttons["Center on settlement"].tap()
+        app.buttons["settlementMenu"].tap(); app.buttons["Center on settlement"].tap()
         app.buttons["openExplore"].tap()
         let coverage = app.staticTexts["explorationCoverage"].label
         let survey = app.buttons["startExploration"]
@@ -2805,14 +2918,14 @@ final class NormalEntryUITests: XCTestCase {
         resume.tap()
         XCTAssertTrue(map.waitForExistence(timeout: 30))
         XCTAssertTrue((map.value as? String ?? "").contains("64×48 tiles · 2 buildings · 1 road tiles"))
-        app.buttons["openGames"].tap()
+        app.buttons["settlementMenu"].tap(); app.buttons["openGames"].tap()
         let selected = app.staticTexts["activeGameName"].label
         app.buttons["Done"].tap()
         app.terminate(); app.launch()
         XCTAssertTrue(newGame.waitForExistence(timeout: 30)); newGame.tap()
         XCTAssertTrue(map.waitForExistence(timeout: 30))
         XCTAssertTrue((map.value as? String ?? "").contains("64×48 tiles · 1 buildings · 0 road tiles"))
-        app.buttons["openGames"].tap()
+        app.buttons["settlementMenu"].tap(); app.buttons["openGames"].tap()
         XCTAssertNotEqual(app.staticTexts["activeGameName"].label, selected)
         XCTAssertTrue(app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "resumeGame-")).count >= 1)
     }
@@ -2928,7 +3041,7 @@ final class RiverbendEarnedUITests: XCTestCase {
             let map = app.otherElements["settlementMap"]
             let built = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value CONTAINS %@", "\(6 + index) buildings"), object: map)
             XCTAssertEqual(XCTWaiter.wait(for: [built], timeout: 5), .completed)
-            app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            app.buttons["settlementMenu"].tap()
             let item = app.descendants(matching: .any).matching(identifier: "inspectBuilding-\(5 + index)").firstMatch
             XCTAssertTrue(item.waitForExistence(timeout: 5)); item.tap()
             let operating = app.staticTexts["buildingOperatingStatus"]

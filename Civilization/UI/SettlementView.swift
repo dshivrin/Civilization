@@ -3,7 +3,7 @@ import SwiftUI
 import GameCore
 
 let parchment = Color(red: 0.94, green: 0.89, blue: 0.76)
-let panelColor = Color(red: 0.105, green: 0.155, blue: 0.125)
+let panelColor = Color(red: 0.16, green: 0.17, blue: 0.165)
 
 struct SettlementView: View {
     @Environment(\.scenePhase) private var phase
@@ -46,11 +46,13 @@ struct SettlementView: View {
     var body: some View {
         GeometryReader { geometry in
             let compact = geometry.size.height < 500
-            let playerPhone = session.configuration.isRiverbendPlayer && geometry.size.width < 1000
             ZStack {
                 if let scene {
                     WorldView(scene: scene, session: session, onReady: { worldReady = true }, isObscured: worldIsObscured, onMapFind: { session.inspectedBuilding = nil; panel = .explore }).ignoresSafeArea()
                 }
+                if session.configuration.isRiverbendPlayer {
+                    playerHUD(size: geometry.size)
+                } else {
                 VStack(spacing: compact ? 8 : 14) {
                     resourceBar(compact: compact)
                     HStack(alignment: .top, spacing: 14) {
@@ -92,7 +94,7 @@ struct SettlementView: View {
                                 Text(warning).font(.caption).foregroundStyle(.yellow).padding(10).background(panelColor, in: RoundedRectangle(cornerRadius: 12))
                             }
                             goalsPanel(compact: compact)
-                            if !session.isDragMode && !(playerPhone && hasContextPanel) {
+                            if !session.isDragMode {
                             Text(session.message).font(.system(size: 12)).lineLimit(2).foregroundStyle(parchment.opacity(0.85))
                                 .padding(9).background(panelColor.opacity(0.94), in: RoundedRectangle(cornerRadius: 10))
                                 .accessibilityIdentifier("settlementMessage")
@@ -108,7 +110,7 @@ struct SettlementView: View {
                                         .frame(maxWidth: .infinity, minHeight: 44)
                                 }.background(panelColor.opacity(0.95), in: RoundedRectangle(cornerRadius: 12)).accessibilityIdentifier("openResearch")
                             }
-                            if !playerPhone { contextualPanel }
+                            contextualPanel
                         }
                         .frame(width: compact ? 250 : min(340, geometry.size.width * 0.3))
                     }
@@ -117,23 +119,13 @@ struct SettlementView: View {
                 .padding(.horizontal, compact ? 12 : 22)
                 .padding(.vertical, compact ? 8 : 18)
                 .accessibilityHidden(!worldReady)
-            }
-            .overlay(alignment: .bottomTrailing) {
-                if playerPhone && hasContextPanel && worldReady {
-                    VStack(spacing: 4) {
-                        contextualPanel.frame(maxWidth: .infinity, maxHeight: .infinity)
-                        Text(session.message).font(.caption).lineLimit(2).frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(6).background(panelColor.opacity(0.97), in: RoundedRectangle(cornerRadius: 8))
-                    }
-                    .frame(width: max(260, geometry.size.width - 104), height: min(240, geometry.size.height * 0.58))
-                    .padding(.trailing, 12).padding(.bottom, 8).accessibilityElement(children: .contain).accessibilityIdentifier("playerWorldInspector")
                 }
             }
             .overlay {
                 if let scene { CandidateControls(session: session, scene: scene).ignoresSafeArea() }
             }
             .foregroundStyle(parchment)
-            .tint(Color(red: 0.91, green: 0.73, blue: 0.39))
+            .tint(StonePalette.accent)
             .overlay {
                 if !worldReady { SettlementLoadingView(stage: "Preparing the valley…", reviewPresentation: session.configuration.isRiverbendPlayer).ignoresSafeArea() }
             }
@@ -188,6 +180,132 @@ struct SettlementView: View {
                 if phase == .active { session.tick() }
             }
         }
+    }
+    /// Ordinary campaign presentation. Navigation owns no gameplay or save state.
+    private func playerHUD(size: CGSize) -> some View {
+        let phone = size.width < 1000
+        let editing = session.isDragMode || session.roadTool != nil
+        return VStack(spacing: 8) {
+            HStack(alignment: .top, spacing: 10) {
+                resourceBar(compact: phone).frame(maxWidth: phone ? 470 : 650).stoneSurface()
+                Spacer(minLength: 0)
+                playerSettlementMenu
+            }
+            Spacer(minLength: 0)
+            HStack(alignment: .bottom, spacing: 12) {
+                if hasContextPanel {
+                    Button {
+                        session.cancel(); session.inspectedBuilding = nil; panel = nil; goals.isExpanded = true
+                    } label: {
+                        Label("Goals", systemImage: "flag.checkered").font(.caption.weight(.semibold))
+                            .padding(.horizontal, 12).frame(minHeight: 44)
+                    }.buttonStyle(.plain).stoneSurface().accessibilityIdentifier("toggleGoals")
+                        .accessibilityLabel("Goals, " + session.nextGuidance.title)
+                } else {
+                    playerGoals(compact: phone).frame(width: phone ? 280 : 330)
+                }
+                Spacer(minLength: 0)
+                VStack(alignment: .trailing, spacing: 6) {
+                    if hasContextPanel {
+                        VStack(spacing: 4) {
+                            contextualPanel
+                            Text(session.message).font(.caption).lineLimit(2).frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, 10).padding(.bottom, 6).accessibilityIdentifier("settlementMessage")
+                        }
+                            .frame(width: phone ? min(380, size.width * 0.55) : 340,
+                                   height: phone ? min(190, size.height * 0.49) : min(480, size.height * 0.68))
+                            .stoneSurface()
+                            .accessibilityElement(children: .contain).accessibilityIdentifier("playerWorldInspector")
+                    } else if let building = session.constructionQueue.first {
+                        constructionCard(building, compact: phone).frame(width: phone ? 240 : 300).stoneSurface()
+                    }
+                    if !hasContextPanel {
+                        Text(session.message).font(.caption).lineLimit(2).frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(8).frame(width: phone ? 220 : 300).stoneSurface()
+                            .accessibilityIdentifier("settlementMessage")
+                    }
+                    if !editing { playerActionDock }
+                }
+            }
+            if let warning = session.persistenceWarning {
+                Text(warning).font(.caption).foregroundStyle(.yellow).padding(8).stoneSurface()
+            }
+        }
+        .padding(.horizontal, phone ? 12 : 22).padding(.vertical, phone ? 8 : 18)
+        .accessibilityHidden(!worldReady)
+    }
+    private var playerSettlementMenu: some View {
+        Menu {
+            Button { session.centerRequest += 1 } label: { Label("Center on settlement", systemImage: "scope") }
+            Section("Settlement buildings") {
+                ForEach(session.state.buildings.sorted { $0.id < $1.id }) { building in
+                    Button { goals.isExpanded = false; panel = nil; session.inspect(buildingID: building.id) } label: {
+                        Text("\(session.buildingName(building)) #\(building.id) · \(building.origin.x), \(building.origin.y)")
+                    }.accessibilityIdentifier("inspectBuilding-" + String(building.id))
+                }
+            }
+            if let openGames {
+                Button { session.cancel(); session.inspectedBuilding = nil; openGames() } label: { Label("Games", systemImage: "square.stack") }
+                    .accessibilityIdentifier("openGames")
+            }
+        } label: {
+            HStack(spacing: 8) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Settlement").font(.caption.weight(.semibold))
+                    Text("STONE AGE").font(.caption2).foregroundStyle(StonePalette.accent)
+                }
+                Image(systemName: "ellipsis.circle")
+            }.padding(.horizontal, 12).frame(minHeight: 44)
+        }.buttonStyle(.plain).stoneSurface().accessibilityLabel("Settlement menu")
+            .accessibilityIdentifier("settlementMenu")
+    }
+    private var playerActionDock: some View {
+        HStack(spacing: 2) {
+            Button { session.cancel(); session.inspectedBuilding = nil; panel = nil; goals.isExpanded = false; showCatalog = true } label: {
+                playerDockLabel("Build", symbol: "hammer")
+            }.accessibilityIdentifier("openBuild")
+            Button { session.cancel(); session.inspectedBuilding = nil; goals.isExpanded = false; showResearch = true } label: {
+                playerDockLabel("Research", symbol: "sparkles")
+            }.accessibilityIdentifier("openResearch")
+            Button {
+                let visible = panel == .explore && !hasInspectionOrPlacement
+                session.cancel(); session.inspectedBuilding = nil; goals.isExpanded = false; panel = visible ? nil : .explore
+            } label: { playerDockLabel("Explore", symbol: "map") }
+                .accessibilityIdentifier("openExplore").accessibilityAddTraits(panel == .explore ? .isSelected : [])
+        }.buttonStyle(.plain).padding(4).stoneSurface().accessibilityElement(children: .contain).accessibilityIdentifier("playerActionDock")
+    }
+    private var hasInspectionOrPlacement: Bool { session.currentInspection != nil || session.previewKind != nil || session.roadTool != nil }
+    private func playerDockLabel(_ title: String, symbol: String) -> some View {
+        VStack(spacing: 3) { Image(systemName: symbol).font(.system(size: 18, weight: .semibold)); Text(title).font(.caption2.weight(.semibold)) }
+            .frame(minWidth: 68, minHeight: 44).contentShape(Rectangle())
+    }
+    private func playerGoals(compact: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            if goals.isExpanded {
+                ScrollView { VStack(alignment: .leading, spacing: 4) {
+                    guidanceDetail(compact: false)
+                    Button("All seven chapters", systemImage: "list.bullet") { session.cancel(); showJourney = true }
+                        .frame(minHeight: 44).accessibilityIdentifier("openJourney")
+                }.padding(12) }.frame(maxHeight: compact ? 140 : 220).accessibilityIdentifier("goalProgress")
+                Divider().overlay(StonePalette.accent.opacity(0.35))
+            }
+            Button {
+                session.cancel(); session.inspectedBuilding = nil; panel = nil; goals.isExpanded.toggle()
+            } label: {
+                HStack(spacing: 10) {
+                    Image(systemName: "flag.checkered").foregroundStyle(StonePalette.accent).frame(width: 24)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Goals · \(session.journeyChapters.filter(\.isComplete).count)/7").font(.caption.weight(.semibold)).foregroundStyle(StonePalette.accent)
+                        Text(session.nextGuidance.title).font(.subheadline.weight(.semibold)).lineLimit(2).multilineTextAlignment(.leading)
+                            .accessibilityIdentifier("nextStepSummary")
+                    }
+                    Spacer(minLength: 0)
+                    Image(systemName: goals.isExpanded ? "chevron.down" : "chevron.up").font(.caption)
+                }.padding(.horizontal, 12).padding(.vertical, 8).frame(minHeight: 56).contentShape(Rectangle())
+            }.buttonStyle(.plain).accessibilityIdentifier("toggleGoals")
+                .accessibilityLabel("Goals, \(session.journeyChapters.filter(\.isComplete).count)/7 chapters, \(session.nextGuidance.title)")
+                .accessibilityValue(goals.state.rawValue)
+        }.stoneSurface()
     }
     private var hasContextPanel: Bool { session.roadTool != nil || session.previewKind != nil || session.currentInspection != nil || panel == .explore }
     @ViewBuilder private var contextualPanel: some View {
@@ -361,6 +479,14 @@ struct SettlementView: View {
                 Button("Send expedition") { session.startExploration() }
                     .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
                     .disabled(session.explorationIssue != nil).accessibilityIdentifier("startExploration")
+                if session.configuration.isRiverbendPlayer,
+                   let technology = session.visibleTechnologies.first(where: { $0.id == "exploration" }) {
+                    Button {
+                        civicResearchID = technology.id; researchPillar = technology.pillar
+                        researchReturnLabel = "Return to Explore"; showResearch = true
+                    } label: { Label("Expedition research", systemImage: "sparkles").frame(minHeight: 44) }
+                        .accessibilityIdentifier("explorationResearch")
+                }
             }
             Text("DISCOVERED DEPOSITS").font(.system(size: 10, weight: .bold)).tracking(1).padding(.top, 8)
             if session.discoveredDeposits.isEmpty { Text("No deposits discovered yet.").font(.caption) }

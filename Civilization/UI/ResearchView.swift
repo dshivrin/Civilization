@@ -23,7 +23,7 @@ struct ResearchView: View {
             VStack(spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 3) {
-                        Text("Research").font(.system(.title, design: .serif).bold())
+                        Label("Research", systemImage: "sparkles").font(.system(.title, design: .serif).bold())
                         Text("Stone Age · develop your settlement").font(.caption).foregroundStyle(parchment.opacity(0.7))
                     }
                     Spacer()
@@ -77,7 +77,7 @@ struct ResearchView: View {
                 }
             }.padding(12)
         }
-        .background(panelColor).foregroundStyle(parchment).tint(.yellow)
+        .background(panelColor).foregroundStyle(parchment).tint(StonePalette.accent)
         .onAppear {
             if let id = focusedTechnologyID, let technology = session.visibleTechnologies.first(where: { $0.id == id }) {
                 focus(technology.id)

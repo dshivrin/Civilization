@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+        A09000000000000000000001 = {isa = PBXBuildFile; fileRef = A09000000000000000000002; };
         A08000000000000000000008 = {isa = PBXBuildFile; fileRef = A08100000000000000000008; };
         A08000000000000000000007 = {isa = PBXBuildFile; fileRef = A08100000000000000000007; };
         A08000000000000000000006 = {isa = PBXBuildFile; fileRef = A08100000000000000000006; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+        A09000000000000000000002 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Civilization/Assets.xcassets; sourceTree = SOURCE_ROOT; };
         A08100000000000000000008 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/FoundingReviewView.swift; sourceTree = SOURCE_ROOT; };
         A08100000000000000000007 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/EconomyLabView.swift; sourceTree = SOURCE_ROOT; };
         A08100000000000000000006 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Civilization/UI/VillagerMotionReviewView.swift; sourceTree = SOURCE_ROOT; };
@@ -239,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE973AA859618AED77AA1FB0 /* Civilization/LaunchScreen.storyboard in Resources */,
+                A09000000000000000000001 /* Assets.xcassets in Resources */,
 				F03000000000000000000006 /* Civilization/Art in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,7 +316,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V93YJCFLY7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Riverbend;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                INFOPLIST_KEY_CFBundleDisplayName = Riverbend;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -338,7 +342,8 @@
 				DEVELOPMENT_TEAM = V93YJCFLY7;
 				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Riverbend;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                INFOPLIST_KEY_CFBundleDisplayName = Riverbend;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;

@@ -50,7 +50,7 @@ struct BuildingCatalogView: View {
                     }
                     TextField("Find building", text: $search, prompt: Text("Find building").foregroundStyle(parchment.opacity(0.65)))
                         .foregroundStyle(parchment).padding(10).background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
-                        .frame(maxWidth: 220).accessibilityIdentifier("catalogSearch")
+                        .frame(maxWidth: 220).frame(minHeight: 44).accessibilityLabel("Find building").accessibilityIdentifier("catalogSearch")
                         .focused($searchFocused).submitLabel(.done).onSubmit { searchFocused = false }
                     Button("Done", systemImage: "xmark") { dismiss() }.frame(minWidth: 80, minHeight: 44).buttonStyle(.bordered)
                         .accessibilityIdentifier("closeBuildingCatalog")
@@ -78,7 +78,7 @@ struct BuildingCatalogView: View {
                     }
                 }
             }.padding(12)
-        }.background(panelColor).foregroundStyle(parchment).tint(.yellow)
+        }.background(panelColor).foregroundStyle(parchment).tint(StonePalette.accent)
         .onAppear { if let focusedBuildingKind { focus(focusedBuildingKind) } }
         .sheet(isPresented: Binding(get: { researchTarget != nil }, set: { if !$0 { researchTarget = nil } })) {
             ResearchView(session: session, selectedPillar: $researchPillar, focusedTechnologyID: researchTarget, returnLabel: "Return to " + researchSource)
@@ -236,12 +236,12 @@ private struct PlayerBuildingCatalog: View {
             let pad = geometry.size.width > 1000
             VStack(spacing: 6) {
                 HStack(spacing: 10) {
-                    Text("Buildings").font(.title3.bold())
+                    Label("Buildings", systemImage: "hammer").font(.system(.title3, design: .serif).bold())
                     Spacer(minLength: 4)
                     TextField("Find building", text: $memory.search).focused($searching)
                         .submitLabel(.done).onSubmit { searching = false }
                         .padding(8).background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 8))
-                        .frame(maxWidth: 220).accessibilityIdentifier("catalogSearch")
+                        .frame(maxWidth: 220).frame(minHeight: 44).accessibilityLabel("Find building").accessibilityIdentifier("catalogSearch")
                     Button("Done") { searching = false; dismiss() }.frame(minWidth: 56, minHeight: 44).accessibilityIdentifier("closeCatalog")
                 }
                 ScrollView(.horizontal) {
@@ -264,7 +264,7 @@ private struct PlayerBuildingCatalog: View {
                 }
             }.padding(10)
         }
-        .background(panelColor).foregroundStyle(parchment).tint(.yellow)
+        .background(panelColor).foregroundStyle(parchment).tint(StonePalette.accent)
         .onChange(of: memory.search) { _, _ in if searching { memory.scrollID = matches.first?.kind } }
         .onAppear {
             if !appliedInitialFocus { appliedInitialFocus = true; if let focusedKind { focus(focusedKind) } }
@@ -293,7 +293,7 @@ private struct PlayerBuildingCatalog: View {
                                     Text(session.isUnlocked(item.kind) ? "Select to inspect" : "Research required").font(.caption).lineLimit(2)
                                 }
                                 Spacer(minLength: 0)
-                            }.padding(8).frame(maxWidth: .infinity).frame(height: 92)
+                            }.padding(8).frame(maxWidth: .infinity).frame(minHeight: textSize.isAccessibilitySize ? 128 : 92)
                                 .background(memory.selected == item.kind ? .white.opacity(0.13) : .white.opacity(0.04), in: RoundedRectangle(cornerRadius: 12))
                         }.buttonStyle(.plain).accessibilityIdentifier("selectBuilding-" + item.kind.rawValue).id(item.kind)
                     }
@@ -339,7 +339,7 @@ private struct PlayerBuildingCatalog: View {
                     .disabled(alreadyStored).accessibilityLabel(actionTitle + " · " + definition.name)
                     .accessibilityIdentifier("build-" + memory.selected.rawValue)
             }
-        }.padding(10).background(.white.opacity(0.06), in: RoundedRectangle(cornerRadius: 12))
+        }.padding(10).stoneSurface()
             .accessibilityElement(children: .contain).accessibilityIdentifier("playerCatalogInspector")
     }
     private func act() {
