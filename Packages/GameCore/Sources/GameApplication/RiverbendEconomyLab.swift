@@ -2,6 +2,15 @@
 import Foundation
 import GameCore
 
+public enum RiverbendStorageRole: String, Codable, CaseIterable, Sendable {
+    case granary, stockyard
+    public var cost: ResourceAmounts { self == .granary ? .init(wood: 14, stone: 4) : .init(wood: 18, stone: 6) }
+}
+public struct RiverbendStorage: Codable, Equatable, Sendable {
+    public let buildingID: Int
+    public let role: RiverbendStorageRole
+}
+
 public enum RiverbendMapFindID: String, Codable, CaseIterable, Sendable { case berries, tracks }
 public struct RiverbendMapFind: Codable, Equatable, Sendable, Identifiable {
     public let id: RiverbendMapFindID
@@ -17,6 +26,8 @@ public struct RiverbendEconomyLab {
     public private(set) var surveyRemaining: Double?
     public private(set) var surveyComplete = false
     public private(set) var mapFinds: [RiverbendMapFind] = []
+    public private(set) var stoneSource: Tile?
+    public private(set) var storage: [RiverbendStorage] = []
     private struct Envelope: Codable {
         var profile: String
         var version: Int
@@ -24,6 +35,8 @@ public struct RiverbendEconomyLab {
         var surveyRemaining: Double?
         var surveyComplete: Bool
         var mapFinds: [RiverbendMapFind]?
+        var stoneSource: Tile?
+        var storage: [RiverbendStorage]?
     }
     public init(now: Date) throws {
         let c = try GameConfiguration.riverbendEconomyLab()
@@ -39,18 +52,26 @@ public struct RiverbendEconomyLab {
         let saved = try JSONDecoder().decode(Envelope.self, from: data)
         guard saved.profile == GameConfiguration.riverbendLabID, saved.version == 1 else { throw GameError.invalidSave("Not an Economy Lab v1 save") }
         try self.init(now: saved.state.lastUpdated)
-        let c = engine.configuration
+        storage = saved.storage ?? []; stoneSource = saved.stoneSource
+        let storehouses = saved.state.buildings.filter { $0.kind == .storehouse }
+        guard storage.count <= 2, Set(storage.map(\.role)).count == storage.count,
+              Set(storage.map(\.buildingID)).count == storage.count,
+              Set(storage.map(\.buildingID)) == Set(storehouses.map(\.id)),
+              saved.state.buildings.allSatisfy({ $0.level == 1 }),
+              stoneSource != nil || (storage.isEmpty && !saved.state.buildings.contains { $0.kind == .stoneGatherer } && saved.state.resources.stone == 0)
+        else { throw GameError.invalidSave("Invalid lab storage or Stone metadata") }
+        let c = try configuration(for: saved.state)
         let candidate = try GameEngine(state: saved.state, configuration: c)
         let hut = candidate.state.buildings.contains { $0.kind == .hut && $0.isOperational }
-        let allowed: Set<BuildingKind> = [.campfire, .hut, .gatheringShelter, .woodcutter]
+        let allowed: Set<BuildingKind> = [.campfire, .hut, .gatheringShelter, .woodcutter, .stoneGatherer, .storehouse]
         guard candidate.state.mapID == c.map.id, candidate.state.operatingRules == nil,
               candidate.state.population <= 6,
               candidate.state.buildings.allSatisfy({ allowed.contains($0.kind) }),
-              allowed.allSatisfy({ k in candidate.state.buildings.filter { $0.kind == k }.count <= 1 }),
+              allowed.allSatisfy({ k in candidate.state.buildings.filter { $0.kind == k }.count <= (k == .storehouse ? 2 : 1) }),
               candidate.state.explorationRemainingSeconds == nil,
               candidate.state.explorationRadius == c.explorationRules?.initialRadius,
               candidate.state.researchedTechnologies?.isEmpty == true,
-              Resource.allCases.allSatisfy({ [.food, .wood, .knowledge].contains($0) || candidate.state.resources[$0] == 0 }),
+              Resource.allCases.allSatisfy({ [.food, .wood, .stone, .knowledge].contains($0) || candidate.state.resources[$0] == 0 }),
               candidate.state.resources.knowledge == (saved.surveyComplete ? 6 : 0),
               (!saved.surveyComplete || (hut && saved.surveyRemaining == nil)),
               (saved.surveyRemaining == nil || (hut && !saved.surveyComplete && saved.surveyRemaining!.isFinite && saved.surveyRemaining! > 0 && saved.surveyRemaining! <= 60)),
@@ -60,6 +81,11 @@ public struct RiverbendEconomyLab {
         let expected = c.tiles(within: c.explorationRules!.initialRadius).union(saved.surveyComplete ? region.tiles : [])
         guard candidate.state.discoveredTiles == expected else { throw GameError.invalidSave("Unexpected survey territory") }
         engine = candidate; surveyRemaining = saved.surveyRemaining; surveyComplete = saved.surveyComplete
+        if let source = stoneSource {
+            guard checkpointReached, legalFindSites.contains(source),
+                  candidate.state.buildings.filter({ $0.kind == .stoneGatherer }).allSatisfy({ abs($0.origin.x-source.x) + abs($0.origin.y-source.y) <= 3 })
+            else { throw GameError.invalidSave("Stone source must remain reachable on revealed land") }
+        }
         if let finds = saved.mapFinds {
             let ids = finds.map(\.id)
             guard (finds.isEmpty && candidate.state.buildings.count == 1) ||
@@ -77,7 +103,7 @@ public struct RiverbendEconomyLab {
     }
     public func encoded() throws -> Data {
         try JSONEncoder().encode(Envelope(profile: GameConfiguration.riverbendLabID, version: 1, state: engine.state,
-            surveyRemaining: surveyRemaining, surveyComplete: surveyComplete, mapFinds: mapFinds))
+            surveyRemaining: surveyRemaining, surveyComplete: surveyComplete, mapFinds: mapFinds, stoneSource: stoneSource, storage: storage))
     }
     /// Sites are flood-filled from the civic center over revealed open unoccupied land.
     /// Stable distance/y/x ordering also defines every fallback, without exposing fog.
@@ -133,14 +159,66 @@ public struct RiverbendEconomyLab {
         let candidate = try GameEngine(state: state, configuration: engine.configuration)
         engine = candidate; mapFinds[index].resolved = true
     }
+    /// Derived solely from validated instance roles; a storage shell has no generic bonus.
+    private func configuration(for state: GameState) throws -> GameConfiguration {
+        var c = try GameConfiguration.riverbendEconomyLab()
+        for entry in storage where state.buildings.contains(where: { $0.id == entry.buildingID && $0.kind == .storehouse && $0.isOperational }) {
+            if entry.role == .granary { c.resourceCaps?.food += 60 }
+            else { c.resourceCaps?.wood += 60; c.resourceCaps?.stone += 60 }
+        }
+        return c
+    }
+    public mutating func revealStone() throws {
+        guard checkpointReached, stoneSource == nil else { throw GameError.placement("Finish the Food/Wood route before revealing Stone; reveal once") }
+        var geometryConfiguration = engine.configuration
+        geometryConfiguration.buildings[geometryConfiguration.buildings.firstIndex { $0.kind == .stoneGatherer }!].cost = .init()
+        let geometryEngine = try GameEngine(state: engine.state, configuration: geometryConfiguration)
+        let footprint = engine.configuration.definition(.stoneGatherer).footprint
+        let source = legalFindSites.first { source in
+            legalFindSites.contains { site in
+                abs(site.x-source.x) + abs(site.y-source.y) <= 3 && !footprint.tiles(at: site).contains(source) && geometryEngine.placementIssue(.stoneGatherer, at: site) == nil
+            }
+        }
+        guard let source else { throw GameError.placement("No reachable outcrop face is available; keep access clear") }
+        stoneSource = source
+    }
+    public func storageIssue(_ role: RiverbendStorageRole, at tile: Tile) -> GameError? {
+        guard stoneSource != nil else { return .placement("Reveal Stone after the opening route") }
+        guard !storage.contains(where: { $0.role == role }) else { return .placement("One of each storage specialization in this lab") }
+        if let source = stoneSource, engine.configuration.definition(.storehouse).footprint.tiles(at: tile).contains(source) { return .placement("Keep the outcrop clear") }
+        do {
+            var c = engine.configuration
+            let index = c.buildings.firstIndex { $0.kind == .storehouse }!
+            c.buildings[index].cost = role.cost
+            return try GameEngine(state: engine.state, configuration: c).placementIssue(.storehouse, at: tile)
+        } catch { return .placement(error.localizedDescription) }
+    }
+    public func storageSites(for role: RiverbendStorageRole) -> [Tile] {
+        legalFindSites.filter { storageIssue(role, at: $0) == nil }
+    }
+    public mutating func buildStorage(_ role: RiverbendStorageRole, at tile: Tile) throws {
+        if let issue = storageIssue(role, at: tile) { throw issue }
+        var c = engine.configuration
+        c.buildings[c.buildings.firstIndex { $0.kind == .storehouse }!].cost = role.cost
+        var candidate = try GameEngine(state: engine.state, configuration: c)
+        let id = candidate.state.nextBuildingID
+        try candidate.build(.storehouse, at: tile)
+        storage.append(RiverbendStorage(buildingID: id, role: role))
+        engine = try GameEngine(state: candidate.state, configuration: configuration(for: candidate.state))
+        reconcileFindSites()
+    }
     public var hutComplete: Bool { engine.state.buildings.contains { $0.kind == .hut && $0.isOperational } }
     public var checkpointReached: Bool {
         surveyComplete && engine.state.buildings.contains { $0.kind == .woodcutter && $0.isOperational } && engine.rates.food > 0 && engine.rates.wood > 0
     }
     public func issue(for kind: BuildingKind, at tile: Tile) -> GameError? {
-        guard [.hut, .gatheringShelter, .woodcutter].contains(kind) else { return .placement("Outside this lab") }
+        guard [.hut, .gatheringShelter, .woodcutter, .stoneGatherer].contains(kind) else { return .placement("Outside this lab") }
         guard !engine.state.buildings.contains(where: { $0.kind == kind }) else { return .placement("One of each building in this short lab") }
         if kind == .woodcutter && (!surveyComplete || !region.woodcutterOrigins.contains(tile)) { return .placement("Survey the forest and choose its reachable edge") }
+        if let source = stoneSource, engine.configuration.definition(kind).footprint.tiles(at: tile).contains(source) { return .placement("Keep the outcrop and its access clear") }
+        if kind == .stoneGatherer {
+            guard let source = stoneSource, abs(tile.x-source.x) + abs(tile.y-source.y) <= 3 else { return .placement("Reveal Stone, then choose a reachable site beside the outcrop") }
+        }
         return engine.placementIssue(kind, at: tile)
     }
     public func sites(for kind: BuildingKind) -> [Tile] {
@@ -174,14 +252,22 @@ public struct RiverbendEconomyLab {
     public mutating func advance(by seconds: Double) throws {
         guard seconds.isFinite, (0...3600).contains(seconds) else { throw GameError.placement("Advance between 0 and 3600 seconds") }
         var candidate = self
-        candidate.engine.advance(to: engine.state.lastUpdated.addingTimeInterval(seconds))
+        var remainingTime = seconds
+        repeat {
+            let boundary = candidate.engine.state.buildings.filter { b in candidate.storage.contains { $0.buildingID == b.id } && !b.isOperational }
+                .compactMap(\.constructionRemainingSeconds).filter { $0 > 0 }.min() ?? remainingTime
+            let step = min(remainingTime, boundary)
+            candidate.engine.advance(to: candidate.engine.state.lastUpdated.addingTimeInterval(step))
+            candidate.engine = try GameEngine(state: candidate.engine.state, configuration: candidate.configuration(for: candidate.engine.state))
+            remainingTime -= step
+        } while remainingTime > 1e-9
         if let remaining = surveyRemaining {
             candidate.surveyRemaining = max(0, remaining - seconds)
             if candidate.surveyRemaining == 0 {
                 var state = candidate.engine.state
                 state.discoveredTiles?.formUnion(region.tiles)
                 state.resources.knowledge = 6
-                candidate.engine = try GameEngine(state: state, configuration: engine.configuration)
+                candidate.engine = try GameEngine(state: state, configuration: candidate.engine.configuration)
                 candidate.surveyRemaining = nil; candidate.surveyComplete = true
             }
         }

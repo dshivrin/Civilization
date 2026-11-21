@@ -165,3 +165,23 @@ to the documented Debug UI command for construction-wait inspection, dismissal,
 unresolved reopen, Gather/Observe, completion and resolved app relaunch. Keep
 `testEconomyLabGestureRouteAndReload` as the separate ignore-both gesture route.
 Run both on a phone and iPad; ordinary Release entry remains an independent check.
+
+## Riverbend Stone and Storage (Goal 3, Debug lab only)
+
+After the original Food/Wood checkpoint, **Reveal nearby Stone outcrop** is free.
+The revealed-land outcrop is a deterministic Lab fixture with no depletion in
+this slice. Existing Stone gatherer costs10Wood, supplies5Stone/min at full
+staffing, and stays beside its reachable source. Growth to population5 supplies
+the third full field slot; earlier production exposes workforce limitation.
+
+One existing storage family offers one Granary (14Wood+4Stone; +60Food only) and
+one Stockyard (18Wood+6Stone; +60Wood/+60Stone, never Food). Base cache remains
+Food60/Wood60/Stone40. Capacity starts at completion; stock/cap/contribution are
+shown explicitly. No upgrade/removal/disconnection or craft chain is exposed.
+Future unlocked craft materials start24 with Stockyard +24; Goal3 unlocks none.
+
+Add `--only-testing CivilizationUITests/RelocationUITests/testStoneStorageRevealCollectSpendAndReload`
+to the existing phone+iPad Debug matrix. Retain both Goal1/Goal2 cases above and
+ordinary Release entry. Full core now includes15Debug-present/Release-absent
+probes, including storage specialization. Same separate v1 envelope/atomic store;
+old Lab envelopes remain readable, ordinary library/save schemas stay unchanged.

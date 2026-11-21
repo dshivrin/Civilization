@@ -210,6 +210,15 @@ private func buildLab(_ kind: BuildingKind, _ lab: inout RiverbendEconomyLab) th
         try buildLab(.woodcutter, &lab); try buildLab(.gatheringShelter, &lab)
     }
     #expect(store.lab.checkpointReached)
+    try store.perform { lab in
+        try lab.advance(by: 600); try lab.revealStone()
+        try lab.build(.stoneGatherer, at: #require(lab.sites(for: .stoneGatherer).first))
+        try lab.advance(by: 600)
+        try lab.buildStorage(.granary, at: #require(lab.storageSites(for: .granary).first))
+        try lab.advance(by: 120)
+        try lab.buildStorage(.stockyard, at: #require(lab.storageSites(for: .stockyard).first))
+        try lab.advance(by: 120)
+    }
     for find in store.lab.availableFinds {
         try store.perform { try $0.resolveFind(find.id, at: #require(find.tile)) }
     }

@@ -12,6 +12,7 @@ struct EconomyLabView: View {
     @State private var error = ""
     @State private var paused = false
     @State private var kind: BuildingKind?
+    @State private var storageRole: RiverbendStorageRole?
     @State private var tile: Tile?
     @State private var selectedFind: RiverbendMapFindID?
     var body: some View {
@@ -43,32 +44,37 @@ struct EconomyLabView: View {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 9) {
                             Text(guide(lab)).font(.subheadline.bold()).accessibilityIdentifier("economyLabGuide")
+                            if !lab.checkpointReached {
                             ForEach([BuildingKind.hut, .gatheringShelter, .woodcutter], id: \.self) { value in
                                 let definition = lab.engine.configuration.definition(value)
                                 Button("\(definition.name) · \(Int(definition.cost.wood)) Wood · \(Int(definition.constructionSeconds ?? 0))s") {
-                                    selectedFind = nil; kind = value; tile = lab.sites(for: value).first
+                                    selectedFind = nil; storageRole = nil; kind = value; tile = lab.sites(for: value).first
                                     error = tile == nil ? "No affordable legal site. Use recovery if needed; complete the survey for Woodcutter." : ""
                                     refresh(); focusSelection()
                                 }.disabled(lab.engine.state.buildings.contains { $0.kind == value })
                                     .accessibilityIdentifier("labBuild-" + value.rawValue)
                             }
+                            }
                             if let kind {
-                                Text("\(lab.engine.configuration.definition(kind).name) at \(tile.map { "\($0.x),\($0.y)" } ?? "no site") · tap map or drag preview")
+                                Text("\(kind == .storehouse ? (storageRole == .granary ? "Granary" : "Stockyard") : lab.engine.configuration.definition(kind).name) at \(tile.map { "\($0.x),\($0.y)" } ?? "no site") · tap map or drag preview")
                                     .font(.caption).accessibilityIdentifier("labPlacement")
                                 HStack {
                                     Button("Next site") {
-                                        let sites = lab.sites(for: kind)
+                                        let sites = storageRole.map { lab.storageSites(for: $0) } ?? lab.sites(for: kind)
                                         if let tile, let index = sites.firstIndex(of: tile), !sites.isEmpty { self.tile = sites[(index + 1) % sites.count] }
                                         else { tile = sites.first }
                                         refresh()
                                     }.accessibilityIdentifier("labNextSite")
                                     Button("Confirm") {
                                         guard let tile else { return }
-                                        if transact({ try $0.build(kind, at: tile) }) { self.kind = nil; self.tile = nil; refresh() }
-                                    }.disabled(tile == nil || lab.issue(for: kind, at: tile!) != nil).accessibilityIdentifier("labConfirmBuild")
+                                        if transact({ lab in
+                                            if let storageRole { try lab.buildStorage(storageRole, at: tile) }
+                                            else { try lab.build(kind, at: tile) }
+                                        }) { self.kind = nil; self.tile = nil; refresh() }
+                                    }.disabled(tile == nil || placementIssue(lab, kind: kind, tile: tile!) != nil).accessibilityIdentifier("labConfirmBuild")
                                     Button("Cancel") { self.kind = nil; tile = nil; refresh() }
                                 }
-                                if let tile, let issue = lab.issue(for: kind, at: tile) { Text(issue.localizedDescription).font(.caption) }
+                                if let tile, let issue = placementIssue(lab, kind: kind, tile: tile) { Text(issue.localizedDescription).font(.caption) }
                             }
                             if let remaining = lab.surveyRemaining {
                                 Text("Forest survey · \(Int(ceil(remaining)))s left · 8 Food already paid").accessibilityIdentifier("labSurveyTimer")
@@ -79,8 +85,35 @@ struct EconomyLabView: View {
                                     .disabled(!lab.hutComplete || lab.engine.state.resources.food < 8).accessibilityIdentifier("labSurvey")
                                 Text("Survey keeps both field workers available. Gathering Shelter is optional alongside it.").font(.caption2)
                             }
+                            if lab.checkpointReached {
+                                if let source = lab.stoneSource {
+                                    Text("Stone outcrop · \(source.x),\(source.y) · revealed reachable-land fixture; no depletion in this review").font(.caption).accessibilityIdentifier("labStoneSource")
+                                    Button("Stone gatherer · 10 Wood · +5 Stone/min · 1 worker") {
+                                        selectedFind = nil; storageRole = nil; kind = .stoneGatherer
+                                        tile = lab.sites(for: .stoneGatherer).first
+                                        error = tile == nil ? "Need 10 Wood and an open reachable outcrop site." : ""
+                                        refresh(); focusSelection()
+                                    }.disabled(lab.engine.state.buildings.contains { $0.kind == .stoneGatherer }).accessibilityIdentifier("labBuild-stoneGatherer")
+                                    Text("Storage family · choose specialization. No workers or hauling bonus.").font(.caption.bold())
+                                    ForEach(RiverbendStorageRole.allCases, id: \.self) { role in
+                                        Button(role == .granary ? "Granary · 14 Wood + 4 Stone · +60 Food only" : "Stockyard · 18 Wood + 6 Stone · +60 Wood/Stone; never Food") {
+                                            selectedFind = nil; storageRole = role; kind = .storehouse
+                                            tile = lab.storageSites(for: role).first
+                                            error = tile == nil ? "Need \(Int(role.cost.wood)) Wood + \(Int(role.cost.stone)) Stone and a clear site." : ""
+                                            refresh(); focusSelection()
+                                        }.disabled(lab.storage.contains { $0.role == role }).accessibilityIdentifier("labStorage-" + role.rawValue)
+                                    }
+                                    Text("Craft goods stay locked. Future Stockyard contract: +24 per unlocked craft material; never Knowledge/Culture.").font(.caption2)
+                                    ForEach(lab.engine.state.buildings.filter { $0.kind == .stoneGatherer }) { building in
+                                        Text("Stone: " + (lab.engine.state.resources.stone >= lab.engine.capacities.stone ? "Storage full · spend Stone or add Stockyard" : lab.engine.operatingStatus(building))).font(.caption)
+                                    }
+                                    Text("Third producer needs a third field slot for full output: population 5. Food keeps priority; growth supplies the slot.").font(.caption2)
+                                } else {
+                                    Button("Reveal nearby Stone outcrop · free") { _ = transact { try $0.revealStone() } }.accessibilityIdentifier("labRevealStone")
+                                }
+                            }
                             ForEach(lab.engine.state.buildings.filter { !$0.isOperational }) { building in
-                                Text("\(lab.engine.configuration.definition(building.kind).name): \(Int(ceil(building.constructionRemainingSeconds ?? 0)))s to finish").font(.caption)
+                                Text("\(lab.storage.first(where: { $0.buildingID == building.id }).map { $0.role == .granary ? "Granary" : "Stockyard" } ?? lab.engine.configuration.definition(building.kind).name): \(Int(ceil(building.constructionRemainingSeconds ?? 0)))s to finish").font(.caption)
                             }
                             HStack {
                                 Button("Forage to 12 Food") { _ = transact { try $0.recover(.food) } }.accessibilityIdentifier("labRecoverFood")
@@ -92,6 +125,7 @@ struct EconomyLabView: View {
                                 Button("+10s") { _ = transact { try $0.advance(by: 10) } }.accessibilityIdentifier("labAdvance10")
                                 Button("+1 minute") { _ = transact { try $0.advance(by: 60) } }.accessibilityIdentifier("labAdvance60")
                             }
+                            Text(lab.engine.growthStatus.description).font(.caption)
                             Text("Review time: 1×. Pauses while closed; no offline catch-up. Actions save before publication.").font(.caption2)
                             if !error.isEmpty { Text(error).foregroundStyle(.red).font(.caption).accessibilityIdentifier("labError") }
                         }.frame(maxWidth: .infinity, alignment: .leading)
@@ -146,13 +180,22 @@ struct EconomyLabView: View {
     }
     private func refresh() {
         guard let lab = store?.lab, let scene else { return }
-        scene.display(state: lab.engine.state, kind: kind, tile: tile, valid: tile.map { lab.issue(for: kind ?? .hut, at: $0) == nil } ?? false,
-            inspected: nil, movingBuildingID: nil, centerRequest: 0, deposits: [], identifiedDepositIDs: [])
+        var deposits: [NaturalDeposit] = []
+        if let source = lab.stoneSource, var outcrop = lab.engine.configuration.naturalDeposits?.first(where: { $0.resource == .stone }) {
+            outcrop.origin = source; outcrop.accessSites = nil; outcrop.renewable = true
+            deposits = [outcrop]
+        }
+        scene.display(state: lab.engine.state, kind: kind, tile: tile, valid: tile.map { placementIssue(lab, kind: kind ?? .hut, tile: $0) == nil } ?? false,
+            inspected: nil, movingBuildingID: nil, centerRequest: 0, deposits: deposits, identifiedDepositIDs: Set(deposits.map(\.id)))
         scene.displayLabFinds(lab.mapFinds.filter { find in
             guard let tile = find.tile else { return false }
             return lab.legalFindSites.contains(tile) && (find.id == .tracks || !find.resolved)
         }, hidden: kind != nil)
         if let selectedFind, !lab.availableFinds.contains(where: { $0.id == selectedFind }) { self.selectedFind = nil }
+    }
+    private func placementIssue(_ lab: RiverbendEconomyLab, kind: BuildingKind, tile: Tile) -> GameError? {
+        if let storageRole, kind == .storehouse { return lab.storageIssue(storageRole, at: tile) }
+        return lab.issue(for: kind, at: tile)
     }
     private func isCandidate(_ point: CGPoint, scene: SettlementScene, lab: RiverbendEconomyLab) -> Bool {
         guard let kind, let tile else { return false }
@@ -165,15 +208,21 @@ struct EconomyLabView: View {
     }
     private func status(_ lab: RiverbendEconomyLab) -> String {
         let e = lab.engine
-        return String(format: "Food %.1f /60  (%+.1f/min)\nWood %.1f /60  (%+.1f/min)\nPeople %d /%d · field staff %.0f /%.0f\n%@", e.state.resources.food, e.rates.food, e.state.resources.wood, e.rates.wood,
-            e.state.population, e.housingCapacity, e.workforceRequired, e.workforceAvailable, e.growthStatus.description)
+        let foodBonus = Int(e.capacities.food - 60), woodBonus = Int(e.capacities.wood - 60), stoneBonus = Int(e.capacities.stone - 40)
+        var text = String(format: "Food %.1f /%.0f (%+.1f/min) · cache60 +%d\nWood %.1f /%.0f (%+.1f/min) · cache60 +%d", e.state.resources.food, e.capacities.food, e.rates.food, foodBonus, e.state.resources.wood, e.capacities.wood, e.rates.wood, woodBonus)
+        if lab.stoneSource != nil { text += String(format: "\nStone %.1f /%.0f (%+.1f/min) · cache40 +%d", e.state.resources.stone, e.capacities.stone, e.rates.stone, stoneBonus) }
+        text += "\nPeople \(e.state.population) /\(e.housingCapacity) · field staff \(Int(e.workforceRequired)) /\(Int(e.workforceAvailable))"
+        return text
+
     }
     private func machineStatus(_ lab: RiverbendEconomyLab) -> String {
         let e = lab.engine
-        return "food=\(Int(e.state.resources.food)) wood=\(Int(e.state.resources.wood)) foodNet=\(e.rates.food) woodNet=\(e.rates.wood) knowledge=\(Int(e.state.resources.knowledge)) survey=\(lab.surveyComplete) checkpoint=\(lab.checkpointReached) buildings=\(e.state.buildings.count) " + lab.mapFinds.map { "\($0.id.rawValue)=\($0.tile.map { "\($0.x),\($0.y)" } ?? "none"),\($0.resolved ? "resolved" : "pending")" }.joined(separator: " ")
+        return "food=\(Int(e.state.resources.food)) wood=\(Int(e.state.resources.wood)) foodNet=\(e.rates.food) woodNet=\(e.rates.wood) knowledge=\(Int(e.state.resources.knowledge)) survey=\(lab.surveyComplete) checkpoint=\(lab.checkpointReached) buildings=\(e.state.buildings.count) stone=\(Int(e.state.resources.stone)) foodCap=\(Int(e.capacities.food)) woodCap=\(Int(e.capacities.wood)) stoneCap=\(Int(e.capacities.stone)) source=\(lab.stoneSource != nil) storage=\(lab.storage.count) " + lab.mapFinds.map { "\($0.id.rawValue)=\($0.tile.map { "\($0.x),\($0.y)" } ?? "none"),\($0.resolved ? "resolved" : "pending")" }.joined(separator: " ")
     }
     private func guide(_ lab: RiverbendEconomyLab) -> String {
-        if lab.checkpointReached { return "Lab checkpoint reached · Food and Wood are growing. Stop here for review." }
+        if lab.storage.count == 2 { return "Storage checkpoint: Granary holds Food; Stockyard holds materials. Review ends here." }
+        if lab.stoneSource != nil { return "Gather Stone → choose Granary or Stockyard. Capacity starts when construction finishes." }
+        if lab.checkpointReached { return "Food/Wood checkpoint. Optional next: reveal nearby Stone." }
         if !lab.hutComplete { return "First: build a Hut for 12 Wood and wait for completion." }
         if !lab.surveyComplete { return "Survey the nearby forest. Gathering Shelter (+8 Food/min) can be built alongside it." }
         if lab.engine.rates.wood <= 0 { return "Place Woodcutter at the surveyed forest edge (+6 Wood/min)." }

@@ -10,7 +10,9 @@ public extension GameConfiguration {
         c.map.id = riverbendLabID
         c.initialPopulation = 3
         c.initialResources = ResourceAmounts(food: 32, wood: 32)
-        c.resourceCaps = ResourceAmounts(repeating: 60)
+        c.resourceCaps = ResourceAmounts(repeating: 24)
+        c.resourceCaps?.food = 60; c.resourceCaps?.wood = 60; c.resourceCaps?.stone = 40
+        c.resourceCaps?.knowledge = 60
         c.constructionGoalWoodReward = 0
         c.protectBootstrapMaterials = false
         c.civicLevels = nil; c.progressionGoals = nil
@@ -38,6 +40,13 @@ public extension GameConfiguration {
                 c.buildings[i].cost = ResourceAmounts(wood: 4); c.buildings[i].ratesPerMinute.wood = 6
                 c.buildings[i].workersRequired = 1; c.buildings[i].requiresResearch = false
                 c.buildings[i].requiredNearbyTerrain = "f"; c.buildings[i].nearbyTerrainRadius = 1
+            case .stoneGatherer:
+                c.buildings[i].cost = ResourceAmounts(wood: 10); c.buildings[i].ratesPerMinute.stone = 5
+                c.buildings[i].workersRequired = 1; c.buildings[i].requiresResearch = false
+                c.buildings[i].requiredNearbyTerrain = nil
+            case .storehouse:
+                c.buildings[i].cost = ResourceAmounts(wood: 18, stone: 6)
+                c.buildings[i].requiresResearch = false
             default: break
             }
         }
