@@ -1,0 +1,9 @@
+{
+  "verifiedPushedSourceTestEvidenceCommit": "3b67a82491c766ea67ec9619cce12d56d70e87f8",
+  "remote": "git@github.com:dshivrin/Civilization.git",
+  "branch": "economy-first-era-integration-review",
+  "predecessorRemoteUnchanged": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+  "mainRemoteUnchanged": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
+  "verification": "git ls-remote origin refs/heads/economy-first-era-integration-review refs/heads/economy-first-craft-review refs/heads/main",
+  "note": "A final metadata-only closure commit pins this already verified source/test/evidence delivery. Coordinator must pin exact exposed final branch SHA reported at closeout."
+}

@@ -1024,8 +1024,14 @@
       "sha256": "dcc719599aa9bcd6bc90b94d935e15bf69cad306ca492e17f1170ec80d95c43b"
     },
     {
+      "path": "publication.json",
+      "sha256": "392a0f444314e664fe8b28ffb73df707a9b2ab2976eb6c209f73538f21c67f81"
+    },
+    {
       "path": "source-pins.json",
       "sha256": "cf742dec47968171411646eea9306ca3ca646aba76acb63621b0646fcc1ff6d7"
     }
-  ]
+  ],
+  "verifiedPushedReviewCommit": "3b67a82491c766ea67ec9619cce12d56d70e87f8",
+  "publication": "publication.json"
 }
