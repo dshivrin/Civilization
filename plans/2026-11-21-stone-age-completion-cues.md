@@ -103,3 +103,9 @@ history is connected only when already durable and relevant to a real destinatio
   Settings first-launch privacy navigation failures are preserved; successful test
   retains/restores the original Reduce Motion value. Final committed-source matrix
   and evidence archive follow; no final acceptance claim yet.
+- Final Release phone completion/Continue/Reduce Motion cases pass on d892d9a.
+  The inherited HUD audit races map creation with immediate isHittable checks;
+  its failed video shows the ordinary HUD after the assertion. Added a bounded
+  wait for actual toggleGoals hittability before retaining every original target,
+  minimum-size, layout, route and label assertion. This is a test readiness change,
+  not a product/layout change; affected phone/iPad audits must pass after it.

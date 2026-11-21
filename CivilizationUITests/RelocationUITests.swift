@@ -2831,6 +2831,8 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
         XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
         XCTAssertTrue(app.buttons["settlementMenu"].waitForExistence(timeout: 5))
+        let hudReady = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: app.buttons["toggleGoals"])
+        XCTAssertEqual(XCTWaiter.wait(for: [hudReady], timeout: 15), .completed, "Wait for the actual HUD to become tappable after map creation")
         XCTAssertGreaterThan(app.frame.width, app.frame.height, "Ordinary HUD stays in landscape")
         for id in ["toggleGoals", "openExplore", "openResearch", "openBuild", "settlementMenu"] {
             let button = app.buttons[id]
