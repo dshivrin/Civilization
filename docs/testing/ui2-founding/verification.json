@@ -2136,5 +2136,7 @@
     "One hut, bounded opening route suggestions; no terrain rewrite.",
     "No current/player saves or physical devices accessed.",
     "No normal adoption, Release enablement, production art, signing or merge."
-  ]
+  ],
+  "verifiedPushedDeliveryCommit": "bd93c4cfa3295b46759e1973d41960289e48e737",
+  "remoteDeliveryVerified": true
 }

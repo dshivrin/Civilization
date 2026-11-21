@@ -30,4 +30,4 @@ Failed writes/reload, stock conservation across founding, completed and partly p
 ### Task 3: Review and delivery
 - [x] Fresh whole-branch review; reproduce/fix blockers; rerun necessary checks.
 - [x] Archive exact commands/counts/failed attempts and captures; verify protected profile/asset bytes and branch/base.
-- [ ] Commit and push only requested branch, confirm remote SHA; write bounded milestone/handoff and end context.
+- [x] Commit and push only requested branch, confirm remote SHA; write bounded milestone/handoff and end context.
