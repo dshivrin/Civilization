@@ -4,7 +4,7 @@
   "branch": "riverbend-ui2-menus-review",
   "base": "07e1011b8485cb245359ebe05afbe6dfca7eee32",
   "specCommit": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
-  "status": "verified tests and artifacts; branch receipt recorded in milestone",
+  "status": "verified and pushed; subsequent documentation-only receipt on the same branch",
   "requiredRuns": [
     "ui2menus-core-verified",
     "ui2menus-phone-delivery",
@@ -113,5 +113,7 @@
     "compact/larger-text details scroll; one opening hut; provisional existing art",
     "maximum Dynamic Type, VoiceOver comprehension, human acceptance and physical performance not established"
   ],
-  "nextGoal": "UI2-3, fresh coordinator context only"
+  "nextGoal": "UI2-3, fresh coordinator context only",
+  "verifiedProductCommit": "e505a456162ff4ba08ec68f2508374b726491c31",
+  "verifiedRemoteProductCommit": "e505a456162ff4ba08ec68f2508374b726491c31"
 }
