@@ -133,3 +133,15 @@ struct StoneSurface: ViewModifier {
 extension View {
     func stoneSurface() -> some View { modifier(StoneSurface()) }
 }
+
+/// A readable primary action with its touch region inside the styled label.
+struct StonePrimaryActionStyle: ButtonStyle {
+    @Environment(\.isEnabled) private var enabled
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(maxWidth: .infinity, minHeight: 44).padding(.horizontal, 10)
+            .contentShape(Rectangle()).foregroundStyle(StonePalette.recessed)
+            .background(StonePalette.accent, in: RoundedRectangle(cornerRadius: 8))
+            .opacity(enabled ? (configuration.isPressed ? 0.8 : 1) : 0.5)
+    }
+}

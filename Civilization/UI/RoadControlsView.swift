@@ -57,7 +57,7 @@ struct RoadControlsView: View {
                         .disabled(session.roadDraft.isEmpty).accessibilityLabel("Undo last preview tile").accessibilityIdentifier("undoRoadTile")
                     Button("Clear",action:session.clearRoadStroke).font(.caption.bold()).lineLimit(1).minimumScaleFactor(0.85).frame(maxWidth:.infinity,minHeight:44).buttonStyle(.bordered)
                         .disabled(session.roadDraft.isEmpty).accessibilityIdentifier("clearRoadStroke")
-                    Button("Confirm",action:session.confirmRoadStroke).font(.caption.bold()).lineLimit(1).minimumScaleFactor(0.85).frame(maxWidth:.infinity,minHeight:44).buttonStyle(.borderedProminent)
+                    Button("Confirm",action:session.confirmRoadStroke).font(.caption.bold()).lineLimit(1).minimumScaleFactor(0.85).frame(maxWidth:.infinity,minHeight:44).buttonStyle(StonePrimaryActionStyle())
                         .disabled(session.roadDraft.isEmpty || session.roadPreviewIssue != nil).accessibilityIdentifier("confirmRoadStroke")
                 }
                 } else {

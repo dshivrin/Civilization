@@ -477,7 +477,7 @@ struct SettlementView: View {
                     }
                 }
                 Button("Send expedition") { session.startExploration() }
-                    .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
+                    .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(StonePrimaryActionStyle())
                     .disabled(session.explorationIssue != nil).accessibilityIdentifier("startExploration")
                 if session.configuration.isRiverbendPlayer,
                    let technology = session.visibleTechnologies.first(where: { $0.id == "exploration" }) {
@@ -751,7 +751,7 @@ struct SettlementView: View {
                 if session.configuration.isRiverbendPlayer && building.kind == .campfire, let price = session.upgradeCost(for: building) {
                     Text("Upgrade: " + cost(price)).font(.caption).foregroundStyle(.yellow)
                     Button(building.level == 1 ? "Found Founder’s Lodge" : "Establish Council Circle") { session.upgrade(buildingID: building.id) }
-                        .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
+                        .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(StonePrimaryActionStyle())
                         .disabled(session.upgradeIssue(buildingID: building.id) != nil).accessibilityIdentifier("upgradeBuilding")
                     if let issue = session.upgradeIssue(buildingID: building.id) {
                         Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange)
@@ -809,7 +809,7 @@ struct SettlementView: View {
                     if !(session.configuration.isRiverbendPlayer && building.kind == .campfire), let upgradeCost = session.upgradeCost(for: building) {
                         Text("Upgrade: " + cost(upgradeCost)).font(.caption).foregroundStyle(.yellow)
                         Button("Upgrade to level \(building.level + 1)") { session.upgrade(buildingID: building.id) }
-                            .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
+                            .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(StonePrimaryActionStyle())
                             .disabled(session.upgradeIssue(buildingID: building.id) != nil).accessibilityIdentifier("upgradeBuilding")
                         if let researchID = session.upgradeResearch(for: building), !session.researchedIDs.contains(researchID),
                            let technology = session.configuration.technologyDefinitions.first(where: { $0.id == researchID }) {

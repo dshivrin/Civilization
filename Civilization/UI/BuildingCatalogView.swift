@@ -335,7 +335,7 @@ private struct PlayerBuildingCatalog: View {
             if material != nil {
                 Button("Back to " + definition.name) { material = nil }.frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("playerCatalogBack")
             } else {
-                Button(actionTitle) { act() }.frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
+                Button(actionTitle) { act() }.frame(maxWidth: .infinity, minHeight: 44).buttonStyle(StonePrimaryActionStyle())
                     .disabled(alreadyStored).accessibilityLabel(actionTitle + " · " + definition.name)
                     .accessibilityIdentifier("build-" + memory.selected.rawValue)
             }
