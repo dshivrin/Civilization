@@ -19,10 +19,16 @@
 
 Riverbend’s ordinary Wood remains useful and available at home. The island’s local timber shortage creates a supply decision, not a shutdown of the capital. Hardwood is a distinct optional improvement, not a replacement for ordinary Wood. Before founding, disclose the minimum supplies and basic route so the player can plan without needing the other site.
 
+## Salt and Food Preservation
+
+Expeditions spend Food because the party eats its provisions on the journey. Discovering Salt exposes **Food Preservation** as a research unlock. Completing that research unlocks higher food storage capacity and longer-range expeditions, so Salt opens new places to explore rather than simply adding another stockpile.
+
+The first scout trips and both basic tin routes must remain possible with ordinary Food and Wood. Preservation extends the range beyond those first choices; it is not needed to reach the island that supplies Salt. Exact storage amounts, ration costs, and range thresholds are still open. This does not commit the game to a general food spoilage system.
+
 ## How founding order changes the game
 
 - **Island first → Forest later:** Start with a basic pier and sea deliveries. Forest hardwood could later upgrade the island pier, carry more cargo, or supply repairs. A direct Forest–Island supply route is a possible later improvement, not a requirement for the first shipment.
-- **Forest first → Island later:** Start with a basic inland haul. Island salt could later preserve provisions for longer trips or let convoys carry fewer perishables. The first land route works without it.
+- **Forest first → Island later:** Start with a basic inland haul. Discovering Island salt lets the player research Food Preservation, unlock more food storage, and send longer expeditions. The first land route works without it.
 - **Third site later, if useful:** A mountain pass might offer tin and building stone, with steep hauling and little farmland. Stone could shelter the island harbor or harden the forest road; hardwood could improve mountain carts, and salt could extend its food reserves. Keep the mountain optional and revisit site count once the two-route loop is fun.
 
 ## What to test before locking prices or scope
