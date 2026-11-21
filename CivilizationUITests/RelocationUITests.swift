@@ -2731,12 +2731,14 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
         XCTAssertTrue((app.otherElements["settlementMap"].value as? String ?? "").contains("2 buildings"))
         XCTAssertTrue(app.buttons["toggleGoals"].isHittable)
+        XCTAssertTrue(app.staticTexts["settlementMessage"].label.contains("Open Goals"))
+        XCTAssertFalse(app.staticTexts["settlementMessage"].label.contains("kept producing"))
         let resumed = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); resumed.name = "stone-hud-03-ordinary-continue"; resumed.lifetime = .keepAlways; add(resumed)
         app.buttons["settlementMenu"].tap(); app.buttons["inspectBuilding-1"].tap()
         let move = app.buttons["moveBuilding"]
         XCTAssertTrue(move.waitForExistence(timeout: 5))
-        for _ in 0..<12 where !move.isHittable { app.scrollViews["buildingInspection"].swipeUp() }
-        XCTAssertTrue(move.isHittable); move.tap()
+        XCTAssertTrue(move.isHittable); XCTAssertGreaterThanOrEqual(move.frame.height, 44)
+        move.tap()
         XCTAssertTrue(app.buttons["cancelRelocation"].waitForExistence(timeout: 5))
         XCTAssertTrue(app.buttons["toggleGoals"].isHittable)
         XCTAssertTrue(app.buttons["confirmPlacement"].isHittable)
@@ -2768,6 +2770,7 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
         XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
         XCTAssertTrue(app.staticTexts["settlementMessage"].exists)
+        XCTAssertTrue(app.staticTexts["settlementMessage"].label.contains("Open Goals"))
         app.otherElements["settlementMap"].coordinate(withNormalizedOffset: CGVector(dx: 0.93, dy: 0.3)).tap()
         let message = app.staticTexts["settlementMessage"]
         let feedback = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label CONTAINS %@", "Unexplored terrain"), object: message)

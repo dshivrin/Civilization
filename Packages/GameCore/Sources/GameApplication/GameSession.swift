@@ -329,13 +329,17 @@ public final class GameSession {
         let url = try saveURL ?? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             .appendingPathComponent("Civilization/settlement-v1.json")
         var engine = try GameEngine(configuration: configuration, now: now)
-        var message = "Welcome to Riverbend. Build your first gathering shelter."
+        var message = configuration.isRiverbendPlayer
+            ? "Welcome to Riverbend. Open Goals for your current objective."
+            : "Welcome to Riverbend. Build your first gathering shelter."
         var warning: String?
         do {
             if let saved = try SaveStore(url: url).loadNormal(configuration: configuration) {
                 engine = try GameEngine(state: saved, configuration: configuration)
                 if !configuration.isRiverbendPlayer { engine.advance(to: now, offline: true) }
-                message = "Welcome back. Your settlement kept producing (up to \(Int(configuration.offlineCapSeconds / 3600)) hours)."
+                message = configuration.isRiverbendPlayer
+                    ? "Welcome back. Open Goals to continue your Stone Age journey. Time resumes while you play."
+                    : "Welcome back. Your settlement kept producing (up to \(Int(configuration.offlineCapSeconds / 3600)) hours)."
             } else if requireExistingSave {
                 throw GameError.invalidSave("The registered game file is missing.")
             }

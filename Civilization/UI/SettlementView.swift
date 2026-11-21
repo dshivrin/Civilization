@@ -740,7 +740,8 @@ struct SettlementView: View {
     }
     private func inspectionPanel(_ building: PlacedBuilding) -> some View {
         let definition = session.configuration.definition(building.kind)
-        return ScrollView {
+        return VStack(spacing: 0) {
+        ScrollView {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     Text(session.buildingName(building) + " · Lv \(building.level)").font(.headline).accessibilityIdentifier("civicLevelName")
@@ -829,13 +830,19 @@ struct SettlementView: View {
                     Text("\(Int(ceil(building.constructionRemainingSeconds ?? 0)))s remaining").font(.caption)
                 }
                 Text("Tile \(building.origin.x), \(building.origin.y) · \(building.occupiedFootprint(in: session.configuration).width)×\(building.occupiedFootprint(in: session.configuration).height) footprint · facing \(building.resolvedOrientation.rawValue)").font(.caption).accessibilityIdentifier("inspectedBuildingPosition")
-                if (building.kind != .campfire || session.configuration.civicLevels != nil) && !(session.configuration.isRiverbendPlayer && building.kind == .campfire) {
+                if !session.configuration.isRiverbendPlayer && (building.kind != .campfire || session.configuration.civicLevels != nil) {
                     Button("Move building") { session.beginRelocation(buildingID: building.id) }
                         .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("moveBuilding")
                 }
                 Button("Close inspection") { session.inspectedBuilding = nil }.frame(minHeight: 44)
             }.padding(16).frame(maxWidth: .infinity, alignment: .leading)
-        }.background(panelColor, in: RoundedRectangle(cornerRadius: 18)).accessibilityIdentifier("buildingInspection")
+        }.accessibilityIdentifier("buildingInspection")
+        if session.configuration.isRiverbendPlayer && building.kind != .campfire {
+            Button("Move building") { session.beginRelocation(buildingID: building.id) }
+                .frame(maxWidth: .infinity, minHeight: 48).buttonStyle(.bordered)
+                .padding(.horizontal, 12).padding(.bottom, 8).accessibilityIdentifier("moveBuilding")
+        }
+        }.background(panelColor, in: RoundedRectangle(cornerRadius: 18))
     }
     private func workforceControls(_ building: PlacedBuilding, definition: BuildingDefinition) -> some View {
         VStack(alignment: .leading, spacing: 8) {
