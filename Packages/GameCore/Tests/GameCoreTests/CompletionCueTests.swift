@@ -166,3 +166,18 @@ func withoutCompletionInbox(_ state: GameState) -> GameState {
     #expect(library.session.unreadCompletions(for: .research).isEmpty)
     #expect(library.session.completionSequence == 0)
 }
+
+// Foreground catch-up can earn legacy progress, but must never start a HUD pulse.
+@Test @MainActor func completionCueLegacyOfflineEarnIsUnreadWithoutForegroundPulse() throws {
+    let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: root) }
+    let url = root.appendingPathComponent("save.json"), c = try GameConfiguration.bundled()
+    var engine = try GameEngine(configuration: c, now: cueEpoch)
+    try engine.build(.hut, at: Tile(x: 12, y: 12))
+    try SaveStore(url: url).save(engine.state)
+    var now = cueEpoch
+    let s = try GameSession(clock: { now }, saveURL: url, configuration: c)
+    s.setActive(false); now = now.addingTimeInterval(60); s.setActive(true)
+    #expect(s.unreadCompletions(for: .goals).contains("objective:1:building-hut"))
+    #expect(s.completionSequence == 0 && s.latestCompletions.isEmpty)
+}

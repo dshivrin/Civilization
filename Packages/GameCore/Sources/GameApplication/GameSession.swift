@@ -409,7 +409,7 @@ public final class GameSession {
     }
     public func resume() {
         if configuration.isRiverbendPlayer { advanceDurably(to: clock(), offline: true) }
-        else { advance(to: clock(), offline: true); save() }
+        else { advance(to: clock(), offline: true); save(announcingCompletions: false) }
     }
     public func background() {
         cancel()
@@ -422,7 +422,7 @@ public final class GameSession {
         if isActive { setActive(false) } else { save() }
         if savesEnabled, let warning = persistenceWarning { throw GameError.invalidSave(warning) }
     }
-    private func writeCurrentState() throws {
+    private func writeCurrentState(announcingCompletions: Bool = true) throws {
         #if DEBUG
         if isDeveloperMode {
             try writeDeveloperState(engine.state, to: activeDeveloperStore, review: isGameplayReview, original: originalScenarioState)
@@ -434,18 +434,19 @@ public final class GameSession {
             (state.completionInbox?.unread.contains($0.id) ?? false) && !deliveredCompletionIDs.contains($0.id)
         }
         deliveredCompletionIDs.formUnion(state.completionInbox?.seen ?? [])
-        if !fresh.isEmpty { latestCompletions = fresh; completionSequence += 1 }
+        if announcingCompletions && !fresh.isEmpty { latestCompletions = fresh; completionSequence += 1 }
     }
-    public func save() {
+    public func save() { save(announcingCompletions: true) }
+    private func save(announcingCompletions: Bool) {
         guard savesEnabled else { return }
-        do { try writeCurrentState(); lastSaved = clock(); persistenceWarning = nil }
+        do { try writeCurrentState(announcingCompletions: announcingCompletions); lastSaved = clock(); persistenceWarning = nil }
         catch { persistenceWarning = "Progress could not be saved: " + error.localizedDescription }
     }
     private func advanceDurably(to date: Date, offline: Bool = false) {
         guard savesEnabled else { return }
         let before = engine
         advance(to: date, offline: offline)
-        do { try writeCurrentState(); lastSaved = clock(); persistenceWarning = nil }
+        do { try writeCurrentState(announcingCompletions: !offline); lastSaved = clock(); persistenceWarning = nil }
         catch { engine = before; persistenceWarning = "Progress could not be saved: " + error.localizedDescription; message = persistenceWarning! }
     }
     public func choose(_ kind: BuildingKind) {

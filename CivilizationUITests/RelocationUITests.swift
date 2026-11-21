@@ -2687,6 +2687,131 @@ final class RelocationUITests: XCTestCase {
 
 /// Compiles in both Debug and Release; exercises ordinary entry without fixture hooks.
 final class NormalEntryUITests: XCTestCase {
+    @MainActor func testOrdinaryCompletionCuesEarnContinueAndViewExactResults() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        func value(_ id: String) -> String { app.buttons[id].value as? String ?? "" }
+        func capture(_ name: String) {
+            let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+            image.name = "completion-cues-" + name; image.lifetime = .keepAlways; add(image)
+            print("COMPLETION frame", name, Date().timeIntervalSince1970)
+        }
+        XCTAssertFalse(value("openResearch").contains("unread")); XCTAssertFalse(value("toggleGoals").contains("unread"))
+        let goalsFrame = app.buttons["toggleGoals"].frame, researchFrame = app.buttons["openResearch"].frame
+        app.buttons["openResearch"].tap()
+        XCTAssertTrue(app.buttons["pillarFilter-science"].waitForExistence(timeout: 5)); app.buttons["pillarFilter-science"].tap()
+        let research = app.buttons["research-oralTradition"]
+        XCTAssertTrue(research.waitForExistence(timeout: 5)); XCTAssertTrue(research.isEnabled); research.tap()
+        XCTAssertFalse(research.isEnabled)
+        app.buttons["closeResearch"].tap()
+        capture("02-research-return")
+        XCTAssertTrue(value("openResearch").contains("unread")); XCTAssertTrue(value("toggleGoals").contains("unread"))
+        app.terminate(); app.launch(); app.buttons["continueGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertTrue(value("openResearch").contains("unread")); XCTAssertTrue(value("toggleGoals").contains("unread"))
+        XCTAssertFalse(value("openResearch").contains("New completion")); XCTAssertFalse(value("toggleGoals").contains("New completion"))
+        capture("03-continue-unread-no-pulse")
+        XCTAssertEqual(app.buttons["toggleGoals"].frame, goalsFrame); XCTAssertEqual(app.buttons["openResearch"].frame, researchFrame)
+        app.buttons["openResearch"].tap()
+        app.buttons["pillarFilter-culture"].tap()
+        app.buttons["closeResearch"].tap()
+        XCTAssertTrue(value("openResearch").contains("unread"), "Opening a different category alone must not acknowledge Oral Tradition")
+        app.buttons["openResearch"].tap(); app.buttons["pillarFilter-science"].tap()
+        app.buttons["details-research-oralTradition"].tap()
+        let catalog = app.scrollViews["researchCatalog"]
+        let detailsVisible = app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "BENEFITS")).firstMatch
+        let expandedShot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); expandedShot.name = "completion-cues-research-expanded-before-scroll"; expandedShot.lifetime = .keepAlways; add(expandedShot)
+        let tree = XCTAttachment(string: app.debugDescription); tree.name = "completion-cues-expanded-tree"; tree.lifetime = .keepAlways; add(tree)
+        for _ in 0..<4 where !detailsVisible.isHittable {
+            catalog.coordinate(withNormalizedOffset: CGVector(dx: 0.8, dy: 0.8)).press(forDuration: 0.05, thenDragTo: catalog.coordinate(withNormalizedOffset: CGVector(dx: 0.8, dy: 0.6)))
+        }
+        XCTAssertTrue(detailsVisible.isHittable)
+        capture("04-view-research-result")
+        app.buttons["closeResearch"].tap()
+        XCTAssertFalse(value("openResearch").contains("unread")); XCTAssertTrue(value("toggleGoals").contains("unread"))
+        app.buttons["toggleGoals"].tap(); app.buttons["openJourney"].tap()
+        XCTAssertTrue(app.scrollViews["journeyContent"].waitForExistence(timeout: 5))
+        capture("05-view-earned-chapter")
+        let journey = app.scrollViews["journeyContent"]
+        for _ in 0..<12 { journey.swipeUp() }
+        app.buttons["Done"].tap()
+        XCTAssertFalse(value("toggleGoals").contains("unread"))
+        capture("06-acknowledged")
+        app.terminate(); app.launch(); app.buttons["continueGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertFalse(value("openResearch").contains("unread")); XCTAssertFalse(value("toggleGoals").contains("unread"))
+        // A second authentic New Game earns chapter one through paid construction.
+        app.terminate(); app.launch(); app.buttons["newNormalGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        app.buttons["toggleGoals"].tap(); app.buttons["nextStepAction"].tap()
+        app.buttons["upgradeBuilding"].tap(); app.buttons["closeBuildingInspection"].tap()
+        XCTAssertTrue(value("toggleGoals").contains("unread"))
+        capture("01-earned-objective")
+        if !app.buttons["nextStepAction"].exists { app.buttons["toggleGoals"].tap() }
+        app.buttons["nextStepAction"].tap(); app.buttons["build-hut"].tap()
+        app.buttons["confirmPlacement"].tap()
+        // Normal construction and ordinary model time; no fixtures, grants or speed controls.
+        let menu = app.buttons["settlementMenu"]
+        menu.tap(); let hut = app.descendants(matching: .any).matching(identifier: "inspectBuilding-1").firstMatch
+        XCTAssertTrue(hut.waitForExistence(timeout: 5)); hut.tap()
+        XCTAssertTrue(app.buttons["connectBuildingPaths"].waitForExistence(timeout: 30))
+        app.buttons["closeBuildingInspection"].tap()
+        XCTAssertTrue(value("toggleGoals").contains("unread"))
+        capture("07-earned-chapter-one")
+        app.terminate(); app.launch(); app.buttons["continueGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertTrue(value("toggleGoals").contains("unread")); XCTAssertFalse(value("toggleGoals").contains("New completion"))
+        XCTAssertFalse(value("openResearch").contains("unread"), "New games keep research unread independent")
+        app.buttons["toggleGoals"].tap(); app.buttons["openJourney"].tap()
+        XCTAssertTrue(app.scrollViews["journeyContent"].waitForExistence(timeout: 5))
+        capture("08-view-chapter-one")
+        app.buttons["Done"].tap()
+        XCTAssertFalse(value("toggleGoals").contains("unread"))
+        XCTAssertFalse(app.buttons["developerTools"].exists)
+    }
+
+    @MainActor func testOrdinaryCompletionCuesWithSystemReduceMotion() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences"); settings.launch()
+        // Navigate the real OS setting, retaining and restoring its original value.
+        for _ in 0..<8 where !settings.switches["Reduce Motion"].exists && !settings.cells["Accessibility"].exists {
+            let back = settings.navigationBars.buttons.element(boundBy: 0)
+            if back.exists { back.tap() } else { settings.swipeUp() }
+        }
+        if !settings.switches["Reduce Motion"].exists {
+            let accessibility = settings.cells["Accessibility"]
+            for _ in 0..<8 where !accessibility.isHittable { settings.swipeUp() }
+            XCTAssertTrue(accessibility.isHittable); accessibility.tap()
+            let motion = settings.cells["Motion"]
+            for _ in 0..<5 where !motion.isHittable { settings.swipeUp() }
+            XCTAssertTrue(motion.isHittable); motion.tap()
+        }
+        let toggle = settings.switches["Reduce Motion"]
+        XCTAssertTrue(toggle.waitForExistence(timeout: 5))
+        let original = toggle.value as? String
+        if original != "1" { toggle.tap() }
+        defer { settings.activate(); if (toggle.value as? String) != original { toggle.tap() } }
+        XCTAssertEqual(toggle.value as? String, "1")
+        let settingShot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); settingShot.name = "completion-cues-os-reduce-motion-on"; settingShot.lifetime = .keepAlways; add(settingShot)
+        let app = XCUIApplication(); app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        app.buttons["openResearch"].tap()
+        XCTAssertTrue(app.buttons["research-oralTradition"].waitForExistence(timeout: 5)); app.buttons["research-oralTradition"].tap()
+        app.buttons["closeResearch"].tap()
+        for id in ["openResearch", "toggleGoals"] {
+            XCTAssertTrue((app.buttons[id].value as? String ?? "").contains("unread"))
+            XCTAssertFalse((app.buttons[id].value as? String ?? "").contains("New completion"))
+        }
+        let staticShot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); staticShot.name = "completion-cues-static-system-reduce-motion"; staticShot.lifetime = .keepAlways; add(staticShot)
+        app.terminate(); app.launch(); app.buttons["continueGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertTrue((app.buttons["openResearch"].value as? String ?? "").contains("unread"))
+        XCTAssertFalse((app.buttons["openResearch"].value as? String ?? "").contains("New completion"))
+    }
+
     @MainActor func testStoneAgeHUDHierarchyAndOrdinaryRoutes() throws { try verifyStoneAgeHUD(largeText: false) }
     @MainActor func testStoneAgeHUDLargerTextAndOrdinaryRoutes() throws { try verifyStoneAgeHUD(largeText: true) }
     @MainActor private func verifyStoneAgeHUD(largeText: Bool) throws {

@@ -63,3 +63,10 @@ history is connected only when already durable and relevant to a real destinatio
   color token (fixed to existing panelColor). Native test route corrected from
   Culture to actual Science and split into independent authentic games because
   Lodge+Hut spend all opening Wood. No balance or grant change was made.
+- Legacy foreground regression: RED in /private/tmp/civilization-qa-f0053abd210445dfaad92dea5c87a69a;
+  GREEN in /private/tmp/civilization-qa-1c90947aea2341f88da8dc82790e4937. Offline
+  completion persists unread but updates transient delivery silently.
+- Visual implementation candidate: fixed-position symbol markers, reduced-motion
+  static fallback, concise announcement, post-dismissal queued pulses and exact
+  scroll-visible result acknowledgement. Retained older ordinary HUD layouts use
+  the same markers. Native evidence and final review remain pending.

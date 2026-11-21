@@ -10,6 +10,7 @@ struct ResearchView: View {
     var returnLabel = "Return to civic center"
     @State private var highlightedID: String?
     @State private var focusHistory: [String] = []
+    @Environment(\.scenePhase) private var phase
     @Environment(\.dismiss) private var dismiss
     @State private var showReadiness = false
     @State private var expanded: Set<String> = []
@@ -163,6 +164,7 @@ struct ResearchView: View {
                     Text("BENEFITS").font(.caption2.bold()).tracking(1)
                     ForEach(effects(technology), id: \.self) { Text($0).font(.subheadline) }
                 }.foregroundStyle(.mint)
+                    .modifier(ViewedCompletion(session: session, ids: ["research:" + technology.id], earned: complete, active: !showReadiness && phase == .active))
             }
         }.modifier(DevelopmentCardStyle(color: color))
             .overlay(RoundedRectangle(cornerRadius: 14).stroke(highlightedID == technology.id ? Color.yellow : .clear, lineWidth: 2))
