@@ -1,0 +1,101 @@
+Attributes: Application, 0x13ae21690, pid: 58314, label: 'Riverbend'
+Element subtree:
+ →Application, 0x13ae21690, pid: 58314, label: 'Riverbend'
+    Window (Main), 0x13ae21ed0, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x13ae23320, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x13ae23450, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x13ae231d0, {{0.0, 0.0}, {667.0, 375.0}}
+          Other, 0x13ae1ba60, {{0.0, 0.0}, {667.0, 375.0}}
+            Other, 0x13ae23580, {{0.0, 0.0}, {667.0, 375.0}}
+              Other, 0x13ae236b0, {{0.0, 0.0}, {667.0, 375.0}}, identifier: 'settlementMap', label: 'Settlement map', value: 64×48 tiles · 5 bu...
+              ScrollView, 0x13ae237e0, {{12.0, 8.0}, {376.0, 44.0}}
+                Other, 0x13ae23910, {{12.0, 8.0}, {242.0, 44.0}}
+                  Other, 0x13ae23a40, {{20.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-food', label: 'Food, 50, net production +7.0 per minute'
+                    Button, 0x13ae23b70, {{20.0, 8.0}, {52.0, 44.0}}, label: '50'
+                      Other, 0x13ae23ca0, {{22.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x13ae23dd0, {{20.0, 8.0}, {52.0, 44.0}}, label: '50'
+                  Other, 0x13ae23f00, {{78.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-wood', label: 'Wood, 3, net production +3.0 per minute'
+                    Button, 0x13ae24030, {{78.0, 8.0}, {52.0, 44.0}}, label: '3'
+                      Other, 0x13ae24160, {{85.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x13ae24290, {{78.0, 8.0}, {52.0, 44.0}}, label: '3'
+                  Other, 0x13ae243c0, {{136.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-stone', label: 'Stone, 0, net production +2.5 per minute'
+                    Button, 0x13ae244f0, {{136.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x13ae24620, {{143.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x13ae24750, {{136.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x13ae24880, {{194.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-knowledge', label: 'Knowledge, 10, net production +2.0 per minute'
+                    Button, 0x13ae249b0, {{194.0, 8.0}, {52.0, 44.0}}, label: '10'
+                      Other, 0x13ae24ae0, {{196.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x13ae24c10, {{194.0, 8.0}, {52.0, 44.0}}, label: '10'
+                Other, 0x13ae24d40, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x13ae24e70, {{378.0, 46.0}, {7.0, 3.0}}
+                Other, 0x13ae24fa0, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x13ae250d0, {{378.0, 46.0}, {7.0, 3.0}}
+              Button, 0x13ae25200, {{409.5, 21.5}, {50.8, 17.0}}, label: 'Population 3, housing capacity 6'
+                Image, 0x13ae25330, {{409.5, 24.0}, {20.0, 13.5}}, identifier: 'person.2.fill', label: 'person.2.fill'
+                StaticText, 0x13ae25460, {{409.5, 21.5}, {50.8, 17.0}}, label: '3/6'
+              Button, 0x13ae25590, {{537.5, 8.0}, {117.5, 44.0}}, identifier: 'settlementMenu', label: 'Settlement menu'
+                Button, 0x13ae256c0, {{537.5, 8.0}, {117.5, 44.0}}
+                  Other, 0x13ae257f0, {{537.5, 8.0}, {117.5, 44.0}}
+                    StaticText, 0x13ae25920, {{549.5, 15.0}, {65.5, 14.5}}, label: 'Settlement'
+                    StaticText, 0x13ae25a50, {{549.5, 31.5}, {62.5, 13.5}}, label: 'STONE AGE'
+                    Image, 0x13ae25b80, {{624.5, 21.5}, {17.0, 17.0}}, identifier: 'ellipsis.circle', label: 'More'
+              Button, 0x13ae25cb0, {{12.0, 323.0}, {79.5, 44.0}}, identifier: 'toggleGoals', label: 'Goals, Research Oral Tradition'
+                Image, 0x13ae25de0, {{26.0, 339.0}, {11.0, 12.0}}, identifier: 'flag.checkered', label: 'flag.checkered'
+                StaticText, 0x13ae25f10, {{26.0, 337.8}, {53.5, 14.5}}, label: 'Goals'
+              Other, 0x13ae26040, {{288.0, 125.5}, {367.0, 183.5}}, identifier: 'playerWorldInspector'
+                ScrollView, 0x13ae26170, {{288.0, 125.5}, {367.0, 89.0}}, identifier: 'buildingInspection'
+                  Other, 0x13ae262a0, {{288.0, 125.5}, {367.0, 680.0}}
+                    StaticText, 0x13ae263d0, {{304.0, 153.2}, {162.0, 20.5}}, identifier: 'civicLevelName', label: 'Stone gatherer · Lv 1'
+                    Button, 0x13ae26500, {{595.0, 141.5}, {44.0, 44.0}}, identifier: 'closeBuildingInspection', label: 'Close inspection'
+                    StaticText, 0x13ae26630, {{304.0, 197.5}, {236.5, 18.0}}, identifier: 'buildingOperatingStatus', label: 'Workers limited · 50% productivity'
+                    StaticText, 0x13ae26760, {{304.0, 227.5}, {121.5, 14.5}}, label: 'PRODUCTION MODE'
+                    Button, 0x13ae26890, {{304.0, 254.0}, {335.0, 58.0}}, identifier: 'productionMode-stone', label: 'Stone gatherer · 5 stone/min base'
+                      Image, 0x13ae269c0, {{317.0, 277.0}, {12.0, 12.0}}, identifier: 'checkmark.circle.fill', label: 'Selected', Selected
+                      StaticText, 0x13ae26af0, {{304.0, 254.0}, {335.0, 58.0}}, label: 'Stone gatherer · 5 stone/min base'
+                    Button, 0x13ae26c20, {{304.0, 324.0}, {335.0, 58.0}}, identifier: 'productionMode-flint', label: 'Gather Flint · 4 flint/min base'
+                      Image, 0x13ae26d50, {{317.0, 347.0}, {12.0, 12.0}}, identifier: 'circle', label: 'circle'
+                      StaticText, 0x13ae26e80, {{304.0, 324.0}, {335.0, 58.0}}, label: 'Gather Flint · 4 flint/min base'
+                    StaticText, 0x13ae26fb0, {{304.0, 394.0}, {101.0, 14.5}}, identifier: 'buildingProductivity', label: 'Productivity: 50%'
+                    StaticText, 0x13ae270e0, {{304.0, 420.5}, {311.0, 14.5}}, label: 'Base configuration: +5 stone/min · 2 production modes'
+                    StaticText, 0x13ae27210, {{304.0, 447.0}, {105.5, 18.0}}, identifier: 'buildingWorkers', label: 'Workers: 0.5 / 1'
+                    StaticText, 0x13ae27340, {{304.0, 473.0}, {217.5, 14.5}}, label: 'Staffing: 50% · automatically assigned'
+                    StaticText, 0x13ae27470, {{304.0, 495.5}, {137.5, 12.0}}, label: 'WORKFORCE PRIORITY'
+                    Button, 0x13ae275a0, {{347.0, 530.2}, {23.0, 14.5}}, identifier: 'workerPriority-0', label: 'Low workforce priority'
+                    Button, 0x13ae276d0, {{417.0, 515.5}, {109.0, 44.0}}, identifier: 'workerPriority-1', label: 'Normal workforce priority', Selected
+                    Button, 0x13ae27800, {{571.2, 530.2}, {26.5, 14.5}}, identifier: 'workerPriority-2', label: 'High workforce priority'
+                    StaticText, 0x13ae27930, {{304.0, 567.5}, {304.0, 30.5}}, label: 'Basic food and water receive workers first; other jobs share the remainder by priority.'
+                    StaticText, 0x13ae27a60, {{304.0, 610.0}, {155.5, 14.5}}, label: 'Upgrade: 10 wood · 5 stone'
+                    Button, 0x13ae27b90, {{304.0, 636.5}, {335.0, 44.0}}, identifier: 'upgradeBuilding', label: 'Upgrade to level 2', Disabled
+                    StaticText, 0x13ae27cc0, {{304.0, 692.5}, {328.0, 14.5}}, label: 'Not enough resources. Let your settlement produce more.'
+                    StaticText, 0x13ae27df0, {{304.0, 719.0}, {220.0, 14.5}}, identifier: 'inspectedBuildingPosition', label: 'Tile 18, 16 · 2×2 footprint · facing north'
+                    Button, 0x13ae27f20, {{304.0, 757.5}, {126.5, 20.5}}, label: 'Close inspection'
+                  Other, 0x13ae28050, {{622.0, 125.5}, {30.0, 89.0}}, label: 'Vertical scroll bar, 8 pages', value: 0%
+                    Other, 0x13ae28180, {{649.0, 204.5}, {3.0, 7.0}}
+                  Other, 0x13ae282b0, {{622.0, 125.5}, {30.0, 89.0}}, label: 'Vertical scroll bar, 8 pages', value: 0%
+                    Other, 0x13ae283e0, {{649.0, 204.5}, {3.0, 7.0}}
+                Button, 0x13ae28510, {{300.0, 214.5}, {343.0, 62.0}}, identifier: 'moveBuilding', label: 'Move building'
+                StaticText, 0x13ae28640, {{298.1, 288.5}, {84.5, 14.5}}, identifier: 'settlementMessage', label: 'Stone gatherer'
+              Other, 0x13ae28770, {{439.0, 315.0}, {216.0, 52.0}}, identifier: 'playerActionDock'
+                Button, 0x13ae288a0, {{443.0, 319.0}, {68.0, 44.0}}, identifier: 'openBuild', label: 'Build'
+                  Image, 0x13ae289d0, {{465.5, 321.5}, {23.0, 22.5}}, identifier: 'hammer', label: 'Build'
+                  StaticText, 0x13ae28b00, {{463.0, 348.5}, {28.0, 13.5}}, label: 'Build'
+                Button, 0x13ae28c30, {{513.0, 319.0}, {68.0, 44.0}}, identifier: 'openResearch', label: 'Research'
+                  Image, 0x13ae28d60, {{538.5, 322.5}, {17.0, 20.5}}, identifier: 'sparkles', label: 'Sparkle'
+                  StaticText, 0x13ae28e90, {{521.5, 347.5}, {51.0, 13.5}}, label: 'Research'
+                Button, 0x13ae28fc0, {{583.0, 319.0}, {68.0, 44.0}}, identifier: 'openExplore', label: 'Explore'
+                  Image, 0x13ae290f0, {{607.5, 324.0}, {19.0, 18.0}}, identifier: 'map', label: 'Show Map'
+                  StaticText, 0x13ae29220, {{596.2, 346.2}, {41.5, 13.5}}, label: 'Explore'
+              Other, 0x13ae29350, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x13ae29480, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x13ae295b0, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x13ae296e0, {{0.0, 0.0}, {667.0, 375.0}}
+    Window, 0x13ae29810, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x13ae29940, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x13ae29a70, {{0.0, 0.0}, {667.0, 375.0}}
+Path to element:
+ →Application, 0x13ae21690, pid: 58314, label: 'Riverbend'
+Query chain:
+ →Find: Target Application 'com.civilization.seed.qa.earned.602aa339-d777-4103-93d8-b8f682f80080'
+  Output: {
+    Application, 0x105dddec0, pid: 58314, label: 'Riverbend'
+  }

@@ -1,0 +1,67 @@
+Attributes: Application, 0x139caeb30, pid: 56824, label: 'Riverbend'
+Element subtree:
+ →Application, 0x139caeb30, pid: 56824, label: 'Riverbend'
+    Window (Main), 0x139caefa0, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x139caf370, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x139caf4a0, {{0.0, 0.0}, {667.0, 375.0}}
+          Other, 0x139caf0d0, {{0.0, 0.0}, {667.0, 375.0}}
+            Other, 0x139caf200, {{0.0, 0.0}, {667.0, 375.0}}
+              Other, 0x139caf5d0, {{0.0, 0.0}, {667.0, 375.0}}, identifier: 'settlementMap', label: 'Settlement map', value: 64×48 tiles · 4 bu...
+              ScrollView, 0x139caf700, {{12.0, 8.0}, {376.0, 44.0}}
+                Other, 0x139caf830, {{12.0, 8.0}, {242.0, 44.0}}
+                  Other, 0x139caf960, {{20.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-food', label: 'Food, 39, net production +7.0 per minute'
+                    Button, 0x139cafa90, {{20.0, 8.0}, {52.0, 44.0}}, label: '39'
+                      Other, 0x139cafbc0, {{22.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x139cafcf0, {{20.0, 8.0}, {52.0, 44.0}}, label: '39'
+                  Other, 0x139cafe20, {{78.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-wood', label: 'Wood, 4, net production +6.0 per minute'
+                    Button, 0x139caff50, {{78.0, 8.0}, {52.0, 44.0}}, label: '4'
+                      Other, 0x139cb0080, {{85.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x139cb01b0, {{78.0, 8.0}, {52.0, 44.0}}, label: '4'
+                  Other, 0x139cb02e0, {{136.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-stone', label: 'Stone, 0, net production +0.0 per minute'
+                    Button, 0x139cb0410, {{136.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x139cb0540, {{143.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x139cb0670, {{136.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x139cb07a0, {{194.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-knowledge', label: 'Knowledge, 7, net production +2.0 per minute'
+                    Button, 0x139cb08d0, {{194.0, 8.0}, {52.0, 44.0}}, label: '7'
+                      Other, 0x139cb0a00, {{201.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x139cb0b30, {{194.0, 8.0}, {52.0, 44.0}}, label: '7'
+                Other, 0x139cb0c60, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x139cb0d90, {{378.0, 46.0}, {7.0, 3.0}}
+                Other, 0x139cb0ec0, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x139cb0ff0, {{378.0, 46.0}, {7.0, 3.0}}
+              Button, 0x139cb1120, {{409.5, 21.5}, {50.8, 17.0}}, label: 'Population 3, housing capacity 6'
+                Image, 0x139cb1250, {{409.5, 24.0}, {20.0, 13.5}}, identifier: 'person.2.fill', label: 'person.2.fill'
+                StaticText, 0x139cb1380, {{409.5, 21.5}, {50.8, 17.0}}, label: '3/6'
+              Button, 0x139cb14b0, {{537.5, 8.0}, {117.5, 44.0}}, identifier: 'settlementMenu', label: 'Settlement menu'
+                Button, 0x139cb15e0, {{537.5, 8.0}, {117.5, 44.0}}
+                  Other, 0x139cb1710, {{537.5, 8.0}, {117.5, 44.0}}
+                    StaticText, 0x139cb1840, {{549.5, 15.0}, {65.5, 14.5}}, label: 'Settlement'
+                    StaticText, 0x139cb1970, {{549.5, 31.5}, {62.5, 13.5}}, label: 'STONE AGE'
+                    Image, 0x139cb1aa0, {{624.5, 21.5}, {17.0, 17.0}}, identifier: 'ellipsis.circle', label: 'More'
+              Button, 0x139cb1bd0, {{12.0, 296.5}, {280.0, 70.5}}, identifier: 'toggleGoals', label: 'Goals, 2/7 chapters, Find materials for Stone gatherer', value: Minimal
+                Image, 0x139cb1d00, {{29.0, 323.5}, {15.0, 16.5}}, identifier: 'flag.checkered', label: 'flag.checkered'
+                StaticText, 0x139cb1e30, {{58.0, 304.5}, {62.5, 14.5}}, label: 'Goals · 2/7'
+                StaticText, 0x139cb1f60, {{58.0, 321.0}, {128.5, 38.0}}, identifier: 'nextStepSummary', label: 'Find materials for Stone gatherer'
+                Image, 0x139cb2090, {{268.0, 329.0}, {10.5, 6.0}}, identifier: 'chevron.up', label: 'Go Up'
+              StaticText, 0x139cb21c0, {{435.0, 278.5}, {220.0, 30.5}}, identifier: 'settlementMessage', label: 'Woodcutter'
+              Other, 0x139cb22f0, {{439.0, 315.0}, {216.0, 52.0}}, identifier: 'playerActionDock'
+                Button, 0x139cb2420, {{443.0, 319.0}, {68.0, 44.0}}, identifier: 'openBuild', label: 'Build'
+                  Image, 0x139cb2550, {{465.5, 321.5}, {23.0, 22.5}}, identifier: 'hammer', label: 'Build'
+                  StaticText, 0x139cb2680, {{463.0, 348.5}, {28.0, 13.5}}, label: 'Build'
+                Button, 0x139cb27b0, {{513.0, 319.0}, {68.0, 44.0}}, identifier: 'openResearch', label: 'Research'
+                  Image, 0x139cb28e0, {{538.5, 322.5}, {17.0, 20.5}}, identifier: 'sparkles', label: 'Sparkle'
+                  StaticText, 0x139cb2a10, {{521.5, 347.5}, {51.0, 13.5}}, label: 'Research'
+                Button, 0x139cb2b40, {{583.0, 319.0}, {68.0, 44.0}}, identifier: 'openExplore', label: 'Explore'
+                  Image, 0x139cb2c70, {{607.5, 324.0}, {19.0, 18.0}}, identifier: 'map', label: 'Show Map'
+                  StaticText, 0x139cb2da0, {{596.2, 346.2}, {41.5, 13.5}}, label: 'Explore'
+              Other, 0x139cb2ed0, {{0.0, 0.0}, {667.0, 375.0}}
+    Window, 0x139cb3000, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x139cb3130, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x139cb3260, {{0.0, 0.0}, {667.0, 375.0}}
+Path to element:
+ →Application, 0x139caeb30, pid: 56824, label: 'Riverbend'
+Query chain:
+ →Find: Target Application 'com.civilization.seed.qa.earned.602aa339-d777-4103-93d8-b8f682f80080'
+  Output: {
+    Application, 0x139dc2580, pid: 56824, label: 'Riverbend'
+  }

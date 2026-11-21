@@ -1,0 +1,175 @@
+Attributes: Application, 0x13ad88b70, pid: 58314, label: 'Riverbend'
+Element subtree:
+ →Application, 0x13ad88b70, pid: 58314, label: 'Riverbend'
+    Window (Main), 0x13ad89bd0, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x13ad88f70, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x13ad88530, {{0.0, 0.0}, {667.0, 375.0}}
+          Other, 0x13ad89390, {{0.0, 0.0}, {667.0, 375.0}}
+            Other, 0x13ad897b0, {{0.0, 0.0}, {667.0, 375.0}}
+              Other, 0x13ad88110, {{0.0, 0.0}, {667.0, 375.0}}, identifier: 'settlementMap', label: 'Settlement map', value: 64×48 tiles · 5 bu...
+              ScrollView, 0x13ad87690, {{12.0, 8.0}, {376.0, 44.0}}
+                Other, 0x13ad89ff0, {{12.0, 8.0}, {242.0, 44.0}}
+                  Other, 0x13ad8a120, {{20.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-food', label: 'Food, 40, net production +6.0 per minute'
+                    Button, 0x13ad8a250, {{20.0, 8.0}, {52.0, 44.0}}, label: '40'
+                      Other, 0x13ad8a380, {{22.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x13ad8a4b0, {{20.0, 8.0}, {52.0, 44.0}}, label: '40'
+                  Other, 0x13ad8a5e0, {{78.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-wood', label: 'Wood, 0, net production +3.0 per minute'
+                    Button, 0x13ad8a710, {{78.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x13ad8a840, {{85.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x13ad8a970, {{78.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x13ad8aaa0, {{136.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-stone', label: 'Stone, 5, net production +2.5 per minute'
+                    Button, 0x13ad8abd0, {{136.0, 8.0}, {52.0, 44.0}}, label: '5'
+                      Other, 0x13ad8ad00, {{143.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x13ad8ae30, {{136.0, 8.0}, {52.0, 44.0}}, label: '5'
+                  Other, 0x13ad8af60, {{194.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-knowledge', label: 'Knowledge, 14, net production +2.0 per minute'
+                    Button, 0x13ad8b090, {{194.0, 8.0}, {52.0, 44.0}}, label: '14'
+                      Other, 0x13ad8b1c0, {{196.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x13ad8b2f0, {{194.0, 8.0}, {52.0, 44.0}}, label: '14'
+                Other, 0x13ad8b420, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x13ad8b550, {{378.0, 46.0}, {7.0, 3.0}}
+                Other, 0x13ad8b680, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x13ad8b7b0, {{378.0, 46.0}, {7.0, 3.0}}
+              Button, 0x13ad8b8e0, {{409.5, 21.5}, {50.8, 17.0}}, label: 'Population 4, housing capacity 6'
+                Image, 0x13ad8ba10, {{409.5, 24.0}, {20.0, 13.5}}, identifier: 'person.2.fill', label: 'person.2.fill'
+                StaticText, 0x13ad8bb40, {{409.5, 21.5}, {50.8, 17.0}}, label: '4/6'
+              Button, 0x13ad8bc70, {{537.5, 8.0}, {117.5, 44.0}}, identifier: 'settlementMenu', label: 'Settlement menu'
+                Button, 0x13ad8bda0, {{537.5, 8.0}, {117.5, 44.0}}
+                  Other, 0x13ad8bed0, {{537.5, 8.0}, {117.5, 44.0}}
+                    StaticText, 0x13ad8c000, {{549.5, 15.0}, {65.5, 14.5}}, label: 'Settlement'
+                    StaticText, 0x13ad8c130, {{549.5, 31.5}, {62.5, 13.5}}, label: 'STONE AGE'
+                    Image, 0x13ad8c260, {{624.5, 21.5}, {17.0, 17.0}}, identifier: 'ellipsis.circle', label: 'More'
+              ScrollView, 0x13ad8c390, {{12.0, 156.0}, {269.5, 140.0}}, identifier: 'goalProgress'
+                Other, 0x13ad8c4c0, {{12.0, 156.0}, {269.5, 152.5}}
+                  StaticText, 0x13ad8c5f0, {{24.0, 168.0}, {245.5, 30.5}}, identifier: 'nextStepExplanation', label: 'Open this exact technology to see its price and any unmet prerequisite.'
+                  Button, 0x13ad8c720, {{24.0, 216.5}, {117.0, 20.5}}, identifier: 'nextStepAction', label: 'Open Research'
+                  Button, 0x13ad8c850, {{24.0, 264.5}, {168.5, 20.5}}, identifier: 'openJourney', label: 'All seven chapters'
+                    Image, 0x13ad8c980, {{26.0, 268.0}, {17.0, 12.5}}, identifier: 'list.bullet', label: 'List'
+                    StaticText, 0x13ad8cab0, {{24.0, 264.5}, {168.5, 20.5}}, label: 'All seven chapters'
+                Other, 0x13ad8cbe0, {{248.5, 156.0}, {30.0, 140.0}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                  Other, 0x13ad8cd10, {{275.5, 159.0}, {3.0, 123.0}}
+                Other, 0x13ad8ce40, {{248.5, 156.0}, {30.0, 140.0}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                  Other, 0x13ad8cf70, {{275.5, 159.0}, {3.0, 123.0}}
+              Button, 0x13ad8d0a0, {{12.0, 296.5}, {280.0, 70.5}}, identifier: 'toggleGoals', label: 'Goals, 2/7 chapters, Research Natural Knowledge', value: Expanded
+                Image, 0x13ad8d1d0, {{29.0, 323.5}, {15.0, 16.5}}, identifier: 'flag.checkered', label: 'flag.checkered'
+                StaticText, 0x13ad8d300, {{58.0, 304.5}, {62.5, 14.5}}, label: 'Goals · 2/7'
+                StaticText, 0x13ad8d430, {{58.0, 321.0}, {127.0, 38.0}}, identifier: 'nextStepSummary', label: 'Research Natural Knowledge'
+                Image, 0x13ad8d560, {{268.0, 329.0}, {10.5, 6.0}}, identifier: 'chevron.down', label: 'Go Down'
+              StaticText, 0x13ad8d690, {{435.0, 278.5}, {220.0, 30.5}}, identifier: 'settlementMessage', label: 'Oral Tradition research complete.'
+              Other, 0x13ad8d7c0, {{439.0, 315.0}, {216.0, 52.0}}, identifier: 'playerActionDock'
+                Button, 0x13ad8d8f0, {{443.0, 319.0}, {68.0, 44.0}}, identifier: 'openBuild', label: 'Build'
+                  Image, 0x13ad8da20, {{465.5, 321.5}, {23.0, 22.5}}, identifier: 'hammer', label: 'Build'
+                  StaticText, 0x13ad8db50, {{463.0, 348.5}, {28.0, 13.5}}, label: 'Build'
+                Button, 0x13ad8dc80, {{513.0, 319.0}, {68.0, 44.0}}, identifier: 'openResearch', label: 'Research'
+                  Image, 0x13ad8ddb0, {{538.5, 322.5}, {17.0, 20.5}}, identifier: 'sparkles', label: 'Sparkle'
+                  StaticText, 0x13ad8dee0, {{521.5, 347.5}, {51.0, 13.5}}, label: 'Research'
+                Button, 0x13ad8e010, {{583.0, 319.0}, {68.0, 44.0}}, identifier: 'openExplore', label: 'Explore'
+                  Image, 0x13ad8e140, {{607.5, 324.0}, {19.0, 18.0}}, identifier: 'map', label: 'Show Map'
+                  StaticText, 0x13ad8e270, {{596.2, 346.2}, {41.5, 13.5}}, label: 'Explore'
+              Other, 0x13ad8e3a0, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x13ad8e4d0, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x13ad8e600, {{0.0, 0.0}, {667.0, 375.0}}
+          Other, 0x13ad8e730, {{0.0, 0.0}, {667.0, 375.0}}
+            Image, 0x13ad8e860, {{15.0, 14.5}, {26.5, 32.0}}, identifier: 'sparkles', label: 'Sparkle'
+            StaticText, 0x13ad8e990, {{15.0, 14.5}, {164.0, 34.1}}, label: 'Research'
+            StaticText, 0x13ad8eac0, {{12.0, 52.0}, {205.5, 14.5}}, label: 'Stone Age · develop your settlement'
+            Button, 0x13ad8ebf0, {{377.0, 22.0}, {180.0, 34.5}}, identifier: 'returnToSource', label: 'Return to settlement'
+            Button, 0x13ad8ed20, {{565.0, 22.0}, {90.0, 34.5}}, identifier: 'closeResearch', label: 'Done'
+              Image, 0x13ad8ee50, {{579.0, 32.0}, {13.5, 13.5}}, identifier: 'xmark', label: 'Close'
+              StaticText, 0x13ad8ef80, {{565.0, 22.0}, {90.0, 34.5}}, label: 'Done'
+            StaticText, 0x13ad8f0b0, {{12.0, 83.0}, {196.5, 18.0}}, label: 'Research · 1/8 technologies'
+            ProgressIndicator, 0x13ad8f1e0, {{12.0, 106.0}, {309.5, 4.0}}, value: 12%
+              ProgressIndicator, 0x13ad8f310, {{12.0, 96.0}, {309.5, 24.0}}, value: 12%
+            Button, 0x13ad8f440, {{345.5, 74.5}, {309.5, 44.0}}, identifier: 'showReadiness', label: 'Stone Age readiness · 0/7 checks', value: 0%
+              Image, 0x13ad8f570, {{347.5, 84.5}, {13.5, 15.0}}, identifier: 'flag.checkered', label: 'flag.checkered'
+              StaticText, 0x13ad8f6a0, {{347.5, 83.0}, {259.5, 18.0}}, label: 'Stone Age readiness · 0/7 checks'
+              ProgressIndicator, 0x13ad8f7d0, {{345.5, 106.0}, {309.5, 4.0}}, value: 0%
+                ProgressIndicator, 0x13ad8f900, {{345.5, 96.0}, {309.5, 24.0}}, value: 0%
+            ScrollView, 0x13ad8fa30, {{12.0, 126.5}, {643.0, 64.5}}
+              Other, 0x13ad8fb60, {{12.0, 126.5}, {689.0, 64.5}}
+                Button, 0x13ad8fc90, {{12.0, 126.5}, {125.0, 64.5}}, identifier: 'pillarFilter-economy', label: 'Economy, 0/0 researched', value: 0%
+                  Other, 0x13ad8fdc0, {{22.0, 136.5}, {20.0, 20.0}}
+                  StaticText, 0x13ad8fef0, {{50.0, 139.2}, {54.0, 14.5}}, label: 'Economy'
+                  StaticText, 0x13ad90020, {{22.0, 159.5}, {86.0, 14.5}}, label: '0/0 researched'
+                  ProgressIndicator, 0x13ad90150, {{22.0, 177.0}, {105.0, 4.0}}, value: 0%
+                    ProgressIndicator, 0x13ad90280, {{22.0, 167.0}, {105.0, 24.0}}, value: 0%
+                Button, 0x13ad903b0, {{145.0, 126.5}, {125.0, 64.5}}, identifier: 'pillarFilter-science', label: 'Science, 1/4 researched', value: 25%, Selected
+                  Other, 0x13ad904e0, {{155.0, 136.5}, {20.0, 20.0}}
+                  StaticText, 0x13ad90610, {{183.0, 139.2}, {47.0, 14.5}}, label: 'Science'
+                  StaticText, 0x13ad90740, {{155.0, 159.5}, {83.5, 14.5}}, label: '1/4 researched'
+                  ProgressIndicator, 0x13ad90870, {{155.0, 177.0}, {105.0, 4.0}}, value: 25%
+                    ProgressIndicator, 0x13ad909a0, {{155.0, 167.0}, {105.0, 24.0}}, value: 25%
+                Button, 0x13ad90ad0, {{278.0, 126.5}, {125.0, 64.5}}, identifier: 'pillarFilter-population', label: 'Population, 0/1 researched', value: 0%
+                  Other, 0x13ad90c00, {{288.0, 136.5}, {20.0, 20.0}}
+                  StaticText, 0x13ad90d30, {{316.0, 139.2}, {63.0, 14.5}}, label: 'Population'
+                  StaticText, 0x13ad90e60, {{288.0, 159.5}, {84.0, 14.5}}, label: '0/1 researched'
+                  ProgressIndicator, 0x13ad90f90, {{288.0, 177.0}, {105.0, 4.0}}, value: 0%
+                    ProgressIndicator, 0x13ad910c0, {{288.0, 167.0}, {105.0, 24.0}}, value: 0%
+                Button, 0x13ad911f0, {{411.0, 126.5}, {125.0, 64.5}}, identifier: 'pillarFilter-culture', label: 'Culture, 0/0 researched', value: 0%
+                  Other, 0x13ad91320, {{421.0, 136.5}, {20.0, 20.0}}
+                  StaticText, 0x13ad91450, {{449.0, 139.2}, {43.5, 14.5}}, label: 'Culture'
+                  StaticText, 0x13ad91580, {{421.0, 159.5}, {86.0, 14.5}}, label: '0/0 researched'
+                  ProgressIndicator, 0x13ad916b0, {{421.0, 177.0}, {105.0, 4.0}}, value: 0%
+                    ProgressIndicator, 0x13ad917e0, {{421.0, 167.0}, {105.0, 24.0}}, value: 0%
+                Button, 0x13ad91910, {{544.0, 126.5}, {157.0, 64.5}}, identifier: 'pillarFilter-militarySecurity', label: 'Military & Security, 0/3 researched', value: 0%
+                  Other, 0x13ad91a40, {{554.0, 136.5}, {20.0, 20.0}}
+                  StaticText, 0x13ad91b70, {{582.0, 139.2}, {109.0, 14.5}}, label: 'Military & Security'
+                  StaticText, 0x13ad91ca0, {{554.0, 159.5}, {86.0, 14.5}}, label: '0/3 researched'
+                  ProgressIndicator, 0x13ad91dd0, {{554.0, 177.0}, {137.0, 4.0}}, value: 0%
+                    ProgressIndicator, 0x13ad91f00, {{554.0, 167.0}, {137.0, 24.0}}, value: 0%
+              Other, 0x13ad92030, {{12.0, 158.0}, {643.0, 30.0}}, label: 'Horizontal scroll bar, 2 pages', value: 0%
+                Other, 0x13ad92160, {{645.0, 185.0}, {7.0, 3.0}}
+              Other, 0x13ad92290, {{12.0, 158.0}, {643.0, 30.0}}, label: 'Horizontal scroll bar, 2 pages', value: 0%
+                Other, 0x13ad923c0, {{645.0, 185.0}, {7.0, 3.0}}
+            ScrollView, 0x13ad924f0, {{12.0, 199.0}, {643.0, 164.0}}, identifier: 'researchCatalog'
+              Other, 0x13ad92620, {{12.0, 199.0}, {643.0, 682.0}}
+                Other, 0x13ad92750, {{11.0, 198.0}, {644.5, 330.5}}
+                  Other, 0x13ad92880, {{11.0, 198.0}, {319.5, 330.5}}, identifier: 'focusedResearch-oralTradition'
+                    Other, 0x13ad929b0, {{22.0, 216.0}, {44.0, 44.0}}
+                    StaticText, 0x13ad92ae0, {{76.0, 209.0}, {97.0, 18.0}}, label: 'Oral Tradition'
+                    Image, 0x13ad92c10, {{77.0, 253.0}, {13.0, 13.0}}, identifier: 'checkmark.seal.fill', label: 'Verified', Selected
+                    StaticText, 0x13ad92d40, {{77.0, 252.9}, {84.0, 13.5}}, label: 'Researched'
+                    Button, 0x13ad92e70, {{275.5, 216.0}, {44.0, 44.0}}, identifier: 'details-research-oralTradition', label: 'Less about Oral Tradition', value: Expanded
+                    Other, 0x13ad92fa0, {{22.0, 283.0}, {49.0, 28.0}}, identifier: 'cost-research-oralTradition-food', label: 'Food, 20 required, 40 stored, already paid'
+                      Other, 0x13ad930d0, {{27.0, 287.0}, {20.0, 20.0}}
+                      StaticText, 0x13ad93200, {{50.0, 289.8}, {16.0, 14.5}}, label: '20'
+                    Other, 0x13ad93330, {{79.0, 283.0}, {49.0, 28.0}}, identifier: 'cost-research-oralTradition-wood', label: 'Wood, 10 required, 0 stored, already paid'
+                      Other, 0x13ad93460, {{84.0, 287.0}, {20.0, 20.0}}
+                      StaticText, 0x13ad93590, {{107.0, 289.8}, {16.0, 14.5}}, label: '10'
+                    Button, 0x13ad936c0, {{249.5, 275.0}, {70.0, 44.0}}, identifier: 'research-oralTradition', label: 'Oral Tradition: researched', Disabled
+                    StaticText, 0x13ad937f0, {{22.0, 335.5}, {275.5, 38.0}}, identifier: 'research-description-oralTradition', label: 'Establishes shared civic knowledge and the prerequisite for Stone Tools.'
+                    Other, 0x13ad93920, {{22.0, 381.5}, {49.0, 28.0}}, identifier: 'cost-research-detail-oralTradition-food', label: 'Food, 20 required, 40 stored, already paid'
+                      Other, 0x13ad93a50, {{27.0, 385.5}, {20.0, 20.0}}
+                      StaticText, 0x13ad93b80, {{50.0, 388.2}, {16.0, 14.5}}, label: '20'
+                    Other, 0x13ad93cb0, {{79.0, 381.5}, {49.0, 28.0}}, identifier: 'cost-research-detail-oralTradition-wood', label: 'Wood, 10 required, 0 stored, already paid'
+                      Other, 0x13ad93de0, {{84.0, 385.5}, {20.0, 20.0}}
+                      StaticText, 0x13ad93f10, {{107.0, 388.2}, {16.0, 14.5}}, label: '10'
+                    StaticText, 0x13ad94040, {{22.0, 415.5}, {245.5, 14.5}}, label: 'Food: 20 required · 40 stored · already paid'
+                    StaticText, 0x13ad94170, {{22.0, 436.0}, {240.0, 14.5}}, label: 'Wood: 10 required · 0 stored · already paid'
+                    StaticText, 0x13ad942a0, {{22.0, 458.5}, {111.0, 14.5}}, label: 'Prerequisites: None'
+                    StaticText, 0x13ad943d0, {{22.0, 481.0}, {62.5, 13.5}}, label: 'BENEFITS'
+                    StaticText, 0x13ad94500, {{22.0, 499.5}, {235.0, 18.0}}, label: 'Advances prerequisite knowledge.'
+                  Other, 0x13ad94630, {{337.0, 198.5}, {318.5, 130.5}}, identifier: 'researchCard-stoneTools'
+                    Other, 0x13ad94760, {{347.5, 216.0}, {44.0, 44.0}}
+                    StaticText, 0x13ad94890, {{401.5, 209.0}, {83.5, 18.0}}, label: 'Stone Tools'
+                    Image, 0x13ad949c0, {{402.5, 253.0}, {10.0, 12.5}}, identifier: 'sparkles', label: 'Sparkle'
+                    StaticText, 0x13ad94af0, {{402.5, 252.9}, {102.0, 13.5}}, label: 'Need resources'
+                    Button, 0x13ad94c20, {{601.0, 216.0}, {44.0, 44.0}}, identifier: 'details-research-stoneTools', label: 'Details about Stone Tools', value: Collapsed
+                    Other, 0x13ad94d50, {{347.5, 282.5}, {64.0, 28.0}}, identifier: 'cost-research-stoneTools-knowledge', label: 'Knowledge, 15 required, 14 stored, 1 missing'
+                      Other, 0x13ad94e80, {{352.5, 286.5}, {20.0, 20.0}}
+                      StaticText, 0x11dc06330, {{375.5, 289.2}, {16.0, 14.5}}, label: '15'
+                      Image, 0x11dc07eb0, {{395.5, 291.5}, {10.0, 10.0}}, identifier: 'exclamationmark.circle.fill', label: 'exclamationmark.circle.fill'
+                    Button, 0x11de07fe0, {{574.0, 274.5}, {71.0, 44.0}}, identifier: 'research-stoneTools', label: 'Research Stone Tools', Disabled
+              Other, 0x13ac65c30, {{622.0, 199.0}, {30.0, 164.0}}, label: 'Vertical scroll bar, 5 pages', value: 0%
+                Other, 0x13ac66300, {{649.0, 202.0}, {3.0, 38.0}}
+              Other, 0x13ac66940, {{622.0, 199.0}, {30.0, 164.0}}, label: 'Vertical scroll bar, 5 pages', value: 0%
+                Other, 0x13ac675e0, {{649.0, 202.0}, {3.0, 38.0}}
+    Window, 0x13ac67710, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x13ac67840, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x13ac67970, {{0.0, 0.0}, {667.0, 375.0}}
+Path to element:
+ →Application, 0x13ad88b70, pid: 58314, label: 'Riverbend'
+Query chain:
+ →Find: Target Application 'com.civilization.seed.qa.earned.602aa339-d777-4103-93d8-b8f682f80080'
+  Output: {
+    Application, 0x13abb1cc0, pid: 58314, label: 'Riverbend'
+  }

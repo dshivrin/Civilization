@@ -1,0 +1,122 @@
+    // This suite uses ordinary UI only. Baseline scrolling is recorded before each workaround.
+    @MainActor private func routeCapture(_ name: String, _ app: XCUIApplication) {
+        let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        shot.name = "route-" + name; shot.lifetime = .keepAlways; add(shot)
+        let tree = XCTAttachment(string: app.debugDescription)
+        tree.name = "route-tree-" + name; tree.lifetime = .keepAlways; add(tree)
+        print("ROUTE checkpoint=\(name) timestamp=\(Date().timeIntervalSince1970) goal=\(app.buttons["toggleGoals"].label)")
+    }
+    @MainActor private func routeTap(_ id: String, _ app: XCUIApplication, baselineScroll: Bool = true) {
+        let button = app.buttons[id].firstMatch
+        XCTAssertTrue(button.waitForExistence(timeout: 10), id)
+        print("ROUTE opening action=\(id) hittable=\(button.isHittable) frame=\(button.frame)")
+        if !button.isHittable {
+            routeCapture("before-required-scroll-" + id, app)
+            XCTAssertTrue(baselineScroll, "Primary action must be visible on opening: " + id)
+            let scroll = ["buildingInspection", "riverbendExploreContent", "researchCatalog", "playerCatalogDetails", "goalProgress"].map { app.scrollViews[$0] }.first { $0.exists } ?? app.scrollViews.firstMatch
+            for _ in 0..<12 where !button.isHittable {
+                let up = button.frame.midY >= scroll.frame.midY
+                scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: up ? 0.82 : 0.18)).press(forDuration: 0.1, thenDragTo: scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: up ? 0.2 : 0.8)), withVelocity: XCUIGestureVelocity(rawValue: 120), thenHoldForDuration: 0.1)
+            }
+        }
+        XCTAssertTrue(button.isHittable, id); button.tap()
+    }
+    @MainActor private func routeGoal(_ app: XCUIApplication) -> String {
+        if !app.buttons["nextStepAction"].exists { routeTap("toggleGoals", app) }
+        let summary = app.staticTexts["nextStepSummary"].label
+        XCTAssertFalse(summary.isEmpty); routeCapture("objective-" + summary.replacingOccurrences(of: " ", with: "-"), app)
+        return summary
+    }
+    @MainActor private func routeStart(_ app: XCUIApplication) {
+        app.launch(); routeTap("newNormalGame", app)
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertTrue((app.otherElements["settlementMap"].value as? String ?? "").contains("1 buildings"))
+        XCTAssertFalse(app.buttons["developerTools"].exists)
+        XCTAssertTrue(routeGoal(app).contains("Lodge"))
+        routeTap("nextStepAction", app); routeTap("upgradeBuilding", app, baselineScroll: false)
+        XCTAssertTrue(app.staticTexts["civicLevelName"].label.contains("Lodge")); routeTap("closeBuildingInspection", app)
+        XCTAssertTrue(routeGoal(app).contains("Hut"))
+        routeTap("nextStepAction", app); routeTap("build-hut", app, baselineScroll: false); routeTap("confirmPlacement", app)
+    }
+    @MainActor private func routeConnect(_ id: Int, _ app: XCUIApplication, requireMissingRoad: Bool = false) {
+        routeTap("settlementMenu", app); routeTap("inspectBuilding-\(id)", app)
+        let pending = app.descendants(matching: .any)["constructionProgress"].firstMatch
+        if pending.exists {
+            XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: pending)], timeout: 90), .completed)
+        }
+        XCTAssertTrue(app.staticTexts["buildingOperatingStatus"].waitForExistence(timeout: 90))
+        let status = app.staticTexts["buildingOperatingStatus"].label
+        routeCapture("building-\(id)-before-road", app)
+        if requireMissingRoad { XCTAssertTrue(status.localizedCaseInsensitiveContains("path") || status.localizedCaseInsensitiveContains("connect"), status) }
+        if app.buttons["connectBuildingPaths"].exists {
+            routeTap("connectBuildingPaths", app); routeTap("confirmRoadStroke", app); routeTap("closeRoads", app)
+            routeTap("settlementMenu", app); routeTap("inspectBuilding-\(id)", app)
+        }
+        XCTAssertFalse(app.buttons["connectBuildingPaths"].exists)
+        let working = app.staticTexts["buildingOperatingStatus"].label
+        XCTAssertFalse(working.localizedCaseInsensitiveContains("disconnected"), working)
+        routeCapture("building-\(id)-road-recovered", app); routeTap("closeBuildingInspection", app)
+    }
+    @MainActor func testRiverbendThirdVisibleActionPrimaryVisibleWithoutScrolling() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); routeStart(app)
+        // The third immediate action can be Finish/Connect Hut. Record that exact ordinary state.
+        let third = routeGoal(app)
+        XCTAssertTrue(third.contains("Hut") || third.contains("Gathering"), third)
+        routeTap("nextStepAction", app, baselineScroll: false)
+        routeCapture("third-visible-action-opened", app)
+        if app.buttons["build-gatheringShelter"].exists { routeTap("build-gatheringShelter", app, baselineScroll: false) }
+        else {
+            XCTAssertTrue(app.buttons["closeBuildingInspection"].isHittable)
+        }
+    }
+    @MainActor func testRiverbendContinuousBaselineRouteWithExplicitScrollingThroughChapterThree() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let start = Date(); let app = XCUIApplication(); routeStart(app)
+        routeConnect(1, app, requireMissingRoad: true)
+        XCTAssertTrue(routeGoal(app).contains("Gathering"))
+        routeTap("nextStepAction", app); XCTAssertEqual(app.staticTexts["playerCatalogSelection"].label, "Gathering shelter")
+        routeTap("build-gatheringShelter", app, baselineScroll: false); routeTap("confirmPlacement", app)
+        routeConnect(2, app)
+        XCTAssertTrue(routeGoal(app).contains("forest")); routeTap("nextStepAction", app)
+        let coverage = app.staticTexts["explorationCoverage"].label
+        routeTap("startExploration", app)
+        XCTAssertTrue(app.staticTexts["explorationTimer"].waitForExistence(timeout: 5))
+        let surveyStart = Date()
+        XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: app.staticTexts["explorationTimer"])], timeout: 100), .completed)
+        print("ROUTE survey real seconds=\(Date().timeIntervalSince(surveyStart))")
+        XCTAssertNotEqual(app.staticTexts["explorationCoverage"].label, coverage)
+        routeCapture("whole-forest-survey-return", app); routeTap("Close panel", app)
+        XCTAssertTrue(routeGoal(app).contains("Woodcutter")); routeTap("nextStepAction", app)
+        XCTAssertEqual(app.staticTexts["playerCatalogSelection"].label, "Woodcutter")
+        routeTap("build-woodcutter", app, baselineScroll: false); routeTap("confirmPlacement", app); routeConnect(3, app)
+        // Continue once at the Chapter 2 → Chapter 3 transition in this same earned game.
+        routeCapture("before-chapter-three-continue", app); app.terminate(); app.launch(); routeTap("continueGame", app)
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertTrue((app.otherElements["settlementMap"].value as? String ?? "").contains("4 buildings"))
+        XCTAssertTrue(routeGoal(app).contains("Stone")); routeTap("nextStepAction", app)
+        XCTAssertEqual(app.staticTexts["playerCatalogSelection"].label, "Stone gatherer")
+        routeCapture("chapter-three-stone-selected", app)
+        routeTap("build-stoneGatherer", app, baselineScroll: false)
+        // Baseline material/prerequisite UI may require an explicit Stone discovery first.
+        if !app.buttons["confirmPlacement"].exists { routeCapture("BLOCK-stone-primary-action", app); XCTFail("Stone primary action did not open placement; inspect exact requirement evidence"); return }
+        routeTap("confirmPlacement", app); routeConnect(4, app)
+        for (id, name) in [("oralTradition", "Oral Tradition"), ("naturalKnowledge", "Natural Knowledge")] {
+            XCTAssertTrue(routeGoal(app).contains(name)); routeTap("nextStepAction", app)
+            XCTAssertTrue(app.descendants(matching: .any)["focusedResearch-" + id].waitForExistence(timeout: 10))
+            let research = app.buttons["research-" + id]
+            routeCapture("chapter-three-" + id + "-opening", app)
+            if !research.isEnabled {
+                let waitStart = Date()
+                XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "enabled == true"), object: research)], timeout: 1500), .completed, "Natural resource wait; no acceleration")
+                print("ROUTE research=\(id) real resource wait seconds=\(Date().timeIntervalSince(waitStart))")
+            }
+            routeTap("research-" + id, app)
+            XCTAssertTrue(research.label.contains("researched"), research.label)
+            routeCapture("chapter-three-" + id + "-paid", app); routeTap("closeResearch", app)
+        }
+        XCTAssertTrue(app.buttons["toggleGoals"].label.contains("3/7"), app.buttons["toggleGoals"].label)
+        XCTAssertTrue(routeGoal(app).contains("Stone Tools"))
+        routeCapture("chapter-four-reachable", app)
+        print("ROUTE continuous New Game to Chapter 4 real seconds=\(Date().timeIntervalSince(start))")
+    }

@@ -1,0 +1,14 @@
+{
+  "baseline": "ca1426b4613697ee0b5fc7558c2d0a1c38565821",
+  "protectedCount": 201,
+  "changed": [],
+  "excludedTestFile": "CivilizationUITests/RelocationUITests.swift",
+  "simulator": {
+    "udid": "364B7F36-DEB5-45E2-BB93-E3F5B8E8398E",
+    "profile": "iPhone SE (3rd generation)",
+    "runtime": "iOS 18.6"
+  },
+  "qaIdentity": "com.civilization.seed.qa.earned.602aa339-d777-4103-93d8-b8f682f80080",
+  "identityNote": "Runner naming only: no earned fixture was installed; route starts with ordinary New Game.",
+  "worktree": "/private/tmp/civilization-native-route-audit"
+}

@@ -1,0 +1,56 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "release",
+    "derived_data": "/tmp/civilization-route-audit-builds",
+    "qa_identity": "602aa339-d777-4103-93d8-b8f682f80080",
+    "prepared_earned_container": false,
+    "filter": null,
+    "simulator": [
+      "364B7F36-DEB5-45E2-BB93-E3F5B8E8398E"
+    ],
+    "only_testing": [
+      "CivilizationUITests/NormalEntryUITests/testRiverbendContinuousBaselineRouteWithExplicitScrollingThroughChapterThree"
+    ],
+    "output": "/tmp/civilization-route-audit-run2"
+  },
+  "steps": [
+    {
+      "name": "ui-release-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/private/tmp/civilization-native-route-audit/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Release",
+        "-destination",
+        "platform=iOS Simulator,id=364B7F36-DEB5-45E2-BB93-E3F5B8E8398E",
+        "-derivedDataPath",
+        "/private/tmp/civilization-route-audit-builds/release/364B7F36-DEB5-45E2-BB93-E3F5B8E8398E",
+        "-resultBundlePath",
+        "/private/tmp/civilization-route-audit-run2/ui-release-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa.earned.602aa339-d777-4103-93d8-b8f682f80080",
+        "-parallel-testing-enabled",
+        "NO",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testRiverbendContinuousBaselineRouteWithExplicitScrollingThroughChapterThree"
+      ],
+      "exitCode": 65,
+      "status": "failed",
+      "tests": 1,
+      "durationSeconds": 195.102,
+      "log": "/private/tmp/civilization-route-audit-run2/ui-release-1.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T13:02:47.033030+00:00",
+  "revision": {
+    "commit": "6078cd6b71b29ca01cbc8dbe28d53899675fa072",
+    "dirty": true
+  },
+  "status": "failed"
+}

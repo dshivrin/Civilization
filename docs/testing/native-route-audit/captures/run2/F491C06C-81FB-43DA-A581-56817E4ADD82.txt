@@ -1,0 +1,95 @@
+Attributes: Application, 0x11a35f260, pid: 55361, label: 'Riverbend'
+Element subtree:
+ →Application, 0x11a35f260, pid: 55361, label: 'Riverbend'
+    Window (Main), 0x11a36b4c0, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x11a36b890, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x11a36b9c0, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11a36b5f0, {{0.0, 0.0}, {667.0, 375.0}}
+          Other, 0x11a36b720, {{0.0, 0.0}, {667.0, 375.0}}
+            Other, 0x11a36baf0, {{0.0, 0.0}, {667.0, 375.0}}
+              Other, 0x11a36bc20, {{0.0, 0.0}, {667.0, 375.0}}, identifier: 'settlementMap', label: 'Settlement map', value: 64×48 tiles · 3 bu...
+              ScrollView, 0x11a36bd50, {{12.0, 8.0}, {376.0, 44.0}}
+                Other, 0x11a36be80, {{12.0, 8.0}, {184.0, 44.0}}
+                  Other, 0x11a36bfb0, {{20.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-food', label: 'Food, 31, net production +7.0 per minute'
+                    Button, 0x11a36c0e0, {{20.0, 8.0}, {52.0, 44.0}}, label: '31'
+                      Other, 0x11a36c210, {{22.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11a36c340, {{20.0, 8.0}, {52.0, 44.0}}, label: '31'
+                  Other, 0x11a36c470, {{78.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-wood', label: 'Wood, 0, net production +0.0 per minute'
+                    Button, 0x11a36c5a0, {{78.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x11a36c6d0, {{85.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11a36c800, {{78.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x11a36c930, {{136.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-knowledge', label: 'Knowledge, 2, net production +2.0 per minute'
+                    Button, 0x11a36ca60, {{136.0, 8.0}, {52.0, 44.0}}, label: '2'
+                      Other, 0x11a36cb90, {{143.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11a36ccc0, {{136.0, 8.0}, {52.0, 44.0}}, label: '2'
+                Other, 0x11a36cdf0, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x11a36cf20, {{378.0, 46.0}, {7.0, 3.0}}
+                Other, 0x11a36d050, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x11a36d180, {{378.0, 46.0}, {7.0, 3.0}}
+              Button, 0x11a36d2b0, {{409.5, 21.5}, {50.8, 17.0}}, label: 'Population 3, housing capacity 6'
+                Image, 0x11a36d3e0, {{409.5, 24.0}, {20.0, 13.5}}, identifier: 'person.2.fill', label: 'person.2.fill'
+                StaticText, 0x11a36d510, {{409.5, 21.5}, {50.8, 17.0}}, label: '3/6'
+              Button, 0x11a36d640, {{537.5, 8.0}, {117.5, 44.0}}, identifier: 'settlementMenu', label: 'Settlement menu'
+                Button, 0x11a36d770, {{537.5, 8.0}, {117.5, 44.0}}
+                  Other, 0x11a36d8a0, {{537.5, 8.0}, {117.5, 44.0}}
+                    StaticText, 0x11a36d9d0, {{549.5, 15.0}, {65.5, 14.5}}, label: 'Settlement'
+                    StaticText, 0x11a36db00, {{549.5, 31.5}, {62.5, 13.5}}, label: 'STONE AGE'
+                    Image, 0x11a36dc30, {{624.5, 21.5}, {17.0, 17.0}}, identifier: 'ellipsis.circle', label: 'More'
+              Button, 0x11a36dd60, {{12.0, 323.0}, {79.5, 44.0}}, identifier: 'toggleGoals', label: 'Goals, Survey the whole nearby forest'
+                Image, 0x11a36de90, {{26.0, 339.0}, {11.0, 12.0}}, identifier: 'flag.checkered', label: 'flag.checkered'
+                StaticText, 0x11a36dfc0, {{26.0, 337.8}, {53.5, 14.5}}, label: 'Goals'
+              Other, 0x11a36e0f0, {{288.0, 125.5}, {367.0, 183.5}}, identifier: 'playerWorldInspector'
+                ScrollView, 0x11a36e220, {{288.0, 125.5}, {367.0, 89.0}}, identifier: 'buildingInspection'
+                  Other, 0x11a36e350, {{288.0, 125.5}, {367.0, 609.5}}
+                    StaticText, 0x11a36e480, {{304.0, 153.2}, {181.5, 20.5}}, identifier: 'civicLevelName', label: 'Gathering shelter · Lv 1'
+                    Button, 0x11a36e5b0, {{595.0, 141.5}, {44.0, 44.0}}, identifier: 'closeBuildingInspection', label: 'Close inspection'
+                    StaticText, 0x11a36e6e0, {{304.0, 197.5}, {68.5, 18.0}}, identifier: 'buildingOperatingStatus', label: 'Operating'
+                    StaticText, 0x11a36e810, {{304.0, 227.5}, {107.0, 14.5}}, identifier: 'buildingProductivity', label: 'Productivity: 100%'
+                    StaticText, 0x11a36e940, {{304.0, 254.0}, {181.5, 14.5}}, label: 'Base configuration: +8 food/min'
+                    StaticText, 0x11a36ea70, {{304.0, 280.5}, {90.5, 18.0}}, identifier: 'buildingWorkers', label: 'Workers: 1 / 1'
+                    StaticText, 0x11a36eba0, {{304.0, 306.5}, {223.0, 14.5}}, label: 'Staffing: 100% · automatically assigned'
+                    StaticText, 0x11a36ecd0, {{304.0, 329.0}, {137.5, 12.0}}, label: 'WORKFORCE PRIORITY'
+                    Button, 0x11a36ee00, {{347.0, 363.8}, {23.0, 14.5}}, identifier: 'workerPriority-0', label: 'Low workforce priority'
+                    Button, 0x106769ab0, {{417.0, 349.0}, {109.0, 44.0}}, identifier: 'workerPriority-1', label: 'Normal workforce priority', Selected
+                    Button, 0x106765cf0, {{571.2, 363.8}, {26.5, 14.5}}, identifier: 'workerPriority-2', label: 'High workforce priority'
+                    StaticText, 0x106766e10, {{304.0, 401.0}, {329.5, 30.5}}, label: 'Basic food and water receive a protected workforce share even at low priority.'
+                    StaticText, 0x1067674f0, {{304.0, 443.5}, {119.5, 12.0}}, label: 'PRODUCTION MODE'
+                    Button, 0x106765610, {{304.0, 467.5}, {335.0, 60.0}}, identifier: 'productionMode-gatheringShelter', label: 'Gathering shelter, Out / min: 8 food'
+                      Image, 0x10676a7d0, {{313.5, 480.0}, {15.0, 15.0}}, identifier: 'checkmark.circle.fill', label: 'Selected', Selected
+                      StaticText, 0x106768260, {{313.5, 478.8}, {143.5, 18.0}}, label: 'Gathering shelter'
+                      StaticText, 0x106768cc0, {{312.0, 501.8}, {95.5, 14.5}}, label: 'Out / min: 8 food'
+                    StaticText, 0x1067696f0, {{304.0, 539.5}, {155.5, 14.5}}, label: 'Upgrade: 10 wood · 5 stone'
+                    Button, 0x106767f00, {{304.0, 566.0}, {335.0, 44.0}}, identifier: 'upgradeBuilding', label: 'Upgrade to level 2', Disabled
+                    StaticText, 0x106783fa0, {{304.0, 622.0}, {328.0, 14.5}}, label: 'Not enough resources. Let your settlement produce more.'
+                    StaticText, 0x106783c50, {{304.0, 648.5}, {213.0, 14.5}}, identifier: 'inspectedBuildingPosition', label: 'Tile 17, 8 · 2×2 footprint · facing north'
+                    Button, 0x106784330, {{304.0, 687.0}, {126.5, 20.5}}, label: 'Close inspection'
+                  Other, 0x1067846b0, {{622.0, 125.5}, {30.0, 89.0}}, label: 'Vertical scroll bar, 7 pages', value: 0%
+                    Other, 0x106784a00, {{649.0, 204.5}, {3.0, 7.0}}
+                  Other, 0x106784d50, {{622.0, 125.5}, {30.0, 89.0}}, label: 'Vertical scroll bar, 7 pages', value: 0%
+                    Other, 0x1067850a0, {{649.0, 204.5}, {3.0, 7.0}}
+                Button, 0x106785410, {{300.0, 214.5}, {343.0, 62.0}}, identifier: 'moveBuilding', label: 'Move building'
+                StaticText, 0x106785760, {{298.1, 288.5}, {98.5, 14.5}}, identifier: 'settlementMessage', label: 'Gathering shelter'
+              Other, 0x106785aa0, {{439.0, 315.0}, {216.0, 52.0}}, identifier: 'playerActionDock'
+                Button, 0x106785df0, {{443.0, 319.0}, {68.0, 44.0}}, identifier: 'openBuild', label: 'Build'
+                  Image, 0x106786150, {{465.5, 321.5}, {23.0, 22.5}}, identifier: 'hammer', label: 'Build'
+                  StaticText, 0x1067864d0, {{463.0, 348.5}, {28.0, 13.5}}, label: 'Build'
+                Button, 0x11a457100, {{513.0, 319.0}, {68.0, 44.0}}, identifier: 'openResearch', label: 'Research'
+                  Image, 0x11a4564d0, {{538.5, 322.5}, {17.0, 20.5}}, identifier: 'sparkles', label: 'Sparkle'
+                  StaticText, 0x11a459680, {{521.5, 347.5}, {51.0, 13.5}}, label: 'Research'
+                Button, 0x11a45c3d0, {{583.0, 319.0}, {68.0, 44.0}}, identifier: 'openExplore', label: 'Explore'
+                  Image, 0x11a45bd90, {{607.5, 324.0}, {19.0, 18.0}}, identifier: 'map', label: 'Show Map'
+                  StaticText, 0x11a45b970, {{596.2, 346.2}, {41.5, 13.5}}, label: 'Explore'
+              Other, 0x11a45b550, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x11a45b130, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11a45a6f0, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11208b0a0, {{0.0, 0.0}, {667.0, 375.0}}
+    Window, 0x11208c970, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x11208caa0, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11208cbd0, {{0.0, 0.0}, {667.0, 375.0}}
+Path to element:
+ →Application, 0x11a35f260, pid: 55361, label: 'Riverbend'
+Query chain:
+ →Find: Target Application 'com.civilization.seed.qa.earned.602aa339-d777-4103-93d8-b8f682f80080'
+  Output: {
+    Application, 0x11a36f150, pid: 55361, label: 'Riverbend'
+  }

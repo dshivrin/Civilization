@@ -1,0 +1,91 @@
+Attributes: Application, 0x11a38ff60, pid: 55361, label: 'Riverbend'
+Element subtree:
+ →Application, 0x11a38ff60, pid: 55361, label: 'Riverbend'
+    Window (Main), 0x11a391900, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x11a3947a0, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11a3948d0, {{0.0, 0.0}, {667.0, 375.0}}
+          Other, 0x11a37d010, {{0.0, 0.0}, {667.0, 375.0}}
+            Other, 0x11a38fb30, {{0.0, 0.0}, {667.0, 375.0}}
+              Other, 0x11a394a00, {{0.0, 0.0}, {667.0, 375.0}}, identifier: 'settlementMap', label: 'Settlement map', value: 64×48 tiles · 3 bu...
+              ScrollView, 0x11a394b30, {{12.0, 8.0}, {376.0, 44.0}}
+                Other, 0x11a394c60, {{12.0, 8.0}, {184.0, 44.0}}
+                  Other, 0x11a394d90, {{20.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-food', label: 'Food, 31, net production +7.0 per minute'
+                    Button, 0x11a394ec0, {{20.0, 8.0}, {52.0, 44.0}}, label: '31'
+                      Other, 0x11a394ff0, {{22.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11a395120, {{20.0, 8.0}, {52.0, 44.0}}, label: '31'
+                  Other, 0x11a395250, {{78.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-wood', label: 'Wood, 0, net production +0.0 per minute'
+                    Button, 0x11a395380, {{78.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x11a3954b0, {{85.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11a3955e0, {{78.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x11a395710, {{136.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-knowledge', label: 'Knowledge, 2, net production +2.0 per minute'
+                    Button, 0x11a395840, {{136.0, 8.0}, {52.0, 44.0}}, label: '2'
+                      Other, 0x11a395970, {{143.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11a395aa0, {{136.0, 8.0}, {52.0, 44.0}}, label: '2'
+                Other, 0x11a395bd0, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x11a395d00, {{378.0, 46.0}, {7.0, 3.0}}
+                Other, 0x11a395e30, {{12.0, 27.0}, {376.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                  Other, 0x11a395f60, {{378.0, 46.0}, {7.0, 3.0}}
+              Button, 0x11a396090, {{409.5, 21.5}, {50.8, 17.0}}, label: 'Population 3, housing capacity 6'
+                Image, 0x11a3961c0, {{409.5, 24.0}, {20.0, 13.5}}, identifier: 'person.2.fill', label: 'person.2.fill'
+                StaticText, 0x11a3962f0, {{409.5, 21.5}, {50.8, 17.0}}, label: '3/6'
+              Button, 0x11a396420, {{537.5, 8.0}, {117.5, 44.0}}, identifier: 'settlementMenu', label: 'Settlement menu'
+                Button, 0x11a396550, {{537.5, 8.0}, {117.5, 44.0}}
+                  Other, 0x11a396680, {{537.5, 8.0}, {117.5, 44.0}}
+                    StaticText, 0x11a3967b0, {{549.5, 15.0}, {65.5, 14.5}}, label: 'Settlement'
+                    StaticText, 0x11a3968e0, {{549.5, 31.5}, {62.5, 13.5}}, label: 'STONE AGE'
+                    Image, 0x11a396a10, {{624.5, 21.5}, {17.0, 17.0}}, identifier: 'ellipsis.circle', label: 'More'
+              Button, 0x11a396b40, {{12.0, 323.0}, {79.5, 44.0}}, identifier: 'toggleGoals', label: 'Goals, Survey the whole nearby forest'
+                Image, 0x11a396c70, {{26.0, 339.0}, {11.0, 12.0}}, identifier: 'flag.checkered', label: 'flag.checkered'
+                StaticText, 0x11a396da0, {{26.0, 337.8}, {53.5, 14.5}}, label: 'Goals'
+              Other, 0x11a396ed0, {{288.0, 125.5}, {367.0, 183.5}}, identifier: 'playerWorldInspector'
+                ScrollView, 0x11a397000, {{288.0, 125.5}, {367.0, 143.0}}, identifier: 'riverbendExploreContent'
+                  Other, 0x11a397130, {{288.0, 125.5}, {367.0, 803.0}}
+                    StaticText, 0x11a397260, {{302.0, 151.2}, {90.0, 20.5}}, label: 'Exploration'
+                    Button, 0x11a397390, {{597.0, 139.5}, {44.0, 44.0}}, identifier: 'xmark', label: 'Close panel'
+                    StaticText, 0x11a3974c0, {{302.0, 193.5}, {94.5, 20.5}}, label: 'RIVERBEND'
+                    StaticText, 0x11a3975f0, {{302.0, 224.0}, {288.0, 30.5}}, label: 'Free recovery fills only a small reserve. Connected producers sustain the village.'
+                    Button, 0x11a397720, {{302.0, 276.5}, {228.5, 20.5}}, identifier: 'riverbendRecoverFood', label: 'Forage · restore Food up to 12'
+                    Button, 0x11a397850, {{302.0, 319.5}, {245.5, 42.5}}, identifier: 'riverbendRecoverWood', label: 'Collect fallen branches · restore opening Wood'
+                    StaticText, 0x11a397980, {{302.0, 372.5}, {256.5, 18.0}}, label: 'Wild berries · optional · +3 Food once'
+                    StaticText, 0x11a397ab0, {{302.0, 392.5}, {108.0, 14.5}}, label: 'Revealed site 17, 11'
+                    Button, 0x11a397be0, {{302.0, 426.0}, {109.5, 20.5}}, identifier: 'riverbendFind-berries', label: 'Gather berries'
+                    StaticText, 0x11a397d10, {{302.0, 468.4}, {307.5, 18.0}}, label: 'Deer tracks · optional observation, no reward'
+                    StaticText, 0x11a397e40, {{302.0, 488.4}, {109.5, 14.5}}, label: 'Revealed site 19, 11'
+                    Button, 0x11a397f70, {{302.0, 522.0}, {115.5, 20.5}}, identifier: 'riverbendFind-tracks', label: 'Observe tracks'
+                    StaticText, 0x11a3980a0, {{302.0, 574.7}, {132.5, 12.0}}, label: 'EXPLORE THE VALLEY'
+                    StaticText, 0x11a3981d0, {{302.0, 596.7}, {184.5, 18.0}}, identifier: 'explorationCoverage', label: '121 / 3,072 tiles discovered'
+                    StaticText, 0x11a398300, {{302.0, 624.7}, {331.0, 46.5}}, label: 'Unexplored land stays hidden. Buildings need a fully revealed footprint; deposits must also be identified before extraction.'
+                    StaticText, 0x11a398430, {{302.0, 681.2}, {135.0, 14.5}}, label: 'Expedition: 8 food · 60s'
+                    StaticText, 0x11a398560, {{302.0, 705.7}, {338.0, 46.5}}, label: 'Reveals the whole nearby forest and its work faces. Further expeditions expand the known area; distant journeys require a connected Scout Camp.'
+                    Button, 0x11a398690, {{302.0, 762.0}, {339.0, 44.0}}, identifier: 'startExploration', label: 'Send expedition'
+                    Button, 0x11a3987c0, {{302.0, 816.0}, {177.0, 44.0}}, identifier: 'explorationResearch', label: 'Expedition research'
+                      Image, 0x11a3988f0, {{303.5, 828.0}, {15.5, 19.0}}, identifier: 'sparkles', label: 'Sparkle'
+                      StaticText, 0x11a398a20, {{302.0, 816.0}, {177.0, 44.0}}, label: 'Expedition research'
+                    StaticText, 0x11a398b50, {{302.0, 878.2}, {142.0, 12.0}}, label: 'DISCOVERED DEPOSITS'
+                    StaticText, 0x11a398c80, {{302.0, 900.2}, {158.0, 14.5}}, label: 'No deposits discovered yet.'
+                  Other, 0x11a398db0, {{622.0, 125.5}, {30.0, 143.0}}, label: 'Vertical scroll bar, 6 pages', value: 0%
+                    Other, 0x11a398ee0, {{649.0, 258.5}, {3.0, 7.0}}
+                  Other, 0x11a399010, {{622.0, 125.5}, {30.0, 143.0}}, label: 'Vertical scroll bar, 6 pages', value: 0%
+                    Other, 0x11a399140, {{649.0, 258.5}, {3.0, 7.0}}
+                StaticText, 0x11a399270, {{298.1, 272.5}, {325.5, 30.5}}, identifier: 'settlementMessage', label: 'Drag to explore · pinch to zoom · long-press a building to move it'
+              Other, 0x11a3993a0, {{439.0, 315.0}, {216.0, 52.0}}, identifier: 'playerActionDock'
+                Button, 0x11a3994d0, {{443.0, 319.0}, {68.0, 44.0}}, identifier: 'openBuild', label: 'Build'
+                  Image, 0x11a399600, {{465.5, 321.5}, {23.0, 22.5}}, identifier: 'hammer', label: 'Build'
+                  StaticText, 0x11a399730, {{463.0, 348.5}, {28.0, 13.5}}, label: 'Build'
+                Button, 0x11a399860, {{513.0, 319.0}, {68.0, 44.0}}, identifier: 'openResearch', label: 'Research'
+                  Image, 0x11a399990, {{538.5, 322.5}, {17.0, 20.5}}, identifier: 'sparkles', label: 'Sparkle'
+                  StaticText, 0x11a399ac0, {{521.5, 347.5}, {51.0, 13.5}}, label: 'Research'
+                Button, 0x11a399bf0, {{583.0, 319.0}, {68.0, 44.0}}, identifier: 'openExplore', label: 'Explore', Selected
+                  Image, 0x11a399d20, {{607.5, 324.0}, {19.0, 18.0}}, identifier: 'map', label: 'Show Map'
+                  StaticText, 0x11a399e50, {{596.2, 346.2}, {41.5, 13.5}}, label: 'Explore'
+              Other, 0x11a399f80, {{0.0, 0.0}, {667.0, 375.0}}
+    Window, 0x11a39a0b0, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x11a39a1e0, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11a39a310, {{0.0, 0.0}, {667.0, 375.0}}
+Path to element:
+ →Application, 0x11a38ff60, pid: 55361, label: 'Riverbend'
+Query chain:
+ →Find: Target Application 'com.civilization.seed.qa.earned.602aa339-d777-4103-93d8-b8f682f80080'
+  Output: {
+    Application, 0x106787db0, pid: 55361, label: 'Riverbend'
+  }

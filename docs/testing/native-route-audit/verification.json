@@ -1,0 +1,88 @@
+{
+  "baseline": "ca1426b4613697ee0b5fc7558c2d0a1c38565821",
+  "protectedProductFiles": 201,
+  "changedProductFiles": [],
+  "testSourceSHA256": "6e4c2cefb7b8776c47c8f573dec5a21262bdf3af177267308b5d0c52d1a7103f",
+  "cases": [
+    {
+      "run": 1,
+      "suite": "CivilizationUITests.NormalEntryUITests",
+      "test": "testRiverbendContinuousBaselineRouteWithExplicitScrollingThroughChapterThree",
+      "status": "failed",
+      "seconds": 33.668
+    },
+    {
+      "run": 1,
+      "suite": "CivilizationUITests.NormalEntryUITests",
+      "test": "testRiverbendOrdinaryOpeningAndContinue",
+      "status": "passed",
+      "seconds": 104.967
+    },
+    {
+      "run": 1,
+      "suite": "CivilizationUITests.NormalEntryUITests",
+      "test": "testRiverbendThirdVisibleActionPrimaryVisibleWithoutScrolling",
+      "status": "passed",
+      "seconds": 24.788
+    },
+    {
+      "run": 2,
+      "suite": "CivilizationUITests.NormalEntryUITests",
+      "test": "testRiverbendContinuousBaselineRouteWithExplicitScrollingThroughChapterThree",
+      "status": "failed",
+      "seconds": 179.62
+    },
+    {
+      "run": 3,
+      "suite": "CivilizationUITests.NormalEntryUITests",
+      "test": "testRiverbendCompletedHutConnectPrimaryVisibleOnOpening",
+      "status": "failed",
+      "seconds": 39.292
+    },
+    {
+      "run": 3,
+      "suite": "CivilizationUITests.NormalEntryUITests",
+      "test": "testRiverbendContinuousBaselineRouteWithExplicitScrollingThroughChapterThree",
+      "status": "passed",
+      "seconds": 618.57
+    },
+    {
+      "run": 4,
+      "suite": "CivilizationUITests.NormalEntryUITests",
+      "test": "testRiverbendCompletedHutConnectPrimaryVisibleOnOpening",
+      "status": "passed",
+      "seconds": 39.483
+    },
+    {
+      "run": 4,
+      "suite": "CivilizationUITests.NormalEntryUITests",
+      "test": "testRiverbendOrdinaryOpeningAndContinue",
+      "status": "passed",
+      "seconds": 101.66
+    },
+    {
+      "run": 4,
+      "suite": "CivilizationUITests.NormalEntryUITests",
+      "test": "testRiverbendThirdVisibleActionPrimaryVisibleWithoutScrolling",
+      "status": "passed",
+      "seconds": 24.838
+    }
+  ],
+  "passedExecutions": 6,
+  "failedExecutions": 3,
+  "failureClassification": {
+    "run1": "driver construction wait",
+    "run2": "driver assumed catalog instead of ordinary recovery",
+    "run3": "deliberate compact opening visibility RED"
+  },
+  "screenshots": 74,
+  "captureHashesVerified": true,
+  "fullRouteProfiles": [
+    "iPhone SE (3rd generation), iOS 18.6, 667x375pt"
+  ],
+  "iPadScope": "iPad mini (A17 Pro), iOS 18.6, 1133x744pt; strict connection, immediate third action, inherited New Game/Continue/survey only. No full Chapter 3 route.",
+  "iPadUDID": "041217BC-7655-4195-B255-813B8D5078AE",
+  "iPadQAIdentity": "com.civilization.seed.qa.earned.7107d02a-85e4-4f13-979a-46b2cb39060a",
+  "ownerSequenceReproduced": false,
+  "physicalDeviceTested": false
+}

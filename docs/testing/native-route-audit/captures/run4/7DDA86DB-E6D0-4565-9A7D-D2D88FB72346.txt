@@ -1,0 +1,68 @@
+Attributes: Application, 0x106d16ae0, pid: 64467, label: 'Riverbend'
+Element subtree:
+ →Application, 0x106d16ae0, pid: 64467, label: 'Riverbend'
+    Window (Main), 0x106d16740, {{0.0, 0.0}, {1133.0, 744.0}}
+      Other, 0x106d16050, {{0.0, 0.0}, {1133.0, 744.0}}
+        Other, 0x106d152c0, {{0.0, 0.0}, {1133.0, 744.0}}
+          Other, 0x106d15960, {{0.0, 0.0}, {1133.0, 744.0}}
+            Other, 0x106d163c0, {{0.0, 0.0}, {1133.0, 744.0}}
+              Other, 0x106d15ce0, {{0.0, 0.0}, {1133.0, 744.0}}
+                Other, 0x106d14f60, {{0.0, 0.0}, {1133.0, 744.0}}, identifier: 'settlementMap', label: 'Settlement map', value: 64×48 tiles · 1 bu...
+                ScrollView, 0x106d14c00, {{22.0, 42.0}, {556.0, 44.0}}
+                  Other, 0x106d14890, {{22.0, 42.0}, {132.0, 44.0}}
+                    Other, 0x106d14520, {{30.0, 42.0}, {52.0, 44.0}}, identifier: 'resource-food', label: 'Food, 31, net production -1.0 per minute'
+                      Button, 0x106d141c0, {{30.0, 42.0}, {52.0, 44.0}}, label: '31'
+                        Other, 0x106d13e70, {{32.5, 52.5}, {23.0, 23.0}}
+                        StaticText, 0x106d13af0, {{30.0, 42.0}, {52.0, 44.0}}, label: '31'
+                    Other, 0x106d12ff0, {{94.0, 42.0}, {52.0, 44.0}}, identifier: 'resource-wood', label: 'Wood, 32, net production +0.0 per minute'
+                      Button, 0x106d12ca0, {{94.0, 42.0}, {52.0, 44.0}}, label: '32'
+                        Other, 0x106d12940, {{96.5, 52.5}, {23.0, 23.0}}
+                        StaticText, 0x106d125e0, {{94.0, 42.0}, {52.0, 44.0}}, label: '32'
+                  Other, 0x106d12280, {{22.0, 61.0}, {556.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                    Other, 0x106d11f00, {{568.0, 80.0}, {7.0, 3.0}}
+                  Other, 0x106d11bb0, {{22.0, 61.0}, {556.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                    Other, 0x106d11850, {{568.0, 80.0}, {7.0, 3.0}}
+                Button, 0x106d114f0, {{599.5, 55.5}, {50.8, 17.0}}, label: 'Population 3, housing capacity 3'
+                  Image, 0x106d11180, {{599.5, 58.0}, {20.0, 13.5}}, identifier: 'person.2.fill', label: 'person.2.fill'
+                  StaticText, 0x106d10e00, {{599.5, 55.5}, {50.8, 17.0}}, label: '3/3'
+                Button, 0x106d10aa0, {{993.5, 42.0}, {117.5, 44.0}}, identifier: 'settlementMenu', label: 'Settlement menu'
+                  Button, 0x106d10750, {{993.5, 42.0}, {117.5, 44.0}}
+                    Other, 0x106d103b0, {{993.5, 42.0}, {117.5, 44.0}}
+                      StaticText, 0x106d10030, {{1005.5, 49.0}, {65.5, 14.5}}, label: 'Settlement'
+                      StaticText, 0x106d0fcc0, {{1005.5, 65.5}, {62.5, 13.5}}, label: 'STONE AGE'
+                      Image, 0x106d0f940, {{1080.5, 55.5}, {17.0, 17.0}}, identifier: 'ellipsis.circle', label: 'More'
+                ScrollView, 0x106d0f5d0, {{22.0, 424.5}, {322.0, 220.0}}, identifier: 'goalProgress'
+                  Other, 0x106d0f240, {{22.0, 424.5}, {322.0, 168.5}}
+                    StaticText, 0x106d0eec0, {{34.0, 436.5}, {298.0, 46.5}}, identifier: 'nextStepExplanation', label: 'Upgrade the original Campfire in place for 12 Wood. Its entrance footpath is free; no Stone or research is needed.'
+                    Button, 0x106d0eb50, {{34.0, 501.0}, {121.0, 20.5}}, identifier: 'nextStepAction', label: 'Inspect building'
+                    Button, 0x106d0e7f0, {{34.0, 549.0}, {168.5, 20.5}}, identifier: 'openJourney', label: 'All seven chapters'
+                      Image, 0x106d0e490, {{36.0, 552.5}, {17.0, 12.5}}, identifier: 'list.bullet', label: 'List'
+                      StaticText, 0x106d0e120, {{34.0, 549.0}, {168.5, 20.5}}, label: 'All seven chapters'
+                  Other, 0x106d0dd80, {{311.0, 424.5}, {30.0, 220.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                    Other, 0x106d0da10, {{338.0, 634.5}, {3.0, 7.0}}
+                  Other, 0x106d0d690, {{311.0, 424.5}, {30.0, 220.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                    Other, 0x106d0d310, {{338.0, 634.5}, {3.0, 7.0}}
+                Button, 0x106d0cf70, {{22.0, 645.0}, {330.0, 56.0}}, identifier: 'toggleGoals', label: 'Goals, 0/7 chapters, Found Founder’s Lodge', value: Expanded
+                  Image, 0x106d0cbd0, {{39.0, 665.0}, {15.0, 16.5}}, identifier: 'flag.checkered', label: 'flag.checkered'
+                  StaticText, 0x106d0c870, {{68.0, 655.8}, {63.0, 14.5}}, label: 'Goals · 0/7'
+                  StaticText, 0x106d0c510, {{68.0, 672.2}, {169.0, 18.0}}, identifier: 'nextStepSummary', label: 'Found Founder’s Lodge'
+                  Image, 0x106d0c1b0, {{328.0, 670.0}, {10.5, 6.0}}, identifier: 'chevron.down', label: 'Go Down'
+                StaticText, 0x106d0be50, {{811.0, 596.5}, {300.0, 46.5}}, identifier: 'settlementMessage', label: 'Drag to explore · pinch to zoom · long-press a building to move it'
+                Other, 0x106d0baf0, {{895.0, 649.0}, {216.0, 52.0}}, identifier: 'playerActionDock'
+                  Button, 0x106d0b7a0, {{899.0, 653.0}, {68.0, 44.0}}, identifier: 'openBuild', label: 'Build'
+                    Image, 0x106d0b430, {{921.5, 655.5}, {23.0, 22.5}}, identifier: 'hammer', label: 'Build'
+                    StaticText, 0x106d1a130, {{919.0, 682.5}, {28.0, 13.5}}, label: 'Build'
+                  Button, 0x106d1a490, {{969.0, 653.0}, {68.0, 44.0}}, identifier: 'openResearch', label: 'Research'
+                    Image, 0x106d1a810, {{994.5, 656.5}, {17.0, 20.5}}, identifier: 'sparkles', label: 'Sparkle'
+                    StaticText, 0x106d1aba0, {{977.5, 681.5}, {51.0, 13.5}}, label: 'Research'
+                  Button, 0x106d1af00, {{1039.0, 653.0}, {68.0, 44.0}}, identifier: 'openExplore', label: 'Explore'
+                    Image, 0x106d1b2a0, {{1063.5, 658.0}, {19.0, 18.0}}, identifier: 'map', label: 'Show Map'
+                    StaticText, 0x106d1b5f0, {{1052.2, 680.2}, {41.5, 13.5}}, label: 'Explore'
+                Other, 0x106d1b980, {{0.0, 0.0}, {1133.0, 744.0}}
+Path to element:
+ →Application, 0x106d16ae0, pid: 64467, label: 'Riverbend'
+Query chain:
+ →Find: Target Application 'com.civilization.seed.qa.earned.7107d02a-85e4-4f13-979a-46b2cb39060a'
+  Output: {
+    Application, 0x106d1c050, pid: 64467, label: 'Riverbend'
+  }

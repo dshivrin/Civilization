@@ -1,0 +1,59 @@
+[
+  {
+    "run": 1,
+    "aggregate": "failed",
+    "cases": [
+      {
+        "suite": "CivilizationUITests.NormalEntryUITests",
+        "test": "testRiverbendContinuousBaselineRouteWithExplicitScrollingThroughChapterThree",
+        "status": "failed",
+        "seconds": 33.668
+      },
+      {
+        "suite": "CivilizationUITests.NormalEntryUITests",
+        "test": "testRiverbendOrdinaryOpeningAndContinue",
+        "status": "passed",
+        "seconds": 104.967
+      },
+      {
+        "suite": "CivilizationUITests.NormalEntryUITests",
+        "test": "testRiverbendThirdVisibleActionPrimaryVisibleWithoutScrolling",
+        "status": "passed",
+        "seconds": 24.788
+      }
+    ],
+    "logSHA256": "f73555c8184b7f22766640a416ecb2dda79f66b3129e7224bfc5bb478271dbfc"
+  },
+  {
+    "run": 2,
+    "aggregate": "failed",
+    "cases": [
+      {
+        "suite": "CivilizationUITests.NormalEntryUITests",
+        "test": "testRiverbendContinuousBaselineRouteWithExplicitScrollingThroughChapterThree",
+        "status": "failed",
+        "seconds": 179.62
+      }
+    ],
+    "logSHA256": "7fe5767ef170413c31fdf7b89c41a8e0a283c9fc8c3ff08dd86855425381a15a"
+  },
+  {
+    "run": 3,
+    "aggregate": "failed",
+    "cases": [
+      {
+        "suite": "CivilizationUITests.NormalEntryUITests",
+        "test": "testRiverbendCompletedHutConnectPrimaryVisibleOnOpening",
+        "status": "failed",
+        "seconds": 39.292
+      },
+      {
+        "suite": "CivilizationUITests.NormalEntryUITests",
+        "test": "testRiverbendContinuousBaselineRouteWithExplicitScrollingThroughChapterThree",
+        "status": "passed",
+        "seconds": 618.57
+      }
+    ],
+    "logSHA256": "81fe9689e46fecb356389659e186ff35048b114ed93230b8805f53af9b4bbf65"
+  }
+]

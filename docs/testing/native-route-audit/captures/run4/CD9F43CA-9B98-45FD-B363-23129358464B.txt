@@ -1,0 +1,76 @@
+Attributes: Application, 0x106c75ce0, pid: 65987, label: 'Riverbend'
+Element subtree:
+ →Application, 0x106c75ce0, pid: 65987, label: 'Riverbend'
+    Window (Main), 0x106c6b1b0, {{0.0, 0.0}, {1133.0, 744.0}}
+      Other, 0x106c77c80, {{0.0, 0.0}, {1133.0, 744.0}}
+        Other, 0x106c77db0, {{0.0, 0.0}, {1133.0, 744.0}}
+          Other, 0x106c779e0, {{0.0, 0.0}, {1133.0, 744.0}}
+            Other, 0x106c77b10, {{0.0, 0.0}, {1133.0, 744.0}}
+              Other, 0x106c78360, {{0.0, 0.0}, {1133.0, 744.0}}
+                Other, 0x106c77ee0, {{0.0, 0.0}, {1133.0, 744.0}}, identifier: 'settlementMap', label: 'Settlement map', value: 64×48 tiles · 2 bu...
+                ScrollView, 0x106c78010, {{22.0, 42.0}, {556.0, 44.0}}
+                  Other, 0x106c78140, {{22.0, 42.0}, {196.0, 44.0}}
+                    Other, 0x106c78490, {{30.0, 42.0}, {52.0, 44.0}}, identifier: 'resource-food', label: 'Food, 31, net production -1.0 per minute'
+                      Button, 0x106c785c0, {{30.0, 42.0}, {52.0, 44.0}}, label: '31'
+                        Other, 0x106c786f0, {{32.5, 52.5}, {23.0, 23.0}}
+                        StaticText, 0x106c78820, {{30.0, 42.0}, {52.0, 44.0}}, label: '31'
+                    Other, 0x106c78950, {{94.0, 42.0}, {52.0, 44.0}}, identifier: 'resource-wood', label: 'Wood, 8, net production +0.0 per minute'
+                      Button, 0x106c78a80, {{94.0, 42.0}, {52.0, 44.0}}, label: '8'
+                        Other, 0x106c78bb0, {{101.5, 52.5}, {23.0, 23.0}}
+                        StaticText, 0x106c78ce0, {{94.0, 42.0}, {52.0, 44.0}}, label: '8'
+                    Other, 0x106c78e10, {{158.0, 42.0}, {52.0, 44.0}}, identifier: 'resource-knowledge', label: 'Knowledge, 0, net production +2.0 per minute'
+                      Button, 0x106c78f40, {{158.0, 42.0}, {52.0, 44.0}}, label: '0'
+                        Other, 0x106c79070, {{165.5, 52.5}, {23.0, 23.0}}
+                        StaticText, 0x106c791a0, {{158.0, 42.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x106c792d0, {{22.0, 61.0}, {556.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                    Other, 0x106c79400, {{568.0, 80.0}, {7.0, 3.0}}
+                  Other, 0x106c79530, {{22.0, 61.0}, {556.0, 22.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                    Other, 0x106c79660, {{568.0, 80.0}, {7.0, 3.0}}
+                Button, 0x106c79790, {{599.5, 55.5}, {50.8, 17.0}}, label: 'Population 3, housing capacity 3'
+                  Image, 0x106c798c0, {{599.5, 58.0}, {20.0, 13.5}}, identifier: 'person.2.fill', label: 'person.2.fill'
+                  StaticText, 0x106c799f0, {{599.5, 55.5}, {50.8, 17.0}}, label: '3/3'
+                Button, 0x106c79b20, {{993.5, 42.0}, {117.5, 44.0}}, identifier: 'settlementMenu', label: 'Settlement menu'
+                  Button, 0x106c79c50, {{993.5, 42.0}, {117.5, 44.0}}
+                    Other, 0x106c79d80, {{993.5, 42.0}, {117.5, 44.0}}
+                      StaticText, 0x106c79eb0, {{1005.5, 49.0}, {65.5, 14.5}}, label: 'Settlement'
+                      StaticText, 0x106c79fe0, {{1005.5, 65.5}, {62.5, 13.5}}, label: 'STONE AGE'
+                      Image, 0x106c7a110, {{1080.5, 55.5}, {17.0, 17.0}}, identifier: 'ellipsis.circle', label: 'More'
+                ScrollView, 0x106c7a240, {{22.0, 424.5}, {302.5, 220.0}}, identifier: 'goalProgress'
+                  Other, 0x106c7a370, {{22.0, 424.5}, {302.5, 152.5}}
+                    StaticText, 0x106c7a4a0, {{34.0, 436.5}, {278.5, 30.5}}, identifier: 'nextStepExplanation', label: 'Paid construction continues in real time. You can explore or inspect other actions while waiting.'
+                    Button, 0x106c7a5d0, {{34.0, 485.0}, {121.0, 20.5}}, identifier: 'nextStepAction', label: 'Inspect building'
+                    Button, 0x106c7a700, {{34.0, 533.0}, {168.5, 20.5}}, identifier: 'openJourney', label: 'All seven chapters'
+                      Image, 0x106c7a830, {{36.0, 536.5}, {17.0, 12.5}}, identifier: 'list.bullet', label: 'List'
+                      StaticText, 0x106c7a960, {{34.0, 533.0}, {168.5, 20.5}}, label: 'All seven chapters'
+                  Other, 0x106c7aa90, {{291.5, 424.5}, {30.0, 220.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                    Other, 0x106c7abc0, {{318.5, 634.5}, {3.0, 7.0}}
+                  Other, 0x106c7acf0, {{291.5, 424.5}, {30.0, 220.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                    Other, 0x106c7ae20, {{318.5, 634.5}, {3.0, 7.0}}
+                Button, 0x106c7af50, {{22.0, 645.0}, {330.0, 56.0}}, identifier: 'toggleGoals', label: 'Goals, 0/7 chapters, Complete Hut', value: Expanded
+                  Image, 0x106c7b080, {{39.0, 665.0}, {15.0, 16.5}}, identifier: 'flag.checkered', label: 'flag.checkered'
+                  StaticText, 0x106c7b1b0, {{68.0, 655.8}, {63.0, 14.5}}, label: 'Goals · 0/7'
+                  StaticText, 0x106c7b2e0, {{68.0, 672.2}, {99.0, 18.0}}, identifier: 'nextStepSummary', label: 'Complete Hut'
+                  Image, 0x106c7b410, {{328.0, 670.0}, {10.5, 6.0}}, identifier: 'chevron.down', label: 'Go Down'
+                StaticText, 0x106c7b540, {{821.0, 539.5}, {103.0, 17.0}}, identifier: 'constructionProgress', label: 'BUILDING · Hut'
+                ProgressIndicator, 0x106c7b670, {{821.0, 560.5}, {280.0, 4.0}}, identifier: 'constructionProgress', value: 12%
+                  ProgressIndicator, 0x106c7b7a0, {{821.0, 550.5}, {280.0, 24.0}}, value: 12%
+                StaticText, 0x106c7b8d0, {{821.0, 568.5}, {67.0, 12.0}}, identifier: 'constructionProgress', label: '14s remaining'
+                StaticText, 0x106c7ba00, {{811.0, 596.5}, {300.0, 46.5}}, identifier: 'settlementMessage', label: 'Drag to explore · pinch to zoom · long-press a building to move it'
+                Other, 0x106c7bb30, {{895.0, 649.0}, {216.0, 52.0}}, identifier: 'playerActionDock'
+                  Button, 0x106c7bc60, {{899.0, 653.0}, {68.0, 44.0}}, identifier: 'openBuild', label: 'Build'
+                    Image, 0x106c7bd90, {{921.5, 655.5}, {23.0, 22.5}}, identifier: 'hammer', label: 'Build'
+                    StaticText, 0x106c7bec0, {{919.0, 682.5}, {28.0, 13.5}}, label: 'Build'
+                  Button, 0x106c7bff0, {{969.0, 653.0}, {68.0, 44.0}}, identifier: 'openResearch', label: 'Research'
+                    Image, 0x106c7c120, {{994.5, 656.5}, {17.0, 20.5}}, identifier: 'sparkles', label: 'Sparkle'
+                    StaticText, 0x106c7c250, {{977.5, 681.5}, {51.0, 13.5}}, label: 'Research'
+                  Button, 0x106c7c380, {{1039.0, 653.0}, {68.0, 44.0}}, identifier: 'openExplore', label: 'Explore'
+                    Image, 0x106c7c4b0, {{1063.5, 658.0}, {19.0, 18.0}}, identifier: 'map', label: 'Show Map'
+                    StaticText, 0x106c7c5e0, {{1052.2, 680.2}, {41.5, 13.5}}, label: 'Explore'
+                Other, 0x106c7c710, {{0.0, 0.0}, {1133.0, 744.0}}
+Path to element:
+ →Application, 0x106c75ce0, pid: 65987, label: 'Riverbend'
+Query chain:
+ →Find: Target Application 'com.civilization.seed.qa.earned.7107d02a-85e4-4f13-979a-46b2cb39060a'
+  Output: {
+    Application, 0x106961680, pid: 65987, label: 'Riverbend'
+  }
