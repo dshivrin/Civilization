@@ -134,15 +134,14 @@ public final class GameSession {
     @ObservationIgnored private var lastSaved = Date.distantPast
     public var message = "Welcome to Riverbend. Build your first gathering shelter."
     public var persistenceWarning: String?
+    public var storageSpecialization: StorageSpecialization = .stockyard
     public var selectedKind: BuildingKind?
     public internal(set) var roadTool: RoadTool?
     public internal(set) var roadDraft: [Tile] = []
     @ObservationIgnored var roadLastSample: Tile?
     public func roadIssue(at tile: Tile) -> GameError? { engine.roadIssue(at: tile) }
     func commitRoadEdit(at tiles: [Tile], style: RoadStyle?) -> Bool {
-        var success = false
-        perform { try engine.editRoads(at: tiles, style: style); success = true }
-        return success
+        perform { try engine.editRoads(at: tiles, style: style) }
     }
     public private(set) var movingBuildingID: Int?
     public private(set) var previewOrientation: BuildingOrientation = .north
@@ -169,7 +168,7 @@ public final class GameSession {
     }
     public func producingBuildingCount(for resource: Resource) -> Int { engine.producingBuildingCount(for: resource) }
     public func productionSources(for resource: Resource) -> [BuildingDefinition] {
-        configuration.buildings.filter { definition in
+        visibleBuildingDefinitions.filter { definition in
             definition.ratesPerMinute[resource] > 0 || (definition.recipes?.contains { $0.outputsPerMinute[resource] > 0 } ?? false) ||
                 (definition.kind == .campfire && (configuration.civicLevels?.contains { $0.culturalOutputPerMinute[resource] > 0 } ?? false))
         }
@@ -316,7 +315,7 @@ public final class GameSession {
     public var placementIssue: GameError? {
         if let id = movingBuildingID, let tile = selectedTile { return engine.relocationIssue(buildingID: id, at: tile, orientation: previewOrientation) }
         guard let kind = selectedKind, let tile = selectedTile else { return .placement("Tap open land to choose a location.") }
-        return engine.placementIssue(kind, at: tile, orientation: previewOrientation)
+        return engine.placementIssue(kind, at: tile, orientation: previewOrientation, storageRole: storageSpecialization)
     }
     private struct Restoration: Sendable {
         var engine: GameEngine
@@ -333,9 +332,9 @@ public final class GameSession {
         var message = "Welcome to Riverbend. Build your first gathering shelter."
         var warning: String?
         do {
-            if let saved = try SaveStore(url: url).load(configuration: configuration) {
+            if let saved = try SaveStore(url: url).loadNormal(configuration: configuration) {
                 engine = try GameEngine(state: saved, configuration: configuration)
-                engine.advance(to: now, offline: true)
+                if !configuration.isRiverbendPlayer { engine.advance(to: now, offline: true) }
                 message = "Welcome back. Your settlement kept producing (up to \(Int(configuration.offlineCapSeconds / 3600)) hours)."
             } else if requireExistingSave {
                 throw GameError.invalidSave("The registered game file is missing.")
@@ -375,36 +374,51 @@ public final class GameSession {
     }
     public func tick() {
         guard isActive else { return }
-        advance(to: clock())
-        if clock().timeIntervalSince(lastSaved) >= 15 { save() }
+        if configuration.isRiverbendPlayer { advanceDurably(to: clock()) }
+        else {
+            advance(to: clock())
+            if clock().timeIntervalSince(lastSaved) >= 15 { save() }
+        }
     }
     public func setActive(_ active: Bool) {
         guard active != isActive else { return }
         if active { resume() } else { background() }
         isActive = active
     }
-    public func resume() { advance(to: clock(), offline: true); save() }
-    public func background() { cancel(); advance(to: clock()); save() }
+    public func resume() {
+        if configuration.isRiverbendPlayer { advanceDurably(to: clock(), offline: true) }
+        else { advance(to: clock(), offline: true); save() }
+    }
+    public func background() {
+        cancel()
+        if configuration.isRiverbendPlayer { advanceDurably(to: clock()) }
+        else { advance(to: clock()); save() }
+    }
     /// A failed regular save blocks a game switch; protected temporary sessions never overwrite their source.
     public func suspendForGameSwitch() throws {
         cancel(); inspectedBuilding = nil
         if isActive { setActive(false) } else { save() }
         if savesEnabled, let warning = persistenceWarning { throw GameError.invalidSave(warning) }
     }
+    private func writeCurrentState() throws {
+        #if DEBUG
+        if isDeveloperMode { try writeDeveloperState(engine.state, to: activeDeveloperStore, review: isGameplayReview, original: originalScenarioState) }
+        else { try store.save(engine.state) }
+        #else
+        try store.save(engine.state)
+        #endif
+    }
     public func save() {
         guard savesEnabled else { return }
-        do {
-            #if DEBUG
-            if isDeveloperMode {
-                try writeDeveloperState(engine.state, to: activeDeveloperStore, review: isGameplayReview, original: originalScenarioState)
-            }
-            else { try store.save(engine.state) }
-            #else
-            try store.save(engine.state)
-            #endif
-            lastSaved = clock(); persistenceWarning = nil
-        }
-        catch { persistenceWarning = "Progress could not be saved: \(error.localizedDescription)" }
+        do { try writeCurrentState(); lastSaved = clock(); persistenceWarning = nil }
+        catch { persistenceWarning = "Progress could not be saved: " + error.localizedDescription }
+    }
+    private func advanceDurably(to date: Date, offline: Bool = false) {
+        guard savesEnabled else { return }
+        let before = engine
+        advance(to: date, offline: offline)
+        do { try writeCurrentState(); lastSaved = clock(); persistenceWarning = nil }
+        catch { engine = before; persistenceWarning = "Progress could not be saved: " + error.localizedDescription; message = persistenceWarning! }
     }
     public func choose(_ kind: BuildingKind) {
         exitRoadMode()
@@ -415,7 +429,7 @@ public final class GameSession {
         let map = configuration.map
         let candidates = (0..<map.height).flatMap { y in (0..<map.width).map { Tile(x: $0, y: y) } }
             .sorted { abs($0.x - center.x) + abs($0.y - center.y) < abs($1.x - center.x) + abs($1.y - center.y) }
-        selectedTile = candidates.first { engine.placementIssue(kind, at: $0) == nil } ?? Tile(x: 13, y: 12)
+        selectedTile = candidates.first { engine.placementIssue(kind, at: $0, storageRole: storageSpecialization) == nil } ?? Tile(x: 13, y: 12)
         message = "Drag the footprint, pan outside it, pinch to zoom · green check confirms."
     }
     public func tap(_ tile: Tile) {
@@ -471,7 +485,8 @@ public final class GameSession {
         if movingBuildingID != nil { finishRelocation(); return }
         guard let kind = selectedKind, let tile = selectedTile else { return }
         perform {
-            try engine.build(kind, at: tile, orientation: previewOrientation)
+            if configuration.isRiverbendPlayer && kind == .storehouse { try engine.buildRiverbendStorage(storageSpecialization, at: tile, orientation: previewOrientation) }
+            else { try engine.build(kind, at: tile, orientation: previewOrientation) }
             message = "\(configuration.definition(kind).name) construction started."
             selectedKind = nil; selectedTile = nil
         }
@@ -508,9 +523,31 @@ public final class GameSession {
         if !stoneAgeWasComplete && state.stoneAgeCompleted == true { message = "Stone Age complete. All requirements are met; keep building in this settlement." }
     }
     public func canAfford(_ costs: ResourceAmounts) -> Bool { engine.canAfford(costs) }
-    private func perform(_ action: () throws -> Void) {
+    @discardableResult private func perform(_ action: () throws -> Void) -> Bool {
+        if configuration.isRiverbendPlayer {
+            guard savesEnabled else { message = persistenceWarning ?? "Open a healthy saved game before changing progress."; return false }
+            let before = engine
+            let preview = (selectedKind, selectedTile, movingBuildingID, previewOrientation, inspectedBuilding)
+            var actionCompleted = false
+            do {
+                advance(to: clock())
+                try action(); actionCompleted = true
+                try writeCurrentState()
+                lastSaved = clock(); persistenceWarning = nil
+                return true
+            } catch {
+                engine = before
+                (selectedKind, selectedTile, movingBuildingID, previewOrientation, inspectedBuilding) = preview
+                if actionCompleted {
+                    persistenceWarning = "Action could not be saved: " + error.localizedDescription
+                    message = persistenceWarning!
+                } else { message = error.localizedDescription }
+                return false
+            }
+        }
         advance(to: clock())
-        do { try action(); save() } catch { message = error.localizedDescription }
+        do { try action(); save(); return persistenceWarning == nil }
+        catch { message = error.localizedDescription; return false }
     }
     #if DEBUG
     private func enterDeveloperMode(advanceNormal: Bool = true) {
@@ -674,4 +711,37 @@ public final class GameSession {
     }
     #endif
 
+}
+
+public extension GameSession {
+    var availableRiverbendFinds: [PlayerMapFind] { engine.availableRiverbendFinds }
+    var riverbendProgress: RiverbendProgress? { state.riverbend }
+    var riverbendOpeningComplete: Bool { engine.riverbendOpeningComplete }
+    var riverbendCraftAvailable: Bool { engine.riverbendCraftAvailable }
+    var visibleBuildingDefinitions: [BuildingDefinition] { configuration.buildings.filter { !configuration.isRiverbendPlayer || RiverbendPlayerRules.buildings.contains($0.kind) } }
+    func visibleProductionRecipes(for kind: BuildingKind) -> [ProductionRecipe] {
+        (configuration.definition(kind).recipes ?? []).filter { !configuration.isRiverbendPlayer || kind != .stoneGatherer || ["stone", "flint"].contains($0.id) }
+    }
+    var visibleTechnologies: [TechnologyDefinition] { configuration.technologyDefinitions.filter { !configuration.isRiverbendPlayer || RiverbendPlayerRules.technologies.contains($0.id) } }
+    var visibleResources: [Resource] {
+        guard configuration.isRiverbendPlayer else { return Resource.allCases }
+        var result: [Resource] = [.food, .wood]
+        if engine.riverbendOpeningComplete { result.append(.stone) }
+        if engine.riverbendCraftAvailable && researchedIDs.contains("stoneTools") { result += [.flint, .stoneTools] }
+        if engine.civicLevel >= 2 { result.append(.knowledge) }
+        return result
+    }
+    func recoverRiverbendFood() { perform { try engine.recoverRiverbendFood(); message = "Foraging restores only missing Food up to 12." } }
+    func recoverRiverbendWood() { perform { try engine.recoverRiverbendWood(); message = "Fallen branches restore only the opening Wood floor." } }
+    func resolveRiverbendFind(_ id: RiverbendFindKind, at tile: Tile) { perform { try engine.resolveRiverbendFind(id, at: tile); message = id == .berries ? "Collected 3 Food. This find is complete." : "Deer tracks observed. No reward or required task." } }
+    func startRiverbendTools() { perform { try engine.startRiverbendTools(); message = "Tool batch started: 2 Wood + 2 Flint → 1 Tool in 60 seconds." } }
+    func improveRiverbendWoodcutter() { perform { try engine.improveRiverbendWoodcutter(); message = "Spent 3 Tools. Woodcutter base output permanently rises from 6 to 8 Wood/min." } }
+    func purchaseRiverbendEnclosure() { perform { try engine.purchaseRiverbendEnclosure(); message = "Built the 36-Wood cliff-backed enclosure and connected gate." } }
+    func setRiverbendGate(open: Bool) { perform { try engine.setRiverbendGate(open: open); message = open ? "Gate open: the entrance is traversable." : "Gate closed: the cliff and palisade block entry." } }
+    func suggestRiverbendConnection(buildingID: Int) {
+        let path = engine.riverbendConnection(to: buildingID)
+        guard !path.isEmpty else { message = "No clear revealed path is available. Move the building or explore more land."; return }
+        chooseRoadTool(.draw(.trodden)); roadDraft = path
+        message = "Free suggested connection. Confirm the path or draw another route."
+    }
 }

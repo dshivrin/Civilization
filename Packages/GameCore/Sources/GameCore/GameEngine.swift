@@ -3,7 +3,7 @@ import Foundation
 /// Authoritative value-type simulation. Callers supply wall time; rendering frames never drive production.
 public struct GameEngine: Sendable {
     public let configuration: GameConfiguration
-    public private(set) var state: GameState
+    public internal(set) var state: GameState
     public internal(set) var connectedBuildingIDs: Set<Int> = []
     var connectivityTopology: ConnectivityTopology?
     #if DEBUG
@@ -25,6 +25,7 @@ public struct GameEngine: Sendable {
                           discoveredTiles: configuration.initialDiscoveredTiles,
                           explorationRemainingSeconds: nil, explorationRadius: configuration.explorationRules?.initialRadius,
                           depositRemaining: configuration.economyRules == nil ? nil : Dictionary(uniqueKeysWithValues: (configuration.naturalDeposits ?? []).filter { !$0.renewable }.map { ($0.id, $0.capacity) }))
+        if configuration.isRiverbendPlayer { state.riverbend = RiverbendProgress() }
         if configuration.civicLevels != nil { state.civicProgress = CivicProgress(foundingBuildingID: 0) }
         refreshConnectivity()
     }
@@ -67,6 +68,12 @@ public struct GameEngine: Sendable {
     public var structuralCapacities: ResourceAmounts { resourceCapacities(connectedOnly: false) }
     private func resourceCapacities(connectedOnly: Bool) -> ResourceAmounts {
         var result = configuration.baseCapacities
+        if configuration.isRiverbendPlayer {
+            for b in state.buildings where b.kind == .storehouse && b.isOperational && (!connectedOnly || isServiceOperational(b)) {
+                if state.riverbend?.storage[b.id] == .granary { result.food += 60 }
+                else if state.riverbend?.storage[b.id] == .stockyard { result.wood += 60; result.stone += 60; result[.flint] += 24; result[.stoneTools] += 24 }
+            }
+        }
         for tech in activeTechnologies { for r in Resource.allCases { result[r] += tech.effects.storageBonus[r] } }
         for b in state.buildings where b.isOperational && (!connectedOnly || isServiceOperational(b)) {
             for r in Resource.allCases { result[r] += (configuration.definition(b.kind).storageBonus?[r] ?? 0) * Double(b.level) }
@@ -89,17 +96,19 @@ public struct GameEngine: Sendable {
         #if DEBUG
         if configuration.isRiverbendEconomyLab { return .growing }
         #endif
-        if let water = configuration.workforceRules {
+        if !configuration.isRiverbendPlayer, let water = configuration.workforceRules {
             if state.resources[.water] + 1e-9 < water.minimumWaterForGrowth { return .waterReserve }
             if net[.water] <= 0 { return .waterDeficit }
         }
         return .growing
     }
     public func isUnlocked(_ kind: BuildingKind) -> Bool {
+        if configuration.isRiverbendPlayer && !RiverbendPlayerRules.buildings.contains(kind) { return false }
         guard configuration.buildings.contains(where: { $0.kind == kind }) else { return false }
         return !configuration.definition(kind).requiresResearch || (state.grandfatheredBuildingKinds?.contains(kind) ?? false) || activeTechnologies.contains { $0.effects.unlockedBuildings.contains(kind) }
     }
     public func researchIssue(_ id: String) -> GameError? {
+        if configuration.isRiverbendPlayer && !RiverbendPlayerRules.technologies.contains(id) { return .researchUnavailable("This optional chain is outside the Riverbend first-era campaign.") }
         guard let tech = configuration.technologyDefinitions.first(where: { $0.id == id }) else { return .researchUnavailable("Unknown technology.") }
         if researchedIDs.contains(id) { return .alreadyResearched }
         let missing = tech.prerequisites.filter { !researchedIDs.contains($0) }
@@ -115,19 +124,38 @@ public struct GameEngine: Sendable {
     public func building(at tile: Tile) -> PlacedBuilding? {
         state.buildings.first { $0.tiles(in: configuration).contains(tile) }
     }
-    public func placementIssue(_ kind: BuildingKind, at origin: Tile, orientation: BuildingOrientation = .north) -> GameError? {
+    public func placementIssue(_ kind: BuildingKind, at origin: Tile, orientation: BuildingOrientation = .north, storageRole: StorageSpecialization = .stockyard) -> GameError? {
         if kind == .campfire { return .uniqueCampfire }
         guard configuration.buildings.contains(where: { $0.kind == kind }) else { return .placement("Building is not in this ruleset.") }
         let definition = configuration.definition(kind)
+        if configuration.isRiverbendPlayer {
+            if civicLevel < 2 { return .placement("Upgrade the Campfire to Founder’s Lodge first.") }
+            if kind == .storehouse {
+                if !riverbendCraftAvailable { return .placement("Complete and connect the Stone gatherer before building specialized storage.") }
+                if state.riverbend?.storage.values.contains(storageRole) == true { return .placement("This storage specialization is already built or under construction.") }
+            }
+            if kind == .woodcutter && (state.explorationRadius ?? 0) <= (configuration.explorationRules?.initialRadius ?? 0) { return .placement("Survey the whole nearby forest first.") }
+            if kind == .stoneGatherer && !riverbendOpeningComplete { return .placement("Connect Food and Wood production before gathering Stone.") }
+        }
         guard definition.resolvedOrientations.contains(orientation) else { return .placement("This building does not support that orientation.") }
         if !isUnlocked(kind) { return .researchRequired }
         if let issue = siteIssue(kind, at: origin, footprint: definition.footprint.oriented(orientation)) { return issue }
-        guard canAfford(definition.cost) else { return .insufficientResources }
-        return bootstrapSpendIssue(for: definition.cost, constructing: kind)
+        let cost = configuration.isRiverbendPlayer && kind == .storehouse ? storageRole.cost : definition.cost
+        guard canAfford(cost) else { return .insufficientResources }
+        return bootstrapSpendIssue(for: cost, constructing: kind)
     }
     /// Site checks shared by construction and free relocation. The moving footprint may overlap itself.
     private func siteIssue(_ kind: BuildingKind, at origin: Tile, footprint: BuildingFootprint, excludingBuildingID: Int? = nil) -> GameError? {
         let definition = configuration.definition(kind)
+        if configuration.isRiverbendPlayer && (kind == .stoneGatherer || kind == .woodcutter) {
+            let resource: Resource = kind == .stoneGatherer ? .stone : .wood
+            let local = discoveredDeposits.contains { deposit in
+                deposit.resource == resource && ([deposit.origin] + (deposit.accessSites ?? [])).contains { site in
+                    isDiscovered(site) && abs(site.x - origin.x) + abs(site.y - origin.y) <= deposit.radius
+                }
+            }
+            if !local { return .placement("Choose a plot beside the revealed " + resource.rawValue.capitalized + " source and its work faces.") }
+        }
         guard origin.x >= 0, origin.y >= 0, origin.x <= configuration.map.width - footprint.width,
               origin.y <= configuration.map.height - footprint.height else { return .placement("Keep the whole footprint inside the map.") }
         for tile in footprint.tiles(at: origin) {
@@ -145,6 +173,8 @@ public struct GameEngine: Sendable {
             return .placement("Keep the whole footprint inside the map.")
         }
         guard isDiscovered(tile) else { return .placement("Explore the whole footprint before building here.") }
+        if configuration.isRiverbendPlayer && abs(tile.x - configuration.map.campfire.x) + abs(tile.y - configuration.map.campfire.y) < 3 { return .placement("Keep the entire building outside the Lodge’s clear yard.") }
+        if configuration.isRiverbendPlayer && RiverbendBoundary.reserved.contains(tile) { return .placement("Keep the palisade, gate path and entrance landing clear.") }
         guard let terrain = configuration.map.terrain(at: tile), terrain == .grass || terrain == .clearing else {
             return .placement("Choose open grass or clearing. Water, hills and forest are protected.")
         }
@@ -154,6 +184,7 @@ public struct GameEngine: Sendable {
     }
     public func relocationIssue(buildingID: Int, at origin: Tile, orientation: BuildingOrientation? = nil) -> GameError? {
         guard let building = state.buildings.first(where: { $0.id == buildingID }) else { return .placement("Choose an existing building to move.") }
+        if configuration.isRiverbendPlayer && building.kind == .campfire { return .placement("The original Campfire remains the founding anchor.") }
         guard building.kind != .campfire || configuration.civicLevels != nil else { return .placement("The campfire is the fixed settlement anchor.") }
         let target = orientation ?? building.resolvedOrientation
         if target != building.resolvedOrientation && !configuration.definition(building.kind).resolvedOrientations.contains(target) {
@@ -176,16 +207,17 @@ public struct GameEngine: Sendable {
         #endif
         return activeTechnologies.reduce(configuration.definition(kind).constructionSeconds ?? 0) { $0 * $1.effects.constructionDurationMultiplier }
     }
-    public mutating func build(_ kind: BuildingKind, at origin: Tile, orientation: BuildingOrientation = .north) throws {
-        if let issue = placementIssue(kind, at: origin, orientation: orientation) { throw issue }
+    public mutating func build(_ kind: BuildingKind, at origin: Tile, orientation: BuildingOrientation = .north, storageRole: StorageSpecialization = .stockyard) throws {
+        if let issue = placementIssue(kind, at: origin, orientation: orientation, storageRole: storageRole) { throw issue }
         evaluateGoals()
-        spend(configuration.definition(kind).cost)
+        spend(configuration.isRiverbendPlayer && kind == .storehouse ? storageRole.cost : configuration.definition(kind).cost)
         var building = PlacedBuilding(id: state.nextBuildingID, kind: kind, origin: origin)
         building.footprint = configuration.definition(kind).footprint
         building.orientation = orientation
         let effectiveDuration = constructionDuration(for: kind)
         if effectiveDuration > 0 { building.constructionRemainingSeconds = effectiveDuration; building.constructionDurationSeconds = effectiveDuration }
         state.buildings.append(building)
+        if configuration.isRiverbendPlayer && kind == .storehouse { state.riverbend?.storage[building.id] = storageRole }
         state.nextBuildingID += 1
         refreshConnectivity()
         evaluateGoals()
@@ -193,6 +225,7 @@ public struct GameEngine: Sendable {
     /// Free decorative transaction. Validate every tile before modifying even one road.
     public mutating func editRoads(at tiles: [Tile], style: RoadStyle?) throws {
         guard tiles.count <= configuration.map.width * configuration.map.height else { throw GameError.placement("This road stroke is too large.") }
+        if configuration.isRiverbendPlayer && state.riverbend?.enclosed == true && style == nil && !Set(tiles).isDisjoint(with: RiverbendBoundary.gateRoad) { throw GameError.placement("The purchased enclosure retains its connected gate approach.") }
         for tile in tiles { if let issue = roadIssue(at: tile) { throw issue } }
         var roads = Dictionary((state.roads ?? []).map { ($0.tile, $0.style) }, uniquingKeysWith: { _, last in last })
         let original = roads
@@ -233,6 +266,8 @@ public struct GameEngine: Sendable {
               configuration.definition(state.buildings[index].kind).recipes?.contains(where: { $0.id == recipeID }) == true else {
             throw GameError.placement("Choose an available production mode on an operational building.")
         }
+        if configuration.isRiverbendPlayer && state.buildings[index].kind == .stoneGatherer && !["stone", "flint"].contains(recipeID) { throw GameError.placement("Riverbend uses Stone and Flint only.") }
+        if configuration.isRiverbendPlayer && state.buildings[index].kind == .stoneGatherer && recipeID != "stone" && !riverbendCraftAvailable { throw GameError.placement("Complete the Stone gatherer to discover craft materials.") }
         evaluateGoals()
         state.buildings[index].productionModeID = recipeID
         evaluateGoals()
@@ -245,6 +280,14 @@ public struct GameEngine: Sendable {
         evaluateGoals()
         spend(cost)
         state.buildings[index].upgradeLevel = state.buildings[index].level + 1
+        if configuration.isRiverbendPlayer && state.buildings[index].kind == .campfire && state.buildings[index].level == 2 {
+            state.operatingRules = .connectedPathsV1
+            let entrance = Tile(x: 18, y: 12)
+            if !(state.roads ?? []).contains(where: { $0.tile == entrance }) {
+                state.roads = (state.roads ?? []) + [RoadTile(tile: entrance, style: .trodden)]
+            }
+            refreshConnectivity()
+        }
         if state.buildings[index].kind == .campfire { state.civicProgress?.reachedLevels.append(state.buildings[index].level) }
         evaluateGoals()
     }
@@ -265,6 +308,7 @@ public struct GameEngine: Sendable {
             let growing = growthStatus(netRates: net) == .growing
             var step = remaining
             if let seconds = state.explorationRemainingSeconds { step = min(step,seconds) }
+            if let seconds = state.riverbend?.craftRemainingSeconds { step = min(step, seconds) }
             for building in state.buildings {
                 if let seconds = building.constructionRemainingSeconds { step = min(step, seconds) }
             }
@@ -305,6 +349,7 @@ public struct GameEngine: Sendable {
                 }
             }
             if let seconds = state.explorationRemainingSeconds { state.explorationRemainingSeconds = max(0,seconds-step) }
+            if let seconds = state.riverbend?.craftRemainingSeconds { state.riverbend?.craftRemainingSeconds = max(0, seconds - step) }
             if growing { state.populationGrowthSeconds = (state.populationGrowthSeconds ?? 0) + step }
             remaining = max(0, remaining - step)
             evaluateGoals()
@@ -314,9 +359,13 @@ public struct GameEngine: Sendable {
         state.lastUpdated = now
     }
     private mutating func resolveEvents() {
+        if let seconds = state.riverbend?.craftRemainingSeconds, seconds <= 1e-9 {
+            state.resources[.stoneTools] += 1
+            state.riverbend?.craftRemainingSeconds = nil
+        }
         if let seconds = state.explorationRemainingSeconds, seconds <= 1e-9, let rules = configuration.explorationRules {
             let radius = min(configuration.maximumExplorationRadius,(state.explorationRadius ?? rules.initialRadius) + rules.revealRadiusStep)
-            let revealed = configuration.tiles(within:radius)
+            let revealed = configuration.isRiverbendPlayer ? configuration.riverbendArea(within: radius) : configuration.tiles(within:radius)
             state.discoveredTiles?.formUnion(revealed)
             state.explorationRadius = radius
             state.explorationRemainingSeconds = nil
@@ -341,7 +390,7 @@ public struct GameEngine: Sendable {
     private mutating func spend(_ costs: ResourceAmounts) {
         for r in Resource.allCases { state.resources[r] -= costs[r] }
     }
-    private mutating func evaluateGoals() {
+    mutating func evaluateGoals() {
         for goal in Goal.allCases where !state.completedGoals.contains(goal) {
             let achieved: Bool
             if goal == .storytellingCircle && configuration.civicLevels != nil && configuration.civicSharesLegacyStorytellingCredit { achieved = civicLevel >= 2 }
@@ -364,6 +413,7 @@ public struct GameEngine: Sendable {
     private func validateState() throws {
         func require(_ condition: Bool, _ reason: String) throws { if !condition { throw GameError.invalidSave(reason) } }
         try require(state.mapID == configuration.map.id, "Map identity is unsupported")
+        try validateRiverbendProgress()
         try require(state.operatingRules == nil || (configuration.civicLevels != nil && configuration.economyRules != nil && state.civicProgress != nil), "Connected paths require current civic and economy rules")
         try require(state.lastUpdated.timeIntervalSince1970.isFinite && state.population >= configuration.initialPopulation && state.population <= 768_000_000, "Invalid clock or population")
         // Validate references and bounded levels before derived capacities consult definitions.

@@ -14,6 +14,7 @@ public struct SettlementGuidance: Equatable, Sendable {
 }
 public extension GameEngine {
     var settlementGuidance: SettlementGuidance {
+        if configuration.isRiverbendPlayer { return riverbendGuidance }
         var resolver = GuidanceResolver(game: self, net: rates)
         if state.stoneAgeCompleted == true && !fullStoneAgeRequirementsMet {
             return SettlementGuidance(title: "Stone Age complete", explanation: "Bronze Age unlocked — your previously earned readiness, chapters and rewards are preserved. Further civic upgrades remain available at your pace. Bronze Age gameplay is not available yet.", action: .complete, waitSeconds: nil)

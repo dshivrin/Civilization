@@ -117,32 +117,27 @@ private let productionEpoch = Date(timeIntervalSince1970: 20_000_000)
     #expect(try Data(contentsOf:store.url) == bytes)
 }
 
-@MainActor @Test func developmentLibraryConvertsWithoutChangingDeveloperCompanion() async throws {
+@MainActor @Test func developmentLibraryRetiresSmallPrimaryWithoutChangingDeveloperCompanion() async throws {
     let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
     defer { try? FileManager.default.removeItem(at:root) }
     let old = try GameConfiguration.legacyDevelopment()
     let before = try await GameLibrary.load(rootURL:root,clock:{ productionEpoch },configuration:old)
-    let second = try await before.createGame(name:"Independent history")
     let firstURL = try GameLibraryStore(rootURL:root).saveURL(for:before.games[0])
-    let secondURL = try GameLibraryStore(rootURL:root).saveURL(for:second)
     let developerURL = firstURL.appendingPathExtension("developer")
-    // A developer companion is preserved verbatim; its own restoration owns its conversion.
     let developerBytes = Data("independent developer bytes".utf8)
     try developerBytes.write(to:developerURL)
     let untouched = try Data(contentsOf:firstURL)
-    let converted = try await GameLibrary.load(rootURL:root,clock:{ productionEpoch })
-    #expect(converted.session.configuration.map.width == 64)
-    #expect(converted.activeGameID == second.id)
+    let replacement = try await GameLibrary.startNewGame(rootURL:root,clock:{ productionEpoch })
+    #expect(replacement.session.configuration.isRiverbendPlayer)
+    #expect(replacement.archivedSmallGames.map(\.id) == ["legacy"])
+    await #expect(throws: Error.self) { try await replacement.openGame(id:"legacy") }
     #expect(try Data(contentsOf:firstURL) == untouched)
     #expect(try Data(contentsOf:developerURL) == developerBytes)
-    try await converted.openGame(id:"legacy")
-    #expect(converted.session.state.mapID == "river-clearing-64x48-v1")
-    #expect(converted.session.state.buildings.count == 1)
-    #expect(try Data(contentsOf:developerURL) == developerBytes)
+    let archive = root.appendingPathComponent("retired-small-maps/legacy/settlement-v1.json")
+    #expect(try Data(contentsOf:archive) == untouched)
     let reloaded = try await GameLibrary.load(rootURL:root,clock:{ productionEpoch })
-    #expect(reloaded.activeGameID == "legacy")
-    #expect(reloaded.games.allSatisfy { $0.mapID == "river-clearing-64x48-v1" })
-    #expect(FileManager.default.fileExists(atPath:secondURL.appendingPathExtension("pre-geography-64x48.bak").path))
+    #expect(reloaded.activeGameID == replacement.activeGameID)
+    #expect(reloaded.archivedSmallGames.count == 1)
 }
 
 @Test func productionRoadStrokesCoverAnnexInRelease() {

@@ -85,9 +85,12 @@ public extension GameEngine {
     }
     func recipe(for building: PlacedBuilding) -> ProductionRecipe? {
         let recipes = configuration.definition(building.kind).recipes ?? []
-        return recipes.first { $0.id == building.productionModeID } ?? recipes.first
+        var selected = recipes.first { $0.id == building.productionModeID } ?? recipes.first
+        if configuration.isRiverbendPlayer && building.kind == .woodcutter && state.riverbend?.woodcutterImproved == true { selected?.outputsPerMinute.wood = 8 }
+        return selected
     }
     func upgradeCost(for building: PlacedBuilding) -> ResourceAmounts? {
+        if configuration.isRiverbendPlayer && building.kind == .storehouse { return nil }
         if building.kind == .campfire, building.isOperational, let levels = configuration.civicLevels {
             return levels.first { $0.level == building.level + 1 }?.cost
         }

@@ -10,6 +10,28 @@ SPEC.loader.exec_module(dev)
 
 
 class ReusableToolsTests(unittest.TestCase):
+    def test_earned_simulator_identity_cannot_target_production_or_arbitrary_bundles(self):
+        identity = "99D22CAE-0EB6-4B68-9B72-CF580DA6F222"
+        self.assertEqual(dev.earned_bundle_id(identity), "com.civilization.seed.qa.earned." + identity.lower())
+        for invalid in ["com.civilization.seed", "../save", "", "not-a-uuid"]:
+            with self.assertRaises(ValueError): dev.earned_bundle_id(invalid)
+
+
+    def test_earned_preparation_refuses_an_existing_qa_identity_before_install(self):
+        from argparse import Namespace
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as folder:
+            fixture = Path(folder) / 'fixture'; fixture.mkdir()
+            (fixture / 'qa-earned.json').write_text(json.dumps({'synthetic': True, 'grants': False, 'debugCommands': False}))
+            (fixture / 'settlement-v1.json').write_text('{}')
+            (fixture / 'games-index.json').write_text('{}')
+            args = Namespace(qa_identity='99D22CAE-0EB6-4B68-9B72-CF580DA6F222', fixture=fixture, simulator='synthetic-simulator')
+            with patch.object(dev, 'run_step', return_value={'status': 'passed'}) as steps, patch.object(dev.subprocess, 'run', return_value=Namespace(returncode=0)) as process:
+                with self.assertRaisesRegex(ValueError, 'already exists'):
+                    dev.prepare_earned_simulator(args, Path(folder))
+            self.assertEqual(steps.call_count, 1)
+            self.assertEqual(process.call_args.args[0][2], 'get_app_container')
+
     def test_zero_tests_and_failed_exit_never_pass(self):
         self.assertEqual(dev.test_count('✔ Test run with 189 tests in 0 suites passed after 16 seconds.'), 189)
         self.assertEqual(dev.test_count('Executed 3 tests, with 0 failures (0 unexpected) in 1 second'), 3)

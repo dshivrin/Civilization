@@ -149,6 +149,48 @@ def inspector_command(root):
     return ['swift', 'run', '--package-path', str(INSPECTOR), 'SaveInspector', str(Path(root).resolve())]
 
 
+def earned_bundle_id(identity):
+    return 'com.civilization.seed.qa.earned.' + str(uuid.UUID(identity))
+
+
+def prepare_earned_simulator(args, output):
+    bundle = earned_bundle_id(args.qa_identity)
+    source = args.fixture.resolve()
+    hashes = manifest(source)
+    receipt = json.loads((source / 'qa-earned.json').read_text())
+    if receipt.get('synthetic') is not True or receipt.get('grants') is not False or receipt.get('debugCommands') is not False:
+        raise ValueError('Only a synthetic public-command earned fixture is accepted')
+    if set(hashes) != {'settlement-v1.json', 'games-index.json', 'qa-earned.json'}:
+        raise ValueError('Earned fixture must contain exactly its primary, index and receipt')
+    steps = [run_step('validate-earned-fixture', inspector_command(source), output)]
+    if steps[-1]['status'] != 'passed':
+        return write_report(output, {'scope': vars_for_report(args), 'steps': steps})
+    # A fresh QA identity is mandatory. Never inspect or replace an existing container.
+    lookup = ['xcrun', 'simctl', 'get_app_container', args.simulator, bundle, 'data']
+    if subprocess.run(lookup, capture_output=True, text=True).returncode == 0:
+        raise ValueError('QA identity already exists; choose a fresh UUID')
+    config = args.configuration.title()
+    cache = args.derived_data.resolve() / config.lower() / re.sub(r'[^a-zA-Z0-9_-]', '-', args.simulator)
+    command = ['xcodebuild', 'build', '-project', str(REPO / 'Civilization.xcodeproj'), '-scheme', 'Civilization', '-configuration', config,
+               '-destination', 'platform=iOS Simulator,id=' + args.simulator, '-derivedDataPath', str(cache),
+               'CODE_SIGNING_ALLOWED=NO', 'PRODUCT_BUNDLE_IDENTIFIER=' + bundle]
+    steps.append(run_step('build-earned-identity', command, output))
+    if steps[-1]['status'] == 'passed':
+        steps.append(run_step('install-earned-identity', ['xcrun', 'simctl', 'install', args.simulator, str(cache / 'Build/Products' / (config + '-iphonesimulator') / 'Civilization.app')], output))
+    if steps[-1]['status'] == 'passed':
+        result = subprocess.run(lookup, capture_output=True, text=True, check=True)
+        container = Path(result.stdout.strip()).resolve()
+        if 'CoreSimulator/Devices/' not in str(container): raise ValueError('Expected a simulator-only container')
+        destination = container / 'Library/Application Support/Civilization'
+        if destination.exists() or destination.is_symlink(): raise ValueError('Fresh QA destination unexpectedly exists')
+        if manifest(source) != hashes: raise ValueError('Fixture changed while preparing')
+        shutil.copytree(source, destination)
+        if manifest(destination) != hashes: raise ValueError('Synthetic fixture copy differs')
+        (output / 'earned-provenance.json').write_text(json.dumps({'bundle': bundle, 'simulator': args.simulator, 'fixtureHashes': hashes,
+              'receipt': receipt, 'freshIdentity': True, 'simulatorOnly': True}, indent=2) + '\n')
+    return write_report(output, {'scope': vars_for_report(args), 'steps': steps})
+
+
 def run_tests(args, output):
     report = {'scope': vars_for_report(args), 'steps': []}
     configs = ['Debug', 'Release'] if args.configuration == 'both' else [args.configuration.title()]
@@ -173,7 +215,7 @@ def run_tests(args, output):
                 cmd = ['xcodebuild', 'test', '-project', str(REPO / 'Civilization.xcodeproj'), '-scheme', 'Civilization',
                        '-configuration', config, '-destination', 'platform=iOS Simulator,id=' + simulator,
                        '-derivedDataPath', str(args.derived_data.resolve() / config.lower() / re.sub(r'[^a-zA-Z0-9_-]', '-', simulator)), '-resultBundlePath', str(output / (name + '.xcresult')),
-                       'CODE_SIGNING_ALLOWED=NO', 'PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa']
+                       'CODE_SIGNING_ALLOWED=NO', 'PRODUCT_BUNDLE_IDENTIFIER=' + (earned_bundle_id(args.qa_identity) if getattr(args, 'qa_identity', None) else 'com.civilization.seed.qa'), '-parallel-testing-enabled', 'NO']
                 cmd += ['-only-testing:' + case for case in cases]
                 step = run_step(name, cmd, output, require_tests=True)
                 if step['status'] == 'passed':
@@ -257,9 +299,17 @@ def main(argv=None):
     test.add_argument('--suite', choices=['core', 'ui'], default='core')
     test.add_argument('--configuration', choices=['debug', 'release', 'both'], default='both')
     test.add_argument('--derived-data', type=Path, default=Path('/tmp/civilization-qa-builds'), help='Reusable native build cache root, separated by configuration and simulator')
+    test.add_argument('--qa-identity', help='UUID of a separately prepared synthetic earned-state simulator identity')
+    test.add_argument('--prepared-earned-container', action='store_true', help='Assert the QA identity was prepared with prepare-earned-simulator')
     test.add_argument('--filter', help='Swift Testing name filter; report explicitly remains scoped')
     test.add_argument('--simulator', action='append', default=[], help='Explicit simulator UDID; repeat for a matrix')
     test.add_argument('--only-testing', action='append', default=[], help='XCTest suite/case ID; repeat as needed')
+    prepare = sub.add_parser('prepare-earned-simulator', help='Install a synthetic earned fixture only into a fresh simulator QA identity')
+    prepare.add_argument('--simulator', required=True)
+    prepare.add_argument('--fixture', type=Path, required=True)
+    prepare.add_argument('--qa-identity', required=True)
+    prepare.add_argument('--configuration', choices=['debug', 'release'], default='release')
+    prepare.add_argument('--derived-data', type=Path, default=Path('/tmp/civilization-qa-builds'))
     validate = sub.add_parser('validate-saves', help='Production-validate a local backup without mutation')
     validate.add_argument('root', type=Path)
     backup = sub.add_parser('backup-device', help='Explicit read-only stable double-copy and production validation')
@@ -269,7 +319,7 @@ def main(argv=None):
     compare = sub.add_parser('compare-saves', help='Compare original bytes; nonzero exit on lost/changed data')
     compare.add_argument('before', type=Path); compare.add_argument('after', type=Path)
     compare.add_argument('--allow-new-games', action='store_true', help='Allow additive files/index selection; preserve every old file/entry')
-    for command in [test, validate, backup, compare]:
+    for command in [test, prepare, validate, backup, compare]:
         command.add_argument('--output', type=Path, help='New local artifact directory; existing paths are never overwritten')
     args = parser.parse_args(argv)
     if args.command == 'doctor': return doctor()
@@ -277,8 +327,12 @@ def main(argv=None):
         if args.suite == 'ui' and not args.simulator: parser.error('UI tests require --simulator; no device is selected implicitly')
         if args.suite == 'core' and (args.simulator or args.only_testing): parser.error('Native options require --suite ui')
         if args.suite == 'ui' and args.filter: parser.error('--filter is for core; use --only-testing for UI')
-        if any('NormalCompletionUITests' in case for case in args.only_testing):
-            parser.error('NormalCompletionUITests needs a separately prepared earned-save container; use the milestone procedure')
+        if args.qa_identity:
+            try: earned_bundle_id(args.qa_identity)
+            except ValueError: parser.error('--qa-identity must be a UUID')
+        if args.prepared_earned_container and not args.qa_identity: parser.error('Prepared earned checks require a separate QA identity')
+        if any('NormalCompletionUITests' in case or 'RiverbendEarnedUITests' in case for case in args.only_testing) and not (args.prepared_earned_container and args.qa_identity):
+            parser.error('Earned native checks require a separately prepared QA identity')
     if args.command == 'backup-device' and args.output is None:
         parser.error('backup-device requires --output outside the repository for private data')
     output = args.output or Path('/tmp') / ('civilization-qa-' + uuid.uuid4().hex)
@@ -297,6 +351,7 @@ def main(argv=None):
             return 0
         reserve_output(output)
         if args.command == 'test': return run_tests(args, output)
+        if args.command == 'prepare-earned-simulator': return prepare_earned_simulator(args, output)
         if args.command == 'validate-saves': return validate_saves(args.root, output)
         if args.command == 'backup-device': return backup_device(args, output)
         result = compare_saves(args.before, args.after, args.allow_new_games)

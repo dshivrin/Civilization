@@ -20,7 +20,8 @@ public extension GameEngine {
     var constructedKinds: Set<BuildingKind> { Set(state.buildings.filter(\.isOperational).map(\.kind)) }
     /// Current-era extraction recipes define the resource scope, not all map markers.
     var requiredDiscoveryResources: Set<Resource> {
-        Set(configuration.buildings.flatMap { ($0.recipes ?? []).compactMap(\.depositResource) })
+        if configuration.isRiverbendPlayer { return [.wood, .stone, .flint] }
+        return Set(configuration.buildings.flatMap { ($0.recipes ?? []).compactMap(\.depositResource) })
     }
     var discoveredRequiredResources: Set<Resource> {
         Set(discoveredDeposits.compactMap { deposit in
@@ -31,6 +32,7 @@ public extension GameEngine {
     }
     var stoneAgeRequirements: [JourneyObjective] { requirementsForStoneAge(legacy: false) }
     internal func requirementsForStoneAge(legacy: Bool) -> [JourneyObjective] {
+        if configuration.isRiverbendPlayer { return riverbendRequirements }
         let kinds = Set(configuration.buildings.map(\.kind)).subtracting(configuration.civicLevels == nil || legacy ? [] : [.storytellingCircle])
         let technologies = Set(configuration.technologyDefinitions.map(\.id))
         var requirements = [
@@ -47,6 +49,7 @@ public extension GameEngine {
         Resource.allCases.filter { requiredDiscoveryResources.contains($0) && !discoveredRequiredResources.contains($0) }.map(\.rawValue)
     }
     internal func unretainedJourneyChapters(legacy: Bool = false) -> [JourneyChapter] {
+        if configuration.isRiverbendPlayer { return riverbendChapters }
         func building(_ kind: BuildingKind) -> JourneyObjective {
             JourneyObjective(id: "building-" + kind.rawValue, title: "Build " + configuration.definition(kind).name,
                              completed: constructedKinds.contains(kind) ? 1 : 0, total: 1)

@@ -6,6 +6,7 @@ public struct SavedGame: Codable, Equatable, Identifiable, Sendable {
     public var name: String
     public var createdAt: Date
     public var mapID: String
+    public var retiredSmallMap: Bool? = nil
     public init(id: String, name: String, createdAt: Date, mapID: String) {
         self.id = id; self.name = name; self.createdAt = createdAt; self.mapID = mapID
     }

@@ -39,9 +39,21 @@ public extension GameConfiguration {
 }
 public extension GameEngine {
     func isDiscovered(_ tile:Tile) -> Bool { configuration.map.contains(tile) && (state.discoveredTiles?.contains(tile) ?? true) }
-    func isIdentified(_ deposit:NaturalDeposit) -> Bool { deposit.requiredTechnology.map { researchedIDs.contains($0) } ?? true }
+    func isIdentified(_ deposit:NaturalDeposit) -> Bool {
+        if configuration.isRiverbendPlayer {
+            switch deposit.resource {
+            case .wood: break
+            case .stone: guard riverbendOpeningComplete else { return false }
+            case .flint: guard riverbendCraftAvailable else { return false }
+            default: return false
+            }
+        }
+        return deposit.requiredTechnology.map { researchedIDs.contains($0) } ?? true
+    }
     var discoveredTileCount: Int { state.discoveredTiles?.count ?? configuration.map.width * configuration.map.height }
-    var discoveredDeposits: [NaturalDeposit] { (configuration.naturalDeposits ?? []).filter { ([$0.origin] + ($0.accessSites ?? [])).contains(where: isDiscovered) } }
+    var discoveredDeposits: [NaturalDeposit] { (configuration.naturalDeposits ?? []).filter {
+        (!configuration.isRiverbendPlayer || isIdentified($0)) && ([$0.origin] + ($0.accessSites ?? [])).contains(where: isDiscovered)
+    } }
     var explorationIssue: GameError? {
         guard let rules = configuration.explorationRules else { return .placement("Exploration is unavailable in this ruleset.") }
         if state.explorationRemainingSeconds != nil { return .placement("An expedition is already underway.") }

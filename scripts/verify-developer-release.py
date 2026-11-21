@@ -27,7 +27,7 @@ probes = {
     'RiverbendMapFindID': 'import GameApplication\nlet find = RiverbendMapFindID.berries\n',
     'RiverbendEconomyLab': 'import Foundation\nimport GameApplication\nlet lab = try RiverbendEconomyLab(now: Date())\n',
     'riverbendEconomyLab': 'import GameCore\nlet config = try GameConfiguration.riverbendEconomyLab()\n',
-    'VisualAgentPose': 'import GameApplication\nlet pose = VisualAgentPose.sample(activity: .walk, elapsed: 0)\n',
+    'VisualAgentPowerObservation': 'import GameApplication\n@MainActor func probe() { _ = VisualAgentPowerObservation() }\n',
     'reviewStage': 'import GameApplication\nlet stage = ConstructionPresentation(remaining: 10, duration: 20).reviewStage\n',
     'OnboardingReviewWalkthrough': 'import Foundation\nimport GameCore\nimport GameApplication\nfunc probe(_ c: GameConfiguration) throws { _ = try OnboardingReviewWalkthrough(configuration: c, now: Date()) }\n',
     'activateReviewConnectivity': 'import GameApplication\n@MainActor func probe(_ s: GameSession) { s.activateReviewConnectivity() }\n',

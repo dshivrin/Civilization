@@ -90,19 +90,16 @@ func gameplayReviewCannotRacePendingScenarioPreparation(resume: Bool) async thro
     let session = try GameSession(clock: { now }, saveURL: url)
     session.startGameplayReview(); session.addDeveloperResources(); session.returnToNormalGame()
     let retained = try Data(contentsOf: url.appendingPathExtension("review"))
-    let preparation = Task { await session.prepareDeveloperScenario(.grouped) }
-    // Yield-count polling can exhaust before the child task receives MainActor time.
-    // Wait for the same observable precondition with a bounded scheduling interval.
-    // The full suite queues other synchronous MainActor fixtures for ~20s.
-    // This is a setup scheduling bound, not a scenario performance assertion.
-    let deadline = ContinuousClock.now.advanced(by: .seconds(30))
-    while !session.isPreparingDeveloperScenario && ContinuousClock.now < deadline {
-        try await Task.sleep(for: .milliseconds(1))
+    // Queue the competing command first, then enter preparation synchronously on
+    // this actor. Its first suspension runs the command while preparation is
+    // pending, without polling a short-lived state behind unrelated test tasks.
+    let competingCommand = Task(priority: .high) { @MainActor in
+        #expect(session.isPreparingDeveloperScenario)
+        if resume { session.resumeGameplayReview() } else { session.startGameplayReview() }
+        #expect(!session.isGameplayReview && !session.isDeveloperMode)
     }
-    guard session.isPreparingDeveloperScenario else { preparation.cancel(); await preparation.value; Issue.record("Preparation did not start"); return }
-    if resume { session.resumeGameplayReview() } else { session.startGameplayReview() }
-    #expect(!session.isGameplayReview && !session.isDeveloperMode)
-    await preparation.value
+    await session.prepareDeveloperScenario(.grouped)
+    await competingCommand.value
     #expect(!session.isGameplayReview && session.isSelectedDeveloperScenario(.grouped))
     #expect(try Data(contentsOf: url.appendingPathExtension("review")) == retained)
 }

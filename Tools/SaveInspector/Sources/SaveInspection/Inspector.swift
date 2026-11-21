@@ -74,6 +74,7 @@ public enum SaveInspection {
             switch identity {
             case "river-clearing-v1": configuration = try .legacyDevelopment()
             case "river-clearing-64x48-v1": configuration = base
+            case "riverbend-player-64x48-v1": configuration = try .riverbendPlayer()
             case "river-clearing-review-64x48-v1":
                 #if DEBUG
                 configuration = try DeveloperScenario.grouped.makeEngine(configuration: base, now: Date(timeIntervalSince1970: 1000)).configuration
@@ -84,7 +85,9 @@ public enum SaveInspection {
             }
             let store = SaveStore(url: file)
             let review = name == "settlement-v1.json.review" || name.hasPrefix("settlement-v1.json.review.")
-            guard let state = try (review ? store.loadGameplayReview(configuration: configuration) : store.load(configuration: configuration)) else {
+            let developer = name == "settlement-v1.json.developer" || name.hasPrefix("settlement-v1.json.developer.")
+            let loaded = try review ? store.loadGameplayReview(configuration: configuration) : developer ? store.load(configuration: configuration) : store.loadNormal(configuration: configuration)
+            guard let state = loaded else {
                 throw GameError.invalidSave("Save disappeared: " + path)
             }
             _ = try GameEngine(state: state, configuration: configuration)
@@ -106,7 +109,7 @@ public enum SaveInspection {
                 // The library promotes legacy metadata lazily; both production identities may coexist.
                 let productionIDs: Set<String> = ["river-clearing-v1", "river-clearing-64x48-v1"]
                 let compatible = inspected.mapID == game.mapID || Set([inspected.mapID, game.mapID]) == productionIDs
-                guard productionIDs.contains(game.mapID), compatible else {
+                guard (productionIDs.contains(game.mapID) && compatible) || (game.mapID == "riverbend-player-64x48-v1" && inspected.mapID == game.mapID) else {
                     throw GameError.invalidSave("Registered game map does not match its save: " + game.id)
                 }
             }

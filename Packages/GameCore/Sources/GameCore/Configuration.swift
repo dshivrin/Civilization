@@ -50,6 +50,13 @@ public struct GameConfiguration: Codable, Sendable {
         try config.validate()
         return config
     }
+    public static func riverbendPlayer() throws -> GameConfiguration {
+        guard let url = Bundle.module.url(forResource: "riverbend-player", withExtension: "json") else { throw GameError.invalidConfiguration("Missing Riverbend player profile") }
+        let config = try JSONDecoder().decode(Self.self, from: Data(contentsOf: url))
+        try config.validate()
+        return config
+    }
+    public var isRiverbendPlayer: Bool { map.id == "riverbend-player-64x48-v1" }
     public func definition(_ kind: BuildingKind) -> BuildingDefinition {
         // validate() guarantees exactly one definition for every kind.
         buildings.first { $0.kind == kind }!
@@ -63,7 +70,7 @@ public struct GameConfiguration: Codable, Sendable {
             try require(Resource.allCases.allSatisfy { amounts[$0].isFinite && amounts[$0] >= 0 }, "Amounts must be finite nonnegative units")
         }
         try require(Resource.allCases.allSatisfy { initialResources[$0] <= baseCapacities[$0] }, "Initial resource exceeds capacity")
-        var supportedDimensions = (map.width == 32 && map.height == 24) || (map.id == "river-clearing-64x48-v1" && map.width == 64 && map.height == 48)
+        var supportedDimensions = (map.width == 32 && map.height == 24) || ((map.id == "river-clearing-64x48-v1" || isRiverbendPlayer) && map.width == 64 && map.height == 48)
         #if DEBUG
         supportedDimensions = supportedDimensions || ((isRiverbendEconomyLab || isRiverbendFoundingReview) && map.width == 64 && map.height == 48)
         supportedDimensions = supportedDimensions || (map.id == "river-clearing-review-64x48-v1" && map.width == 64 && map.height == 48)

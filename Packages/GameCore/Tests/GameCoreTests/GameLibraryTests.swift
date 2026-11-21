@@ -206,7 +206,7 @@ private let gamesEpoch = Date(timeIntervalSince1970: 80_000_000)
     #expect(try !GameLibrary.hasSavedGame(rootURL: root))
     #expect(!FileManager.default.fileExists(atPath: root.path))
     let library = try await GameLibrary.startNewGame(rootURL: root, clock: { gamesEpoch })
-    let c = try GameConfiguration.bundled()
+    let c = try GameConfiguration.riverbendPlayer()
     #expect(library.games.count == 1 && library.activeGameID == "legacy")
     #expect(library.session.state == (try GameEngine(configuration: c, now: gamesEpoch).state))
     let url = root.appendingPathComponent("settlement-v1.json"), before = try Data(contentsOf: url)
@@ -218,7 +218,7 @@ private let gamesEpoch = Date(timeIntervalSince1970: 80_000_000)
 
 @Test(arguments: [false, true]) @MainActor func launchNewGamePreservesUnopenedDamagedProgress(indexed: Bool) async throws {
     let root = gameLibraryRoot(); defer { try? FileManager.default.removeItem(at: root) }
-    let c = try GameConfiguration.bundled()
+    let c = try GameConfiguration.riverbendPlayer()
     var oldURL = root.appendingPathComponent("settlement-v1.json")
     if indexed {
         let previous = try await GameLibrary.load(rootURL: root, clock: { gamesEpoch })

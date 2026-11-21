@@ -185,3 +185,47 @@ to the existing phone+iPad Debug matrix. Retain both Goal1/Goal2 cases above and
 ordinary Release entry. Full core now includes15Debug-present/Release-absent
 probes, including storage specialization. Same separate v1 envelope/atomic store;
 old Lab envelopes remain readable, ordinary library/save schemas stay unchanged.
+
+## Unified Riverbend player verification
+
+Ordinary New Game now uses the distinct `riverbend-player-64x48-v1` profile.
+Supported earlier large games retain their original configuration. The normal
+path contains no developer controls, grants, speed controls or review comparisons.
+Historical Debug UI regressions explicitly request the legacy temporary QA entry;
+ordinary Riverbend cases always launch directly through New Game / Continue.
+
+Run `python3 scripts/dev.py test` for full core Debug/Release and 23 Debug-only
+API exclusions. Presentation-only pose vocabulary, real-work stages and opaque fog
+geometry are shared by Release; comparison controllers remain Debug-only.
+
+For the real ordinary opening, mandatory roads, gestures, real 60-second whole-forest
+survey and Continue, select
+`CivilizationUITests/NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue`.
+Keep `testNormalEntryPersistenceWithoutDeveloperHooks` for independent New Game slots.
+The optional `--qa-identity UUID` selects an independent simulator-only bundle under
+`com.civilization.seed.qa.earned.UUID`; it never targets production. Native runs are
+serial within each matrix and disable parallel XCTest clones.
+
+Synthetic earned-state snapshots can be exported by running the public-command
+Release regression `riverbendPlayerCraftStorageEnclosureEarnedRoutePersists` with
+`CIVILIZATION_RIVERBEND_EARNED_EXPORT=NEW_DIRECTORY`. Its `craft`, `enclosure` and
+`ending` folders contain only a primary, index and `qa-earned.json` receipt. Model
+time is simulated and reported; exported wall-clock alignment changes only
+`lastUpdated`, preserving earned stocks, progress and timers. This is not a real
+native playthrough of the entire model duration.
+
+Prepare one snapshot in a **fresh UUID identity**, on an explicit booted simulator:
+
+```sh
+python3 scripts/dev.py prepare-earned-simulator --simulator UDID   --fixture NEW_DIRECTORY/craft --qa-identity UUID
+python3 scripts/dev.py test --suite ui --configuration release --simulator UDID   --qa-identity UUID --prepared-earned-container   --only-testing CivilizationUITests/RiverbendEarnedUITests/testRealCraftStorageFindsAndRelaunch
+```
+
+The preparation validates only synthetic files with the read-only production
+inspector, refuses any existing target identity or destination, builds unsigned,
+installs only into the simulator and verifies copied hashes. No app-side fixture
+import is added to Release. Use separate UUIDs and `enclosure`/`ending` snapshots
+for `testEnclosureGateAndSameGameContinue` and
+`CivilizationUITests/NormalCompletionUITests`. Never use owner saves as fixtures.
+Tool receipts distinguish native real survey/Tool waits from model time. No native
+result establishes physical performance or human acceptance.

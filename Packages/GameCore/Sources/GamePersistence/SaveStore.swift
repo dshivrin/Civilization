@@ -15,7 +15,7 @@ public struct SaveStore: Sendable {
         guard marker.isGameplayReview else { throw GameError.invalidSave("Not a gameplay review copy.") }
         return try load(configuration: configuration)
     }
-    public static func version(for state: GameState) -> Int { state.operatingRules != nil ? 7 : state.civicProgress == nil ? 5 : 6 }
+    public static func version(for state: GameState) -> Int { state.riverbend != nil ? 8 : state.operatingRules != nil ? 7 : state.civicProgress == nil ? 5 : 6 }
     public func save(_ state: GameState) throws {
         let data = try JSONEncoder().encode(Envelope(version: Self.version(for: state), state: state))
         try preservePreviousVersion(beforeSaving: state)
@@ -35,7 +35,7 @@ public struct SaveStore: Sendable {
         if FileManager.default.fileExists(atPath: url.path) {
             let original = try Data(contentsOf: url)
             let version = try JSONDecoder().decode(Header.self, from: original).version
-            guard (1...7).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
+            guard (1...8).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
             guard targetVersion >= version else { throw GameError.invalidSave("Cannot discard civic history by downgrading a save.") }
             if version < targetVersion {
                 let suffix = version == 1 ? "seed-0.1.bak" : version == 2 ? "seed-0.2.1.bak" : version == 3 ? "seed-0.2.3.bak" : version == 4 ? "seed-0.2.4.bak" : version == 5 ? "pre-civic-v5.bak" : "pre-connectivity-v6.bak"
@@ -46,18 +46,31 @@ public struct SaveStore: Sendable {
         }
     }
     public func load(configuration: GameConfiguration) throws -> GameState? {
+        try load(configuration: configuration, normalEnvelope: false)
+    }
+    /// Normal restoration must never adopt metadata-bearing review/developer/unknown envelopes.
+    public func loadNormal(configuration: GameConfiguration) throws -> GameState? {
+        try load(configuration: configuration, normalEnvelope: true)
+    }
+    private func load(configuration: GameConfiguration, normalEnvelope: Bool) throws -> GameState? {
         guard FileManager.default.fileExists(atPath: url.path) else { return nil }
         let data = try Data(contentsOf: url)
+        if normalEnvelope {
+            guard let object = try JSONSerialization.jsonObject(with: data) as? [String: Any], Set(object.keys) == Set(["version", "state"]) else {
+                throw GameError.invalidSave("This primary is not a recognized normal-game envelope. Its bytes are preserved.")
+            }
+        }
         let version = try JSONDecoder().decode(Header.self, from: data).version
-        guard (1...7).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
+        guard (1...8).contains(version) else { throw GameError.invalidSave("Unsupported version \(version)") }
         var state = try JSONDecoder().decode(Envelope.self, from: data).state
-        guard version == 7 ? (state.operatingRules != nil && state.civicProgress != nil) : state.operatingRules == nil else {
+        guard (version == 8) == (state.riverbend != nil && configuration.isRiverbendPlayer) else { throw GameError.invalidSave("Riverbend rules require their own version 8 save.") }
+        guard version == 8 || (version == 7 ? (state.operatingRules != nil && state.civicProgress != nil) : state.operatingRules == nil) else {
             throw GameError.invalidSave("Operating rules require an explicit version 7 marker and civic history.")
         }
         guard version >= 6 || state.civicProgress == nil else { throw GameError.invalidSave("Civic history is unsupported before save version 6.") }
         if state.mapID == "river-clearing-v1", configuration.map.id == "river-clearing-64x48-v1" {
             let legacy = try GameConfiguration.legacyDevelopment()
-            guard let validated = try load(configuration: legacy) else { throw GameError.invalidSave("Missing development world") }
+            guard let validated = try load(configuration: legacy, normalEnvelope: normalEnvelope) else { throw GameError.invalidSave("Missing development world") }
             let backup = url.appendingPathExtension("pre-geography-64x48.bak")
             if !FileManager.default.fileExists(atPath: backup.path) { try data.write(to: backup, options: .atomic) }
             guard try Data(contentsOf: backup) == data else { throw GameError.invalidSave("Development backup differs from the source; original preserved.") }

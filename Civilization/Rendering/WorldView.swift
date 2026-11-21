@@ -9,6 +9,7 @@ struct WorldView: UIViewRepresentable {
     let session: GameSession
     let onReady: () -> Void
     var isObscured = false
+    var onMapFind: (() -> Void)? = nil
     func makeCoordinator() -> Coordinator { Coordinator(scene: scene, session: session) }
     func makeUIView(context: Context) -> SKView {
         let view = SKView(); view.ignoresSiblingOrder = true; view.preferredFramesPerSecond = 60
@@ -31,8 +32,10 @@ struct WorldView: UIViewRepresentable {
         return view
     }
     func updateUIView(_ view: SKView, context: Context) {
+        context.coordinator.onMapFind = onMapFind
         context.coordinator.updateAccessibility(in: view)
         scene.onReady = onReady
+        if session.configuration.isRiverbendPlayer { scene.displayPlayerFeatures(state: session.state, finds: session.availableRiverbendFinds) }
         view.isPaused = session.shouldPauseRendering || isObscured
         scene.isPaused = session.shouldPauseAnimation
         scene.reduceMotion = reduceMotion
@@ -42,6 +45,7 @@ struct WorldView: UIViewRepresentable {
     @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {
         let scene: SettlementScene
         let session: GameSession
+        var onMapFind: (() -> Void)?
         private var dragOffset = Tile(x: 0, y: 0)
         private var isDragging = false
         private var panTouchDownTile: Tile?
@@ -104,6 +108,7 @@ struct WorldView: UIViewRepresentable {
         @objc func tap(_ recognizer: UITapGestureRecognizer) {
             let point = scene.convertPoint(fromView: recognizer.location(in: recognizer.view))
             if session.roadTool != nil { session.extendRoadStroke(to: IsometricProjection.tile(point)); return }
+            if session.previewKind == nil && session.availableRiverbendFinds.contains(where: { $0.tile == IsometricProjection.tile(point) }) { onMapFind?(); return }
             if session.previewKind == nil, let building = building(at: point) { session.inspect(buildingID: building.id) }
             else if !scene.previewContains(point) { session.tap(IsometricProjection.tile(point)) }
             #if DEBUG

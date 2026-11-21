@@ -8,6 +8,8 @@ struct LaunchMenuView: View {
     var body: some View {
         ZStack {
             Color(red: 0.10, green: 0.15, blue: 0.12).ignoresSafeArea()
+            LoadingSceneryView(scene: .founding, animates: false).ignoresSafeArea().accessibilityHidden(true)
+            Color.black.opacity(0.65).ignoresSafeArea()
             ScrollView {
                 VStack(spacing: 16) {
                     Text("Civilization").font(.largeTitle.bold())

@@ -184,3 +184,34 @@ func rejectsReviewWithoutTrueMarker(present: Bool, suffix: String) throws {
     try SaveStore(url: file).save(state)
     #expect(throws: Error.self) { try SaveInspection.inspect(root: root) }
 }
+
+@Test @MainActor func validatesRiverbendLibraryAlongsidePreservedLargeGames() async throws {
+    let root = try temporaryRoot(); defer { try? FileManager.default.removeItem(at: root) }
+    let now = Date(timeIntervalSince1970: 90_000_000)
+    let old = try await GameLibrary.load(rootURL: root, clock: { now })
+    let originalURL = root.appendingPathComponent("settlement-v1.json")
+    _ = try await old.createGame(name: "Riverbend")
+    let original = try Data(contentsOf: originalURL)
+    let report = try SaveInspection.inspect(root: root)
+    #expect(report.files.count == 2 && report.registeredGames == 2)
+    #expect(report.sourceByteIdentical)
+    #expect(try Data(contentsOf: originalURL) == original)
+}
+
+@Test(arguments: ["review", "developer", "profile", "unknown"])
+func rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker: String) throws {
+    let root = try temporaryRoot(); defer { try? FileManager.default.removeItem(at: root) }
+    let file = root.appendingPathComponent("settlement-v1.json")
+    try SaveStore(url: file).save(GameEngine(configuration: .bundled(), now: Date(timeIntervalSince1970: 1000)).state)
+    var json = try #require(try JSONSerialization.jsonObject(with: Data(contentsOf: file)) as? [String: Any])
+    switch marker {
+    case "review": json["isGameplayReview"] = true
+    case "developer": json["developerScenario"] = "early"
+    case "profile": json["profile"] = "unknown"
+    default: json["unknownEnvelope"] = 1
+    }
+    try JSONSerialization.data(withJSONObject: json).write(to: file)
+    let bytes = try Data(contentsOf: file)
+    #expect(throws: Error.self) { try SaveInspection.inspect(root: root) }
+    #expect(try Data(contentsOf: file) == bytes)
+}

@@ -45,12 +45,14 @@ public extension GameConfiguration {
     }
     /// Existing civic history semantics; the isolated founding review has its own objective.
     internal var civicSharesLegacyStorytellingCredit: Bool {
+        if isRiverbendPlayer { return false }
         #if DEBUG
         if isRiverbendFoundingReview { return false }
         #endif
         return true
     }
     private func permitsFreeFoundingResearch(_ level: CivicLevelDefinition) -> Bool {
+        if isRiverbendPlayer { return level.level == 2 && level.requiredTechnology == nil }
         #if DEBUG
         return isRiverbendFoundingReview && level.level == 2 && level.requiredTechnology == nil
         #else

@@ -1,8 +1,6 @@
 import SpriteKit
 import GameCore
-#if DEBUG
 import GameApplication
-#endif
 
 /// Original deterministic vector terrain sources. Geography is read-only; no random simulation state.
 @MainActor enum WorldDetails {
@@ -73,11 +71,10 @@ import GameApplication
     }
 }
 
-#if DEBUG
 /// Original procedural comparison; opt-in only, no asset or semantic contact replacement.
 @MainActor final class ConstructionReviewNode: SKNode {
     private let timberFrame = SKNode(), walls = SKNode(), roof = SKNode()
-    private(set) var phase = ConstructionPresentation.ReviewStage.foundation
+    private(set) var phase = ConstructionPresentation.WorkStage.foundation
     var visibleGroups: (frame: Int, walls: Int, roof: Int) {
         (timberFrame.isHidden ? 0 : 1, walls.isHidden ? 0 : 1, roof.isHidden ? 0 : 1)
     }
@@ -116,10 +113,9 @@ import GameApplication
     }
     required init?(coder: NSCoder) { fatalError("Programmatic review geometry") }
     func display(_ work: ConstructionPresentation) {
-        phase = work.reviewStage
+        phase = work.workStage
         timberFrame.isHidden = phase == .foundation
         walls.isHidden = phase == .foundation || phase == .frame
         roof.isHidden = phase != .roof
     }
 }
-#endif

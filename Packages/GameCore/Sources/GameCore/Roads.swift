@@ -53,6 +53,7 @@ public extension GameEngine {
     func roadIssue(at tile: Tile) -> GameError? {
         guard configuration.map.contains(tile) else { return .placement("Keep roads inside the map.") }
         guard isDiscovered(tile) else { return .placement("Explore this tile before drawing roads.") }
+        if configuration.isRiverbendPlayer && RiverbendBoundary.wall.contains(tile) && tile != RiverbendBoundary.gate { return .placement("Keep the palisade line clear; roads pass through its gate.") }
         let terrain = configuration.map.terrain(at:tile)
         guard terrain == .grass || terrain == .clearing else { return .placement("Roads need open grass or clearing; water, hills and forest are protected.") }
         guard building(at:tile) == nil else { return .placement("Roads cannot pass under buildings.") }

@@ -10,9 +10,11 @@ public enum DeveloperScenario: String, CaseIterable, Identifiable, Codable, Send
         switch self { case .early: "Early settlement"; case .developed: "Developed settlement"; case .late: "Late Stone Age"; case .grouped: "Large grouped village (64×48)" }
     }
     func configuration(from base: GameConfiguration) throws -> GameConfiguration {
-        self == .grouped ? try GroupedDeveloperVillage.configuration(from: base) : base
+        let legacy = try base.isRiverbendPlayer ? GameConfiguration.bundled() : base
+        return self == .grouped ? try GroupedDeveloperVillage.configuration(from: legacy) : legacy
     }
     public func makeEngine(configuration: GameConfiguration, now: Date) throws -> GameEngine {
+        let configuration = try configuration.isRiverbendPlayer ? GameConfiguration.bundled() : configuration
         if self == .grouped { return try GroupedDeveloperVillage.makeEngine(from: configuration, now: now) }
         var engine = try GameEngine(configuration: configuration, now: now)
         func refill() { engine.developerAddResources(1_000_000) }

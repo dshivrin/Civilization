@@ -106,6 +106,7 @@ public enum SettlementOperatingRules: String, Codable, Sendable {
 }
 
 public struct GameState: Codable, Equatable, Sendable {
+    public var riverbend: RiverbendProgress? = nil
     public var mapID: String
     public var resources: ResourceAmounts
     public var population: Int

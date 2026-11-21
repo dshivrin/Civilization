@@ -9,6 +9,7 @@ public struct WorkforceRules: Codable, Sendable {
 public extension GameEngine {
     var workforceAvailable: Double {
         let available = floor(Double(state.population) * (configuration.workforceRules?.workingPopulationFraction ?? 0))
+        if configuration.isRiverbendPlayer { return max(2, available) }
         #if DEBUG
         if configuration.isRiverbendEconomyLab { return max(2, available) }
         #endif

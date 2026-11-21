@@ -8,15 +8,49 @@ final class SettlementScene: SKScene {
     private static var constructedSceneCount = 0
     #endif
     private let configuration: GameConfiguration
+    private let connectionLayer = BuildingConnectionLayer()
+    private let livingLayer = LivingWorldLayer()
+    var reviewConstructionEnabled = false
+    var reviewFoothillBlockedTiles: Set<Tile> = []
+    var reviewContinuousFog = false
+    private let reviewFogLayer = SKNode()
+    var reviewOrganicFog = false
+    private var renderedOrganicFog = false
+    var reviewAlternateLook = false
+    private var reviewOpaqueSampleFailures = 0
+    private var renderedContinuousFog = false
+    var reviewVisualsEnabled = false
+    var reviewPhase = LivingWorldLayer.Phase.day
+    var reviewWeather = LivingWorldLayer.Weather.clear
+    var reviewCyclesLighting = false
+    var reviewLightingCycleDuration: Double = 120
+    var reviewLightingSelectionRevision = 0
+    var reviewLowPowerPreview = false
+    override func update(_ currentTime: TimeInterval) {
+        let width = size.width * worldCamera.xScale, height = size.height * worldCamera.yScale
+        livingLayer.update(currentTime: currentTime, viewport: CGRect(x: worldCamera.position.x - width / 2,
+            y: worldCamera.position.y - height / 2, width: width, height: height))
+    }
+    private var hasFoothillTerrain: Bool {
+        #if DEBUG
+        configuration.isRiverbendPlayer || configuration.isRiverbendFoothillReview
+        #else
+        configuration.isRiverbendPlayer
+        #endif
+    }
+    private var hasFoundingLodge: Bool {
+        #if DEBUG
+        configuration.isRiverbendPlayer || configuration.isRiverbendFoundingReview
+        #else
+        configuration.isRiverbendPlayer
+        #endif
+    }
     private let worldCamera = SKCameraNode()
     private let terrainLayer = SKNode()
     private let depositLayer = SKNode()
     private let buildingLayer = SKNode()
     private let roadLayer = RoadSceneLayer()
     #if DEBUG
-    private let connectionLayer = BuildingConnectionLayer()
-    private let livingLayer = LivingWorldLayer()
-    var reviewConstructionEnabled = false
     var reviewInspectionTileCount: Int { ghostLayer.children.filter { $0 is SKShapeNode }.count }
     var reviewConstructionSummary: String {
         guard let building = renderedBuildings.filter({ $0.kind != .campfire }).max(by: { $0.id < $1.id }),
@@ -53,12 +87,6 @@ final class SettlementScene: SKScene {
             y: (minY + maxY) / 2 + size.height * scale * 0.15)
     }
     var onReviewRevealComplete: (() -> Void)?
-    var reviewFoothillBlockedTiles: Set<Tile> = []
-    var reviewContinuousFog = false
-    private let reviewFogLayer = SKNode()
-    var reviewOrganicFog = false
-    private var renderedOrganicFog = false
-    var reviewAlternateLook = false
     func focusReviewMotion() {
         let points = livingLayer.reviewMotionTiles.map(IsometricProjection.point)
         guard let x0 = points.map(\.x).min(), let x1 = points.map(\.x).max(),
@@ -79,25 +107,11 @@ final class SettlementScene: SKScene {
     private var reviewMarkerTiles: Set<Tile> = []
     private var reviewHiddenGroundCount: Int { reviewGroundTiles.subtracting(renderedDiscovery ?? []).count }
     private var reviewHiddenMarkerCount: Int { reviewMarkerTiles.subtracting(renderedDiscovery ?? []).count }
-    private var reviewOpaqueSampleFailures = 0
-    private var renderedContinuousFog = false
-    var reviewVisualsEnabled = false
-    var reviewPhase = LivingWorldLayer.Phase.day
-    var reviewWeather = LivingWorldLayer.Weather.clear
-    var reviewCyclesLighting = false
-    var reviewLightingCycleDuration: Double = 120
-    var reviewLightingSelectionRevision = 0
-    var reviewLowPowerPreview = false
     var reviewAtmosphereSummary: String {
         func actions(_ node: SKNode) -> Int { (node.hasActions() ? 1 : 0) + node.children.reduce(0) { $0 + actions($1) } }
         return livingLayer.reviewSummary + " buildingActions=\(actions(buildingLayer))"
     }
     var reviewAtmosphereCaption: String { livingLayer.reviewCaption }
-    override func update(_ currentTime: TimeInterval) {
-        let width = size.width * worldCamera.xScale, height = size.height * worldCamera.yScale
-        livingLayer.update(currentTime: currentTime, viewport: CGRect(x: worldCamera.position.x - width / 2,
-            y: worldCamera.position.y - height / 2, width: width, height: height))
-    }
     #endif
     private var renderedDiscovery: Set<Tile>?
     private var renderedDepositSignature = ""
@@ -143,6 +157,10 @@ final class SettlementScene: SKScene {
     init(configuration: GameConfiguration) {
         self.configuration = configuration
         super.init(size: CGSize(width: 1000, height: 700))
+        if configuration.isRiverbendPlayer {
+            reviewVisualsEnabled = true; reviewContinuousFog = true; reviewOrganicFog = true
+            reviewConstructionEnabled = true; reviewCyclesLighting = true
+        }
         #if DEBUG
         Self.constructedSceneCount += 1
         #endif
@@ -156,11 +174,9 @@ final class SettlementScene: SKScene {
         addChild(depositLayer)
         addChild(buildingLayer)
         addChild(roadLayer);addChild(roadLayer.preview)
-        #if DEBUG
         addChild(connectionLayer); addChild(livingLayer)
         reviewFogLayer.zPosition = 1900; addChild(reviewFogLayer)
         livingLayer.zPosition = buildingLayer.zPosition
-        #endif
         relocationGridLayer.zPosition = 95
         addChild(relocationGridLayer)
         ghostLayer.zPosition = 2000
@@ -194,9 +210,7 @@ final class SettlementScene: SKScene {
             var node: SKNode? = hit
             while let current = node, current !== self {
                 if current.parent === buildingLayer, let id = current.userData?["buildingID"] as? Int {
-                    #if DEBUG
-                    if configuration.isRiverbendFoundingReview, let building = renderedBuildings.first(where: { $0.id == id }), building.kind == .campfire, building.level == 2 { return id }
-                    #endif
+                    if hasFoundingLodge, let building = renderedBuildings.first(where: { $0.id == id }), building.kind == .campfire, building.level >= 2 { return id }
                     if let building = renderedBuildings.first(where: { $0.id == id }), EraArt.texture(building.kind) != nil,
                        !EraArt.contains(building.kind, point: current.convert(point, from: self)) { break }
                     return id
@@ -256,7 +270,13 @@ final class SettlementScene: SKScene {
             #endif
             lastCenterRequest = centerRequest
         }
-        #if DEBUG
+        if configuration.isRiverbendPlayer {
+            reviewFoothillBlockedTiles = RiverbendBoundary.cliffs
+            if state.riverbend?.enclosed == true {
+                reviewFoothillBlockedTiles.formUnion(RiverbendBoundary.wall)
+                if state.riverbend?.gateOpen == true { reviewFoothillBlockedTiles.remove(RiverbendBoundary.gate) }
+            }
+        }
         roadLayer.visualRefinementsEnabled = reviewVisualsEnabled
         if reviewVisualsEnabled {
             connectionLayer.display(buildings: state.buildings, discovered: state.discoveredTiles, configuration: configuration,
@@ -269,10 +289,7 @@ final class SettlementScene: SKScene {
             foreground: !isPaused, lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled || reviewLowPowerPreview,
             cycles: reviewCyclesLighting, selectionRevision: reviewLightingSelectionRevision,
             activeProductionIDs: activeProductionIDs, cycleDuration: reviewLightingCycleDuration)
-        #endif
-        #if DEBUG
         if reviewContinuousFog != renderedContinuousFog || reviewOrganicFog != renderedOrganicFog { drawTerrain(discovered: state.discoveredTiles); renderedContinuousFog = reviewContinuousFog; renderedOrganicFog = reviewOrganicFog }
-        #endif
         let discoveryChanged = state.discoveredTiles != renderedDiscovery
         roadLayer.display(roads: state.roads ?? [], discovered: state.discoveredTiles, configuration: configuration, tool: roadTool, draft: roadDraft, invalid: roadInvalid)
         if discoveryChanged || reduceMotion != renderedReduceMotion {
@@ -309,14 +326,12 @@ final class SettlementScene: SKScene {
                 root.childNode(withName: "artSprite")?.alpha = fraction < 0.25 ? 0.12 : 0.25 + 0.60 * fraction
                 root.childNode(withName: "constructionScaffold")?.isHidden = construction.stage != .frame
                 root.childNode(withName: "constructionRoof")?.isHidden = construction.stage != .roof
-                #if DEBUG
                 if reviewConstructionEnabled, let preview = root.childNode(withName: "constructionReview") as? ConstructionReviewNode {
                     preview.display(construction)
                     root.childNode(withName: "artSprite")?.alpha = 0
                     root.childNode(withName: "constructionScaffold")?.isHidden = true
                     root.childNode(withName: "constructionRoof")?.isHidden = true
                 }
-                #endif
             }
         }
         if relocationGrid != renderedRelocationGrid {
@@ -369,6 +384,44 @@ final class SettlementScene: SKScene {
             }
         }
     }
+    func displayPlayerFeatures(state: GameState, finds: [PlayerMapFind]) {
+        guard configuration.isRiverbendPlayer else { return }
+        childNode(withName: "riverbendFeatures")?.removeFromParent()
+        let features = SKNode(); features.name = "riverbendFeatures"; features.zPosition = 110
+        let known = state.discoveredTiles ?? []
+        if state.riverbend?.enclosed == true {
+            for tile in RiverbendBoundary.wall.sorted(by: { $0.y == $1.y ? $0.x < $1.x : $0.y < $1.y }) where known.contains(tile) {
+                let point = IsometricProjection.point(tile)
+                let open = tile == RiverbendBoundary.gate && state.riverbend?.gateOpen == true
+                for offset in [-12.0, 0.0, 12.0] where !open {
+                    let post = SKShapeNode(rectOf: CGSize(width: 7, height: 30), cornerRadius: 2)
+                    post.fillColor = UIColor(red: 0.42, green: 0.29, blue: 0.16, alpha: 1); post.strokeColor = .brown
+                    post.position = CGPoint(x: point.x + offset, y: point.y + 12 - abs(offset) / 3)
+                    features.addChild(post)
+                }
+                if tile == RiverbendBoundary.gate {
+                    let gate = SKLabelNode(fontNamed: "AvenirNext-DemiBold"); gate.fontSize = 11
+                    gate.text = open ? "Open gate" : "Closed gate"; gate.fontColor = .white
+                    gate.position = CGPoint(x: point.x, y: point.y + 37); features.addChild(gate)
+                }
+            }
+        }
+        for building in state.buildings where building.kind == .storehouse && DiscoveryVisibility.isVisible(building, in: configuration, discovered: known) {
+            guard let role = state.riverbend?.storage[building.id] else { continue }
+            let sign = SKLabelNode(fontNamed: "AvenirNext-DemiBold"); sign.fontSize = 11
+            sign.text = role == .granary ? "Granary" : "Stockyard"; sign.fontColor = role == .granary ? .systemYellow : .systemMint
+            let center = building.occupiedFootprint(in: configuration).center(at: building.origin)
+            sign.position = CGPoint(x: center.x, y: center.y + 65); features.addChild(sign)
+        }
+        for find in finds where known.contains(find.tile) {
+            let marker = SKLabelNode(fontNamed: "AvenirNext-DemiBold"); marker.fontSize = 12
+            marker.text = find.id == .berries ? "● Berries" : "⌁ Tracks"; marker.fontColor = find.id == .berries ? .systemPink : .white
+            let point = IsometricProjection.point(find.tile)
+            marker.position = CGPoint(x: point.x, y: point.y + 12); features.addChild(marker)
+        }
+        addChild(features)
+    }
+
     private func shape(_ path: CGPath, fill: UIColor, stroke: UIColor = .clear, width: CGFloat = 1) -> SKShapeNode {
         let node = SKShapeNode(path: path); node.fillColor = fill; node.strokeColor = stroke; node.lineWidth = width
         return node
@@ -380,8 +433,9 @@ final class SettlementScene: SKScene {
     private func drawTerrain(discovered: Set<Tile>?) {
         terrainLayer.removeAllChildren()
         #if DEBUG
-        reviewGroundTiles = []; reviewOpaqueSampleFailures = 0; reviewFogLayer.removeAllChildren()
+        reviewGroundTiles = []
         #endif
+        reviewOpaqueSampleFailures = 0; reviewFogLayer.removeAllChildren()
         let ground = SKNode()
         let scenery = SKNode()
         // Bounded caches are required in both Debug and Release at device raster scales.
@@ -396,11 +450,7 @@ final class SettlementScene: SKScene {
             return scenicChunks[key]!
         }
         let continuousFogPath = CGMutablePath()
-        #if DEBUG
         let continuousFog = reviewContinuousFog
-        #else
-        let continuousFog = false
-        #endif
         for y in 0..<configuration.map.height {
             for x in 0..<configuration.map.width {
                 let tile = Tile(x: x, y: y)
@@ -443,23 +493,17 @@ final class SettlementScene: SKScene {
                 if terrain == .forest && (x + y) % 2 == 0 {
                     let tree = WorldDetails.tree(seed: seed);tree.position = point;tree.zPosition = CGFloat(x+y)+1;sceneryLayer(for: tile).addChild(tree)
                 }
-                #if DEBUG
-                if configuration.isRiverbendFoothillReview && FoothillBoundary.cliffs.contains(tile) {
+                if hasFoothillTerrain && RiverbendBoundary.cliffs.contains(tile) {
                     // Raised vertical face; collision is the explicit cliff set, never inferred from art.
                     let p = CGMutablePath(); p.move(to: CGPoint(x: point.x-32,y: point.y)); p.addLine(to: CGPoint(x: point.x,y: point.y-16)); p.addLine(to: CGPoint(x: point.x+32,y: point.y)); p.addLine(to: CGPoint(x: point.x+32,y: point.y+42)); p.addLine(to: CGPoint(x: point.x,y: point.y+26)); p.addLine(to: CGPoint(x: point.x-32,y: point.y+42)); p.closeSubpath()
                     let face = shape(p, fill: UIColor(red:0.32,green:0.33,blue:0.30,alpha:1),stroke:UIColor(white:0.6,alpha:1),width:1); face.zPosition = CGFloat(x+y); sceneryLayer(for: tile).addChild(face)
                     let top = shape(IsometricProjection.diamond(at: CGPoint(x:point.x,y:point.y+42)),fill:UIColor(red:0.52,green:0.54,blue:0.44,alpha:1));top.zPosition = CGFloat(x+y)+0.1;sceneryLayer(for:tile).addChild(top)
-                } else if configuration.isRiverbendFoothillReview && terrain == .hill {
+                } else if hasFoothillTerrain && terrain == .hill {
                     let mound = SKShapeNode(ellipseOf: CGSize(width: 55,height: 25));mound.position = CGPoint(x:point.x,y:point.y+6);mound.fillColor = UIColor(red:0.48,green:0.58,blue:0.32,alpha:1);mound.strokeColor = .clear;mound.zPosition = CGFloat(x+y);sceneryLayer(for:tile).addChild(mound)
                     if tile == Tile(x: 21,y: 16) { let rock = WorldDetails.rocks(seed: seed);rock.position = point;rock.zPosition = CGFloat(x+y)+0.1;sceneryLayer(for:tile).addChild(rock) }
                 } else if terrain == .hill {
                     let rock = WorldDetails.rocks(seed: seed);rock.position = point;rock.zPosition = CGFloat(x+y);sceneryLayer(for: tile).addChild(rock)
                 }
-                #else
-                if terrain == .hill {
-                    let rock = WorldDetails.rocks(seed: seed);rock.position = point;rock.zPosition = CGFloat(x+y);sceneryLayer(for: tile).addChild(rock)
-                }
-                #endif
                 if terrain == .water {
                     let bank = WorldDetails.waterEdge(at: tile, configuration: configuration, discovered: discovered)
                     bank.position = point;ground.addChild(bank)
@@ -500,14 +544,13 @@ final class SettlementScene: SKScene {
             let field = SKShapeNode(path: continuousFogPath)
             field.fillColor = UIColor(red: 0.60, green: 0.65, blue: 0.67, alpha: 1)
             field.strokeColor = field.fillColor; field.lineWidth = 1.5; field.glowWidth = 3
-            #if DEBUG
             if reviewOrganicFog {
                 // One filled compound path, no stroke around its internal tile subpaths.
                 field.strokeColor = .clear; field.lineWidth = 0; field.glowWidth = 0
                 field.isAntialiased = false
                 field.name = "review-opaque-unknown-field"
                 if let discovered {
-                    for edge in ReviewFogBoundary.edges(known: discovered, width: configuration.map.width, height: configuration.map.height) {
+                    for edge in FogBoundary.edges(known: discovered, width: configuration.map.width, height: configuration.map.height) {
                         let a = IsometricProjection.point(edge.known), b = IsometricProjection.point(edge.unknown)
                         let lobe = SKShapeNode(ellipseOf: CGSize(width: edge.radius * 2, height: edge.radius))
                         lobe.position = CGPoint(x: (a.x + b.x) / 2, y: (a.y + b.y) / 2)
@@ -526,13 +569,8 @@ final class SettlementScene: SKScene {
                     } }
                 }
             }
-            #endif
             field.zPosition = 80
-            #if DEBUG
             let fogParent = reviewOrganicFog ? reviewFogLayer : terrainLayer
-            #else
-            let fogParent = terrainLayer
-            #endif
             fogParent.addChild(field)
             if !reduceMotion, let previous = renderedDiscovery, let discovered {
                 let newlyKnown = discovered.subtracting(previous)
@@ -611,18 +649,15 @@ final class SettlementScene: SKScene {
         let node = SKNode(); node.name = definition.assetKey; node.position = anchor
         node.userData = ["buildingID": building.id]
         node.zPosition = CGFloat(building.origin.x + building.origin.y + footprint.width + footprint.height - 2)
-        var foundingLodge = false
-        #if DEBUG
-        foundingLodge = configuration.isRiverbendFoundingReview && building.kind == .campfire && building.level == 2
+        let foundingLodge = hasFoundingLodge && building.kind == .campfire && building.level >= 2
         if foundingLodge {
-            drawFoundingLodge(into: node)
+            drawFoundingLodge(into: node, title: configuration.civicLevels?.first { $0.level == building.level }?.name ?? "Founder’s Lodge")
             if faded { node.alpha = 0.2 }
             (layer ?? buildingLayer).addChild(node)
             return
         }
-        #endif
         if foundingLodge {
-            // Review shelter drawn above; the runtime Campfire asset stays unchanged.
+            // The in-place Lodge uses the same civic entity and footprint.
         } else if let texture = EraArt.texture(building.kind), let visual = EraArt.catalog?.building(building.kind) {
             let sprite = SKSpriteNode(texture: texture)
             sprite.name = "artSprite"
@@ -638,9 +673,7 @@ final class SettlementScene: SKScene {
                 roof.name = "constructionRoof"; roof.isHidden = true; node.addChild(roof)
                 let bar = SKSpriteNode(color: .systemYellow, size: CGSize(width: 60, height: 3))
                 bar.anchorPoint = CGPoint(x: 0,y: 0.5); bar.position = CGPoint(x:-30,y: -15);bar.name = "constructionProgress";node.addChild(bar)
-                #if DEBUG
                 if reviewConstructionEnabled { node.addChild(ConstructionReviewNode(footprint: footprint)) }
-                #endif
             }
             if layer == nil && !reduceMotion && fireAnimationIDs.contains(building.id) {
                 let glow = SKShapeNode(ellipseOf: CGSize(width: building.kind == .campfire ? 23 : 12, height: 9))
@@ -689,8 +722,7 @@ final class SettlementScene: SKScene {
         if faded { node.alpha = 0.2 }
         (layer ?? buildingLayer).addChild(node)
     }
-    #if DEBUG
-    private func drawFoundingLodge(into node: SKNode) {
+    private func drawFoundingLodge(into node: SKNode, title: String) {
         let stone = UIColor(red: 0.52, green: 0.50, blue: 0.44, alpha: 1)
         let timber = UIColor(red: 0.36, green: 0.22, blue: 0.12, alpha: 1)
         let shadow = SKShapeNode(ellipseOf: CGSize(width: 72, height: 28))
@@ -706,9 +738,10 @@ final class SettlementScene: SKScene {
         let door = polygon([CGPoint(x: 7,y: -3),CGPoint(x: 22,y: 5),CGPoint(x: 22,y: 28),CGPoint(x: 7,y: 20)], fill: .black.withAlphaComponent(0.9))
         door.strokeColor = UIColor(red: 0.80,green: 0.62,blue: 0.34,alpha: 1); door.lineWidth = 3; node.addChild(door)
         let sign = SKLabelNode(fontNamed: "AvenirNext-DemiBold")
-        sign.text = "Founder’s Lodge"; sign.fontSize = 12; sign.fontColor = .white
+        sign.text = title; sign.fontSize = 12; sign.fontColor = .white
         sign.position = CGPoint(x: 0,y: 78); node.addChild(sign)
     }
+    #if DEBUG
     private var foothillRoute: [Tile] = []
     private var foothillProbeTile: Tile?
     func resetFoothillProbe() { childNode(withName: "foothillProbe")?.removeFromParent() }

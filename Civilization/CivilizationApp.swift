@@ -22,7 +22,7 @@ struct CivilizationApp: App {
                     SettlementView(session: library.session, openGames: { showGames = true }, managesLifecycle: false)
                         .id(library.activeGameID + ":" + library.session.mapIdentity)
                 } else if let benchmarkSession { SettlementView(session: benchmarkSession) }
-                else if isRestoring { SettlementLoadingView(stage: "Restoring settlement…") }
+                else if isRestoring { SettlementLoadingView(stage: "Restoring settlement…", reviewPresentation: true) }
                 else if let startupError {
                     if recoveryGames.isEmpty {
                         ContentUnavailableView("Unable to open settlement", systemImage: "exclamationmark.triangle", description: Text(startupError))
@@ -46,7 +46,7 @@ struct CivilizationApp: App {
                                    newGame: { Task { await restoreLibrary(newGame: true) } },
                                    resume: { Task { await restoreLibrary() } })
                 }
-                else { SettlementLoadingView(stage: "Preparing menu…", context: .brand) }
+                else { SettlementLoadingView(stage: "Preparing menu…", reviewPresentation: true, context: .brand) }
             }
             .sheet(isPresented: $showGames) {
                 if let library { SavedGamesView(library: library) }
@@ -103,8 +103,15 @@ struct CivilizationApp: App {
         isRestoring = true
         defer { isRestoring = false }
         do {
-            if newGame { library = try await GameLibrary.startNewGame(rootURL: libraryRoot) }
-            else { library = try await GameLibrary.load(rootURL: libraryRoot, selectedGameID: selectedGameID) }
+            if newGame {
+                #if DEBUG
+                if libraryRoot != nil && ProcessInfo.processInfo.environment["CIVILIZATION_UI_LEGACY_ENTRY"] == "1" {
+                    library = try await GameLibrary.load(rootURL: libraryRoot)
+                } else { library = try await GameLibrary.startNewGame(rootURL: libraryRoot) }
+                #else
+                library = try await GameLibrary.startNewGame(rootURL: libraryRoot)
+                #endif
+            } else { library = try await GameLibrary.load(rootURL: libraryRoot, selectedGameID: selectedGameID) }
             library?.setActive(sceneIsActive)
             startupError = nil; recoveryGames = []
         } catch is CancellationError {} catch {

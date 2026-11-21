@@ -22,6 +22,13 @@ public extension GameEngine {
     }
     func unmetRequirements(_ goal:PillarGoalDefinition) -> [String] {
         var missing: [String] = []
+        if configuration.isRiverbendPlayer {
+            if goal.id == "economyFoundation" {
+                if state.riverbend?.woodcutterImproved != true { missing.append("Spend 3 Tools to improve the Woodcutter") }
+                if !Set(state.buildings.filter { $0.kind == .storehouse && $0.isOperational }.compactMap { state.riverbend?.storage[$0.id] }).isSuperset(of: [.granary, .stockyard]) { missing.append("Complete a Granary and Stockyard") }
+            }
+            if goal.id == "securityFoundation" && state.riverbend?.enclosed != true { missing.append("Build the cliff-backed enclosure and gate") }
+        }
         if let level = goal.requiredCivicLevel, civicLevel < level {
             missing.append("Upgrade civic center to " + (configuration.civicLevels?.first { $0.level == level }?.name ?? "level \(level)"))
         }

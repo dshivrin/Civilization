@@ -689,7 +689,7 @@ final class RelocationUITests: XCTestCase {
         tap("labStorage-stockyard"); tap("labConfirmBuild"); tap("labAdvance60")
         XCTAssertEqual(try field("flintCap"), 48); XCTAssertEqual(try field("toolsCap"), 48)
         XCTAssertEqual(try field("foodCap"), 60)
-        app.terminate(); app.launchEnvironment.removeValue(forKey: "CIVILIZATION_UI_FRESH_SAVE")
+        app.terminate() // Retain the same UUID-backed temporary library on relaunch.
         launchNormal(app); open(); tap("labPause")
         XCTAssertTrue(value().contains("improved=true")); XCTAssertTrue(value().contains("woodNet=8.0"))
         XCTAssertEqual(try field("tools"), 0); XCTAssertEqual(try field("flint"), 2)
@@ -772,7 +772,7 @@ final class RelocationUITests: XCTestCase {
         XCTAssertGreaterThan(try field("wood"), 60)
         XCTAssertGreaterThan(try field("food"), 60)
         capture("stone-stockyard-expanded-caps")
-        app.terminate(); app.launchEnvironment.removeValue(forKey: "CIVILIZATION_UI_FRESH_SAVE")
+        app.terminate() // Retain the same UUID-backed temporary library on relaunch.
         launchNormal(app); open(); tap("labPause")
         XCTAssertEqual(try field("stone"), 100); XCTAssertEqual(try field("storage"), 2)
         XCTAssertEqual(try field("foodCap"), 120); XCTAssertEqual(try field("woodCap"), 120)
@@ -861,7 +861,7 @@ final class RelocationUITests: XCTestCase {
             tap("labConfirmBuild"); tap("labAdvance60")
         }
         XCTAssertTrue(value().contains("checkpoint=true"))
-        app.terminate(); app.launchEnvironment.removeValue(forKey: "CIVILIZATION_UI_FRESH_SAVE")
+        app.terminate() // Retain the same UUID-backed temporary library on relaunch.
         launchNormal(app); open(); tap("labPause")
         XCTAssertTrue(value().contains("checkpoint=true"))
         XCTAssertTrue(try fields(value(), "berries").hasSuffix("resolved"))
@@ -943,7 +943,7 @@ final class RelocationUITests: XCTestCase {
         XCTAssertTrue((status.value as? String ?? "").contains("woodNet=6.0"))
         app.terminate()
         // Keep the same QA library/lab identity; production save roots are never read.
-        app.launchEnvironment.removeValue(forKey: "CIVILIZATION_UI_FRESH_SAVE")
+        // FRESH_SAVE selects the existing UUID directory; it never resets that directory.
         launchNormal(app)
         XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
         app.buttons["developerTools"].tap(); app.buttons["openEconomyLab"].tap()
@@ -1457,6 +1457,9 @@ final class RelocationUITests: XCTestCase {
     }
 
     @MainActor private func launchNormal(_ app: XCUIApplication) {
+        // Historical review/regression cases intentionally retain their original rules.
+        // New ordinary Riverbend tests launch directly through the real menu.
+        app.launchEnvironment["CIVILIZATION_UI_LEGACY_ENTRY"] = "1"
         app.launch()
         let resume = app.buttons["continueGame"]
         XCTAssertTrue(resume.waitForExistence(timeout: 30))
@@ -2684,6 +2687,99 @@ final class RelocationUITests: XCTestCase {
 
 /// Compiles in both Debug and Release; exercises ordinary entry without fixture hooks.
 final class NormalEntryUITests: XCTestCase {
+    @MainActor func testPlayerCatalogContextualActionsAndReturn() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryXXXL"]
+        app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        app.buttons["toggleGoals"].tap(); app.buttons["nextStepAction"].tap(); app.buttons["upgradeBuilding"].tap()
+        app.buttons["closeBuildingInspection"].tap()
+        app.buttons["Build"].tap(); app.buttons["buildingCategory-Settlement"].tap()
+        if app.buttons["selectBuilding-hut"].exists { app.buttons["selectBuilding-hut"].tap() }
+        XCTAssertTrue(app.buttons["build-hut"].isEnabled); app.buttons["build-hut"].tap()
+        XCTAssertTrue(app.buttons["confirmPlacement"].waitForExistence(timeout: 5)); app.buttons["confirmPlacement"].tap()
+        app.buttons["Build"].tap(); app.buttons["buildingCategory-Settlement"].tap()
+        if app.buttons["selectBuilding-storehouse"].exists { app.buttons["selectBuilding-storehouse"].tap() }
+        let materials = app.buttons["build-storehouse"]
+        XCTAssertTrue(materials.waitForExistence(timeout: 5))
+        XCTAssertTrue(materials.label.contains("Find materials"), materials.label)
+        materials.tap(); XCTAssertTrue(app.descendants(matching: .any)["playerCatalogRequirement"].waitForExistence(timeout: 5))
+        app.buttons["playerCatalogBack"].tap()
+        app.buttons["buildingCategory-All"].tap()
+        let search = app.textFields["catalogSearch"]; search.tap(); search.typeText("scout")
+        XCTAssertTrue(app.buttons["selectBuilding-scoutCamp"].waitForExistence(timeout: 5)); app.buttons["selectBuilding-scoutCamp"].tap()
+        let research = app.buttons["build-scoutCamp"]
+        XCTAssertTrue(research.label.contains("Open required research"), research.label); research.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["focusedResearch-exploration"].waitForExistence(timeout: 5))
+        app.buttons["returnToSource"].tap()
+        XCTAssertEqual(search.value as? String, "scout")
+        let inspector = app.descendants(matching: .any)["playerCatalogInspector"].firstMatch
+        XCTAssertTrue(inspector.exists)
+        if app.frame.width < 1000 { XCTAssertGreaterThan(inspector.frame.midY, app.frame.midY) }
+        else { XCTAssertGreaterThan(inspector.frame.midX, app.frame.midX) }
+        let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); shot.name = "riverbend-contextual-catalog-and-return"; shot.lifetime = .keepAlways; add(shot)
+        app.buttons["closeCatalog"].tap(); app.buttons["Build"].tap()
+        XCTAssertEqual(search.value as? String, "scout")
+        XCTAssertTrue(app.buttons["build-scoutCamp"].label.contains("Open required research"))
+    }
+
+    @MainActor func testRiverbendOrdinaryOpeningAndContinue() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launch()
+        XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
+        let map = app.otherElements["settlementMap"]
+        XCTAssertTrue(map.waitForExistence(timeout: 30))
+        XCTAssertFalse(app.buttons["resource-water"].exists)
+        XCTAssertFalse(app.buttons["developerTools"].exists)
+        app.buttons["toggleGoals"].tap()
+        XCTAssertTrue(app.buttons["nextStepAction"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["nextStepSummary"].label.contains("Lodge"))
+        app.buttons["nextStepAction"].tap()
+        XCTAssertTrue(app.buttons["upgradeBuilding"].waitForExistence(timeout: 5)); app.buttons["upgradeBuilding"].tap()
+        XCTAssertTrue(app.staticTexts["civicLevelName"].label.contains("Lodge"))
+        app.buttons["closeBuildingInspection"].tap()
+        if !app.buttons["nextStepAction"].exists { app.buttons["toggleGoals"].tap() }; app.buttons["nextStepAction"].tap()
+        XCTAssertTrue(app.buttons["build-hut"].waitForExistence(timeout: 5)); app.buttons["build-hut"].tap()
+        XCTAssertTrue(app.buttons["confirmPlacement"].waitForExistence(timeout: 5)); app.buttons["confirmPlacement"].tap()
+        let built = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value CONTAINS %@", "2 buildings"), object: map)
+        XCTAssertEqual(XCTWaiter.wait(for: [built], timeout: 10), .completed)
+        let opening = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); opening.name = "riverbend-ordinary-opening"; opening.lifetime = .keepAlways; add(opening)
+        app.terminate(); app.launch()
+        XCTAssertTrue(app.buttons["continueGame"].waitForExistence(timeout: 30)); app.buttons["continueGame"].tap()
+        XCTAssertTrue(map.waitForExistence(timeout: 30))
+        XCTAssertTrue((map.value as? String ?? "").contains("2 buildings"))
+        XCTAssertFalse(app.buttons["developerTools"].exists)
+        app.buttons["openExplore"].tap()
+        XCTAssertTrue(app.buttons["riverbendRecoverFood"].waitForExistence(timeout: 5))
+        let resumed = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); resumed.name = "riverbend-ordinary-continue"; resumed.lifetime = .keepAlways; add(resumed)
+        app.buttons["Close panel"].tap()
+        app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        let hut = app.descendants(matching: .any).matching(identifier: "inspectBuilding-1").firstMatch
+        XCTAssertTrue(hut.waitForExistence(timeout: 5)); hut.tap()
+        let connected = app.buttons["connectBuildingPaths"]
+        XCTAssertTrue(connected.waitForExistence(timeout: 25)); connected.tap()
+        XCTAssertTrue(app.buttons["confirmRoadStroke"].waitForExistence(timeout: 5)); app.buttons["confirmRoadStroke"].tap()
+        app.buttons["closeRoads"].tap()
+        map.swipeLeft(); map.swipeRight(); map.pinch(withScale: 1.1, velocity: 1)
+        app.buttons["Center on settlement"].tap()
+        app.buttons["openExplore"].tap()
+        let coverage = app.staticTexts["explorationCoverage"].label
+        let survey = app.buttons["startExploration"]
+        for _ in 0..<8 where !survey.isHittable { app.scrollViews["riverbendExploreContent"].swipeUp() }
+        XCTAssertTrue(survey.isHittable); XCTAssertTrue(survey.isEnabled)
+        let surveyStart = Date(); survey.tap()
+        XCTAssertTrue(app.staticTexts["explorationTimer"].waitForExistence(timeout: 5))
+        let returned = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: app.staticTexts["explorationTimer"])
+        XCTAssertEqual(XCTWaiter.wait(for: [returned], timeout: 75), .completed)
+        print("RIVERBEND native real survey seconds=", Date().timeIntervalSince(surveyStart))
+        XCTAssertNotEqual(app.staticTexts["explorationCoverage"].label, coverage)
+        for _ in 0..<10 where !app.buttons["Close panel"].isHittable { app.scrollViews["riverbendExploreContent"].swipeDown() }
+        app.buttons["Close panel"].tap()
+        let forest = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); forest.name = "riverbend-whole-forest-real-survey"; forest.lifetime = .keepAlways; add(forest)
+    }
+
     @MainActor func testNormalEntryPersistenceWithoutDeveloperHooks() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
@@ -2696,8 +2792,10 @@ final class NormalEntryUITests: XCTestCase {
         let map = app.otherElements["settlementMap"]
         XCTAssertTrue(map.waitForExistence(timeout: 30))
         XCTAssertTrue((map.value as? String ?? "").contains("64×48 tiles · 1 buildings · 0 road tiles"))
-        app.buttons["Build"].tap(); app.buttons["buildingCategory-Food and water"].tap()
-        app.buttons["build-gatheringShelter"].tap()
+        app.buttons["toggleGoals"].tap(); app.buttons["nextStepAction"].tap()
+        app.buttons["upgradeBuilding"].tap(); app.buttons["closeBuildingInspection"].tap()
+        app.buttons["Build"].tap(); app.buttons["buildingCategory-Settlement"].tap()
+        app.buttons["build-hut"].tap()
         XCTAssertTrue(app.buttons["confirmPlacement"].waitForExistence(timeout: 5))
         app.buttons["confirmPlacement"].tap()
         app.terminate(); app.launch()
@@ -2706,7 +2804,7 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertFalse(map.exists)
         resume.tap()
         XCTAssertTrue(map.waitForExistence(timeout: 30))
-        XCTAssertTrue((map.value as? String ?? "").contains("64×48 tiles · 2 buildings · 0 road tiles"))
+        XCTAssertTrue((map.value as? String ?? "").contains("64×48 tiles · 2 buildings · 1 road tiles"))
         app.buttons["openGames"].tap()
         let selected = app.staticTexts["activeGameName"].label
         app.buttons["Done"].tap()
@@ -2749,5 +2847,135 @@ final class NormalCompletionUITests: XCTestCase {
             XCTAssertTrue(app.buttons["build-hut"].isEnabled)
             app.terminate()
         }
+    }
+}
+
+final class RiverbendEarnedUITests: XCTestCase {
+    @MainActor private func open(_ app: XCUIApplication) {
+        app.launch(); XCTAssertTrue(app.buttons["continueGame"].waitForExistence(timeout: 30)); app.buttons["continueGame"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
+        XCTAssertFalse(app.buttons["developerTools"].exists)
+    }
+    @MainActor private func tap(_ id: String, _ app: XCUIApplication) {
+        let button = id.hasPrefix("resource-") ? app.descendants(matching: .any).matching(identifier: id).firstMatch : app.buttons[id].firstMatch
+        XCTAssertTrue(button.waitForExistence(timeout: 10), id)
+        let scroller = [app.scrollViews["riverbendExploreContent"], app.scrollViews["buildingInspection"], app.scrollViews["playerCatalogDetails"], app.scrollViews["buildingCatalog"]].first { $0.exists } ?? app.scrollViews.firstMatch
+        for _ in 0..<10 where !button.isHittable {
+            let upward = button.frame.midY >= scroller.frame.midY
+            let from = scroller.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: upward ? 0.82 : 0.18))
+            let to = scroller.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: upward ? 0.22 : 0.78))
+            print("RIVERBEND panel target=", id, "button=", button.frame, "viewport=", scroller.frame)
+            from.press(forDuration: 0.2, thenDragTo: to, withVelocity: XCUIGestureVelocity(rawValue: 100), thenHoldForDuration: 0.2)
+        }
+        XCTAssertTrue(button.isHittable, id); button.tap()
+    }
+    @MainActor private func capture(_ name: String, _ app: XCUIApplication) {
+        let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); image.name = name; image.lifetime = .keepAlways; add(image)
+    }
+    @MainActor func testEarnedStockyardResourceInspector() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); open(app)
+        let resource = app.descendants(matching: .any).matching(identifier: "resource-wood").firstMatch
+        if !resource.waitForExistence(timeout: 5) { print("RIVERBEND resource tree", app.debugDescription) }
+        XCTAssertTrue(resource.exists); resource.tap()
+        let stored = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@ AND label ENDSWITH %@", "Stored:", " / 120")).firstMatch
+        XCTAssertTrue(stored.waitForExistence(timeout: 5))
+        capture("riverbend-earned-stockyard-actual-capacity", app)
+    }
+    @MainActor func testEarnedWorkshopContinuePresentation() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); open(app)
+        capture("riverbend-earned-workshop-world", app)
+        for resource in ["wood", "food"] {
+            tap("resource-" + resource, app)
+            let stored = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@ AND label ENDSWITH %@", "Stored:", " / 120")).firstMatch
+            XCTAssertTrue(stored.waitForExistence(timeout: 5))
+            capture("riverbend-earned-" + resource + "-capacity-continue", app)
+            app.otherElements["settlementMap"].coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.9)).tap()
+        }
+        tap("openExplore", app)
+        XCTAssertFalse(app.buttons["riverbendImproveWood"].isEnabled)
+        XCTAssertFalse(app.buttons["riverbendFind-tracks"].exists)
+        capture("riverbend-earned-workshop-continue", app)
+    }
+    @MainActor func testRealCraftStorageFindsAndRelaunch() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); open(app); tap("openExplore", app)
+        tap("Inspect Stone / Flint production", app)
+        tap("productionMode-flint", app); tap("productionMode-stone", app)
+        tap("closeBuildingInspection", app); tap("openExplore", app)
+        capture("riverbend-craft-price-and-project", app)
+        for batch in 1...3 {
+            tap("riverbendMakeTool", app); let started = Date()
+            XCTAssertTrue(app.staticTexts["riverbendToolTimer"].waitForExistence(timeout: 5))
+            if batch == 1 {
+                app.terminate(); open(app); tap("openExplore", app)
+                XCTAssertTrue(app.staticTexts["riverbendToolTimer"].waitForExistence(timeout: 5))
+            }
+            let done = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: app.staticTexts["riverbendToolTimer"])
+            XCTAssertEqual(XCTWaiter.wait(for: [done], timeout: 75), .completed)
+            print("RIVERBEND native Tool batch=", batch, " real seconds=", Date().timeIntervalSince(started))
+        }
+        tap("riverbendImproveWood", app)
+        XCTAssertFalse(app.buttons["riverbendImproveWood"].isEnabled)
+        capture("riverbend-lasting-woodcutter-project", app)
+        tap("Close panel", app)
+        for (index, role) in ["Stockyard", "Granary"].enumerated() {
+            tap("Build", app); tap("buildingCategory-Settlement", app); tap("selectBuilding-storehouse", app)
+            if role == "Granary" { tap("Granary", app) }
+            tap("build-storehouse", app)
+            tap("confirmPlacement", app)
+            let map = app.otherElements["settlementMap"]
+            let built = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value CONTAINS %@", "\(6 + index) buildings"), object: map)
+            XCTAssertEqual(XCTWaiter.wait(for: [built], timeout: 5), .completed)
+            app.buttons["settlementBuildings"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            let item = app.descendants(matching: .any).matching(identifier: "inspectBuilding-\(5 + index)").firstMatch
+            XCTAssertTrue(item.waitForExistence(timeout: 5)); item.tap()
+            let operating = app.staticTexts["buildingOperatingStatus"]
+            XCTAssertTrue(operating.waitForExistence(timeout: 40), "Paid storage construction must complete")
+            if app.buttons["connectBuildingPaths"].exists {
+                tap("connectBuildingPaths", app); tap("confirmRoadStroke", app); tap("closeRoads", app)
+            } else {
+                XCTAssertFalse(operating.label.contains("Not connected"), operating.label)
+                tap("closeBuildingInspection", app)
+            }
+            for (resource, cap) in [("wood", 120), ("food", role == "Stockyard" ? 60 : 120)] {
+                tap("resource-" + resource, app)
+                let stored = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@ AND label ENDSWITH %@", "Stored:", " / \(cap)")).firstMatch
+                XCTAssertTrue(stored.waitForExistence(timeout: 5), "Actual " + resource + " capacity")
+                capture("riverbend-" + role.lowercased() + "-" + resource + "-capacity", app)
+                app.otherElements["settlementMap"].coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.9)).tap()
+            }
+            capture("riverbend-connected-" + role.lowercased(), app)
+        }
+        tap("openExplore", app)
+        if app.buttons["riverbendFind-tracks"].exists { tap("riverbendFind-tracks", app) }
+        tap("riverbendRecoverFood", app); tap("riverbendRecoverWood", app)
+        app.terminate(); open(app); tap("openExplore", app)
+        XCTAssertFalse(app.buttons["riverbendImproveWood"].isEnabled)
+        XCTAssertFalse(app.buttons["riverbendFind-tracks"].exists)
+        capture("riverbend-craft-storage-and-finds-continue", app)
+    }
+    @MainActor func testEnclosureGateAndSameGameContinue() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); open(app); tap("openExplore", app)
+        tap("riverbendEnclosure", app); XCTAssertTrue(app.buttons["riverbendGate"].waitForExistence(timeout: 5))
+        tap("riverbendGate", app); XCTAssertEqual(app.buttons["riverbendGate"].label, "Open gate")
+        capture("riverbend-closed-gate", app)
+        tap("riverbendGate", app); XCTAssertEqual(app.buttons["riverbendGate"].label, "Close gate")
+        tap("Close panel", app); capture("riverbend-open-cliff-backed-enclosure", app)
+        app.terminate(); open(app); tap("openExplore", app)
+        XCTAssertEqual(app.buttons["riverbendGate"].label, "Close gate")
+        XCTAssertFalse(app.buttons["riverbendEnclosure"].exists)
+        capture("riverbend-enclosure-continue", app)
+        tap("Close panel", app); tap("toggleGoals", app)
+        XCTAssertEqual(app.staticTexts["nextStepSummary"].label, "Stone Age complete")
+        XCTAssertTrue(app.buttons["toggleGoals"].label.contains("7/7"))
+        tap("openJourney", app)
+        XCTAssertTrue(app.staticTexts["bronzeAgeReadiness"].waitForExistence(timeout: 5))
+        capture("riverbend-native-earned-bronze-readiness", app)
+        app.navigationBars["Stone Age journey"].buttons["Done"].tap()
+        tap("Build", app); tap("buildingCategory-Settlement", app)
+        XCTAssertTrue(app.buttons["build-hut"].isEnabled)
     }
 }

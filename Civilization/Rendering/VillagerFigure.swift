@@ -1,4 +1,3 @@
-#if DEBUG
 import SpriteKit
 import GameApplication
 
@@ -88,4 +87,3 @@ import GameApplication
         cargo.isHidden = !pose.cargoVisible
     }
 }
-#endif

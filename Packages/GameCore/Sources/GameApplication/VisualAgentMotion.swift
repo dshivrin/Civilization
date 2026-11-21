@@ -1,7 +1,8 @@
-#if DEBUG
 import Foundation
 import Observation
 import GameCore
+
+#if DEBUG
 
 /// The comparison sheet responds to OS power changes without a control tap or polling timer.
 @MainActor @Observable public final class VisualAgentPowerObservation {
@@ -29,6 +30,8 @@ private final class VisualPowerLifetime: @unchecked Sendable {
     init(center: NotificationCenter) { self.center = center }
     deinit { if let token { center.removeObserver(token) } }
 }
+
+#endif
 
 /// Provisional pose vocabulary, never authoritative worker/economy state.
 public enum VisualAgentActivity: String, CaseIterable, Sendable { case idle, walk, carry, gather, work, rest, socialize, turn }
@@ -144,4 +147,3 @@ public struct VisualAgentJourney: Equatable, Sendable {
         }
     }
 }
-#endif

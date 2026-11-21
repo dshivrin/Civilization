@@ -16,6 +16,7 @@ struct SettlementView: View {
     @State private var worldReady = false
     @State private var goals = SettlementGoalsDisclosure(eraID: "stoneAge")
     @State private var category = "All"
+    @State private var playerCatalogMemory = PlayerCatalogMemory()
     @State private var researchPillar: DevelopmentPillar = .science
     @State private var showResearch = false
     @State private var civicResearchID: String?
@@ -45,9 +46,10 @@ struct SettlementView: View {
     var body: some View {
         GeometryReader { geometry in
             let compact = geometry.size.height < 500
+            let playerPhone = session.configuration.isRiverbendPlayer && geometry.size.width < 1000
             ZStack {
                 if let scene {
-                    WorldView(scene: scene, session: session, onReady: { worldReady = true }, isObscured: worldIsObscured).ignoresSafeArea()
+                    WorldView(scene: scene, session: session, onReady: { worldReady = true }, isObscured: worldIsObscured, onMapFind: { session.inspectedBuilding = nil; panel = .explore }).ignoresSafeArea()
                 }
                 VStack(spacing: compact ? 8 : 14) {
                     resourceBar(compact: compact)
@@ -62,8 +64,8 @@ struct SettlementView: View {
                                     .accessibilityLabel("Center on settlement").buttonStyle(.plain).background(panelColor.opacity(0.8), in: RoundedRectangle(cornerRadius: 10))
                                 settlementBuildingPicker
                                 #if DEBUG
-                                Button { showDeveloperTools = true } label: { Image(systemName: "wrench.and.screwdriver").frame(width: 44, height: 44) }
-                                    .buttonStyle(.plain).background(panelColor.opacity(0.8), in: RoundedRectangle(cornerRadius: 10)).accessibilityLabel("Developer tools").accessibilityIdentifier("developerTools")
+                                if !session.configuration.isRiverbendPlayer { Button { showDeveloperTools = true } label: { Image(systemName: "wrench.and.screwdriver").frame(width: 44, height: 44) }
+                                    .buttonStyle(.plain).background(panelColor.opacity(0.8), in: RoundedRectangle(cornerRadius: 10)).accessibilityLabel("Developer tools").accessibilityIdentifier("developerTools") }
                                 #endif
                             }
                             #if DEBUG
@@ -90,7 +92,7 @@ struct SettlementView: View {
                                 Text(warning).font(.caption).foregroundStyle(.yellow).padding(10).background(panelColor, in: RoundedRectangle(cornerRadius: 12))
                             }
                             goalsPanel(compact: compact)
-                            if !session.isDragMode {
+                            if !session.isDragMode && !(playerPhone && hasContextPanel) {
                             Text(session.message).font(.system(size: 12)).lineLimit(2).foregroundStyle(parchment.opacity(0.85))
                                 .padding(9).background(panelColor.opacity(0.94), in: RoundedRectangle(cornerRadius: 10))
                                 .accessibilityIdentifier("settlementMessage")
@@ -106,22 +108,7 @@ struct SettlementView: View {
                                         .frame(maxWidth: .infinity, minHeight: 44)
                                 }.background(panelColor.opacity(0.95), in: RoundedRectangle(cornerRadius: 12)).accessibilityIdentifier("openResearch")
                             }
-                            if session.roadTool != nil { RoadControlsView(session: session) }
-                            else if session.previewKind != nil { placementPanel }
-                            else if let building = session.currentInspection { inspectionPanel(building) }
-                            else if panel == .explore {
-                                ScrollView {
-                                    VStack(alignment: .leading, spacing: 10) {
-                                        HStack {
-                                            Text("Exploration").font(.headline)
-                                            Spacer()
-                                            Button { self.panel = nil } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close panel")
-                                        }
-                                        explorationPanel
-                                    }.padding(14)
-                                }
-                                .background(panelColor.opacity(0.97), in: RoundedRectangle(cornerRadius: 18))
-                            }
+                            if !playerPhone { contextualPanel }
                         }
                         .frame(width: compact ? 250 : min(340, geometry.size.width * 0.3))
                     }
@@ -131,15 +118,27 @@ struct SettlementView: View {
                 .padding(.vertical, compact ? 8 : 18)
                 .accessibilityHidden(!worldReady)
             }
+            .overlay(alignment: .bottomTrailing) {
+                if playerPhone && hasContextPanel && worldReady {
+                    VStack(spacing: 4) {
+                        contextualPanel.frame(maxWidth: .infinity, maxHeight: .infinity)
+                        Text(session.message).font(.caption).lineLimit(2).frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(6).background(panelColor.opacity(0.97), in: RoundedRectangle(cornerRadius: 8))
+                    }
+                    .frame(width: max(260, geometry.size.width - 104), height: min(240, geometry.size.height * 0.58))
+                    .padding(.trailing, 12).padding(.bottom, 8).accessibilityElement(children: .contain).accessibilityIdentifier("playerWorldInspector")
+                }
+            }
             .overlay {
                 if let scene { CandidateControls(session: session, scene: scene).ignoresSafeArea() }
             }
             .foregroundStyle(parchment)
             .tint(Color(red: 0.91, green: 0.73, blue: 0.39))
             .overlay {
-                if !worldReady { SettlementLoadingView(stage: "Preparing the valley…").ignoresSafeArea() }
+                if !worldReady { SettlementLoadingView(stage: "Preparing the valley…", reviewPresentation: session.configuration.isRiverbendPlayer).ignoresSafeArea() }
             }
         }
+        .onChange(of: hasContextPanel) { _, active in if active && session.configuration.isRiverbendPlayer { goals.isExpanded = false } }
         .onChange(of: session.isDragMode) { _, active in if active { goals.isExpanded = false } }
         .onChange(of: session.roadTool != nil) { _, active in if active { goals.isExpanded = false } }
         .onChange(of: session.eraID) { _, id in goals.observeEra(id) }
@@ -160,7 +159,7 @@ struct SettlementView: View {
             focusedBuildingKind = nil
             if returnToJourney { returnToJourney = false; if !session.isDragMode && session.roadTool == nil { showJourney = true } }
         }) {
-            BuildingCatalogView(session: session, selectedCategory: $category, focusedBuildingKind: focusedBuildingKind)
+            BuildingCatalogView(session: session, selectedCategory: $category, focusedBuildingKind: focusedBuildingKind, playerMemory: playerCatalogMemory)
         }
         .fullScreenCover(isPresented: $showResearch, onDismiss: {
             civicResearchID = nil
@@ -190,6 +189,26 @@ struct SettlementView: View {
             }
         }
     }
+    private var hasContextPanel: Bool { session.roadTool != nil || session.previewKind != nil || session.currentInspection != nil || panel == .explore }
+    @ViewBuilder private var contextualPanel: some View {
+    if session.roadTool != nil { RoadControlsView(session: session) }
+    else if session.previewKind != nil { placementPanel }
+    else if let building = session.currentInspection { inspectionPanel(building) }
+    else if panel == .explore {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 10) {
+                HStack {
+                    Text("Exploration").font(.headline)
+                    Spacer()
+                    Button { self.panel = nil } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close panel")
+                }
+                explorationPanel
+            }.padding(14)
+        }
+        .background(panelColor.opacity(0.97), in: RoundedRectangle(cornerRadius: 18))
+        .accessibilityIdentifier("riverbendExploreContent")
+    }
+    }
     private var settlementBuildingPicker: some View {
         Menu {
             ForEach(session.state.buildings.sorted { $0.id < $1.id }) { building in
@@ -208,7 +227,7 @@ struct SettlementView: View {
         HStack(spacing: 6) {
             ScrollView(.horizontal) {
                 HStack(spacing: compact ? 6 : 12) {
-                    ForEach(Resource.allCases, id: \.self) { resource in resourceButton(resource, compact: compact) }
+                    ForEach(session.visibleResources, id: \.self) { resource in resourceButton(resource, compact: compact) }
                 }.padding(.horizontal, 8)
             }.scrollIndicators(.visible)
             Button { showPopulation = true } label: {
@@ -248,7 +267,14 @@ struct SettlementView: View {
             if let kind = session.previewKind {
                 let definition = session.configuration.definition(kind)
                 Label(definition.name, systemImage: "hand.draw.fill").font(.headline)
-                Text(session.movingBuildingID == nil ? cost(definition.cost) : "Move building · no cost").font(.caption).foregroundStyle(parchment.opacity(0.7))
+                if session.configuration.isRiverbendPlayer && kind == .storehouse && session.movingBuildingID == nil {
+                    Picker("Storage role", selection: Binding(get: { session.storageSpecialization }, set: { session.storageSpecialization = $0; session.choose(.storehouse) })) {
+                        Text("Granary").tag(StorageSpecialization.granary)
+                        Text("Stockyard").tag(StorageSpecialization.stockyard)
+                    }.pickerStyle(.segmented).accessibilityIdentifier("storageSpecialization")
+                    Text(session.storageSpecialization == .granary ? "+60 Food capacity only" : "+60 Wood/Stone; +24 Flint/Tools capacity").font(.caption)
+                }
+                Text(session.movingBuildingID == nil ? cost(session.configuration.isRiverbendPlayer && kind == .storehouse ? session.storageSpecialization.cost : definition.cost) : "Move building · no cost").font(.caption).foregroundStyle(parchment.opacity(0.7))
                 Text("Orientation: " + session.previewOrientation.rawValue.capitalized).font(.caption).accessibilityIdentifier("previewOrientation")
                 Text(session.placementIssue?.localizedDescription ?? "Valid location · \(session.previewFootprint?.width ?? definition.width)×\(session.previewFootprint?.height ?? definition.height) tiles")
                     .font(.caption).foregroundStyle(session.placementIssue == nil ? Color.mint : Color.orange)
@@ -258,8 +284,59 @@ struct SettlementView: View {
             }
         }.padding(14) }.background(panelColor.opacity(0.97), in: RoundedRectangle(cornerRadius: 18))
     }
+
+    private var riverbendActions: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("RIVERBEND").font(.headline)
+            Text("Free recovery fills only a small reserve. Connected producers sustain the village.").font(.caption)
+            Button("Forage · restore Food up to 12") { session.recoverRiverbendFood() }
+                .frame(minHeight: 44).accessibilityIdentifier("riverbendRecoverFood")
+            Button("Collect fallen branches · restore opening Wood") { session.recoverRiverbendWood() }
+                .frame(minHeight: 44).accessibilityIdentifier("riverbendRecoverWood")
+            ForEach(session.availableRiverbendFinds) { find in
+                VStack(alignment: .leading) {
+                    Text(find.id == .berries ? "Wild berries · optional · +3 Food once" : "Deer tracks · optional observation, no reward").font(.subheadline)
+                    Text("Revealed site \(find.tile.x), \(find.tile.y)").font(.caption)
+                    Button(find.id == .berries ? "Gather berries" : "Observe tracks") { session.resolveRiverbendFind(find.id, at: find.tile) }
+                        .frame(minHeight: 44).accessibilityIdentifier("riverbendFind-" + find.id.rawValue)
+                }
+            }
+            if session.riverbendCraftAvailable {
+                Text("ONE USEFUL CRAFT").font(.headline)
+                Text("Stone gatherer: Stone 5/min or Flint 4/min, using the same worker. Craft 2 Wood + 2 Flint → 1 Tool in 60 seconds.").font(.caption)
+                if let stone = session.state.buildings.first(where: { $0.kind == .stoneGatherer }) {
+                    Button("Inspect Stone / Flint production") { panel = nil; session.inspect(buildingID: stone.id) }.frame(minHeight: 44)
+                }
+                if let remaining = session.riverbendProgress?.craftRemainingSeconds {
+                    Text("Tool batch · \(Int(ceil(remaining)))s remaining").accessibilityIdentifier("riverbendToolTimer")
+                } else {
+                    Button("Make 1 Tool · 2 Wood + 2 Flint · 60s") { session.startRiverbendTools() }
+                        .frame(minHeight: 44).disabled(!session.researchedIDs.contains("stoneTools"))
+                        .accessibilityIdentifier("riverbendMakeTool")
+                }
+                Text(session.riverbendProgress?.woodcutterImproved == true ? "Woodcutter improved · 8 Wood/min base · no Tool upkeep" : "Spend 3 Tools once: Woodcutter 6 → 8 Wood/min permanently.").font(.caption)
+                Button("Improve Woodcutter · spend 3 Tools") { session.improveRiverbendWoodcutter() }
+                    .frame(minHeight: 44).disabled(session.state.resources[.stoneTools] < 3 || session.riverbendProgress?.woodcutterImproved == true)
+                    .accessibilityIdentifier("riverbendImproveWood")
+            }
+            if session.researchedIDs.contains("fortification") {
+                Text("CLIFF AND PALISADE").font(.headline)
+                if session.riverbendProgress?.enclosed == true {
+                    Text(session.riverbendProgress?.gateOpen == true ? "Gate open · entrance passable" : "Gate closed · entrance blocked").font(.caption)
+                    Button(session.riverbendProgress?.gateOpen == true ? "Close gate" : "Open gate") { session.setRiverbendGate(open: session.riverbendProgress?.gateOpen != true) }
+                        .frame(minHeight: 44).accessibilityIdentifier("riverbendGate")
+                } else {
+                    Text("36 Wood · joins both cliff ends and adds one connected gate. Reveal and clear the route before building.").font(.caption)
+                    Button("Build enclosure · 36 Wood") { session.purchaseRiverbendEnclosure() }
+                        .frame(minHeight: 44).accessibilityIdentifier("riverbendEnclosure")
+                }
+            }
+            Divider()
+        }
+    }
     private var explorationPanel: some View {
         Group {
+            if session.configuration.isRiverbendPlayer { riverbendActions }
             Text("EXPLORE THE VALLEY").font(.system(size: 10, weight: .bold)).tracking(1)
             Text("\(session.discoveredTileCount) / \(session.configuration.map.width * session.configuration.map.height) tiles discovered")
                 .font(.subheadline).accessibilityIdentifier("explorationCoverage")
@@ -273,7 +350,7 @@ struct SettlementView: View {
                 } else {
                     Text("Expedition: " + cost(rules.cost) + " · \(Int(rules.durationSeconds))s").font(.caption).foregroundStyle(.yellow)
                 }
-                Text("Explores a wider ring around camp. An operational scout camp is needed for journeys beyond radius \(rules.requiresScoutAfterRadius).")
+                Text(session.configuration.isRiverbendPlayer ? "Reveals the whole nearby forest and its work faces. Further expeditions expand the known area; distant journeys require a connected Scout Camp." : "Explores a wider ring around camp. An operational scout camp is needed for journeys beyond radius \(rules.requiresScoutAfterRadius).")
                     .font(.caption).foregroundStyle(parchment.opacity(0.65))
                 if let issue = session.explorationIssue {
                     Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange)
@@ -392,7 +469,7 @@ struct SettlementView: View {
             if let rules = session.configuration.populationRules {
                 Text("Needs free housing, at least \(Int(rules.minimumFoodForGrowth)) food and positive net food. Progress pauses when requirements are unmet.").font(.caption).foregroundStyle(.secondary)
             }
-            if let rules = session.configuration.workforceRules {
+            if !session.configuration.isRiverbendPlayer, let rules = session.configuration.workforceRules {
                 Text("Also needs at least \(Int(rules.minimumWaterForGrowth)) water and positive net water. Water use: \(String(format: "%g", rules.waterPerPersonPerMinute)) per person/min. No deaths during shortages.")
                     .font(.caption).foregroundStyle(.secondary)
             }
@@ -402,8 +479,13 @@ struct SettlementView: View {
     private func signed(_ number: Double) -> String { String(format: "%+.1f", number) }
     private func goalsPanel(compact: Bool) -> some View {
         VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .top, spacing: 4) {
-                Button { goals.cycle() } label: {
+            let rail = session.configuration.isRiverbendPlayer ? AnyLayout(VStackLayout(alignment: .leading, spacing: 4)) : AnyLayout(HStackLayout(alignment: .top, spacing: 4))
+            rail {
+                Button {
+                    if session.configuration.isRiverbendPlayer {
+                        session.cancel(); session.inspectedBuilding = nil; panel = nil; goals.isExpanded.toggle()
+                    } else { goals.cycle() }
+                } label: {
                     HStack(spacing: 8) {
                         Image(systemName: "flag.checkered").frame(minWidth: 24)
                         if goals.state != .minimal {
@@ -537,15 +619,37 @@ struct SettlementView: View {
                 HStack {
                     Text(session.buildingName(building) + " · Lv \(building.level)").font(.headline).accessibilityIdentifier("civicLevelName")
                     Spacer()
-                    Button { session.inspectedBuilding = nil } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close inspection")
+                    Button { session.inspectedBuilding = nil } label: { Image(systemName: "xmark").frame(width: 44, height: 44) }.accessibilityLabel("Close inspection").accessibilityIdentifier("closeBuildingInspection")
+                }
+                if session.configuration.isRiverbendPlayer && building.kind == .campfire, let price = session.upgradeCost(for: building) {
+                    Text("Upgrade: " + cost(price)).font(.caption).foregroundStyle(.yellow)
+                    Button(building.level == 1 ? "Found Founder’s Lodge" : "Establish Council Circle") { session.upgrade(buildingID: building.id) }
+                        .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
+                        .disabled(session.upgradeIssue(buildingID: building.id) != nil).accessibilityIdentifier("upgradeBuilding")
+                    if let issue = session.upgradeIssue(buildingID: building.id) {
+                        Text(issue.localizedDescription).font(.caption).foregroundStyle(.orange)
+                        if let id = session.upgradeResearch(for: building) {
+                            Button("Open required research") {
+                                researchReturnLabel = "Return to civic center"; civicResearchID = id
+                                researchPillar = session.configuration.technologyDefinitions.first { $0.id == id }?.pillar ?? .science
+                                showResearch = true
+                            }.frame(minHeight: 44)
+                        }
+                    }
                 }
                 if building.isOperational {
                     Text(session.operatingStatus(building)).font(.subheadline).foregroundStyle(session.productivity(building) < 0.999 ? .orange : .mint)
                         .accessibilityIdentifier("buildingOperatingStatus")
                     if !session.isServiceOperational(building) {
                         Text("Connect any footprint side to paths leading to the civic center, or move this building to reachable land.").font(.caption)
-                        Button("Connect paths") { session.chooseRoadTool(.draw(.trodden)) }
+                        Button("Connect paths") { if session.configuration.isRiverbendPlayer { session.suggestRiverbendConnection(buildingID: building.id) } else { session.chooseRoadTool(.draw(.trodden)) } }
                             .frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("connectBuildingPaths")
+                    }
+                    if session.configuration.isRiverbendPlayer && building.kind == .stoneGatherer {
+                        Text("PRODUCTION MODE").font(.caption.bold())
+                        ForEach(session.visibleProductionRecipes(for: building.kind), id: \.id) { recipe in
+                            recipeButton(recipe, building: building, selected: building.productionModeID == recipe.id || (building.productionModeID == nil && recipe.id == "stone"))
+                        }
                     }
                     Text("Productivity: \(Int((session.productivity(building) * 100).rounded()))%")
                         .font(.caption).accessibilityIdentifier("buildingProductivity")
@@ -555,7 +659,7 @@ struct SettlementView: View {
                         Text("Founding provisions / min: " + amounts(definition.recipes?.first?.outputsPerMinute ?? definition.ratesPerMinute) + " · Housing \(definition.housing). Cultural staffing does not affect these provisions.").font(.caption)
                         Text("Base cultural output / min: " + amounts(civic.culturalOutputPerMinute)).font(.caption).accessibilityIdentifier("civicCulturalOutput")
                     }
-                    if session.civicDefinition(for: building) == nil, let recipes = definition.recipes, !recipes.isEmpty {
+                    if session.civicDefinition(for: building) == nil, !(session.configuration.isRiverbendPlayer && building.kind == .stoneGatherer), let recipes = definition.recipes, !recipes.isEmpty {
                         Text("PRODUCTION MODE").font(.system(size: 10, weight: .bold)).tracking(1)
                         ForEach(recipes, id: \.id) { recipe in
                             recipeButton(recipe, building: building, selected: building.productionModeID == recipe.id || (building.productionModeID == nil && recipes.first?.id == recipe.id))
@@ -566,14 +670,16 @@ struct SettlementView: View {
                         Text("Missing supplies reduce output. Production recovers when supplies return.")
                             .font(.caption).foregroundStyle(parchment.opacity(0.65))
                     }
-                    if let storage = definition.storageBonus, !amounts(storage).isEmpty {
+                    if let role = session.riverbendProgress?.storage[building.id] {
+                        Text(role == .granary ? "Granary · +60 Food capacity only" : "Stockyard · +60 Wood/Stone and +24 Flint/Tools capacity").font(.caption)
+                    } else if let storage = definition.storageBonus, !amounts(storage).isEmpty {
                         Text("Storage per level: " + amounts(storage)).font(.caption)
                     }
                     if let bonus = definition.geographicBonus {
                         Text("Nearby terrain can improve output by \(Int(bonus.outputBonus * 100))% within \(bonus.radius) tiles.")
                             .font(.caption).foregroundStyle(parchment.opacity(0.7))
                     }
-                    if let upgradeCost = session.upgradeCost(for: building) {
+                    if !(session.configuration.isRiverbendPlayer && building.kind == .campfire), let upgradeCost = session.upgradeCost(for: building) {
                         Text("Upgrade: " + cost(upgradeCost)).font(.caption).foregroundStyle(.yellow)
                         Button("Upgrade to level \(building.level + 1)") { session.upgrade(buildingID: building.id) }
                             .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.borderedProminent)
@@ -597,7 +703,7 @@ struct SettlementView: View {
                     Text("\(Int(ceil(building.constructionRemainingSeconds ?? 0)))s remaining").font(.caption)
                 }
                 Text("Tile \(building.origin.x), \(building.origin.y) · \(building.occupiedFootprint(in: session.configuration).width)×\(building.occupiedFootprint(in: session.configuration).height) footprint · facing \(building.resolvedOrientation.rawValue)").font(.caption).accessibilityIdentifier("inspectedBuildingPosition")
-                if building.kind != .campfire || session.configuration.civicLevels != nil {
+                if (building.kind != .campfire || session.configuration.civicLevels != nil) && !(session.configuration.isRiverbendPlayer && building.kind == .campfire) {
                     Button("Move building") { session.beginRelocation(buildingID: building.id) }
                         .frame(maxWidth: .infinity, minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("moveBuilding")
                 }
@@ -636,7 +742,13 @@ struct SettlementView: View {
         }
     }
     private func workforceNumber(_ value: Double) -> String { String(format: "%g", (value * 100).rounded() / 100) }
-    private func recipeButton(_ recipe: ProductionRecipe, building: PlacedBuilding, selected: Bool) -> some View {
+    @ViewBuilder private func recipeButton(_ recipe: ProductionRecipe, building: PlacedBuilding, selected: Bool) -> some View {
+        if session.configuration.isRiverbendPlayer && building.kind == .stoneGatherer {
+            Button { session.setProductionMode(buildingID: building.id, recipeID: recipe.id) } label: {
+                Label(recipe.name + " · " + amounts(recipe.outputsPerMinute) + "/min base", systemImage: selected ? "checkmark.circle.fill" : "circle")
+                    .font(.caption).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+            }.buttonStyle(.bordered).accessibilityIdentifier("productionMode-" + recipe.id)
+        } else {
         Button { session.setProductionMode(buildingID: building.id, recipeID: recipe.id) } label: {
             VStack(alignment: .leading, spacing: 5) {
                 Label(recipe.name, systemImage: selected ? "checkmark.circle.fill" : "circle").font(.subheadline)
@@ -648,12 +760,14 @@ struct SettlementView: View {
             }.frame(maxWidth: .infinity, minHeight: 44, alignment: .leading).padding(8)
                 .background(Color.white.opacity(selected ? 0.12 : 0.04), in: RoundedRectangle(cornerRadius: 10))
         }.buttonStyle(.plain).accessibilityIdentifier("productionMode-" + recipe.id)
+        }
     }
     private func effect(_ definition: BuildingDefinition) -> String {
         let output = definition.recipes?.first?.outputsPerMinute ?? definition.ratesPerMinute
         var effects = Resource.allCases.filter { output[$0] > 0 }.map { "+\(String(format: "%g", output[$0])) \($0.title.lowercased())/min" }
         if definition.housing > 0 { effects.append("+\(definition.housing) housing") }
-        if let recipes = definition.recipes, recipes.count > 1 { effects.append("\(recipes.count) production modes") }
+        let modes = session.visibleProductionRecipes(for: definition.kind)
+        if modes.count > 1 { effects.append("\(modes.count) production modes") }
         if let storage = definition.storageBonus, !amounts(storage).isEmpty { effects.append("Storage: " + amounts(storage)) }
         return effects.joined(separator: " · ")
     }

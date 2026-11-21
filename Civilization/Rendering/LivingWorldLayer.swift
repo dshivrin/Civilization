@@ -1,4 +1,3 @@
-#if DEBUG
 import SpriteKit
 import GameCore
 import GameApplication
@@ -23,6 +22,7 @@ final class LivingWorldLayer: SKNode {
         var elapsed: TimeInterval
     }
     private var walkers: [Walker] = []
+    private var configurationUsesVariation = false
     var reviewMotionTiles: Set<Tile> { Set(walkers.first?.routeTiles ?? []) }
     var alternateLook = false {
         didSet { if alternateLook != oldValue { for walker in walkers { walker.node.setAlternateLook(alternateLook) } } }
@@ -92,6 +92,7 @@ final class LivingWorldLayer: SKNode {
                  reviewEnabled: Bool, phase: Phase = .day, weather: Weather = .clear,
                  foreground: Bool = true, lowPower: Bool = false, cycles: Bool = false,
                  selectionRevision: Int = 0, activeProductionIDs: Set<Int> = [], cycleDuration: Double = 120) {
+        configurationUsesVariation = configuration.isRiverbendPlayer
         let nextBudget = VisualWorldBudget(reduceMotion: reduceMotion, lowPower: lowPower, foreground: foreground)
         let buildings = state.buildings.map {
             LayoutBuilding(id: $0.id, kind: $0.kind, origin: $0.origin,
@@ -200,7 +201,7 @@ final class LivingWorldLayer: SKNode {
               let journey = VisualAgentJourney(tiles: route.tiles, planner: planner, source: source.kind,
                 destination: destination.kind, sourceActive: activeProductionIDs.contains(source.id), purpose: route.purpose) else { return }
         let figure = VillagerFigure(profile: index)
-        figure.setAlternateLook(alternateLook)
+        figure.setAlternateLook(alternateLook || (configurationUsesVariation && index % 2 == 1))
         figure.name = "provisional-villager-" + route.purpose.rawValue
         figure.position = CGPoint(x: journey.position.x, y: journey.position.y)
         figure.zPosition = 0.1 - figure.position.y / 16
@@ -322,4 +323,3 @@ final class LivingWorldLayer: SKNode {
     }
     private func descendantCount(_ node: SKNode) -> Int { node.children.reduce(node.children.count) { $0 + descendantCount($1) } }
 }
-#endif

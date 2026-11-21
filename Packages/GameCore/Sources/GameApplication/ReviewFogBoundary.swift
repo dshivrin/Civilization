@@ -1,8 +1,7 @@
-#if DEBUG
 import GameCore
 
 /// Presentation-only opaque scallops. Inputs are discovery and map bounds, never hidden terrain.
-public enum ReviewFogBoundary {
+public enum FogBoundary {
     public struct Edge: Equatable, Sendable {
         public let known: Tile
         public let unknown: Tile
@@ -18,4 +17,7 @@ public enum ReviewFogBoundary {
         }
     }
 }
+
+#if DEBUG
+public typealias ReviewFogBoundary = FogBoundary
 #endif

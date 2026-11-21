@@ -28,7 +28,7 @@ struct ResearchView: View {
                     }
                     Spacer()
                     if let previous = focusHistory.last {
-                        Button("Back to " + (session.configuration.technologyDefinitions.first { $0.id == previous }?.name ?? previous)) {
+                        Button("Back to " + (session.visibleTechnologies.first { $0.id == previous }?.name ?? previous)) {
                             if let id = focusHistory.popLast() { focus(id) }
                         }.frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("returnToResearchItem")
                     } else if focusedTechnologyID != nil {
@@ -40,8 +40,8 @@ struct ResearchView: View {
                 }
                 HStack(spacing: 24) {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("Research · \(session.researchedIDs.count)/\(session.configuration.technologyDefinitions.count) technologies").font(.subheadline.bold())
-                        ProgressView(value: Double(session.researchedIDs.count), total: Double(session.configuration.technologyDefinitions.count))
+                        Text("Research · \(session.researchedIDs.count)/\(session.visibleTechnologies.count) technologies").font(.subheadline.bold())
+                        ProgressView(value: Double(session.researchedIDs.count), total: Double(session.visibleTechnologies.count))
                     }
                     Button { showReadiness = true } label: {
                         VStack(alignment: .leading, spacing: 5) {
@@ -62,7 +62,7 @@ struct ResearchView: View {
                         ScrollViewReader { proxy in
                         ScrollView {
                             LazyVGrid(columns: [GridItem(.adaptive(minimum: typeSize.isAccessibilitySize ? 420 : 280), alignment: .top)], alignment: .leading, spacing: 10) {
-                                ForEach(session.configuration.technologyDefinitions.filter { $0.pillar == selectedPillar }) { technology in
+                                ForEach(session.visibleTechnologies.filter { $0.pillar == selectedPillar }) { technology in
                                     technologyCard(technology).id(technology.id)
                                 }
                             }.scrollTargetLayout().padding(.bottom, 20)
@@ -79,7 +79,7 @@ struct ResearchView: View {
         }
         .background(panelColor).foregroundStyle(parchment).tint(.yellow)
         .onAppear {
-            if let id = focusedTechnologyID, let technology = session.configuration.technologyDefinitions.first(where: { $0.id == id }) {
+            if let id = focusedTechnologyID, let technology = session.visibleTechnologies.first(where: { $0.id == id }) {
                 focus(technology.id)
             }
         }
@@ -106,12 +106,12 @@ struct ResearchView: View {
         }
     }
     private func focus(_ id: String) {
-        guard let technology = session.configuration.technologyDefinitions.first(where: { $0.id == id }) else { return }
+        guard let technology = session.visibleTechnologies.first(where: { $0.id == id }) else { return }
         selectedPillar = technology.pillar; expanded.insert(id); highlightedID = id
         focusRequest += 1
     }
     private func category(_ pillar: DevelopmentPillar) -> some View {
-        let technologies = session.configuration.technologyDefinitions.filter { $0.pillar == pillar }
+        let technologies = session.visibleTechnologies.filter { $0.pillar == pillar }
         let completed = technologies.filter { session.researchedIDs.contains($0.id) }.count
         return DevelopmentCategoryButton(title: pillar.title, detail: "\(completed)/\(technologies.count) researched", completed: completed, total: technologies.count, selected: selectedPillar == pillar, pillarID: pillar.rawValue) { selectedPillar = pillar }
             .accessibilityIdentifier("pillarFilter-" + pillar.rawValue)
@@ -153,10 +153,10 @@ struct ResearchView: View {
                     .accessibilityIdentifier("research-description-" + technology.id)
                 DevelopmentCosts(cost: technology.cost, stored: session.state.resources, id: "research-detail-" + technology.id, paid: complete, detailed: true)
                 Text("Prerequisites: " + (technology.prerequisites.isEmpty ? "None" : technology.prerequisites.map { id in
-                    (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id) + (session.researchedIDs.contains(id) ? " ✓" : "")
+                    (session.visibleTechnologies.first { $0.id == id }?.name ?? id) + (session.researchedIDs.contains(id) ? " ✓" : "")
                 }.joined(separator: ", "))).font(.caption).foregroundStyle(parchment.opacity(0.75))
                 ForEach(technology.prerequisites, id: \.self) { id in
-                    Button("Show " + (session.configuration.technologyDefinitions.first { $0.id == id }?.name ?? id)) { focusHistory.append(technology.id); focus(id) }
+                    Button("Show " + (session.visibleTechnologies.first { $0.id == id }?.name ?? id)) { focusHistory.append(technology.id); focus(id) }
                         .frame(minHeight: 44).buttonStyle(.bordered).accessibilityIdentifier("researchPrerequisite-" + id)
                 }
                 VStack(alignment: .leading, spacing: 5) {
@@ -174,9 +174,10 @@ struct ResearchView: View {
         for level in session.configuration.civicLevels ?? [] where level.requiredTechnology == technology.id {
             values.append("Civic center upgrade: " + level.name)
         }
-        if !technology.effects.unlockedBuildings.isEmpty {
-            values.append("Unlocks: " + technology.effects.unlockedBuildings.map { session.configuration.definition($0).name }.joined(separator: ", "))
-        }
+        let adopted = technology.effects.unlockedBuildings.filter { kind in session.visibleBuildingDefinitions.contains { $0.kind == kind } }
+        if !adopted.isEmpty { values.append("Unlocks: " + adopted.map { session.configuration.definition($0).name }.joined(separator: ", ")) }
+        if session.configuration.isRiverbendPlayer && technology.id == "stoneTools" { values.append("Unlocks the Tool batch and permanent Woodcutter project in Explore.") }
+        if session.configuration.isRiverbendPlayer && technology.id == "fortification" { values.append("Unlocks the cliff-backed enclosure and road gate in Explore.") }
         for resource in Resource.allCases {
             let bonus = technology.effects.productionBonus[resource], storage = technology.effects.storageBonus[resource]
             if bonus > 0 { values.append("\(resource.title) production +\(Int((bonus * 100).rounded()))%") }
