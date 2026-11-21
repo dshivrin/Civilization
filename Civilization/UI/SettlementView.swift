@@ -114,9 +114,9 @@ struct SettlementView: View {
                                 panelButton("Build", icon: "hammer", value: .build)
                                 Button { session.cancel(); session.inspectedBuilding = nil; showResearch = true } label: {
                                     VStack(spacing: 3) { Image(systemName: "sparkles"); Text("Research").font(.system(size: 11, weight: .semibold)) }
-                                        .frame(maxWidth: .infinity, minHeight: 44)
+                                        .frame(maxWidth: .infinity, minHeight: 44).overlay { completionDecoration(.research) }
                                 }.background(panelColor.opacity(0.95), in: RoundedRectangle(cornerRadius: 12)).accessibilityIdentifier("openResearch")
-                                    .overlay { completionDecoration(.research) }.accessibilityValue(completionAccessibilityValue(.research))
+                                    .accessibilityValue(completionAccessibilityValue(.research))
                             }
                             contextualPanel
                         }
@@ -139,18 +139,16 @@ struct SettlementView: View {
             }
         }
         .onChange(of: session.completionSequence) { _, _ in
-            let events = session.consumeCompletionDelivery()
-            guard phase == .active, !events.isEmpty else { return }
-            let destinations = Set(events.map(\.destination))
-            completionCues.enqueue(destinations)
-            let announcement = [destinations.contains(.research) ? "Research complete." : nil,
-                                destinations.contains(.goals) ? "Goals updated." : nil].compactMap { $0 }.joined(separator: " ")
-            UIAccessibility.post(notification: .announcement, argument: announcement)
-            presentCompletionCues()
+            receiveCompletionDelivery(); presentCompletionCues()
         }
+        .onAppear { receiveCompletionDelivery() }
         .onChange(of: isExternallyObscured) { _, obscured in if !obscured { presentCompletionCues() } }
         .onChange(of: reduceMotion) { _, enabled in if enabled { clearCompletionPulses() } }
-        .onDisappear { clearCompletionPulses() }
+        .onDisappear {
+            // A full-screen destination can unmount the HUD while a real earn is
+            // pending. Preserve that queue; game identity replacement owns its state.
+            completionPulseTask?.cancel(); completionCues.finish(); completionPulseOpacity = 0
+        }
         .onChange(of: hasContextPanel) { _, active in if active && session.configuration.isRiverbendPlayer { goals.isExpanded = false } }
         .onChange(of: session.isDragMode) { _, active in if active { goals.isExpanded = false } }
         .onChange(of: session.roadTool != nil) { _, active in if active { goals.isExpanded = false } }
@@ -160,7 +158,7 @@ struct SettlementView: View {
                 pendingGuidanceAction = nil
                 navigateGuidance(action)
             }
-            presentCompletionCues()
+            receiveCompletionDelivery(); presentCompletionCues()
         }) {
             NavigationStack {
                 ScrollView { goalCard(compact: false).padding() }.accessibilityIdentifier("journeyContent")
@@ -172,14 +170,14 @@ struct SettlementView: View {
         .fullScreenCover(isPresented: $showCatalog, onDismiss: {
             focusedBuildingKind = nil
             if returnToJourney { returnToJourney = false; if !session.isDragMode && session.roadTool == nil { showJourney = true } }
-            presentCompletionCues()
+            receiveCompletionDelivery(); presentCompletionCues()
         }) {
             BuildingCatalogView(session: session, selectedCategory: $category, focusedBuildingKind: focusedBuildingKind, playerMemory: playerCatalogMemory)
         }
         .fullScreenCover(isPresented: $showResearch, onDismiss: {
             civicResearchID = nil
             if returnToJourney { returnToJourney = false; showJourney = true }
-            presentCompletionCues()
+            receiveCompletionDelivery(); presentCompletionCues()
         }) {
             ResearchView(session: session, selectedPillar: $researchPillar, focusedTechnologyID: civicResearchID, returnLabel: researchReturnLabel)
         }
@@ -223,10 +221,10 @@ struct SettlementView: View {
                         session.cancel(); session.inspectedBuilding = nil; panel = nil; goals.isExpanded = true
                     } label: {
                         Label("Goals", systemImage: "flag.checkered").font(.caption.weight(.semibold))
-                            .padding(.horizontal, 12).frame(minHeight: 44)
+                            .padding(.horizontal, 12).frame(minHeight: 44).overlay { completionDecoration(.goals) }
                     }.buttonStyle(.plain).stoneSurface().accessibilityIdentifier("toggleGoals")
                         .accessibilityLabel("Goals, " + session.nextGuidance.title)
-                        .overlay { completionDecoration(.goals) }.accessibilityValue(completionAccessibilityValue(.goals))
+                        .accessibilityValue(completionAccessibilityValue(.goals))
                 } else {
                     playerGoals(compact: phone).frame(width: phone ? 280 : 330)
                 }
@@ -291,9 +289,9 @@ struct SettlementView: View {
                 playerDockLabel("Build", symbol: "hammer")
             }.accessibilityIdentifier("openBuild")
             Button { session.cancel(); session.inspectedBuilding = nil; goals.isExpanded = false; showResearch = true } label: {
-                playerDockLabel("Research", symbol: "sparkles")
+                playerDockLabel("Research", symbol: "sparkles").overlay { completionDecoration(.research) }
             }.accessibilityIdentifier("openResearch")
-                .overlay { completionDecoration(.research) }.accessibilityValue(completionAccessibilityValue(.research))
+                .accessibilityValue(completionAccessibilityValue(.research))
             Button {
                 let visible = panel == .explore && !hasInspectionOrPlacement
                 session.cancel(); session.inspectedBuilding = nil; goals.isExpanded = false; panel = visible ? nil : .explore
@@ -328,12 +326,20 @@ struct SettlementView: View {
                     }
                     Spacer(minLength: 0)
                     Image(systemName: goals.isExpanded ? "chevron.down" : "chevron.up").font(.caption)
-                }.padding(.horizontal, 12).padding(.vertical, 8).frame(minHeight: 56).contentShape(Rectangle())
+                }.padding(.horizontal, 12).padding(.vertical, 8).frame(minHeight: 56).contentShape(Rectangle()).overlay { completionDecoration(.goals) }
             }.buttonStyle(.plain).accessibilityIdentifier("toggleGoals")
                 .accessibilityLabel("Goals, \(session.journeyChapters.filter(\.isComplete).count)/7 chapters, \(session.nextGuidance.title)")
                 .accessibilityValue(goals.state.rawValue + (session.unreadCompletions(for: .goals).isEmpty ? "" : ", " + completionAccessibilityValue(.goals)))
-                .overlay { completionDecoration(.goals) }
         }.stoneSurface()
+    }
+    private func receiveCompletionDelivery() {
+        let events = session.consumeCompletionDelivery()
+        guard phase == .active, !events.isEmpty else { return }
+        let destinations = Set(events.map(\.destination))
+        completionCues.enqueue(destinations)
+        let announcement = [destinations.contains(.research) ? "Research complete." : nil,
+                            destinations.contains(.goals) ? "Goals updated." : nil].compactMap { $0 }.joined(separator: " ")
+        UIAccessibility.post(notification: .announcement, argument: announcement)
     }
     private func completionAccessibilityValue(_ destination: CompletionDestination) -> String {
         let count = session.unreadCompletions(for: destination).count
@@ -686,11 +692,10 @@ struct SettlementView: View {
                             Spacer(minLength: 0)
                             Image(systemName: goals.isExpanded ? "chevron.up" : "chevron.down")
                         }
-                    }.padding(.horizontal, 10).frame(minWidth: 44, minHeight: 44).contentShape(Rectangle())
+                    }.padding(.horizontal, 10).frame(minWidth: 44, minHeight: 44).contentShape(Rectangle()).overlay { completionDecoration(.goals) }
                 }.buttonStyle(.plain).accessibilityIdentifier("toggleGoals")
                     .accessibilityLabel("Chapters \(session.journeyChapters.filter(\.isComplete).count)/\(session.journeyChapters.count), goals")
                     .accessibilityValue(goals.state.rawValue + (session.unreadCompletions(for: .goals).isEmpty ? "" : ", " + completionAccessibilityValue(.goals)))
-                    .overlay { completionDecoration(.goals) }
                 Button {
                     let wasVisible = panel == .explore && session.roadTool == nil && !session.isDragMode && session.currentInspection == nil
                     session.cancel(); session.inspectedBuilding = nil

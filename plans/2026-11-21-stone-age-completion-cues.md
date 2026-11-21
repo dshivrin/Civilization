@@ -109,3 +109,24 @@ history is connected only when already durable and relevant to a real destinatio
   wait for actual toggleGoals hittability before retaining every original target,
   minimum-size, layout, route and label assertion. This is a test readiness change,
   not a product/layout change; affected phone/iPad audits must pass after it.
+- Native audit wait disproved the startup-race hypothesis: decorative modifiers on
+  the Button wrapper affected AX hittability. Decoration now lives inside the label;
+  the hierarchy audit passes while retaining exact target and size assertions.
+- Motion diagnosis: the QA simulator's original system Reduce Motion value was ON.
+  Motion tests now explicitly turn it OFF and restore it; static tests turn it ON
+  and restore it. Runtime diagnostics then confirmed two queued destinations,
+  active phase, motion enabled, successful begin and HUD rendering of pulsing=2.
+  A direct query ran before onDismiss; XCTest's standard ~1s predicate polling
+  missed the0.8s window. The positive test now uses a bounded30ms poll, waits for
+  the cue to end, and records timestamps. Temporary diagnostic logging and an
+  unnecessary observable-reference experiment were removed. GameCore source again
+  matches exact tested d892d9a; final native verification remains required.
+- Full-screen handoff retains undelivered queue on temporary HUD disappearance and
+  drains only actual unconsumed session events at appearance/dismissal. Reload has
+  no transient events, so view rebuilding never infers/replays historical snapshots.
+- Positive native motion route GREEN in /private/tmp/civilization-qa-dd0c7d3c04b6494699f719256c98c70b:
+  research and Games-deferred chapter cue start/end, ordinary Continue, no replay,
+  exact viewed-result acknowledgement, original OS setting restored. No temporary
+  logging, reference controller or diagnostic sleeps remain in product/tests.
+- Final source freeze follows. Full core and five ordinary Release cases per phone/
+  iPad run on the committed source before branch integration.

@@ -2689,10 +2689,22 @@ final class RelocationUITests: XCTestCase {
 final class NormalEntryUITests: XCTestCase {
     @MainActor func testOrdinaryCompletionCuesEarnContinueAndViewExactResults() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let originalMotion = setSystemReduceMotion(false)
+        defer { _ = setSystemReduceMotion(originalMotion) }
         let app = XCUIApplication(); app.launch()
         XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
         XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
         func value(_ id: String) -> String { app.buttons[id].value as? String ?? "" }
+        // XCTest predicate expectations first poll at roughly one second. The
+        // bounded direct poll samples the actual 0.8-second cue after dismissal.
+        func waitForPulse(_ id: String) -> Bool {
+            let deadline = Date().addingTimeInterval(2)
+            repeat {
+                if value(id).contains("New completion") { return true }
+                Thread.sleep(forTimeInterval: 0.03)
+            } while Date() < deadline
+            return false
+        }
         func capture(_ name: String) {
             let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
             image.name = "completion-cues-" + name; image.lifetime = .keepAlways; add(image)
@@ -2706,7 +2718,10 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertTrue(research.waitForExistence(timeout: 5)); XCTAssertTrue(research.isEnabled); research.tap()
         XCTAssertFalse(research.isEnabled)
         app.buttons["closeResearch"].tap()
+        XCTAssertTrue(waitForPulse("openResearch"), "Newly earned research must visibly pulse on return")
         capture("02-research-return")
+        let researchSettled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "NOT (value CONTAINS %@)", "New completion"), object: app.buttons["openResearch"])
+        XCTAssertEqual(XCTWaiter.wait(for: [researchSettled], timeout: 3), .completed)
         XCTAssertTrue(value("openResearch").contains("unread")); XCTAssertTrue(value("toggleGoals").contains("unread"))
         app.terminate(); app.launch(); app.buttons["continueGame"].tap()
         XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
@@ -2765,7 +2780,10 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertEqual(app.buttons["toggleGoals"].frame, expandedGoalsFrame)
         XCTAssertTrue(app.buttons["toggleGoals"].label.contains("1/7 chapters"))
         XCTAssertTrue(value("toggleGoals").contains("unread"))
+        XCTAssertTrue(waitForPulse("toggleGoals"), "Games dismissal must show the newly earned chapter cue")
         capture("07-earned-chapter-one")
+        let chapterSettled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "NOT (value CONTAINS %@)", "New completion"), object: app.buttons["toggleGoals"])
+        XCTAssertEqual(XCTWaiter.wait(for: [chapterSettled], timeout: 3), .completed)
         app.terminate(); app.launch(); app.buttons["continueGame"].tap()
         XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
         XCTAssertTrue(value("toggleGoals").contains("unread")); XCTAssertFalse(value("toggleGoals").contains("New completion"))
@@ -2778,8 +2796,7 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertFalse(app.buttons["developerTools"].exists)
     }
 
-    @MainActor func testOrdinaryCompletionCuesWithSystemReduceMotion() throws {
-        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+    @MainActor private func setSystemReduceMotion(_ enabled: Bool) -> Bool {
         let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences"); settings.launch()
         if settings.buttons["Done"].waitForExistence(timeout: 5) { settings.buttons["Done"].tap() }
         // Navigate the real OS setting, retaining and restoring its original value.
@@ -2799,10 +2816,16 @@ final class NormalEntryUITests: XCTestCase {
         }
         let toggle = settings.switches["Reduce Motion"]
         XCTAssertTrue(toggle.waitForExistence(timeout: 5))
-        let original = toggle.value as? String
-        if original != "1" { toggle.tap() }
-        defer { settings.activate(); if (toggle.value as? String) != original { toggle.tap() } }
-        XCTAssertEqual(toggle.value as? String, "1")
+        let original = (toggle.value as? String) == "1"
+        if original != enabled { toggle.tap() }
+        XCTAssertEqual(toggle.value as? String, enabled ? "1" : "0")
+        return original
+    }
+
+    @MainActor func testOrdinaryCompletionCuesWithSystemReduceMotion() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let originalMotion = setSystemReduceMotion(true)
+        defer { _ = setSystemReduceMotion(originalMotion) }
         let settingShot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); settingShot.name = "completion-cues-os-reduce-motion-on"; settingShot.lifetime = .keepAlways; add(settingShot)
         let app = XCUIApplication(); app.launch()
         XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
