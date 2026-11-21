@@ -8,6 +8,6 @@
 - [x] Task 1: Add deterministic boundary geometry in GameApplication, tests in GameCoreTests. Verify missing API RED then focused GREEN. Unknown cover remains solid; no unknown ground lookup; fade only newly known cells. New flag scopes appearance to this review.
 - [x] Task 2: Add Explore controls and alternate retained styling in FoundingReviewView, SettlementScene, LivingWorldLayer, VillagerFigure. Preserve normal appearance, eight poses, four facings, timing and route anchors. Native tests compare moving/static identity and joints.
 - [x] Task 3: Native phone/iPad genuine captures and sequence, matched camera and zoom before/after, hidden terrain/markers, pan/pinch, Static/Reduce Motion; retained founding/menu/Lab/ordinary entry/save. Full core Debug/Release/exclusions. Reject zero selections.
-- [ ] Task 4: Review source and captures; record counts/failures/limits, preservation and exact base/tip. Push only riverbend-ui2-fog-motion-review; verify remote; end for coordinator UI2-4.
+- [x] Task 4: Review source and captures; record counts/failures/limits, preservation and exact base/tip. Push only riverbend-ui2-fog-motion-review; verify remote; end for coordinator UI2-4.
 
 Review focus: disconnected known one-cell corridors, interior unknown holes, map edges during zoom, transition interrupted by Static/Reduce Motion, outfit changes without journey rebuild.

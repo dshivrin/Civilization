@@ -4,7 +4,7 @@
   "branch": "riverbend-ui2-fog-motion-review",
   "base": "095e2c99bc02970255c33b0794229a124de1dd57",
   "specCommit": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
-  "status": "verified locally; commit/push receipt follows",
+  "status": "verified and pushed; subsequent documentation-only receipt on same branch",
   "requiredRuns": [
     "ui2fog-core-verified",
     "ui2fog-phone-delivery",
@@ -104,5 +104,11 @@
     "No human/physical/max-Dynamic-Type/production appearance claim",
     "Phone recorder-stop exit1 after QA simulator shutdown; original decodes fully. Metadata-only landscape watch copy has identical4730packets and timestamps; both original clips retained.",
     "Explicit review steps are not real expedition/construction waits; existing motion sequence runs on inherited real presentation clock"
-  ]
+  ],
+  "verifiedPushedImplementationCommit": "869e83eb31c8188100e1815cf1e3d000351e7460",
+  "runnerAttemptOutcomes": {
+    "passed": 16,
+    "failed": 9,
+    "note": "Includes expected missing-API/native RED, setup/zero selections and retained failed attempts; only required passed runs establish delivery."
+  }
 }
