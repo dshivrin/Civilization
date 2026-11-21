@@ -1,0 +1,1 @@
+civic=0 level=2 wood=32 stone=46 food=59 roads=15 story=0 civicHistory=2 goals=1 active=1 sites=17 Entrance: BLOCKED · exterior 1202 · interior reached 0 · gate 0 · probe=26,14 moving=0

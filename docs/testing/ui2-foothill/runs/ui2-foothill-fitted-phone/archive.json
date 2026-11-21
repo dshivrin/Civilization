@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-fitted-phone",
+  "status": "passed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-fitted-phone/ui-debug-1.log.gz",
+      "rawSHA256": "11ba98885f5460994ada65773aceb0f1e82e4d748aa215a11153c6f4d8ea6bc7",
+      "compressedSHA256": "e3d3cc6ebfa0f536589b518a98c50c36451234426ae068df940458a9fe72e1df"
+    }
+  ],
+  "note": "Exact report bytes; logs losslessly compressed. xcresult paths are original local locations; selected native originals are published separately."
+}

@@ -6,6 +6,7 @@ struct DeveloperToolsView: View {
     let session: GameSession
     @Environment(\.dismiss) private var dismiss
     @State private var showFoundingReview = false
+    @State private var showFoothillReview = false
     @State private var showEconomyLab = false
     @State private var showVisualReview = false
     @State private var showOnboardingWalkthrough = false
@@ -14,6 +15,7 @@ struct DeveloperToolsView: View {
         NavigationStack {
             Form {
                 Section("Riverbend Founding Review") {
+                    Button("Open separate Foothill review") { showFoothillReview = true }.accessibilityIdentifier("openFoothillReview")
                     Button("Open separate Lodge and paths review") { showFoundingReview = true }.accessibilityIdentifier("openFoundingReview")
                 }
                 Section("Riverbend Economy Lab") {
@@ -113,7 +115,8 @@ struct DeveloperToolsView: View {
                 .onDisappear { preparation?.cancel() }
                 .navigationTitle("Developer tools")
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { preparation?.cancel(); dismiss() }.frame(minHeight: 44) } }
-        }.fullScreenCover(isPresented: $showFoundingReview) { FoundingReviewView() }
+        }.fullScreenCover(isPresented: $showFoothillReview) { FoundingReviewView(foothill: true) }
+        .fullScreenCover(isPresented: $showFoundingReview) { FoundingReviewView() }
         .fullScreenCover(isPresented: $showEconomyLab) { EconomyLabView() }
         .fullScreenCover(isPresented: $showVisualReview) { NativeVisualReviewView(configuration: session.configuration) }
         .fullScreenCover(isPresented: $showOnboardingWalkthrough) { OnboardingWalkthroughReviewView(configuration: session.configuration) }

@@ -53,6 +53,7 @@ final class SettlementScene: SKScene {
             y: (minY + maxY) / 2 + size.height * scale * 0.15)
     }
     var onReviewRevealComplete: (() -> Void)?
+    var reviewFoothillBlockedTiles: Set<Tile> = []
     var reviewContinuousFog = false
     private let reviewFogLayer = SKNode()
     var reviewOrganicFog = false
@@ -262,6 +263,7 @@ final class SettlementScene: SKScene {
                 excludingIDs: movingBuildingID.map { Set([$0]) } ?? [])
         } else { connectionLayer.clear() }
         livingLayer.alternateLook = reviewAlternateLook
+        livingLayer.reviewBlockedTiles = reviewFoothillBlockedTiles
         livingLayer.display(state: state, configuration: configuration, reduceMotion: reduceMotion,
             reviewEnabled: reviewVisualsEnabled, phase: reviewPhase, weather: reviewWeather,
             foreground: !isPaused, lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled || reviewLowPowerPreview,
@@ -441,9 +443,23 @@ final class SettlementScene: SKScene {
                 if terrain == .forest && (x + y) % 2 == 0 {
                     let tree = WorldDetails.tree(seed: seed);tree.position = point;tree.zPosition = CGFloat(x+y)+1;sceneryLayer(for: tile).addChild(tree)
                 }
+                #if DEBUG
+                if configuration.isRiverbendFoothillReview && FoothillBoundary.cliffs.contains(tile) {
+                    // Raised vertical face; collision is the explicit cliff set, never inferred from art.
+                    let p = CGMutablePath(); p.move(to: CGPoint(x: point.x-32,y: point.y)); p.addLine(to: CGPoint(x: point.x,y: point.y-16)); p.addLine(to: CGPoint(x: point.x+32,y: point.y)); p.addLine(to: CGPoint(x: point.x+32,y: point.y+42)); p.addLine(to: CGPoint(x: point.x,y: point.y+26)); p.addLine(to: CGPoint(x: point.x-32,y: point.y+42)); p.closeSubpath()
+                    let face = shape(p, fill: UIColor(red:0.32,green:0.33,blue:0.30,alpha:1),stroke:UIColor(white:0.6,alpha:1),width:1); face.zPosition = CGFloat(x+y); sceneryLayer(for: tile).addChild(face)
+                    let top = shape(IsometricProjection.diamond(at: CGPoint(x:point.x,y:point.y+42)),fill:UIColor(red:0.52,green:0.54,blue:0.44,alpha:1));top.zPosition = CGFloat(x+y)+0.1;sceneryLayer(for:tile).addChild(top)
+                } else if configuration.isRiverbendFoothillReview && terrain == .hill {
+                    let mound = SKShapeNode(ellipseOf: CGSize(width: 55,height: 25));mound.position = CGPoint(x:point.x,y:point.y+6);mound.fillColor = UIColor(red:0.48,green:0.58,blue:0.32,alpha:1);mound.strokeColor = .clear;mound.zPosition = CGFloat(x+y);sceneryLayer(for:tile).addChild(mound)
+                    if tile == Tile(x: 21,y: 16) { let rock = WorldDetails.rocks(seed: seed);rock.position = point;rock.zPosition = CGFloat(x+y)+0.1;sceneryLayer(for:tile).addChild(rock) }
+                } else if terrain == .hill {
+                    let rock = WorldDetails.rocks(seed: seed);rock.position = point;rock.zPosition = CGFloat(x+y);sceneryLayer(for: tile).addChild(rock)
+                }
+                #else
                 if terrain == .hill {
                     let rock = WorldDetails.rocks(seed: seed);rock.position = point;rock.zPosition = CGFloat(x+y);sceneryLayer(for: tile).addChild(rock)
                 }
+                #endif
                 if terrain == .water {
                     let bank = WorldDetails.waterEdge(at: tile, configuration: configuration, discovered: discovered)
                     bank.position = point;ground.addChild(bank)
@@ -692,6 +708,85 @@ final class SettlementScene: SKScene {
         let sign = SKLabelNode(fontNamed: "AvenirNext-DemiBold")
         sign.text = "Founder’s Lodge"; sign.fontSize = 12; sign.fontColor = .white
         sign.position = CGPoint(x: 0,y: 78); node.addChild(sign)
+    }
+    private var foothillRoute: [Tile] = []
+    private var foothillProbeTile: Tile?
+    func resetFoothillProbe() { childNode(withName: "foothillProbe")?.removeFromParent() }
+    var foothillTraversalSummary: String {
+        let moving = childNode(withName: "foothillProbe")?.hasActions() == true
+        return "probe=\(foothillProbeTile?.x ?? -1),\(foothillProbeTile?.y ?? -1) moving=\(moving ? 1 : 0)"
+    }
+    func displayFoothill(review: RiverbendFoundingReview, comparison: Bool, route: [Tile]) {
+        childNode(withName: "foothillBoundary")?.removeFromParent()
+        let layer = SKNode(); layer.name = "foothillBoundary"; layer.zPosition = 170
+        let known = review.engine.state.discoveredTiles ?? []
+        func line(_ a: CGPoint, _ b: CGPoint, color: UIColor, width: CGFloat) {
+            let p = CGMutablePath(); p.move(to: a); p.addLine(to: b)
+            let node = SKShapeNode(path: p); node.strokeColor = color; node.lineWidth = width; node.lineCap = .round; layer.addChild(node)
+        }
+        func label(_ text: String, _ tile: Tile, _ color: UIColor, dy: CGFloat = 0) {
+            guard known.contains(tile) else { return }
+            let node = SKLabelNode(fontNamed: "AvenirNext-DemiBold"); node.text = text; node.fontSize = 18; node.fontColor = color
+            let p = IsometricProjection.point(tile); node.position = CGPoint(x: p.x, y: p.y + dy); layer.addChild(node)
+        }
+        let walls = FoothillBoundary.wall
+        for tile in walls where known.contains(tile) {
+            let p = IsometricProjection.point(tile)
+            if !review.foothillEnclosed {
+                let ring = SKShapeNode(ellipseOf: CGSize(width: 12, height: 6)); ring.position = p; ring.fillColor = .systemYellow.withAlphaComponent(0.6); ring.strokeColor = .clear; layer.addChild(ring); continue
+            }
+            for neighbor in RoadGeometry.neighbors(of: tile).map(\.tile) where walls.contains(neighbor) && known.contains(neighbor) {
+                if tile == FoothillBoundary.gate || neighbor == FoothillBoundary.gate {
+                    if review.foothillGateOpen { continue }
+                }
+                let q = IsometricProjection.point(neighbor)
+                line(CGPoint(x: p.x,y: p.y+14), CGPoint(x: q.x,y: q.y+14), color: UIColor(red: 0.47,green: 0.28,blue: 0.12,alpha: 1), width: 13)
+            }
+            if tile != FoothillBoundary.gate || !review.foothillGateOpen {
+                line(p, CGPoint(x: p.x, y: p.y+29), color: .brown, width: 8)
+                line(CGPoint(x: p.x-2,y: p.y+7), CGPoint(x: p.x-2,y: p.y+26), color: .systemYellow.withAlphaComponent(0.65), width: 2)
+            }
+        }
+        if !review.foothillEnclosed {
+            for tile in FoothillBoundary.gateRoad where known.contains(tile) {
+                let p = IsometricProjection.point(tile), ring = SKShapeNode(ellipseOf: CGSize(width: 16,height: 8));ring.position = p;ring.strokeColor = .systemCyan;ring.fillColor = .clear;ring.lineWidth = 2;layer.addChild(ring)
+            }
+            label("Reserved gate approach", FoothillBoundary.gate, .systemCyan, dy: 30)
+        }
+        // Literal join strokes terminate inside the cliff's impassable cells.
+        if review.foothillEnclosed {
+            for x in [10,23] {
+                let p = IsometricProjection.point(Tile(x: x,y: 8)), q = IsometricProjection.point(Tile(x: x,y: 7))
+                line(CGPoint(x:p.x,y:p.y+14), CGPoint(x:q.x,y:q.y+14), color:.brown, width:13)
+            }
+        }
+        if comparison {
+            for x in 10...23 {
+                let tile = Tile(x: x,y: 7), p = IsometricProjection.point(tile)
+                let node = SKShapeNode(path: IsometricProjection.diamond(at: p)); node.strokeColor = .systemCyan; node.fillColor = .systemCyan.withAlphaComponent(0.18); node.lineWidth = 3; layer.addChild(node)
+            }
+            label("Freestanding: +14 paid cells", Tile(x: 17,y: 7), .systemCyan, dy: 110)
+        }
+        label("IMPASSABLE CLIFF", Tile(x: 17,y: 6), .white, dy: 50)
+        label("Walkable slopes", FoothillBoundary.slope, .systemGreen, dy: 30)
+        label("Food", FoothillBoundary.earlyResources[0], .systemYellow, dy: -12)
+        label("Wood", FoothillBoundary.earlyResources[1], .systemGreen, dy: -12)
+        label("Stone", FoothillBoundary.earlyResources[2], .white, dy: -12)
+        label("Expansion ground →", Tile(x: 25,y: 26), .systemGreen, dy: -12)
+        if review.foothillEnclosed { label(review.foothillGateOpen ? "OPEN GATE" : "CLOSED GATE", FoothillBoundary.gate, review.foothillGateOpen ? .systemGreen : .systemRed, dy: 35) }
+        for tile in route where known.contains(tile) {
+            let p = IsometricProjection.point(tile), dot = SKShapeNode(ellipseOf: CGSize(width: 9,height: 5)); dot.position = p; dot.fillColor = .systemOrange; dot.strokeColor = .clear; layer.addChild(dot)
+        }
+        addChild(layer)
+        if reduceMotion { childNode(withName: "foothillProbe")?.removeAllActions() }
+        if route != foothillRoute || childNode(withName: "foothillProbe") == nil {
+            childNode(withName: "foothillProbe")?.removeFromParent(); foothillRoute = route
+            let probe = SKShapeNode(circleOfRadius: 10); probe.name = "foothillProbe"; probe.zPosition = 185; probe.fillColor = .systemOrange; probe.strokeColor = .white; probe.lineWidth = 2
+            let start = route.first ?? FoothillBoundary.outside; probe.position = IsometricProjection.point(start); foothillProbeTile = start; addChild(probe)
+            if !reduceMotion && route.count > 1 {
+                probe.run(.sequence(route.dropFirst().flatMap { tile in [SKAction.move(to: IsometricProjection.point(tile), duration: 0.12), SKAction.run { [weak self] in self?.foothillProbeTile = tile }] }))
+            } else if let end = route.last { probe.position = IsometricProjection.point(end); foothillProbeTile = end }
+        }
     }
     func displayFoundingHints(sites: [Tile], entrance: Tile?) {
         guard configuration.isRiverbendFoundingReview else { return }

@@ -1,0 +1,36 @@
+[
+  {
+    "profile": "phone",
+    "device": "E118C061-9C37-4E18-9B03-A633E7240149",
+    "description": "Landscape phone simulator",
+    "runtime": "iOS18.6",
+    "pixels": [
+      750,
+      1334
+    ],
+    "points": [
+      375,
+      667
+    ],
+    "configuration": "Debug; com.civilization.seed.qa; UUID library/review namespaces",
+    "finalRun": "ui2-foothill-fitted-phone",
+    "note": "Original unmodified XCTest screenshots; no physical-device claim."
+  },
+  {
+    "profile": "ipad",
+    "device": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+    "description": "iPad mini A17 Pro simulator",
+    "runtime": "iOS18.6",
+    "pixels": [
+      1488,
+      2266
+    ],
+    "points": [
+      744,
+      1133
+    ],
+    "configuration": "Debug; com.civilization.seed.qa; UUID library/review namespaces",
+    "finalRun": "ui2-foothill-fitted-ipad",
+    "note": "Original unmodified XCTest screenshots; no physical-device claim."
+  }
+]

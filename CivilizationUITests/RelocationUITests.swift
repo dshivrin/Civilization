@@ -4,6 +4,90 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testUI2FoothillIntegratedTraversalAndSaveIsolation() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        let namespace = UUID().uuidString
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = namespace
+        print("FOOTHILL harness=v2-explicit-boundary-snapshot namespace=" + namespace)
+        launchNormal(app)
+        func tap(_ id: String) {
+            let b = app.buttons[id]; XCTAssertTrue(b.waitForExistence(timeout: 10), id)
+            if !b.isHittable {
+                let scroll = app.scrollViews["foundingControls"].exists ? app.scrollViews["foundingControls"] : app.scrollViews.firstMatch
+                for _ in 0..<20 {
+                    if b.isHittable { break }
+                    let below = b.frame.isEmpty || b.frame.midY > scroll.frame.midY
+                    scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5,dy: below ? 0.75 : 0.25)).press(forDuration: 0.02,thenDragTo: scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5,dy: 0.5)))
+                }
+            }
+            XCTAssertTrue(b.isHittable, id); b.tap()
+        }
+        func open(_ entry: String) {
+            if !app.buttons[entry].isHittable {
+                XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 30)); tap("developerTools")
+            }
+            tap(entry)
+            XCTAssertTrue(app.staticTexts["foundingStatus"].waitForExistence(timeout: 20))
+        }
+        func capture(_ name: String, boundary: Bool = false) {
+            let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); a.name = "foothill-" + name; a.lifetime = .keepAlways; add(a)
+            var state = app.staticTexts["foundingStatus"].value as? String ?? ""
+            if boundary { state += " " + app.staticTexts["foothillTraversal"].label }
+            let b = XCTAttachment(string: state); b.name = "foothill-" + name + "-state"; b.lifetime = .keepAlways; add(b); print("FOOTHILL " + name + " " + state)
+        }
+        func digest() -> String {
+            tap("foundingRail-Games"); XCTAssertTrue(app.staticTexts["foundingSaveBytes"].exists)
+            let hash = app.staticTexts["foundingSaveBytes"].label
+            XCTAssertTrue(hash.contains("sha256=")); return hash
+        }
+        open("openFoundingReview"); tap("foundingRail-Goals"); tap("foundingGoalAction")
+        let original = app.staticTexts["foundingStatus"].value as? String
+        let originalHash = digest(); print("FOOTHILL original-before " + originalHash)
+        tap("closeFoundingReview")
+        open("openFoothillReview"); capture("01-fresh-map")
+        tap("foundingRail-Goals"); capture("02-one-tap-goal"); tap("foundingGoalAction"); capture("03-lodge-free-footpath")
+        tap("foundingCatalog"); capture("04-catalog"); tap("foundingCatalogAction"); capture("05-legal-hut-plot"); tap("foundingConfirmHut")
+        tap("foundingRail-Games"); tap("foundingTools"); tap("foundingAdvance60")
+        tap("foundingSuggestPath"); tap("foundingConfirmPath"); capture("06-connected-hut")
+        XCTAssertTrue((app.staticTexts["foundingStatus"].value as? String ?? "").contains("active=1"))
+        tap("foundingToolsDone"); tap("foundingRail-Explore"); tap("foothillBoundary"); capture("07-terrain-wall-line", boundary: true)
+        tap("foothillBuy"); XCTAssertFalse(app.staticTexts["foothillError"].exists); capture("08-purchased-open-gate", boundary: true)
+        tap("foothillWalk")
+        let audit = app.staticTexts["foothillTraversal"]
+        XCTAssertTrue(audit.label.contains("WALKABLE")); XCTAssertTrue(audit.label.contains("gate 1"))
+        XCTAssertTrue(NSPredicate(format: "label CONTAINS %@", "probe=20,14 moving=0").evaluate(with: audit) || {
+            let e = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label CONTAINS %@", "probe=20,14 moving=0"), object: audit)
+            return XCTWaiter.wait(for: [e], timeout: 15) == .completed
+        }())
+        capture("09-actual-traversal-arrived", boundary: true)
+        tap("foothillGate"); XCTAssertTrue(audit.label.contains("BLOCKED")); XCTAssertTrue(audit.label.contains("interior reached 0")); capture("10-closed-no-bypass", boundary: true)
+        tap("foothillCompare"); capture("11-freestanding-50-vs-36", boundary: true)
+        app.scrollViews.firstMatch.swipeDown(); app.scrollViews.firstMatch.swipeDown(); capture("11b-equal-price-costs", boundary: true)
+        tap("foothillSlope"); XCTAssertTrue(audit.label.contains("Ordinary slope: WALKABLE"))
+        let slopeArrival = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label CONTAINS %@", "probe=24,23 moving=0"), object: audit)
+        XCTAssertEqual(XCTWaiter.wait(for: [slopeArrival], timeout: 15), .completed); capture("12-walkable-slope", boundary: true)
+        tap("foothillExpansion"); XCTAssertTrue(audit.label.contains("Expansion: WALKABLE"))
+        let expansionArrival = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label CONTAINS %@", "probe=25,27 moving=0"), object: audit)
+        XCTAssertEqual(XCTWaiter.wait(for: [expansionArrival], timeout: 15), .completed); capture("13-expansion-room", boundary: true)
+        let foothillStatus = app.staticTexts["foundingStatus"].value as? String
+        let foothillHash = digest(); print("FOOTHILL paid-after " + foothillHash)
+        tap("closeFoundingReview")
+        app.terminate(); app.launch(); XCTAssertTrue(app.buttons["continueGame"].waitForExistence(timeout: 30)); tap("continueGame")
+        open("openFoothillReview"); XCTAssertEqual(app.staticTexts["foundingStatus"].value as? String, foothillStatus)
+        XCTAssertEqual(digest(), foothillHash); tap("foundingMenuDone")
+        tap("foundingRail-Explore"); tap("foothillBoundary"); tap("foothillWalk")
+        XCTAssertTrue(audit.label.contains("BLOCKED")); XCTAssertTrue(audit.label.contains("interior reached 0")); capture("14-reloaded-paid-closed", boundary: true)
+        tap("foundingMenuDone"); tap("foundingRail-Explore"); tap("foundingFogComparison")
+        XCTAssertTrue(app.staticTexts["fogAudit"].waitForExistence(timeout: 10)); capture("15-temporary-forest")
+        tap("fogBuild"); tap("fogStep"); tap("fogReturn")
+        XCTAssertEqual(app.staticTexts["foundingStatus"].value as? String, foothillStatus)
+        XCTAssertEqual(digest(), foothillHash); capture("16-foothill-return-retained")
+        tap("closeFoundingReview"); open("openFoundingReview")
+        XCTAssertEqual(app.staticTexts["foundingStatus"].value as? String, original)
+        let finalOriginal = digest(); XCTAssertEqual(finalOriginal, originalHash); print("FOOTHILL original-after " + finalOriginal); capture("17-original-founding-preserved")
+        tap("closeFoundingReview")
+    }
     @MainActor func testUI2FogComparisonMenusExit() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
@@ -167,8 +251,8 @@ final class RelocationUITests: XCTestCase {
         }
         func tap(_ id: String) {
             let b = app.buttons[id]
-            if !b.isHittable, app.scrollViews["foundingControls"].exists {
-                let scroll = app.scrollViews["foundingControls"]
+            if !b.isHittable {
+                let scroll = app.scrollViews["foundingControls"].exists ? app.scrollViews["foundingControls"] : app.scrollViews.firstMatch
                 for _ in 0..<40 {
                     if b.isHittable { break }
                     let below = b.frame.isEmpty || b.frame.midY > scroll.frame.midY
@@ -439,8 +523,12 @@ final class RelocationUITests: XCTestCase {
         func reveal(_ element: XCUIElement) {
             let scroll = app.scrollViews.firstMatch
             for _ in 0..<60 {
-                if element.isHittable { return }
-                let below = element.frame.midY > scroll.frame.midY
+                let frame = element.frame
+                let visible = scroll.frame.intersection(app.frame).insetBy(dx: 2, dy: 2)
+                // Offscreen SwiftUI buttons can have no AX activation point. Bring
+                // their geometric center into the viewport before asking hittability.
+                if !frame.isEmpty && frame.midX.isFinite && frame.midY.isFinite && visible.contains(CGPoint(x: frame.midX, y: frame.midY)) && element.isHittable { return }
+                let below = frame.isEmpty || !frame.midY.isFinite || frame.midY > visible.midY
                 scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: below ? 0.7 : 0.3)).press(forDuration: 0.02,
                     thenDragTo: scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)))
             }

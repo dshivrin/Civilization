@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-native-1",
+  "status": "failed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-native-1/ui-debug-1.log.gz",
+      "rawSHA256": "d5c01c8dd8d73ab7fe5f476bf17059084a463599f340d656ee86e5c75d4776b8",
+      "compressedSHA256": "d885c86381cf4eb31e45ea516b7c10e0a25613e974a5e66c5117ec98d5f63ae6"
+    }
+  ],
+  "note": "Original report bytes retained; raw log paths map to these lossless gzip archives. xcresult bundles remain at the recorded /tmp locations; native originals exported separately."
+}

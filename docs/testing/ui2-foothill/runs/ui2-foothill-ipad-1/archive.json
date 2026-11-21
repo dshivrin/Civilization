@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-ipad-1",
+  "status": "passed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-ipad-1/ui-debug-1.log.gz",
+      "rawSHA256": "2504c3d68889e3115acd9c8c4212c0d637da30324f7023a1294ccc88a9155783",
+      "compressedSHA256": "9cb39d8a3f36d4f89de650f0e638e4e7c52f0d3ac0969aed32614a8dfb685a91"
+    }
+  ],
+  "note": "Original report bytes retained; raw log paths map to these lossless gzip archives. xcresult bundles remain at the recorded /tmp locations; native originals exported separately."
+}

@@ -1,0 +1,38 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": "foothillRejectsCorrupt",
+    "simulator": [],
+    "only_testing": [],
+    "output": "/tmp/ui2-foothill-water-marker-red",
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/0c84/Civilazation/Packages/GameCore",
+        "--filter",
+        "foothillRejectsCorrupt"
+      ],
+      "exitCode": 1,
+      "status": "failed",
+      "tests": 1,
+      "durationSeconds": 4.003,
+      "log": "/private/tmp/ui2-foothill-water-marker-red/core-debug.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T04:30:51.063269+00:00",
+  "revision": {
+    "commit": "8f0146300e3efdca1a2b7cd87d36e7fcb3d9be5c",
+    "dirty": true
+  },
+  "status": "failed"
+}

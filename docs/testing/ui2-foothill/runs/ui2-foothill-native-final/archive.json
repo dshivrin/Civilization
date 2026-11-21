@@ -1,0 +1,17 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-native-final",
+  "status": "failed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-native-final/ui-debug-1.log.gz",
+      "rawSHA256": "8cbf99d39147474e1f4cb7fcde4d0b2683fbe8c53f2fed8c4a4e03d0c1270df2",
+      "compressedSHA256": "f13af6b61f94dbcc0a235f721a6e648ce3b04a2c0796f9d91dab8615e53f5180"
+    },
+    {
+      "path": "runs/ui2-foothill-native-final/ui-debug-2.log.gz",
+      "rawSHA256": "4aabea792001d7056ba9c6992e05ab07a11af311e0c4d3716620458e6c9f5815",
+      "compressedSHA256": "d9d0145149ba85b5aa67e16b16b97562f1323639f23039ba07fb752b5727e2ad"
+    }
+  ],
+  "note": "Exact report bytes; logs losslessly compressed. xcresult paths are original local locations; selected native originals are published separately."
+}

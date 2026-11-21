@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-clean-ipad",
+  "status": "failed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-clean-ipad/ui-debug-1.log.gz",
+      "rawSHA256": "24be193d0df437d56619f01644ec57cfd3d56b73153d245b40fdb0b0829a3ae7",
+      "compressedSHA256": "b04341edf6dbb80582ed50332df7657f52a6dd1a55e8ace2dcd5565e7e25d3a3"
+    }
+  ],
+  "note": "Exact report bytes; logs losslessly compressed. xcresult paths are original local locations; selected native originals are published separately."
+}

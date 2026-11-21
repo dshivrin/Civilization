@@ -1,0 +1,197 @@
+Attributes: Application, 0x1022508e0, pid: 28047, label: 'Riverbend'
+Element subtree:
+ →Application, 0x1022508e0, pid: 28047, label: 'Riverbend'
+    Window (Main), 0x102337af0, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x10224c330, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x1022525f0, {{0.0, 0.0}, {667.0, 375.0}}
+          Other, 0x102254e70, {{-667.0, -375.0}, {2001.0, 1125.0}}
+          Other, 0x102254fa0, {{0.0, 0.0}, {667.0, 375.0}}
+            Other, 0x1022549f0, {{0.0, 0.0}, {667.0, 375.0}}
+              Other, 0x102254b20, {{0.0, 0.0}, {667.0, 375.0}}, identifier: 'settlementMap', label: 'Settlement map', value: 64×48 tiles · 1 bu...
+              ScrollView, 0x102254c50, {{12.0, 8.0}, {549.0, 44.0}}
+                Other, 0x1022550d0, {{12.0, 8.0}, {710.0, 44.0}}
+                  Other, 0x102255200, {{20.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-food', label: 'Food, 59, net production -1.0 per minute'
+                    Button, 0x102255330, {{20.0, 8.0}, {52.0, 44.0}}, label: '59'
+                      Other, 0x102255460, {{22.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x102255590, {{20.0, 8.0}, {52.0, 44.0}}, label: '59'
+                  Other, 0x1022556c0, {{78.0, 8.0}, {56.0, 44.0}}, identifier: 'resource-wood', label: 'Wood, 100, net production +0.0 per minute'
+                    Button, 0x1022557f0, {{78.0, 8.0}, {56.0, 44.0}}, label: '100'
+                      Other, 0x102255920, {{78.0, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x102255a50, {{78.0, 8.0}, {56.0, 44.0}}, label: '100'
+                  Other, 0x102255b80, {{140.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-stone', label: 'Stone, 50, net production +0.0 per minute'
+                    Button, 0x102255cb0, {{140.0, 8.0}, {52.0, 44.0}}, label: '50'
+                      Other, 0x102255de0, {{142.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x102255f10, {{140.0, 8.0}, {52.0, 44.0}}, label: '50'
+                  Other, 0x102256040, {{198.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-water', label: 'Water, 61, net production +1.5 per minute'
+                    Button, 0x102256170, {{198.0, 8.0}, {52.0, 44.0}}, label: '61'
+                      Other, 0x1022562a0, {{200.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x1022563d0, {{198.0, 8.0}, {52.0, 44.0}}, label: '61'
+                  Other, 0x102256500, {{256.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-flint', label: 'Flint, 0, net production +0.0 per minute'
+                    Button, 0x102256630, {{256.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x102256760, {{263.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x102256890, {{256.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x1022569c0, {{314.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-clay', label: 'Clay, 0, net production +0.0 per minute'
+                    Button, 0x102256af0, {{314.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x102256c20, {{321.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x102256d50, {{314.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x102256e80, {{372.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-animalHides', label: 'Animal hides, 0, net production +0.0 per minute'
+                    Button, 0x102256fb0, {{372.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x1022570e0, {{379.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11e238d90, {{372.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x11e240ed0, {{430.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-stoneTools', label: 'Stone tools, 0, net production +0.0 per minute'
+                    Button, 0x11e23e910, {{430.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x11e240460, {{437.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11e2412d0, {{430.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x11e240040, {{488.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-leather', label: 'Leather, 0, net production +0.0 per minute'
+                    Button, 0x11e23beb0, {{488.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x11e2393a0, {{495.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11e240880, {{488.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x11e233a00, {{546.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-pottery', label: 'Pottery, 0, net production +0.0 per minute'
+                    Button, 0x11e241ff0, {{546.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x11e242120, {{553.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11e242250, {{546.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x11e242380, {{604.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-knowledge', label: 'Knowledge, 0, net production +0.0 per minute'
+                    Button, 0x11e2424b0, {{604.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x11e2425e0, {{611.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11e242710, {{604.0, 8.0}, {52.0, 44.0}}, label: '0'
+                  Other, 0x11e242840, {{662.0, 8.0}, {52.0, 44.0}}, identifier: 'resource-culture', label: 'Culture, 0, net production +0.0 per minute'
+                    Button, 0x11e242970, {{662.0, 8.0}, {52.0, 44.0}}, label: '0'
+                      Other, 0x11e242aa0, {{669.5, 18.5}, {23.0, 23.0}}
+                      StaticText, 0x11e242bd0, {{662.0, 8.0}, {52.0, 44.0}}, label: '0'
+                Other, 0x11e242d00, {{12.0, 27.0}, {549.0, 22.0}}, label: 'Horizontal scroll bar, 2 pages', value: 0%
+                  Other, 0x11e242e30, {{551.0, 46.0}, {7.0, 3.0}}
+                Other, 0x11e242f60, {{12.0, 27.0}, {549.0, 22.0}}, label: 'Horizontal scroll bar, 2 pages', value: 0%
+                  Other, 0x11e243090, {{551.0, 46.0}, {7.0, 3.0}}
+              Button, 0x11e2431c0, {{582.5, 21.5}, {50.8, 17.0}}, label: 'Population 3, housing capacity 5'
+                Image, 0x11e2432f0, {{582.5, 24.0}, {20.0, 13.5}}, identifier: 'person.2.fill', label: 'person.2.fill'
+                StaticText, 0x11e243420, {{582.5, 21.5}, {50.8, 17.0}}, label: '3/5'
+              StaticText, 0x11e243550, {{12.0, 64.8}, {123.0, 20.5}}, label: 'RIVERBEND'
+              StaticText, 0x11e243680, {{12.0, 87.2}, {72.5, 12.0}}, label: 'STONE AGE'
+              Button, 0x11e2437b0, {{150.5, 65.5}, {33.5, 33.5}}, identifier: 'scope', label: 'Center on settlement'
+              Button, 0x11e2438e0, {{199.0, 60.0}, {44.0, 44.0}}, identifier: 'settlementBuildings', label: 'Inspect settlement buildings'
+                Button, 0x11e243a10, {{199.0, 60.0}, {44.0, 44.0}}
+                  Other, 0x11e243b40, {{199.0, 60.0}, {44.0, 44.0}}
+                    Image, 0x11e243c70, {{207.0, 68.0}, {28.0, 28.0}}, identifier: 'building.2.crop.circle', label: 'Business'
+              Button, 0x11e243da0, {{253.0, 60.0}, {44.0, 44.0}}, identifier: 'developerTools', label: 'Developer tools'
+              Button, 0x11e243ed0, {{12.0, 268.0}, {52.0, 44.0}}, identifier: 'toggleGoals', label: 'Chapters 0/7, goals', value: Minimal
+              Button, 0x11e244000, {{68.0, 268.0}, {44.0, 44.0}}, identifier: 'openExplore', label: 'Explore'
+              Button, 0x11e244130, {{116.0, 268.0}, {44.0, 44.0}}, identifier: 'openGames', label: 'Games'
+              StaticText, 0x11e244260, {{12.0, 320.0}, {238.0, 47.0}}, identifier: 'settlementMessage', label: 'Welcome to Riverbend. Build your first gathering shelter.'
+              Button, 0x11e244390, {{405.0, 60.0}, {121.0, 54.0}}, label: 'Build'
+                Image, 0x11e2444c0, {{448.5, 62.0}, {34.5, 33.5}}, identifier: 'hammer', label: 'Build'
+                StaticText, 0x11e2445f0, {{451.5, 100.5}, {28.0, 13.5}}, label: 'Build'
+              Button, 0x11e244720, {{534.0, 61.0}, {121.0, 52.0}}, identifier: 'openResearch', label: 'Research'
+                Image, 0x11e244850, {{582.0, 63.0}, {25.5, 31.5}}, identifier: 'sparkles', label: 'Sparkle'
+                StaticText, 0x11e244980, {{569.0, 99.5}, {51.0, 13.5}}, label: 'Research'
+              Other, 0x11e244ab0, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x11e244be0, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11e244d10, {{-667.0, -375.0}, {2001.0, 1125.0}}
+        Other, 0x11e244e40, {{0.0, 0.0}, {667.0, 375.0}}
+          Other, 0x11e244f70, {{0.0, 0.0}, {667.0, 375.0}}
+            Other, 0x11e2450a0, {{0.0, 0.0}, {667.0, 375.0}}
+              Other, 0x11e2451d0, {{0.0, 0.0}, {667.0, 375.0}}
+                Other, 0x11e245300, {{0.0, 0.0}, {667.0, 375.0}}
+                  Other, 0x11e245430, {{0.0, 0.0}, {667.0, 375.0}}
+                    NavigationBar, 0x11e245560, {{0.0, 0.0}, {667.0, 44.0}}, identifier: 'Developer tools'
+                      StaticText, 0x11e245690, {{259.0, 8.0}, {149.5, 25.5}}, label: 'Developer tools'
+                      Other, 0x11e2457c0, {{588.5, 0.0}, {58.5, 44.0}}, label: 'Done'
+                        Other, 0x11e2458f0, {{588.5, 0.0}, {58.5, 44.0}}
+                          Button, 0x11e245a20, {{588.5, 6.0}, {58.5, 32.0}}, label: 'Done'
+                    Other, 0x11e245b50, {{0.0, 0.0}, {667.0, 375.0}}
+                      Other, 0x11e245c80, {{0.0, 0.0}, {667.0, 375.0}}
+                        Other, 0x11e245db0, {{0.0, 0.0}, {667.0, 375.0}}
+                          Other, 0x11e245ee0, {{0.0, 0.0}, {667.0, 375.0}}
+                            CollectionView, 0x11e246010, {{0.0, 0.0}, {667.0, 375.0}}, identifier: 'developerToolsForm'
+                              Other, 0x11e246140, {{-16.0, -706.0}, {699.0, 906.0}}
+                              Cell, 0x11e246270, {{16.0, 44.0}, {635.0, 50.5}}
+                                Other, 0x11e2463a0, {{16.0, 44.0}, {635.0, 50.5}}
+                                Other, 0x11e2464d0, {{16.0, 44.0}, {635.0, 50.5}}
+                                  Other, 0x11e246600, {{16.0, 44.0}, {635.0, 50.5}}
+                                    Other, 0x11e246730, {{16.0, 44.0}, {635.0, 50.5}}
+                                      StaticText, 0x11e246860, {{16.0, 44.0}, {635.0, 50.5}}, label: 'RIVERBEND FOUNDING REVIEW'
+                              Cell, 0x11e246990, {{16.0, 94.5}, {635.0, 44.0}}
+                                Other, 0x11e246ac0, {{16.0, 94.5}, {635.0, 44.0}}
+                                  Other, 0x11e246bf0, {{16.0, 94.5}, {635.0, 44.0}}
+                                Other, 0x11e246d20, {{16.0, 94.5}, {635.0, 44.0}}
+                                  Other, 0x11e246e50, {{16.0, 94.5}, {635.0, 44.0}}
+                                    Other, 0x11e246f80, {{16.0, 94.5}, {635.0, 44.0}}
+                                      Button, 0x11e2470b0, {{16.0, 94.5}, {635.0, 44.0}}, identifier: 'openFoothillReview', label: 'Open separate Foothill review'
+                              Cell, 0x11e2471e0, {{16.0, 138.5}, {635.0, 44.0}}
+                                Other, 0x11e247310, {{16.0, 138.5}, {635.0, 44.0}}
+                                  Other, 0x11e247440, {{16.0, 138.5}, {635.0, 44.0}}
+                                Other, 0x11e247570, {{16.0, 138.5}, {635.0, 44.0}}
+                                  Other, 0x11e2476a0, {{16.0, 138.5}, {635.0, 44.0}}
+                                    Other, 0x11e2477d0, {{16.0, 138.5}, {635.0, 44.0}}
+                                      Button, 0x11e247900, {{16.0, 138.5}, {635.0, 44.0}}, identifier: 'openFoundingReview', label: 'Open separate Lodge and paths review'
+                              Other, 0x11e247a30, {{32.0, 137.5}, {619.0, 1.0}}
+                              Other, 0x11e247b60, {{-16.0, 200.0}, {699.0, 112.0}}
+                              Cell, 0x11e247c90, {{16.0, 200.0}, {635.0, 50.5}}
+                                Other, 0x11e247dc0, {{16.0, 200.0}, {635.0, 50.5}}
+                                Other, 0x11e247ef0, {{16.0, 200.0}, {635.0, 50.5}}
+                                  Other, 0x11e248020, {{16.0, 200.0}, {635.0, 50.5}}
+                                    Other, 0x11e248150, {{16.0, 200.0}, {635.0, 50.5}}
+                                      StaticText, 0x11e248280, {{16.0, 200.0}, {635.0, 50.5}}, label: 'RIVERBEND ECONOMY LAB'
+                              Cell, 0x11e2483b0, {{16.0, 250.5}, {635.0, 44.0}}
+                                Other, 0x11e2484e0, {{16.0, 250.5}, {635.0, 44.0}}
+                                  Other, 0x11e248610, {{16.0, 250.5}, {635.0, 44.0}}
+                                Other, 0x11e248740, {{16.0, 250.5}, {635.0, 44.0}}
+                                  Other, 0x11e248870, {{16.0, 250.5}, {635.0, 44.0}}
+                                    Other, 0x11e2489a0, {{16.0, 250.5}, {635.0, 44.0}}
+                                      Button, 0x11e248ad0, {{16.0, 250.5}, {635.0, 44.0}}, identifier: 'openEconomyLab', label: 'Open separate Food and Wood lab'
+                              Other, 0x11e248c00, {{-16.0, 312.0}, {699.0, 244.0}}
+                              Cell, 0x11e248d30, {{16.0, 312.0}, {635.0, 50.5}}
+                                Other, 0x11e248e60, {{16.0, 312.0}, {635.0, 50.5}}
+                                Other, 0x11e248f90, {{16.0, 312.0}, {635.0, 50.5}}
+                                  Other, 0x11e2490c0, {{16.0, 312.0}, {635.0, 50.5}}
+                                    Other, 0x11e2491f0, {{16.0, 312.0}, {635.0, 50.5}}
+                                      StaticText, 0x11e249320, {{16.0, 312.0}, {635.0, 50.5}}, label: 'NATIVE VISUAL REVIEW'
+                              Cell, 0x11e249450, {{16.0, 362.5}, {635.0, 66.0}}
+                                Other, 0x11e249580, {{16.0, 362.5}, {635.0, 66.0}}
+                                  Other, 0x11e2496b0, {{16.0, 362.5}, {635.0, 66.0}}
+                                Other, 0x11e2497e0, {{16.0, 362.5}, {635.0, 66.0}}
+                                  Other, 0x11e249910, {{16.0, 362.5}, {635.0, 66.0}}
+                                    Other, 0x11e249a40, {{16.0, 362.5}, {635.0, 66.0}}
+                                      Button, 0x11e249b70, {{16.0, 362.5}, {635.0, 66.0}}, identifier: 'openOnboardingWalkthrough', label: 'Onboarding walkthrough — start here'
+                              Other, 0x11e249ca0, {{634.0, 44.0}, {30.0, 331.0}}, label: 'Vertical scroll bar, 3 pages', value: 0%
+                                Other, 0x11e249dd0, {{661.0, 47.0}, {3.0, 119.0}}
+                              Other, 0x11e249f00, {{634.0, 44.0}, {30.0, 331.0}}, label: 'Vertical scroll bar, 3 pages', value: 0%
+                                Other, 0x11e24a030, {{661.0, 47.0}, {3.0, 119.0}}
+      Other, 0x11e24a160, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11e24a290, {{0.0, 0.0}, {667.0, 375.0}}
+          Other, 0x11e24a3c0, {{0.0, 0.0}, {667.0, 375.0}}
+            Other, 0x11e24a4f0, {{0.0, 0.0}, {667.0, 375.0}}, identifier: 'onboardingWalkthroughMap', label: 'Riverbend founding review map', value: civicX=170.9999847...
+            StaticText, 0x11e24ada0, {{8.0, 5.2}, {152.5, 33.5}}, label: 'RIVERBEND'
+            StaticText, 0x11e24a840, {{168.5, 8.8}, {286.0, 26.5}}, identifier: 'foundingStatus', label: 'Wood 18 · Stone 31 · Food 60', value: civic=0 level=2 wo...
+            Button, 0x11e24a970, {{488.5, 0.0}, {77.0, 44.0}}, identifier: 'foundingCatalog', label: 'Build'
+            Button, 0x11e24aaa0, {{573.5, 0.0}, {85.5, 44.0}}, identifier: 'closeFoundingReview', label: 'Close'
+            Button, 0x11e24abd0, {{7.5, 52.0}, {80.0, 59.5}}, identifier: 'foundingRail-Goals', label: 'Goals', value: Closed
+              Image, 0x11e24af20, {{36.0, 54.0}, {24.5, 27.0}}, identifier: 'flag', label: 'Flag'
+              StaticText, 0x11e24b050, {{20.2, 85.0}, {54.5, 26.5}}, label: 'Goals'
+            Button, 0x11e24b180, {{4.0, 115.5}, {87.0, 59.5}}, identifier: 'foundingRail-Explore', label: 'Explore', value: Selected
+              Image, 0x11e24b2b0, {{33.5, 117.5}, {28.5, 27.0}}, identifier: 'map', label: 'Show Map'
+              StaticText, 0x11e24b3e0, {{12.0, 148.5}, {71.0, 26.5}}, label: 'Explore'
+            Button, 0x11e24b510, {{6.0, 179.0}, {83.5, 58.0}}, identifier: 'foundingRail-Games', label: 'Games', value: Closed
+              Image, 0x11e24b640, {{35.0, 181.0}, {25.5, 25.5}}, identifier: 'square.grid.2x2', label: 'Grid View'
+              StaticText, 0x11e24b770, {{13.8, 210.5}, {67.5, 26.5}}, label: 'Games'
+            StaticText, 0x11e24b8a0, {{390.1, 63.2}, {95.0, 33.5}}, label: 'Explore'
+            Button, 0x11e24b9d0, {{576.5, 58.0}, {80.5, 44.0}}, identifier: 'foundingMenuDone', label: 'Done'
+            ScrollView, 0x11e24bb00, {{390.0, 108.0}, {267.0, 253.0}}
+              Other, 0x11e24bc30, {{390.0, 108.0}, {267.0, 331.0}}
+                StaticText, 0x11e24bd60, {{390.0, 108.0}, {267.0, 203.5}}, label: 'Pan open map with one finger; pinch to zoom. Building and path previews use map taps. Close those tools to pan freely.'
+                Button, 0x11e24be90, {{390.0, 319.5}, {238.5, 67.5}}, identifier: 'foundingFogComparison', label: 'Forest and motion comparison'
+                Button, 0x11e24bfc0, {{390.0, 395.0}, {185.0, 44.0}}, identifier: 'foundingExploreMap', label: 'Return to map'
+              Other, 0x11e24c0f0, {{624.0, 108.0}, {30.0, 253.0}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                Other, 0x11e24c220, {{651.0, 351.0}, {3.0, 7.0}}
+              Other, 0x11e24c350, {{624.0, 108.0}, {30.0, 253.0}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                Other, 0x11e24c480, {{651.0, 351.0}, {3.0, 7.0}}
+    Window, 0x11e24c5b0, {{0.0, 0.0}, {667.0, 375.0}}
+      Other, 0x11e24c6e0, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11e24c810, {{0.0, 0.0}, {667.0, 375.0}}
+        Other, 0x11e24c940, {{0.0, 375.0}, {667.0, 162.0}}
+Path to element:
+ →Application, 0x1022508e0, pid: 28047, label: 'Riverbend'
+Query chain:
+ →Find: Target Application 'com.civilization.seed.qa'
+  Output: {
+    Application, 0x101acbbd0, pid: 28047, label: 'Riverbend'
+  }

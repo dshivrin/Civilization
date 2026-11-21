@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-inherited-race-retry",
+  "status": "passed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-inherited-race-retry/core-debug.log.gz",
+      "rawSHA256": "53275ffe7e0368d8b98aa6ff521e4ce4524e09b4123faa7dd4adc47872fcacf5",
+      "compressedSHA256": "b02ddc834d07639fc650e6970caf78085a20f4eb68dd774a54e36fe9c1379c0d"
+    }
+  ],
+  "note": "Original report bytes retained; raw log paths map to these lossless gzip archives. xcresult bundles remain at the recorded /tmp locations; native originals exported separately."
+}

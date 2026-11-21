@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-release-ipad",
+  "status": "passed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-release-ipad/ui-release-1.log.gz",
+      "rawSHA256": "f162244b3a19f41bf7ba9ef2247ce80953cc817e3cb38cff53fb6152a075b6d5",
+      "compressedSHA256": "8753c43399f60b5f9730b278f0a95d2201f208bb5abbc37b30693f84f4a47681"
+    }
+  ],
+  "note": "Exact report bytes; logs losslessly compressed. xcresult paths are original local locations; selected native originals are published separately."
+}

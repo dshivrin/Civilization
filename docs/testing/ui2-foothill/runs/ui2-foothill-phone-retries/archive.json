@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-phone-retries",
+  "status": "passed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-phone-retries/ui-debug-1.log.gz",
+      "rawSHA256": "d54f899cf9724244d169808953676a8f24bb39a2d45acb39447c1c98349a4326",
+      "compressedSHA256": "b57add692b548a870d8f8bca62a00d07a361e7bdfd1bafe49c07493839b25392"
+    }
+  ],
+  "note": "Exact report bytes; logs losslessly compressed. xcresult paths are original local locations; selected native originals are published separately."
+}

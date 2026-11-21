@@ -1,0 +1,22 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-core-final-verified",
+  "status": "passed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-core-final-verified/core-debug.log.gz",
+      "rawSHA256": "0ce59228d0872484b3361d11a768b341b4d17bc0368833e5c19846ea51d0976f",
+      "compressedSHA256": "b11356bcbab3b96840fc90a0fc9a3fcedfd2b26dee8005773d3a55dbc1313008"
+    },
+    {
+      "path": "runs/ui2-foothill-core-final-verified/core-release.log.gz",
+      "rawSHA256": "52a421938ce75859364a05e3dfa75aa003e5332947c798629c16fd7e98beac0b",
+      "compressedSHA256": "e39ed9ad258d69f480658c45517dffff3c186a6ff1306bebb5f3839c4af9c96a"
+    },
+    {
+      "path": "runs/ui2-foothill-core-final-verified/release-api-exclusions.log.gz",
+      "rawSHA256": "9e41b7ff39087844f8fef8c6e77748b35fbf74305c5c40ffe5ffaa55bdac9047",
+      "compressedSHA256": "ed07748fc4f71a62eafdd195c6d8c5c0a1d68b5da7972234856d75ac531878be"
+    }
+  ],
+  "note": "Exact report bytes; logs losslessly compressed. xcresult paths are original local locations; selected native originals are published separately."
+}

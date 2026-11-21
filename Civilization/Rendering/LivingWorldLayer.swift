@@ -54,6 +54,8 @@ final class LivingWorldLayer: SKNode {
     private var renderedRoads: [RoadTile] = []
     private var renderedDiscovery: Set<Tile>?
     private var renderedMap = ""
+    var reviewBlockedTiles: Set<Tile> = []
+    private var renderedBlockedTiles: Set<Tile> = []
     private var budget = VisualWorldBudget(reduceMotion: true, lowPower: false, foreground: false)
     private var enabled = false
     private var phase: Phase = .day
@@ -97,7 +99,7 @@ final class LivingWorldLayer: SKNode {
                            productionActive: activeProductionIDs.contains($0.id))
         }
         let changed = !enabled || budget.agentCount != nextBudget.agentCount || renderedBuildings != buildings ||
-            renderedRoads != (state.roads ?? []) || renderedDiscovery != state.discoveredTiles || renderedMap != configuration.map.id
+            renderedRoads != (state.roads ?? []) || renderedDiscovery != state.discoveredTiles || renderedMap != configuration.map.id || renderedBlockedTiles != reviewBlockedTiles
         let wasEnabled = enabled
         enabled = reviewEnabled
         budget = nextBudget
@@ -114,7 +116,8 @@ final class LivingWorldLayer: SKNode {
             renderedBuildings = buildings; renderedRoads = state.roads ?? []
             renderedDiscovery = state.discoveredTiles; renderedMap = configuration.map.id
             let planner = VisualRoutePlanner(configuration: configuration, state: state)
-            let routes = planner.destinationRoutes(maximumAgents: budget.agentCount)
+            renderedBlockedTiles = reviewBlockedTiles
+            let routes = planner.destinationRoutes(maximumAgents: budget.agentCount).filter { route in route.tiles.allSatisfy { !reviewBlockedTiles.contains($0) } }
             routeCount = routes.count; routeTileCount = routes.reduce(0) { $0 + $1.tiles.count }
             for (index, route) in routes.enumerated() { addWalker(route: route, index: index, state: state, planner: planner, activeProductionIDs: activeProductionIDs) }
             if budget.agentCount > 0 {
@@ -224,8 +227,8 @@ final class LivingWorldLayer: SKNode {
                 let tile = Tile(x: x, y: y)
                 guard state.discoveredTiles?.contains(tile) ?? true else { continue }
                 let adjacent = [Tile(x: x + 1, y: y), Tile(x: x, y: y + 1), Tile(x: x - 1, y: y), Tile(x: x, y: y - 1)]
-                if planner.isTraversable(tile), adjacent.contains(where: { map.terrain(at: $0) == .forest }),
-                   let next = adjacent.first(where: { planner.isTraversable($0) }), forestSites.count < 2 {
+                if planner.isTraversable(tile), !reviewBlockedTiles.contains(tile), adjacent.contains(where: { map.terrain(at: $0) == .forest }),
+                   let next = adjacent.first(where: { planner.isTraversable($0) && !reviewBlockedTiles.contains($0) }), forestSites.count < 2 {
                     if forestSites.allSatisfy({ abs($0.0.x - x) + abs($0.0.y - y) > 5 }) { forestSites.append((tile, next)) }
                 }
                 if map.terrain(at: tile) == .water, !occupied.contains(tile), adjacent.contains(where: { planner.isTraversable($0) }), riverSites.count < 2 {

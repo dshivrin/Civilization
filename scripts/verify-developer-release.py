@@ -15,6 +15,8 @@ def module_dir(configuration):
     raise SystemExit(f'Build {configuration} modules first')
 debug, release = map(Path, sys.argv[1:]) if len(sys.argv) == 3 else (module_dir('Debug'), module_dir('Release'))
 probes = {
+    'riverbendFoothillReview': 'import GameCore\nlet c = try GameConfiguration.riverbendFoothillReview()\n',
+    'FoothillBoundary': 'import GameCore\nlet t = FoothillBoundary.gate\n',
     'ReviewForestPresentation': 'import GameApplication\nlet presentation = ReviewForestPresentation.self\n',
     'ReviewFogBoundary': 'import GameApplication\nlet edges = ReviewFogBoundary.edges(known: [], width: 4, height: 4)\n',
     'RiverbendFoundingReview': 'import Foundation\nimport GameApplication\nlet review = try RiverbendFoundingReview(now: Date())\n',

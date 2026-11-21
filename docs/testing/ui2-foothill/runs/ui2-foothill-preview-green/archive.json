@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-preview-green",
+  "status": "passed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-preview-green/core-debug.log.gz",
+      "rawSHA256": "e622bd5928506b72c0262a1ad9eec248c420af19cd07a01354b697161a92716f",
+      "compressedSHA256": "727070f20fe3b59cd012ca1be51ca31aad232cdbf3b7473275f2b9abbcc22ad5"
+    }
+  ],
+  "note": "Original report bytes retained; raw log paths map to these lossless gzip archives. xcresult bundles remain at the recorded /tmp locations; native originals exported separately."
+}

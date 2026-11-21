@@ -3,7 +3,7 @@ import Foundation
 
 public extension GameConfiguration {
     static let riverbendFoundingID = "riverbend-ui2-founding-v1"
-    var isRiverbendFoundingReview: Bool { map.id == Self.riverbendFoundingID }
+    var isRiverbendFoundingReview: Bool { map.id == Self.riverbendFoundingID || isRiverbendFoothillReview }
     static func riverbendFoundingReview() throws -> Self {
         var c = try bundled()
         c.map.id = riverbendFoundingID

@@ -1,0 +1,22 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-core-full-2",
+  "status": "passed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-core-full-2/core-debug.log.gz",
+      "rawSHA256": "cd9902bba9120804992af07b169e5fc1744709d198ef3ac591e9693a034f364e",
+      "compressedSHA256": "64a0440e1d4e1b9a77d818ed4b824b31198666eab3adf249ebeed7412a839e37"
+    },
+    {
+      "path": "runs/ui2-foothill-core-full-2/core-release.log.gz",
+      "rawSHA256": "810dc295d74b76d9be63a4cbb30715233dfb2cd97f7fcd6b9b7bfe52f9d8ef77",
+      "compressedSHA256": "7dfbdea193f72b041001ac0a195a0cb26061d762f517fd3dbc3089f2a91397da"
+    },
+    {
+      "path": "runs/ui2-foothill-core-full-2/release-api-exclusions.log.gz",
+      "rawSHA256": "9e41b7ff39087844f8fef8c6e77748b35fbf74305c5c40ffe5ffaa55bdac9047",
+      "compressedSHA256": "ed07748fc4f71a62eafdd195c6d8c5c0a1d68b5da7972234856d75ac531878be"
+    }
+  ],
+  "note": "Original report bytes retained; raw log paths map to these lossless gzip archives. xcresult bundles remain at the recorded /tmp locations; native originals exported separately."
+}

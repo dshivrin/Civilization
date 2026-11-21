@@ -1,0 +1,1 @@
+civic=0 level=2 wood=88 stone=46 food=60 roads=1 story=0 civicHistory=2 goals=0 active=0 sites=24 

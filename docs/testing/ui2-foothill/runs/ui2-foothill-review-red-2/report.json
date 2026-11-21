@@ -1,0 +1,38 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": "foothill",
+    "simulator": [],
+    "only_testing": [],
+    "output": "/tmp/ui2-foothill-review-red-2",
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/0c84/Civilazation/Packages/GameCore",
+        "--filter",
+        "foothill"
+      ],
+      "exitCode": 1,
+      "status": "failed",
+      "tests": 3,
+      "durationSeconds": 2.958,
+      "log": "/private/tmp/ui2-foothill-review-red-2/core-debug.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T04:24:07.046120+00:00",
+  "revision": {
+    "commit": "8f0146300e3efdca1a2b7cd87d36e7fcb3d9be5c",
+    "dirty": true
+  },
+  "status": "failed"
+}

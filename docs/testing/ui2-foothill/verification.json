@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "status": "verified; review-only, no owner or production acceptance",
+  "branch": "riverbend-ui2-foothill-review",
+  "baseLocalAndRemote": "8f0146300e3efdca1a2b7cd87d36e7fcb3d9be5c",
+  "specReadWithoutMerge": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
+  "sourceCommit": "Recorded in post-push milestone receipt",
+  "sourceManifest": "source-manifest.json",
+  "core": {
+    "run": "ui2-foothill-core-final-verified",
+    "debug": 327,
+    "release": 235,
+    "releaseExclusions": 23,
+    "failures": 0,
+    "skips": 0,
+    "ordinaryReadinessAndLabThroughCraft": "preserved existing full-suite assertions",
+    "originalFoundingFilesAndAuthenticBackup": "2 files snapshotted and byte-compared across opening/reopening both profiles"
+  },
+  "native": {
+    "requiredDebugCasesPerProfile": 8,
+    "coveredPassingCases": [
+      {
+        "profile": "phone",
+        "method": "testUI2FoothillIntegratedTraversalAndSaveIsolation",
+        "status": "passed",
+        "seconds": 132.099,
+        "run": "ui2-foothill-fitted-phone",
+        "step": "ui-debug-1",
+        "aggregateStatus": "passed",
+        "log": "runs/ui2-foothill-fitted-phone/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "phone",
+        "method": "testUI2FoundingMapInteractionAndReload",
+        "status": "passed",
+        "seconds": 37.222,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-1",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "phone",
+        "method": "testUI2MenusActionsAndRetainedReturn",
+        "status": "passed",
+        "seconds": 53.584,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-1",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "phone",
+        "method": "testUI2MenusLargerText",
+        "status": "passed",
+        "seconds": 62.434,
+        "run": "ui2-foothill-phone-retries",
+        "step": "ui-debug-1",
+        "aggregateStatus": "passed",
+        "log": "runs/ui2-foothill-phone-retries/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "phone",
+        "method": "testUI2FogMotionIntegrated",
+        "status": "passed",
+        "seconds": 96.874,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-1",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "phone",
+        "method": "testUI2FogComparisonMenusExit",
+        "status": "passed",
+        "seconds": 35.455,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-1",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "phone",
+        "method": "testEconomyLabGestureRouteAndReload",
+        "status": "passed",
+        "seconds": 51.69,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-1",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "phone",
+        "method": "testFirstEraDelayedDepletedRecoveryThroughCraft",
+        "status": "passed",
+        "seconds": 261.239,
+        "run": "ui2-foothill-phone-retries",
+        "step": "ui-debug-1",
+        "aggregateStatus": "passed",
+        "log": "runs/ui2-foothill-phone-retries/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "ipad",
+        "method": "testUI2FoothillIntegratedTraversalAndSaveIsolation",
+        "status": "passed",
+        "seconds": 116.289,
+        "run": "ui2-foothill-fitted-ipad",
+        "step": "ui-debug-1",
+        "aggregateStatus": "passed",
+        "log": "runs/ui2-foothill-fitted-ipad/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "ipad",
+        "method": "testUI2FoundingMapInteractionAndReload",
+        "status": "passed",
+        "seconds": 35.733,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-2",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-2.log.gz"
+      },
+      {
+        "profile": "ipad",
+        "method": "testUI2MenusActionsAndRetainedReturn",
+        "status": "passed",
+        "seconds": 59.001,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-2",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-2.log.gz"
+      },
+      {
+        "profile": "ipad",
+        "method": "testUI2MenusLargerText",
+        "status": "passed",
+        "seconds": 67.649,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-2",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-2.log.gz"
+      },
+      {
+        "profile": "ipad",
+        "method": "testUI2FogMotionIntegrated",
+        "status": "passed",
+        "seconds": 99.478,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-2",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-2.log.gz"
+      },
+      {
+        "profile": "ipad",
+        "method": "testUI2FogComparisonMenusExit",
+        "status": "passed",
+        "seconds": 36.629,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-2",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-2.log.gz"
+      },
+      {
+        "profile": "ipad",
+        "method": "testEconomyLabGestureRouteAndReload",
+        "status": "passed",
+        "seconds": 41.338,
+        "run": "ui2-foothill-fitted-ipad",
+        "step": "ui-debug-1",
+        "aggregateStatus": "passed",
+        "log": "runs/ui2-foothill-fitted-ipad/ui-debug-1.log.gz"
+      },
+      {
+        "profile": "ipad",
+        "method": "testFirstEraDelayedDepletedRecoveryThroughCraft",
+        "status": "passed",
+        "seconds": 197.067,
+        "run": "ui2-foothill-native-final",
+        "step": "ui-debug-2",
+        "aggregateStatus": "failed",
+        "log": "runs/ui2-foothill-native-final/ui-debug-2.log.gz"
+      }
+    ],
+    "releaseEntryAndSave": [
+      {
+        "profile": "phone",
+        "run": "ui2-foothill-release-phone",
+        "tests": 1,
+        "failures": 0,
+        "skips": 0,
+        "status": "passed"
+      },
+      {
+        "profile": "ipad",
+        "run": "ui2-foothill-release-ipad",
+        "tests": 1,
+        "failures": 0,
+        "skips": 0,
+        "status": "passed"
+      }
+    ],
+    "aggregateCaveat": "Broad matrix stays FAILED: phone5passed/3failed of8; iPad7completed passed and1interrupted/restarted. Explicit passing retries and final fitted routes fulfill each required case. Zero/uncompleted selections are never passes.",
+    "finalFoothillCases": "1phone+1ipad on final Debug view, each18original captures; actual amber probe arrivals and save hashes asserted"
+  },
+  "map": {
+    "id": "riverbend-ui2-foothill-v1",
+    "dimensions": [
+      64,
+      48
+    ],
+    "campfire": [
+      17,
+      12
+    ],
+    "save": "RiverbendFoundingReviews/<UUID test namespace>/ui2-foothill-v1.json",
+    "originalSave": "ui2-founding-v1.json",
+    "cliffCells": 70,
+    "grossProtectedCells": 132,
+    "collision": "full-map cardinal traversal; water, explicit cliffs, purchased walls/closed gate and occupied footprints block; ordinary slopes/forest remain pedestrian ground",
+    "negativeControls": "removing either wall join permits an exterior-to-interior path in the same full-map graph",
+    "openNative": "7-cell entrance path, probe arrived20,14 through23,14 gate;127unoccupied interior cells reachable",
+    "closedNative": "0interior reachable; exterior1202cells; no clipped search domain",
+    "slopeArrival": [
+      24,
+      23
+    ],
+    "expansionArrival": [
+      25,
+      27
+    ],
+    "resources": "Food12,16; Wood9,15 work face of forest8,15; Stone20,16 work face of outcrop21,16; all before river30/31",
+    "purchasedCells": 36,
+    "solidCells": 35,
+    "gates": 1,
+    "woodDebited": 36,
+    "freeRoads": true,
+    "freestandingCells": 50,
+    "freestandingWoodQuote": 50,
+    "priceAssumption": "1Wood per cell including one gate, same132-cell interior; freestanding collision removes cliff set",
+    "savedWood": 14,
+    "savingPercent": 28
+  },
+  "saveIsolation": [
+    {
+      "profile": "phone",
+      "originalBefore": "ui2-founding-v1.json sha256=505ce32c3a91f7efec5774012dbd28e09eb0a1ef881d534358acc9a2c0684252",
+      "originalAfter": "ui2-founding-v1.json sha256=505ce32c3a91f7efec5774012dbd28e09eb0a1ef881d534358acc9a2c0684252",
+      "originalByteIdentical": true,
+      "foothillPaidHash": "ui2-foothill-v1.json sha256=59e12ea8c73bbac8dd61b8918a2ed003c8a39816b90fb76eeffb73fb12a8acc9",
+      "foothillReopenAndForestReturnDigestAssertions": "passed",
+      "namespace": "9783CA9A-1347-4B1B-B810-B04BCF5250FF"
+    },
+    {
+      "profile": "ipad",
+      "originalBefore": "ui2-founding-v1.json sha256=b2788d86c0c98a5c4f6de7f82be3db8ad993db72741352a5cf0a4de57ac2c5b2",
+      "originalAfter": "ui2-founding-v1.json sha256=b2788d86c0c98a5c4f6de7f82be3db8ad993db72741352a5cf0a4de57ac2c5b2",
+      "originalByteIdentical": true,
+      "foothillPaidHash": "ui2-foothill-v1.json sha256=e3a5600e592f542c25e6f4f86803ba1849bc5c178175d4fe9239513bdf7a0fc7",
+      "foothillReopenAndForestReturnDigestAssertions": "passed",
+      "namespace": "B4E5C25F-8C98-464C-9DB7-ECD4B5AE941B"
+    }
+  ],
+  "realLabWaitsSeconds": {
+    "phone": [
+      65.14253401756287,
+      67.0831069946289
+    ],
+    "ipad": [
+      64.6499559879303,
+      66.063148021698
+    ]
+  },
+  "captures": {
+    "finalFoothillPNGs": 36,
+    "otherPassingOriginalPNGs": 184,
+    "failedCaseOriginalPNGs": 21,
+    "totalOriginalPNGs": 241,
+    "manifest": "captures-manifest.json",
+    "transforms": "none"
+  },
+  "preservation": "preservation.json",
+  "independentReview": "review.md",
+  "ownerPlaytest": "README.md",
+  "limitations": [
+    "Provisional procedural artwork and fixed review enclosure; no general defense drawing/combat/towers/generator.",
+    "Review-only provisional cost; freestanding is a quote/collision comparison, not a second charge.",
+    "Unique opening hut inside the protected ground; later catalogue expansion remains separate.",
+    "Cosmetic walkers keep inherited conservative hill restrictions and rebuild/disappear when blocked; the amber probe alone is the full-map collision proof.",
+    "Original temporary forest profile/scene is used without saved adoption.",
+    "Inherited async test setup bound increased5\u219230seconds after repeated scheduler misses; original race/byte assertions retained.",
+    "Phone panel scrolls; no maximum-text, human acceptance or physical-performance claim."
+  ],
+  "boundaries": [
+    "No device install/current-save access/signing/migration.",
+    "No ordinary/Release activation, ordinary economy/Water/schema/seed changes.",
+    "No runtime raster/media changes, main/first-era-review push/merge, production/GateB/R2-07/Empire or next queued goal."
+  ]
+}

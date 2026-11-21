@@ -1,11 +1,17 @@
 #if DEBUG
 import SwiftUI
 import SpriteKit
+import CryptoKit
 import GameCore
 import GameApplication
 
 /// Integrated native review, opened only from Debug tools with its own save root.
 struct FoundingReviewView: View {
+    var foothill = false
+    @State private var enclosureComparison = false
+    @State private var traversalAudit = "Choose a route to walk the collision graph."
+    @State private var traversalPath: [Tile] = []
+    @State private var traversalMotion = ""
     @Environment(\.dismiss) private var dismiss
     @Environment(\.scenePhase) private var phase
     @State private var store: RiverbendFoundingStore?
@@ -49,9 +55,10 @@ struct FoundingReviewView: View {
                         onTap: { point in mapTap(point) },
                         onCandidateMove: { tile = $0; refresh() }, mapLabel: "Riverbend founding review map").ignoresSafeArea()
                 }
+                if store == nil && !error.isEmpty { Text(error).padding().background(panelColor).accessibilityIdentifier("foundingOpenError") }
                 VStack(spacing: 4) {
                     HStack(spacing: 8) {
-                        Text("RIVERBEND").font(.headline)
+                        Text(foothill ? "FOOTHILL" : "RIVERBEND").font(.headline)
                         if let r = store?.review {
                             let shown = forestWalkthrough?.engine ?? r.engine
                             Text("Wood \(Int(shown.state.resources.wood)) · Stone \(Int(shown.state.resources.stone)) · Food \(Int(shown.state.resources.food))")
@@ -95,7 +102,7 @@ struct FoundingReviewView: View {
             .onChange(of: menu) { _, _ in endSearch() }
             .onChange(of: requirement) { _, _ in endSearch() }
             .onChange(of: reduceMotion) { _, _ in refresh() }
-            .onReceive(timer) { _ in if forestWalkthrough != nil { refresh() }; if !paused && forestWalkthrough == nil && phase == .active { transact { try $0.advance(seconds: 1) } } }
+            .onReceive(timer) { _ in if foothill { traversalMotion = scene?.foothillTraversalSummary ?? "" }; if forestWalkthrough != nil { refresh() }; if !paused && forestWalkthrough == nil && phase == .active { transact { try $0.advance(seconds: 1) } } }
     }
     private func menuPanel(_ title: String, _ r: RiverbendFoundingReview) -> some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -122,10 +129,16 @@ struct FoundingReviewView: View {
                     } else if title == "Explore" {
                         Text("Pan open map with one finger; pinch to zoom. Building and path previews use map taps. Close those tools to pan freely.")
                             .fixedSize(horizontal: false, vertical: true)
+                        if foothill {
+                            Button("Cliff and enclosure review") { menu = "Boundary"; focusBoundary() }.accessibilityIdentifier("foothillBoundary")
+                        }
                         Button("Forest and motion comparison") { openForestComparison() }.accessibilityIdentifier("foundingFogComparison")
                         Button("Return to map") { menu = nil }.accessibilityIdentifier("foundingExploreMap")
+                    } else if title == "Boundary" {
+                        foothillControls(r)
                     } else {
                         Text("Isolated founding review · separate save. Reopening grants no offline time.").font(.subheadline)
+                        Text(saveDigest).font(.system(size: 8, design: .monospaced)).accessibilityIdentifier("foundingSaveBytes")
                         Button("Review controls") { tools = true; menu = nil }.accessibilityIdentifier("foundingTools")
                         Button("Return to your game") { dismiss() }
                     }
@@ -390,12 +403,13 @@ struct FoundingReviewView: View {
     }
     private func leaveForestComparison() {
         guard forestWalkthrough != nil else { return }
-        forestWalkthrough = nil; refresh(); focus()
+        forestWalkthrough = nil; if foothill, let r = store?.review { scene = SettlementScene(configuration: r.engine.configuration) }; refresh(); focus()
     }
     private func openForestComparison() {
         guard let r = store?.review else { return }
         do {
-            forestWalkthrough = try OnboardingReviewWalkthrough(configuration: r.engine.configuration, now: Date(timeIntervalSince1970: 0))
+            forestWalkthrough = try OnboardingReviewWalkthrough(configuration: foothill ? .riverbendFoundingReview() : r.engine.configuration, now: Date(timeIntervalSince1970: 0))
+            if foothill, let review = forestWalkthrough { scene = SettlementScene(configuration: review.engine.configuration) }
             menu = nil; tools = false; placing = false; drawing = false; draft = []; error = ""
             refresh()
             // One unchanged framing for covered/revealed states; no automatic recenter at reveal.
@@ -409,13 +423,17 @@ struct FoundingReviewView: View {
         do { try command(&review); forestWalkthrough = review; error = ""; refresh() }
         catch { self.error = error.localizedDescription }
     }
+    private var saveDigest: String {
+        guard let url = store?.url, let bytes = try? Data(contentsOf: url) else { return "unavailable" }
+        return url.lastPathComponent + " sha256=" + SHA256.hash(data: bytes).map { String(format: "%02x", $0) }.joined()
+    }
     private func open() {
         guard store == nil else { return }
         do {
             let root = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
                 .appendingPathComponent("RiverbendFoundingReviews", isDirectory: true)
             let id = ProcessInfo.processInfo.environment["CIVILIZATION_UI_LIBRARY_ID"]
-            store = try RiverbendFoundingStore(directory: id.map { root.appendingPathComponent($0) } ?? root, now: Date())
+            store = try RiverbendFoundingStore(directory: id.map { root.appendingPathComponent($0) } ?? root, now: Date(), foothill: foothill)
             scene = SettlementScene(configuration: store!.review.engine.configuration)
             refresh(); focus()
         } catch { self.error = error.localizedDescription }
@@ -444,6 +462,7 @@ struct FoundingReviewView: View {
     }
     private func refresh() {
         guard let r = store?.review, let scene else { return }
+        scene.reviewFoothillBlockedTiles = foothill && forestWalkthrough == nil ? FoothillBoundary.cliffs.union(r.foothillEnclosed ? FoothillBoundary.wall.subtracting(r.foothillGateOpen ? [FoothillBoundary.gate] : []) : []) : []
         scene.reviewContinuousFog = organicFog
         scene.reviewOrganicFog = organicFog
         scene.reviewVisualsEnabled = true
@@ -469,7 +488,44 @@ struct FoundingReviewView: View {
         if let hut = r.hut {
             for (index, tile) in r.route(to: hut.origin).enumerated() { scene.reviewMapTargets["route\(index)"] = tile }
         }
+        if foothill { scene.displayFoothill(review: r, comparison: enclosureComparison, route: traversalPath) }
         scene.displayFoundingHints(sites: hints, entrance: r.founded && r.engine.state.roads?.contains { $0.tile == r.entrance } == true ? r.entrance : nil)
+    }
+    private func focusBoundary() {
+        scene?.reviewReservedRightWidth = isPad ? 370 : 310
+        scene?.reviewReservedBottomHeight = 0
+        scene?.reviewFocusTiles = Set([Tile(x: 8, y: 5), Tile(x: 27, y: 24), Tile(x: 10, y: 19), Tile(x: 23, y: 7)])
+    }
+    private func traverse(_ target: Tile, title: String) {
+        guard let r = store?.review else { return }
+        let graph = r.foothillBoundary
+        scene?.resetFoothillProbe()
+        traversalPath = graph.path(from: FoothillBoundary.outside, to: target)
+        let exterior = graph.reachable(from: FoothillBoundary.outside)
+        traversalAudit = "\(title): " + (traversalPath.isEmpty ? "BLOCKED" : "WALKABLE \(traversalPath.count) cells") + " · exterior \(exterior.count) · interior reached \(exterior.intersection(FoothillBoundary.interior).count) · gate \(traversalPath.contains(FoothillBoundary.gate) ? 1 : 0)"
+        refresh()
+    }
+    private func foothillControls(_ r: RiverbendFoundingReview) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("Cliff-backed enclosure").font(.headline)
+            Text("Vertical rock is impassable. Low grassy slopes are walkable. Both wall ends meet the cliff; one gate joins the free road.").font(.caption).fixedSize(horizontal: false, vertical: true)
+            Text("Same 132-cell interior · one gate each. Cliff: 36 purchased cells / 36 Wood. Freestanding: 50 / 50 Wood. Save 14 Wood (28%). Provisional review price: 1 Wood per cell, gate included.").font(.caption).fixedSize(horizontal: false, vertical: true).accessibilityIdentifier("foothillCosts")
+            Button(r.foothillEnclosed ? "Purchased · 36 Wood" : "Buy enclosure + gate · 36 Wood") {
+                if transact({ try $0.purchaseFoothillEnclosure() }) { traversalPath = []; traversalAudit = "Paid 36 Wood once; gate road connected."; refresh() }
+            }.disabled(!r.founded || r.foothillEnclosed).accessibilityIdentifier("foothillBuy")
+            Button(r.foothillGateOpen ? "Close gate" : "Open gate") {
+                traversalPath = []; transact { try $0.setFoothillGate(open: !r.foothillGateOpen) }; traverse(FoothillBoundary.inside, title: "Entrance")
+            }.disabled(!r.foothillEnclosed).accessibilityIdentifier("foothillGate")
+            Button("Walk entrance") { traverse(FoothillBoundary.inside, title: "Entrance") }.accessibilityIdentifier("foothillWalk")
+            HStack {
+                Button("Slope") { traverse(FoothillBoundary.slope, title: "Ordinary slope") }.accessibilityIdentifier("foothillSlope")
+                Button("Expansion") { traverse(FoothillBoundary.expansion, title: "Expansion") }.accessibilityIdentifier("foothillExpansion")
+            }
+            Button(enclosureComparison ? "Hide freestanding outline" : "Compare freestanding outline") { enclosureComparison.toggle(); refresh() }.accessibilityIdentifier("foothillCompare")
+            Text("Dashed blue top = 14 additional paid cells on level ground; the comparison graph removes cliff collision. Amber probe walks this map’s full collision graph, including building footprints. Static shows the route without motion.").font(.caption2).fixedSize(horizontal: false, vertical: true)
+            Text(traversalAudit + " · " + traversalMotion).font(.caption.monospaced()).fixedSize(horizontal: false, vertical: true).accessibilityIdentifier("foothillTraversal")
+            if !error.isEmpty { Text(error).font(.caption).fixedSize(horizontal: false, vertical: true).accessibilityIdentifier("foothillError") }
+        }.frame(width: isPad ? 310 : 240, alignment: .leading)
     }
     private func focus() {
         guard let r = store?.review, let scene else { return }

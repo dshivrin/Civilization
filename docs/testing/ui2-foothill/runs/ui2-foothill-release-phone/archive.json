@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-release-phone",
+  "status": "passed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-release-phone/ui-release-1.log.gz",
+      "rawSHA256": "8858806393eeb5de2866da01560a5027cdaf4b3657f6ae72c408a8dee8532701",
+      "compressedSHA256": "f62f3ae4819e59fdb6085ad9685596339a3235c7de8c8ea13745511038e41f41"
+    }
+  ],
+  "note": "Exact report bytes; logs losslessly compressed. xcresult paths are original local locations; selected native originals are published separately."
+}

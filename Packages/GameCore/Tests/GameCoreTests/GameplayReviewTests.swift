@@ -93,7 +93,9 @@ func gameplayReviewCannotRacePendingScenarioPreparation(resume: Bool) async thro
     let preparation = Task { await session.prepareDeveloperScenario(.grouped) }
     // Yield-count polling can exhaust before the child task receives MainActor time.
     // Wait for the same observable precondition with a bounded scheduling interval.
-    let deadline = ContinuousClock.now.advanced(by: .seconds(5))
+    // The full suite queues other synchronous MainActor fixtures for ~20s.
+    // This is a setup scheduling bound, not a scenario performance assertion.
+    let deadline = ContinuousClock.now.advanced(by: .seconds(30))
     while !session.isPreparingDeveloperScenario && ContinuousClock.now < deadline {
         try await Task.sleep(for: .milliseconds(1))
     }

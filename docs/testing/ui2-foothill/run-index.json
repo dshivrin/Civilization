@@ -1,0 +1,862 @@
+[
+  {
+    "run": "ui2-foothill-clean-ipad",
+    "status": "failed",
+    "report": "runs/ui2-foothill-clean-ipad/report.json",
+    "archive": "runs/ui2-foothill-clean-ipad/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 130,
+        "durationSeconds": 47.994
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-clean-ipad/ui-debug-1.log.gz",
+        "rawSHA256": "24be193d0df437d56619f01644ec57cfd3d56b73153d245b40fdb0b0829a3ae7",
+        "compressedSHA256": "b04341edf6dbb80582ed50332df7657f52a6dd1a55e8ace2dcd5565e7e25d3a3"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-1",
+    "status": "passed",
+    "report": "runs/ui2-foothill-core-1/report.json",
+    "archive": "runs/ui2-foothill-core-1/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0,
+        "durationSeconds": 7.618
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-1/core-debug.log.gz",
+        "rawSHA256": "673196d1085952b6c57d00d1ca9b2a5117a2af36cccdbd9ee68ded30354ddf52",
+        "compressedSHA256": "1295a53d4c160d4197509bae5914482dcb9adad0c18296786322c46670e50194"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-2",
+    "status": "failed",
+    "report": "runs/ui2-foothill-core-2/report.json",
+    "archive": "runs/ui2-foothill-core-2/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 2,
+        "exitCode": 1,
+        "durationSeconds": 4.094
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-2/core-debug.log.gz",
+        "rawSHA256": "50cb0538d77f8336af5f11b41077ff8701cd4e3f3f0d34d3bbf3d489dc5c2863",
+        "compressedSHA256": "98c2e0af6822d32104c00ce0c3a9b82a69b25648f36f240121d2a8edf776233d"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-3",
+    "status": "failed",
+    "report": "runs/ui2-foothill-core-3/report.json",
+    "archive": "runs/ui2-foothill-core-3/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1,
+        "durationSeconds": 8.771
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-3/core-debug.log.gz",
+        "rawSHA256": "73fa6fb7ec90082cab41912a8fbd6230caf7fb7a4675de8daf5e18ea3a79bd12",
+        "compressedSHA256": "5bbfd583fbe2e607344ee9596db3c021c794b9ff2f3fc43f08983cbb112171d6"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-backup-verified",
+    "status": "failed",
+    "report": "runs/ui2-foothill-core-backup-verified/report.json",
+    "archive": "runs/ui2-foothill-core-backup-verified/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 327,
+        "exitCode": 1,
+        "durationSeconds": 27.378
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "durationSeconds": 27.018
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-backup-verified/core-debug.log.gz",
+        "rawSHA256": "7a9348b66d9c053f08e8ca7b4760e35e371eadec47bc10386835a9db057c7760",
+        "compressedSHA256": "963a9c79d7a60514e6d2158c1538723c70a451ba6faeb95c6a7353ef6b0e0da6"
+      },
+      {
+        "path": "runs/ui2-foothill-core-backup-verified/core-release.log.gz",
+        "rawSHA256": "44ace2d719646855cfd07cfe90ba80b77e671499aa9a361df4b18489cf50a373",
+        "compressedSHA256": "051934aa9626e2f128a6ae905e8b9ef5e34d242acd08948a8378a6802f0aab60"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-final",
+    "status": "passed",
+    "report": "runs/ui2-foothill-core-final/report.json",
+    "archive": "runs/ui2-foothill-core-final/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 327,
+        "exitCode": 0,
+        "durationSeconds": 24.892
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "durationSeconds": 29.622
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null,
+        "exitCode": 0,
+        "durationSeconds": 6.343
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-final/core-debug.log.gz",
+        "rawSHA256": "d7b46aa14a41707ec9021c87436a0823ba8056f71247080ffe57419c6a1283f5",
+        "compressedSHA256": "c424ed235520c2449993a02f73ec7136d5979c6626c34acf50a353283badb6c2"
+      },
+      {
+        "path": "runs/ui2-foothill-core-final/core-release.log.gz",
+        "rawSHA256": "a67ff66fc9d0c67a145518fe393052c33587919051d2543a33657439fc4c7d4f",
+        "compressedSHA256": "77d8d11bbee5d4ba504322b5cff95f0a888f35292c5bb3b36a9e67613ff3f460"
+      },
+      {
+        "path": "runs/ui2-foothill-core-final/release-api-exclusions.log.gz",
+        "rawSHA256": "9e41b7ff39087844f8fef8c6e77748b35fbf74305c5c40ffe5ffaa55bdac9047",
+        "compressedSHA256": "ed07748fc4f71a62eafdd195c6d8c5c0a1d68b5da7972234856d75ac531878be"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-final-pass",
+    "status": "passed",
+    "report": "runs/ui2-foothill-core-final-pass/report.json",
+    "archive": "runs/ui2-foothill-core-final-pass/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 327,
+        "exitCode": 0,
+        "durationSeconds": 25.914
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "durationSeconds": 12.601
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null,
+        "exitCode": 0,
+        "durationSeconds": 6.055
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-final-pass/core-debug.log.gz",
+        "rawSHA256": "9725cc8fa2b364a0e83b4f3a01428bd39db8357f2ff2bc8fdfb1599f86251846",
+        "compressedSHA256": "1edef75de247e14cbdb5349746c02090bf1f99a44981165435f712027d970607"
+      },
+      {
+        "path": "runs/ui2-foothill-core-final-pass/core-release.log.gz",
+        "rawSHA256": "30df7a8698628468942202c57dec4c8167f232cf6092a23e0559b0fba02f897e",
+        "compressedSHA256": "a41d26aa430d9c23611adb97f68171df6f636703cc4b6acf7a944688e2f35616"
+      },
+      {
+        "path": "runs/ui2-foothill-core-final-pass/release-api-exclusions.log.gz",
+        "rawSHA256": "9e41b7ff39087844f8fef8c6e77748b35fbf74305c5c40ffe5ffaa55bdac9047",
+        "compressedSHA256": "ed07748fc4f71a62eafdd195c6d8c5c0a1d68b5da7972234856d75ac531878be"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-final-verified",
+    "status": "passed",
+    "report": "runs/ui2-foothill-core-final-verified/report.json",
+    "archive": "runs/ui2-foothill-core-final-verified/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 327,
+        "exitCode": 0,
+        "durationSeconds": 26.536
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "durationSeconds": 26.991
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null,
+        "exitCode": 0,
+        "durationSeconds": 5.678
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-final-verified/core-debug.log.gz",
+        "rawSHA256": "0ce59228d0872484b3361d11a768b341b4d17bc0368833e5c19846ea51d0976f",
+        "compressedSHA256": "b11356bcbab3b96840fc90a0fc9a3fcedfd2b26dee8005773d3a55dbc1313008"
+      },
+      {
+        "path": "runs/ui2-foothill-core-final-verified/core-release.log.gz",
+        "rawSHA256": "52a421938ce75859364a05e3dfa75aa003e5332947c798629c16fd7e98beac0b",
+        "compressedSHA256": "e39ed9ad258d69f480658c45517dffff3c186a6ff1306bebb5f3839c4af9c96a"
+      },
+      {
+        "path": "runs/ui2-foothill-core-final-verified/release-api-exclusions.log.gz",
+        "rawSHA256": "9e41b7ff39087844f8fef8c6e77748b35fbf74305c5c40ffe5ffaa55bdac9047",
+        "compressedSHA256": "ed07748fc4f71a62eafdd195c6d8c5c0a1d68b5da7972234856d75ac531878be"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-full-1",
+    "status": "failed",
+    "report": "runs/ui2-foothill-core-full-1/report.json",
+    "archive": "runs/ui2-foothill-core-full-1/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 325,
+        "exitCode": 1,
+        "durationSeconds": 25.113
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "durationSeconds": 32.99
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-full-1/core-debug.log.gz",
+        "rawSHA256": "aea9e6993e9738b2215c6e5403dabce15e2fa279019d7be876ae6552916e5939",
+        "compressedSHA256": "4dfbfbcc8e4cdc52090b4ffec703d48727edc0491d937fa7aa545b2e6a05af81"
+      },
+      {
+        "path": "runs/ui2-foothill-core-full-1/core-release.log.gz",
+        "rawSHA256": "eb3847d6419b79d0dffa9339e3483182ad7ee710b7f82abfc462367ba75a5e83",
+        "compressedSHA256": "1f5efd60095f557b158e71ce425607bd67da82332a5a5f05c38c1e44dbcf03e5"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-full-2",
+    "status": "passed",
+    "report": "runs/ui2-foothill-core-full-2/report.json",
+    "archive": "runs/ui2-foothill-core-full-2/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 327,
+        "exitCode": 0,
+        "durationSeconds": 27.48
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "durationSeconds": 30.091
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null,
+        "exitCode": 0,
+        "durationSeconds": 6.4
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-full-2/core-debug.log.gz",
+        "rawSHA256": "cd9902bba9120804992af07b169e5fc1744709d198ef3ac591e9693a034f364e",
+        "compressedSHA256": "64a0440e1d4e1b9a77d818ed4b824b31198666eab3adf249ebeed7412a839e37"
+      },
+      {
+        "path": "runs/ui2-foothill-core-full-2/core-release.log.gz",
+        "rawSHA256": "810dc295d74b76d9be63a4cbb30715233dfb2cd97f7fcd6b9b7bfe52f9d8ef77",
+        "compressedSHA256": "7dfbdea193f72b041001ac0a195a0cb26061d762f517fd3dbc3089f2a91397da"
+      },
+      {
+        "path": "runs/ui2-foothill-core-full-2/release-api-exclusions.log.gz",
+        "rawSHA256": "9e41b7ff39087844f8fef8c6e77748b35fbf74305c5c40ffe5ffaa55bdac9047",
+        "compressedSHA256": "ed07748fc4f71a62eafdd195c6d8c5c0a1d68b5da7972234856d75ac531878be"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-core-verified",
+    "status": "failed",
+    "report": "runs/ui2-foothill-core-verified/report.json",
+    "archive": "runs/ui2-foothill-core-verified/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 327,
+        "exitCode": 1,
+        "durationSeconds": 26.399
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "durationSeconds": 29.321
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-core-verified/core-debug.log.gz",
+        "rawSHA256": "d95619e9d79dccaea46b0e19c944f98b9102cfd2e89c96b4a43777081e169e44",
+        "compressedSHA256": "e76182beafe8458a1dd9bdc68b75e55b9fdc3f765c65187c690b92cb55090027"
+      },
+      {
+        "path": "runs/ui2-foothill-core-verified/core-release.log.gz",
+        "rawSHA256": "05cd6a1114577c7848d466d83f35b4824ec569aca76e18016fee089a6f4a1c5b",
+        "compressedSHA256": "75e3d868deaaed93723d8b5312ca9200ea43181e619caabf5d46303cfb42dba9"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-final-source-ipad",
+    "status": "failed",
+    "report": "runs/ui2-foothill-final-source-ipad/report.json",
+    "archive": "runs/ui2-foothill-final-source-ipad/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65,
+        "durationSeconds": 48.471
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-final-source-ipad/ui-debug-1.log.gz",
+        "rawSHA256": "75ba1f71f15d9f7782fcf5ad4cb087e4a148b6d3a854730970c23cf1cd9ee89d",
+        "compressedSHA256": "9783af7b9435cebc8ae8adaf40f068eb58e9d3afc49b8eef21a9a162a6885ba7"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-fitted-ipad",
+    "status": "passed",
+    "report": "runs/ui2-foothill-fitted-ipad/report.json",
+    "archive": "runs/ui2-foothill-fitted-ipad/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0,
+        "durationSeconds": 169.569
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-fitted-ipad/ui-debug-1.log.gz",
+        "rawSHA256": "55cd419ef9521c1d01a06c5b3612c0d4b2d6cb9af81497d60e099d5da88f1de2",
+        "compressedSHA256": "1b3de85e2c523853b0f0889c5fbb1f8ecd5b5a23996d36ee85a479474637f157"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-fitted-phone",
+    "status": "passed",
+    "report": "runs/ui2-foothill-fitted-phone/report.json",
+    "archive": "runs/ui2-foothill-fitted-phone/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "durationSeconds": 138.171
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-fitted-phone/ui-debug-1.log.gz",
+        "rawSHA256": "11ba98885f5460994ada65773aceb0f1e82e4d748aa215a11153c6f4d8ea6bc7",
+        "compressedSHA256": "e3d3cc6ebfa0f536589b518a98c50c36451234426ae068df940458a9fe72e1df"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-inherited-race-retry",
+    "status": "passed",
+    "report": "runs/ui2-foothill-inherited-race-retry/report.json",
+    "archive": "runs/ui2-foothill-inherited-race-retry/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "durationSeconds": 5.342
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-inherited-race-retry/core-debug.log.gz",
+        "rawSHA256": "53275ffe7e0368d8b98aa6ff521e4ce4524e09b4123faa7dd4adc47872fcacf5",
+        "compressedSHA256": "b02ddc834d07639fc650e6970caf78085a20f4eb68dd774a54e36fe9c1379c0d"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-ipad-1",
+    "status": "passed",
+    "report": "runs/ui2-foothill-ipad-1/report.json",
+    "archive": "runs/ui2-foothill-ipad-1/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "durationSeconds": 124.052
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-ipad-1/ui-debug-1.log.gz",
+        "rawSHA256": "2504c3d68889e3115acd9c8c4212c0d637da30324f7023a1294ccc88a9155783",
+        "compressedSHA256": "9cb39d8a3f36d4f89de650f0e638e4e7c52f0d3ac0969aed32614a8dfb685a91"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-native-1",
+    "status": "failed",
+    "report": "runs/ui2-foothill-native-1/report.json",
+    "archive": "runs/ui2-foothill-native-1/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65,
+        "durationSeconds": 58.514
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-native-1/ui-debug-1.log.gz",
+        "rawSHA256": "d5c01c8dd8d73ab7fe5f476bf17059084a463599f340d656ee86e5c75d4776b8",
+        "compressedSHA256": "d885c86381cf4eb31e45ea516b7c10e0a25613e974a5e66c5117ec98d5f63ae6"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-native-2",
+    "status": "failed",
+    "report": "runs/ui2-foothill-native-2/report.json",
+    "archive": "runs/ui2-foothill-native-2/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 65,
+        "durationSeconds": 2.054
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-native-2/ui-debug-1.log.gz",
+        "rawSHA256": "90f1498d9bf2b0aab5070caf50c083631b1752999a9d3b286ecfbf84617aeb25",
+        "compressedSHA256": "a10e042a200d6f06b8146a8c008075ba5ccd1fd3f7ab4fe12772d569809ddbe5"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-native-3",
+    "status": "failed",
+    "report": "runs/ui2-foothill-native-3/report.json",
+    "archive": "runs/ui2-foothill-native-3/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65,
+        "durationSeconds": 49.018
+      },
+      {
+        "name": "ui-debug-2",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65,
+        "durationSeconds": 46.839
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-native-3/ui-debug-1.log.gz",
+        "rawSHA256": "a8fb2f741a5557634a0d5f46fc588e4d9971e1ced5c6ea8c5eca5f3967e7fac6",
+        "compressedSHA256": "0d0ecba1d63178214b69cdccb600756a987e6a2ab8a05333ee09d8136a6a97bb"
+      },
+      {
+        "path": "runs/ui2-foothill-native-3/ui-debug-2.log.gz",
+        "rawSHA256": "ce985882a46b4efc6a6a8bfeea4c041362a3c3da65166aa3b7f2a04dfc8beefa",
+        "compressedSHA256": "e21332188c32cede74e3194478bc4feefcd95fc464c946d55fe29f13c67c35ec"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-native-4",
+    "status": "passed",
+    "report": "runs/ui2-foothill-native-4/report.json",
+    "archive": "runs/ui2-foothill-native-4/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "durationSeconds": 121.256
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-native-4/ui-debug-1.log.gz",
+        "rawSHA256": "bbb037ad4ef56dbc52cb02739cbe271bfb22f0dbc13733b0900a4ef1d5da52ee",
+        "compressedSHA256": "655c3d32e8f4b1ffeeaf3ed434c4befa674586dadf7d201e4ad53b84724239a3"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-native-final",
+    "status": "failed",
+    "report": "runs/ui2-foothill-native-final/report.json",
+    "archive": "runs/ui2-foothill-native-final/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 8,
+        "exitCode": 65,
+        "durationSeconds": 508.225
+      },
+      {
+        "name": "ui-debug-2",
+        "status": "failed",
+        "tests": 7,
+        "exitCode": 65,
+        "durationSeconds": 677.124
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-native-final/ui-debug-1.log.gz",
+        "rawSHA256": "8cbf99d39147474e1f4cb7fcde4d0b2683fbe8c53f2fed8c4a4e03d0c1270df2",
+        "compressedSHA256": "f13af6b61f94dbcc0a235f721a6e648ce3b04a2c0796f9d91dab8615e53f5180"
+      },
+      {
+        "path": "runs/ui2-foothill-native-final/ui-debug-2.log.gz",
+        "rawSHA256": "4aabea792001d7056ba9c6992e05ab07a11af311e0c4d3716620458e6c9f5815",
+        "compressedSHA256": "d9d0145149ba85b5aa67e16b16b97562f1323639f23039ba07fb752b5727e2ad"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-phone-retries",
+    "status": "passed",
+    "report": "runs/ui2-foothill-phone-retries/report.json",
+    "archive": "runs/ui2-foothill-phone-retries/archive.json",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 3,
+        "exitCode": 0,
+        "durationSeconds": 467.65
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-phone-retries/ui-debug-1.log.gz",
+        "rawSHA256": "d54f899cf9724244d169808953676a8f24bb39a2d45acb39447c1c98349a4326",
+        "compressedSHA256": "b57add692b548a870d8f8bca62a00d07a361e7bdfd1bafe49c07493839b25392"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-preview-green",
+    "status": "passed",
+    "report": "runs/ui2-foothill-preview-green/report.json",
+    "archive": "runs/ui2-foothill-preview-green/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 4,
+        "exitCode": 0,
+        "durationSeconds": 2.542
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-preview-green/core-debug.log.gz",
+        "rawSHA256": "e622bd5928506b72c0262a1ad9eec248c420af19cd07a01354b697161a92716f",
+        "compressedSHA256": "727070f20fe3b59cd012ca1be51ca31aad232cdbf3b7473275f2b9abbcc22ad5"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-red",
+    "status": "failed",
+    "report": "runs/ui2-foothill-red/report.json",
+    "archive": "runs/ui2-foothill-red/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1,
+        "durationSeconds": 0.632
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-red/core-debug.log.gz",
+        "rawSHA256": "c7f14bd2f924d35cf7fc8e368e5e9202a0824065c6ed0ce61c29abad451b8421",
+        "compressedSHA256": "3927931be1a0116749ec38170218e9b2fcb13a9f2843a50150ce5fd853f6debe"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-red-authorized",
+    "status": "failed",
+    "report": "runs/ui2-foothill-red-authorized/report.json",
+    "archive": "runs/ui2-foothill-red-authorized/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1,
+        "durationSeconds": 10.152
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-red-authorized/core-debug.log.gz",
+        "rawSHA256": "16bdd58ec56c4f6a849c1146e741b32d9f952a99851e32d024bb41154618fdda",
+        "compressedSHA256": "0da519008fb1a2a8405610aece1de192fc48a87b2d42c6671e9f65d4f7721775"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-release-ipad",
+    "status": "passed",
+    "report": "runs/ui2-foothill-release-ipad/report.json",
+    "archive": "runs/ui2-foothill-release-ipad/archive.json",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "durationSeconds": 51.497
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-release-ipad/ui-release-1.log.gz",
+        "rawSHA256": "f162244b3a19f41bf7ba9ef2247ce80953cc817e3cb38cff53fb6152a075b6d5",
+        "compressedSHA256": "8753c43399f60b5f9730b278f0a95d2201f208bb5abbc37b30693f84f4a47681"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-release-phone",
+    "status": "passed",
+    "report": "runs/ui2-foothill-release-phone/report.json",
+    "archive": "runs/ui2-foothill-release-phone/archive.json",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "durationSeconds": 55.955
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-release-phone/ui-release-1.log.gz",
+        "rawSHA256": "8858806393eeb5de2866da01560a5027cdaf4b3657f6ae72c408a8dee8532701",
+        "compressedSHA256": "f62f3ae4819e59fdb6085ad9685596339a3235c7de8c8ea13745511038e41f41"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-review-green",
+    "status": "passed",
+    "report": "runs/ui2-foothill-review-green/report.json",
+    "archive": "runs/ui2-foothill-review-green/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 3,
+        "exitCode": 0,
+        "durationSeconds": 4.326
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-review-green/core-debug.log.gz",
+        "rawSHA256": "bf31dffd60df719251d4b9b45a8a481f835fd75a67881c0217afdc8236788db0",
+        "compressedSHA256": "3e523e070941bf997afa32003c9587a6e57be3547b9736d7bedddae725647f45"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-review-red",
+    "status": "failed",
+    "report": "runs/ui2-foothill-review-red/report.json",
+    "archive": "runs/ui2-foothill-review-red/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1,
+        "durationSeconds": 2.583
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-review-red/core-debug.log.gz",
+        "rawSHA256": "f639c60c1f3e8dc7796af015caab5a70ff43f6bd2dfc6cc1206af666d33815f2",
+        "compressedSHA256": "7f213d780c340a724acbe52fd5498e0111101ac55fa7030a7590e8274abbf4b2"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-review-red-2",
+    "status": "failed",
+    "report": "runs/ui2-foothill-review-red-2/report.json",
+    "archive": "runs/ui2-foothill-review-red-2/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 3,
+        "exitCode": 1,
+        "durationSeconds": 2.958
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-review-red-2/core-debug.log.gz",
+        "rawSHA256": "32b721672aac90915e805eb06b8b28a380708349a2ca55e341bb0b01f042db10",
+        "compressedSHA256": "eed27f5b1ba7db1bdfa67f5ef20b652aabb64c4f3c2979a11e7ba90d64e2d25d"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-wall-preview-red",
+    "status": "failed",
+    "report": "runs/ui2-foothill-wall-preview-red/report.json",
+    "archive": "runs/ui2-foothill-wall-preview-red/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 1,
+        "durationSeconds": 4.464
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-wall-preview-red/core-debug.log.gz",
+        "rawSHA256": "901dbafe3cbef5c73de0d148cfa4222318c10c81297a37cf0195b066ee1f335d",
+        "compressedSHA256": "cd5d1f229c31494070b2088b04e432dd28f1a4fc5e2c3368a2f56c0831462792"
+      }
+    ]
+  },
+  {
+    "run": "ui2-foothill-water-marker-red",
+    "status": "failed",
+    "report": "runs/ui2-foothill-water-marker-red/report.json",
+    "archive": "runs/ui2-foothill-water-marker-red/archive.json",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 1,
+        "durationSeconds": 4.003
+      }
+    ],
+    "logs": [
+      {
+        "path": "runs/ui2-foothill-water-marker-red/core-debug.log.gz",
+        "rawSHA256": "cd458042885fce1eb20c7e319f469361f3df6fc838e0cf31867e91100cd936b6",
+        "compressedSHA256": "97fd68b5f801271d95ee10fdefd133aa0ad50b3190b04ae6f1bf9e1bd4d40a33"
+      }
+    ]
+  }
+]

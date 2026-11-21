@@ -1,0 +1,52 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [
+      "390CFA90-D4C9-40F9-BA4A-FE3489C20809"
+    ],
+    "only_testing": [
+      "CivilizationUITests/RelocationUITests/testUI2FoothillIntegratedTraversalAndSaveIsolation"
+    ],
+    "output": "/tmp/ui2-foothill-final-source-ipad"
+  },
+  "steps": [
+    {
+      "name": "ui-debug-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/.codex/worktrees/0c84/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-resultBundlePath",
+        "/private/tmp/ui2-foothill-final-source-ipad/ui-debug-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoothillIntegratedTraversalAndSaveIsolation"
+      ],
+      "exitCode": 65,
+      "status": "failed",
+      "tests": 1,
+      "durationSeconds": 48.471,
+      "log": "/private/tmp/ui2-foothill-final-source-ipad/ui-debug-1.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T04:36:47.731165+00:00",
+  "revision": {
+    "commit": "8f0146300e3efdca1a2b7cd87d36e7fcb3d9be5c",
+    "dirty": true
+  },
+  "status": "failed"
+}

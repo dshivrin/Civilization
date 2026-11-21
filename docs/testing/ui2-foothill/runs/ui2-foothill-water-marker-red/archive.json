@@ -1,0 +1,12 @@
+{
+  "originalDirectory": "/tmp/ui2-foothill-water-marker-red",
+  "status": "failed",
+  "logs": [
+    {
+      "path": "runs/ui2-foothill-water-marker-red/core-debug.log.gz",
+      "rawSHA256": "cd458042885fce1eb20c7e319f469361f3df6fc838e0cf31867e91100cd936b6",
+      "compressedSHA256": "97fd68b5f801271d95ee10fdefd133aa0ad50b3190b04ae6f1bf9e1bd4d40a33"
+    }
+  ],
+  "note": "Original report bytes retained; raw log paths map to these lossless gzip archives. xcresult bundles remain at the recorded /tmp locations; native originals exported separately."
+}

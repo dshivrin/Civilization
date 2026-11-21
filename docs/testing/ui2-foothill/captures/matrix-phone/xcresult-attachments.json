@@ -1,0 +1,2653 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "23A3800B-AB79-47BE-B5D3-BA8A8C49CCB0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "economy-lab-positive-loop_0_013836EB-713D-4BB3-B1D5-72A6BBB839B1.png",
+        "timestamp" : 1795235450.266
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1E148345-C64D-4D7E-AE8B-668E8A038D2F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.08 AM",
+        "timestamp" : 1795235588.587
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2E6EF251-F1E7-452C-AF59-29172EA88BC0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.07 AM",
+        "timestamp" : 1795235587.387
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "00CA7591-6E8E-4308-96BE-328CE7811ABB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.05 AM",
+        "timestamp" : 1795235585.087
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6F9AFED2-CDF4-4CD3-ABF4-5C7ED79FAF66",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.04 AM",
+        "timestamp" : 1795235584.544
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "81A7AAC8-2F4B-4288-9D9D-C26938C9F5D4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.02 AM",
+        "timestamp" : 1795235582.387
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1348B448-3332-47B8-83BF-79FB901B9256",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.01 AM",
+        "timestamp" : 1795235581.659
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1536D545-6ED9-4EEE-A3A6-AD402DD555AF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.01 AM",
+        "timestamp" : 1795235581.204
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "0E35E35E-DEC1-4F8F-A310-BA43F9B43431",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.00 AM",
+        "timestamp" : 1795235580.804
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D9D6FA59-6270-42D1-8F30-F8DFB87C3B92",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.00 AM",
+        "timestamp" : 1795235580.409
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "0888C177-7E8E-4D36-8D6A-0F3AA2F0155D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.33.00 AM",
+        "timestamp" : 1795235580.02
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D9563003-E217-4907-A90E-80760945BA30",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.59 AM",
+        "timestamp" : 1795235579.63
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5865C4B2-250B-4779-93B2-D999DF53F731",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.59 AM",
+        "timestamp" : 1795235579.233
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5A164581-A5E6-4975-8100-82E1E6257D44",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.58 AM",
+        "timestamp" : 1795235578.837
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "EAEB0C5C-7E26-40F8-97BA-26F80CA1373C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.58 AM",
+        "timestamp" : 1795235578.444
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E7118F93-49A4-48FB-AADA-BDC6D5E8CA1C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.58 AM",
+        "timestamp" : 1795235578.054
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "EF20B03B-4F02-4E77-BC88-D5A7E95EF4C3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.57 AM",
+        "timestamp" : 1795235577.654
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D23CA245-EFBF-4B9A-87CC-0578EA2B277E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.56 AM",
+        "timestamp" : 1795235576.571
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "270421CE-5816-42E4-95FC-723C3612A0D5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.54 AM",
+        "timestamp" : 1795235574.254
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2EBE8C12-C136-4775-B208-665C97B87FEA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.53 AM",
+        "timestamp" : 1795235573.703
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E0D67105-94A6-4EFD-BD6E-FC32288689AA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "first-era-stockyard-blocked-cost_0_14EB25AE-3C8F-4DA0-9E90-EB50D070ECE0.png",
+        "timestamp" : 1795235573.256
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C4050BB1-F879-4659-8509-255C91F52350",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.52 AM",
+        "timestamp" : 1795235572.521
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DD8F5C10-B8BB-418C-AE9B-4A597D93B015",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.50 AM",
+        "timestamp" : 1795235570.213
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "74C6D2C9-5B7B-4A4F-8084-CD603F2D679A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.49 AM",
+        "timestamp" : 1795235569.454
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "29C31B29-3D5F-4711-9C03-19EC71271186",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.47 AM",
+        "timestamp" : 1795235567.31
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E15C395B-7893-4924-B6F6-0CDD6CAC6884",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.46 AM",
+        "timestamp" : 1795235566.77
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "23BF39CF-A064-4255-B321-D2DA11E200DC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.45 AM",
+        "timestamp" : 1795235565.731
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DCA12CFF-24FA-49C3-8DF3-A74359B3B7B3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.43 AM",
+        "timestamp" : 1795235563.412
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DFBF2729-264E-4AD8-A107-23C35B8A0D9D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.42 AM",
+        "timestamp" : 1795235562.87
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "41E0AA0C-6DB2-4A37-9086-51193F7DA73F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.42 AM",
+        "timestamp" : 1795235562.481
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "555ACAB4-0525-4E71-8CFC-E1E7728028A2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.42 AM",
+        "timestamp" : 1795235562.087
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C2F86CEF-21AB-4F6B-8E25-B6A98757295D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.41 AM",
+        "timestamp" : 1795235561.644
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D8D56A83-2F04-4588-B2A2-5A49D25334F0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.41 AM",
+        "timestamp" : 1795235561.254
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D5C44783-425C-4D9C-8211-23F2BFC2439D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.40 AM",
+        "timestamp" : 1795235560.87
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "36E8E8C5-A9F5-4E5B-BE53-1B7143DCC358",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.40 AM",
+        "timestamp" : 1795235560.485
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FCABFD6E-CA93-4937-8847-7B078D6CC6E5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.40 AM",
+        "timestamp" : 1795235560.087
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1807BEF3-D66B-4CFA-B0D3-46CBA7E795FC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.39 AM",
+        "timestamp" : 1795235559.687
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1A0983AF-25B1-4338-A1B6-507FD7F5A873",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.32.39 AM",
+        "timestamp" : 1795235559.263
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D29A29D5-40CE-462C-B6FC-42B75FC9FE30",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.33 AM",
+        "timestamp" : 1795235493.837
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "02A3031D-FE99-4A73-88F8-A63BCC3B0557.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "first-era-survey-paid-wait_0_77F64A89-BEBD-4E4E-9047-9999138B8295.png",
+        "timestamp" : 1795235493.396
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5158D5FE-1072-4227-B04B-62BFD75C431C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.33 AM",
+        "timestamp" : 1795235493.303
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "40144020-59D2-4357-979D-E0934367BBC6",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.32 AM",
+        "timestamp" : 1795235492.887
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "94AB8C6F-42D2-4D31-BF71-A50651B4D1A0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.32 AM",
+        "timestamp" : 1795235492.47
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4F6FDF62-9765-4223-B846-CD458477D7B0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "first-era-survey-blocked-eight-food_0_27A0E30E-91E4-43AF-ADAC-A31E13EA3B30.png",
+        "timestamp" : 1795235492.042
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D14A02B0-F6E1-4AB1-BF19-2FDA4239BCB0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.31 AM",
+        "timestamp" : 1795235491.95
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "72D316AB-2135-4DC7-8D2B-0DB4219E61B8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.30 AM",
+        "timestamp" : 1795235490.987
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "296F4341-5F8B-4C18-BB14-7A939D142E29",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.30 AM",
+        "timestamp" : 1795235490.395
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6645E9AB-5686-4765-9F78-FCDA34B07D91",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.29 AM",
+        "timestamp" : 1795235489.97
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "41AA8734-ED60-46A2-AEE7-B02641EF71E0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "first-era-delayed-food-depleted_0_EC3F2538-B25D-4182-9F6B-A0B1332A1574.png",
+        "timestamp" : 1795235489.483
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "EC7BF24B-C886-45A9-B1B9-EDB78411FFB2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.28 AM",
+        "timestamp" : 1795235488.871
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "264243BA-8E48-44F0-9126-4C5DC81A36F4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.28 AM",
+        "timestamp" : 1795235488.102
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "511DBDED-9C5B-4625-8306-E5E55900FE74",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.27 AM",
+        "timestamp" : 1795235487.687
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "644FFCE8-041A-4F2C-B58E-6F6CA36D1092",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.27 AM",
+        "timestamp" : 1795235487.27
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A58197DE-5D09-4D81-8917-950C99D84653",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.26 AM",
+        "timestamp" : 1795235486.852
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "53A4CC00-4B49-485E-AD45-FB13A6D28C8C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.26 AM",
+        "timestamp" : 1795235486.433
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6C9B849B-1267-4CE4-B42B-F1937293DF00",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.25 AM",
+        "timestamp" : 1795235485.92
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "66E9EFC1-34E8-4289-A870-D89BA8C0EC3B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.25 AM",
+        "timestamp" : 1795235485.504
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D1003D9C-16C8-4FD8-A2D8-F0C5CB8765FC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.25 AM",
+        "timestamp" : 1795235485.087
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "ABEDC667-EFAD-4B97-827C-214497F38469",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.24 AM",
+        "timestamp" : 1795235484.674
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "3BC33060-735F-4CC4-A560-8EA2371E50D1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.24 AM",
+        "timestamp" : 1795235484.25
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A2C41E1C-949E-47AD-BA56-A989771CCF93",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.23 AM",
+        "timestamp" : 1795235483.837
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "3678BE79-9476-4BE3-9BE5-42B555C9B2D2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.23 AM",
+        "timestamp" : 1795235483.418
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "896C5A3C-8880-45A5-AE3F-852EC8037495",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.23 AM",
+        "timestamp" : 1795235483.002
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "196DE41C-CCBB-4041-BDA8-349028D22B61",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.22 AM",
+        "timestamp" : 1795235482.568
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "75D36F7C-2B8A-467E-BCCA-FD776A5B43BF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.22 AM",
+        "timestamp" : 1795235482.144
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2E64D547-F614-4C2F-A9F2-8BEBC7FAC14A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.21 AM",
+        "timestamp" : 1795235481.721
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "7BD7AF26-811C-4130-9990-C8878596950D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.21 AM",
+        "timestamp" : 1795235481.304
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "7B6711ED-586D-4C78-84CF-6CBFFBCAF006",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.20 AM",
+        "timestamp" : 1795235480.887
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D4F28C06-B855-4EAD-90CA-86E585E42968",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.20 AM",
+        "timestamp" : 1795235480.47
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "82A57E89-C1C7-4DCA-AAA4-56BAB80DC1D4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.20 AM",
+        "timestamp" : 1795235480.052
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5CFEB7AA-47E7-4240-8139-BE8A3B110B1E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.19 AM",
+        "timestamp" : 1795235479.535
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E5674119-FE33-48AD-B423-993FBC32C781",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.19 AM",
+        "timestamp" : 1795235479.12
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A8031508-FD2A-4DFF-8596-F728D813F46B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.18 AM",
+        "timestamp" : 1795235478.704
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "42E35416-0FA7-4CE0-8230-495AE392D05C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.18 AM",
+        "timestamp" : 1795235478.287
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "35ADD37E-79D8-41A1-9E4C-FF7D71DD1957",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.17 AM",
+        "timestamp" : 1795235477.871
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "43482896-CB42-4F9E-8BE6-9AD2ED9AD315",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.17 AM",
+        "timestamp" : 1795235477.454
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "64E60178-9DF2-4073-931B-EA841C059695",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.17 AM",
+        "timestamp" : 1795235477.044
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A09ABFB9-F20F-4691-B875-7AA16F5A7A7C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.16 AM",
+        "timestamp" : 1795235476.624
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FE3CC610-C85B-4012-A31E-C496B459A1C5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.16 AM",
+        "timestamp" : 1795235476.197
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "52AD71C5-4B03-48B3-9157-4F48F0BEE568",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.15 AM",
+        "timestamp" : 1795235475.777
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4BC15719-CFD7-4651-BD4F-684ECCD2F7F5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.15 AM",
+        "timestamp" : 1795235475.383
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "68C97761-3043-4A12-9C9A-F0AE9DAD60E6",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.14 AM",
+        "timestamp" : 1795235474.987
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "55213D6A-9E78-4B49-9145-074B5C368530",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.14 AM",
+        "timestamp" : 1795235474.583
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C611F599-8821-473D-BAAF-FEEF1B74CA33",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.13 AM",
+        "timestamp" : 1795235473.644
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "954E7F0E-A782-4681-A040-6F9118E1934B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "first-era-fresh-next-action_0_A6B87B78-F5F1-4775-B169-F6D355EEA174.png",
+        "timestamp" : 1795235473.001
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2F6CCDAB-4B3F-48BD-A58B-77D27B735959",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.12 AM",
+        "timestamp" : 1795235472.4
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "175ADCA0-A64B-4AD2-898B-502A42BC914B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.11 AM",
+        "timestamp" : 1795235471.743
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DB119FA0-BC86-460C-98BD-B699822817D5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.10 AM",
+        "timestamp" : 1795235470.8
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "39FACB71-A001-4D46-BB93-B1B0CF883754",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.08 AM",
+        "timestamp" : 1795235468.846
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "BC12F650-DCEC-422D-BB40-22C4672F995C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.08 AM",
+        "timestamp" : 1795235468.104
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C1382A0F-0017-47E2-8E25-8981C026EBB2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.31.05 AM",
+        "timestamp" : 1795235465.744
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2DE1D1BB-1651-411D-A5B3-98E0899CB1D8.mp4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Screen Recording 2026-11-21 at 06.31.01 AM.mp4",
+        "timestamp" : 1795235461.537
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FBD231CD-1F9C-4166-814E-6A45F182B5EB.txt",
+        "isAssociatedWithFailure" : true,
+        "suggestedHumanReadableName" : "App UI hierarchy for com.civilization.seed_0_7293A318-FE95-40A7-AF9B-9D283F496E17.qa",
+        "timestamp" : 1795235588.685
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "31D42A47-C5E6-4A1E-889D-F3AEA1EFAFA9",
+        "isAssociatedWithFailure" : true,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.33.08 AM",
+        "timestamp" : 1795235588.685
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FF1D66BC-F690-4E56-96FC-72BF44A0FBEE.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-13-revealed-edge-pan-pinch-state_0_56CC699A-33A7-4296-8EDA-59E57936702B.txt",
+        "timestamp" : 1795235714.029
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "41BC7241-0ACD-4C8A-8C4B-AF6B3902D721.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-13-revealed-edge-pan-pinch_0_942A217E-ECEE-4E5B-8848-49498DE1A2A9.png",
+        "timestamp" : 1795235714.002
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D6274627-50EA-4B99-905A-F18A755B2AA0.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-12-blue-braid-existing-sequence-state_0_62502175-FAB6-48F1-8855-63D7E08B8BD5.txt",
+        "timestamp" : 1795235711.882
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "3A0400E9-5F63-4378-BF3D-98A053198929.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-12-blue-braid-existing-sequence_0_77BC4937-7A53-47AF-BF6B-1EFE7E36F606.png",
+        "timestamp" : 1795235711.846
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B8A4CC2D-D0B0-4FFA-853D-8009F9A447A6.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-11-blue-braid-moving-gameplay-scale-state_0_DAD564E2-EF93-469E-9EA4-1A12B6661644.txt",
+        "timestamp" : 1795235693.63
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "696429CA-D070-4C11-98AD-28A0440F5691.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-11-blue-braid-moving-gameplay-scale_0_6A48CBF5-934F-4A1D-9EDD-92533E231013.png",
+        "timestamp" : 1795235693.602
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2FFF7532-15A1-45B1-A297-000100D10B5D.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-10-blue-braid-static-same-anchors-state_0_90227530-90A8-42D6-BDBE-98CFCB652BD3.txt",
+        "timestamp" : 1795235688.96
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4792E2BD-F316-46CE-BC24-659DA844AEC5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-10-blue-braid-static-same-anchors_0_7F128E70-3C38-4090-A05B-70752E47FE56.png",
+        "timestamp" : 1795235688.929
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5CA518D1-B74F-4491-A5CA-7DDA9B1573A7.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-09-original-static-state_0_9DA20F91-9E01-40E0-8130-1DF407214D17.txt",
+        "timestamp" : 1795235685.109
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "F94B6946-0805-465B-924B-F9DCAE72B589.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-09-original-static_0_9A41F424-B924-4090-8551-4F78D8B55D41.png",
+        "timestamp" : 1795235685.079
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "12ED43C4-2786-4113-A4F5-F18B3E4E2C36.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-08-original-moving-gameplay-scale-state_0_628AE857-6F7A-43CA-ACDC-FF597E31FC27.txt",
+        "timestamp" : 1795235680.38
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C8E17821-6035-4D57-BA60-469568322946.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-08-original-moving-gameplay-scale_0_E1B49EC0-D2A7-45B1-892C-9C0762B2EF8A.png",
+        "timestamp" : 1795235680.352
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5358AB75-908C-4676-9EA0-E0A35DF68B84.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-07-tiled-revealed-matched-state_0_7A72D845-73D3-4BAF-B6FA-0D3BC2620569.txt",
+        "timestamp" : 1795235671.281
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8903E55A-00F7-47C6-8E1E-9702A3DBD360.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-07-tiled-revealed-matched_0_AF5DCECB-AC4D-412E-AB97-F4AE7C8FE831.png",
+        "timestamp" : 1795235671.248
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6805B87B-FE1D-4781-8CD0-8B6EE0FCA72D.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-06-whole-forest-revealed-state_0_874FD823-919B-4DD8-8095-FE69C20F6D63.txt",
+        "timestamp" : 1795235668.708
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "9E7DEBCD-2C42-4B92-91EF-749904587A79.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-06-whole-forest-revealed_0_2E06AEEC-A2AA-4D76-8898-4553A5EEE728.png",
+        "timestamp" : 1795235668.672
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "9A896472-6649-463E-A5F5-D98A5573B62C.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-05-first-revealed-transition-state_0_4328F5DF-216A-4AFD-8300-7D94A7DFEB07.txt",
+        "timestamp" : 1795235666.283
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "67BA9231-B78E-408B-9129-E856B2117A01.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-05-first-revealed-transition_0_D30780C6-9833-44EB-A3CD-DE2A358822E4.png",
+        "timestamp" : 1795235666.251
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A59B31A1-F626-415B-A023-5C71104AE91C.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-04-last-covered-state_0_1953745D-CBC1-4BCF-B634-16526A89F980.txt",
+        "timestamp" : 1795235663.727
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "06242C61-4FAA-4420-A08F-6D29ED05B5FD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-04-last-covered_0_4C3265AF-694D-4DDC-876E-304D223E8131.png",
+        "timestamp" : 1795235663.696
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B1FF6D4A-1CF4-429D-A79B-875976FA67AB.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-03-covered-edge-pan-pinch-state_0_73209E27-3168-4095-84DE-02449209CC1E.txt",
+        "timestamp" : 1795235649.588
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2D2AB7B8-BC24-4436-B15A-8084E1267C57.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-03-covered-edge-pan-pinch_0_860778B4-9F36-4EE8-B907-D454A0D939E9.png",
+        "timestamp" : 1795235649.558
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A47E16CA-D7F8-48DD-82D5-0259F4255141.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-02-tiled-covered-matched-state_0_CFB67ABA-1903-424D-8FBF-5F374E7D2210.txt",
+        "timestamp" : 1795235644.602
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "71EA1CC4-9481-4DA8-8CC3-F8032F048398.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-02-tiled-covered-matched_0_11EADF16-A973-461A-84C2-8B8D86B62564.png",
+        "timestamp" : 1795235644.571
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A47F1682-C85B-4EDA-8523-804CC88D8344.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-01-organic-covered-state_0_1482E7E3-A6F2-45DF-8776-DE01E5A58B89.txt",
+        "timestamp" : 1795235642.327
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "37ED45D7-BB81-4112-8AEC-7ECC451C8D53.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-01-organic-covered_0_FB51BB42-DA29-4C72-A82B-48DDDDA073FA.png",
+        "timestamp" : 1795235642.3
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2FogMotionIntegrated()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2FogMotionIntegrated"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6741A8CD-A718-4BF8-9DC6-AE9AF94A9D9A.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "App UI hierarchy for com.civilization.seed_0_437910A0-460B-4CAA-81F7-E7CB1697C542.qa",
+        "timestamp" : 1795235747.581
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "88D70B36-D631-45D4-82FB-17C433449DF3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.35.47 AM",
+        "timestamp" : 1795235747.581
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6DFEC410-E98D-467A-B790-F2DE20EC202F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "foothill-01-fresh-map_0_02F94D51-4C40-4E2E-BFE0-206068BB9AE7.png",
+        "timestamp" : 1795235745.399
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "05042977-284B-421F-A680-1DB42CCDFD5E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.35.43 AM",
+        "timestamp" : 1795235743.395
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "F875B515-08E8-4442-A70F-05A22C20CC65",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.35.41 AM",
+        "timestamp" : 1795235741.521
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E23477A4-6799-444B-B6E6-777C87256FA7",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.35.39 AM",
+        "timestamp" : 1795235739.945
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "F654A8DD-036B-4EEC-AC55-79008A0220FB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.35.38 AM",
+        "timestamp" : 1795235738.388
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1ED22C61-A011-4A5D-A868-8D73DF29DA02",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.35.36 AM",
+        "timestamp" : 1795235736.871
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1B8BE167-585C-4307-A512-425A75DF8DAB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.35.32 AM",
+        "timestamp" : 1795235732.888
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "81C00AD1-5B8D-427D-87E3-F81F25D26F27",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.35.30 AM",
+        "timestamp" : 1795235730.998
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D08F2E20-8F56-436E-813B-DF232B201FE3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.35.25 AM",
+        "timestamp" : 1795235725.501
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8188DC62-CEC2-4084-A0F4-36008C5FD83A.mp4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Screen Recording 2026-11-21 at 06.35.21 AM.mp4",
+        "timestamp" : 1795235721.281
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "489FAE1F-634A-4FF0-975F-63B08754D322.txt",
+        "isAssociatedWithFailure" : true,
+        "suggestedHumanReadableName" : "Complete Issue Description.txt"
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2319869D-F049-4992-977C-26A22C074DAD.txt",
+        "isAssociatedWithFailure" : true,
+        "suggestedHumanReadableName" : "App UI hierarchy for com.civilization.seed_0_29681452-B7AA-42A0-BCF5-2978A3E4204D.qa",
+        "timestamp" : 1795235747.698
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8C9E3520-CA38-4F33-B83B-4D1684ABCBE4",
+        "isAssociatedWithFailure" : true,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.35.47 AM",
+        "timestamp" : 1795235747.698
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2FoothillIntegratedTraversalAndSaveIsolation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2FoothillIntegratedTraversalAndSaveIsolation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "3A9E0AC6-F9ED-4072-9318-4CB86FCE39ED.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-09-reconnected_0_03F92D20-3608-4465-9382-AD6B448F970F.png",
+        "timestamp" : 1795235783.008
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E9AA6597-A2CB-44B2-A9D3-85460281F123.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-08-reloaded_0_48B43052-5CF6-4D64-8733-886CCD2891D0.png",
+        "timestamp" : 1795235781.989
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C7063080-47D8-46D1-B43B-AA5C6CEED8AC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-07-disconnected-retained_0_0A373BB8-AEAB-4F54-8F2A-AC08797C297E.png",
+        "timestamp" : 1795235770.17
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "CC85CEC5-5190-429D-A7AA-57A7327C5B05.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-06-connected_0_7D87DD3B-C314-4852-869D-EA7D8546B4C9.png",
+        "timestamp" : 1795235769.487
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "57AE1798-0ACB-477E-B31D-BE43338AE784.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-05-route-preview_0_1E4EEF15-3CA7-41FD-970F-F7737F1B6DC1.png",
+        "timestamp" : 1795235768.895
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5910A115-073F-4B0F-BEFC-18183C153AB1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-04-disconnected_0_09D00433-B548-47FB-A51B-4A47FDEBD930.png",
+        "timestamp" : 1795235765.082
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6CEEF0BF-36C1-42DE-A0ED-D72869BBC521.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-03-visible-hut-fallback_0_04752DD5-5FC8-4D6B-815A-204B0F5C50B1.png",
+        "timestamp" : 1795235762.363
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "0DE87319-C909-46C9-BA9B-E3D7F1990B41.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-02-lodge-free-path_0_42FD63B2-F70F-4F7C-87A6-73E336B7F74D.png",
+        "timestamp" : 1795235760.46
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FD4CD83C-B099-4C4A-B8B3-B86B2A7956A5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-01-campfire_0_18415F6F-6691-4376-9823-E7FB1394C4E5.png",
+        "timestamp" : 1795235759.701
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "013BE8D4-38B0-40DA-A795-AABDC2458FDF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-09-map-gestures_0_41FCC273-2EAD-46A8-8854-EECB15585D05.png",
+        "timestamp" : 1795235836.631
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FEB610BF-25E8-4289-8930-047F28DB752E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-10-retained-scroll_0_7BC067AB-6239-4D90-A7A3-479994508811.png",
+        "timestamp" : 1795235832.654
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1D6240F6-7575-4968-873B-E67785FCEB5E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-08-readable-roads_0_52712172-B117-45E6-9664-6ECBC1AFC9B4.png",
+        "timestamp" : 1795235827.65
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "857907A5-C086-4FF2-8781-A8F711106CD1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-07-exact-research-route_0_D99D743C-62A2-4785-813B-2C1BE9AD1453.png",
+        "timestamp" : 1795235821.781
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "78C5EBB9-FF0E-4BBF-BC51-99B53D7A952E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-06-research-locked_0_FA953C2F-D415-4EFC-85F9-38BD00950253.png",
+        "timestamp" : 1795235821.233
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1547D9F0-486B-48AD-87C6-D1EB0A6B7257.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-05-exact-material-route_0_A934AFC9-2028-4394-9999-9370646BBE5C.png",
+        "timestamp" : 1795235817.262
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DFC705C4-AB1C-413C-BD6F-2DFDA87E5EEF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-04-material-shortfall_0_948A17B2-D04C-4BE2-9E40-DA15BAD882A9.png",
+        "timestamp" : 1795235816.648
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "22853431-4EC0-4683-9AB5-1D21840935FD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-03-dismiss-return_0_EB122B81-D2CF-407B-9D2C-3215AD3A41D7.png",
+        "timestamp" : 1795235806.647
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "20DA10F5-12C2-4F76-B802-1A7676B79559.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-02-build_0_19B99FA0-E0B6-40EC-849F-B1C4363B3B1B.png",
+        "timestamp" : 1795235802.8
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "AEC67A8C-4FB6-4D9C-9096-9085271CAC15.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-01-one-tap-goals_0_72A63ED1-E5C5-433D-8E0C-012F2B712264.png",
+        "timestamp" : 1795235798.102
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2MenusActionsAndRetainedReturn()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2MenusActionsAndRetainedReturn"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "81A45859-9642-4187-B095-BA12931D3289.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-failure-hierarchy_0_B9DFC4DC-B481-44A8-9DF1-E28DAE43EBD7.txt",
+        "timestamp" : 1795235894.64
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "29775985-ACDC-4D01-B7F0-E465629A9D6E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-failure-foundingExploreMap_0_F27F375F-B659-4677-A559-D9CDA39EC7E6.png",
+        "timestamp" : 1795235894.397
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "9A952989-203A-43FB-A832-FCF31F137014",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.13 AM",
+        "timestamp" : 1795235893.984
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DBC67EE5-4D60-4EB6-B612-2A145075C281",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.14 AM",
+        "timestamp" : 1795235894.268
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D764B1E8-CDC9-47CC-B944-7F249D906421",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.13 AM",
+        "timestamp" : 1795235893.531
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "CB0078FC-B665-4E22-A0DD-CA27B287D26C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.13 AM",
+        "timestamp" : 1795235893.818
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6DF5B05C-A1E8-4FB1-9D2D-6AA01777E825.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-10-retained-scroll_0_57050BD5-1FAD-4CC7-B1A5-E64121065FD4.png",
+        "timestamp" : 1795235893.325
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "696E9105-38E6-43D0-98FC-0F59CBEB9C07",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.12 AM",
+        "timestamp" : 1795235892.974
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2ABE9FD3-C4E6-41E9-978C-F1B1F17ABAAB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.13 AM",
+        "timestamp" : 1795235893.265
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B5DC7CF1-1987-40DB-97AB-24EE058770ED",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.12 AM",
+        "timestamp" : 1795235892.507
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B2E207C4-1F2D-4E76-AC59-1AABDF548B85",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.12 AM",
+        "timestamp" : 1795235892.789
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D4D697C0-0709-4C2E-9CAC-27D6E93AB37B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.09 AM",
+        "timestamp" : 1795235889.895
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "37A9231F-B466-455E-A9B5-7695204410FD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.10 AM",
+        "timestamp" : 1795235890.255
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "068A6DB4-F95F-46D0-BE13-8B9C60DCAD76",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.09 AM",
+        "timestamp" : 1795235889.524
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "0B6535AF-DB6C-45EC-BBFC-372D0DAA6B9C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.09 AM",
+        "timestamp" : 1795235889.808
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A521149C-2375-462B-8945-1D28DA8A0125",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.09 AM",
+        "timestamp" : 1795235889.007
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "80066894-53AE-446F-B42D-49D543EC7AD2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.09 AM",
+        "timestamp" : 1795235889.289
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8E08EF88-D69F-42E2-AFD0-8093615BD775",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.08 AM",
+        "timestamp" : 1795235888.524
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2F63B36F-90B5-44BC-9927-836AC6589145",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.08 AM",
+        "timestamp" : 1795235888.812
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "49978C45-FB1A-4A3B-A0D3-36676A9C34F3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.08 AM",
+        "timestamp" : 1795235888.042
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6317C6CA-911A-49A0-9367-7F6DB1731CDA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.08 AM",
+        "timestamp" : 1795235888.322
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DD938C8B-31FE-4B75-95C4-91952A58B48F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.07 AM",
+        "timestamp" : 1795235887.573
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "77DE8875-967C-4A7F-A72D-B3A6A89DCBE8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.07 AM",
+        "timestamp" : 1795235887.861
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8AFDE57D-0F56-4553-9283-B3E0F3372791.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-13-roads-map-panel-tail_0_A0EA9425-5C1B-497C-9619-AE56D57C7BC6.png",
+        "timestamp" : 1795235887.38
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "06EBE600-82DF-4BD8-ACD7-239EAD9C8E28",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.06 AM",
+        "timestamp" : 1795235886.508
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1DBFCDE7-D379-4B47-8C2A-3D8BFA9D8A13",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.06 AM",
+        "timestamp" : 1795235886.915
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "F7C5E366-0AB8-4A4B-90D8-69CF18D7CEED.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-12-roads-map-panel_0_2ACEF703-460E-461F-A4C4-161D8F421D3E.png",
+        "timestamp" : 1795235886.436
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C0409A90-D6AF-436B-A7B2-DF694EA1A2C8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.06 AM",
+        "timestamp" : 1795235886.057
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "EFBAE181-2E82-42C4-96BD-B25E25943D02",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.06 AM",
+        "timestamp" : 1795235886.339
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1261F8EB-5033-4154-A721-7EDE99246913.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-11-roads-text-tail_0_C4D65E2C-82A3-434C-9C6D-D2E38ED1A4EE.png",
+        "timestamp" : 1795235885.868
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "409CBEFD-95C4-494D-95F7-7C749B5EA26F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.04 AM",
+        "timestamp" : 1795235884.907
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "992DF37F-3A13-497C-AAAB-2843232590D9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.05 AM",
+        "timestamp" : 1795235885.382
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "66A5B74C-A06D-4776-ABF8-5C251DD5D539.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-08-readable-roads_0_C48B0A1D-555E-4199-B392-61FCEB83A8A5.png",
+        "timestamp" : 1795235884.8
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E2042351-2CD6-485A-8D44-D76ADA24F39E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.04 AM",
+        "timestamp" : 1795235884.45
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "ABB47B12-C635-491C-A6F5-A03BD6F749ED",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.04 AM",
+        "timestamp" : 1795235884.739
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "519D9B94-D066-4078-8BB6-69B2718AE557",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.03 AM",
+        "timestamp" : 1795235883.409
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5B0A6583-4936-4B70-AA13-0675F0631340",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.03 AM",
+        "timestamp" : 1795235883.894
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "228B51FC-A545-45AB-89B3-EB7CBBFBC8CD",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.02 AM",
+        "timestamp" : 1795235882.607
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DEDB46BD-10C5-4FAC-872A-E13F39317E37",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.02 AM",
+        "timestamp" : 1795235882.891
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E46A78E6-4DEA-40C5-AA01-E03049F7082B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.01 AM",
+        "timestamp" : 1795235881.492
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1F3661F9-1BA0-47CD-8268-AD5AF63639A8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.02 AM",
+        "timestamp" : 1795235882.122
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "BF48CF50-F0D2-4AD6-9D6A-6A283D48AE87",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.00 AM",
+        "timestamp" : 1795235880.665
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8906BEF1-864C-4FCE-BA75-4B638144B353",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.00 AM",
+        "timestamp" : 1795235880.955
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B659548A-0BF3-4167-9F36-C1A2366C38EA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.38.00 AM",
+        "timestamp" : 1795235880.24
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "7AEFAC74-12DA-47B5-8EF1-5C76555A2608",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.00 AM",
+        "timestamp" : 1795235880.522
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "870C4689-04B6-4730-9601-ABF9A174BD6F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.59 AM",
+        "timestamp" : 1795235879.725
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "65317B85-D15F-4137-83D9-7107B5CDD3CC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.38.00 AM",
+        "timestamp" : 1795235880.005
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "F9360FB1-F004-4797-B16F-31E2C1BF0C47",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.59 AM",
+        "timestamp" : 1795235879.185
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6278C8B5-8A7D-4DCD-866A-630E97610485",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.59 AM",
+        "timestamp" : 1795235879.472
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B6DBA0D7-5B00-4A59-BA4C-0646119D9D82.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-07-exact-research-route_0_F027509A-E3EF-45F0-8FF1-837210416BA3.png",
+        "timestamp" : 1795235878.944
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6728E92B-4958-41F1-97D7-7E77E7E37082",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.58 AM",
+        "timestamp" : 1795235878.599
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "30383E08-7C99-4A15-933E-43112C2D40C2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.58 AM",
+        "timestamp" : 1795235878.888
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E806FC63-157E-446C-A8BB-338C96680621.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-06-research-locked_0_B832520C-2F5D-497C-B682-51627413C181.png",
+        "timestamp" : 1795235878.402
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B2090A08-0EE2-4F0E-8394-D391561E81FB",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.58 AM",
+        "timestamp" : 1795235878.048
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "EF013A62-7EB3-4A43-8A5E-17E5682F4B6E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.58 AM",
+        "timestamp" : 1795235878.335
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4DE6067F-7073-4635-A316-4D26692D2861",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.56 AM",
+        "timestamp" : 1795235876.958
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8D46C6E1-8AEF-4C85-92A8-A3ADA0207873",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.57 AM",
+        "timestamp" : 1795235877.494
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "EB2A3AFC-3D64-4AC2-9EF4-655818017549",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.56 AM",
+        "timestamp" : 1795235876.152
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4C832CC0-7021-4CA8-BAC2-BF580A147B93",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.56 AM",
+        "timestamp" : 1795235876.441
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "86A57008-709B-4EDA-92D4-41376D7701AC",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.55 AM",
+        "timestamp" : 1795235875.717
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2D00B335-7C73-4FEC-9018-CD3E5203F222",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.56 AM",
+        "timestamp" : 1795235876.002
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "12EFB568-FE4A-48CB-B601-914247DEBD7E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.55 AM",
+        "timestamp" : 1795235875.182
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6EF7F44D-4A8B-4783-92A3-0245C5A72EBF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.55 AM",
+        "timestamp" : 1795235875.468
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "326802BA-0CF7-42A5-ADEB-B9ADC5C10266",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.54 AM",
+        "timestamp" : 1795235874.475
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "AFDBE49C-83D1-455F-9F43-DAF18E84D5F6",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.54 AM",
+        "timestamp" : 1795235874.755
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "985AFF15-847B-4692-9F11-3661F0DF494C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-05-exact-material-route_0_7444F374-6AE3-496E-A9C4-68B003E1CC61.png",
+        "timestamp" : 1795235874.272
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "EA680626-4B9E-46BE-8435-A6B621A8E633",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.53 AM",
+        "timestamp" : 1795235873.857
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "57CD30CF-D850-4466-B1A7-B3E7CD1E2E51",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.54 AM",
+        "timestamp" : 1795235874.145
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "CC6B1805-2C38-4572-8BE6-7D133920673E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.52 AM",
+        "timestamp" : 1795235872.807
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C441BC69-4F7D-4B01-A7A3-EB11A319F1B3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.53 AM",
+        "timestamp" : 1795235873.122
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "262AB474-C887-4C01-BC14-70B6C65CE78E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-15-shortfall-output-tail_0_2E8CBE84-6727-48D3-914E-6BEBD3F0D116.png",
+        "timestamp" : 1795235872.731
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1C7AC7BE-8172-41E5-B4FB-BA7D40B52508",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.51 AM",
+        "timestamp" : 1795235871.84
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "876511EF-90BB-4D8B-B600-672EB2A25FD3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.52 AM",
+        "timestamp" : 1795235872.151
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "70E613FD-4D39-41E9-ACBF-716CF9673A0D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-04-material-shortfall_0_4731AF10-2EAF-4C6B-A0C3-1801BCB2F630.png",
+        "timestamp" : 1795235871.772
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DD6905AA-01F3-47E8-849A-78421D7BDA7E",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.51 AM",
+        "timestamp" : 1795235871.416
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D850EB48-A357-4966-8605-F3CDDB13A57C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.51 AM",
+        "timestamp" : 1795235871.702
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B9AEE383-856C-459D-81F2-F25667C237CA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.50 AM",
+        "timestamp" : 1795235870.207
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5A607929-7554-4C86-9FB0-314D401FD42F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.50 AM",
+        "timestamp" : 1795235870.876
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6026D3A3-73BF-4B64-A5EE-5D3D03806467",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.49 AM",
+        "timestamp" : 1795235869.413
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6E1E06EB-C6FC-4FFF-BA63-5F351B6B4586",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.49 AM",
+        "timestamp" : 1795235869.701
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8F7F3E6A-D419-4C42-AD43-46E1E5BFBFB4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.49 AM",
+        "timestamp" : 1795235869.058
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "2E36AABE-884D-4E06-B4D7-E8EB3BA85626",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.49 AM",
+        "timestamp" : 1795235869.335
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "530B555C-E392-41C0-89BD-209FD41E4098",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.48 AM",
+        "timestamp" : 1795235868.593
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8498D1F1-4DEE-4562-B22B-76143E2699F9",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.48 AM",
+        "timestamp" : 1795235868.872
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "58D3D5D4-2240-4011-83A9-615E8EBDA7EE",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.48 AM",
+        "timestamp" : 1795235868.118
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DF05C226-0510-4553-B780-26CFBD4FD834",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.48 AM",
+        "timestamp" : 1795235868.402
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1B6834BD-C4F7-43DF-82E3-87765E27BA24",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.47 AM",
+        "timestamp" : 1795235867.59
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "895BE25A-F485-4B47-A5D2-DA8FCCA70690",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.47 AM",
+        "timestamp" : 1795235867.872
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5AF57B18-1FEE-4E5D-BFA1-F509722182FA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.46 AM",
+        "timestamp" : 1795235866.359
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "BF487267-E106-4FE5-A35C-5CA40165EC6A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.47 AM",
+        "timestamp" : 1795235867.025
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "91180035-66FA-44D2-90ED-A6ED35A6B0D2",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.45 AM",
+        "timestamp" : 1795235865.533
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "896DE53C-ED48-4389-AD1C-1FF8629DFF34",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.45 AM",
+        "timestamp" : 1795235865.824
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "F688436E-80E2-43BF-85C4-4BFDADD94AFA",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.45 AM",
+        "timestamp" : 1795235865.173
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B3BD342C-CCFA-42D4-9DE1-86819E9A5780",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.45 AM",
+        "timestamp" : 1795235865.455
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C90F171F-A41F-4D53-89DC-F07C40F54918",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.44 AM",
+        "timestamp" : 1795235864.697
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "85B05A13-DB2B-43BD-9949-30499366BFD8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.44 AM",
+        "timestamp" : 1795235864.985
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8C73710C-4D23-49D5-8487-0346288ACFB6",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.44 AM",
+        "timestamp" : 1795235864.242
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "9AB7582C-6AB3-4895-BC12-42B4ECF707BF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.44 AM",
+        "timestamp" : 1795235864.522
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "49005776-4615-48C9-B5FF-63EDC3870EB1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.43 AM",
+        "timestamp" : 1795235863.715
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "9787B8BF-B8A4-4A1D-9EC5-EF38D9AA6767",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.44 AM",
+        "timestamp" : 1795235864.005
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "1A107F2F-C623-4356-ACAD-FF66EA5FEAC1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.42 AM",
+        "timestamp" : 1795235862.725
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "9EEAF92B-C900-43E8-8565-1CE8A804787C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.43 AM",
+        "timestamp" : 1795235863.161
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "76805AAE-DB9A-4913-ACBB-5ED9761CDFC1",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.41 AM",
+        "timestamp" : 1795235861.923
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "235D596F-C6AD-4151-A97F-C73D97F1F2FF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.42 AM",
+        "timestamp" : 1795235862.208
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B26D3AC6-5867-4B4C-BC25-345423690F28.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-03-dismiss-return_0_E73B12AC-DBC7-49E5-8ECF-2FEA26442FC1.png",
+        "timestamp" : 1795235861.849
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "BA36F2CA-6835-4314-B0BD-41A99DCD806F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.41 AM",
+        "timestamp" : 1795235861.507
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "53F3172C-3F13-4E1F-885C-2CEC46CA783F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.41 AM",
+        "timestamp" : 1795235861.788
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "E1C34A32-6ED0-405D-A675-E5AA4AEE51FF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.40 AM",
+        "timestamp" : 1795235860.629
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A0034A79-AE95-4C7C-94B0-ADE537EC1359",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.40 AM",
+        "timestamp" : 1795235860.92
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8A805648-4AE9-4764-8840-95E9FE27B21F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.39 AM",
+        "timestamp" : 1795235859.69
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B121271E-4316-4982-84F0-2D6EC620DC16",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.39 AM",
+        "timestamp" : 1795235859.977
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "BA55B29F-D1F5-4046-AB7F-F27E009F853C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.39 AM",
+        "timestamp" : 1795235859.224
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "AE4E7095-9691-4B44-A2BE-080E26D86F80",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.39 AM",
+        "timestamp" : 1795235859.505
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "EA3DD96B-19AC-43DF-ADB0-729689643B1F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.38 AM",
+        "timestamp" : 1795235858.774
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "92B6E7F7-F34C-405B-8957-B72DD78A9291",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.39 AM",
+        "timestamp" : 1795235859.055
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DE6E62C6-7265-471A-B6A5-01C1D7A1643B",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.38 AM",
+        "timestamp" : 1795235858.243
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "801D60D1-D233-4359-B03E-37729F91204C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.38 AM",
+        "timestamp" : 1795235858.532
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "17CAD16E-461F-4D0B-830F-92817BF37B9D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.37 AM",
+        "timestamp" : 1795235857.259
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "21E7FF4E-6B42-4C24-8B66-0DCA60FE703F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.37 AM",
+        "timestamp" : 1795235857.56
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4DB1D9C5-94B5-4365-BD4F-8E3214A60B5D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-14-inspector-output-tail_0_1C2709FA-8842-4B70-B480-B8BD6584FFC4.png",
+        "timestamp" : 1795235857.179
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "721E4839-3845-4642-9FD4-C95742AFDE11",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-11-21 at 06.37.36 AM",
+        "timestamp" : 1795235856.398
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "0599DAD4-AB6C-44E9-8415-E6437D36794D",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.36 AM",
+        "timestamp" : 1795235856.708
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A6A36909-EF77-4893-AF4B-E1E616C982CB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-02-build_0_EA5378FE-4F78-47A2-A7A4-2EF03CA033BD.png",
+        "timestamp" : 1795235856.251
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "55D9DA99-53AA-4E2A-B078-12DAA0C3FD3C",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.35 AM",
+        "timestamp" : 1795235855.868
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "317EFCD9-7B4E-466F-8CD6-944525211EDE",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.35 AM",
+        "timestamp" : 1795235855.366
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8291129D-BCA2-4A44-9BF3-36A9B6A34CCF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.34 AM",
+        "timestamp" : 1795235854.466
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "883C579B-0FD2-4FF2-A393-AC29828EB929",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.33 AM",
+        "timestamp" : 1795235853.935
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "9F1A83E9-DA9A-4055-A867-5A342B5A7D31",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.33 AM",
+        "timestamp" : 1795235853.11
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "77B0AC2B-94CF-4001-8404-5B6121AE5D4A",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.32 AM",
+        "timestamp" : 1795235852.735
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8192EB34-8D8F-4657-9E64-83DBB7B48AEF",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.32 AM",
+        "timestamp" : 1795235852.251
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "526A5474-3AC6-43A9-9B78-2BBBA8BA4A19.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "menus-large-01-one-tap-goals_0_55A3392D-7193-44C9-B059-091651EC38A0.png",
+        "timestamp" : 1795235851.773
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6E73AC8F-484A-41A2-8ADA-0CA3F7B1EBB3",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.31 AM",
+        "timestamp" : 1795235851.617
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A5A1D43D-3BA5-4D56-86CA-77A3B7249F17",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.28 AM",
+        "timestamp" : 1795235848.268
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "F3C94EE0-A0AB-42E3-BC99-B1A631EC7698",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.26 AM",
+        "timestamp" : 1795235846.467
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A773427A-AD3E-450B-9677-3C6022C38BD5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-21 at 06.37.22 AM",
+        "timestamp" : 1795235842.99
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6488CEEE-3EF0-4B8D-A171-3909E59F8816.mp4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Screen Recording 2026-11-21 at 06.37.18 AM.mp4",
+        "timestamp" : 1795235838.754
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2MenusLargerText()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2MenusLargerText"
+  }
+]
