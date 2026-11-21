@@ -15,7 +15,7 @@
 - [x] Continue across suspect transition without replacing earned progress.
 - [x] Capture milestone/block screens, actual profile, timings, logs/result bundles; distinguish reproduced defects, deliberate REDs and unknown human readability.
 - [x] Prioritize compact iPhone; add dedicated iPad if feasible without concurrent resource conflict.
-- [ ] Commit tests, receipts and concise handoff; verify protected source unchanged and normal-push only isolated personal branch.
+- [x] Commit tests, receipts and concise handoff; verify protected source unchanged and normal-push only isolated personal branch.
 
 ## Test steps
 

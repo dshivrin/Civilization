@@ -39,8 +39,12 @@ These are full original 1334×750 native phone captures, not mockups. Human inte
 
 ## Final handoff
 
-Three native test cases were added; four distinct cases were executed, with nine executions total: six passes, two preserved driver failures, one deliberate compact visibility RED. Run 3’s functional route passes while its aggregate remains failed; run 4 is fully green for its three selected cases. `verification.json` records exact selections, per-case results and SHA-256 of the final test source. All **201 protected product/core/project/runner files match the installed baseline**; `git diff --check` passes. This is test and evidence delivery only. No core tests were repeated because product sources did not change.
+Three native test cases were added; four distinct cases were executed, with nine executions total: six passes, two preserved driver failures, one deliberate compact visibility RED. Run 3’s functional route passes while its aggregate remains failed; run 4 is fully green for its three selected cases. `verification.json` records exact selections, per-case results and SHA-256 of the final test source. All **201 protected product/core/project/runner files match the installed baseline**; The authored-file `git diff --check` passes; the full-range check flags trailing whitespace in original xcodebuild logs, which are preserved byte-for-byte. This is test and evidence delivery only. No core tests were repeated because product sources did not change.
 
 The two dedicated simulator identities retain their own disposable games and local result bundles. No shared simulator was erased, reset or controlled. The temporary worktree is retained for review. No physical iPhone interaction, FPS/thermal result or human acceptance is claimed.
 
 [iPad opening comparison](captures/run4/99C50F47-417F-469C-B682-701F3A94084D.png) · [machine verification](verification.json) · [plan](../../../plans/2026-11-21-native-route-audit.md)
+
+## Branch-only delivery receipt
+
+Test/evidence commit `f8bbd292ed003786c17b8c063948b9e2b1be712a` was normal-pushed to `git@github.com:dshivrin/Civilization.git`, branch `codex/riverbend-native-route-audit`; `git ls-remote` independently matched that exact commit. This documentation receipt follows on the same branch. No PR, merge or current-review-branch write was made.

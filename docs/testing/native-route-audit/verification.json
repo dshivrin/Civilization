@@ -84,5 +84,10 @@
   "iPadUDID": "041217BC-7655-4195-B255-813B8D5078AE",
   "iPadQAIdentity": "com.civilization.seed.qa.earned.7107d02a-85e4-4f13-979a-46b2cb39060a",
   "ownerSequenceReproduced": false,
-  "physicalDeviceTested": false
+  "physicalDeviceTested": false,
+  "whitespaceCheck": {
+    "authoredFiles": "passed",
+    "fullRange": "raw original xcodebuild log trailing whitespace retained"
+  },
+  "verifiedRemoteEvidenceCommit": "f8bbd292ed003786c17b8c063948b9e2b1be712a"
 }
