@@ -4,6 +4,147 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testUI2FogComparisonMenusExit() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 15)); app.buttons["developerTools"].tap()
+        XCTAssertTrue(app.buttons["openFoundingReview"].waitForExistence(timeout: 10)); app.buttons["openFoundingReview"].tap()
+        XCTAssertTrue(app.staticTexts["foundingStatus"].waitForExistence(timeout: 15))
+        let before = app.staticTexts["foundingStatus"].value as? String
+        func tap(_ id: String) { XCTAssertTrue(app.buttons[id].waitForExistence(timeout: 5)); app.buttons[id].tap() }
+        for target in ["foundingRail-Goals", "foundingCatalog", "foundingRail-Games"] {
+            tap("foundingRail-Explore"); tap("foundingFogComparison")
+            XCTAssertTrue(app.staticTexts["fogAudit"].exists)
+            tap(target)
+            XCTAssertFalse(app.staticTexts["fogAudit"].exists, "Founding menus must exit the temporary engine first")
+            XCTAssertEqual(app.staticTexts["foundingStatus"].value as? String, before)
+            tap(target == "foundingCatalog" ? "foundingCatalogDone" : "foundingMenuDone")
+        }
+        tap("closeFoundingReview")
+    }
+    @MainActor func testUI2FogReduceMotion() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication(); app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 15)); app.buttons["developerTools"].tap()
+        XCTAssertTrue(app.buttons["openFoundingReview"].waitForExistence(timeout: 10)); app.buttons["openFoundingReview"].tap()
+        XCTAssertTrue(app.staticTexts["foundingStatus"].waitForExistence(timeout: 15))
+        func tap(_ id: String) { XCTAssertTrue(app.buttons[id].waitForExistence(timeout: 5)); app.buttons[id].tap() }
+        tap("foundingRail-Explore"); tap("foundingFogComparison")
+        let audit = app.staticTexts["fogAudit"]
+        func capture(_ name: String) {
+            XCTAssertTrue(audit.label.contains("osReduceMotion=1"), audit.label)
+            XCTAssertTrue(audit.label.contains("moving=0"), audit.label)
+            XCTAssertTrue(audit.label.contains("fade=0"), audit.label)
+            XCTAssertTrue(audit.label.contains("hiddenGround=0 hiddenMarkers=0 opaque=1"), audit.label)
+            let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); a.name = "fog-motion-reduce-" + name; a.lifetime = .keepAlways; add(a)
+            let b = XCTAttachment(string: audit.label); b.name = "fog-motion-reduce-" + name + "-state"; b.lifetime = .keepAlways; add(b)
+        }
+        capture("covered")
+        tap("fogBuild")
+        XCTAssertTrue(app.staticTexts["foundingStatus"].label.contains("Wood 80"), "Visible stocks must belong to temporary gameplay")
+        tap("fogStep"); tap("fogExpedition"); tap("fogLastCovered"); capture("last-covered")
+        tap("fogFirstReveal"); capture("first-revealed-no-fade")
+        tap("fogBuild"); tap("fogStep"); tap("fogGameplay"); capture("original-retained-pose")
+        let before = audit.label.components(separatedBy: "actor=").last
+        tap("fogLook"); capture("blue-braid-retained-pose")
+        XCTAssertEqual(audit.label.components(separatedBy: "actor=").last, before)
+        tap("fogReturn"); tap("closeFoundingReview")
+    }
+    @MainActor func testUI2FogMotionIntegrated() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 15))
+        app.buttons["developerTools"].tap()
+        XCTAssertTrue(app.buttons["openFoundingReview"].waitForExistence(timeout: 10)); app.buttons["openFoundingReview"].tap()
+        XCTAssertTrue(app.staticTexts["foundingStatus"].waitForExistence(timeout: 15))
+        let founding = app.staticTexts["foundingStatus"].value as? String
+        func tap(_ id: String) { XCTAssertTrue(app.buttons[id].waitForExistence(timeout: 5), id); XCTAssertTrue(app.buttons[id].isHittable, id); app.buttons[id].tap() }
+        let audit = app.staticTexts["fogAudit"]
+        func value() -> String { audit.label }
+        func token(_ key: String) -> String {
+            let result = value().split(separator: " ").first { $0.hasPrefix(key + "=") }.map(String.init)
+            XCTAssertNotNil(result, key + " missing from " + value()); return result ?? "missing"
+        }
+        func assertHidden() {
+            XCTAssertTrue(value().contains("hiddenGround=0"), value())
+            XCTAssertTrue(value().contains("hiddenMarkers=0"), value())
+            XCTAssertTrue(value().contains("opaque=1"), value())
+            XCTAssertFalse(value().contains("unknown=0 "), value())
+        }
+        func capture(_ name: String) {
+            let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); a.name = "fog-motion-" + name; a.lifetime = .keepAlways; add(a)
+            let b = XCTAttachment(string: value()); b.name = "fog-motion-" + name + "-state"; b.lifetime = .keepAlways; add(b)
+        }
+        func wait(_ text: String) {
+            XCTAssertTrue(audit.waitForExistence(timeout: 5))
+            let p = NSPredicate { _, _ in value().contains(text) }
+            expectation(for: p, evaluatedWith: nil); waitForExpectations(timeout: 8)
+        }
+        func open() { tap("foundingRail-Explore"); tap("foundingFogComparison"); wait("opaque=1") }
+        open()
+        let initialKnown = token("known"), camera = token("camera"), zoom = token("zoom")
+        assertHidden(); capture("01-organic-covered")
+        tap("fogStyle"); capture("02-tiled-covered-matched")
+        XCTAssertEqual(token("known"), initialKnown); XCTAssertEqual(token("camera"), camera); XCTAssertEqual(token("zoom"), zoom)
+        tap("fogStyle"); assertHidden()
+        let map = app.otherElements["onboardingWalkthroughMap"]
+        let before = map.value as? String ?? ""
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.50, dy: 0.35)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx: 0.70, dy: 0.40)))
+        map.pinch(withScale: 1.35, velocity: 1)
+        XCTAssertNotEqual(map.value as? String ?? "", before)
+        capture("03-covered-edge-pan-pinch"); assertHidden()
+        // Reopen the identical temporary adapter to restore exact matched framing.
+        tap("fogReturn"); open()
+        tap("fogBuild")
+        XCTAssertTrue(app.staticTexts["foundingStatus"].label.contains("Wood 80"), "Visible stocks must belong to temporary gameplay")
+        tap("fogStep")
+        tap("fogExpedition"); tap("fogLastCovered")
+        let coveredKnown = token("known"), revealCamera = token("camera"), revealZoom = token("zoom")
+        capture("04-last-covered"); assertHidden()
+        tap("fogFirstReveal"); capture("05-first-revealed-transition"); assertHidden()
+        XCTAssertNotEqual(token("known"), coveredKnown)
+        XCTAssertEqual(token("camera"), revealCamera); XCTAssertEqual(token("zoom"), revealZoom)
+        wait("fade=0"); capture("06-whole-forest-revealed")
+        tap("fogStyle"); capture("07-tiled-revealed-matched")
+        XCTAssertEqual(token("camera"), revealCamera); XCTAssertEqual(token("zoom"), revealZoom)
+        tap("fogStyle")
+        tap("fogBuild"); tap("fogStep")
+        tap("fogGameplay"); wait("moving=1"); XCTAssertFalse(value().contains("actors=0"), value())
+        XCTAssertTrue(["zoom=0.9500", "zoom=1.1000"].contains(token("zoom")), value())
+        capture("08-original-moving-gameplay-scale")
+        tap("fogStatic"); wait("moving=0")
+        let actor = token("actor"), builds = token("builds")
+        let joints = token("joints"), facing = token("facing")
+        capture("09-original-static")
+        tap("fogLook"); wait("look=blue-braid")
+        XCTAssertEqual(token("actor"), actor); XCTAssertEqual(token("builds"), builds)
+        XCTAssertEqual(token("joints"), joints); XCTAssertEqual(token("facing"), facing)
+        capture("10-blue-braid-static-same-anchors")
+        tap("fogStatic"); wait("moving=1")
+        XCTAssertEqual(token("actor"), actor); XCTAssertEqual(token("builds"), builds)
+        capture("11-blue-braid-moving-gameplay-scale")
+        // Let genuine renderer time show an existing complete activity sequence in the recording.
+        let deadline = Date().addingTimeInterval(18)
+        while Date() < deadline { RunLoop.current.run(until: Date().addingTimeInterval(0.2)) }
+        capture("12-blue-braid-existing-sequence")
+        map.coordinate(withNormalizedOffset: CGVector(dx: 0.55, dy: 0.30)).press(forDuration: 0.05, thenDragTo: map.coordinate(withNormalizedOffset: CGVector(dx: 0.35, dy: 0.40)))
+        map.pinch(withScale: 0.75, velocity: -1)
+        assertHidden(); capture("13-revealed-edge-pan-pinch")
+        tap("fogReturn")
+        XCTAssertEqual(app.staticTexts["foundingStatus"].value as? String, founding)
+        tap("foundingCatalog"); XCTAssertTrue(app.buttons["foundingCard-hut"].exists); tap("foundingCatalogDone")
+        tap("closeFoundingReview")
+    }
     @MainActor func testUI2MenusActionsAndRetainedReturn() throws {
         try menusFlow(largerText: false)
     }

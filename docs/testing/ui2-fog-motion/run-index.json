@@ -1,0 +1,387 @@
+[
+  {
+    "run": "ui2fog-boundary-green",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "291d3c0b528171f8d515f4f344cfa0052065a7e4450eedd572f5068f16395df3"
+  },
+  {
+    "run": "ui2fog-core-delivery",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1,
+        "reason": null
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "45ff956535699d5b94d36d2087b30874b6b4d10db48e1115996ef8420d4b8dae"
+  },
+  {
+    "run": "ui2fog-core-initial",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 322,
+        "exitCode": 0,
+        "reason": null
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "reason": null
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "a655233c32c0b589bb6fcaf2ea9eab3785fe8c4738fe544de9605855000db75a"
+  },
+  {
+    "run": "ui2fog-core-verified",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 323,
+        "exitCode": 0,
+        "reason": null
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 235,
+        "exitCode": 0,
+        "reason": null
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "7ec03f099cdc4030ffca59e6a8a86d40bb22ff5c528dda2465316cb3934a0f86"
+  },
+  {
+    "run": "ui2fog-ipad-delivery",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 5,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "df86252ce83fec024cba295dc32be19aa6b9b91d6bd176e696dbdf4fcc515d52"
+  },
+  {
+    "run": "ui2fog-ipad-final",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 4,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "637d21e9c624fd71d9fabe3d125d43e4986fd8033fe99fd9cff4b5395d2794ae"
+  },
+  {
+    "run": "ui2fog-ipad-reduce-attempt",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "2aa8482828da5133526adc915bd1db2202502f6d53599798fac4b3475df9c2cc"
+  },
+  {
+    "run": "ui2fog-ipad-reduce-final",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "57531eb61734e3a463ed05f22e9325076bec852ad4ff345b4a118e16d315a7a4"
+  },
+  {
+    "run": "ui2fog-ipad-release",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "7d6cd4c724112a9a84c29167006ac123a4e943b2a7546fc2f2d327b7278c802f"
+  },
+  {
+    "run": "ui2fog-ipad-verified",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "d65617eb902b96e3b7c2681146e503c40fc6b52b185430d4d5400c6f0163848c"
+  },
+  {
+    "run": "ui2fog-ipad-visual-final",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "808963d236edf5570f017abcad9ef18c45c30ededd60c9331d5a20f4527522f1"
+  },
+  {
+    "run": "ui2fog-menu-green-lab-retry",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 2,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "ee323a1d563918113a70469c5b767cf0247d9fea93a3da7800d20df0298d508d"
+  },
+  {
+    "run": "ui2fog-menu-red",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "826432ba46fa5913532958da8e1539e0743f606d38b74c38120ac8cb0bb2d5d1"
+  },
+  {
+    "run": "ui2fog-native-attempt2",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 0,
+        "reason": "No executed tests or failure reported despite a successful process exit"
+      }
+    ],
+    "reportSHA256": "ddcf4946ad5c20c5143519485551c95175c48b214c02aef18cb5cff5e89c4de8"
+  },
+  {
+    "run": "ui2fog-native-attempt3",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "282e189664916ec5d5b236a85f0b624e67f051011991119df745f6bd45e709b1"
+  },
+  {
+    "run": "ui2fog-native-red",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 0,
+        "reason": "No executed tests or failure reported despite a successful process exit"
+      }
+    ],
+    "reportSHA256": "94a7a466558ab58f89b2b9bec52ea0dcc7be8d3e8c7b70d6408d7ee1f19c002d"
+  },
+  {
+    "run": "ui2fog-phone-delivery",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 5,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "92434f4ac0ad88648f13ed403530ece98fec09e1210c57752c370a1e2e93f2f5"
+  },
+  {
+    "run": "ui2fog-phone-final",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 3,
+        "exitCode": 65,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "fb910807dde5c6b3e573f4f416ae7f0c9db6eef6b062b3982d391cd88d8c1a68"
+  },
+  {
+    "run": "ui2fog-phone-reduce-final",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 1,
+        "exitCode": 65,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "c00c53ff166f45fe121f823e72128f1880e0cbc9cd2315becbd69a65924bab81"
+  },
+  {
+    "run": "ui2fog-phone-reduce-verified",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "7e0ca4fe77ab7e046131044d85fea2f60f22fbbd9810397c713c71e0f619027e"
+  },
+  {
+    "run": "ui2fog-phone-release",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "6ad72e356c7263b8447e19f33ba28ba96c05a7a57d5071ed0320bfc22ac8ca84"
+  },
+  {
+    "run": "ui2fog-phone-visual-final",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1,
+        "exitCode": 0,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "4cc472354d3249fb58f9002a76bf192cab397696b1d79a933632de63454a5f68"
+  },
+  {
+    "run": "ui2fog-poor-save-red",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "7bf8fd695d217c1a33faff3350a8c38aad3e9303d55a62ec785801ad9a0e127d"
+  },
+  {
+    "run": "ui2fog-red",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "be4032f7864b4ababbe6f5eb9d8c30ee3a17cbaff670ba697b7bcd9c68d2570d"
+  },
+  {
+    "run": "ui2fog-red-allowed",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0,
+        "exitCode": 1,
+        "reason": null
+      }
+    ],
+    "reportSHA256": "cf2298329d0f120f9dc792ba8449492fff7ecbfa12e8685cd51248df7a8337e9"
+  }
+]

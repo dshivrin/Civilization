@@ -1,0 +1,58 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [
+      "E118C061-9C37-4E18-9B03-A633E7240149"
+    ],
+    "only_testing": [
+      "CivilizationUITests/RelocationUITests/testUI2FogMotionIntegrated",
+      "CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload",
+      "CivilizationUITests/RelocationUITests/testUI2MenusActionsAndRetainedReturn",
+      "CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+    ],
+    "output": "/tmp/ui2fog-phone-final"
+  },
+  "steps": [
+    {
+      "name": "ui-debug-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=E118C061-9C37-4E18-9B03-A633E7240149",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/E118C061-9C37-4E18-9B03-A633E7240149",
+        "-resultBundlePath",
+        "/private/tmp/ui2fog-phone-final/ui-debug-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/RelocationUITests/testUI2FogMotionIntegrated",
+        "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload",
+        "-only-testing:CivilizationUITests/RelocationUITests/testUI2MenusActionsAndRetainedReturn",
+        "-only-testing:CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+      ],
+      "exitCode": 65,
+      "status": "failed",
+      "tests": 3,
+      "durationSeconds": 251.345,
+      "log": "/private/tmp/ui2fog-phone-final/ui-debug-1.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T03:28:13.382718+00:00",
+  "revision": {
+    "commit": "095e2c99bc02970255c33b0794229a124de1dd57",
+    "dirty": true
+  },
+  "status": "failed"
+}

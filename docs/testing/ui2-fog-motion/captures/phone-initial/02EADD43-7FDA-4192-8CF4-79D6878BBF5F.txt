@@ -1,0 +1,1 @@
+known=583 unknown=2489 hiddenGround=0 hiddenMarkers=0 opaque=1 fade=1 camera=-448.000,-171.000 zoom=3.9289 actors=1 builds=7 moving=1 look=original actor=399E64BD-7A4F-4E28-98C5-469348F01812 activity=rest facing=awayLeft joints=0.480,-0.480,0.950,-0.950,-3.100,0.000 scale=-1.000 noseHidden=1 cargo=0

@@ -1,0 +1,38 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": "ReviewFogBoundaryTests",
+    "simulator": [],
+    "only_testing": [],
+    "output": "/tmp/ui2fog-red-allowed",
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore",
+        "--filter",
+        "ReviewFogBoundaryTests"
+      ],
+      "exitCode": 1,
+      "status": "failed",
+      "tests": 0,
+      "durationSeconds": 9.192,
+      "log": "/private/tmp/ui2fog-red-allowed/core-debug.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T03:18:22.427645+00:00",
+  "revision": {
+    "commit": "095e2c99bc02970255c33b0794229a124de1dd57",
+    "dirty": true
+  },
+  "status": "failed"
+}

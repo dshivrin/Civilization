@@ -1,0 +1,1 @@
+known=583 unknown=2489 hiddenGround=0 hiddenMarkers=0 opaque=1 fade=0 camera=386.920,-225.460 zoom=1.4400 actors=1 builds=9 moving=1 look=blue-braid actor=6247A93D-5D00-4644-9EAE-6049A773250B activity=walk facing=awayLeft joints=-0.052,0.052,0.070,-0.070,0.061,0.000 scale=-1.000 noseHidden=1 cargo=0

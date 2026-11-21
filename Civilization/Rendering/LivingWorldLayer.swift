@@ -12,6 +12,7 @@ final class LivingWorldLayer: SKNode {
 
     private struct Walker {
         let node: VillagerFigure
+        let routeTiles: [Tile]
         var journey: VisualAgentJourney
     }
     private struct Creature {
@@ -22,6 +23,14 @@ final class LivingWorldLayer: SKNode {
         var elapsed: TimeInterval
     }
     private var walkers: [Walker] = []
+    var reviewMotionTiles: Set<Tile> { Set(walkers.first?.routeTiles ?? []) }
+    var alternateLook = false {
+        didSet { if alternateLook != oldValue { for walker in walkers { walker.node.setAlternateLook(alternateLook) } } }
+    }
+    var reviewMotionSummary: String {
+        "actors=\(walkers.count) builds=\(figureBuildCount) moving=\(budget.animates ? 1 : 0) look=\(alternateLook ? "blue-braid" : "original") " +
+        (walkers.first.map { "actor=\($0.node.reviewIdentity) activity=\($0.journey.activity.rawValue) facing=\($0.journey.facing.rawValue) " + $0.node.jointSummary } ?? "actor=none")
+    }
     private var wildlife: [Creature] = []
     private var nightLights: [SKShapeNode] = []
     private var figureBuildCount = 0
@@ -188,11 +197,12 @@ final class LivingWorldLayer: SKNode {
               let journey = VisualAgentJourney(tiles: route.tiles, planner: planner, source: source.kind,
                 destination: destination.kind, sourceActive: activeProductionIDs.contains(source.id), purpose: route.purpose) else { return }
         let figure = VillagerFigure(profile: index)
+        figure.setAlternateLook(alternateLook)
         figure.name = "provisional-villager-" + route.purpose.rawValue
         figure.position = CGPoint(x: journey.position.x, y: journey.position.y)
         figure.zPosition = 0.1 - figure.position.y / 16
         figure.display(.sample(activity: journey.activity, elapsed: journey.poseElapsed), activity: journey.activity, facing: journey.facing)
-        addChild(figure); walkers.append(Walker(node: figure, journey: journey))
+        addChild(figure); walkers.append(Walker(node: figure, routeTiles: route.tiles, journey: journey))
     }
 
     private func advanceWalker(index: Int, dt: TimeInterval) {

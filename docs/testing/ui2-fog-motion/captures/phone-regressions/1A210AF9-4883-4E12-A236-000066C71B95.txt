@@ -1,0 +1,1 @@
+osReduceMotion=0 static=0 known=583 unknown=2489 hiddenGround=0 hiddenMarkers=0 opaque=1 fade=0 camera=80.000,-551.975 zoom=0.9500 actors=1 builds=9 moving=1 look=blue-braid actor=3D4A437F-2114-4989-81B3-981CAA19CF2B activity=socialize facing=awayRight joints=0.250,-0.653,0.000,0.000,-0.119,-0.119 scale=1.000 noseHidden=1 cargo=0

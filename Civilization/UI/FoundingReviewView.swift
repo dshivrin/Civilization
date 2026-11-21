@@ -29,6 +29,12 @@ struct FoundingReviewView: View {
     @State private var sourceHistory: [(kind: BuildingKind, requirement: FoundingCatalogAction?)] = []
     @State private var chapters = false
     @State private var placementKind: BuildingKind = .hut
+    @State private var forestWalkthrough: OnboardingReviewWalkthrough?
+    @State private var organicFog = true
+    @State private var alternateLook = false
+    @State private var staticMotion = false
+    @State private var fogAudit = ""
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.dynamicTypeSize) private var textSize
     private var isPad: Bool { UIDevice.current.userInterfaceIdiom == .pad }
 
@@ -47,17 +53,18 @@ struct FoundingReviewView: View {
                     HStack(spacing: 8) {
                         Text("RIVERBEND").font(.headline)
                         if let r = store?.review {
-                            Text("Wood \(Int(r.engine.state.resources.wood)) · Stone \(Int(r.engine.state.resources.stone)) · Food \(Int(r.engine.state.resources.food))")
+                            let shown = forestWalkthrough?.engine ?? r.engine
+                            Text("Wood \(Int(shown.state.resources.wood)) · Stone \(Int(shown.state.resources.stone)) · Food \(Int(shown.state.resources.food))")
                                 .font(.caption.monospacedDigit()).accessibilityIdentifier("foundingStatus").accessibilityValue(machine(r))
                         }
                         Spacer(minLength: 0)
-                        Button("Build") { menu = "Build"; tools = false }.accessibilityIdentifier("foundingCatalog")
+                        Button("Build") { leaveForestComparison(); menu = "Build"; tools = false }.accessibilityIdentifier("foundingCatalog")
                         Button("Close") { dismiss() }.accessibilityIdentifier("closeFoundingReview")
                     }.padding(.horizontal, 8).background(panelColor.opacity(0.97)).opacity(menu == "Build" ? 0 : 1).accessibilityHidden(menu == "Build")
                     HStack(alignment: .top, spacing: 8) {
                         VStack(spacing: 4) {
                             ForEach(["Goals", "Explore", "Games"], id: \.self) { title in
-                                Button { menu = menu == title ? nil : title; tools = false } label: {
+                                Button { leaveForestComparison(); menu = menu == title ? nil : title; tools = false } label: {
                                     VStack(spacing: 2) {
                                         Image(systemName: title == "Goals" ? "flag" : title == "Explore" ? "map" : "square.grid.2x2")
                                         Text(title).font(.caption)
@@ -73,6 +80,9 @@ struct FoundingReviewView: View {
                         }
                     }
                     Spacer(minLength: 0)
+                    if forestWalkthrough != nil {
+                        forestControls
+                    }
                 }
                 if let r = store?.review, menu == "Build" {
                     catalog(r, height: max(44, geometry.size.height - 8))
@@ -84,7 +94,8 @@ struct FoundingReviewView: View {
         }.task { open() }
             .onChange(of: menu) { _, _ in endSearch() }
             .onChange(of: requirement) { _, _ in endSearch() }
-            .onReceive(timer) { _ in if !paused && phase == .active { transact { try $0.advance(seconds: 1) } } }
+            .onChange(of: reduceMotion) { _, _ in refresh() }
+            .onReceive(timer) { _ in if forestWalkthrough != nil { refresh() }; if !paused && forestWalkthrough == nil && phase == .active { transact { try $0.advance(seconds: 1) } } }
     }
     private func menuPanel(_ title: String, _ r: RiverbendFoundingReview) -> some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -111,6 +122,7 @@ struct FoundingReviewView: View {
                     } else if title == "Explore" {
                         Text("Pan open map with one finger; pinch to zoom. Building and path previews use map taps. Close those tools to pan freely.")
                             .fixedSize(horizontal: false, vertical: true)
+                        Button("Forest and motion comparison") { openForestComparison() }.accessibilityIdentifier("foundingFogComparison")
                         Button("Return to map") { menu = nil }.accessibilityIdentifier("foundingExploreMap")
                     } else {
                         Text("Isolated founding review · separate save. Reopening grants no offline time.").font(.subheadline)
@@ -343,6 +355,60 @@ struct FoundingReviewView: View {
             }
         }
     }
+    private var forestControls: some View {
+        VStack(spacing: 3) {
+            HStack(spacing: 4) {
+                Button(organicFog ? "Organic fog" : "Tiled baseline") { organicFog.toggle(); refresh() }.accessibilityIdentifier("fogStyle")
+                Button(alternateLook ? "Blue + braid" : "Original look") { alternateLook.toggle(); refresh() }.accessibilityIdentifier("fogLook")
+                Button(staticMotion ? "Static" : "Motion") { staticMotion.toggle(); refresh() }.accessibilityIdentifier("fogStatic")
+                Button("Gameplay zoom") {
+                    scene?.focusReviewMotion()
+                }.accessibilityIdentifier("fogGameplay")
+                Button("Founding map") { leaveForestComparison() }.accessibilityIdentifier("fogReturn")
+            }
+            HStack(spacing: 4) {
+                Button("Start expedition") { forestCommand { try $0.startExpedition() } }.accessibilityIdentifier("fogExpedition")
+                    .disabled(forestWalkthrough?.engine.explorationIssue != nil)
+                Button("Step to last covered") {
+                    forestCommand { review in if let left = review.engine.state.explorationRemainingSeconds, left > 0.1 { try review.advanceReview(by: left - 0.1) } }
+                }.accessibilityIdentifier("fogLastCovered")
+                Button("Step 0.1s") { forestCommand { try $0.advanceReview(by: 0.1) } }.accessibilityIdentifier("fogFirstReveal")
+                Button("Hut / Woodcutter") {
+                    forestCommand { review in
+                        let kind: BuildingKind = review.guide.observedEvents.contains(.forestRevealed) ? .woodcutter : .hut
+                        let suggestedHut = try ReviewForestPresentation.hutOrigin(in: review)
+                        let site = kind == .hut ? suggestedHut : review.suggestedOrigin(for: kind)
+                        if let site { try review.build(kind, at: site) }
+                    }
+                }.accessibilityIdentifier("fogBuild")
+                Button("Step 60s") { forestCommand { try $0.advanceReview(by: 60) } }.accessibilityIdentifier("fogStep")
+            }
+            Text(fogAudit).font(.system(size: 8, design: .monospaced)).lineLimit(2).accessibilityIdentifier("fogAudit")
+            Text("Temporary existing forest walkthrough · paid expedition, explicit review steps · founding save retained").font(.caption2)
+            if !error.isEmpty { Text(error).font(.caption).accessibilityIdentifier("fogError") }
+        }.padding(4).background(panelColor.opacity(0.97), in: RoundedRectangle(cornerRadius: 8))
+    }
+    private func leaveForestComparison() {
+        guard forestWalkthrough != nil else { return }
+        forestWalkthrough = nil; refresh(); focus()
+    }
+    private func openForestComparison() {
+        guard let r = store?.review else { return }
+        do {
+            forestWalkthrough = try OnboardingReviewWalkthrough(configuration: r.engine.configuration, now: Date(timeIntervalSince1970: 0))
+            menu = nil; tools = false; placing = false; drawing = false; draft = []; error = ""
+            refresh()
+            // One unchanged framing for covered/revealed states; no automatic recenter at reveal.
+            scene?.reviewReservedRightWidth = 0
+            scene?.reviewReservedBottomHeight = 145
+            if let review = forestWalkthrough { scene?.reviewFocusTiles = review.snapshot.initialDiscoveredTiles.union(review.snapshot.region.tiles) }
+        } catch { self.error = error.localizedDescription }
+    }
+    private func forestCommand(_ command: (inout OnboardingReviewWalkthrough) throws -> Void) {
+        guard var review = forestWalkthrough else { return }
+        do { try command(&review); forestWalkthrough = review; error = ""; refresh() }
+        catch { self.error = error.localizedDescription }
+    }
     private func open() {
         guard store == nil else { return }
         do {
@@ -355,12 +421,13 @@ struct FoundingReviewView: View {
         } catch { self.error = error.localizedDescription }
     }
     @discardableResult private func transact(_ command: (inout RiverbendFoundingReview) throws -> Void) -> Bool {
-        guard var value = store else { return false }
+        guard forestWalkthrough == nil, var value = store else { return false }
         do { try value.perform(command); store = value; error = ""; refresh(); return true }
         catch { self.error = error.localizedDescription; paused = true; return false }
     }
     private func mapTap(_ point: CGPoint) {
         guard let r = store?.review, let scene else { return }
+        guard forestWalkthrough == nil else { return }
         let hit = IsometricProjection.tile(point)
         if drawing {
             if let last = draft.last {
@@ -377,6 +444,20 @@ struct FoundingReviewView: View {
     }
     private func refresh() {
         guard let r = store?.review, let scene else { return }
+        scene.reviewContinuousFog = organicFog
+        scene.reviewOrganicFog = organicFog
+        scene.reviewVisualsEnabled = true
+        scene.reviewAlternateLook = alternateLook
+        scene.reduceMotion = reduceMotion || staticMotion
+        let engine = forestWalkthrough?.engine ?? r.engine
+        scene.activeProductionIDs = engine.operatingProductionBuildingIDs
+        if let review = forestWalkthrough {
+            scene.display(state: review.engine.state, kind: nil, tile: nil, valid: false, inspected: nil, movingBuildingID: nil, centerRequest: 0,
+                deposits: review.engine.configuration.naturalDeposits ?? [], identifiedDepositIDs: Set(review.engine.discoveredDeposits.filter(review.engine.isIdentified).map(\.id)))
+            scene.reviewMapTargets = [:]; scene.displayFoundingHints(sites: [], entrance: nil)
+            fogAudit = "osReduceMotion=\(reduceMotion ? 1 : 0) static=\(staticMotion ? 1 : 0) " + scene.reviewFogSummary
+            return
+        }
         scene.display(state: r.engine.state, kind: placing ? placementKind : nil, tile: tile,
             valid: tile.map { (placementKind == .hut ? r.hutIssue(at: $0) : r.catalogPlacementIssue(placementKind, at: $0)) == nil } ?? false,
             inspected: nil, movingBuildingID: nil, roadTool: drawing ? .draw(.trodden) : nil, roadDraft: draft,
@@ -392,6 +473,7 @@ struct FoundingReviewView: View {
     }
     private func focus() {
         guard let r = store?.review, let scene else { return }
+        scene.reviewReservedBottomHeight = 0
         scene.reviewReservedRightWidth = isPad ? 370 : 325
         scene.reviewFocusTiles = Set([r.engine.configuration.map.campfire] + Array(r.hutSites.prefix(2)) + (tile.map { [$0] } ?? []) + (r.hut.map { [$0.origin] } ?? []))
     }

@@ -1,0 +1,1 @@
+osReduceMotion=0 static=0 known=583 unknown=2489 hiddenGround=0 hiddenMarkers=0 opaque=1 fade=0 camera=-448.000,-500.137 zoom=2.1413 actors=1 builds=7 moving=1 look=original actor=FE5D4398-F722-4664-94B6-095A311BA376 activity=turn facing=awayRight joints=0.080,-0.080,0.000,0.000,-0.107,-0.116 scale=0.833 noseHidden=1 cargo=0

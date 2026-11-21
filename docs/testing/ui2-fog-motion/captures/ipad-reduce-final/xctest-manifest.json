@@ -1,0 +1,98 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "82AABB9B-96C8-41E6-A380-21948672543E.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-blue-braid-retained-pose-state_0_8AAD59DE-2AD3-432D-A27D-48DF5BDC8466.txt",
+        "timestamp" : 1795232480.661
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "CA0C8E18-B35A-4AFE-94D6-EBCEA0B184A4.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-blue-braid-retained-pose_0_A73463B0-6704-46DA-BF57-9CB9E76DD05A.png",
+        "timestamp" : 1795232480.627
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "182D0DD3-3541-44B8-A017-B6330249F3F2.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-original-retained-pose-state_0_7C74720E-4673-4607-A02A-5127E8F4BD08.txt",
+        "timestamp" : 1795232478.956
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "B76206F4-4B69-4369-84C5-0E6F59691913.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-original-retained-pose_0_245BA4E8-F7CB-4172-8BEA-9AA560236D52.png",
+        "timestamp" : 1795232478.924
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "E32D938E-2D57-47B6-9ABA-8C010E6F9598.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-first-revealed-no-fade-state_0_3AE4C4B3-3875-4381-8135-9A1A1D5A3E8C.txt",
+        "timestamp" : 1795232474.289
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "D3EAB99F-A6FD-45E1-B332-F3FBA90037EE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-first-revealed-no-fade_0_C1BCF1D6-121A-4A7E-95C0-B7C5298A5631.png",
+        "timestamp" : 1795232474.257
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "55A6C2B0-A96C-46EA-AFB6-7DD3D0E8D2AE.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-last-covered-state_0_3D182C85-5FE7-487C-943E-9DB7CFADD2B2.txt",
+        "timestamp" : 1795232471.783
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "6A6DF81D-A44F-4C1B-B65B-AEA289D258CF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-last-covered_0_DA6A4BD0-C413-4D69-A2A6-43ABD563F7EC.png",
+        "timestamp" : 1795232471.751
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "529A6E6A-A53B-4DD1-BD28-FE5BA0DFA44A.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-covered-state_0_FFF15495-FB47-4144-BD7B-EF1604B8EBBD.txt",
+        "timestamp" : 1795232465.715
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "B4D3176E-028C-4AC4-A312-3AE0DD156282.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-reduce-covered_0_C8B3B516-A333-4234-B393-6CD7025CAECF.png",
+        "timestamp" : 1795232465.68
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2FogReduceMotion()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2FogReduceMotion"
+  }
+]

@@ -1,0 +1,1 @@
+osReduceMotion=0 static=0 known=225 unknown=2847 hiddenGround=0 hiddenMarkers=0 opaque=1 fade=0 camera=-1068.094,-566.047 zoom=4.3042 actors=0 builds=2 moving=1 look=original actor=none

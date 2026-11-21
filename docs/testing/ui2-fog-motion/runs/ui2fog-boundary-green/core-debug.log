@@ -1,0 +1,48 @@
+Building for debugging...
+[Pre-planning 1 / 299]
+[Planning deferred tasks]
+[8 / 35] GameApplication
+[10 / 37] GameApplication
+[23 / 34] GameCoreTests-product
+[36 / 47] GameCoreTests-product
+/Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore/Tests/GameCoreTests/VisualAgentMotionTests.swift:121:14: warning: weak variable 'retained' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+119 |     power = false; center.post(name: .NSProcessInfoPowerStateDidChange, object: nil)
+120 |     #expect(observer?.lowPower == false)
+121 |     weak var retained = observer; observer = nil
+    |              `- warning: weak variable 'retained' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+122 |     #expect(retained == nil)
+123 |     let before = reads
+
+/Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore/Tests/GameCoreTests/VisualAgentMotionTests.swift:119:11: warning: 'power' mutated after capture by sendable closure
+110 | @Test @MainActor func visualAgentPowerObservationUpdatesWithoutInteractionAndReleasesObserver() {
+111 |     let center = NotificationCenter()
+112 |     var power = false, reads = 0
+    |         `- note: variable defined here
+113 |     var observer: VisualAgentPowerObservation? = VisualAgentPowerObservation(center: center, readLowPower: {
+    |                                                                                                            `- note: variable captured by sendable closure
+114 |         reads += 1; return power
+    |                            `- note: capturing use
+115 |     })
+116 |     #expect(observer?.lowPower == false)
+117 |     power = true; center.post(name: .NSProcessInfoPowerStateDidChange, object: nil)
+118 |     #expect(observer?.lowPower == true)
+119 |     power = false; center.post(name: .NSProcessInfoPowerStateDidChange, object: nil)
+    |           `- warning: 'power' mutated after capture by sendable closure
+120 |     #expect(observer?.lowPower == false)
+121 |     weak var retained = observer; observer = nil
+
+[#VariableNeverMutated]: <https://docs.swift.org/compiler/documentation/diagnostics/variable-never-mutated>
+[#WeakMutability]: <https://docs.swift.org/compiler/documentation/diagnostics/weak-mutability>
+[38 / 44] GameCoreTests-product
+[40 / 44] GameCoreTests-product
+Build complete! (5.25 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite ReviewFogBoundaryTests started.
+◇ Test holesAndNarrowRoutesHaveOpaqueBoundaryWithoutChangingDiscovery() started.
+◇ Test edgesAreDeterministicAndOnlyOnDiscoveryBoundary() started.
+✔ Test edgesAreDeterministicAndOnlyOnDiscoveryBoundary() passed after 0.001 seconds.
+✔ Test holesAndNarrowRoutesHaveOpaqueBoundaryWithoutChangingDiscovery() passed after 0.001 seconds.
+✔ Suite ReviewFogBoundaryTests passed after 0.001 seconds.
+✔ Test run with 2 tests in 1 suite passed after 0.001 seconds.

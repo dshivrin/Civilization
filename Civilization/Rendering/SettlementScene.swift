@@ -31,6 +31,7 @@ final class SettlementScene: SKScene {
     }
     var reviewMapTargets: [String: Tile] = [:]
     var reviewReservedRightWidth: CGFloat = 0
+    var reviewReservedBottomHeight: CGFloat = 0
     var reviewFocusTiles: Set<Tile>? {
         didSet { if let tiles = reviewFocusTiles { fitReview(tiles) } }
     }
@@ -38,6 +39,14 @@ final class SettlementScene: SKScene {
         let points = tiles.map(IsometricProjection.point)
         guard let minX = points.map(\.x).min(), let maxX = points.map(\.x).max(),
               let minY = points.map(\.y).min(), let maxY = points.map(\.y).max() else { return }
+        if reviewReservedBottomHeight > 0 {
+            let scale = max(0.8, max((maxX - minX + 100) / max(1, size.width - 100),
+                (maxY - minY + 80) / max(1, size.height - reviewReservedBottomHeight - 60)))
+            worldCamera.setScale(scale)
+            worldCamera.position = CGPoint(x: (minX + maxX) / 2,
+                y: (minY + maxY) / 2 - (reviewReservedBottomHeight - 44) * scale / 2)
+            return
+        }
         let scale = max((maxX - minX + 160) / max(1, size.width - reviewReservedRightWidth), (maxY - minY + 100) / max(1, size.height * 0.60))
         worldCamera.setScale(max(0.8, scale))
         worldCamera.position = CGPoint(x: (minX + maxX) / 2 + reviewReservedRightWidth * scale / 2,
@@ -45,6 +54,31 @@ final class SettlementScene: SKScene {
     }
     var onReviewRevealComplete: (() -> Void)?
     var reviewContinuousFog = false
+    private let reviewFogLayer = SKNode()
+    var reviewOrganicFog = false
+    private var renderedOrganicFog = false
+    var reviewAlternateLook = false
+    func focusReviewMotion() {
+        let points = livingLayer.reviewMotionTiles.map(IsometricProjection.point)
+        guard let x0 = points.map(\.x).min(), let x1 = points.map(\.x).max(),
+              let y0 = points.map(\.y).min(), let y1 = points.map(\.y).max() else { return }
+        reviewFocusTiles = nil
+        let zoom: CGFloat = size.width > 1000 ? 1.1 : 0.95
+        worldCamera.setScale(zoom)
+        worldCamera.position = CGPoint(x: (x0+x1)/2, y: (y0+y1)/2 - (reviewReservedBottomHeight-44)*zoom/2)
+    }
+    var reviewFogSummary: String {
+        let known = renderedDiscovery ?? []
+        let unknown = configuration.map.width * configuration.map.height - known.count
+        let fading = (terrainLayer.children + reviewFogLayer.children).contains { $0.name == "review-known-reveal" }
+        return "known=\(known.count) unknown=\(unknown) hiddenGround=\(reviewHiddenGroundCount) hiddenMarkers=\(reviewHiddenMarkerCount) opaque=\(reviewOpaqueSampleFailures == 0 ? 1 : 0) fade=\(fading ? 1 : 0) " +
+            String(format: "camera=%.3f,%.3f zoom=%.4f", worldCamera.position.x, worldCamera.position.y, worldCamera.xScale) + " " + livingLayer.reviewMotionSummary
+    }
+    private var reviewGroundTiles: Set<Tile> = []
+    private var reviewMarkerTiles: Set<Tile> = []
+    private var reviewHiddenGroundCount: Int { reviewGroundTiles.subtracting(renderedDiscovery ?? []).count }
+    private var reviewHiddenMarkerCount: Int { reviewMarkerTiles.subtracting(renderedDiscovery ?? []).count }
+    private var reviewOpaqueSampleFailures = 0
     private var renderedContinuousFog = false
     var reviewVisualsEnabled = false
     var reviewPhase = LivingWorldLayer.Phase.day
@@ -123,6 +157,7 @@ final class SettlementScene: SKScene {
         addChild(roadLayer);addChild(roadLayer.preview)
         #if DEBUG
         addChild(connectionLayer); addChild(livingLayer)
+        reviewFogLayer.zPosition = 1900; addChild(reviewFogLayer)
         livingLayer.zPosition = buildingLayer.zPosition
         #endif
         relocationGridLayer.zPosition = 95
@@ -226,6 +261,7 @@ final class SettlementScene: SKScene {
             connectionLayer.display(buildings: state.buildings, discovered: state.discoveredTiles, configuration: configuration,
                 excludingIDs: movingBuildingID.map { Set([$0]) } ?? [])
         } else { connectionLayer.clear() }
+        livingLayer.alternateLook = reviewAlternateLook
         livingLayer.display(state: state, configuration: configuration, reduceMotion: reduceMotion,
             reviewEnabled: reviewVisualsEnabled, phase: reviewPhase, weather: reviewWeather,
             foreground: !isPaused, lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled || reviewLowPowerPreview,
@@ -233,7 +269,7 @@ final class SettlementScene: SKScene {
             activeProductionIDs: activeProductionIDs, cycleDuration: reviewLightingCycleDuration)
         #endif
         #if DEBUG
-        if reviewContinuousFog != renderedContinuousFog { drawTerrain(discovered: state.discoveredTiles); renderedContinuousFog = reviewContinuousFog }
+        if reviewContinuousFog != renderedContinuousFog || reviewOrganicFog != renderedOrganicFog { drawTerrain(discovered: state.discoveredTiles); renderedContinuousFog = reviewContinuousFog; renderedOrganicFog = reviewOrganicFog }
         #endif
         let discoveryChanged = state.discoveredTiles != renderedDiscovery
         roadLayer.display(roads: state.roads ?? [], discovered: state.discoveredTiles, configuration: configuration, tool: roadTool, draft: roadDraft, invalid: roadInvalid)
@@ -341,6 +377,9 @@ final class SettlementScene: SKScene {
     }
     private func drawTerrain(discovered: Set<Tile>?) {
         terrainLayer.removeAllChildren()
+        #if DEBUG
+        reviewGroundTiles = []; reviewOpaqueSampleFailures = 0; reviewFogLayer.removeAllChildren()
+        #endif
         let ground = SKNode()
         let scenery = SKNode()
         // Bounded caches are required in both Debug and Release at device raster scales.
@@ -381,6 +420,9 @@ final class SettlementScene: SKScene {
                     }
                     continue
                 }
+                #if DEBUG
+                reviewGroundTiles.insert(tile)
+                #endif
                 let terrain = configuration.map.terrain(at: tile)!
                 let variation = CGFloat((x * 17 + y * 31) % 7) / 400
                 let color: UIColor
@@ -442,16 +484,50 @@ final class SettlementScene: SKScene {
             let field = SKShapeNode(path: continuousFogPath)
             field.fillColor = UIColor(red: 0.60, green: 0.65, blue: 0.67, alpha: 1)
             field.strokeColor = field.fillColor; field.lineWidth = 1.5; field.glowWidth = 3
-            field.zPosition = 80; terrainLayer.addChild(field)
+            #if DEBUG
+            if reviewOrganicFog {
+                // One filled compound path, no stroke around its internal tile subpaths.
+                field.strokeColor = .clear; field.lineWidth = 0; field.glowWidth = 0
+                field.isAntialiased = false
+                field.name = "review-opaque-unknown-field"
+                if let discovered {
+                    for edge in ReviewFogBoundary.edges(known: discovered, width: configuration.map.width, height: configuration.map.height) {
+                        let a = IsometricProjection.point(edge.known), b = IsometricProjection.point(edge.unknown)
+                        let lobe = SKShapeNode(ellipseOf: CGSize(width: edge.radius * 2, height: edge.radius))
+                        lobe.position = CGPoint(x: (a.x + b.x) / 2, y: (a.y + b.y) / 2)
+                        lobe.fillColor = field.fillColor; lobe.strokeColor = field.fillColor; lobe.lineWidth = 2
+                        lobe.zPosition = 80; reviewFogLayer.addChild(lobe)
+                    }
+                    // Sample centers and four inset corners in the actual cover path.
+                    for y in 0..<configuration.map.height { for x in 0..<configuration.map.width {
+                        let tile = Tile(x: x, y: y)
+                        if !discovered.contains(tile) {
+                            let p = IsometricProjection.point(tile)
+                            for d in [CGPoint.zero, CGPoint(x: 31.9,y: 0), CGPoint(x: -31.9,y: 0), CGPoint(x: 0,y: 15.9), CGPoint(x: 0,y: -15.9)] {
+                                if !continuousFogPath.contains(CGPoint(x: p.x+d.x,y: p.y+d.y)) { reviewOpaqueSampleFailures += 1 }
+                            }
+                        }
+                    } }
+                }
+            }
+            #endif
+            field.zPosition = 80
+            #if DEBUG
+            let fogParent = reviewOrganicFog ? reviewFogLayer : terrainLayer
+            #else
+            let fogParent = terrainLayer
+            #endif
+            fogParent.addChild(field)
             if !reduceMotion, let previous = renderedDiscovery, let discovered {
                 let newlyKnown = discovered.subtracting(previous)
                 if !newlyKnown.isEmpty {
                     let revealPath = CGMutablePath()
                     for tile in newlyKnown { revealPath.addPath(IsometricProjection.diamond(at: IsometricProjection.point(tile))) }
                     let receding = SKShapeNode(path: revealPath)
+                    receding.name = "review-known-reveal"
                     receding.fillColor = field.fillColor; receding.strokeColor = field.fillColor
                     receding.lineWidth = 1.5; receding.zPosition = 81
-                    terrainLayer.addChild(receding)
+                    fogParent.addChild(receding)
                     #if DEBUG
                     receding.run(.sequence([.fadeOut(withDuration: 1.2), .removeFromParent(), .run { [weak self] in self?.onReviewRevealComplete?() }]))
                     #else
@@ -476,8 +552,14 @@ final class SettlementScene: SKScene {
     }
     private func drawDeposits(_ deposits: [NaturalDeposit], identifiedIDs: Set<String>, reserves: [String: Double], discovered: Set<Tile>?) {
         depositLayer.removeAllChildren()
+        #if DEBUG
+        reviewMarkerTiles = []
+        #endif
         for deposit in deposits {
             for site in [deposit.origin] + (deposit.accessSites ?? []) where discovered?.contains(site) ?? true {
+            #if DEBUG
+            reviewMarkerTiles.insert(site)
+            #endif
             let point = IsometricProjection.point(site)
             let marker = SKNode()
             marker.position = CGPoint(x: point.x, y: point.y + 8)

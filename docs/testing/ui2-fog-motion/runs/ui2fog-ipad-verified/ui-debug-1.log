@@ -1,0 +1,941 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj -scheme Civilization -configuration Debug -destination "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809" -derivedDataPath /private/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809 -resultBundlePath /private/tmp/ui2fog-ipad-verified/ui-debug-1.xcresult CODE_SIGNING_ALLOWED=NO PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa "-only-testing:CivilizationUITests/RelocationUITests/testUI2FogMotionIntegrated"
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+    PRODUCT_BUNDLE_IDENTIFIER = com.civilization.seed.qa
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  CivilizationCore: /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore @ local
+
+Writing result bundle at path:
+	/private/tmp/ui2fog-ipad-verified/ui-debug-1.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (10 targets)
+    Target 'CivilizationUITests' in project 'Civilization'
+        ➜ Explicit dependency on target 'Civilization' in project 'Civilization'
+        ➜ Explicit dependency on target 'GameCore-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameApplication-product' in project 'CivilizationCore'
+    Target 'Civilization' in project 'Civilization'
+        ➜ Explicit dependency on target 'GameApplication-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GamePersistence-product' in project 'CivilizationCore'
+    Target 'GamePersistence-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GamePersistence' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+    Target 'GameCore-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'CivilizationCore_GameCore' in project 'CivilizationCore'
+    Target 'GameApplication-product' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameApplication' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'CivilizationCore_GameApplication' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GamePersistence' in project 'CivilizationCore'
+    Target 'GameApplication' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'CivilizationCore_GameApplication' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GamePersistence' in project 'CivilizationCore'
+    Target 'GamePersistence' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'GameCore' in project 'CivilizationCore'
+    Target 'GameCore' in project 'CivilizationCore'
+        ➜ Explicit dependency on target 'CivilizationCore_GameCore' in project 'CivilizationCore'
+    Target 'CivilizationCore_GameCore' in project 'CivilizationCore' (no dependencies)
+    Target 'CivilizationCore_GameApplication' in project 'CivilizationCore' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: 6a953067f197ad67fcf964d0b58e214f
+Build description path: /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/XCBuildData/6a953067f197ad67fcf964d0b58e214f.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache
+
+WriteAuxiliaryFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    write-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json
+
+WriteAuxiliaryFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    write-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList
+
+SwiftDriver GameApplication normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name GameApplication -Onone @/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -sdk-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name gamecore -emit-const-values -const-gather-protocols-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_const_extract_protocols.json -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources-normal/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-Swift.h -working-directory /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ GameApplication (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftCompile normal arm64 (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for GameApplication (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftDriver\ Compilation\ Requirements GameApplication normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name GameApplication -Onone @/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -sdk-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name gamecore -emit-const-values -const-gather-protocols-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_const_extract_protocols.json -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources-normal/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-Swift.h -working-directory /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftsourceinfo (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftsourceinfo /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+Copy /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.swiftdoc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftdoc (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftdoc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.swiftmodule /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.abi.json (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.abi.json /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+SwiftDriver Civilization normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Civilization -Onone @/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Index.noindex/DataStore -swift-version 6 -I /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -sdk-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-generated-files.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-own-target-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-project-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources-normal/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-Swift.h -working-directory /Users/dima/.codex/worktrees/a06c/Civilazation -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ Civilization (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    
+
+/Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/FoundingReviewView.swift:20:17: warning: cannot use generic class 'Autoconnect' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 18 |     @State private var paused = true
+ 19 |     @State private var inspection = ""
+ 20 |     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    |                 `- warning: cannot use generic class 'Autoconnect' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 21 |     @State private var menu: String?
+ 22 |     @State private var tools = false
+
+Combine.Publishers.Autoconnect:2:14: note: generic class declared here
+ 1 | enum Publishers {
+ 2 | public class Autoconnect<Upstream> : Publisher where Upstream : ConnectablePublisher {
+   |              `- note: generic class declared here
+ 3 |     public typealias Output = Upstream.Output
+ 4 |     public typealias Failure = Upstream.Failure
+
+/Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/FoundingReviewView.swift:20:17: warning: cannot use enum 'Publishers' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 18 |     @State private var paused = true
+ 19 |     @State private var inspection = ""
+ 20 |     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    |                 `- warning: cannot use enum 'Publishers' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 21 |     @State private var menu: String?
+ 22 |     @State private var tools = false
+
+Combine.Publishers:2:13: note: enum declared here
+1 | @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+2 | public enum Publishers {
+  |             `- note: enum declared here
+3 | }
+SwiftDriverJobDiscovery normal arm64 Emitting module for Civilization (in target 'Civilization' from project 'Civilization')
+
+SwiftDriver\ Compilation\ Requirements Civilization normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Civilization -Onone @/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Index.noindex/DataStore -swift-version 6 -I /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -sdk-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-generated-files.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-own-target-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-project-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources-normal/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-Swift.h -working-directory /Users/dima/.codex/worktrees/a06c/Civilazation -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftsourceinfo (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftsourceinfo /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+Copy /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.abi.json (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.abi.json /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+WriteAuxiliaryFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftConstValuesFileList (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    write-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.LinkFileList (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    write-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.LinkFileList
+
+ProcessInfoPlistFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationCore_GameApplication.bundle/Info.plist /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/CivilizationCore_GameApplication-b.build/empty-CivilizationCore_GameApplication.plist (in target 'CivilizationCore_GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    builtin-infoPlistUtility /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/CivilizationCore_GameApplication-b.build/empty-CivilizationCore_GameApplication.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationCore_GameApplication.bundle/Info.plist
+
+SwiftCompile normal arm64 Compiling\ ReviewForestPresentation.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore/Sources/GameApplication/ReviewForestPresentation.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore/Sources/GameApplication/ReviewForestPresentation.swift (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj
+    builtin-SwiftPerFileCompile ReviewForestPresentation.swift
+
+ProcessInfoPlistFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationCore_GameCore.bundle/Info.plist /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/CivilizationCore_GameCore-b.build/empty-CivilizationCore_GameCore.plist (in target 'CivilizationCore_GameCore' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    builtin-infoPlistUtility /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/CivilizationCore_GameCore-b.build/empty-CivilizationCore_GameCore.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationCore_GameCore.bundle/Info.plist
+
+SwiftDriverJobDiscovery normal arm64 Compiling ReviewForestPresentation.swift (in target 'GameApplication' from project 'CivilizationCore')
+
+SwiftDriver\ Compilation GameApplication normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -parse-as-library -module-name GameApplication -Onone @/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 6 -I /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -sdk-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -package-name gamecore -emit-const-values -const-gather-protocols-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_const_extract_protocols.json -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources-normal/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication-Swift.h -working-directory /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.o normal (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios18.0-simulator -r -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -O0 -Xlinker -no_warn_duplicate_libraries -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -filelist /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.LinkFileList -nostdlib -Xlinker -object_path_lto -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_lto.o -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.swiftmodule -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.o
+
+ExtractAppIntentsMetadata (in target 'GameApplication' from project 'CivilizationCore')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation/Packages/GameCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name GameApplication --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk --xcode-version 27B52 --platform-family iOS --deployment-target 18.0 --bundle-identifier com.civilization.seed.qa --output /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.appintents --target-triple arm64-apple-ios18.0-simulator --binary-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/GameApplication.o --dependency-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication_dependency_info.dat --stringsdata-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftFileList --metadata-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/GameApplication.DependencyMetadataFileList --static-metadata-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/GameApplication.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/CivilizationCore.build/Debug-iphonesimulator/GameApplication-t.build/Objects-normal/arm64/GameApplication.SwiftConstValuesFileList --force --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-11-21 05:35:52.086 appintentsmetadataprocessor[13778:10486844] Starting App Intents metadata extraction
+2026-11-21 05:35:52.129 appintentsmetadataprocessor[13778:10486844] Extracted no relevant App Intents symbols, skipping writing output
+
+ProcessInfoPlistFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Info.plist /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/empty-Civilization.plist (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-infoPlistUtility /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/empty-Civilization.plist -producttype com.apple.product-type.application -genpkginfo /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/LaunchScreen-SBPartialInfo.plist -scanforprivacyfile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/CivilizationCore_GameApplication.bundle -scanforprivacyfile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/CivilizationCore_GameCore.bundle -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Info.plist
+
+SwiftCompile normal arm64 Compiling\ NativeVisualReviewView.swift,\ EconomyLabView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/NativeVisualReviewView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/EconomyLabView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/NativeVisualReviewView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile NativeVisualReviewView.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/EconomyLabView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile EconomyLabView.swift
+
+SwiftCompile normal arm64 Compiling\ FoundingReviewView.swift,\ VillagerMotionReviewView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/FoundingReviewView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/VillagerMotionReviewView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/FoundingReviewView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile FoundingReviewView.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/VillagerMotionReviewView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile VillagerMotionReviewView.swift
+
+/Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/FoundingReviewView.swift:20:17: warning: cannot use generic class 'Autoconnect' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 18 |     @State private var paused = true
+ 19 |     @State private var inspection = ""
+ 20 |     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    |                 `- warning: cannot use generic class 'Autoconnect' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 21 |     @State private var menu: String?
+ 22 |     @State private var tools = false
+
+Combine.Publishers.Autoconnect:2:14: note: generic class declared here
+ 1 | enum Publishers {
+ 2 | public class Autoconnect<Upstream> : Publisher where Upstream : ConnectablePublisher {
+   |              `- note: generic class declared here
+ 3 |     public typealias Output = Upstream.Output
+ 4 |     public typealias Failure = Upstream.Failure
+
+/Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/FoundingReviewView.swift:20:17: warning: cannot use enum 'Publishers' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 18 |     @State private var paused = true
+ 19 |     @State private var inspection = ""
+ 20 |     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    |                 `- warning: cannot use enum 'Publishers' in a property declaration member of a type not marked '@_implementationOnly'; 'Combine' was not imported by this file
+ 21 |     @State private var menu: String?
+ 22 |     @State private var tools = false
+
+Combine.Publishers:2:13: note: enum declared here
+1 | @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+2 | public enum Publishers {
+  |             `- note: enum declared here
+3 | }
+SwiftCompile normal arm64 Compiling\ VillagerFigure.swift,\ LivingWorldLayer.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/VillagerFigure.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/LivingWorldLayer.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/VillagerFigure.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile VillagerFigure.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/LivingWorldLayer.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile LivingWorldLayer.swift
+
+SwiftCompile normal arm64 Compiling\ SettlementLoadingView.swift,\ DeveloperToolsView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/SettlementLoadingView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/DeveloperToolsView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/SettlementLoadingView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile SettlementLoadingView.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/DeveloperToolsView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile DeveloperToolsView.swift
+
+SwiftCompile normal arm64 Compiling\ BuildingConnectionLayer.swift,\ LoadingSceneryView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/BuildingConnectionLayer.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/LoadingSceneryView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/BuildingConnectionLayer.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile BuildingConnectionLayer.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/LoadingSceneryView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile LoadingSceneryView.swift
+
+SwiftCompile normal arm64 Compiling\ SavedGamesView.swift,\ RenderDiagnostics.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/SavedGamesView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/RenderDiagnostics.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/SavedGamesView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile SavedGamesView.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/RenderDiagnostics.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile RenderDiagnostics.swift
+
+SwiftCompile normal arm64 Compiling\ SettlementScene.swift,\ RoadControlsView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/SettlementScene.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/RoadControlsView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/SettlementScene.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile SettlementScene.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/RoadControlsView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile RoadControlsView.swift
+
+SwiftCompile normal arm64 Compiling\ WorldView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/WorldView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/WorldView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile WorldView.swift
+
+SwiftCompile normal arm64 Compiling\ ResearchView.swift,\ CivilizationApp.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/ResearchView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/CivilizationApp.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/ResearchView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile ResearchView.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/CivilizationApp.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile CivilizationApp.swift
+
+SwiftCompile normal arm64 Compiling\ SettlementView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/SettlementView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/SettlementView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile SettlementView.swift
+
+SwiftCompile normal arm64 Compiling\ EraArt.swift,\ BuildingCatalogView.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/EraArt.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/BuildingCatalogView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/EraArt.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile EraArt.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/BuildingCatalogView.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile BuildingCatalogView.swift
+
+SwiftCompile normal arm64 Compiling\ WorldDetails.swift,\ EraIcon.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/WorldDetails.swift /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/EraIcon.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/Rendering/WorldDetails.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile WorldDetails.swift
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/Civilization/UI/EraIcon.swift (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile EraIcon.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling BuildingConnectionLayer.swift, LoadingSceneryView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling WorldDetails.swift, EraIcon.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling VillagerFigure.swift, LivingWorldLayer.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SavedGamesView.swift, RenderDiagnostics.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling WorldView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettlementLoadingView.swift, DeveloperToolsView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettlementScene.swift, RoadControlsView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling EraArt.swift, BuildingCatalogView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ResearchView.swift, CivilizationApp.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling NativeVisualReviewView.swift, EconomyLabView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettlementView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriverJobDiscovery normal arm64 Compiling FoundingReviewView.swift, VillagerMotionReviewView.swift (in target 'Civilization' from project 'Civilization')
+
+SwiftDriver\ Compilation Civilization normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Civilization -Onone @/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftFileList -DDEBUG -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Index.noindex/DataStore -swift-version 6 -I /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -sdk-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-generated-files.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-own-target-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-project-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources-normal/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization-Swift.h -working-directory /Users/dima/.codex/worktrees/a06c/Civilazation -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib normal (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios18.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -Os -Xlinker -no_warn_duplicate_libraries -L/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -filelist /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.LinkFileList -install_name @rpath/Civilization.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_lto.o -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib
+
+GenerateDSYMFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app.dSYM /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:/Users/dima/.codex/tmp/arg0-macos/codex-arg0owWcE4:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app.dSYM
+
+ConstructStubExecutorLinkFileList /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-ExecutorLinkFileList-normal-arm64.txt (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    construct-stub-executor-link-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'Civilization' from project 'Civilization')
+
+Ld /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization normal (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios18.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -Os -Xlinker -no_warn_duplicate_libraries -L/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization-ExecutorLinkFileList-normal-arm64.txt /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization
+
+GenerateDSYMFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app.dSYM /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:/Users/dima/.codex/tmp/arg0-macos/codex-arg0owWcE4:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil -q /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app.dSYM
+
+CopySwiftLibs /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization.debug.dylib --scan-folder /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Frameworks --scan-folder /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/PlugIns --scan-folder /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/SystemExtensions --scan-folder /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'Civilization' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Civilization --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk --xcode-version 27B52 --platform-family iOS --deployment-target 18.0 --bundle-identifier com.civilization.seed.qa --output /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app --target-triple arm64-apple-ios18.0-simulator --binary-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/Civilization.app/Civilization --dependency-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization_dependency_info.dat --stringsdata-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftFileList --metadata-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization.DependencyMetadataFileList --static-metadata-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Civilization.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization.build/Objects-normal/arm64/Civilization.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-11-21 05:35:54.908 appintentsmetadataprocessor[13811:10487068] Starting App Intents metadata extraction
+2026-11-21 05:35:54.909 appintentsmetadataprocessor[13811:10487068] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+SwiftDriver CivilizationUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name CivilizationUITests -O @/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -swift-version 6 -I /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -sdk-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-generated-files.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-own-target-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-project-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-Swift.h -working-directory /Users/dima/.codex/worktrees/a06c/Civilazation -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ CivilizationUITests (in target 'CivilizationUITests' from project 'Civilization')
+
+SwiftCompile normal arm64 (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    
+
+SwiftCompile normal arm64 Compiling\ RelocationUITests.swift /Users/dima/.codex/worktrees/a06c/Civilazation/CivilizationUITests/RelocationUITests.swift (in target 'CivilizationUITests' from project 'Civilization')
+
+SwiftCompile normal arm64 /Users/dima/.codex/worktrees/a06c/Civilazation/CivilizationUITests/RelocationUITests.swift (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-SwiftPerFileCompile RelocationUITests.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling RelocationUITests.swift (in target 'CivilizationUITests' from project 'Civilization')
+
+SwiftDriver\ Compilation CivilizationUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name CivilizationUITests -O @/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -swift-version 6 -I /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -sdk-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-generated-files.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-own-target-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-project-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-Swift.h -working-directory /Users/dima/.codex/worktrees/a06c/Civilazation -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for CivilizationUITests (in target 'CivilizationUITests' from project 'Civilization')
+
+SwiftDriver\ Compilation\ Requirements CivilizationUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name CivilizationUITests -O @/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -target arm64-apple-ios18.0-simulator -g -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -swift-version 6 -I /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKStatCaches.noindex/iphonesimulator27.2-24B8118-cc78df9d8a9de6526dea716b1c70fd8e.sdkstatcache -output-file-map /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex -sdk-module-cache-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-generated-files.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-own-target-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/Civilization-9fa75685d5142ea594ee4d4fd850dd9e-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests-project-headers.hmap -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources/arm64 -Xcc -I/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests-Swift.h -working-directory /Users/dima/.codex/worktrees/a06c/Civilazation -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests normal (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios18.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk -Os -Xlinker -no_warn_duplicate_libraries -L/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk/Developer/Library/Frameworks -filelist /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path -Xlinker -rpath -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_lto.o -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests
+
+Copy /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.abi.json (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.abi.json /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+ExtractAppIntentsMetadata (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name CivilizationUITests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.2.sdk --xcode-version 27B52 --platform-family iOS --deployment-target 18.0 --bundle-identifier com.civilization.seed.qa --output /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest --target-triple arm64-apple-ios18.0-simulator --binary-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests --dependency-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests_dependency_info.dat --stringsdata-file /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftFileList --metadata-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests.DependencyMetadataFileList --static-metadata-file-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/CivilizationUITests.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/Objects-normal/arm64/CivilizationUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-11-21 05:35:58.711 appintentsmetadataprocessor[13823:10487196] Starting App Intents metadata extraction
+2026-11-21 05:35:58.712 appintentsmetadataprocessor[13823:10487196] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CopySwiftLibs /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests --scan-folder /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Frameworks --scan-folder /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/PlugIns --scan-folder /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/SystemExtensions --scan-folder /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+ProcessInfoPlistFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Info.plist /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/empty-CivilizationUITests.plist (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    builtin-infoPlistUtility /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/empty-CivilizationUITests.plist -producttype com.apple.product-type.bundle.ui-testing -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/Civilization.build/Debug-iphonesimulator/CivilizationUITests.build/ProductTypeInfoPlistAdditions.plist -scanforprivacyfile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationCore_GameApplication.bundle -scanforprivacyfile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationCore_GameCore.bundle -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/Info.plist
+
+GenerateDSYMFile /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest.dSYM /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests (in target 'CivilizationUITests' from project 'Civilization')
+    cd /Users/dima/.codex/worktrees/a06c/Civilazation
+    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:/Users/dima/.codex/tmp/arg0-macos/codex-arg0owWcE4:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/dima/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest/CivilizationUITests -o /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Debug-iphonesimulator/CivilizationUITests-Runner.app/PlugIns/CivilizationUITests.xctest.dSYM
+
+PruneExplicitPrecompiledModules /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+2026-11-21 05:35:59.389799+0200 CivilizationUITests-Runner[13825:10487378] [Default] Running tests...
+    t =      nans Interface orientation changed to Landscape Right
+Test Suite 'Selected tests' started at 2026-11-21 05:35:59.732.
+Test Suite 'CivilizationUITests.xctest' started at 2026-11-21 05:35:59.732.
+Test Suite 'RelocationUITests' started at 2026-11-21 05:35:59.732.
+Test Case '-[CivilizationUITests.RelocationUITests testUI2FogMotionIntegrated]' started.
+    t =     0.00s Start Test at 2026-11-21 05:35:59.733
+    t =     0.02s Set Up
+    t =     0.02s Setting device orientation to Landscape Left
+    t =     0.03s     Wait for com.apple.springboard to idle
+    t =     0.03s Open com.civilization.seed.qa
+    t =     0.03s     Launch com.civilization.seed.qa
+2026-11-21 05:35:59.829 xcodebuild[13742:10486497] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-11-21 05:35:59.829 xcodebuild[13742:10486497] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.50s         Setting up automation session
+    t =     0.91s         Wait for com.civilization.seed.qa to idle
+    t =     2.03s Waiting 30.0s for "continueGame" Button to exist
+    t =     3.05s     Checking `Expect predicate `existsNoRetry == 1` for object "continueGame" Button`
+    t =     3.05s         Checking existence of `"continueGame" Button`
+    t =     3.08s Find the "continueGame" Button
+    t =     3.08s Tap "newNormalGame" Button
+    t =     3.08s     Wait for com.civilization.seed.qa to idle
+    t =     3.08s     Find the "newNormalGame" Button
+    t =     3.09s     Check for interrupting elements affecting "newNormalGame" Button
+    t =     3.10s     Synthesize event
+    t =     3.40s     Wait for com.civilization.seed.qa to idle
+    t =     4.41s Waiting 30.0s for "settlementLoading" Any to not exist
+    t =     5.45s     Checking `Expect predicate `existsNoRetry == 0` for object "settlementLoading" Any`
+    t =     5.45s         Checking existence of `"settlementLoading" Any`
+    t =     5.52s Waiting 15.0s for "developerTools" Button to exist
+    t =     6.58s     Checking `Expect predicate `existsNoRetry == 1` for object "developerTools" Button`
+    t =     6.59s         Checking existence of `"developerTools" Button`
+    t =     6.61s Tap "developerTools" Button
+    t =     6.61s     Wait for com.civilization.seed.qa to idle
+    t =     6.61s     Find the "developerTools" Button
+    t =     6.62s     Check for interrupting elements affecting "developerTools" Button
+    t =     6.64s     Synthesize event
+    t =     6.92s     Wait for com.civilization.seed.qa to idle
+    t =     7.31s Waiting 10.0s for "openFoundingReview" Button to exist
+    t =     8.37s     Checking `Expect predicate `existsNoRetry == 1` for object "openFoundingReview" Button`
+    t =     8.37s         Checking existence of `"openFoundingReview" Button`
+    t =     8.44s Tap "openFoundingReview" Button
+    t =     8.44s     Wait for com.civilization.seed.qa to idle
+    t =     8.44s     Find the "openFoundingReview" Button
+    t =     8.47s     Check for interrupting elements affecting "openFoundingReview" Button
+    t =     8.50s     Synthesize event
+    t =     8.79s     Wait for com.civilization.seed.qa to idle
+    t =    10.22s Waiting 15.0s for "foundingStatus" StaticText to exist
+    t =    11.27s     Checking `Expect predicate `existsNoRetry == 1` for object "foundingStatus" StaticText`
+    t =    11.27s         Checking existence of `"foundingStatus" StaticText`
+    t =    11.32s Find the "foundingStatus" StaticText
+    t =    11.35s Waiting 5.0s for "foundingRail-Explore" Button to exist
+    t =    12.38s     Checking `Expect predicate `existsNoRetry == 1` for object "foundingRail-Explore" Button`
+    t =    12.38s         Checking existence of `"foundingRail-Explore" Button`
+    t =    12.43s Find the "foundingRail-Explore" Button
+    t =    12.46s Tap "foundingRail-Explore" Button
+    t =    12.46s     Wait for com.civilization.seed.qa to idle
+    t =    12.47s     Find the "foundingRail-Explore" Button
+    t =    12.51s     Check for interrupting elements affecting "foundingRail-Explore" Button
+    t =    12.54s     Synthesize event
+    t =    12.82s     Wait for com.civilization.seed.qa to idle
+    t =    12.82s Waiting 5.0s for "foundingFogComparison" Button to exist
+    t =    13.88s     Checking `Expect predicate `existsNoRetry == 1` for object "foundingFogComparison" Button`
+    t =    13.88s         Checking existence of `"foundingFogComparison" Button`
+    t =    13.93s Find the "foundingFogComparison" Button
+    t =    13.97s Tap "foundingFogComparison" Button
+    t =    13.97s     Wait for com.civilization.seed.qa to idle
+    t =    13.97s     Find the "foundingFogComparison" Button
+    t =    14.01s     Check for interrupting elements affecting "foundingFogComparison" Button
+    t =    14.05s     Synthesize event
+    t =    14.34s     Wait for com.civilization.seed.qa to idle
+    t =    15.07s Waiting 5.0s for "fogAudit" StaticText to exist
+    t =    16.10s     Checking `Expect predicate `existsNoRetry == 1` for object "fogAudit" StaticText`
+    t =    16.10s         Checking existence of `"fogAudit" StaticText`
+    t =    17.19s Find the "fogAudit" StaticText
+    t =    17.23s Find the "fogAudit" StaticText
+    t =    17.27s Find the "fogAudit" StaticText
+    t =    17.30s Find the "fogAudit" StaticText
+    t =    17.33s Find the "fogAudit" StaticText
+    t =    17.36s Find the "fogAudit" StaticText
+    t =    17.40s Find the "fogAudit" StaticText
+    t =    17.43s Find the "fogAudit" StaticText
+    t =    17.51s Added attachment named 'fog-motion-01-organic-covered'
+    t =    17.52s Find the "fogAudit" StaticText
+    t =    17.55s Added attachment named 'fog-motion-01-organic-covered-state'
+    t =    17.55s Waiting 5.0s for "fogStyle" Button to exist
+    t =    18.59s     Checking `Expect predicate `existsNoRetry == 1` for object "fogStyle" Button`
+    t =    18.59s         Checking existence of `"fogStyle" Button`
+    t =    18.66s Find the "fogStyle" Button
+    t =    18.70s Tap "fogStyle" Button
+    t =    18.70s     Wait for com.civilization.seed.qa to idle
+    t =    18.70s     Find the "fogStyle" Button
+    t =    18.74s     Check for interrupting elements affecting "fogStyle" Button
+    t =    18.76s     Synthesize event
+    t =    19.05s     Wait for com.civilization.seed.qa to idle
+    t =    19.90s Added attachment named 'fog-motion-02-tiled-covered-matched'
+    t =    19.90s Find the "fogAudit" StaticText
+    t =    19.93s Added attachment named 'fog-motion-02-tiled-covered-matched-state'
+    t =    19.93s Find the "fogAudit" StaticText
+    t =    19.97s Find the "fogAudit" StaticText
+    t =    20.00s Find the "fogAudit" StaticText
+    t =    20.04s Waiting 5.0s for "fogStyle" Button to exist
+    t =    21.09s     Checking `Expect predicate `existsNoRetry == 1` for object "fogStyle" Button`
+    t =    21.09s         Checking existence of `"fogStyle" Button`
+    t =    21.12s Find the "fogStyle" Button
+    t =    21.16s Tap "fogStyle" Button
+    t =    21.16s     Wait for com.civilization.seed.qa to idle
+    t =    21.16s     Find the "fogStyle" Button
+    t =    21.19s     Check for interrupting elements affecting "fogStyle" Button
+    t =    21.22s     Synthesize event
+    t =    21.50s     Wait for com.civilization.seed.qa to idle
+    t =    22.18s Find the "fogAudit" StaticText
+    t =    22.21s Find the "fogAudit" StaticText
+    t =    22.25s Find the "fogAudit" StaticText
+    t =    22.29s Find the "fogAudit" StaticText
+    t =    22.32s Find the "onboardingWalkthroughMap" Other
+    t =    22.35s Press "onboardingWalkthroughMap" Other[0.50, 0.35] for 0.1 seconds, then drag to "onboardingWalkthroughMap" Other[0.70, 0.40] with velocity of 500.00 pixels per second, and then hold for 0.0 seconds 
+    t =    22.35s     Wait for com.civilization.seed.qa to idle
+    t =    22.36s     Find the "onboardingWalkthroughMap" Other
+    t =    22.39s     Check for interrupting elements affecting "onboardingWalkthroughMap" Other
+    t =    22.42s     Synthesize event
+    t =    22.42s         Find the "onboardingWalkthroughMap" Other
+    t =    22.46s         Find the "onboardingWalkthroughMap" Other
+    t =    22.49s         Find the "onboardingWalkthroughMap" Other
+    t =    22.53s         Find the "onboardingWalkthroughMap" Other
+    t =    22.56s         Find the "onboardingWalkthroughMap" Other
+    t =    23.36s     Wait for com.civilization.seed.qa to idle
+    t =    23.36s Pinch with scale 1.35, velocity 1 in "onboardingWalkthroughMap" Other
+    t =    23.36s     Wait for com.civilization.seed.qa to idle
+    t =    23.36s     Find the "onboardingWalkthroughMap" Other
+    t =    23.39s     Check for interrupting elements affecting "onboardingWalkthroughMap" Other
+    t =    23.42s     Synthesize event
+    t =    23.43s         Pinching with rect {{50, 50}, {644, 1033}}
+    t =    25.14s     Wait for com.civilization.seed.qa to idle
+    t =    25.14s Find the "onboardingWalkthroughMap" Other
+    t =    25.22s Added attachment named 'fog-motion-03-covered-edge-pan-pinch'
+    t =    25.23s Find the "fogAudit" StaticText
+    t =    25.26s Added attachment named 'fog-motion-03-covered-edge-pan-pinch-state'
+    t =    25.26s Find the "fogAudit" StaticText
+    t =    25.29s Find the "fogAudit" StaticText
+    t =    25.32s Find the "fogAudit" StaticText
+    t =    25.35s Find the "fogAudit" StaticText
+    t =    25.38s Waiting 5.0s for "fogReturn" Button to exist
+    t =    26.44s     Checking `Expect predicate `existsNoRetry == 1` for object "fogReturn" Button`
+    t =    26.44s         Checking existence of `"fogReturn" Button`
+    t =    26.48s Find the "fogReturn" Button
+    t =    26.52s Tap "fogReturn" Button
+    t =    26.52s     Wait for com.civilization.seed.qa to idle
+    t =    26.52s     Find the "fogReturn" Button
+    t =    26.55s     Check for interrupting elements affecting "fogReturn" Button
+    t =    26.58s     Synthesize event
+    t =    26.87s     Wait for com.civilization.seed.qa to idle
+    t =    27.58s Waiting 5.0s for "foundingRail-Explore" Button to exist
+    t =    28.63s     Checking `Expect predicate `existsNoRetry == 1` for object "foundingRail-Explore" Button`
+    t =    28.63s         Checking existence of `"foundingRail-Explore" Button`
+    t =    28.67s Find the "foundingRail-Explore" Button
+    t =    28.70s Tap "foundingRail-Explore" Button
+    t =    28.70s     Wait for com.civilization.seed.qa to idle
+    t =    28.70s     Find the "foundingRail-Explore" Button
+    t =    28.73s     Check for interrupting elements affecting "foundingRail-Explore" Button
+    t =    28.76s     Synthesize event
+    t =    29.05s     Wait for com.civilization.seed.qa to idle
+    t =    29.06s Waiting 5.0s for "foundingFogComparison" Button to exist
+    t =    30.10s     Checking `Expect predicate `existsNoRetry == 1` for object "foundingFogComparison" Button`
+    t =    30.10s         Checking existence of `"foundingFogComparison" Button`
+    t =    30.14s Find the "foundingFogComparison" Button
+    t =    30.18s Tap "foundingFogComparison" Button
+    t =    30.18s     Wait for com.civilization.seed.qa to idle
+    t =    30.18s     Find the "foundingFogComparison" Button
+    t =    30.22s     Check for interrupting elements affecting "foundingFogComparison" Button
+    t =    30.25s     Synthesize event
+    t =    30.54s     Wait for com.civilization.seed.qa to idle
+    t =    31.27s Waiting 5.0s for "fogAudit" StaticText to exist
+    t =    32.32s     Checking `Expect predicate `existsNoRetry == 1` for object "fogAudit" StaticText`
+    t =    32.32s         Checking existence of `"fogAudit" StaticText`
+    t =    33.40s Find the "fogAudit" StaticText
+    t =    33.44s Waiting 5.0s for "fogBuild" Button to exist
+    t =    34.48s     Checking `Expect predicate `existsNoRetry == 1` for object "fogBuild" Button`
+    t =    34.48s         Checking existence of `"fogBuild" Button`
+    t =    34.54s Find the "fogBuild" Button
+    t =    34.58s Tap "fogBuild" Button
+    t =    34.58s     Wait for com.civilization.seed.qa to idle
+    t =    34.58s     Find the "fogBuild" Button
+    t =    34.61s     Check for interrupting elements affecting "fogBuild" Button
+    t =    34.64s     Synthesize event
+    t =    34.92s     Wait for com.civilization.seed.qa to idle
+    t =    34.92s Waiting 5.0s for "fogStep" Button to exist
+    t =    35.98s     Checking `Expect predicate `existsNoRetry == 1` for object "fogStep" Button`
+    t =    35.98s         Checking existence of `"fogStep" Button`
+    t =    36.01s Find the "fogStep" Button
+    t =    36.06s Tap "fogStep" Button
+    t =    36.06s     Wait for com.civilization.seed.qa to idle
+    t =    36.06s     Find the "fogStep" Button
+    t =    36.09s     Check for interrupting elements affecting "fogStep" Button
+    t =    36.12s     Synthesize event
+    t =    36.41s     Wait for com.civilization.seed.qa to idle
+    t =    36.42s Waiting 5.0s for "fogExpedition" Button to exist
+    t =    37.45s     Checking `Expect predicate `existsNoRetry == 1` for object "fogExpedition" Button`
+    t =    37.45s         Checking existence of `"fogExpedition" Button`
+    t =    37.50s Find the "fogExpedition" Button
+    t =    37.53s Tap "fogExpedition" Button
+    t =    37.53s     Wait for com.civilization.seed.qa to idle
+    t =    37.53s     Find the "fogExpedition" Button
+    t =    37.57s     Check for interrupting elements affecting "fogExpedition" Button
+    t =    37.59s     Synthesize event
+    t =    37.88s     Wait for com.civilization.seed.qa to idle
+    t =    37.88s Waiting 5.0s for "fogLastCovered" Button to exist
+    t =    38.92s     Checking `Expect predicate `existsNoRetry == 1` for object "fogLastCovered" Button`
+    t =    38.92s         Checking existence of `"fogLastCovered" Button`
+    t =    38.96s Find the "fogLastCovered" Button
+    t =    39.01s Tap "fogLastCovered" Button
+    t =    39.01s     Wait for com.civilization.seed.qa to idle
+    t =    39.01s     Find the "fogLastCovered" Button
+    t =    39.05s     Check for interrupting elements affecting "fogLastCovered" Button
+    t =    39.08s     Synthesize event
+    t =    39.37s     Wait for com.civilization.seed.qa to idle
+    t =    39.37s Find the "fogAudit" StaticText
+    t =    39.41s Find the "fogAudit" StaticText
+    t =    39.45s Find the "fogAudit" StaticText
+    t =    39.53s Added attachment named 'fog-motion-04-last-covered'
+    t =    39.54s Find the "fogAudit" StaticText
+    t =    39.57s Added attachment named 'fog-motion-04-last-covered-state'
+    t =    39.57s Find the "fogAudit" StaticText
+    t =    39.61s Find the "fogAudit" StaticText
+    t =    39.65s Find the "fogAudit" StaticText
+    t =    39.69s Find the "fogAudit" StaticText
+    t =    39.72s Waiting 5.0s for "fogFirstReveal" Button to exist
+    t =    40.75s     Checking `Expect predicate `existsNoRetry == 1` for object "fogFirstReveal" Button`
+    t =    40.75s         Checking existence of `"fogFirstReveal" Button`
+    t =    40.79s Find the "fogFirstReveal" Button
+    t =    40.83s Tap "fogFirstReveal" Button
+    t =    40.83s     Wait for com.civilization.seed.qa to idle
+    t =    40.83s     Find the "fogFirstReveal" Button
+    t =    40.86s     Check for interrupting elements affecting "fogFirstReveal" Button
+    t =    40.89s     Synthesize event
+    t =    41.19s     Wait for com.civilization.seed.qa to idle
+    t =    42.18s Added attachment named 'fog-motion-05-first-revealed-transition'
+    t =    42.18s Find the "fogAudit" StaticText
+    t =    42.21s Added attachment named 'fog-motion-05-first-revealed-transition-state'
+    t =    42.21s Find the "fogAudit" StaticText
+    t =    42.25s Find the "fogAudit" StaticText
+    t =    42.28s Find the "fogAudit" StaticText
+    t =    42.31s Find the "fogAudit" StaticText
+    t =    42.35s Find the "fogAudit" StaticText
+    t =    42.38s Find the "fogAudit" StaticText
+    t =    42.41s Find the "fogAudit" StaticText
+    t =    42.44s Waiting 5.0s for "fogAudit" StaticText to exist
+    t =    43.47s     Checking `Expect predicate `existsNoRetry == 1` for object "fogAudit" StaticText`
+    t =    43.47s         Checking existence of `"fogAudit" StaticText`
+    t =    44.54s Find the "fogAudit" StaticText
+    t =    44.63s Added attachment named 'fog-motion-06-whole-forest-revealed'
+    t =    44.63s Find the "fogAudit" StaticText
+    t =    44.66s Added attachment named 'fog-motion-06-whole-forest-revealed-state'
+    t =    44.66s Waiting 5.0s for "fogStyle" Button to exist
+    t =    45.72s     Checking `Expect predicate `existsNoRetry == 1` for object "fogStyle" Button`
+    t =    45.72s         Checking existence of `"fogStyle" Button`
+    t =    45.77s Find the "fogStyle" Button
+    t =    45.81s Tap "fogStyle" Button
+    t =    45.81s     Wait for com.civilization.seed.qa to idle
+    t =    45.81s     Find the "fogStyle" Button
+    t =    45.85s     Check for interrupting elements affecting "fogStyle" Button
+    t =    45.88s     Synthesize event
+    t =    46.17s     Wait for com.civilization.seed.qa to idle
+    t =    47.41s Added attachment named 'fog-motion-07-tiled-revealed-matched'
+    t =    47.41s Find the "fogAudit" StaticText
+    t =    47.44s Added attachment named 'fog-motion-07-tiled-revealed-matched-state'
+    t =    47.45s Find the "fogAudit" StaticText
+    t =    47.48s Find the "fogAudit" StaticText
+    t =    47.51s Waiting 5.0s for "fogStyle" Button to exist
+    t =    48.55s     Checking `Expect predicate `existsNoRetry == 1` for object "fogStyle" Button`
+    t =    48.55s         Checking existence of `"fogStyle" Button`
+    t =    48.61s Find the "fogStyle" Button
+    t =    48.65s Tap "fogStyle" Button
+    t =    48.65s     Wait for com.civilization.seed.qa to idle
+    t =    48.65s     Find the "fogStyle" Button
+    t =    48.69s     Check for interrupting elements affecting "fogStyle" Button
+    t =    48.71s     Synthesize event
+    t =    49.01s     Wait for com.civilization.seed.qa to idle
+    t =    49.93s Waiting 5.0s for "fogBuild" Button to exist
+    t =    50.97s     Checking `Expect predicate `existsNoRetry == 1` for object "fogBuild" Button`
+    t =    50.97s         Checking existence of `"fogBuild" Button`
+    t =    51.01s Find the "fogBuild" Button
+    t =    51.05s Tap "fogBuild" Button
+    t =    51.05s     Wait for com.civilization.seed.qa to idle
+    t =    51.05s     Find the "fogBuild" Button
+    t =    51.08s     Check for interrupting elements affecting "fogBuild" Button
+    t =    51.11s     Synthesize event
+    t =    51.40s     Wait for com.civilization.seed.qa to idle
+    t =    51.40s Waiting 5.0s for "fogStep" Button to exist
+    t =    52.44s     Checking `Expect predicate `existsNoRetry == 1` for object "fogStep" Button`
+    t =    52.44s         Checking existence of `"fogStep" Button`
+    t =    52.49s Find the "fogStep" Button
+    t =    52.53s Tap "fogStep" Button
+    t =    52.53s     Wait for com.civilization.seed.qa to idle
+    t =    52.53s     Find the "fogStep" Button
+    t =    52.56s     Check for interrupting elements affecting "fogStep" Button
+    t =    52.59s     Synthesize event
+    t =    52.87s     Wait for com.civilization.seed.qa to idle
+    t =    52.87s Waiting 5.0s for "fogGameplay" Button to exist
+    t =    53.92s     Checking `Expect predicate `existsNoRetry == 1` for object "fogGameplay" Button`
+    t =    53.92s         Checking existence of `"fogGameplay" Button`
+    t =    53.96s Find the "fogGameplay" Button
+    t =    54.00s Tap "fogGameplay" Button
+    t =    54.00s     Wait for com.civilization.seed.qa to idle
+    t =    54.00s     Find the "fogGameplay" Button
+    t =    54.04s     Check for interrupting elements affecting "fogGameplay" Button
+    t =    54.09s     Synthesize event
+    t =    54.38s     Wait for com.civilization.seed.qa to idle
+    t =    54.38s Waiting 5.0s for "fogAudit" StaticText to exist
+    t =    55.44s     Checking `Expect predicate `existsNoRetry == 1` for object "fogAudit" StaticText`
+    t =    55.44s         Checking existence of `"fogAudit" StaticText`
+    t =    56.54s Find the "fogAudit" StaticText
+    t =    56.60s Find the "fogAudit" StaticText
+    t =    56.64s Find the "fogAudit" StaticText
+    t =    56.73s Added attachment named 'fog-motion-08-original-moving-gameplay-scale'
+    t =    56.73s Find the "fogAudit" StaticText
+    t =    56.77s Added attachment named 'fog-motion-08-original-moving-gameplay-scale-state'
+    t =    56.77s Waiting 5.0s for "fogStatic" Button to exist
+    t =    57.82s     Checking `Expect predicate `existsNoRetry == 1` for object "fogStatic" Button`
+    t =    57.82s         Checking existence of `"fogStatic" Button`
+    t =    57.87s Find the "fogStatic" Button
+    t =    57.91s Tap "fogStatic" Button
+    t =    57.91s     Wait for com.civilization.seed.qa to idle
+    t =    57.92s     Find the "fogStatic" Button
+    t =    57.95s     Check for interrupting elements affecting "fogStatic" Button
+    t =    57.98s     Synthesize event
+    t =    58.27s     Wait for com.civilization.seed.qa to idle
+    t =    59.20s Waiting 5.0s for "fogAudit" StaticText to exist
+    t =    60.25s     Checking `Expect predicate `existsNoRetry == 1` for object "fogAudit" StaticText`
+    t =    60.25s         Checking existence of `"fogAudit" StaticText`
+    t =    61.32s Find the "fogAudit" StaticText
+    t =    61.36s Find the "fogAudit" StaticText
+    t =    61.40s Find the "fogAudit" StaticText
+    t =    61.43s Find the "fogAudit" StaticText
+    t =    61.46s Find the "fogAudit" StaticText
+    t =    61.55s Added attachment named 'fog-motion-09-original-static'
+    t =    61.56s Find the "fogAudit" StaticText
+    t =    61.59s Added attachment named 'fog-motion-09-original-static-state'
+    t =    61.59s Waiting 5.0s for "fogLook" Button to exist
+    t =    62.65s     Checking `Expect predicate `existsNoRetry == 1` for object "fogLook" Button`
+    t =    62.65s         Checking existence of `"fogLook" Button`
+    t =    62.69s Find the "fogLook" Button
+    t =    62.73s Tap "fogLook" Button
+    t =    62.73s     Wait for com.civilization.seed.qa to idle
+    t =    62.73s     Find the "fogLook" Button
+    t =    62.77s     Check for interrupting elements affecting "fogLook" Button
+    t =    62.80s     Synthesize event
+    t =    63.08s     Wait for com.civilization.seed.qa to idle
+    t =    63.09s Waiting 5.0s for "fogAudit" StaticText to exist
+    t =    64.13s     Checking `Expect predicate `existsNoRetry == 1` for object "fogAudit" StaticText`
+    t =    64.13s         Checking existence of `"fogAudit" StaticText`
+    t =    65.20s Find the "fogAudit" StaticText
+    t =    65.24s Find the "fogAudit" StaticText
+    t =    65.28s Find the "fogAudit" StaticText
+    t =    65.31s Find the "fogAudit" StaticText
+    t =    65.35s Find the "fogAudit" StaticText
+    t =    65.44s Added attachment named 'fog-motion-10-blue-braid-static-same-anchors'
+    t =    65.44s Find the "fogAudit" StaticText
+    t =    65.48s Added attachment named 'fog-motion-10-blue-braid-static-same-anchors-state'
+    t =    65.48s Waiting 5.0s for "fogStatic" Button to exist
+    t =    66.52s     Checking `Expect predicate `existsNoRetry == 1` for object "fogStatic" Button`
+    t =    66.52s         Checking existence of `"fogStatic" Button`
+    t =    66.57s Find the "fogStatic" Button
+    t =    66.61s Tap "fogStatic" Button
+    t =    66.61s     Wait for com.civilization.seed.qa to idle
+    t =    66.61s     Find the "fogStatic" Button
+    t =    66.64s     Check for interrupting elements affecting "fogStatic" Button
+    t =    66.67s     Synthesize event
+    t =    66.96s     Wait for com.civilization.seed.qa to idle
+    t =    67.96s Waiting 5.0s for "fogAudit" StaticText to exist
+    t =    68.99s     Checking `Expect predicate `existsNoRetry == 1` for object "fogAudit" StaticText`
+    t =    69.00s         Checking existence of `"fogAudit" StaticText`
+    t =    70.04s Find the "fogAudit" StaticText
+    t =    70.08s Find the "fogAudit" StaticText
+    t =    70.12s Find the "fogAudit" StaticText
+    t =    70.21s Added attachment named 'fog-motion-11-blue-braid-moving-gameplay-scale'
+    t =    70.21s Find the "fogAudit" StaticText
+    t =    70.24s Added attachment named 'fog-motion-11-blue-braid-moving-gameplay-scale-state'
+    t =    88.45s Added attachment named 'fog-motion-12-blue-braid-existing-sequence'
+    t =    88.45s Find the "fogAudit" StaticText
+    t =    88.49s Added attachment named 'fog-motion-12-blue-braid-existing-sequence-state'
+    t =    88.49s Press "onboardingWalkthroughMap" Other[0.55, 0.30] for 0.1 seconds, then drag to "onboardingWalkthroughMap" Other[0.35, 0.40] with velocity of 500.00 pixels per second, and then hold for 0.0 seconds 
+    t =    88.49s     Wait for com.civilization.seed.qa to idle
+    t =    88.49s     Find the "onboardingWalkthroughMap" Other
+    t =    88.53s     Check for interrupting elements affecting "onboardingWalkthroughMap" Other
+    t =    88.56s     Synthesize event
+    t =    88.56s         Find the "onboardingWalkthroughMap" Other
+    t =    88.61s         Find the "onboardingWalkthroughMap" Other
+    t =    88.65s         Find the "onboardingWalkthroughMap" Other
+    t =    88.68s         Find the "onboardingWalkthroughMap" Other
+    t =    88.72s         Find the "onboardingWalkthroughMap" Other
+    t =    89.51s     Wait for com.civilization.seed.qa to idle
+    t =    89.52s Pinch with scale 0.75, velocity -1 in "onboardingWalkthroughMap" Other
+    t =    89.52s     Wait for com.civilization.seed.qa to idle
+    t =    89.52s     Find the "onboardingWalkthroughMap" Other
+    t =    89.57s     Check for interrupting elements affecting "onboardingWalkthroughMap" Other
+    t =    89.60s     Synthesize event
+    t =    89.62s         Pinching with rect {{50, 50}, {644, 1033}}
+    t =    90.71s     Wait for com.civilization.seed.qa to idle
+    t =    90.71s Find the "fogAudit" StaticText
+    t =    90.74s Find the "fogAudit" StaticText
+    t =    90.78s Find the "fogAudit" StaticText
+    t =    90.81s Find the "fogAudit" StaticText
+    t =    90.90s Added attachment named 'fog-motion-13-revealed-edge-pan-pinch'
+    t =    90.90s Find the "fogAudit" StaticText
+    t =    90.94s Added attachment named 'fog-motion-13-revealed-edge-pan-pinch-state'
+    t =    90.94s Waiting 5.0s for "fogReturn" Button to exist
+    t =    91.98s     Checking `Expect predicate `existsNoRetry == 1` for object "fogReturn" Button`
+    t =    91.99s         Checking existence of `"fogReturn" Button`
+    t =    92.04s Find the "fogReturn" Button
+    t =    92.08s Tap "fogReturn" Button
+    t =    92.08s     Wait for com.civilization.seed.qa to idle
+    t =    92.08s     Find the "fogReturn" Button
+    t =    92.11s     Check for interrupting elements affecting "fogReturn" Button
+    t =    92.15s     Synthesize event
+    t =    92.44s     Wait for com.civilization.seed.qa to idle
+    t =    93.15s Find the "foundingStatus" StaticText
+    t =    93.19s Waiting 5.0s for "foundingCatalog" Button to exist
+    t =    94.24s     Checking `Expect predicate `existsNoRetry == 1` for object "foundingCatalog" Button`
+    t =    94.24s         Checking existence of `"foundingCatalog" Button`
+    t =    94.27s Find the "foundingCatalog" Button
+    t =    94.31s Tap "foundingCatalog" Button
+    t =    94.31s     Wait for com.civilization.seed.qa to idle
+    t =    94.31s     Find the "foundingCatalog" Button
+    t =    94.35s     Check for interrupting elements affecting "foundingCatalog" Button
+    t =    94.38s     Synthesize event
+    t =    94.67s     Wait for com.civilization.seed.qa to idle
+    t =    94.67s Checking existence of `"foundingCard-hut" Button`
+    t =    94.72s Waiting 5.0s for "foundingCatalogDone" Button to exist
+    t =    95.74s     Checking `Expect predicate `existsNoRetry == 1` for object "foundingCatalogDone" Button`
+    t =    95.74s         Checking existence of `"foundingCatalogDone" Button`
+    t =    95.80s Find the "foundingCatalogDone" Button
+    t =    95.85s Tap "foundingCatalogDone" Button
+    t =    95.85s     Wait for com.civilization.seed.qa to idle
+    t =    95.85s     Find the "foundingCatalogDone" Button
+    t =    95.89s     Check for interrupting elements affecting "foundingCatalogDone" Button
+    t =    95.93s     Synthesize event
+    t =    96.22s     Wait for com.civilization.seed.qa to idle
+    t =    96.22s Waiting 5.0s for "closeFoundingReview" Button to exist
+    t =    97.24s     Checking `Expect predicate `existsNoRetry == 1` for object "closeFoundingReview" Button`
+    t =    97.24s         Checking existence of `"closeFoundingReview" Button`
+    t =    97.27s Find the "closeFoundingReview" Button
+    t =    97.31s Tap "closeFoundingReview" Button
+    t =    97.31s     Wait for com.civilization.seed.qa to idle
+    t =    97.31s     Find the "closeFoundingReview" Button
+    t =    97.35s     Check for interrupting elements affecting "closeFoundingReview" Button
+    t =    97.37s     Synthesize event
+    t =    97.66s     Wait for com.civilization.seed.qa to idle
+    t =    98.03s Tear Down
+Test Case '-[CivilizationUITests.RelocationUITests testUI2FogMotionIntegrated]' passed (98.472 seconds).
+Test Suite 'RelocationUITests' passed at 2026-11-21 05:37:38.205.
+	 Executed 1 test, with 0 failures (0 unexpected) in 98.472 (98.473) seconds
+Test Suite 'CivilizationUITests.xctest' passed at 2026-11-21 05:37:38.206.
+	 Executed 1 test, with 0 failures (0 unexpected) in 98.472 (98.474) seconds
+Test Suite 'Selected tests' passed at 2026-11-21 05:37:38.206.
+	 Executed 1 test, with 0 failures (0 unexpected) in 98.472 (98.474) seconds
+2026-11-21 05:37:38.496 xcodebuild[13742:10486497] [MT] IDETestOperationsObserverDebug: 99.664 elapsed -- Testing started completed.
+2026-11-21 05:37:38.496 xcodebuild[13742:10486497] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-21 05:37:38.496 xcodebuild[13742:10486497] [MT] IDETestOperationsObserverDebug: 99.664 sec, +99.664 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/ui2fog-ipad-verified/ui-debug-1.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

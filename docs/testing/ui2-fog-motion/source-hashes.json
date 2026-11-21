@@ -1,0 +1,11 @@
+{
+  "Civilization/Rendering/SettlementScene.swift": "131066a3e9d6613481c94ef425da78ad2c82fd01a0ba36f26eeecaaf97a4a144",
+  "Civilization/Rendering/LivingWorldLayer.swift": "718885c5364415db881f7651df36c796b5da78d4919110916386b7d08d28cadc",
+  "Civilization/Rendering/VillagerFigure.swift": "8a9e25fe1f3f3ebb6a4e15069997f43ca2720c8a89f13d86427c94c91b198e82",
+  "Civilization/UI/FoundingReviewView.swift": "729e5772a13dc33977dbe4d4517d33d991a6e5cc172f99ae811bcdde45ff48cb",
+  "CivilizationUITests/RelocationUITests.swift": "566aefddcdba8de0ec7eff3a0dba02f74dd1e206157a908cac7e49022825f3b8",
+  "Packages/GameCore/Sources/GameApplication/ReviewFogBoundary.swift": "abe9c6f2c238d268e1774d0173feb40758f450a8403aea9cb1ffb0e95a03daad",
+  "Packages/GameCore/Sources/GameApplication/ReviewForestPresentation.swift": "1c382f63b4305c9300eff9cb30c0d13018208dd9c8ddeff7dab3f10b2819fc77",
+  "Packages/GameCore/Tests/GameCoreTests/ReviewFogBoundaryTests.swift": "794ee032ee86a28af99b8a452e3a6837c295f877a174f82c86a9f5c691b4b2d3",
+  "scripts/verify-developer-release.py": "9305111fe552d7394723babe602012851fdc58cc9a70910e6b83ed159423407e"
+}

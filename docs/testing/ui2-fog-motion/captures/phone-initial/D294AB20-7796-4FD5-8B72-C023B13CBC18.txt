@@ -1,0 +1,1 @@
+known=583 unknown=2489 hiddenGround=0 hiddenMarkers=0 opaque=1 fade=0 camera=176.000,-287.000 zoom=1.4400 actors=1 builds=9 moving=0 look=blue-braid actor=6247A93D-5D00-4644-9EAE-6049A773250B activity=socialize facing=awayLeft joints=0.250,-1.224,0.000,0.000,0.110,0.110 scale=-1.000 noseHidden=1 cargo=0

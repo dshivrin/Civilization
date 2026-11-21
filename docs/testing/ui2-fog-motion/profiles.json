@@ -1,0 +1,34 @@
+[
+  {
+    "profile": "phone",
+    "device": "E118C061-9C37-4E18-9B03-A633E7240149",
+    "runtime": "iOS18.6",
+    "landscapePoints": [
+      667,
+      375
+    ],
+    "pixelScale": 2,
+    "configuration": "Debug QA identity com.civilization.seed.qa; UUID library fixtures",
+    "overviewCamera": "-448.000,-648.659",
+    "overviewZoom": "5.0824",
+    "gameplayZoom": "0.95",
+    "lastCoveredToFirstRevealed": "same camera/zoom; known225\u2192583, inherited region/expedition union",
+    "firstRevealFade": true
+  },
+  {
+    "profile": "ipad",
+    "device": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+    "runtime": "iOS18.6",
+    "landscapePoints": [
+      1133,
+      744
+    ],
+    "pixelScale": 2,
+    "configuration": "Debug QA identity com.civilization.seed.qa; UUID library fixtures",
+    "overviewCamera": "-448.000,-500.137",
+    "overviewZoom": "2.1413",
+    "gameplayZoom": "1.1",
+    "lastCoveredToFirstRevealed": "same camera/zoom; known225\u2192583, inherited region/expedition union",
+    "firstRevealFade": true
+  }
+]

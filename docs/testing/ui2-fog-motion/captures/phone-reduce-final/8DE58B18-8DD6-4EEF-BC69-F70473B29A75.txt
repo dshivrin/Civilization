@@ -1,0 +1,1 @@
+osReduceMotion=1 static=0 known=583 unknown=2489 hiddenGround=0 hiddenMarkers=0 opaque=1 fade=0 camera=80.000,-551.975 zoom=0.9500 actors=1 builds=7 moving=0 look=blue-braid actor=83F51408-10C7-4A6E-A6B1-E41780A8E2E0 activity=rest facing=awayRight joints=0.480,-0.480,0.950,-0.950,-3.100,0.000 scale=1.000 noseHidden=1 cargo=0

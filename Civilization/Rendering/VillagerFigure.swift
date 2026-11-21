@@ -9,6 +9,15 @@ import GameApplication
     private let nose: SKShapeNode, backHair: SKShapeNode
     private let legs = [SKNode(), SKNode()], arms = [SKNode(), SKNode()]
     private let cargo = SKNode()
+    private let tunic = SKShapeNode(rectOf: CGSize(width: 6.5, height: 8), cornerRadius: 2)
+    private let braid = SKNode()
+    private var baseTunic = UIColor.clear
+    private(set) var alternateLook = false
+    func setAlternateLook(_ value: Bool) {
+        alternateLook = value
+        tunic.fillColor = value ? UIColor(red: 0.20, green: 0.53, blue: 0.73, alpha: 1) : baseTunic
+        braid.isHidden = !value
+    }
     private(set) var activity = VisualAgentActivity.idle
     private(set) var facing = VisualAgentFacing.nearRight
     var jointSummary: String {
@@ -34,7 +43,7 @@ import GameApplication
         directionRoot.addChild(torso)
         let palette: [UIColor] = [UIColor(red: 0.61, green: 0.32, blue: 0.17, alpha: 1),
             UIColor(red: 0.37, green: 0.47, blue: 0.30, alpha: 1), UIColor(red: 0.71, green: 0.57, blue: 0.35, alpha: 1)]
-        let tunic = SKShapeNode(rectOf: CGSize(width: 6.5, height: 8), cornerRadius: 2)
+        baseTunic = palette[index]
         tunic.fillColor = palette[index]; tunic.strokeColor = .clear; tunic.position.y = 8; torso.addChild(tunic)
         for (i, arm) in arms.enumerated() {
             arm.position = CGPoint(x: i == 0 ? -3.5 : 3.5, y: 10)
@@ -47,6 +56,12 @@ import GameApplication
         let crown = oval(width: 5.2, height: 2.4, color: hair); crown.position.y = 2.2; head.addChild(crown)
         backHair.fillColor = hair; backHair.strokeColor = .clear; head.addChild(backHair)
         nose.fillColor = skin; nose.strokeColor = .clear; nose.position = CGPoint(x: 2.6, y: -0.4); head.addChild(nose)
+        // An attached pale braid changes silhouette while retaining the same head anchor.
+        for i in 0..<4 {
+            let knot = oval(width: 2.6, height: 2.4, color: UIColor(red: 0.91, green: 0.73, blue: 0.36, alpha: 1))
+            knot.position = CGPoint(x: -2.7 - Double(i) * 0.3, y: 1 - Double(i) * 1.7); braid.addChild(knot)
+        }
+        head.addChild(braid); braid.isHidden = true
         head.position.y = 14; torso.addChild(head)
         for y in [6.5, 8.5] as [CGFloat] {
             let log = SKShapeNode(rectOf: CGSize(width: 9, height: 2), cornerRadius: 1)

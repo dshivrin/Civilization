@@ -1,0 +1,15 @@
+# UI2-3 native review guide
+
+Base: 095e2c99bc02970255c33b0794229a124de1dd57, verified against local HEAD and origin/riverbend-ui2-menus-review before changes. Spec read from 4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3 without merge. Only riverbend-ui2-fog-motion-review is authorized for push.
+
+Open Debug Developer tools → founding review. Its actual founding map now opts into organic opaque fog and the existing living-world layer. Normal gameplay, Release entry, Lab and earlier visual review defaults retain their appearance.
+
+Explore → Forest and motion comparison embeds the existing, unchanged temporary `OnboardingReviewWalkthrough` in the same founding scene. This is explicitly a temporary comparison: its existing initial discovery omits the six legacy thin resource routes and its existing paid expedition reveals the whole supported western forest. Its region geometry, transaction rules, cost, duration, eligibility and discovery union are reused byte-for-byte. No new discovery algorithm or saved knowledge is introduced. The founding store is neither replaced nor written by this temporary walkthrough. Founding menus exit the temporary engine before exposing their actions; transactions also guard this boundary. Returning keeps founding progress and menus.
+
+Use Organic fog/Tiled baseline to compare the same scene at unchanged camera/zoom/discovery. Build the Hut at an existing lateral founding suggestion, finish its actual construction with an explicitly labeled60-second review step, start the existing paid expedition, step to0.1seconds before completion, then step0.1seconds. The reveal keeps its framing and fades only newly known ground for the inherited1.2seconds. Static and OS Reduce Motion omit that fade. The whole forest comparison is the inherited temporary proposal; it does not migrate or adopt it into founding or ordinary saved discovery.
+
+Finish the existing Woodcutter, then Gameplay zoom frames the existing hut→gathering route at ordinary0.95phone/1.1iPad scene scale. Original look/Blue+braid changes only tunic color and attached hairstyle. Eight poses, four facings, retained joints, anchors, actor identity, journey and timing are shared. Static freezes the current pose instead of replacing/removing actors. This is provisional procedural character geometry, not an accepted atlas.
+
+Fog omits unknown ground before hidden terrain lookup, fills one opaque field without internal tile strokes, and adds deterministic fully opaque ellipses at discovery boundaries. The cover sits above scene content. It never opens an unknown tile; decorative intrusion can cover some known edge pixels. Markers and roads retain their original known-tile filters. The new field has no reveal animation over unknowns. Native audit samples actual cover paths and rendered ground/marker provenance; screenshots and recordings remain necessary to assess the appearance.
+
+No player/current saves, physical device or signing access, runtime rasters, media, schema/economy/Water/Lab changes, Release enablement, normal adoption, main/first-era-review push/merge, production/GateB/R2-07 activation or UI2-4 implementation.

@@ -1,0 +1,108 @@
+{
+  "goal": "UI2-3 Riverbend Fog and Motion",
+  "date": "2026-11-21",
+  "branch": "riverbend-ui2-fog-motion-review",
+  "base": "095e2c99bc02970255c33b0794229a124de1dd57",
+  "specCommit": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
+  "status": "verified locally; commit/push receipt follows",
+  "requiredRuns": [
+    "ui2fog-core-verified",
+    "ui2fog-phone-delivery",
+    "ui2fog-ipad-delivery",
+    "ui2fog-phone-visual-final",
+    "ui2fog-ipad-visual-final",
+    "ui2fog-phone-reduce-verified",
+    "ui2fog-ipad-reduce-final",
+    "ui2fog-phone-release",
+    "ui2fog-ipad-release"
+  ],
+  "counts": {
+    "coreDebug": {
+      "passed": 323,
+      "failed": 0,
+      "skipped": 0
+    },
+    "coreRelease": {
+      "passed": 235,
+      "failed": 0,
+      "skipped": 0
+    },
+    "releaseExclusions": {
+      "passed": 21,
+      "failed": 0
+    },
+    "nativeMatrixPerProfile": {
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0
+    },
+    "finalSourceVisualPerProfile": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    "osReduceMotionPerProfile": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    "ordinaryReleasePerProfile": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "profiles": [
+    {
+      "profile": "phone",
+      "device": "E118C061-9C37-4E18-9B03-A633E7240149",
+      "runtime": "iOS18.6",
+      "landscapePoints": [
+        667,
+        375
+      ],
+      "pixelScale": 2,
+      "configuration": "Debug QA identity com.civilization.seed.qa; UUID library fixtures",
+      "overviewCamera": "-448.000,-648.659",
+      "overviewZoom": "5.0824",
+      "gameplayZoom": "0.95",
+      "lastCoveredToFirstRevealed": "same camera/zoom; known225\u2192583, inherited region/expedition union",
+      "firstRevealFade": true
+    },
+    {
+      "profile": "ipad",
+      "device": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "runtime": "iOS18.6",
+      "landscapePoints": [
+        1133,
+        744
+      ],
+      "pixelScale": 2,
+      "configuration": "Debug QA identity com.civilization.seed.qa; UUID library fixtures",
+      "overviewCamera": "-448.000,-500.137",
+      "overviewZoom": "2.1413",
+      "gameplayZoom": "1.1",
+      "lastCoveredToFirstRevealed": "same camera/zoom; known225\u2192583, inherited region/expedition union",
+      "firstRevealFade": true
+    }
+  ],
+  "captures": {
+    "final": 76,
+    "earlier": 44
+  },
+  "runnerReceipts": 25,
+  "preservedBaseFilesAndLinkTexts": 1559,
+  "sourceHashes": "source-hashes.json",
+  "captureHashes": "captures.json",
+  "recordings": "clips/provenance.json",
+  "sourceReview": "review.md",
+  "failuresAndCorrections": "progress.md",
+  "integrationBoundary": "Actual founding map opts into fog/living styling; Explore embeds unchanged temporary wholeforest walkthrough; no saved discovery/region/economy/Lab change",
+  "verificationScope": "Five-case native matrix plus final-source visual and Reduce Motion reruns; final comparison stock-header correction rerun on both profiles. Core sources unchanged after full323/235/21 pass.",
+  "limits": [
+    "Provisional small figures; normal depth order can occlude initial rest pose; visible walk-pose Static comparison retained",
+    "No human/physical/max-Dynamic-Type/production appearance claim",
+    "Phone recorder-stop exit1 after QA simulator shutdown; original decodes fully. Metadata-only landscape watch copy has identical4730packets and timestamps; both original clips retained.",
+    "Explicit review steps are not real expedition/construction waits; existing motion sequence runs on inherited real presentation clock"
+  ]
+}

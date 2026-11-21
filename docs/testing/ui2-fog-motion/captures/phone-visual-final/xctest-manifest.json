@@ -1,0 +1,242 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "8C77C4E8-A1E0-4EEB-827E-FF8EDCDC0BC8.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-13-revealed-edge-pan-pinch-state_0_B16566E7-FE41-4E15-9E40-98971803E5FF.txt",
+        "timestamp" : 1795232403.382
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D909262D-9CC4-46CE-811D-F6792600837F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-13-revealed-edge-pan-pinch_0_2D3BDED7-F44D-4002-8678-8DF7DD1ECAFE.png",
+        "timestamp" : 1795232403.351
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "CBBAD436-4AE4-4349-9323-7BA76910EB7C.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-12-blue-braid-existing-sequence-state_0_DAE4117A-8DA0-40A2-9150-5584DCCE90BB.txt",
+        "timestamp" : 1795232401.258
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D25CCD57-5049-4E21-85F3-D31F3A0DF630.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-12-blue-braid-existing-sequence_0_11F0E328-4615-44A0-80C9-0A53FFBD7183.png",
+        "timestamp" : 1795232401.219
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "DF7C11FE-F3E5-4191-80C2-110908A58326.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-11-blue-braid-moving-gameplay-scale-state_0_A95B3238-5D13-4DE0-96D4-A9EB42D4DC8F.txt",
+        "timestamp" : 1795232383.033
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "B983403D-140E-4066-8541-400A3102D9E4.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-11-blue-braid-moving-gameplay-scale_0_261B1AF5-F19F-4A15-94CA-2AC4ABBED632.png",
+        "timestamp" : 1795232383.003
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "3EFEBDD9-79C0-4E59-9934-9A1FF4A487BA.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-10-blue-braid-static-same-anchors-state_0_55585B40-E2BA-4BE5-9627-6CE441B53E67.txt",
+        "timestamp" : 1795232378.407
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D4115AD0-6B71-4535-A59C-2C99702BE25C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-10-blue-braid-static-same-anchors_0_191CE0A9-B6F7-4867-B4EB-847C491504EB.png",
+        "timestamp" : 1795232378.378
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "9C728421-54A9-4EA0-BD47-5D46F0D247D6.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-09-original-static-state_0_7340AEC3-FAF3-4627-BCE4-E26E3576CB63.txt",
+        "timestamp" : 1795232374.586
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FECCBD53-C82E-46D2-86EB-B9530FED52E1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-09-original-static_0_DC1114D5-2264-4ABE-B8CC-962DC6A0FB37.png",
+        "timestamp" : 1795232374.555
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "7BA1C3C0-11BD-4D0B-AED3-FA0B52D2E596.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-08-original-moving-gameplay-scale-state_0_5313AC61-26A0-4EE3-94DD-AA4EDAF2B2D6.txt",
+        "timestamp" : 1795232369.903
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "9D8C511F-D11F-4653-849C-B6ED31C37377.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-08-original-moving-gameplay-scale_0_FF0FEB3C-2C21-492D-A3EF-3A94C4A38A6A.png",
+        "timestamp" : 1795232369.874
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "BD4363AC-7996-4C21-B3E0-23942BCFBE08.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-07-tiled-revealed-matched-state_0_04E3F51D-2E8A-4CF3-BC80-932ED6D2E429.txt",
+        "timestamp" : 1795232360.751
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "69093F86-AF6B-43FC-8F00-4E6F5FC560C0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-07-tiled-revealed-matched_0_FF16F400-A633-47CD-B856-DCD4AE90B59C.png",
+        "timestamp" : 1795232360.721
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5E28A054-365F-4911-BB00-21CAF84F7A47.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-06-whole-forest-revealed-state_0_4BBD9B32-436D-4B8B-B601-CAE8609AEF83.txt",
+        "timestamp" : 1795232358.103
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "ACFBB807-1F8D-4B72-BBB1-DCB8F3E8E734.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-06-whole-forest-revealed_0_C2E3E49D-36E5-4026-9832-651C0969684A.png",
+        "timestamp" : 1795232358.073
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "76A4F605-622E-4AE5-A7C9-CF60277955D5.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-05-first-revealed-transition-state_0_53566CFE-DD9B-4071-B3C1-D56E21057A9C.txt",
+        "timestamp" : 1795232355.654
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "5AD473EB-BE94-4121-A64C-E8BD0643F7E6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-05-first-revealed-transition_0_5CFADC34-8C73-4EE2-B5D5-4F8D3661B686.png",
+        "timestamp" : 1795232355.621
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D773AF88-BAA3-4AE2-9F22-C13DE6FA41B6.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-04-last-covered-state_0_15FD8EA9-AF7A-4F0D-AE7B-99CA4CAE1B9C.txt",
+        "timestamp" : 1795232353.015
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "A1BA16E5-1861-44C1-A4EC-F54ABB69A35D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-04-last-covered_0_026357D8-7E9D-4B00-9796-6414389BD939.png",
+        "timestamp" : 1795232352.981
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FE91B0BF-830E-4707-BA73-520ABA53D6E3.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-03-covered-edge-pan-pinch-state_0_5D58AF13-C618-4FD1-93E8-15B4E28AFDDE.txt",
+        "timestamp" : 1795232338.808
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FAA7DFAE-66FD-442F-AB24-6869868A30ED.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-03-covered-edge-pan-pinch_0_9D6BE584-FDA0-4204-8AFC-4CA05C0A2909.png",
+        "timestamp" : 1795232338.776
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "80E3A1E5-834F-4531-A7B4-FB72B9314E62.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-02-tiled-covered-matched-state_0_FB869EA9-CEC2-4293-BF21-428BA1DCC07C.txt",
+        "timestamp" : 1795232333.791
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "4C5CF1AD-E7A3-4B8A-9F40-8C6EC17DD779.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-02-tiled-covered-matched_0_19988FFB-CEDB-4413-83ED-B2E498EE4E6D.png",
+        "timestamp" : 1795232333.759
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "D40E4153-BF51-42C7-A218-C049610CB3A3.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-01-organic-covered-state_0_E45876D0-2525-41F8-8581-050AA8371D1E.txt",
+        "timestamp" : 1795232331.533
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "28783002-EC87-4789-935C-E18E8FC2232A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "fog-motion-01-organic-covered_0_682F92C3-5856-4D99-A217-E88F60B3EB9D.png",
+        "timestamp" : 1795232331.503
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2FogMotionIntegrated()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2FogMotionIntegrated"
+  }
+]
