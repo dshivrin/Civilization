@@ -1,0 +1,1175 @@
+[
+  {
+    "run": "civilization-qa-6d66fabf50954356aa0324f35b958dfa",
+    "originalDirectory": "/tmp/civilization-qa-6d66fabf50954356aa0324f35b958dfa",
+    "status": "passed",
+    "revision": {
+      "commit": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-6d66fabf50954356aa0324f35b958dfa/report.json",
+    "sha256": {
+      "report.json": "337a2763a5627e4c273130e80958766d55e742add08133fae180062e8458f86b",
+      "report.md": "9ee3814f7779860b1ae6476408edbe673ac31b573780df1f207e12278957a4b0",
+      "core-debug.log": "426c85b8420981289b04e72e213ac9c5436780748b19595f86cdda03cf64fb2a",
+      "core-release.log": "f39e055c93c294480941ca95962d81b7b327d404c83257e5279b92412efc1731",
+      "release-api-exclusions.log": "cdc70d0e448a15737f56569cd86504379bd764078acee45557e7de280375670f"
+    },
+    "counts": [
+      {
+        "step": "core-debug",
+        "declaredTests": 348,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "core-release",
+        "declaredTests": 255,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "release-api-exclusions",
+        "declaredTests": null,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": []
+  },
+  {
+    "run": "civilization-qa-106132f5c6a44c2ebb8a12f1068aa28c",
+    "originalDirectory": "/tmp/civilization-qa-106132f5c6a44c2ebb8a12f1068aa28c",
+    "status": "failed",
+    "revision": {
+      "commit": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-106132f5c6a44c2ebb8a12f1068aa28c/report.json",
+    "sha256": {
+      "report.json": "f0491b3305fd2195c4e78d81b9ba7a7d11cd34054954378e3b8a4e0d9adf85b4",
+      "report.md": "461aa48d10dd8f0228f2b24200186e95f82fe7b938a822153d3e34cca4e98e16",
+      "ui-release-1.log": "0ab3d9819e05a92c2722e06717eacd07f054fa41408236a18c5200aaf0763f5a"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 1,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "expected RED regression before implementation/fix",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "failed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-50b3fd8b4fe2460da098d9d73ecaf5c7",
+    "originalDirectory": "/tmp/civilization-qa-50b3fd8b4fe2460da098d9d73ecaf5c7",
+    "status": "failed",
+    "revision": {
+      "commit": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-50b3fd8b4fe2460da098d9d73ecaf5c7/report.json",
+    "sha256": {
+      "report.json": "2b2d21a97063ab50a1ab0e52d4b77e32e0859d5b7c076a44fa5fcbcf62086464",
+      "report.md": "4857d6ddbe36455fd0d6608dd4c7b0ff1ed669d1b748675e0c5d320c28d96b7e",
+      "ui-release-1.log": "6075393fceda0ae351cb337a8d032dcc20534964709cbbe983dd2e7f949f23d7"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 1,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "accessibility/scroll/native minimum-hit-target failure; preserved",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "failed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-9118cdd5002143bf822a6874011d19dd",
+    "originalDirectory": "/tmp/civilization-qa-9118cdd5002143bf822a6874011d19dd",
+    "status": "passed",
+    "revision": {
+      "commit": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-9118cdd5002143bf822a6874011d19dd/report.json",
+    "sha256": {
+      "report.json": "3589cbb77ded0fc31e8612dd32b0cdd227656e84fafd5430bd88f262ad7cb2b4",
+      "report.md": "4f84476af97919d449b62a20d069f7d809e993b6b77513d094d9d9899ef142f2",
+      "ui-release-1.log": "d3d711694db7943b8e7c8197efd842accc3028b983a60532f7b69d729c4d84a2"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 1,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-b2149dd0d00148edafe7cd180299931f",
+    "originalDirectory": "/tmp/civilization-qa-b2149dd0d00148edafe7cd180299931f",
+    "status": "failed",
+    "revision": {
+      "commit": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-b2149dd0d00148edafe7cd180299931f/report.json",
+    "sha256": {
+      "report.json": "b5e1b339bfa60350dbefed78037f6aa027b1738efcdd07f86179f3abedc9b239",
+      "report.md": "c15b28a2a483423a0d16101d9cf22a143e941a6e8b2748e12de624177a265f5b",
+      "ui-release-1.log": "24b4b6136dfa2ef256c1333a63c4eb3344b01f82c6ffe1e14128b8c91be223f2"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 1,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "expected RED regression before implementation/fix",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeGoalsStayAvailableDuringContext",
+        "status": "failed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-409c4d4682474d33bf96ed29b131c64c",
+    "originalDirectory": "/tmp/civilization-qa-409c4d4682474d33bf96ed29b131c64c",
+    "status": "failed",
+    "revision": {
+      "commit": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-409c4d4682474d33bf96ed29b131c64c/report.json",
+    "sha256": {
+      "report.json": "bc6c9bff2d4339a04858ad96b6ef70070fe46e8fe5332e1e6d1e3a80b8938037",
+      "report.md": "bc5a9a518d71b35f522f86e87c99609a961263e0a15fd41cf6402ee7dc1e12db",
+      "ui-release-1.log": "9134427954ceea5fafd05a96ad0aaf8cbbd64d3b80bb8435486b883b52d76ede"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 1,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "expected RED regression before implementation/fix",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "failed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-725d3e2e8231431f852d6eade9058917",
+    "originalDirectory": "/tmp/civilization-qa-725d3e2e8231431f852d6eade9058917",
+    "status": "failed",
+    "revision": {
+      "commit": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-725d3e2e8231431f852d6eade9058917/report.json",
+    "sha256": {
+      "report.json": "7a974ec0621fb1872c1d5cb81f476e2e5c48e28f1b7c24cf208c74cef6a54a7d",
+      "report.md": "579956d142ca0c5edd78e18a4eb9945bc3fe4c747ec8dc8623572c5a8f556313",
+      "ui-release-1.log": "4714e080a3f75eeec0d3d8a344da5ca4278e18f26a142c4e4663f1bc451f9301"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 1,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "expected RED regression before implementation/fix",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeExploreResearchAndReturn",
+        "status": "failed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-a9f05b30e9ce412eb6dcc2c7d90f4071",
+    "originalDirectory": "/tmp/civilization-qa-a9f05b30e9ce412eb6dcc2c7d90f4071",
+    "status": "passed",
+    "revision": {
+      "commit": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-a9f05b30e9ce412eb6dcc2c7d90f4071/report.json",
+    "sha256": {
+      "report.json": "5da9e9c563cff22e9b87088add52ea40189fa2593db0d082e735423dce5e2087",
+      "report.md": "c1b5b00734ddfe9e5b82f47d1ab6c6b180a6f6e271f9f6845f00d1dea01f2220",
+      "ui-release-1.log": "c1eb6da9fccd67e7f702771dff2f4342507d2a84f8913edf2ec58f6cda8ae24b"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 4,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeExploreResearchAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeGoalsStayAvailableDuringContext",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-b55633da6a594d84be8fb260dcc5bcde",
+    "originalDirectory": "/tmp/civilization-qa-b55633da6a594d84be8fb260dcc5bcde",
+    "status": "passed",
+    "revision": {
+      "commit": "88a659e510de13bb057c465ad11f65bcdb4a85bc",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-b55633da6a594d84be8fb260dcc5bcde/report.json",
+    "sha256": {
+      "report.json": "37f1de5eabfd6e5a96660e028c170dceb10bcf37ef4447b5a3fdb5c910cf753d",
+      "report.md": "6e065626226623f73b98a0103e3d4796d0cae39a80cca2e65821384f82435253",
+      "core-debug.log": "52cd276224e6a48d237a67a3526904e4b59de6a8954d01525605037bfa27935d",
+      "core-release.log": "18977f9348b0800eecdaf6d681d30b2e915aac30c81c391444ba0a7e3fc79816",
+      "release-api-exclusions.log": "cdc70d0e448a15737f56569cd86504379bd764078acee45557e7de280375670f"
+    },
+    "counts": [
+      {
+        "step": "core-debug",
+        "declaredTests": 348,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "core-release",
+        "declaredTests": 255,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "release-api-exclusions",
+        "declaredTests": null,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": []
+  },
+  {
+    "run": "civilization-qa-84a4049883fa4dc19c9e6ec6cde061a5",
+    "originalDirectory": "/tmp/civilization-qa-84a4049883fa4dc19c9e6ec6cde061a5",
+    "status": "passed",
+    "revision": {
+      "commit": "88a659e510de13bb057c465ad11f65bcdb4a85bc",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-84a4049883fa4dc19c9e6ec6cde061a5/report.json",
+    "sha256": {
+      "report.json": "20c533ca8e950f3703222ab49f547add7797e65bc3e13b1ec28e2f883657cb72",
+      "report.md": "6017bd019964600fd01e81110c67832fa13b5e1553813756b7504510cf3f4a87",
+      "ui-debug-1.log": "1e37265fc748fba8f15f13d67e90e3055de97a0578c82363bf6c25929bea9728"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 1,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-2d6dd32d05654f99917c0bcb6e728e5b",
+    "originalDirectory": "/tmp/civilization-qa-2d6dd32d05654f99917c0bcb6e728e5b",
+    "status": "passed",
+    "revision": {
+      "commit": "88a659e510de13bb057c465ad11f65bcdb4a85bc",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-2d6dd32d05654f99917c0bcb6e728e5b/report.json",
+    "sha256": {
+      "report.json": "fca3b46382411e1531bbedb5a4e5100afc10d707228a80c85c8d3081b75e5e4e",
+      "report.md": "c89a8b91c6ddead530e971df0b21be9abea2b6dc68a465c2d26157b097aed952",
+      "ui-debug-1.log": "35b9059142e20bcafa45923070e0aed05bcf208d22094518031744f0400f96b4"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 1,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-38aee1c731f84590ae2f8402de74c19a",
+    "originalDirectory": "/tmp/civilization-qa-38aee1c731f84590ae2f8402de74c19a",
+    "status": "passed",
+    "revision": {
+      "commit": "05d3f56c0009585feb45441cffc1dbf1432aa1b5",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-38aee1c731f84590ae2f8402de74c19a/report.json",
+    "sha256": {
+      "report.json": "6340246d12fca1d870048517e76bd00a4891bdd04c83d1b3dfefe8b0e5a101c3",
+      "report.md": "c4b50d263241071980ab5cb60e86948d4a8f47678d43cb1b9ddcb910afa1c97f",
+      "ui-release-1.log": "083c64e1cdd417b54e1c8020cfe9dd77c747d4fcc7abfd39511c06f27c09a798",
+      "ui-release-2.log": "cf07eb056e50cc25ef00ff244972186760d5f8a49fcb6a9465e3998ba9582e0c"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 6,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "ui-release-2",
+        "declaredTests": 9,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testNormalEntryPersistenceWithoutDeveloperHooks",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testPlayerCatalogContextualActionsAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testRiverbendOrdinaryOpeningAndContinue",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHomeScreenIcon",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testNormalEntryPersistenceWithoutDeveloperHooks",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testPlayerCatalogContextualActionsAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testRiverbendOrdinaryOpeningAndContinue",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeExploreResearchAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeGoalsStayAvailableDuringContext",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHomeScreenIcon",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-6fb1a6bb50fb4dc3aa7d3d6139ba7179",
+    "originalDirectory": "/tmp/civilization-qa-6fb1a6bb50fb4dc3aa7d3d6139ba7179",
+    "status": "failed",
+    "revision": {
+      "commit": "05d3f56c0009585feb45441cffc1dbf1432aa1b5",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-6fb1a6bb50fb4dc3aa7d3d6139ba7179/report.json",
+    "sha256": {
+      "report.json": "5d3c6decdef7fdcfa292858f5d5ad4e4c6c2748d6838d376233c27d3204f7562",
+      "report.md": "ec4cd4b499cd55cd75d3da441757d4971e11c14dfef3325a4ebeb72bdf3fd732",
+      "ui-release-1.log": "91f7d217f32603791aa5e7f78556258d8aa55522137b11e32db5fc6a986718b9"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 9,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "accessibility/scroll/native minimum-hit-target failure; preserved",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testNormalEntryPersistenceWithoutDeveloperHooks",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testPlayerCatalogContextualActionsAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testRiverbendOrdinaryOpeningAndContinue",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeExploreResearchAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeGoalsStayAvailableDuringContext",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHomeScreenIcon",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "failed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-073138a59b484860be25a2de8889b656",
+    "originalDirectory": "/tmp/civilization-qa-073138a59b484860be25a2de8889b656",
+    "status": "passed",
+    "revision": {
+      "commit": "05d3f56c0009585feb45441cffc1dbf1432aa1b5",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-073138a59b484860be25a2de8889b656/report.json",
+    "sha256": {
+      "report.json": "b06d0263617ff51e1d38a5fc923b3d61a271864724bb5c25584d9f9f856430a9",
+      "report.md": "e2168ce1f1fc4c158c0d6c24d9d94130bd6f07d84a47248e6278ab0f3c7720f5",
+      "ui-debug-1.log": "07f65a7c4b457ee2e5f561fb14c86184af1bb75507bf7c645dc37822711652a5"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 1,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "incremental run omitted the new assertion; excluded from verification",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-c0340d40012044838f7561f52fbf2f5c",
+    "originalDirectory": "/tmp/civilization-qa-c0340d40012044838f7561f52fbf2f5c",
+    "status": "failed",
+    "revision": {
+      "commit": "05d3f56c0009585feb45441cffc1dbf1432aa1b5",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-c0340d40012044838f7561f52fbf2f5c/report.json",
+    "sha256": {
+      "report.json": "bc9b65c7068b6252e173afbee9c5862971372a0c724c5760ab2e0d336bad2d6c",
+      "report.md": "f3214864484fece967765a0bdf9a0060480d687ec4e7b39d763562b8d5a37d4e",
+      "ui-debug-1.log": "7118ab7666cc68a1ab592dc365bb4bed1bb4d8ccd74b92d066019dea8c7d36f9"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 1,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "expected RED regression before implementation/fix",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "failed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-951d09414bc54e6098ff510c64ab90c7",
+    "originalDirectory": "/tmp/civilization-qa-951d09414bc54e6098ff510c64ab90c7",
+    "status": "passed",
+    "revision": {
+      "commit": "05d3f56c0009585feb45441cffc1dbf1432aa1b5",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-951d09414bc54e6098ff510c64ab90c7/report.json",
+    "sha256": {
+      "report.json": "6f5a826f529bb4e6d127c13fd9561e780f179bd4023abcc4427daaea2029100f",
+      "report.md": "eec29e0ba6ca27d6ce495ed78f2620a6bae435feb8ba85bdf8845b6e576c0662",
+      "core-debug.log": "50b19b281c10a1da29d26d199f31b4deac71467ada54b24522f33fcdbcd99a22",
+      "core-release.log": "5e68606905c9e2dd117fa66011f69f3a0e36a4e575d505a336abd2995e3e3e4e",
+      "release-api-exclusions.log": "cdc70d0e448a15737f56569cd86504379bd764078acee45557e7de280375670f"
+    },
+    "counts": [
+      {
+        "step": "core-debug",
+        "declaredTests": 348,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "core-release",
+        "declaredTests": 255,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "release-api-exclusions",
+        "declaredTests": null,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": []
+  },
+  {
+    "run": "civilization-qa-8284b28b1edc4ce182f05cfb9cda390c",
+    "originalDirectory": "/tmp/civilization-qa-8284b28b1edc4ce182f05cfb9cda390c",
+    "status": "failed",
+    "revision": {
+      "commit": "05d3f56c0009585feb45441cffc1dbf1432aa1b5",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-8284b28b1edc4ce182f05cfb9cda390c/report.json",
+    "sha256": {
+      "report.json": "21cbc12028c47308f41932bf5fd9b857ded98b1f498c187555accb29dbc4f038",
+      "report.md": "d47fecf8ab5bd39458100d0b7531838534a2c547f5e73c549317c7d7fa6e5100",
+      "ui-debug-1.log": "a75f1c56df02bd386475dc4a2eb4305bd4ef05deda606bcc96a9f021d05b9ee1"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 2,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "accessibility/scroll/native minimum-hit-target failure; preserved",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "failed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-25108c18c79043119e3cb506d009c4de",
+    "originalDirectory": "/tmp/civilization-qa-25108c18c79043119e3cb506d009c4de",
+    "status": "passed",
+    "revision": {
+      "commit": "05d3f56c0009585feb45441cffc1dbf1432aa1b5",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-25108c18c79043119e3cb506d009c4de/report.json",
+    "sha256": {
+      "report.json": "7cc263707366a10b19ad89d64242c2c46de13e1ca91796acca44627e80cbc31c",
+      "report.md": "757e749e40f94a650e38ce3a9984c2a960077b72785694ca85fa58e1d805f640",
+      "ui-release-1.log": "1ec85cb9138dd2b888983bd983fd4152661fbe37ab385620e42b0890d5ef51c5"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 9,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testNormalEntryPersistenceWithoutDeveloperHooks",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testPlayerCatalogContextualActionsAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testRiverbendOrdinaryOpeningAndContinue",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeExploreResearchAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeGoalsStayAvailableDuringContext",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHomeScreenIcon",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-1e66a4b45a224a0ea79e882b7cc97c07",
+    "originalDirectory": "/tmp/civilization-qa-1e66a4b45a224a0ea79e882b7cc97c07",
+    "status": "failed",
+    "revision": {
+      "commit": "adc4c2ce7b3c4d08fa04e597a2f376120cd96ebb",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-1e66a4b45a224a0ea79e882b7cc97c07/report.json",
+    "sha256": {
+      "report.json": "1d0bbb2039600bd456510f9ab8a5f3f5117b40feb7095883de7d17fa6c5ac8e0",
+      "report.md": "765bcb5ed086d6f9632c2b46b12258869a867430c331a90b8c9fd988bda1d4be",
+      "ui-debug-1.log": "e3e8fbbc5939c96e4413e2e058c7775be7d78c29e6d5a5987b47735bf0847907"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 2,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "accessibility/scroll/native minimum-hit-target failure; preserved",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "failed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-97610189b0c6453ba482d63cc334fd15",
+    "originalDirectory": "/tmp/civilization-qa-97610189b0c6453ba482d63cc334fd15",
+    "status": "passed",
+    "revision": {
+      "commit": "adc4c2ce7b3c4d08fa04e597a2f376120cd96ebb",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-97610189b0c6453ba482d63cc334fd15/report.json",
+    "sha256": {
+      "report.json": "1033e0cd6f7320f3a4a074a0c516f30c8ff9a41f1d8022d3f27c819c0cbaf929",
+      "report.md": "ec2934c332e3edceb108234ba23ec6a1a19168b83c92b9a4a6c878247133bb53",
+      "core-debug.log": "0b445d5b551a17cca67e72375770641bb607d1c51d314e85d4159b83411c207c",
+      "core-release.log": "fef6f4cdab5181aaa864d5bfdd79214a8f4b2a0dee974de72eee81694946fb66",
+      "release-api-exclusions.log": "cdc70d0e448a15737f56569cd86504379bd764078acee45557e7de280375670f"
+    },
+    "counts": [
+      {
+        "step": "core-debug",
+        "declaredTests": 348,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "core-release",
+        "declaredTests": 255,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "release-api-exclusions",
+        "declaredTests": null,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "final required evidence",
+    "nativeCaseResultsFromOriginalLog": []
+  },
+  {
+    "run": "civilization-qa-e1b8ce1a2e174e1baa6ad4a38640a68e",
+    "originalDirectory": "/tmp/civilization-qa-e1b8ce1a2e174e1baa6ad4a38640a68e",
+    "status": "failed",
+    "revision": {
+      "commit": "adc4c2ce7b3c4d08fa04e597a2f376120cd96ebb",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-e1b8ce1a2e174e1baa6ad4a38640a68e/report.json",
+    "sha256": {
+      "report.json": "a0c047186dc55efc2ebed33f1f529d3f200775683cffa648c0ff85e3535b71ca",
+      "report.md": "fd687beff6d6e8bb1af02d1be5b7ac8ab1ce055d4f8681eda23c5f7fca254715",
+      "ui-debug-1.log": "f05639456afeaf31512048d39aa5a777df777296a2fabb750f733ba5e7f897af"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 2,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "accessibility/scroll/native minimum-hit-target failure; preserved",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "failed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-f23106095cb74a6abf63e330843b37ce",
+    "originalDirectory": "/tmp/civilization-qa-f23106095cb74a6abf63e330843b37ce",
+    "status": "failed",
+    "revision": {
+      "commit": "adc4c2ce7b3c4d08fa04e597a2f376120cd96ebb",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-f23106095cb74a6abf63e330843b37ce/report.json",
+    "sha256": {
+      "report.json": "59cc773538b09621daec7210f2d7107a66691596df4432d8dd602b79ce11a705",
+      "report.md": "cab14435f50e14a6f84245d767289a2f8b9df4af5d7c94fefbfc9602fd7c8a35",
+      "ui-release-1.log": "a7fbb7f7217da995b090784ea8a8d8060eeb436bcf6b3b905787d5f7af6cf7c1"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 0,
+        "status": "failed",
+        "exitCode": 130
+      }
+    ],
+    "role": "agent-interrupted matrix after confirmed defect; no pass credit",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testNormalEntryPersistenceWithoutDeveloperHooks",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testPlayerCatalogContextualActionsAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testRiverbendOrdinaryOpeningAndContinue",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeExploreResearchAndReturn",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-b3958ff33d6e41b3968aa14de8bc173a",
+    "originalDirectory": "/tmp/civilization-qa-b3958ff33d6e41b3968aa14de8bc173a",
+    "status": "passed",
+    "revision": {
+      "commit": "adc4c2ce7b3c4d08fa04e597a2f376120cd96ebb",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-b3958ff33d6e41b3968aa14de8bc173a/report.json",
+    "sha256": {
+      "report.json": "a629453e462cf0ccfb62c3c28ff8283e2385a254570b3ce8ea2f7aae697a557c",
+      "report.md": "13d48621f49709d05c3a4305fe2665cbab809fae64b620ddd1feaf05b32117f3",
+      "ui-debug-1.log": "aa25caa058a70b8aa3137e8d00b6ce34f587347679f33456139aed5dffe7d803"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 2,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-04cd2346f76d4a3c9f4d1a0ead6feabc",
+    "originalDirectory": "/tmp/civilization-qa-04cd2346f76d4a3c9f4d1a0ead6feabc",
+    "status": "passed",
+    "revision": {
+      "commit": "50030fd11aa70d87ed1b2611e161b6c36651eeab",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-04cd2346f76d4a3c9f4d1a0ead6feabc/report.json",
+    "sha256": {
+      "report.json": "7ae4296763ee345a5626f788bdbfbae20a0c805fd1a6f8b7da21315c5fcf2267",
+      "report.md": "a3f6cc543e61957e0731ac41e4a682d6a8eb4b92fde5a5066090d7f2f202f3d3",
+      "ui-debug-1.log": "ff929b770798afb75d1fd5293a549ce9150b4074558eb216be5139643a45aba4"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 2,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "preparation/intermediate verification, not final frozen delivery",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-5d26785ba0cf4363a30e72cd44738ed3",
+    "originalDirectory": "/tmp/civilization-qa-5d26785ba0cf4363a30e72cd44738ed3",
+    "status": "failed",
+    "revision": {
+      "commit": "50030fd11aa70d87ed1b2611e161b6c36651eeab",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-5d26785ba0cf4363a30e72cd44738ed3/report.json",
+    "sha256": {
+      "report.json": "50e283017b0bf65602c6f51861aa2b38b38aeb3c66d768f366e9b0363f89cf93",
+      "report.md": "4f63190d1af97448928184494a245a76a2e404726e7a8d46492f1551f26acc24",
+      "ui-release-1.log": "4b768fae5d8e35a75e1306603006ec4d9d5d59583ebcd60040dfafb735e0cf58",
+      "ui-release-2.log": "45c8b8a08ab480bf19bfb73e4ef5fe8b9d49c2fef64ac6fd1f54a82f7b5543d5"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 9,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "ui-release-2",
+        "declaredTests": 0,
+        "status": "failed",
+        "exitCode": 130
+      }
+    ],
+    "role": "agent-interrupted matrix after confirmed defect; no pass credit",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testNormalEntryPersistenceWithoutDeveloperHooks",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testPlayerCatalogContextualActionsAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testRiverbendOrdinaryOpeningAndContinue",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeExploreResearchAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeGoalsStayAvailableDuringContext",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHomeScreenIcon",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testNormalEntryPersistenceWithoutDeveloperHooks",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testPlayerCatalogContextualActionsAndReturn",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-1fbb7669867c4b0188e8b67ad7a1c1f7",
+    "originalDirectory": "/tmp/civilization-qa-1fbb7669867c4b0188e8b67ad7a1c1f7",
+    "status": "failed",
+    "revision": {
+      "commit": "50030fd11aa70d87ed1b2611e161b6c36651eeab",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-1fbb7669867c4b0188e8b67ad7a1c1f7/report.json",
+    "sha256": {
+      "report.json": "9a97b09e641a04c51253de2f5ddedcc3590ab6c4bf9526e3521ac10bdd59ddce",
+      "report.md": "5e14bfa3f9b500d594418fd5c36cc11a245c58a73488128442bcb996a61ad051",
+      "ui-debug-1.log": "3bd5067115ca60926316531d262910cd359caeef21bad3a7fdcff29c9ca1100d"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 1,
+        "status": "failed",
+        "exitCode": 65
+      }
+    ],
+    "role": "expected RED regression before implementation/fix",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "failed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-e5b689dd83824404b9a371dd2502a50a",
+    "originalDirectory": "/tmp/civilization-qa-e5b689dd83824404b9a371dd2502a50a",
+    "status": "passed",
+    "revision": {
+      "commit": "50030fd11aa70d87ed1b2611e161b6c36651eeab",
+      "dirty": true
+    },
+    "report": "runs/civilization-qa-e5b689dd83824404b9a371dd2502a50a/report.json",
+    "sha256": {
+      "report.json": "9ef0f5fbb906616ad8fed5655bcf86a8c945064fda51d62ae3d5187484c84255",
+      "report.md": "0e656323c72af0600bde93e0f6ba73e721300f75cecf928ee8d55ce4b4ac6eab",
+      "ui-debug-1.log": "15662537f2993a486b8c4548c7554abd207a1b5c74c9da9c3763cb481d7cec44"
+    },
+    "counts": [
+      {
+        "step": "ui-debug-1",
+        "declaredTests": 2,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "final required evidence",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-57257252a7bb4d15a414a7148aeb4562",
+    "originalDirectory": "/tmp/civilization-qa-57257252a7bb4d15a414a7148aeb4562",
+    "status": "passed",
+    "revision": {
+      "commit": "b1255f38d524a47061949fd1eadbadc3f966676f",
+      "dirty": false
+    },
+    "report": "runs/civilization-qa-57257252a7bb4d15a414a7148aeb4562/report.json",
+    "sha256": {
+      "report.json": "19fbfcd11edeebdf37f12268c79f8cc1b985cc02daa7df0ed45cb0e421c9e214",
+      "report.md": "f500a5d26c16f9d474a6fb89e0cf770dd7fcd35d1a189dc1791aa946033b64bf",
+      "ui-release-1.log": "5ee117ac9d77b1d79f0c37812ee5f902e7bed00ca8680a01c381dfac4fa4758d",
+      "ui-release-2.log": "4a97921d008d8110521c2a4c2b555d5f52641fcfad3a00e690f44354490d6448"
+    },
+    "counts": [
+      {
+        "step": "ui-release-1",
+        "declaredTests": 9,
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "step": "ui-release-2",
+        "declaredTests": 9,
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "role": "final required evidence",
+    "nativeCaseResultsFromOriginalLog": [
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testNormalEntryPersistenceWithoutDeveloperHooks",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testPlayerCatalogContextualActionsAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testRiverbendOrdinaryOpeningAndContinue",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeExploreResearchAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeGoalsStayAvailableDuringContext",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHomeScreenIcon",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testNormalEntryPersistenceWithoutDeveloperHooks",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testPlayerCatalogContextualActionsAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testRiverbendOrdinaryOpeningAndContinue",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeExploreResearchAndReturn",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeGoalsStayAvailableDuringContext",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHomeScreenIcon",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDHierarchyAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeHUDLargerTextAndOrdinaryRoutes",
+        "status": "passed"
+      },
+      {
+        "case": "CivilizationUITests.NormalEntryUITests testStoneAgeMapFeedback",
+        "status": "passed"
+      }
+    ]
+  }
+]

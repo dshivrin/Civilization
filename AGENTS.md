@@ -1,3 +1,11 @@
+## Stone Age HUD and Menus — verified ordinary-player candidate, 21 November 2026
+
+Product **b1255f38d524a47061949fd1eadbadc3f966676f** on managed `riverbend-stone-age-hud-review`, exact predecessor3f27d1e. [Pinned handoff and launch](docs/milestones/2026-11-21-stone-age-hud-handoff.md), [verification](docs/testing/stone-age-hud/verification.json), [34native captures](docs/testing/stone-age-hud/index.html). Ordinary New Game/Continue has a stable Goals home, grouped Build/Research/Explore, secondary Settlement menu, responsive stone inspectors, preserved exact catalog/research context and an original temporary sunrise AppIcon verified on both simulator Home Screens. Shared primary actions have dark ink and minimum44-point label regions; Move is pinned outside scrolling details.
+
+348Debug/255Release+23exclusions and20final native executions pass,0failures/skips. Core package tree equals the exact tested adc4c2c source; final Release is clean b1255f3.28original runner receipts retain six expected REDs, five other AX/target failures and two agent-interrupted matrices, with an inconsistent incremental run excluded from credit.167protected source/config/art/rendering/persistence/fixture/runner blobs match. GameSession differs only in ordinary welcome/Continue display copy. Real surveys61.852031/62.512843s. XXXL and simulator software evidence do not establish maximum/accessibility text, human acceptance or physical performance; compact status truncation/inspector scrolling and inherited provisional art/performance limits remain.
+
+Push only this personal review branch and preserve all linked worktrees/saves. No main merge, deployment, owner-save access, physical install, signing or media-repository change. **End after verified branch receipt. Do not start or queue Bronze: Dima must personally play this ordinary Stone Age build and explicitly approve Bronze later.** Earlier guidance remains intact below.
+
 ## Stone Age ordinary UI standing directive — 21 November 2026
 
 Player-facing UI is integrated and accepted through real ordinary New Game/Continue gameplay. Developer Tools only set up or accelerate ordinary states for spot tests (preplaced buildings, resources, faster research); they are never an alternative delivery surface. Do not expand Developer Tools for the Stone Age HUD goal.

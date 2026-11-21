@@ -1,0 +1,89 @@
+{
+  "goal": "Stone Age HUD and Menus",
+  "date": "2026-11-21",
+  "status": "passed software and simulator verification; owner playtest remains open",
+  "sourceCommit": "b1255f38d524a47061949fd1eadbadc3f966676f",
+  "branch": "riverbend-stone-age-hud-review",
+  "base": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+  "verifiedPredecessorRemoteSHA": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+  "origin": "git@github.com:dshivrin/Civilization.git",
+  "core": {
+    "debug": 348,
+    "release": 255,
+    "releaseExclusionProbes": 23,
+    "failed": 0,
+    "skipped": 0,
+    "run": "civilization-qa-97610189b0c6453ba482d63cc334fd15",
+    "sourceEquivalence": "core-source-equivalence.json"
+  },
+  "native": {
+    "releasePhone": 9,
+    "releaseIPad": 9,
+    "debugCompact": 2,
+    "passedCaseExecutions": 20,
+    "failed": 0,
+    "skipped": 0,
+    "releaseRun": "civilization-qa-57257252a7bb4d15a414a7148aeb4562",
+    "debugRun": "civilization-qa-e5b689dd83824404b9a371dd2502a50a",
+    "debugSourceNote": "The passing Debug run recorded the dirty parent 50030fd. Its frozen app/test sources were committed unchanged as b1255f3; tested-source-blobs.txt pins those exact bytes. Release matrix ran clean b1255f3.",
+    "realSurveySeconds": {
+      "phone": 61.852030992507935,
+      "ipad": 62.51284301280975
+    },
+    "allEntry": "ordinary New Game / Continue; simulator QA identity, no fixture/grants/time controls",
+    "assertions": [
+      "landscape HUD/catalog/research",
+      "Goals→exact building→placement",
+      "real placement pan/pinch and accessible Confirm/Cancel",
+      "relocation cancel and Continue",
+      "contextual Goals in Explore/inspection/placement/roads",
+      "catalog material route, query/selection retention and research return",
+      "Explore→exact expedition technology→same Explore context",
+      "44-point minimum HUD/founding/catalog/Move targets",
+      "actual unexplored-terrain feedback",
+      "both native Home Screen icons and launch"
+    ]
+  },
+  "captures": {
+    "count": 34,
+    "phoneRelease": 15,
+    "ipadRelease": 15,
+    "compactDebug": 4,
+    "manifest": "capture-manifest.json",
+    "transforms": "none; original XCTest PNG bytes and native EXIF orientation retained"
+  },
+  "preservation": {
+    "protectedBaseBlobs": 167,
+    "allMatch": true,
+    "manifest": "protected-base-blobs.txt",
+    "GameSessionDifference": "ordinary welcome/Continue display copy only",
+    "ownerSavesAccessed": false,
+    "physicalInstall": false,
+    "priorWorktreesRetained": true,
+    "engineSaveFormatsEconomyGeographyOriginalArtUnchanged": true
+  },
+  "history": {
+    "runnerReceipts": 28,
+    "statusCounts": {
+      "passed": 15,
+      "failed": 13
+    },
+    "expectedREDReceipts": 6,
+    "agentInterruptedMatrices": 2,
+    "excludedIncrementalRun": "civilization-qa-073138a59b484860be25a2de8889b656",
+    "runIndex": "run-index.json",
+    "note": "Preparation and failed aggregate runs are not final pass credit. Original report JSON/Markdown/logs are copied byte-for-byte. Raw xcresult bundles remain at their original local paths."
+  },
+  "primaryStyle": {
+    "nominalInkAccentContrast": 10.007,
+    "note": "Enabled flat color pair only; not whole-app accessibility certification."
+  },
+  "limits": [
+    "XXXL larger text tested; not maximum/accessibility Dynamic Type",
+    "compact status is capped at two lines; long inspector content scrolls",
+    "no human enjoyment, VoiceOver comprehension or physical performance acceptance",
+    "bounded ordinary opening/menu/survey checks, not a full real-time Stone Age playthrough",
+    "provisional existing art and predecessor performance deferrals remain",
+    "no Bronze implementation or queued goal; explicit Dima approval after personal Stone Age playtest required"
+  ]
+}

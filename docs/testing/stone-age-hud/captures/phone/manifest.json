@@ -1,0 +1,173 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "5F989C4F-B315-4178-888B-65B99929A381.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-contextual-catalog-and-return_0_0BA1CCB3-5598-463D-88D7-556CAF0ACEFF.png",
+        "timestamp" : 1795258883.858
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testPlayerCatalogContextualActionsAndReturn()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testPlayerCatalogContextualActionsAndReturn"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "5369F178-70C9-41D6-BDCC-F1A13B16D36B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-whole-forest-real-survey_0_72BAB88E-3772-4D1F-854C-D3C0E5F703A7.png",
+        "timestamp" : 1795258988.648
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "D6F2A114-D657-4FD8-94BC-CB4C5F81FAD6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-ordinary-continue_0_9472D1C3-4331-49D2-975F-E3ECB91F1A01.png",
+        "timestamp" : 1795258909.74
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "B5BCBD0F-D8A5-4AA7-A637-28D8D7DBCD84.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-ordinary-opening_0_6432FEF9-C9B3-41F7-A03B-6F0876DB3C2B.png",
+        "timestamp" : 1795258901.438
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "2B216F29-A8CF-459B-98E3-73C7607A9DB1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-05-explore-return_0_1DA8EF72-805F-4A62-9342-4B356D835A09.png",
+        "timestamp" : 1795259002.452
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "C15865DA-4857-45A6-99BC-0DD70DB74947.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-04-exact-expedition-research_0_B8F65C58-184B-4ECC-B5FE-B8E504A1ADC2.png",
+        "timestamp" : 1795259000.617
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testStoneAgeExploreResearchAndReturn()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testStoneAgeExploreResearchAndReturn"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "E1019453-B1A2-4E4E-8255-00321E552108.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-home-screen-icon_0_E0DBA2E9-D253-4857-B855-0FDDB7CFAB5E.png",
+        "timestamp" : 1795259022.498
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testStoneAgeHomeScreenIcon()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testStoneAgeHomeScreenIcon"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "FF3B3874-077A-4F6F-B33C-862D19E6FC95.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-06-relocation_0_7C48D351-FE15-4B73-9CD0-B8BAAB973166.png",
+        "timestamp" : 1795259059.613
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "877DBCCC-5E65-4B87-997A-09D027AB7DF2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-03-ordinary-continue_0_F05F4D8F-254E-4A63-8C7D-1CD642758DD0.png",
+        "timestamp" : 1795259056.367
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "80509F0E-CD61-444A-9716-17DDFF9C8F6F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-02-placement_0_32387F22-20BF-4287-BBE6-CF37F92731D5.png",
+        "timestamp" : 1795259043.336
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "BF5031A9-CCDF-49E9-AB94-F0B7BABCFB17.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-01-ordinary-new-game_0_A14B859C-6354-4157-A76A-9B9A8E499F42.png",
+        "timestamp" : 1795259032.747
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testStoneAgeHUDHierarchyAndOrdinaryRoutes()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testStoneAgeHUDHierarchyAndOrdinaryRoutes"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "66351777-724F-4624-B441-99EFFED0F8FB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-06-relocation_0_4BC68131-5CB5-4082-BBA2-294681F04718.png",
+        "timestamp" : 1795259096.133
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "17CDD1B1-09DA-4FDB-8090-A17C836D2C22.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-03-ordinary-continue_0_C8D4F354-28B0-4E5D-9AD4-15AEECAD882C.png",
+        "timestamp" : 1795259092.72
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "4978706A-45F2-4D19-9681-601FD5E8A75F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-02-placement_0_87FC0A0C-F8CD-4D3B-BF92-E403CF205E2C.png",
+        "timestamp" : 1795259079.426
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "deviceName" : "Stone Age HUD iPhone",
+        "exportedFileName" : "474BD98A-4A71-4E8C-9321-7B93C9FBA98A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-01-ordinary-new-game_0_057A4808-9C5C-4689-8665-5B003739E690.png",
+        "timestamp" : 1795259068.905
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testStoneAgeHUDLargerTextAndOrdinaryRoutes()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testStoneAgeHUDLargerTextAndOrdinaryRoutes"
+  }
+]

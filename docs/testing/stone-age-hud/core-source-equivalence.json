@@ -1,0 +1,8 @@
+{
+  "coreRun": "civilization-qa-97610189b0c6453ba482d63cc334fd15",
+  "coreRunRevision": "adc4c2ce7b3c4d08fa04e597a2f376120cd96ebb",
+  "product": "b1255f38d524a47061949fd1eadbadc3f966676f",
+  "packageTreeSHA": "60470363bbc5d813a5ab364565625173af9e48a1",
+  "equal": true,
+  "note": "Later product commits change only app UI and native tests; the complete SwiftPM package tree is byte-identical."
+}

@@ -1,0 +1,87 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "release",
+    "derived_data": "/tmp/civilization-stone-hud-delivery-final",
+    "qa_identity": null,
+    "prepared_earned_container": false,
+    "filter": null,
+    "simulator": [
+      "2361BBE2-9172-41D7-AD30-A353CACD332F",
+      "248B6E1A-8719-40B6-88D8-36593DAE9119"
+    ],
+    "only_testing": [
+      "CivilizationUITests/NormalEntryUITests"
+    ],
+    "output": null,
+    "cancelled": true
+  },
+  "steps": [
+    {
+      "name": "ui-release-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/.codex/worktrees/e735/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Release",
+        "-destination",
+        "platform=iOS Simulator,id=2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "-derivedDataPath",
+        "/private/tmp/civilization-stone-hud-delivery-final/release/2361BBE2-9172-41D7-AD30-A353CACD332F",
+        "-resultBundlePath",
+        "/private/tmp/civilization-qa-5d26785ba0cf4363a30e72cd44738ed3/ui-release-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-parallel-testing-enabled",
+        "NO",
+        "-only-testing:CivilizationUITests/NormalEntryUITests"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 9,
+      "durationSeconds": 307.563,
+      "log": "/private/tmp/civilization-qa-5d26785ba0cf4363a30e72cd44738ed3/ui-release-1.log"
+    },
+    {
+      "name": "ui-release-2",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/.codex/worktrees/e735/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Release",
+        "-destination",
+        "platform=iOS Simulator,id=248B6E1A-8719-40B6-88D8-36593DAE9119",
+        "-derivedDataPath",
+        "/private/tmp/civilization-stone-hud-delivery-final/release/248B6E1A-8719-40B6-88D8-36593DAE9119",
+        "-resultBundlePath",
+        "/private/tmp/civilization-qa-5d26785ba0cf4363a30e72cd44738ed3/ui-release-2.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-parallel-testing-enabled",
+        "NO",
+        "-only-testing:CivilizationUITests/NormalEntryUITests"
+      ],
+      "exitCode": 130,
+      "status": "failed",
+      "tests": 0,
+      "durationSeconds": 108.78,
+      "log": "/private/tmp/civilization-qa-5d26785ba0cf4363a30e72cd44738ed3/ui-release-2.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T10:57:17.240469+00:00",
+  "revision": {
+    "commit": "50030fd11aa70d87ed1b2611e161b6c36651eeab",
+    "dirty": true
+  },
+  "status": "failed"
+}

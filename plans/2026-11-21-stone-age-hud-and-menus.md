@@ -19,10 +19,10 @@ Use a compact resource ledger at the top; one stable Goals home at bottom left w
 Small landscape safe areas; large text scroll versus fixed actions; Goals after inspection and relaunch; exact prerequisite/Explore return; placement/road controls versus HUD and map gestures.
 
 ## Tasks
-- [ ] 1. Write native HUD hierarchy/ordinary navigation regression and observe RED. Run clean baseline core Debug/Release/exclusions.
-- [ ] 2. Implement ordinary HUD and shared carved-stone surfaces in SettlementView/DevelopmentComponents; style actual catalog/research without altering state. Add root standing directive. Verify new and inherited native routes on phone/iPad, normal and larger text.
-- [ ] 3. Render original simple sunrise/horizon AppIcon, wire actual app target asset catalog, verify compiled icons and both simulator Home Screens. Retain source/provenance.
-- [ ] 4. Full core Debug/Release/exclusions, targeted ordinary native Release and Debug gates, screenshots and exact receipts. Independent whole-branch review, fix important findings with regression evidence.
+- [x] 1. Write native HUD hierarchy/ordinary navigation regression and observe RED. Run clean baseline core Debug/Release/exclusions.
+- [x] 2. Implement ordinary HUD and shared carved-stone surfaces in SettlementView/DevelopmentComponents; style actual catalog/research without altering state. Add root standing directive. Verify new and inherited native routes on phone/iPad, normal and larger text.
+- [x] 3. Render original simple sunrise/horizon AppIcon, wire actual app target asset catalog, verify compiled icons and both simulator Home Screens. Retain source/provenance.
+- [x] 4. Full core Debug/Release/exclusions, targeted ordinary native Release and Debug gates, screenshots and exact receipts. Independent whole-branch review, fix important findings with regression evidence.
 - [ ] 5. Pinned milestone/launch/evidence and exact verified remote SHA; branch-only push. Stop for Dima’s Stone Age playtest and explicit future Bronze approval.
 
 ## Execution ledger
@@ -31,3 +31,7 @@ Small landscape safe areas; large text scroll versus fixed actions; Goals after 
 - Independent review: two important regressions reproduced RED in native Release (missing contextual Goals and missing clear-map feedback); one fix pass retains compact Goals through Explore/inspection/placement/roads and restores status. Native exact Explore→expedition Research→Explore route also pinned RED before adding the ordinary link.
 - Minor limit: XXXL is larger text, not maximum/accessibility Dynamic Type acceptance. No such claim is made. Removed unreachable old phone overlay during the same HUD fix.
 - Initial native SE hierarchy route passed. Failed preimplementation/accessibility/expected-regression receipts remain separate. Icon renderer’s two unsupported AppKit bitmap variants failed; final opaque CoreGraphics export is original1024×1024RGB/no alpha.
+
+- Final product `b1255f38d524a47061949fd1eadbadc3f966676f`: shared dark-on-gold primary actions with actual minimum44-point label regions; ordinary Move remains pinned below scrolling details. Native assertions reproduced the41.5-point styled-target defect before correction. Nominal enabled ink/accent contrast10.007:1; actual screenshots inspected.
+- Verification:348Debug/255Release+23 exclusions,20 final native executions/0failures/0skips,34original captures and28runner receipts. Core package hash equivalence and dirty-Debug→unchanged-product source provenance are explicit. Six expected REDs, five other AX/target failure aggregates and two agent-interrupted matrices remain preserved.
+- All required ordinary Release cases passed on fresh iPhone16Pro and iPad mini A17Pro, serially at clean final product. Compact Debug covers XXXL, founding/catalog/Move touch targets, placement/relocation/Continue and real unexplored-map feedback. [Pinned handoff](../docs/milestones/2026-11-21-stone-age-hud-handoff.md).

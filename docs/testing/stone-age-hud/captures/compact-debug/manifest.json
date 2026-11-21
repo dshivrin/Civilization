@@ -1,0 +1,44 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "981D8496-ACCA-4E3E-B60C-605F6712AFC5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-06-relocation_0_2A605475-A3EC-487E-A6BD-FCC76EC2FB4C.png",
+        "timestamp" : 1795258740.932
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "197B0E0A-FCD6-4780-B2ED-A84B66F464A5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-03-ordinary-continue_0_94B12BA7-8D52-4205-8F5F-BB1B8831DCB0.png",
+        "timestamp" : 1795258737.544
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "6C96C0EB-81D8-4E52-9FAE-0A6DBFAFEB61.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-02-placement_0_CEDE3D38-2705-4960-A94F-70A3DD1B456C.png",
+        "timestamp" : 1795258723.954
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "BA1B4115-7BC3-4B87-BCEC-884841880472.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "stone-hud-01-ordinary-new-game_0_D94134FD-95E4-4DED-89B9-3955E9B8F7E5.png",
+        "timestamp" : 1795258713.44
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testStoneAgeHUDLargerTextAndOrdinaryRoutes()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testStoneAgeHUDLargerTextAndOrdinaryRoutes"
+  }
+]
