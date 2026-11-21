@@ -103,9 +103,9 @@ struct EconomyLabView: View {
                                             refresh(); focusSelection()
                                         }.disabled(lab.storage.contains { $0.role == role }).accessibilityIdentifier("labStorage-" + role.rawValue)
                                     }
-                                    Text("Craft goods stay locked. Future Stockyard contract: +24 per unlocked craft material; never Knowledge/Culture.").font(.caption2)
+                                    craftPanel(lab)
                                     ForEach(lab.engine.state.buildings.filter { $0.kind == .stoneGatherer }) { building in
-                                        Text("Stone: " + (lab.engine.state.resources.stone >= lab.engine.capacities.stone ? "Storage full · spend Stone or add Stockyard" : lab.engine.operatingStatus(building))).font(.caption)
+                                        Text("Outcrop gatherer: " + lab.engine.operatingStatus(building)).font(.caption)
                                     }
                                     Text("Third producer needs a third field slot for full output: population 5. Food keeps priority; growth supplies the slot.").font(.caption2)
                                 } else {
@@ -160,6 +160,44 @@ struct EconomyLabView: View {
             }
         }
     }
+    @ViewBuilder private func craftPanel(_ lab: RiverbendEconomyLab) -> some View {
+        if let craft = lab.craft, let source = lab.stoneSource {
+            Text("Toolmaking · Flint seam at \(source.x),\(source.y), shared with the Stone outcrop. No depletion in this fixture.")
+                .font(.caption).accessibilityIdentifier("labFlintSource")
+            Text("One outcrop worker: Stone +5/min OR Flint +4/min. Switching stops the other output; Food keeps priority.").font(.caption2)
+            HStack {
+                Button("Gather Stone") { _ = transact { try $0.setGatheringMode(.stone) } }
+                    .disabled(craft.mode == .stone).accessibilityIdentifier("labMode-stone")
+                Button("Gather Flint") { _ = transact { try $0.setGatheringMode(.flint) } }
+                    .disabled(craft.mode == .flint).accessibilityIdentifier("labMode-flint")
+            }.font(.caption)
+            Text("Inputs: Wood from forest Woodcutter; Flint from this outcrop. Three batches cost 6 Wood + 6 Flint in total.").font(.caption2)
+            if let remaining = craft.batchRemaining {
+                Text("Tool batch · \(Int(ceil(remaining)))s left · 2 Wood + 2 Flint paid · 1 Tool reserved")
+                    .font(.caption).accessibilityIdentifier("labToolTimer")
+            } else {
+                Button("Craft 1 Tool · 2 Wood + 2 Flint · 60s") { _ = transact { try $0.startToolBatch() } }
+                    .disabled(lab.toolBatchIssue != nil).accessibilityIdentifier("labCraftTool")
+                if let issue = lab.toolBatchIssue { Text(issue).font(.caption2).accessibilityIdentifier("labCraftIssue") }
+            }
+            if craft.woodcutterImproved {
+                Text("Sharpened Woodcutter equipment · completed once · 3 Tools spent · lasting output 6 → 8 Wood/min; no Tool upkeep")
+                    .font(.caption.bold()).accessibilityIdentifier("labCraftImproved")
+            } else {
+                Text("Project: sharpen Woodcutter equipment. Full cost: 3 Tools once. Lasting output 6 → 8 Wood/min when staffed; no recurring Tool upkeep.")
+                    .font(.caption).accessibilityIdentifier("labCraftProject")
+                Button("Improve Woodcutter · spend 3 Tools once") { _ = transact { try $0.improveWoodcutter() } }
+                    .disabled(lab.engine.state.resources[.stoneTools] < 3).accessibilityIdentifier("labSpendTools")
+            }
+            Text("Flint/Tools: cache24 + completed Stockyard24 each. Granary grants Food only; no Knowledge/Culture bonus.").font(.caption2)
+        } else if lab.craftOpportunityAvailable {
+            Text("Optional Toolmaking: reveal Flint at this outcrop. Gather Flint4/min instead of Stone5/min; craft 2 Wood + 2 Flint → 1 Tool in 60s. Spend 3 Tools once to raise Woodcutter output 6 → 8 Wood/min. No upkeep.")
+                .font(.caption).accessibilityIdentifier("labCraftOpportunity")
+            Button("Reveal Flint and Toolmaking · free") { _ = transact { try $0.unlockCraft() } }.accessibilityIdentifier("labUnlockCraft")
+        } else {
+            Text("Complete the Stone gatherer to reveal an optional Toolmaking project. Opening and storage need no crafts.").font(.caption2)
+        }
+    }
     private func open() {
         do {
             let root = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
@@ -211,16 +249,22 @@ struct EconomyLabView: View {
         let foodBonus = Int(e.capacities.food - 60), woodBonus = Int(e.capacities.wood - 60), stoneBonus = Int(e.capacities.stone - 40)
         var text = String(format: "Food %.1f /%.0f (%+.1f/min) · cache60 +%d\nWood %.1f /%.0f (%+.1f/min) · cache60 +%d", e.state.resources.food, e.capacities.food, e.rates.food, foodBonus, e.state.resources.wood, e.capacities.wood, e.rates.wood, woodBonus)
         if lab.stoneSource != nil { text += String(format: "\nStone %.1f /%.0f (%+.1f/min) · cache40 +%d", e.state.resources.stone, e.capacities.stone, e.rates.stone, stoneBonus) }
+        if lab.craft != nil {
+            text += String(format: "\nFlint %.1f /%.0f (%+.1f/min) · cache24 +%.0f\nTools %.0f /%.0f · cache24 +%.0f", e.state.resources[.flint], e.capacities[.flint], e.rates[.flint], e.capacities[.flint] - 24, e.state.resources[.stoneTools], e.capacities[.stoneTools], e.capacities[.stoneTools] - 24)
+        }
         text += "\nPeople \(e.state.population) /\(e.housingCapacity) · field staff \(Int(e.workforceRequired)) /\(Int(e.workforceAvailable))"
         return text
 
     }
     private func machineStatus(_ lab: RiverbendEconomyLab) -> String {
         let e = lab.engine
-        return "food=\(Int(e.state.resources.food)) wood=\(Int(e.state.resources.wood)) foodNet=\(e.rates.food) woodNet=\(e.rates.wood) knowledge=\(Int(e.state.resources.knowledge)) survey=\(lab.surveyComplete) checkpoint=\(lab.checkpointReached) buildings=\(e.state.buildings.count) stone=\(Int(e.state.resources.stone)) foodCap=\(Int(e.capacities.food)) woodCap=\(Int(e.capacities.wood)) stoneCap=\(Int(e.capacities.stone)) source=\(lab.stoneSource != nil) storage=\(lab.storage.count) " + lab.mapFinds.map { "\($0.id.rawValue)=\($0.tile.map { "\($0.x),\($0.y)" } ?? "none"),\($0.resolved ? "resolved" : "pending")" }.joined(separator: " ")
+        return "food=\(Int(e.state.resources.food)) wood=\(Int(e.state.resources.wood)) foodNet=\(e.rates.food) woodNet=\(e.rates.wood) knowledge=\(Int(e.state.resources.knowledge)) survey=\(lab.surveyComplete) checkpoint=\(lab.checkpointReached) buildings=\(e.state.buildings.count) stone=\(Int(e.state.resources.stone)) foodCap=\(Int(e.capacities.food)) woodCap=\(Int(e.capacities.wood)) stoneCap=\(Int(e.capacities.stone)) source=\(lab.stoneSource != nil) storage=\(lab.storage.count) craft=\(lab.craft != nil) flint=\(Int(e.state.resources[.flint])) tools=\(Int(e.state.resources[.stoneTools])) flintCap=\(Int(e.capacities[.flint])) toolsCap=\(Int(e.capacities[.stoneTools])) mode=\(lab.craft?.mode.rawValue ?? "locked") batch=\(Int(ceil(lab.craft?.batchRemaining ?? 0))) improved=\(lab.craft?.woodcutterImproved == true) " + lab.mapFinds.map { "\($0.id.rawValue)=\($0.tile.map { "\($0.x),\($0.y)" } ?? "none"),\($0.resolved ? "resolved" : "pending")" }.joined(separator: " ")
     }
     private func guide(_ lab: RiverbendEconomyLab) -> String {
-        if lab.storage.count == 2 { return "Storage checkpoint: Granary holds Food; Stockyard holds materials. Review ends here." }
+        if lab.craft?.woodcutterImproved == true { return "Craft checkpoint: 3 Tools spent once. Woodcutter now produces 8 Wood/min when fully staffed." }
+        if lab.craft != nil { return "Gather Flint → craft three Tools → improve Woodcutter. Storage and opening remain independent." }
+        if lab.craftOpportunityAvailable { return "Stone route ready. Optional next: reveal Flint and the one Toolmaking project." }
+        if lab.storage.count == 2 { return "Storage checkpoint: Granary holds Food; Stockyard holds materials." }
         if lab.stoneSource != nil { return "Gather Stone → choose Granary or Stockyard. Capacity starts when construction finishes." }
         if lab.checkpointReached { return "Food/Wood checkpoint. Optional next: reveal nearby Stone." }
         if !lab.hutComplete { return "First: build a Hut for 12 Wood and wait for completion." }

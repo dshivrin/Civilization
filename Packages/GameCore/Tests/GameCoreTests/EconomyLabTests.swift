@@ -219,6 +219,12 @@ private func buildLab(_ kind: BuildingKind, _ lab: inout RiverbendEconomyLab) th
         try lab.buildStorage(.stockyard, at: #require(lab.storageSites(for: .stockyard).first))
         try lab.advance(by: 120)
     }
+    try store.perform { lab in
+        try lab.unlockCraft(); try lab.setGatheringMode(.flint); try lab.advance(by: 90)
+        for _ in 0..<3 { try lab.startToolBatch(); try lab.advance(by: 60) }
+        try lab.improveWoodcutter()
+    }
+    #expect(store.lab.craft?.woodcutterImproved == true)
     for find in store.lab.availableFinds {
         try store.perform { try $0.resolveFind(find.id, at: #require(find.tile)) }
     }

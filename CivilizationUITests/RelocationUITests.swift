@@ -4,6 +4,97 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testFirstCraftGatherCraftSpendAndReload() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        func open() {
+            XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+            app.buttons["developerTools"].tap(); app.buttons["openEconomyLab"].tap()
+            XCTAssertTrue(app.staticTexts["economyLabStatus"].waitForExistence(timeout: 15))
+        }
+        launchNormal(app); open()
+        let status = app.staticTexts["economyLabStatus"]
+        func value() -> String { status.value as? String ?? "" }
+        func field(_ key: String) throws -> Int {
+            let part = try XCTUnwrap(value().split(separator: " ").first { $0.hasPrefix(key + "=") })
+            return try XCTUnwrap(Int(part.dropFirst(key.count + 1)))
+        }
+        func reveal(_ element: XCUIElement) {
+            let scroll = app.scrollViews.firstMatch
+            for _ in 0..<60 where !element.isHittable {
+                let below = element.frame.midY > scroll.frame.midY
+                scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: below ? 0.7 : 0.3)).press(forDuration: 0.02,
+                    thenDragTo: scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)))
+            }
+            XCTAssertTrue(element.isHittable, element.identifier)
+        }
+        func tap(_ id: String) {
+            let button = app.buttons[id]
+            reveal(button); button.tap()
+        }
+        func capture(_ name: String) {
+            let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+            shot.name = name; shot.lifetime = .keepAlways; add(shot)
+        }
+        func build(_ kind: String) { tap("labBuild-" + kind); tap("labConfirmBuild"); tap("labAdvance60") }
+        tap("labPause")
+        XCTAssertFalse(app.buttons["labUnlockCraft"].exists)
+        XCTAssertTrue(value().contains("craft=false"))
+        build("hut"); tap("labSurvey"); tap("labAdvance60")
+        build("woodcutter"); build("gatheringShelter")
+        for _ in 0..<9 { tap("labAdvance60") }
+        tap("labRevealStone"); build("stoneGatherer")
+        tap("labUnlockCraft")
+        XCTAssertEqual(try field("flintCap"), 24); XCTAssertEqual(try field("toolsCap"), 24)
+        XCTAssertTrue(app.staticTexts["labCraftProject"].exists)
+        XCTAssertFalse(app.buttons["labCraftTool"].isEnabled)
+        reveal(app.staticTexts["labFlintSource"]); capture("craft-revealed-flint-source")
+        reveal(app.staticTexts["labCraftProject"]); capture("craft-source-cost-and-project")
+        tap("labMode-flint")
+        let stone = try field("stone")
+        tap("labAdvance60"); tap("labAdvance60")
+        XCTAssertEqual(try field("stone"), stone); XCTAssertEqual(try field("flint"), 8)
+        tap("labMode-stone")
+        let wood = try field("wood")
+        tap("labCraftTool")
+        XCTAssertEqual(try field("wood"), wood - 2)
+        XCTAssertEqual(try field("flint"), 6)
+        XCTAssertEqual(try field("tools"), 0); XCTAssertEqual(try field("batch"), 60)
+        tap("labAdvance10")
+        reveal(app.staticTexts["labToolTimer"]); capture("craft-paid-real-wait")
+        app.buttons["closeEconomyLab"].tap(); app.buttons["openEconomyLab"].tap()
+        XCTAssertTrue(status.waitForExistence(timeout: 15)); tap("labPause")
+        XCTAssertEqual(try field("flint"), 6); XCTAssertGreaterThan(try field("batch"), 0)
+        tap("labAdvance60"); XCTAssertEqual(try field("tools"), 1)
+        for count in 2...3 {
+            tap("labCraftTool"); tap("labAdvance60")
+            XCTAssertEqual(try field("tools"), count)
+        }
+        capture("craft-three-tools-before-spend")
+        tap("labSpendTools")
+        XCTAssertEqual(try field("tools"), 0)
+        XCTAssertTrue(value().contains("improved=true")); XCTAssertTrue(value().contains("woodNet=8.0"))
+        XCTAssertTrue(app.staticTexts["labCraftImproved"].exists)
+        reveal(app.staticTexts["labCraftImproved"]); capture("craft-lasting-woodcutter-improvement")
+        tap("labStorage-stockyard"); tap("labConfirmBuild"); tap("labAdvance60")
+        XCTAssertEqual(try field("flintCap"), 48); XCTAssertEqual(try field("toolsCap"), 48)
+        XCTAssertEqual(try field("foodCap"), 60)
+        app.terminate(); app.launchEnvironment.removeValue(forKey: "CIVILIZATION_UI_FRESH_SAVE")
+        launchNormal(app); open(); tap("labPause")
+        XCTAssertTrue(value().contains("improved=true")); XCTAssertTrue(value().contains("woodNet=8.0"))
+        XCTAssertEqual(try field("tools"), 0); XCTAssertEqual(try field("flint"), 2)
+        XCTAssertEqual(try field("batch"), 0); XCTAssertEqual(try field("flintCap"), 48)
+        XCTAssertFalse(app.buttons["labSpendTools"].exists)
+        XCTAssertEqual(try field("knowledge"), 6)
+        XCTAssertTrue(value().contains("berries=") && value().contains("pending"))
+        capture("craft-relaunch-persistent-project")
+        app.buttons["closeEconomyLab"].tap(); app.navigationBars["Developer tools"].buttons["Done"].tap()
+        XCTAssertTrue(app.otherElements["settlementMap"].exists)
+    }
+
+
     @MainActor func testStoneStorageRevealCollectSpendAndReload() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()

@@ -15,6 +15,7 @@ def module_dir(configuration):
     raise SystemExit(f'Build {configuration} modules first')
 debug, release = map(Path, sys.argv[1:]) if len(sys.argv) == 3 else (module_dir('Debug'), module_dir('Release'))
 probes = {
+    'RiverbendGatheringMode': 'import GameApplication\nlet mode = RiverbendGatheringMode.flint\n',
     'RiverbendStorageRole': 'import GameApplication\nlet role = RiverbendStorageRole.granary\n',
     'RiverbendMapFindID': 'import GameApplication\nlet find = RiverbendMapFindID.berries\n',
     'RiverbendEconomyLab': 'import Foundation\nimport GameApplication\nlet lab = try RiverbendEconomyLab(now: Date())\n',

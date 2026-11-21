@@ -2,6 +2,13 @@
 import Foundation
 import GameCore
 
+public enum RiverbendGatheringMode: String, Codable, Sendable { case stone, flint }
+public struct RiverbendCraft: Codable, Equatable, Sendable {
+    public fileprivate(set) var mode: RiverbendGatheringMode = .stone
+    public fileprivate(set) var batchRemaining: Double?
+    public fileprivate(set) var woodcutterImproved = false
+}
+
 public enum RiverbendStorageRole: String, Codable, CaseIterable, Sendable {
     case granary, stockyard
     public var cost: ResourceAmounts { self == .granary ? .init(wood: 14, stone: 4) : .init(wood: 18, stone: 6) }
@@ -28,6 +35,7 @@ public struct RiverbendEconomyLab {
     public private(set) var mapFinds: [RiverbendMapFind] = []
     public private(set) var stoneSource: Tile?
     public private(set) var storage: [RiverbendStorage] = []
+    public private(set) var craft: RiverbendCraft?
     private struct Envelope: Codable {
         var profile: String
         var version: Int
@@ -37,6 +45,7 @@ public struct RiverbendEconomyLab {
         var mapFinds: [RiverbendMapFind]?
         var stoneSource: Tile?
         var storage: [RiverbendStorage]?
+        var craft: RiverbendCraft?
     }
     public init(now: Date) throws {
         let c = try GameConfiguration.riverbendEconomyLab()
@@ -52,7 +61,7 @@ public struct RiverbendEconomyLab {
         let saved = try JSONDecoder().decode(Envelope.self, from: data)
         guard saved.profile == GameConfiguration.riverbendLabID, saved.version == 1 else { throw GameError.invalidSave("Not an Economy Lab v1 save") }
         try self.init(now: saved.state.lastUpdated)
-        storage = saved.storage ?? []; stoneSource = saved.stoneSource
+        storage = saved.storage ?? []; stoneSource = saved.stoneSource; craft = saved.craft
         let storehouses = saved.state.buildings.filter { $0.kind == .storehouse }
         guard storage.count <= 2, Set(storage.map(\.role)).count == storage.count,
               Set(storage.map(\.buildingID)).count == storage.count,
@@ -71,7 +80,7 @@ public struct RiverbendEconomyLab {
               candidate.state.explorationRemainingSeconds == nil,
               candidate.state.explorationRadius == c.explorationRules?.initialRadius,
               candidate.state.researchedTechnologies?.isEmpty == true,
-              Resource.allCases.allSatisfy({ [.food, .wood, .stone, .knowledge].contains($0) || candidate.state.resources[$0] == 0 }),
+              Resource.allCases.allSatisfy({ [.food, .wood, .stone, .knowledge].contains($0) || (craft != nil && [.flint, .stoneTools].contains($0)) || candidate.state.resources[$0] == 0 }),
               candidate.state.resources.knowledge == (saved.surveyComplete ? 6 : 0),
               (!saved.surveyComplete || (hut && saved.surveyRemaining == nil)),
               (saved.surveyRemaining == nil || (hut && !saved.surveyComplete && saved.surveyRemaining!.isFinite && saved.surveyRemaining! > 0 && saved.surveyRemaining! <= 60)),
@@ -85,6 +94,12 @@ public struct RiverbendEconomyLab {
             guard checkpointReached, legalFindSites.contains(source),
                   candidate.state.buildings.filter({ $0.kind == .stoneGatherer }).allSatisfy({ abs($0.origin.x-source.x) + abs($0.origin.y-source.y) <= 3 })
             else { throw GameError.invalidSave("Stone source must remain reachable on revealed land") }
+        }
+        if let craft {
+            guard checkpointReached, stoneSource != nil,
+                  candidate.state.buildings.contains(where: { $0.kind == .stoneGatherer && $0.isOperational }),
+                  craft.batchRemaining == nil || (craft.batchRemaining!.isFinite && craft.batchRemaining! > 0 && craft.batchRemaining! <= 60 && candidate.state.resources[.stoneTools] + 1 <= candidate.capacities[.stoneTools])
+            else { throw GameError.invalidSave("Invalid Toolmaking opportunity or reserved output") }
         }
         if let finds = saved.mapFinds {
             let ids = finds.map(\.id)
@@ -103,7 +118,7 @@ public struct RiverbendEconomyLab {
     }
     public func encoded() throws -> Data {
         try JSONEncoder().encode(Envelope(profile: GameConfiguration.riverbendLabID, version: 1, state: engine.state,
-            surveyRemaining: surveyRemaining, surveyComplete: surveyComplete, mapFinds: mapFinds, stoneSource: stoneSource, storage: storage))
+            surveyRemaining: surveyRemaining, surveyComplete: surveyComplete, mapFinds: mapFinds, stoneSource: stoneSource, storage: storage, craft: craft))
     }
     /// Sites are flood-filled from the civic center over revealed open unoccupied land.
     /// Stable distance/y/x ordering also defines every fallback, without exposing fog.
@@ -162,11 +177,63 @@ public struct RiverbendEconomyLab {
     /// Derived solely from validated instance roles; a storage shell has no generic bonus.
     private func configuration(for state: GameState) throws -> GameConfiguration {
         var c = try GameConfiguration.riverbendEconomyLab()
+        if craft?.mode == .flint {
+            let i = c.buildings.firstIndex { $0.kind == .stoneGatherer }!
+            c.buildings[i].ratesPerMinute.stone = 0
+            c.buildings[i].ratesPerMinute[.flint] = 4
+        }
+        if craft?.woodcutterImproved == true {
+            c.buildings[c.buildings.firstIndex { $0.kind == .woodcutter }!].ratesPerMinute.wood = 8
+        }
         for entry in storage where state.buildings.contains(where: { $0.id == entry.buildingID && $0.kind == .storehouse && $0.isOperational }) {
             if entry.role == .granary { c.resourceCaps?.food += 60 }
-            else { c.resourceCaps?.wood += 60; c.resourceCaps?.stone += 60 }
+            else {
+                c.resourceCaps?.wood += 60; c.resourceCaps?.stone += 60
+                if craft != nil { c.resourceCaps?[.flint] += 24; c.resourceCaps?[.stoneTools] += 24 }
+            }
         }
         return c
+    }
+    public var craftOpportunityAvailable: Bool {
+        checkpointReached && stoneSource != nil && engine.state.buildings.contains { $0.kind == .stoneGatherer && $0.isOperational }
+    }
+    public mutating func unlockCraft() throws {
+        guard craft == nil, craftOpportunityAvailable else { throw GameError.placement("Complete the opening and Stone gatherer, then reveal Toolmaking once") }
+        var candidate = self
+        candidate.craft = RiverbendCraft()
+        candidate.engine = try GameEngine(state: engine.state, configuration: candidate.configuration(for: engine.state))
+        self = candidate
+    }
+    public mutating func setGatheringMode(_ mode: RiverbendGatheringMode) throws {
+        guard craft != nil else { throw GameError.placement("Reveal the Toolmaking opportunity first") }
+        var candidate = self
+        candidate.craft?.mode = mode
+        candidate.engine = try GameEngine(state: engine.state, configuration: candidate.configuration(for: engine.state))
+        self = candidate
+    }
+    public var toolBatchIssue: String? {
+        guard craft != nil else { return "Reveal Toolmaking first" }
+        guard craft?.batchRemaining == nil else { return "One paid batch is already in progress" }
+        guard engine.state.resources[.stoneTools] + 1 <= engine.capacities[.stoneTools] else { return "Tools storage full · need room for all 1 Tool before paying" }
+        guard engine.state.resources.wood >= 2 else { return "Need 2 Wood · use the forest Woodcutter" }
+        guard engine.state.resources[.flint] >= 2 else { return "Need 2 Flint · switch the outcrop gatherer to Flint" }
+        return nil
+    }
+    public mutating func startToolBatch() throws {
+        if let issue = toolBatchIssue { throw GameError.placement(issue) }
+        var state = engine.state
+        state.resources.wood -= 2; state.resources[.flint] -= 2
+        let candidate = try GameEngine(state: state, configuration: engine.configuration)
+        engine = candidate; craft?.batchRemaining = 60
+    }
+    public mutating func improveWoodcutter() throws {
+        guard let craft, !craft.woodcutterImproved else { throw GameError.placement("Reveal Toolmaking; sharpen Woodcutter equipment only once") }
+        guard engine.state.resources[.stoneTools] >= 3 else { throw GameError.placement("Need 3 Tools · craft three batches; total 6 Wood + 6 Flint") }
+        var candidate = self, state = engine.state
+        state.resources[.stoneTools] -= 3
+        candidate.craft?.woodcutterImproved = true
+        candidate.engine = try GameEngine(state: state, configuration: candidate.configuration(for: state))
+        self = candidate
     }
     public mutating func revealStone() throws {
         guard checkpointReached, stoneSource == nil else { throw GameError.placement("Finish the Food/Wood route before revealing Stone; reveal once") }
@@ -270,6 +337,14 @@ public struct RiverbendEconomyLab {
                 candidate.engine = try GameEngine(state: state, configuration: candidate.engine.configuration)
                 candidate.surveyRemaining = nil; candidate.surveyComplete = true
             }
+        }
+        if let remaining = craft?.batchRemaining {
+            if seconds >= remaining {
+                var state = candidate.engine.state
+                state.resources[.stoneTools] += 1
+                candidate.engine = try GameEngine(state: state, configuration: candidate.engine.configuration)
+                candidate.craft?.batchRemaining = nil
+            } else { candidate.craft?.batchRemaining = remaining - seconds }
         }
         candidate.reconcileFindSites()
         self = candidate
