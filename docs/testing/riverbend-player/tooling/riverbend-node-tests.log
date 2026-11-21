@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: actual viewer suspends for hiding, motion preference, Static and page lifecycle
+ok 1 - actual viewer suspends for hiding, motion preference, Static and page lifecycle
+  ---
+  duration_ms: 9.269875
+  type: 'test'
+  ...
+# Subtest: negative control catches removal of the hidden-page guard
+ok 2 - negative control catches removal of the hidden-page guard
+  ---
+  duration_ms: 1.6755
+  type: 'test'
+  ...
+# Subtest: simultaneous destinations retain independent unread and exact-item viewing
+ok 3 - simultaneous destinations retain independent unread and exact-item viewing
+  ---
+  duration_ms: 0.437708
+  type: 'test'
+  ...
+# Subtest: same event never repeats and reload keeps unread without replay
+ok 4 - same event never repeats and reload keeps unread without replay
+  ---
+  duration_ms: 0.061542
+  type: 'test'
+  ...
+# Subtest: failed persistence does not consume events or era transition
+ok 5 - failed persistence does not consume events or era transition
+  ---
+  duration_ms: 0.389792
+  type: 'test'
+  ...
+# Subtest: era theme is committed before playback and survives reload idempotently
+ok 6 - era theme is committed before playback and survives reload idempotently
+  ---
+  duration_ms: 0.05225
+  type: 'test'
+  ...
+# Subtest: construction progress belongs to selected object and reload preserves both
+ok 7 - construction progress belongs to selected object and reload preserves both
+  ---
+  duration_ms: 0.131542
+  type: 'test'
+  ...
+# Subtest: configured selected building keeps its own progress instead of falling back to Hut
+ok 8 - configured selected building keeps its own progress instead of falling back to Hut
+  ---
+  duration_ms: 0.05125
+  type: 'test'
+  ...
+# Subtest: event-specific result is available only after exact item viewing
+ok 9 - event-specific result is available only after exact item viewing
+  ---
+  duration_ms: 0.188
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 43.838875

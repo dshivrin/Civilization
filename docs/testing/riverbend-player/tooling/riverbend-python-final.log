@@ -1,0 +1,63 @@
+test_concurrent_audits_publish_only_one_evidence_directory (test_art_audit.ArtAuditTests) ... ok
+test_rejects_media_output_through_symlinked_parent (test_art_audit.ArtAuditTests) ... ok
+test_rejects_wrong_building_export_even_if_both_files_match (test_art_audit.ArtAuditTests) ... ok
+test_asset_prompt_and_reference_tampering_are_rejected (test_art_gallery.DirectionGalleryProvenanceTests) ... ok
+test_failed_second_replace_restores_previous_output_pair (test_art_gallery.DirectionGalleryProvenanceTests) ... ok
+test_failed_second_staged_write_retains_previous_output_pair (test_art_gallery.DirectionGalleryProvenanceTests) ... ok
+test_four_views_preserve_uncertified_mapping_and_fixed_footprint (test_art_gallery.DirectionGalleryProvenanceTests) ... ok
+test_missing_view_fails_before_republishing (test_art_gallery.DirectionGalleryProvenanceTests) ... ok
+test_native_measurement_edits_are_rejected (test_art_gallery.DirectionGalleryProvenanceTests) ... ok
+test_optimized_execution_cannot_skip_validation (test_art_gallery.DirectionGalleryProvenanceTests) ... ok
+test_output_alias_cannot_overwrite_preserved_image (test_art_gallery.DirectionGalleryProvenanceTests) ... ok
+test_every_fixture_declares_selected_pose_support (test_art_gallery.FishingFacingDisclosureTests) ... ok
+test_prompt_tamper_is_rejected (test_art_gallery.GalleryProvenanceTests) ... ok
+test_reference_tamper_is_rejected (test_art_gallery.GalleryProvenanceTests) ... ok
+test_shipped_original_tamper_is_rejected (test_art_gallery.GalleryProvenanceTests) ... ok
+test_all_seven_crossings_have_real_land_and_contiguous_water (test_art_gallery.RiverVisualFixtureTests) ... ok
+test_visual_crossing_rejects_far_bank_forest (test_art_gallery.RiverVisualFixtureTests) ... ok
+test_visual_crossing_rejects_open_map_edge (test_art_gallery.RiverVisualFixtureTests) ... ok
+test_artifact_directory_never_clobbers_even_empty_existing_directory (test_dev.ReusableToolsTests) ... ok
+test_backup_dry_run_does_not_touch_device_or_create_output (test_dev.ReusableToolsTests) ... ok
+test_dangling_output_alias_is_rejected_without_creating_its_target (test_dev.ReusableToolsTests) ... Error: Existing output aliases cannot be reused
+ok
+test_earned_preparation_refuses_an_existing_qa_identity_before_install (test_dev.ReusableToolsTests) ... ok
+test_earned_simulator_identity_cannot_target_production_or_arbitrary_bundles (test_dev.ReusableToolsTests) ... ok
+test_empty_or_symlink_source_never_proves_preservation (test_dev.ReusableToolsTests) ... ok
+test_interrupt_stops_matrix_instead_of_starting_another_configuration (test_dev.ReusableToolsTests) ... PASS: four immutable source views, three prompt/reference digests, actual alpha inspection and fixed2x2footprint
+Report: /var/folders/y2/_5qh99jj32d0855qkq0ps8lw0000gn/T/tmpgjof7irg/report.md
+ok
+test_native_selections_cannot_silently_drop_a_misspelled_case (test_dev.ReusableToolsTests) ... ok
+test_real_child_sigint_is_recorded_without_escaping_step (test_dev.ReusableToolsTests) ... Running interrupted…
+/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py:1052: ResourceWarning: subprocess 78679 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+interrupted: failed → /var/folders/y2/_5qh99jj32d0855qkq0ps8lw0000gn/T/tmpm7zjy8jb/interrupted.log
+ok
+test_run_step_reports_failure_and_preserves_exact_argv (test_dev.ReusableToolsTests) ... Running failing step…
+failing step: failed → /var/folders/y2/_5qh99jj32d0855qkq0ps8lw0000gn/T/evidence with spaces s8mmmk3p/failing-step.log
+ok
+test_strict_comparison_rejects_changes_and_additive_mode_retains_old_entries (test_dev.ReusableToolsTests) ... ok
+test_zero_tests_and_failed_exit_never_pass (test_dev.ReusableToolsTests) ... ok
+test_distinct_folders_cannot_relabel_phone_metadata_as_mini (test_native_visual_gallery.VillagerCaptureProvenanceTests) ... ok
+test_failed_report_or_missing_motion_case_cannot_publish (test_native_visual_gallery.VillagerCaptureProvenanceTests) ... ok
+test_images_from_another_run_cannot_borrow_a_passed_report (test_native_visual_gallery.VillagerCaptureProvenanceTests) ... ok
+test_one_phone_cannot_be_relabelled_as_three_profiles (test_native_visual_gallery.VillagerCaptureProvenanceTests) ... ok
+test_passed_device_steps_keep_failed_aggregate_and_genuine_retry_reports (test_native_visual_gallery.VillagerCaptureProvenanceTests) ... ok
+test_passed_product_report_and_distinct_devices_are_preserved (test_native_visual_gallery.VillagerCaptureProvenanceTests) ... ok
+test_zero_device_step_cannot_borrow_a_different_devices_pass (test_native_visual_gallery.VillagerCaptureProvenanceTests) ... ok
+test_all_raw_cells_and_eight_loops_per_candidate_keep_failed_margin_status (test_villager_atlas.AtlasGalleryIntegrityTests) ... ok
+test_asset_prompt_reference_and_measurement_drift_never_publish (test_villager_atlas.AtlasGalleryIntegrityTests) ... ok
+test_correction_reference_must_match_original_in_selected_review (test_villager_atlas.AtlasGalleryIntegrityTests) ... ok
+test_duplicate_native_cell_cannot_hide_behind_updated_report_hash (test_villager_atlas.AtlasGalleryIntegrityTests) ... ok
+test_hardlinked_input_or_output_is_rejected_without_publication (test_villager_atlas.AtlasGalleryIntegrityTests) ... ok
+test_optimized_python_fails_closed (test_villager_atlas.AtlasGalleryIntegrityTests) ... ok
+test_output_alias_and_replace_failure_preserve_previous_bytes (test_villager_atlas.AtlasGalleryIntegrityTests) ... ok
+test_empty_and_opaque_cells_are_diagnostics_not_success (test_villager_atlas.NativeAtlasInspectionTests) ... ok
+test_odd_dimensions_partition_every_pixel_without_overlap (test_villager_atlas.NativeAtlasInspectionTests) ... ok
+test_top_left_cells_threshold_and_gutters_use_actual_rgba (test_villager_atlas.NativeAtlasInspectionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 17.501s
+
+OK
+PASS: 2 unchanged candidates,64 measured cells,16 nominal loops; registration remains unapproved

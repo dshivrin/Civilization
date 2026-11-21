@@ -1,0 +1,26 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "619532D3-DC71-4C57-AEDE-D383C331EBDC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ordinary-release-earned-bronze-readiness_0_2B06015D-713C-40AC-A4D4-1BFFEFCAC6B8.png",
+        "timestamp" : 1795255499.419
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "2B82B32F-7C2A-490A-ADF9-A9A4B1AF1404.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ordinary-release-earned-bronze-readiness_0_8DDBC813-B6D6-4069-AF4A-53D4ADD60E3C.png",
+        "timestamp" : 1795255487.47
+      }
+    ],
+    "testIdentifier" : "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch"
+  }
+]

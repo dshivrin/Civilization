@@ -1,0 +1,32 @@
+{
+  "scope": {
+    "command": "validate-saves",
+    "root": "/tmp/riverbend-earned-reviewed-20261121/ending",
+    "sourceByteIdentical": true
+  },
+  "steps": [
+    {
+      "name": "validate-saves",
+      "command": [
+        "swift",
+        "run",
+        "--package-path",
+        "/Users/dima/dev/Civilazation-riverbend-player-review/Tools/SaveInspector",
+        "SaveInspector",
+        "/private/tmp/riverbend-earned-reviewed-20261121/ending"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 3.206,
+      "log": "/private/tmp/civilization-qa-04f574e5b43d4b569f8d97d13e9976b2/validate-saves.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T09:50:26.727242+00:00",
+  "revision": {
+    "commit": "47e351f6599971d595bb5a04864cc0f807fd4794",
+    "dirty": true
+  },
+  "status": "passed"
+}

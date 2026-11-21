@@ -1,0 +1,38 @@
+Building for debugging...
+[8 / 30] GameCore
+[10 / 31] GameCore
+[15 / 34] GamePersistence
+[20 / 37] GameApplication
+[25 / 40] SaveInspection
+[30 / 39] SaveInspectionTests-product
+[34 / 38] SaveInspectionTests-product
+[36 / 38] SaveInspectionTests-product
+Build complete! (2.22 secs)
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+◇ Test case passing 1 argument marker → "profile" to rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+◇ Test case passing 1 argument marker → "review" to rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+◇ Test case passing 1 argument marker → "developer" to rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+◇ Test case passing 1 argument marker → "unknown" to rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+✘ Test rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) recorded an issue with 1 argument marker → "review" at SaveInspectionTests.swift:215:5: Expectation failed: an error was expected but none was thrown and "InspectionReport(files: [SaveInspection.InspectedSave(relativePath: "settlement-v1.json", mapID: "river-clearing-64x48-v1", buildings: 1, roads: 0, sha256: "fe5ea969cd0d47487b5992f2eea38f6dc7ed056b2d6d4d83a66083ffc8435686", operatingRules: "legacy")], registeredGames: nil, sourceByteIdentical: true)" was returned
+↳ Error.self → <not evaluated>
+↳   Error → <not evaluated>
+↳   self → <not evaluated>
+✘ Test rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) recorded an issue with 1 argument marker → "profile" at SaveInspectionTests.swift:215:5: Expectation failed: an error was expected but none was thrown and "InspectionReport(files: [SaveInspection.InspectedSave(relativePath: "settlement-v1.json", mapID: "river-clearing-64x48-v1", buildings: 1, roads: 0, sha256: "d6b464f42af9d9f699a97f9df317ef93a412f47287bf276688996dab20587260", operatingRules: "legacy")], registeredGames: nil, sourceByteIdentical: true)" was returned
+↳ Error.self → <not evaluated>
+↳   Error → <not evaluated>
+↳   self → <not evaluated>
+✘ Test rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) recorded an issue with 1 argument marker → "developer" at SaveInspectionTests.swift:215:5: Expectation failed: an error was expected but none was thrown and "InspectionReport(files: [SaveInspection.InspectedSave(relativePath: "settlement-v1.json", mapID: "river-clearing-64x48-v1", buildings: 1, roads: 0, sha256: "852bb76dd194e9186e095a306dee3ccaf90bd082aa767241ee56edb0c6fd74d6", operatingRules: "legacy")], registeredGames: nil, sourceByteIdentical: true)" was returned
+↳ Error.self → <not evaluated>
+↳   Error → <not evaluated>
+↳   self → <not evaluated>
+✘ Test rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) recorded an issue with 1 argument marker → "unknown" at SaveInspectionTests.swift:215:5: Expectation failed: an error was expected but none was thrown and "InspectionReport(files: [SaveInspection.InspectedSave(relativePath: "settlement-v1.json", mapID: "river-clearing-64x48-v1", buildings: 1, roads: 0, sha256: "d3d8e08a8cfa05cfc3fb006ec745ea5a2c64c87c9a7390254854e14002611977", operatingRules: "legacy")], registeredGames: nil, sourceByteIdentical: true)" was returned
+↳ Error.self → <not evaluated>
+↳   Error → <not evaluated>
+↳   self → <not evaluated>
+✘ Test rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) with 4 test cases failed after 0.026 seconds with 4 issues.
+✘ Test run with 1 test in 0 suites failed after 0.026 seconds with 4 issues.
+Note: Some test targets reported failures:
+  - SaveInspectionTests (Swift Testing)

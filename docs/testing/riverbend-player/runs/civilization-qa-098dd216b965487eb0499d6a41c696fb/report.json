@@ -1,0 +1,38 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": "riverbendPlayer",
+    "simulator": [],
+    "only_testing": [],
+    "output": null,
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/dev/Civilazation-riverbend-player-review/Packages/GameCore",
+        "--filter",
+        "riverbendPlayer"
+      ],
+      "exitCode": 1,
+      "status": "failed",
+      "tests": 5,
+      "durationSeconds": 1.252,
+      "log": "/private/tmp/civilization-qa-098dd216b965487eb0499d6a41c696fb/core-debug.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T08:15:47.232445+00:00",
+  "revision": {
+    "commit": "47e351f6599971d595bb5a04864cc0f807fd4794",
+    "dirty": true
+  },
+  "status": "failed"
+}

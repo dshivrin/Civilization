@@ -1,0 +1,1426 @@
+[
+  {
+    "run": "civilization-qa-04f574e5b43d4b569f8d97d13e9976b2",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-saves",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-051211c34c7648a4a81e2351d1340171",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-05d951e05e9e44f9b88f5f4e08f95640",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-08d427d6b2294cc38de0e4f90e1e2ac7",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      },
+      {
+        "name": "ui-release-2",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-098dd216b965487eb0499d6a41c696fb",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 5
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-0f7efc73c63348db915da40fedf45a16",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-1688dc2ae6214b19aaed7b8553087637",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 3
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-182cc81d05654552a8b31be58865e5d8",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-1a47be1423cf4b1895dfca6676dc5a98",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 5
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-1a65898b502b48ddbd40d08b35f5f018",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-1b67611fcff542d98214fd997117f3fd",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-226d4fda83144f94bb5edb069e9bbbc4",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 3
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-2323a9bb2a0c47998c4accf5d4d8d926",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 340
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 247
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "failed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-23b3ef05adc14b1e9f2684adc923f5ba",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-28ea0f8a612a441cabc33827d7d83daa",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 340
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 247
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-2a69784cfba14307b5dddc34eade1c50",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-2af5602e4fef46a388c01145ae4e3938",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 6
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-2eb131e02ec54cc0b271068fe2b0d6c6",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-302a60e9224f4b57a22db8e6e0a845d1",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-32ddda632e9a41acb49f07ac470be64f",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 10
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-3a25eafed03745d1ab93427eafdc55e0",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-3b2a8190ee9644c8a30bcca8f9983bc8",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-3e80f29417214e78bc4f1d744df66702",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-427c844af1714db58d677bfe0e2dc31d",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-45d2f761900542a68cdf1863fea27fc5",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-46bd0b0de2c942d6a2ab9a37e40fc924",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-4efa62f5bb9b4e65adaeb02ca901c885",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 3
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-51086cbc276c4ad89852b04327b3c2fc",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-515b97f35f7d47b7aa6c08b34967f6c4",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-57a305570b674b72a79841adb400ecc1",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-57d1c2b27aa84ad8bc9b9ef9db06ae13",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-5a3e6673be5e4748bcc02fbb8d414808",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-release",
+        "status": "failed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-5ac0a2193fa842c5ac2b3d3007f8282b",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-5b11547c1a0d43f3a3675b224dd1c563",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-5efbef3f56014cb0a9f54ad083371708",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-645f85876ace41499a60253681c7975e",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-64b7ed4cd79940c1a3db08e44065ff35",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-65a20c616e7c44b09dee50322287b5db",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-65d6a295aafa41fea9b6212f8d60b0ca",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-6771a508f18d4983b0f8d4aec98deeb5",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-688a9a11184e4e0eb31d12da798eee74",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-697eebc43f094f30a64574fde9c00022",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-6d2485e9e4e04ca5ba342586cc5d3151",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "failed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-7033bb396431476faa4274f867f5072b",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-71151c95c72a4e1fa89ed30a8a25fca8",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-711cf234ec054602b30027005fdaf9e9",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 337
+      },
+      {
+        "name": "core-release",
+        "status": "failed",
+        "tests": 245
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-7303590d6293478b9c26ce951e50bf28",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-release",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-73530072f04e4acaa5097dd519dc4a76",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-7563fe40181b45cca9ff26e49c7decea",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 5
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-787003be0c7944ac8df62b9e709fe6b6",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-791e5c3e4e9842e5a1dee22c520c50d5",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-7a2cae218bc84037abf530184c3b5e7b",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-7a712e764af04b948bf673ed545565f8",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-7f133cdf9da242d48a474e8e6a49c103",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-80b45dd20d0344c5b4f31940a33ae760",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 340
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 247
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-83f0132f00b64b8994a64c2ab54bc843",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-8557b24ff1e44d96b8d7654ca8abfc7f",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 2
+      },
+      {
+        "name": "ui-release-2",
+        "status": "failed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-88e03c3744b14003a99318026d670883",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-release",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-8c37e1c685ec413490aa7a678e728251",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-8d927eea52f94459a1e7a1ee365035f4",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 2
+      },
+      {
+        "name": "ui-release-2",
+        "status": "passed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-8df4194da49e438bb6cf783da22dcd5e",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 5
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-9339b92dae734130afceb935788eea41",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-93d71da0d145488ea190e96b00666072",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-94a45fc3feaa479a8321b4174fca7f1c",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-950c08a674884caca0158440d6411ba1",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-973058bdf9ae4b628dde245badc11d5a",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 340
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 247
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-9838cfa0f93c480b9e0b7b18c0a5b359",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-98d7e5b8f2b94d809597c4b9b45bbbd4",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-99503cfd949047d78b5675fc030e1d9e",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-9c3ff5eea41443a28b053df1aa071998",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-9ebd2ac1be2645599f3ffa62f931dbe8",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 13
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-a082e105c95c4f1b83918b0aa4238a69",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 3
+      },
+      {
+        "name": "ui-release-2",
+        "status": "passed",
+        "tests": 3
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-a20fbaaa0e0445de83df61ba3399a1d8",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 16
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-a328fe58ec0b434887752d586268cac9",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 2
+      },
+      {
+        "name": "ui-release-2",
+        "status": "failed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-a3cc65e13ec2429fbb4d3196192ecb0a",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-a99e3c7a15164cf78eb17c532ae1fbce",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-acbb320ecdbb4f90884303eed6ff5ab6",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-ae81749b331344f08817b2614515983c",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 4
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-ae8572db5175448aafec089a3c835ca6",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 340
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 247
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-aeb34e0ed8644d0ebeb528b68f12c996",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 3
+      },
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 3
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-b83541963686499d8341f0196ea39e6e",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-ba63250bca21487790e57c1a1bf9636b",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-c0f0704da23e4a65a113d83784aa1f34",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-c36b4a9c1e6a4a4998334fd769af7479",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-c4738b086c2f4e1daa2570981f5c7fe7",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-c6281fc2ce0840b4af337bd6e405fff3",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-c744ccec470e4698854c5cfeb410fd0b",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-debug-1",
+        "status": "passed",
+        "tests": 2
+      },
+      {
+        "name": "ui-debug-2",
+        "status": "passed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-cb783525175044509e4495aad3e9c6e7",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 16
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-cd46f382ac154581bb9244fb0f23005c",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-cd6b0d28dc714eaeb7fc405f714c20dd",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-d40bb698651e47eda0f26fa480350e13",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-d720a01b5b5d4bb195de3818ae080049",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-d749a12a8d20469db9cac41d720aa002",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-dab6493e32404c6480a9e85545ba09b9",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-ddd5093d96eb4fc8bde056436f912750",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-release",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-ddd807be561a48538474031feaae89a1",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 2
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-de8d11c2757a47418889c5eb8bece200",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 7
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-decff2bed7ae4fd18591df39c9796051",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 348
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 255
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-df695015a542422f8486ed8e98c4edc0",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-e04cda6241844dcbae83cf4657142d9c",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-e1492fd6f7a74d9b96126cdf6f0d982e",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 348
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 255
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-e67353df27e34f73aa2f21e809137afc",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 0
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-e6a132ffae13491d82ed3ad612d64e42",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "passed",
+        "tests": 347
+      },
+      {
+        "name": "core-release",
+        "status": "passed",
+        "tests": 254
+      },
+      {
+        "name": "release-api-exclusions",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-e7c469ed5fb74a31be3b75db539e4e1e",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-eda10a91f64d4e4aac7e12bcc01a203e",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-f114c3d221754a2d9f8d4089584b9fa0",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-f367b787eafb4f429420349c6688a776",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "core-debug",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-f5212a7eef3d41b184fc7ff6fb41ee0a",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "ui-release-1",
+        "status": "failed",
+        "tests": 1
+      }
+    ]
+  },
+  {
+    "run": "civilization-qa-f77e7de6b0314e988cfeb8d02548c1c8",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "validate-earned-fixture",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "build-earned-identity",
+        "status": "passed",
+        "tests": null
+      },
+      {
+        "name": "install-earned-identity",
+        "status": "passed",
+        "tests": null
+      }
+    ]
+  }
+]

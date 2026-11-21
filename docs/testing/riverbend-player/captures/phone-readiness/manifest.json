@@ -1,0 +1,26 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "C3B8EECB-177A-482C-B676-3A1040DB9341.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ordinary-release-earned-bronze-readiness_0_7FEFDDB8-2CCD-4E5F-9A2A-98EB978E9051.png",
+        "timestamp" : 1795255259.366
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "B4E758F8-C81B-4C97-8C00-4D05462849CC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ordinary-release-earned-bronze-readiness_0_A884886B-44F3-4EE0-AC37-3C0E143EFE7D.png",
+        "timestamp" : 1795255247.253
+      }
+    ],
+    "testIdentifier" : "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch"
+  }
+]

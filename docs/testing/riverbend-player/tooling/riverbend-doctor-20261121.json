@@ -1,0 +1,26 @@
+{
+  "tools": {
+    "python3": "/usr/bin/python3",
+    "swift": "/usr/bin/swift",
+    "xcodebuild": "/usr/bin/xcodebuild",
+    "xcrun": "/usr/bin/xcrun",
+    "git": "/opt/homebrew/bin/git"
+  },
+  "optional": {
+    "xcbeautify": null,
+    "swiftlint": null
+  },
+  "notes": [
+    "Optional tools are not required.",
+    "No device/account/signing access is attempted.",
+    "Run native inventory explicitly with xcrun simctl list devices available; XcodeBuildMCP can also supply it."
+  ],
+  "swiftVersion": {
+    "exitCode": 0,
+    "output": "Apple Swift version 6.4.2 (swiftlang-6.4.2.1.9 clang-2100.4.1.1)\nTarget: arm64-apple-macosx27.2.0\nswift-driver version: 1.168.6"
+  },
+  "xcodeVersion": {
+    "exitCode": 0,
+    "output": "Xcode 27.2\nBuild version 27B52"
+  }
+}

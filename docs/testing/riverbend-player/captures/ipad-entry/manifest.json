@@ -1,0 +1,50 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "208B486B-8998-4FAF-92F8-EBBBAFB1F0CF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-contextual-catalog-and-return_0_92436884-87F9-4641-97CE-16ADAE3C45EA.png",
+        "timestamp" : 1795255825.933
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testPlayerCatalogContextualActionsAndReturn()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testPlayerCatalogContextualActionsAndReturn"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "EF6B9674-2AC3-4388-B5E0-5304729E01CF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-whole-forest-real-survey_0_D653EE79-AF7B-40B0-93DB-560D2CDDCBBA.png",
+        "timestamp" : 1795255927.899
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "A4ABDCC4-749C-48F4-A35B-BF41A8BDBA19.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-ordinary-continue_0_86CD5BAC-B8A1-4683-A9ED-C8B1C0315059.png",
+        "timestamp" : 1795255851.928
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "2BE164B8-3BB7-4317-AAD6-0C048C24AAA4.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-ordinary-opening_0_34F6AED3-D25D-4604-9C19-8F8EF6F619E0.png",
+        "timestamp" : 1795255843.622
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue"
+  }
+]

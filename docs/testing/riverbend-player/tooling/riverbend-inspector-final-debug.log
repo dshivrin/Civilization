@@ -1,0 +1,49 @@
+Building for debugging...
+[2 / 3] SaveInspection
+[4 / 5] SaveInspection
+[10 / 12] SaveInspectionTests-product
+[13 / 14] SaveInspector-product
+Build complete! (1.06 secs)
+Test Suite 'All tests' started at 2026-11-21 11:42:08.971.
+Test Suite 'All tests' passed at 2026-11-21 11:42:08.972.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test rejectsRootAliasEvenWhenItsTargetIsHealthy() started.
+◇ Test validatesIndependentIndexedUUIDSlots() started.
+◇ Test rejectsSymlinkInsteadOfFollowingPrivatePaths() started.
+◇ Test validatesExplicitConnectivityAndLegacyBackupWithoutWrites() started.
+◇ Test validatesNormalLegacyAndBackupsWithoutChangingAnyBytes() started.
+◇ Test validatesRiverbendLibraryAlongsidePreservedLargeGames() started.
+◇ Test validatesRetainedDisconnectedStorageStockAgainstStructuralCeiling() started.
+◇ Test rejectsMissingRegisteredSlotAndPreservesIndex() started.
+◇ Test rejectsDamagedSaveAndEmptyDirectories() started.
+◇ Test rejectsUnsupportedIndexMapWhileAcceptingLazyGeographyIdentity() started.
+◇ Test validatesReviewCompanionAndRetainsEverySourceByte() started.
+◇ Test rejectsReviewWithoutTrueMarker(present:suffix:) started.
+◇ Test validatesGroupedDeveloperWithItsOwnGeometry() started.
+◇ Test rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+◇ Test case passing 2 arguments present → false, suffix → "review" to rejectsReviewWithoutTrueMarker(present:suffix:) started.
+◇ Test case passing 2 arguments present → false, suffix → "review.snapshot.bak" to rejectsReviewWithoutTrueMarker(present:suffix:) started.
+◇ Test case passing 2 arguments present → true, suffix → "review" to rejectsReviewWithoutTrueMarker(present:suffix:) started.
+◇ Test case passing 1 argument marker → "review" to rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+◇ Test case passing 1 argument marker → "developer" to rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+◇ Test case passing 2 arguments present → true, suffix → "review.snapshot.bak" to rejectsReviewWithoutTrueMarker(present:suffix:) started.
+◇ Test case passing 1 argument marker → "profile" to rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+◇ Test case passing 1 argument marker → "unknown" to rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) started.
+✔ Test rejectsSymlinkInsteadOfFollowingPrivatePaths() passed after 0.062 seconds.
+✔ Test rejectsDamagedSaveAndEmptyDirectories() passed after 0.063 seconds.
+✔ Test rejectsRootAliasEvenWhenItsTargetIsHealthy() passed after 0.063 seconds.
+✔ Test rejectsMissingRegisteredSlotAndPreservesIndex() passed after 0.063 seconds.
+✔ Test validatesExplicitConnectivityAndLegacyBackupWithoutWrites() passed after 0.063 seconds.
+✔ Test validatesNormalLegacyAndBackupsWithoutChangingAnyBytes() passed after 0.072 seconds.
+✔ Test validatesRetainedDisconnectedStorageStockAgainstStructuralCeiling() passed after 0.074 seconds.
+✔ Test validatesIndependentIndexedUUIDSlots() passed after 0.077 seconds.
+✔ Test rejectsMarkedOrdinaryPrimaryWithoutChangingBytes(marker:) with 4 test cases passed after 0.079 seconds.
+✔ Test rejectsReviewWithoutTrueMarker(present:suffix:) with 4 test cases passed after 0.079 seconds.
+✔ Test validatesReviewCompanionAndRetainsEverySourceByte() passed after 0.080 seconds.
+✔ Test rejectsUnsupportedIndexMapWhileAcceptingLazyGeographyIdentity() passed after 0.088 seconds.
+✔ Test validatesRiverbendLibraryAlongsidePreservedLargeGames() passed after 0.106 seconds.
+✔ Test validatesGroupedDeveloperWithItsOwnGeometry() passed after 5.855 seconds.
+✔ Test run with 14 tests in 0 suites passed after 5.856 seconds.

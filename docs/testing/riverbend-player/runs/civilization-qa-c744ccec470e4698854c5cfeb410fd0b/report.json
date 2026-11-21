@@ -1,0 +1,89 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "qa_identity": null,
+    "prepared_earned_container": false,
+    "filter": null,
+    "simulator": [
+      "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+      "390CFA90-D4C9-40F9-BA4A-FE3489C20809"
+    ],
+    "only_testing": [
+      "CivilizationUITests/NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue",
+      "CivilizationUITests/NormalEntryUITests/testNormalEntryPersistenceWithoutDeveloperHooks"
+    ],
+    "output": null
+  },
+  "steps": [
+    {
+      "name": "ui-debug-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/dev/Civilazation-riverbend-player-review/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-resultBundlePath",
+        "/private/tmp/civilization-qa-c744ccec470e4698854c5cfeb410fd0b/ui-debug-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-parallel-testing-enabled",
+        "NO",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testNormalEntryPersistenceWithoutDeveloperHooks"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 2,
+      "durationSeconds": 151.575,
+      "log": "/private/tmp/civilization-qa-c744ccec470e4698854c5cfeb410fd0b/ui-debug-1.log"
+    },
+    {
+      "name": "ui-debug-2",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/dev/Civilazation-riverbend-player-review/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-resultBundlePath",
+        "/private/tmp/civilization-qa-c744ccec470e4698854c5cfeb410fd0b/ui-debug-2.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-parallel-testing-enabled",
+        "NO",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue",
+        "-only-testing:CivilizationUITests/NormalEntryUITests/testNormalEntryPersistenceWithoutDeveloperHooks"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 2,
+      "durationSeconds": 141.149,
+      "log": "/private/tmp/civilization-qa-c744ccec470e4698854c5cfeb410fd0b/ui-debug-2.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T09:01:04.976060+00:00",
+  "revision": {
+    "commit": "47e351f6599971d595bb5a04864cc0f807fd4794",
+    "dirty": true
+  },
+  "status": "passed"
+}

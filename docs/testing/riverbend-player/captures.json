@@ -1,0 +1,170 @@
+[
+  {
+    "file": "captures/ipad-entry/208B486B-8998-4FAF-92F8-EBBBAFB1F0CF.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "NormalEntryUITests/testPlayerCatalogContextualActionsAndReturn()",
+    "name": "riverbend-contextual-catalog-and-return_0_92436884-87F9-4641-97CE-16ADAE3C45EA.png",
+    "timestamp": 1795255825.933
+  },
+  {
+    "file": "captures/ipad-entry/EF6B9674-2AC3-4388-B5E0-5304729E01CF.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue()",
+    "name": "riverbend-whole-forest-real-survey_0_D653EE79-AF7B-40B0-93DB-560D2CDDCBBA.png",
+    "timestamp": 1795255927.899
+  },
+  {
+    "file": "captures/ipad-entry/A4ABDCC4-749C-48F4-A35B-BF41A8BDBA19.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue()",
+    "name": "riverbend-ordinary-continue_0_86CD5BAC-B8A1-4683-A9ED-C8B1C0315059.png",
+    "timestamp": 1795255851.928
+  },
+  {
+    "file": "captures/ipad-entry/2BE164B8-3BB7-4317-AAD6-0C048C24AAA4.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue()",
+    "name": "riverbend-ordinary-opening_0_34F6AED3-D25D-4604-9C19-8F8EF6F619E0.png",
+    "timestamp": 1795255843.622
+  },
+  {
+    "file": "captures/ipad-gate/0C6AB8A1-134A-4B57-BFCC-7D30892B9387.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "RiverbendEarnedUITests/testEnclosureGateAndSameGameContinue()",
+    "name": "riverbend-native-earned-bronze-readiness_0_FAB8A6BD-10F2-49E6-A754-DD2C54DDE3CE.png",
+    "timestamp": 1795255594.64
+  },
+  {
+    "file": "captures/ipad-gate/EACBE9F9-D772-409F-BEA6-50B71D270C82.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "RiverbendEarnedUITests/testEnclosureGateAndSameGameContinue()",
+    "name": "riverbend-enclosure-continue_0_D1E2D69D-80A6-490F-97BE-044659387349.png",
+    "timestamp": 1795255587.801
+  },
+  {
+    "file": "captures/ipad-gate/16E95370-C1A4-47B2-9417-E79F6F444183.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "RiverbendEarnedUITests/testEnclosureGateAndSameGameContinue()",
+    "name": "riverbend-open-cliff-backed-enclosure_0_2D6A7FB5-864B-4A9D-B3CD-223E5F68D64D.png",
+    "timestamp": 1795255578.239
+  },
+  {
+    "file": "captures/ipad-gate/8D00A3FE-6EDD-4AA1-B5D4-EBB2DD951032.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "RiverbendEarnedUITests/testEnclosureGateAndSameGameContinue()",
+    "name": "riverbend-closed-gate_0_8860F451-3AC5-489C-AD6E-02954A7DB9FD.png",
+    "timestamp": 1795255570.145
+  },
+  {
+    "file": "captures/ipad-readiness/619532D3-DC71-4C57-AEDE-D383C331EBDC.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "name": "ordinary-release-earned-bronze-readiness_0_2B06015D-713C-40AC-A4D4-1BFFEFCAC6B8.png",
+    "timestamp": 1795255499.419
+  },
+  {
+    "file": "captures/ipad-readiness/2B82B32F-7C2A-490A-ADF9-A9A4B1AF1404.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "name": "ordinary-release-earned-bronze-readiness_0_8DDBC813-B6D6-4069-AF4A-53D4ADD60E3C.png",
+    "timestamp": 1795255487.47
+  },
+  {
+    "file": "captures/ipad-workshop/17E25A3F-7585-4366-8062-7BD10E65B27E.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "name": "riverbend-earned-workshop-continue_0_76293DD6-52A9-44FD-B6A5-D02350A5844F.png",
+    "timestamp": 1795255324.42
+  },
+  {
+    "file": "captures/ipad-workshop/90646EB0-22C5-4171-8E48-ABAB10FA36D3.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "name": "riverbend-earned-food-capacity-continue_0_9B212F45-72FF-4CA3-BEE2-520CC1CE9C5A.png",
+    "timestamp": 1795255322.12
+  },
+  {
+    "file": "captures/ipad-workshop/BACE011B-B453-4B2A-86B4-3D603B847FEB.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "name": "riverbend-earned-wood-capacity-continue_0_5FCD863F-603F-4AC1-8E68-C3ADABB52616.png",
+    "timestamp": 1795255318.263
+  },
+  {
+    "file": "captures/ipad-workshop/EC03811F-8219-4791-9DFF-6CE3A48104B1.png",
+    "device": "iPad mini (A17 Pro)",
+    "case": "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "name": "riverbend-earned-workshop-world_0_919120B7-2631-4728-AE70-BAC01932B5B3.png",
+    "timestamp": 1795255315.154
+  },
+  {
+    "file": "captures/phone-entry/D43E7612-0B93-4F35-A82F-9739CCF8D0BC.png",
+    "device": "iPhone 16 Pro",
+    "case": "NormalEntryUITests/testPlayerCatalogContextualActionsAndReturn()",
+    "name": "riverbend-contextual-catalog-and-return_0_50701712-1C67-41FF-939C-A782497F8B7F.png",
+    "timestamp": 1795255095.95
+  },
+  {
+    "file": "captures/phone-entry/219FE112-5BFF-4A5D-9E62-0B8BF252992C.png",
+    "device": "iPhone 16 Pro",
+    "case": "NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue()",
+    "name": "riverbend-whole-forest-real-survey_0_C161AE6F-8E7A-43D4-8D1E-8294D1A451E2.png",
+    "timestamp": 1795255198.287
+  },
+  {
+    "file": "captures/phone-entry/897DF329-0CCB-46E8-B5CD-3FDBF1BB15A7.png",
+    "device": "iPhone 16 Pro",
+    "case": "NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue()",
+    "name": "riverbend-ordinary-continue_0_B7EC5FE6-15B1-4B39-974F-D6577095E5BC.png",
+    "timestamp": 1795255122.051
+  },
+  {
+    "file": "captures/phone-entry/024AB047-1170-4516-9E3F-DBE8E2B0A723.png",
+    "device": "iPhone 16 Pro",
+    "case": "NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue()",
+    "name": "riverbend-ordinary-opening_0_FBEEF0EF-4FEA-4698-829D-E0DFB930F475.png",
+    "timestamp": 1795255113.733
+  },
+  {
+    "file": "captures/phone-readiness/C3B8EECB-177A-482C-B676-3A1040DB9341.png",
+    "device": "iPhone 16 Pro",
+    "case": "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "name": "ordinary-release-earned-bronze-readiness_0_7FEFDDB8-2CCD-4E5F-9A2A-98EB978E9051.png",
+    "timestamp": 1795255259.366
+  },
+  {
+    "file": "captures/phone-readiness/B4E758F8-C81B-4C97-8C00-4D05462849CC.png",
+    "device": "iPhone 16 Pro",
+    "case": "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "name": "ordinary-release-earned-bronze-readiness_0_A884886B-44F3-4EE0-AC37-3C0E143EFE7D.png",
+    "timestamp": 1795255247.253
+  },
+  {
+    "file": "captures/phone-workshop/C132F207-B3C9-44ED-8A46-F07AD643446F.png",
+    "device": "Riverbend UI2 Menus SE",
+    "case": "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "name": "riverbend-earned-workshop-continue_0_D6C5093C-F2CE-42B2-BE16-CF47B4B5AD3E.png",
+    "timestamp": 1795255369.047
+  },
+  {
+    "file": "captures/phone-workshop/31C46325-1F48-4BC2-B542-CF6413E41011.png",
+    "device": "Riverbend UI2 Menus SE",
+    "case": "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "name": "riverbend-earned-food-capacity-continue_0_A7F17FD2-C8B8-4A3F-9F6E-4CD66A6F44F7.png",
+    "timestamp": 1795255366.78
+  },
+  {
+    "file": "captures/phone-workshop/BCC4D24D-2D4D-40CE-8851-64B997806081.png",
+    "device": "Riverbend UI2 Menus SE",
+    "case": "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "name": "riverbend-earned-wood-capacity-continue_0_B60C3E3B-F016-4095-8297-0FA7990912CD.png",
+    "timestamp": 1795255363.147
+  },
+  {
+    "file": "captures/phone-workshop/FD81995C-5A3B-4EC0-A959-969FB8F8BACC.png",
+    "device": "Riverbend UI2 Menus SE",
+    "case": "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "name": "riverbend-earned-workshop-world_0_01949679-30DE-431B-A55E-110713045EC5.png",
+    "timestamp": 1795255360.182
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "C132F207-B3C9-44ED-8A46-F07AD643446F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-earned-workshop-continue_0_D6C5093C-F2CE-42B2-BE16-CF47B4B5AD3E.png",
+        "timestamp" : 1795255369.047
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "31C46325-1F48-4BC2-B542-CF6413E41011.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-earned-food-capacity-continue_0_A7F17FD2-C8B8-4A3F-9F6E-4CD66A6F44F7.png",
+        "timestamp" : 1795255366.78
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "BCC4D24D-2D4D-40CE-8851-64B997806081.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-earned-wood-capacity-continue_0_B60C3E3B-F016-4095-8297-0FA7990912CD.png",
+        "timestamp" : 1795255363.147
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E118C061-9C37-4E18-9B03-A633E7240149",
+        "deviceName" : "Riverbend UI2 Menus SE",
+        "exportedFileName" : "FD81995C-5A3B-4EC0-A959-969FB8F8BACC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-earned-workshop-world_0_01949679-30DE-431B-A55E-110713045EC5.png",
+        "timestamp" : 1795255360.182
+      }
+    ],
+    "testIdentifier" : "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation"
+  }
+]

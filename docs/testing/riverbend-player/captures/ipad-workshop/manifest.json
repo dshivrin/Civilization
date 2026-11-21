@@ -1,0 +1,44 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "17E25A3F-7585-4366-8062-7BD10E65B27E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-earned-workshop-continue_0_76293DD6-52A9-44FD-B6A5-D02350A5844F.png",
+        "timestamp" : 1795255324.42
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "90646EB0-22C5-4171-8E48-ABAB10FA36D3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-earned-food-capacity-continue_0_9B212F45-72FF-4CA3-BEE2-520CC1CE9C5A.png",
+        "timestamp" : 1795255322.12
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "BACE011B-B453-4B2A-86B4-3D603B847FEB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-earned-wood-capacity-continue_0_5FCD863F-603F-4AC1-8E68-C3ADABB52616.png",
+        "timestamp" : 1795255318.263
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName" : "iPad mini (A17 Pro)",
+        "exportedFileName" : "EC03811F-8219-4791-9DFF-6CE3A48104B1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-earned-workshop-world_0_919120B7-2631-4728-AE70-BAC01932B5B3.png",
+        "timestamp" : 1795255315.154
+      }
+    ],
+    "testIdentifier" : "RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RiverbendEarnedUITests/testEarnedWorkshopContinuePresentation"
+  }
+]

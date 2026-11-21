@@ -1,0 +1,9 @@
+{
+  "clockAlignmentOnly" : true,
+  "debugCommands" : false,
+  "grants" : false,
+  "modelSeconds" : 5880,
+  "source" : "riverbendPlayerCraftStorageEnclosureEarnedRoutePersists",
+  "stage" : "ending",
+  "synthetic" : true
+}

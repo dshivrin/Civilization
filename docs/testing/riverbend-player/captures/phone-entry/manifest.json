@@ -1,0 +1,50 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "D43E7612-0B93-4F35-A82F-9739CCF8D0BC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-contextual-catalog-and-return_0_50701712-1C67-41FF-939C-A782497F8B7F.png",
+        "timestamp" : 1795255095.95
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testPlayerCatalogContextualActionsAndReturn()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testPlayerCatalogContextualActionsAndReturn"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "219FE112-5BFF-4A5D-9E62-0B8BF252992C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-whole-forest-real-survey_0_C161AE6F-8E7A-43D4-8D1E-8294D1A451E2.png",
+        "timestamp" : 1795255198.287
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "897DF329-0CCB-46E8-B5CD-3FDBF1BB15A7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-ordinary-continue_0_B7EC5FE6-15B1-4B39-974F-D6577095E5BC.png",
+        "timestamp" : 1795255122.051
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "024AB047-1170-4516-9E3F-DBE8E2B0A723.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "riverbend-ordinary-opening_0_FBEEF0EF-4FEA-4698-829D-E0DFB930F475.png",
+        "timestamp" : 1795255113.733
+      }
+    ],
+    "testIdentifier" : "NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/NormalEntryUITests/testRiverbendOrdinaryOpeningAndContinue"
+  }
+]

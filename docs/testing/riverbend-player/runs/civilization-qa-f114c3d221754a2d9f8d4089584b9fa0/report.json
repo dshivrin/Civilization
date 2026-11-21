@@ -1,0 +1,75 @@
+{
+  "scope": {
+    "command": "prepare-earned-simulator",
+    "simulator": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+    "fixture": "/tmp/riverbend-earned-reviewed-20261121/enclosure",
+    "qa_identity": "3972f2de-b8f2-49dc-9140-bec1cfbf428c",
+    "configuration": "release",
+    "derived_data": "/tmp/civilization-riverbend-earned-builds",
+    "output": null
+  },
+  "steps": [
+    {
+      "name": "validate-earned-fixture",
+      "command": [
+        "swift",
+        "run",
+        "--package-path",
+        "/Users/dima/dev/Civilazation-riverbend-player-review/Tools/SaveInspector",
+        "SaveInspector",
+        "/private/tmp/riverbend-earned-reviewed-20261121/enclosure"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 1.819,
+      "log": "/private/tmp/civilization-qa-f114c3d221754a2d9f8d4089584b9fa0/validate-earned-fixture.log"
+    },
+    {
+      "name": "build-earned-identity",
+      "command": [
+        "xcodebuild",
+        "build",
+        "-project",
+        "/Users/dima/dev/Civilazation-riverbend-player-review/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Release",
+        "-destination",
+        "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-derivedDataPath",
+        "/private/tmp/civilization-riverbend-earned-builds/release/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa.earned.3972f2de-b8f2-49dc-9140-bec1cfbf428c"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 2.101,
+      "log": "/private/tmp/civilization-qa-f114c3d221754a2d9f8d4089584b9fa0/build-earned-identity.log"
+    },
+    {
+      "name": "install-earned-identity",
+      "command": [
+        "xcrun",
+        "simctl",
+        "install",
+        "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "/private/tmp/civilization-riverbend-earned-builds/release/390CFA90-D4C9-40F9-BA4A-FE3489C20809/Build/Products/Release-iphonesimulator/Civilization.app"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 0.205,
+      "log": "/private/tmp/civilization-qa-f114c3d221754a2d9f8d4089584b9fa0/install-earned-identity.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T10:02:36.638458+00:00",
+  "revision": {
+    "commit": "47e351f6599971d595bb5a04864cc0f807fd4794",
+    "dirty": true
+  },
+  "status": "passed"
+}
