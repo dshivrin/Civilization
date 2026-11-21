@@ -23,7 +23,7 @@ Small landscape safe areas; large text scroll versus fixed actions; Goals after 
 - [x] 2. Implement ordinary HUD and shared carved-stone surfaces in SettlementView/DevelopmentComponents; style actual catalog/research without altering state. Add root standing directive. Verify new and inherited native routes on phone/iPad, normal and larger text.
 - [x] 3. Render original simple sunrise/horizon AppIcon, wire actual app target asset catalog, verify compiled icons and both simulator Home Screens. Retain source/provenance.
 - [x] 4. Full core Debug/Release/exclusions, targeted ordinary native Release and Debug gates, screenshots and exact receipts. Independent whole-branch review, fix important findings with regression evidence.
-- [ ] 5. Pinned milestone/launch/evidence and exact verified remote SHA; branch-only push. Stop for Dima’s Stone Age playtest and explicit future Bronze approval.
+- [x] 5. Pinned milestone/launch/evidence and exact verified remote SHA; branch-only push. Stop for Dima’s Stone Age playtest and explicit future Bronze approval.
 
 ## Execution ledger
 - Worktree already managed/isolated; prior player worktree preserved. Remote predecessor matches exact expected SHA. Initial sandbox Git/network/simulator access denials resolved only through ordinary host escalation.
@@ -35,3 +35,5 @@ Small landscape safe areas; large text scroll versus fixed actions; Goals after 
 - Final product `b1255f38d524a47061949fd1eadbadc3f966676f`: shared dark-on-gold primary actions with actual minimum44-point label regions; ordinary Move remains pinned below scrolling details. Native assertions reproduced the41.5-point styled-target defect before correction. Nominal enabled ink/accent contrast10.007:1; actual screenshots inspected.
 - Verification:348Debug/255Release+23 exclusions,20 final native executions/0failures/0skips,34original captures and28runner receipts. Core package hash equivalence and dirty-Debug→unchanged-product source provenance are explicit. Six expected REDs, five other AX/target failure aggregates and two agent-interrupted matrices remain preserved.
 - All required ordinary Release cases passed on fresh iPhone16Pro and iPad mini A17Pro, serially at clean final product. Compact Debug covers XXXL, founding/catalog/Move touch targets, placement/relocation/Continue and real unexplored-map feedback. [Pinned handoff](../docs/milestones/2026-11-21-stone-age-hud-handoff.md).
+
+- Branch-only evidence push verified at `e3735fba028671e8893e094362e7d9fcb2ba5c2b`, retained predecessor remote remains3f27d1e. Final metadata receipt follows on the same branch; no product source drift. End this goal; no Bronze work or queue.

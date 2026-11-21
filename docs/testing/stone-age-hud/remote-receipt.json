@@ -1,0 +1,14 @@
+{
+  "verifiedAtUTC": "2026-11-21T11:18:03.663784+00:00",
+  "method": "git ls-remote origin refs/heads/riverbend-stone-age-hud-review refs/heads/riverbend-player-review",
+  "origin": "git@github.com:dshivrin/Civilization.git",
+  "verifiedEvidenceRemoteSHA": "e3735fba028671e8893e094362e7d9fcb2ba5c2b",
+  "branch": "riverbend-stone-age-hud-review",
+  "verifiedPredecessorRemoteSHA": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
+  "productSource": "b1255f38d524a47061949fd1eadbadc3f966676f",
+  "rawRefs": [
+    "3f27d1e711096bc22cc400f354bb627cbb9e9535\trefs/heads/riverbend-player-review",
+    "e3735fba028671e8893e094362e7d9fcb2ba5c2b\trefs/heads/riverbend-stone-age-hud-review"
+  ],
+  "receiptNote": "This documentation-only receipt follows the verified evidence push. Its final branch tip is verified again after pushing; the final response records that exact tip. Product/test/capture source bytes remain unchanged."
+}

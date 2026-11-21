@@ -3,7 +3,7 @@
 **Product source:** `b1255f38d524a47061949fd1eadbadc3f966676f` on `riverbend-stone-age-hud-review`.
 **Exact predecessor:** `riverbend-player-review` at pushed `3f27d1e711096bc22cc400f354bb627cbb9e9535` (original player product623b9ad).
 **Managed checkout:** `/Users/dima/.codex/worktrees/e735/Civilazation`.
-**Only push destination:** `git@github.com:dshivrin/Civilization.git`, `riverbend-stone-age-hud-review`. Branch receipt follows verified push.
+**Only push destination:** `git@github.com:dshivrin/Civilization.git`, `riverbend-stone-age-hud-review`. Verified implementation/test/evidence remote SHA: `e3735fba028671e8893e094362e7d9fcb2ba5c2b`. This subsequent documentation-only receipt stays on the same branch; final tip is verified after pushing it.
 
 [Delivery and limits](2026-11-21-stone-age-hud-and-menus.md) · [exact verification](../testing/stone-age-hud/verification.json) · [34 original native captures](../testing/stone-age-hud/index.html) · [owner launch](../testing/stone-age-hud/README.md) · [prior failures and28 receipts](../testing/stone-age-hud/run-index.json).
 

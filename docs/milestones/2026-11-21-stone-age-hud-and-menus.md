@@ -29,3 +29,5 @@ This is simulator/software verification, not human enjoyment, final material/art
 The exact source blob manifest,167 protected predecessor blobs, icon provenance and all28 runner report/log sets are under docs/testing/stone-age-hud. Archive statuses are15 passed and13 failed; these include six expected RED regressions, five other accessibility/target failures and two interrupted matrices. Only the named final required reports provide the final pass counts. Raw local xcresult bundles remain at their original recorded paths; screenshots retain native EXIF orientation and exact bytes. Original baseline permission/renderer failures are not acceptance.
 
 Personal remote push verification is recorded in the final documentation receipt linked from the [pinned handoff](2026-11-21-stone-age-hud-handoff.md). No main merge or additional goal is implied.
+
+Verified remote implementation/test/evidence SHA: `e3735fba028671e8893e094362e7d9fcb2ba5c2b`; predecessor remote remains exact `3f27d1e711096bc22cc400f354bb627cbb9e9535`. This following receipt is documentation-only and its branch tip is checked again after push.

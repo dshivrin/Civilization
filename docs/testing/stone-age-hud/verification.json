@@ -1,7 +1,7 @@
 {
   "goal": "Stone Age HUD and Menus",
   "date": "2026-11-21",
-  "status": "passed software and simulator verification; owner playtest remains open",
+  "status": "passed software/simulator verification and verified personal-branch push; subsequent metadata-only receipt",
   "sourceCommit": "b1255f38d524a47061949fd1eadbadc3f966676f",
   "branch": "riverbend-stone-age-hud-review",
   "base": "3f27d1e711096bc22cc400f354bb627cbb9e9535",
@@ -85,5 +85,7 @@
     "bounded ordinary opening/menu/survey checks, not a full real-time Stone Age playthrough",
     "provisional existing art and predecessor performance deferrals remain",
     "no Bronze implementation or queued goal; explicit Dima approval after personal Stone Age playtest required"
-  ]
+  ],
+  "verifiedEvidenceRemoteSHA": "e3735fba028671e8893e094362e7d9fcb2ba5c2b",
+  "remoteReceipt": "remote-receipt.json"
 }
