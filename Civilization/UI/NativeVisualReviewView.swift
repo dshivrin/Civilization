@@ -469,6 +469,10 @@ struct WalkthroughMapSurface: UIViewRepresentable {
         func updateAccessibility(_ view: SKView) {
             let civic = parent.scene.convertPoint(toView: IsometricProjection.point(parent.civicTile))
             view.accessibilityValue = "civicX=\(civic.x) civicY=\(civic.y) " + parent.scene.cameraAccessibilityValue + " " + parent.scene.reviewConstructionSummary + " inspectionTiles=\(parent.scene.reviewInspectionTileCount)"
+            for (name, tile) in parent.scene.reviewMapTargets {
+                let p = parent.scene.convertPoint(toView: IsometricProjection.point(tile))
+                view.accessibilityValue = (view.accessibilityValue ?? "") + " \(name)X=\(p.x) \(name)Y=\(p.y)"
+            }
         }
         func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
             if gestureRecognizer is UIPanGestureRecognizer {

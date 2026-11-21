@@ -344,7 +344,7 @@ public struct GameEngine: Sendable {
     private mutating func evaluateGoals() {
         for goal in Goal.allCases where !state.completedGoals.contains(goal) {
             let achieved: Bool
-            if goal == .storytellingCircle && configuration.civicLevels != nil { achieved = civicLevel >= 2 }
+            if goal == .storytellingCircle && configuration.civicLevels != nil && configuration.civicSharesLegacyStorytellingCredit { achieved = civicLevel >= 2 }
             else if let kind = goal.building { achieved = state.buildings.contains { $0.kind == kind && $0.isOperational } }
             else if goal == .oralTradition { achieved = state.researchedOralTradition }
             else { achieved = state.resources[.knowledge] >= configuration.knowledgeGoalUnits }
@@ -441,7 +441,7 @@ public struct GameEngine: Sendable {
         }
         try validateRoads()
         for goal in state.completedGoals {
-            if goal == .storytellingCircle && configuration.civicLevels != nil {
+            if goal == .storytellingCircle && configuration.civicLevels != nil && configuration.civicSharesLegacyStorytellingCredit {
                 try require(civicLevel >= 2 || state.buildings.contains { $0.kind == .storytellingCircle && $0.isOperational }, "Storytelling reward has no witness")
                 continue
             }
@@ -450,7 +450,7 @@ public struct GameEngine: Sendable {
         }
         // All persistent achievements must match; otherwise a damaged save could regrant rewards.
         for goal in Goal.allCases {
-            if goal == .storytellingCircle && configuration.civicLevels != nil {
+            if goal == .storytellingCircle && configuration.civicLevels != nil && configuration.civicSharesLegacyStorytellingCredit {
                 try require(civicLevel < 2 || state.completedGoals.contains(goal), "Civic reward history mismatch")
                 continue
             }

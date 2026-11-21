@@ -65,7 +65,7 @@ public struct GameConfiguration: Codable, Sendable {
         try require(Resource.allCases.allSatisfy { initialResources[$0] <= baseCapacities[$0] }, "Initial resource exceeds capacity")
         var supportedDimensions = (map.width == 32 && map.height == 24) || (map.id == "river-clearing-64x48-v1" && map.width == 64 && map.height == 48)
         #if DEBUG
-        supportedDimensions = supportedDimensions || (isRiverbendEconomyLab && map.width == 64 && map.height == 48)
+        supportedDimensions = supportedDimensions || ((isRiverbendEconomyLab || isRiverbendFoundingReview) && map.width == 64 && map.height == 48)
         supportedDimensions = supportedDimensions || (map.id == "river-clearing-review-64x48-v1" && map.width == 64 && map.height == 48)
         #endif
         try require(supportedDimensions && map.rows.count == map.height && !map.id.isEmpty, "Invalid seed map dimensions or identity")

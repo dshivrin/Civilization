@@ -43,12 +43,26 @@ public extension GameConfiguration {
         }
         return copy
     }
+    /// Existing civic history semantics; the isolated founding review has its own objective.
+    internal var civicSharesLegacyStorytellingCredit: Bool {
+        #if DEBUG
+        if isRiverbendFoundingReview { return false }
+        #endif
+        return true
+    }
+    private func permitsFreeFoundingResearch(_ level: CivicLevelDefinition) -> Bool {
+        #if DEBUG
+        return isRiverbendFoundingReview && level.level == 2 && level.requiredTechnology == nil
+        #else
+        return false
+        #endif
+    }
     func validateCivicLevels() throws {
         guard let levels = civicLevels else { return }
         guard economyRules != nil, levels.map(\.level) == [1, 2, 3],
               levels.allSatisfy({ level in
                   !level.name.isEmpty && level.workersRequired.isFinite && (0...100).contains(level.workersRequired) &&
-                  (level.level == 1 ? level.requiredTechnology == nil : technologyDefinitions.contains { $0.id == level.requiredTechnology }) &&
+                  (level.level == 1 ? level.requiredTechnology == nil : permitsFreeFoundingResearch(level) || technologyDefinitions.contains { $0.id == level.requiredTechnology }) &&
                   Resource.allCases.allSatisfy { resource in
                       level.cost[resource].isFinite && level.cost[resource] >= 0 && level.cost[resource] <= baseCapacities[resource] &&
                       level.culturalOutputPerMinute[resource].isFinite && level.culturalOutputPerMinute[resource] >= 0 &&

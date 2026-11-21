@@ -58,6 +58,11 @@ public extension GameEngine {
         func chapter(_ id: Int, _ title: String, _ kinds: [BuildingKind], _ techs: [String]) -> JourneyChapter {
             JourneyChapter(id: id, title: title, objectives: kinds.filter { kind in configuration.buildings.contains { $0.kind == kind } }.map(building) + techs.compactMap(technology))
         }
+        #if DEBUG
+        if configuration.isRiverbendFoundingReview {
+            return [JourneyChapter(id: 1, title: "Founding Riverbend", objectives: [civicObjective(level: 2), building(.hut)])]
+        }
+        #endif
         var result = [
             chapter(1, "Founding a settlement", [.gatheringShelter, .woodcutter, .hut], ["oralTradition"]),
             chapter(2, "Mastering nature", [.stoneGatherer, .huntingLodge, .fishingShelter], ["hunting", "fishing", "naturalKnowledge"]),

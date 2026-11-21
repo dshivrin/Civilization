@@ -5,6 +5,7 @@ import GameApplication
 struct DeveloperToolsView: View {
     let session: GameSession
     @Environment(\.dismiss) private var dismiss
+    @State private var showFoundingReview = false
     @State private var showEconomyLab = false
     @State private var showVisualReview = false
     @State private var showOnboardingWalkthrough = false
@@ -12,6 +13,9 @@ struct DeveloperToolsView: View {
     var body: some View {
         NavigationStack {
             Form {
+                Section("Riverbend Founding Review") {
+                    Button("Open separate Lodge and paths review") { showFoundingReview = true }.accessibilityIdentifier("openFoundingReview")
+                }
                 Section("Riverbend Economy Lab") {
                     Button("Open separate Food and Wood lab") { showEconomyLab = true }.accessibilityIdentifier("openEconomyLab")
                 }
@@ -109,7 +113,8 @@ struct DeveloperToolsView: View {
                 .onDisappear { preparation?.cancel() }
                 .navigationTitle("Developer tools")
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { preparation?.cancel(); dismiss() }.frame(minHeight: 44) } }
-        }.fullScreenCover(isPresented: $showEconomyLab) { EconomyLabView() }
+        }.fullScreenCover(isPresented: $showFoundingReview) { FoundingReviewView() }
+        .fullScreenCover(isPresented: $showEconomyLab) { EconomyLabView() }
         .fullScreenCover(isPresented: $showVisualReview) { NativeVisualReviewView(configuration: session.configuration) }
         .fullScreenCover(isPresented: $showOnboardingWalkthrough) { OnboardingWalkthroughReviewView(configuration: session.configuration) }
     }

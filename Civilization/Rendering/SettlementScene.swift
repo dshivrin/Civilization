@@ -29,6 +29,7 @@ final class SettlementScene: SKScene {
             String(format: "workFraction=%.4f artAlpha=%.2f", fraction, root.childNode(withName: "artSprite")?.alpha ?? 0) +
             " frameNodes=\(groups.frame) wallNodes=\(groups.walls) roofNodes=\(groups.roof) temporaryNodes=\(preview?.children.count ?? 0)"
     }
+    var reviewMapTargets: [String: Tile] = [:]
     var reviewReservedRightWidth: CGFloat = 0
     var reviewFocusTiles: Set<Tile>? {
         didSet { if let tiles = reviewFocusTiles { fitReview(tiles) } }
@@ -157,6 +158,9 @@ final class SettlementScene: SKScene {
             var node: SKNode? = hit
             while let current = node, current !== self {
                 if current.parent === buildingLayer, let id = current.userData?["buildingID"] as? Int {
+                    #if DEBUG
+                    if configuration.isRiverbendFoundingReview, let building = renderedBuildings.first(where: { $0.id == id }), building.kind == .campfire, building.level == 2 { return id }
+                    #endif
                     if let building = renderedBuildings.first(where: { $0.id == id }), EraArt.texture(building.kind) != nil,
                        !EraArt.contains(building.kind, point: current.convert(point, from: self)) { break }
                     return id
@@ -509,7 +513,19 @@ final class SettlementScene: SKScene {
         let node = SKNode(); node.name = definition.assetKey; node.position = anchor
         node.userData = ["buildingID": building.id]
         node.zPosition = CGFloat(building.origin.x + building.origin.y + footprint.width + footprint.height - 2)
-        if let texture = EraArt.texture(building.kind), let visual = EraArt.catalog?.building(building.kind) {
+        var foundingLodge = false
+        #if DEBUG
+        foundingLodge = configuration.isRiverbendFoundingReview && building.kind == .campfire && building.level == 2
+        if foundingLodge {
+            drawFoundingLodge(into: node)
+            if faded { node.alpha = 0.2 }
+            (layer ?? buildingLayer).addChild(node)
+            return
+        }
+        #endif
+        if foundingLodge {
+            // Review shelter drawn above; the runtime Campfire asset stays unchanged.
+        } else if let texture = EraArt.texture(building.kind), let visual = EraArt.catalog?.building(building.kind) {
             let sprite = SKSpriteNode(texture: texture)
             sprite.name = "artSprite"
             sprite.size = CGSize(width: visual.worldWidth, height: visual.worldHeight)
@@ -575,4 +591,47 @@ final class SettlementScene: SKScene {
         if faded { node.alpha = 0.2 }
         (layer ?? buildingLayer).addChild(node)
     }
+    #if DEBUG
+    private func drawFoundingLodge(into node: SKNode) {
+        let stone = UIColor(red: 0.52, green: 0.50, blue: 0.44, alpha: 1)
+        let timber = UIColor(red: 0.36, green: 0.22, blue: 0.12, alpha: 1)
+        let shadow = SKShapeNode(ellipseOf: CGSize(width: 72, height: 28))
+        shadow.fillColor = .black.withAlphaComponent(0.25); shadow.strokeColor = .clear
+        shadow.position.y = -4; node.addChild(shadow)
+        let left = polygon([CGPoint(x: -29,y: 8),CGPoint(x: 0,y: -7),CGPoint(x: 0,y: 29),CGPoint(x: -29,y: 44)], fill: stone)
+        left.strokeColor = timber; left.lineWidth = 3; node.addChild(left)
+        let front = polygon([CGPoint(x: 0,y: -7),CGPoint(x: 30,y: 8),CGPoint(x: 30,y: 44),CGPoint(x: 0,y: 29)], fill: stone.withAlphaComponent(1))
+        front.strokeColor = timber; front.lineWidth = 3; node.addChild(front)
+        let roof = polygon([CGPoint(x: -35,y: 44),CGPoint(x: -2,y: 67),CGPoint(x: 36,y: 45),CGPoint(x: 0,y: 25)], fill: timber)
+        roof.strokeColor = UIColor(red: 0.70, green: 0.52, blue: 0.29, alpha: 1); roof.lineWidth = 3; node.addChild(roof)
+        // Door is a readable teaching cue, never a new connectivity or facing rule.
+        let door = polygon([CGPoint(x: 7,y: -3),CGPoint(x: 22,y: 5),CGPoint(x: 22,y: 28),CGPoint(x: 7,y: 20)], fill: .black.withAlphaComponent(0.9))
+        door.strokeColor = UIColor(red: 0.80,green: 0.62,blue: 0.34,alpha: 1); door.lineWidth = 3; node.addChild(door)
+        let sign = SKLabelNode(fontNamed: "AvenirNext-DemiBold")
+        sign.text = "Founder’s Lodge"; sign.fontSize = 12; sign.fontColor = .white
+        sign.position = CGPoint(x: 0,y: 78); node.addChild(sign)
+    }
+    func displayFoundingHints(sites: [Tile], entrance: Tile?) {
+        guard configuration.isRiverbendFoundingReview else { return }
+        childNode(withName: "foundingHints")?.removeFromParent()
+        let layer = SKNode(); layer.name = "foundingHints"; layer.zPosition = 180
+        for (index, tile) in sites.enumerated() {
+            let point = IsometricProjection.point(tile)
+            let ring = SKShapeNode(ellipseOf: CGSize(width: 46, height: 23))
+            ring.position = point; ring.strokeColor = index == 0 ? .systemYellow : .systemTeal
+            ring.fillColor = .clear; ring.lineWidth = 2; layer.addChild(ring)
+            let label = SKLabelNode(fontNamed: "AvenirNext-DemiBold")
+            label.text = index == 0 ? "Hut plot" : "Fallback"; label.fontSize = 11
+            label.position = CGPoint(x: point.x, y: point.y - 27); label.fontColor = .white; layer.addChild(label)
+        }
+        if let entrance {
+            let point = IsometricProjection.point(entrance)
+            let label = SKLabelNode(fontNamed: "AvenirNext-DemiBold")
+            label.text = "Free footpath → Lodge"; label.fontSize = 11
+            label.position = CGPoint(x: point.x - 40, y: point.y - 34); label.fontColor = .systemYellow; layer.addChild(label)
+        }
+        addChild(layer)
+    }
+    #endif
+
 }

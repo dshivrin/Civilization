@@ -1,0 +1,38 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": "foundingReview",
+    "simulator": [],
+    "only_testing": [],
+    "output": "/tmp/ui2-founding-red-authorized",
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+        "--filter",
+        "foundingReview"
+      ],
+      "exitCode": 1,
+      "status": "failed",
+      "tests": 0,
+      "durationSeconds": 9.96,
+      "log": "/private/tmp/ui2-founding-red-authorized/core-debug.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T01:30:32.338252+00:00",
+  "revision": {
+    "commit": "94c3e6934f39250ad4e073b5b9b6581099f85a52",
+    "dirty": true
+  },
+  "status": "failed"
+}

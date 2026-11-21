@@ -1,0 +1,2140 @@
+{
+  "goal": "UI2-1 Riverbend Founding",
+  "date": "2026-11-21",
+  "base": "94c3e6934f39250ad4e073b5b9b6581099f85a52",
+  "authoritativePlanCommit": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
+  "branch": "riverbend-ui2-founding-review",
+  "finalCoreRun": "runs/ui2-core-final-clearance",
+  "finalNativeRuns": [
+    "runs/ui2-clearance-phone",
+    "runs/ui2-clearance-ipad"
+  ],
+  "ordinaryReleaseRuns": [
+    "runs/ui2-release-phone",
+    "runs/ui2-release-ipad"
+  ],
+  "economyNativeRegressionRun": "runs/ui2-native-final",
+  "finalCounts": {
+    "Debug": 317,
+    "Release": 235,
+    "ReleaseAPIExclusions": 19,
+    "nativeFoundingPhone": 1,
+    "nativeFoundingIPad": 1,
+    "normalReleasePhone": 1,
+    "normalReleaseIPad": 1,
+    "economyLabPhone": 1,
+    "economyLabIPad": 1,
+    "finalFailures": 0,
+    "finalSkipped": 0,
+    "finalCaptures": 18,
+    "earlierRetainedCaptures": 18
+  },
+  "sourceSHA256": {
+    "Civilization.xcodeproj/project.pbxproj": "c99cf5187c14c41234661d9204c9a241c9abe8d38ff47b4d31e78b9459a27e92",
+    "Civilization/Rendering/SettlementScene.swift": "ffd1f18836303e20ffea458e431d99be1eb232c0773087fedc3e77717c9a5ce0",
+    "Civilization/UI/DeveloperToolsView.swift": "4496e9d618e6f989a710a73364d1ee873160133caee49b36704d825e71dc641e",
+    "Civilization/UI/FoundingReviewView.swift": "1a996fbbc37391db4adf16ca8d5faf4cb4a9f077203d170dfcd5ed52160aeb43",
+    "Civilization/UI/NativeVisualReviewView.swift": "2c2c80a4d6fb7b468a6d0ddae27eaf200638bdd9fa26f006527b9da92b209fc2",
+    "CivilizationUITests/RelocationUITests.swift": "fec7ddc3f32f43be6ff0ff8931b795ca53c4dc0c04e190a4c9be3a6ffdf032d0",
+    "Packages/GameCore/Sources/GameApplication/RiverbendFoundingReview.swift": "3a3b20e4b08201d7d660c0aec054fd0d091df7f30724608162f2e3b93ebe700e",
+    "Packages/GameCore/Sources/GameCore/CivicCenter.swift": "3ef85b9f9e54579d6e370fc1d622aece75fad7f2e440f95acc967409fc631ef8",
+    "Packages/GameCore/Sources/GameCore/Configuration.swift": "217792ab7210ecbbd60b5b15ab2339e5a27ad4ac901f836d5293d24216f396a4",
+    "Packages/GameCore/Sources/GameCore/GameEngine.swift": "ec208c1961fc6996668ba811fbc2eaead5737cb8152c31d744a0a89215fb1d49",
+    "Packages/GameCore/Sources/GameCore/RiverbendFoundingProfile.swift": "268932424bdfab46d88560b347bca2e62818bd3e840dfa873825da9cb03e2369",
+    "Packages/GameCore/Sources/GameCore/StoneAgeJourney.swift": "3bdd597f4f232114a861766fcdf3d30132f16e6706c0440d32072ce4df37b6de",
+    "Packages/GameCore/Tests/GameCoreTests/FoundingReviewTests.swift": "7c1ad47c3c064ea7307e92bf5f394bfd44e3caaf1b9a5f62cc08911ad0dd2500",
+    "scripts/verify-developer-release.py": "433e89ce01eafb2465bc71e841fb16fbacfbf06b357b2963945e6711b506cb1a"
+  },
+  "unchangedFromBaseSHA256": {
+    "Civilization/Art/buildings/animalPen.png": "2ba536bfdec9c32b815db99d04008a70ca4bde1b539a713f8599769c878b0695",
+    "Civilization/Art/buildings/burialGround.png": "93245915b34756edd895d16806d924b74155a7ad85b4090c650560d9601c571c",
+    "Civilization/Art/buildings/campfire.png": "1674d1368c16f67b9a332d3fadfc121a675db8cca0f30e48d68aede86ad46fc7",
+    "Civilization/Art/buildings/farm.png": "debc2ad930b1d4d1353091c6e82292c4f320e8d41b3644a449e9df457bb0fa86",
+    "Civilization/Art/buildings/fishingShelter.png": "de140d5e42f7c852ad13924f23baffebd4e3a5eb233c751be8c49b721b6f7918",
+    "Civilization/Art/buildings/gatheringShelter.png": "cf294dc60468ba03d1a48259ea836e0aa3be40d62d3e8f8264690665b54768b5",
+    "Civilization/Art/buildings/healersHut.png": "2766486a2c8ec120e34f3fa5a5e2c1b0664dc3aac5a7b2b0d674a578e7a1eef0",
+    "Civilization/Art/buildings/huntingLodge.png": "58b32c7b5f83aba6bb8ae02d223a015a7381cb12e7077a6c7953573948295123",
+    "Civilization/Art/buildings/hut.png": "dbc0ed3af44832855df6921b1b0c54d9962f01380aaff617c0c253d51770a989",
+    "Civilization/Art/buildings/palisade.png": "6938fdd85b846bdaca95a33368833c3caaabd834ca3a6f0164d47b74eee23192",
+    "Civilization/Art/buildings/potteryWorkshop.png": "739c9b08e0c2a192f09a50d86927319ef7e3bea4f6fbd86023da68a5931ae889",
+    "Civilization/Art/buildings/scoutCamp.png": "872229e06414b81e193cf139bd0923fa1bd90cd6a7936163695d9a8e5cf59715",
+    "Civilization/Art/buildings/shrine.png": "80bf162ef41e984f63117cbef0ecf22ff3fdd9e135f587b74e040f627db3e9bf",
+    "Civilization/Art/buildings/stoneGatherer.png": "14cb9229fd255f988b7de6f226cd36f5b15ca609982017f40cd424b33f817ebc",
+    "Civilization/Art/buildings/storehouse.png": "18d8ee0be97f0da7d381e3125978b9014702a783f6c055cd4b34eda55aa462cf",
+    "Civilization/Art/buildings/storytellingCircle.png": "ad35b68f8179a28ca7088e9d20cbb5f3b54725715cfc0651975022183a86b4ae",
+    "Civilization/Art/buildings/tannery.png": "5808df15307bf54e60cb15e15b9404f49c94da1b8e938a829f1bdc0c2ad29ed8",
+    "Civilization/Art/buildings/toolmaker.png": "07a90d2f9e5f02522bf32f40552799b4e430db4af933709bff00d712f26a45f1",
+    "Civilization/Art/buildings/watchtower.png": "e684365c0a07fda4dbbf1a30d55316e3d4e8101ffe23869d172cb5d2a0568952",
+    "Civilization/Art/buildings/woodcutter.png": "cfd6addae09648c710b00f94fbb8d8dd3d3ba177c0af66eddb643a3eafdc7724",
+    "Civilization/Art/loading-valley.png": "5de6a5819c849c0663323a353257200e2973d3a5944c39f5630bdad0d0330427",
+    "Civilization/Art/thumbnails/animalPen.png": "89ea35369b3963ce35c9c037e401126580d0089f5d2397d5324d6ed90185f6e9",
+    "Civilization/Art/thumbnails/burialGround.png": "857c129fa384244e3af9994c3dcdfa7cf49d374a35d4b9ebbf86afbd7e37aed0",
+    "Civilization/Art/thumbnails/campfire.png": "cbd3703f6e9ee16a20b816c8c37ddf37ed30a504b3c1041d0b208c78e8fd8e4f",
+    "Civilization/Art/thumbnails/farm.png": "075c98de8c78808e01663143298908365e60fafa5e0a908ba4580b1d14e76fe5",
+    "Civilization/Art/thumbnails/fishingShelter.png": "9cd311edcdfd1268b4e7bf6fdd906cdb1b0e30664724bc2a41f817a64c4e7c0c",
+    "Civilization/Art/thumbnails/gatheringShelter.png": "14166496ebe5b8ca6c21f73c01fb1b65fc26bcf5bc872f8a21f587eb2ad835c6",
+    "Civilization/Art/thumbnails/healersHut.png": "93d705146d7f54ace3bed74922b5ae247cfc127c3b975066a41cf33d399a7fd2",
+    "Civilization/Art/thumbnails/huntingLodge.png": "1fa5d1ef2aca0b26170d0b27ad34c221546045b0138069d8dbd8a74393037ddc",
+    "Civilization/Art/thumbnails/hut.png": "8d21d79992b774c10e779b696bb3ff272d5850480a4d5530989d386c659fb8ae",
+    "Civilization/Art/thumbnails/palisade.png": "b57dcab65d69ec9859f9788e0c311e3aa3382ad3c29b7314360b1d2ed45e4360",
+    "Civilization/Art/thumbnails/potteryWorkshop.png": "e1102e21047f45fa19dc52f061c77464b438f69d52f16bb0d7b1bd667b9d90a8",
+    "Civilization/Art/thumbnails/scoutCamp.png": "7a22f2d14605c412997400148e1ae0c76c9babcb0f128bd5150da79853a16ae3",
+    "Civilization/Art/thumbnails/shrine.png": "196180894d0586a9a21ccbcc4c4a05ba14b5caab2ad1b50cce82bd946a67a66c",
+    "Civilization/Art/thumbnails/stoneGatherer.png": "543dfc9eb0e5bb3cd63604aaec44dc271b3865da2b17d14b6f5bf036c7c4c164",
+    "Civilization/Art/thumbnails/storehouse.png": "ba1eee5a127e9a92d9860c3329d09f3872797c3d22a059bb5927cee187095fa6",
+    "Civilization/Art/thumbnails/storytellingCircle.png": "afe967459c7bcf5e6018055ced60f7e726f433460f7be149a028918c2467b2b7",
+    "Civilization/Art/thumbnails/tannery.png": "0dc3cd95148523e3278c5241b1fe6000c18168b96ed7fee596fae0c46663732c",
+    "Civilization/Art/thumbnails/toolmaker.png": "148432339ae90b4c96ce9db81e0ddb25dfc246f35964d686b235d395c51a0771",
+    "Civilization/Art/thumbnails/watchtower.png": "8376f9f86500d97286d1335cc992661bae8d3c9aeadaab482d8ce06dd8a1243c",
+    "Civilization/Art/thumbnails/woodcutter.png": "510f5695866cd2d0f3041fdb057ce627cb1b2a2a0aaf2f4ee69eae68e036223a",
+    "Packages/GameCore/Sources/GameApplication/RiverbendEconomyLab.swift": "3af93c08c525e252146ad08de8da2403e8e86ae87498a6a156efec266893f6a0",
+    "Packages/GameCore/Sources/GameCore/Resources/development-32x24.json": "9f96c9fe334adff8aa485a52ab75f2c609dae723e37f5ec3e88f9cf5a3ddc959",
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+    "Packages/GameCore/Sources/GameCore/RiverbendEconomyProfile.swift": "48f2ba7c8d96aea35b226e8444191cfc54fbdecaa280fb011193e1c317374adb",
+    "Packages/GameCore/Sources/GameCore/SettlementConnectivity.swift": "dc123d599857162935d09a0abe63b0132fe79644a0fe3b90a17c0181b71d1c36",
+    "Packages/GameCore/Sources/GamePersistence/GameLibraryStore.swift": "3080810225c0de882ec966b8c84755fd835bae2ba632172ff23bc5b510aa4a5e",
+    "Packages/GameCore/Sources/GamePersistence/SaveStore.swift": "d9fc3f8bb362813ab6ea937746d8d57cade70cf685f67ce23d80e3d4f87c5e3e",
+    "Packages/GameCore/Tests/GameCoreTests/Fixtures/save-v1.json": "575d7b99d2a4d027f09c1be443f3fffa6952eb84e37639b10101ac9b5315f924",
+    "Packages/GameCore/Tests/GameCoreTests/Fixtures/seed-0.1.json": "ff6e09309e529320a6b06a5f48d9d9f7f121628fd69e135e875d90a23a102004",
+    "Packages/GameCore/Tests/GameCoreTests/Fixtures/seed-0.2.1.json": "0f507190361db61b2ecb8083185563dd846ce81774aec8e7d708c4af6eeb1a0d",
+    "Packages/GameCore/Tests/GameCoreTests/Fixtures/seed-0.2.2.json": "31064ae7a7dc8cd6b6eaabae81b3f8e5c70ef8089c36098f97ec44a554c4fd54",
+    "Packages/GameCore/Tests/GameCoreTests/Fixtures/seed-0.2.3.json": "0e31f034d6affebb7a03c5cabced16a58e80cc2f6fadb1adc05fc5f66e1de1fc",
+    "Packages/GameCore/Tests/GameCoreTests/Fixtures/seed-0.2.4.json": "f31c83709bda48abc16607b4558d9b8ddadace7d9820c749e33ced61346f0f08",
+    "Packages/GameCore/Tests/GameCoreTests/Fixtures/seed-0.2.6.json": "62905d704104dc5f867e97f9cc20ab8da626edd4cb53b5d1cc5b153ea583f3d0",
+    "scripts/dev.py": "fb98ba5760290519e3ba8981a9573d94c5b92e9b0f1f49db3d0689049884f05e"
+  },
+  "captures": [
+    {
+      "path": "captures/phone/ui2-01-campfire.png",
+      "profile": "phone",
+      "sha256": "1baeef5c0dab55ec5b3d806f5e0870cf130608886ef49ddc298535285469d0a2",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "084F4BF5-A476-4BCD-9F01-8BFBCD450715.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-01-campfire_0_A78342EF-30A4-468F-A490-727B5785B130.png",
+        "timestamp": 1795225772.364
+      }
+    },
+    {
+      "path": "captures/phone/ui2-02-lodge-free-path.png",
+      "profile": "phone",
+      "sha256": "8746f5e81c9c8b91be00666bbea8f99d92a35ac5f41c336529377d6859c91c91",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "BA315EBC-D847-48AC-BBE6-FB026EB34BDA.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-02-lodge-free-path_0_0C7A826B-1841-488C-9A11-3E567DE020BB.png",
+        "timestamp": 1795225773.167
+      }
+    },
+    {
+      "path": "captures/phone/ui2-03-visible-hut-fallback.png",
+      "profile": "phone",
+      "sha256": "ff7bf9b0a09ce5a5b795a32847403e70daac126f375603dfac2ee87648f0b082",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "3AA92D8E-9CE9-48A5-A51E-ADD50861E4AE.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-03-visible-hut-fallback_0_7AF59448-4775-477A-B2D7-3766BB09F456.png",
+        "timestamp": 1795225775.125
+      }
+    },
+    {
+      "path": "captures/phone/ui2-04-disconnected.png",
+      "profile": "phone",
+      "sha256": "b84fe41d30b173297f359577b7b3c95e13e95a3c683175de3c3112363a436e0c",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "32508D6F-05D1-4028-A8F5-F71E5B1F1657.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-04-disconnected_0_EE6F795A-1538-418F-8701-29EF654F4F22.png",
+        "timestamp": 1795225777.875
+      }
+    },
+    {
+      "path": "captures/phone/ui2-05-route-preview.png",
+      "profile": "phone",
+      "sha256": "303376252710994e40ca41a59ec8a7d52671f35b0289db2679ca2b20480e1514",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "81CDBE9B-CEDE-41B9-B108-26635FB2EF22.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-05-route-preview_0_7D48C658-8E6B-4F0B-8CC7-4E3340F443AE.png",
+        "timestamp": 1795225781.729
+      }
+    },
+    {
+      "path": "captures/phone/ui2-06-connected.png",
+      "profile": "phone",
+      "sha256": "d6928bc7c7c29e6f5f4a79997c499d5ff6edf329371860aaab8d4dc662133820",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "A4B1B8C7-D68B-4F2D-982C-5C9644384E03.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-06-connected_0_A9404EEA-B3BB-468E-98F6-C7E1E3D94A57.png",
+        "timestamp": 1795225784.85
+      }
+    },
+    {
+      "path": "captures/phone/ui2-07-disconnected-retained.png",
+      "profile": "phone",
+      "sha256": "3d5d279e2d9ffdc5b7c0706fd403c1b89ef8f5ea482bf9cefbb45ea40b13a977",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "D54F795D-489F-4E6C-9907-A3B709EE0FF2.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-07-disconnected-retained_0_CCB026BA-DB10-493F-AA82-BA5D738DF1F6.png",
+        "timestamp": 1795225785.536
+      }
+    },
+    {
+      "path": "captures/phone/ui2-08-reloaded.png",
+      "profile": "phone",
+      "sha256": "0a9c48c251504703dd40e5d125ce60f1f339251a9c4a78fa179bde7acb6a115d",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "FD2FF706-4902-4D26-B9A5-CD17BE4BFF49.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-08-reloaded_0_ADCC93A3-1617-4C9C-AD8E-9FEB823DC1DB.png",
+        "timestamp": 1795225795.544
+      }
+    },
+    {
+      "path": "captures/phone/ui2-09-reconnected.png",
+      "profile": "phone",
+      "sha256": "24ab2272cd50b295d5251af516a3cc6f1dcd521bcf41335f986c1b1babdbc5f2",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "37F6138D-D5DB-4775-9287-0D79386C9593.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-09-reconnected_0_18830CD6-4139-4DB3-ADC5-6B2A7A4E3657.png",
+        "timestamp": 1795225799.102
+      }
+    },
+    {
+      "path": "captures/ipad/ui2-01-campfire.png",
+      "profile": "ipad",
+      "sha256": "1819136559b5460ee15926cddf44e61caa2b78cd2985c589d74ff42ff522587e",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "1A92C830-A6B5-4C50-BCC3-58EB8FAED4ED.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-01-campfire_0_16DB0F54-5745-4CC4-BCD5-A2923B86FCC9.png",
+        "timestamp": 1795225819.733
+      }
+    },
+    {
+      "path": "captures/ipad/ui2-02-lodge-free-path.png",
+      "profile": "ipad",
+      "sha256": "0f7bcf7f87d6fa40ee6e81b522620a286540dfcffef2162e829bcd3716841fa3",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "3F2A4A83-E1D9-4099-BA63-A84FFEA9C912.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-02-lodge-free-path_0_23963BE4-E052-41F2-892F-0AB423EEB37F.png",
+        "timestamp": 1795225820.642
+      }
+    },
+    {
+      "path": "captures/ipad/ui2-03-visible-hut-fallback.png",
+      "profile": "ipad",
+      "sha256": "e7fc1c78f3db61a66925bb90ded324195ed9839250389339514aad014a1ecf1c",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "0BBC4653-02BD-46D1-94D8-21C13054241E.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-03-visible-hut-fallback_0_A360B088-0793-4F45-BE71-7B7973718D35.png",
+        "timestamp": 1795225822.799
+      }
+    },
+    {
+      "path": "captures/ipad/ui2-04-disconnected.png",
+      "profile": "ipad",
+      "sha256": "97b417d5d1e9038f50b3c6415a5742a136e3102c472a6d732f3da59f1d9bcfc6",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "0F7D3971-14B7-403C-9114-D76309D7E477.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-04-disconnected_0_999FDC6A-9E61-4694-B595-B68BFD171BE5.png",
+        "timestamp": 1795225823.98
+      }
+    },
+    {
+      "path": "captures/ipad/ui2-05-route-preview.png",
+      "profile": "ipad",
+      "sha256": "2aa83228666680d43a0aa136f6f152c49ad89f956ab1b05dac34050626ecba1b",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "C71C0242-8A3F-4D45-B0F9-212B19BCCC7F.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-05-route-preview_0_C6D3C7EB-8DCA-4D82-B8EA-81B64A6BDCA9.png",
+        "timestamp": 1795225826.549
+      }
+    },
+    {
+      "path": "captures/ipad/ui2-06-connected.png",
+      "profile": "ipad",
+      "sha256": "0566ea64355d83d3400c74b1fe216336b8fb26c565dbfa66c6c8db02ffce67a1",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "B44D6E77-47E0-4458-98BF-3B7D36EA406C.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-06-connected_0_7A47F565-6D86-4A29-97FA-CDFBB520E63C.png",
+        "timestamp": 1795225827.236
+      }
+    },
+    {
+      "path": "captures/ipad/ui2-07-disconnected-retained.png",
+      "profile": "ipad",
+      "sha256": "bf95cf291a08ddf3867e8c5ac0b8b512497b1dc0c55399a24618feecdab85672",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "A9A53657-68D9-4E1F-9C25-80594D2AD23E.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-07-disconnected-retained_0_F44F9F87-969E-4AEA-8C22-B7BE299E11CF.png",
+        "timestamp": 1795225827.99
+      }
+    },
+    {
+      "path": "captures/ipad/ui2-08-reloaded.png",
+      "profile": "ipad",
+      "sha256": "b18f2593152d26179794cb28b641a3b7368b3b0bc73aaebfdd7fe9c96fe91ced",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "48DE805B-AB7A-4EBE-9094-4C20D9CA259F.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-08-reloaded_0_A61E1862-373F-4728-B374-C33F39D9AAA5.png",
+        "timestamp": 1795225838.126
+      }
+    },
+    {
+      "path": "captures/ipad/ui2-09-reconnected.png",
+      "profile": "ipad",
+      "sha256": "1671850e0efb3c546b8f44cf9e9d4d3415a49578e32d9079ad02ab54c78817e1",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "862189BA-8AA2-413B-8663-768C74F23CA7.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-09-reconnected_0_10544514-3C85-442B-83F2-97E9801A0BBD.png",
+        "timestamp": 1795225839.251
+      }
+    },
+    {
+      "path": "captures/initial-phone/ui2-01-campfire.png",
+      "profile": "initial-phone",
+      "sha256": "9acb7529b6079e8e0e0d9115e1f2a1caa3e55d7c72a6f9c5e5557850a60d500b",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "23176F8E-FE04-4686-8BD0-0841986454EC.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-01-campfire_0_F936AE7E-A7C5-445E-A01D-CAABE63B6B9E.png",
+        "timestamp": 1795225596.699
+      }
+    },
+    {
+      "path": "captures/initial-phone/ui2-02-lodge-free-path.png",
+      "profile": "initial-phone",
+      "sha256": "b6c6b20525ad96e74328a778eeddbcefba6ac8d6fbb0cd5334e84768c33f6556",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "D3219D63-9353-4F58-9349-7F4D229D35DE.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-02-lodge-free-path_0_E8A01CE1-E007-44B4-A0D1-ED751350715F.png",
+        "timestamp": 1795225597.484
+      }
+    },
+    {
+      "path": "captures/initial-phone/ui2-03-visible-hut-fallback.png",
+      "profile": "initial-phone",
+      "sha256": "29791ea8e8b420e9508310b77e5299aa2697e8a6a7991e8f7162b17097d6f65d",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "6F1F01BE-D618-4DDC-9D1C-E00B2646367E.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-03-visible-hut-fallback_0_9B231838-9E6B-49B2-B5B3-F5586A51EFBF.png",
+        "timestamp": 1795225599.4
+      }
+    },
+    {
+      "path": "captures/initial-phone/ui2-04-disconnected.png",
+      "profile": "initial-phone",
+      "sha256": "1147c1e0507f69899728fdfe6b5e43cfd875384454951d7c1f6495a838283c15",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "4F16BCA0-767B-45D3-83CF-58A2E381FBA7.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-04-disconnected_0_8606B3C6-2197-4313-BD93-8DAF3DACECC6.png",
+        "timestamp": 1795225602.039
+      }
+    },
+    {
+      "path": "captures/initial-phone/ui2-05-route-preview.png",
+      "profile": "initial-phone",
+      "sha256": "f16b7513b78b47ca6405c7444846b1505efe9cd2c3cbbcf53126b0c34f9f37d6",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "294CFEBC-BECD-4DFE-B686-73DFFE8FD05A.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-05-route-preview_0_7079CE49-3B25-4BE4-9737-CEA2E9E8E28E.png",
+        "timestamp": 1795225605.477
+      }
+    },
+    {
+      "path": "captures/initial-phone/ui2-06-connected.png",
+      "profile": "initial-phone",
+      "sha256": "9720e0371f693a78da87bde45eaf20fe31c7fc0160a607a8a0e3fc6ea4fb0b70",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "C40486B1-1897-419C-9A55-5BC49608CA39.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-06-connected_0_33C7D18E-2355-4946-8099-7A3D499F53A6.png",
+        "timestamp": 1795225608.563
+      }
+    },
+    {
+      "path": "captures/initial-phone/ui2-07-disconnected-retained.png",
+      "profile": "initial-phone",
+      "sha256": "78e431bc566ebd3f916e7dfae2be88735e1859bfbfac1bf8c756f244eba00f8d",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "997306EF-E431-42E3-958A-3C935FC44207.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-07-disconnected-retained_0_EB234836-9066-4032-883D-2E49DAB59073.png",
+        "timestamp": 1795225609.25
+      }
+    },
+    {
+      "path": "captures/initial-phone/ui2-08-reloaded.png",
+      "profile": "initial-phone",
+      "sha256": "f9bc8a73a43daa7bf95df698726406a587e796862a332311aac648511eabd835",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "B756782F-1063-4A91-8F36-44E3B36FCD6D.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-08-reloaded_0_CDF31505-C55D-4F85-83F8-DFEFB0A5602C.png",
+        "timestamp": 1795225619.273
+      }
+    },
+    {
+      "path": "captures/initial-phone/ui2-09-reconnected.png",
+      "profile": "initial-phone",
+      "sha256": "09f62bdef47645ccd9437795797faa9d1aab62bddf97071513164e0066d747b2",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "4D03E806-6E84-41ED-A5FF-7A207A6CFBFF.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-09-reconnected_0_F96C1D89-017B-47F3-8BF7-1A069A35166B.png",
+        "timestamp": 1795225622.741
+      }
+    },
+    {
+      "path": "captures/initial-ipad/ui2-01-campfire.png",
+      "profile": "initial-ipad",
+      "sha256": "de1a67f2e90d8a66c943458bd2078130d97c1ae49249721f4796be88c5b1ba9d",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "EEA34AD4-FE0B-4584-82CE-84EB590B4CCE.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-01-campfire_0_64DD6838-2456-4E09-BAED-4593EDCA4A05.png",
+        "timestamp": 1795225642.584
+      }
+    },
+    {
+      "path": "captures/initial-ipad/ui2-02-lodge-free-path.png",
+      "profile": "initial-ipad",
+      "sha256": "25944cb2d5202bbc200b30364bf8e0c167cdf18165caf7fd4318b55765213f76",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "B4CFAC62-6659-4175-9CDB-9544C84F0C16.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-02-lodge-free-path_0_CD57CA04-2385-40BF-8A1A-DD3B38108452.png",
+        "timestamp": 1795225643.489
+      }
+    },
+    {
+      "path": "captures/initial-ipad/ui2-03-visible-hut-fallback.png",
+      "profile": "initial-ipad",
+      "sha256": "857e58e9ac694ac31fe1c26d32334f0d3541e42bcc0ac62129bb4abe5cfb4562",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "41FECB50-AD5E-4CBB-90DC-FC0014C799FE.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-03-visible-hut-fallback_0_1C842538-B44D-4BA2-BFB1-91F99A07FA08.png",
+        "timestamp": 1795225645.665
+      }
+    },
+    {
+      "path": "captures/initial-ipad/ui2-04-disconnected.png",
+      "profile": "initial-ipad",
+      "sha256": "e2f421bd3d7baa248ade4c9b3791d8e3c8ff2fe7947d338505ba840409c8adc4",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "3B896346-FBBB-4214-A2BB-EE5F1198B7DB.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-04-disconnected_0_2BB1B9DE-8E21-4267-B2B7-12A35ECCF058.png",
+        "timestamp": 1795225646.825
+      }
+    },
+    {
+      "path": "captures/initial-ipad/ui2-05-route-preview.png",
+      "profile": "initial-ipad",
+      "sha256": "5e6b8328f12f0a1f1bed0864e6192a3f0cbc02ee82b711cf671abc73d7e5e24f",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "47512E9D-6E20-400C-9D5D-084DF6D50937.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-05-route-preview_0_D800AAD9-4AC2-4FBD-A6A4-E4D737CA401D.png",
+        "timestamp": 1795225648.698
+      }
+    },
+    {
+      "path": "captures/initial-ipad/ui2-06-connected.png",
+      "profile": "initial-ipad",
+      "sha256": "bddd4dfebf349e1f507989bbbc19fc5f6316319f6f74cf344d3a70497d73b8da",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "8C3A4961-AC77-4E35-BFEB-E87E4680336B.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-06-connected_0_E484B11A-1529-4C47-A2C1-F4CF75753356.png",
+        "timestamp": 1795225649.392
+      }
+    },
+    {
+      "path": "captures/initial-ipad/ui2-07-disconnected-retained.png",
+      "profile": "initial-ipad",
+      "sha256": "98f8d948ea8024a1515d37fe9bba41d63690d0d7ac90ef0eba5085a4c255f841",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "D2AF74CE-213F-4679-8D04-39AE43726265.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-07-disconnected-retained_0_FE0E1117-569E-4D43-82E6-47D8614ED3CE.png",
+        "timestamp": 1795225650.141
+      }
+    },
+    {
+      "path": "captures/initial-ipad/ui2-08-reloaded.png",
+      "profile": "initial-ipad",
+      "sha256": "d07218ce9d301bc058b85d1d061f1acac1a60c9e35328d6cb0c6bb8b77d5ed3b",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "EDF4FA03-92D2-475D-8D8A-D2F9D6011066.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-08-reloaded_0_BE3A98A9-97C9-41AF-A9BD-86B3855EB217.png",
+        "timestamp": 1795225660.147
+      }
+    },
+    {
+      "path": "captures/initial-ipad/ui2-09-reconnected.png",
+      "profile": "initial-ipad",
+      "sha256": "402128da23b2b557f3a4cc5a18df9c1ceecd3421cc0dd0380144c51ab769303c",
+      "originalAttachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "1A0ECE77-D48B-491F-9E5D-5F345AB563AE.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "ui2-09-reconnected_0_CA9962EF-0492-4F47-AB84-547DBD21C493.png",
+        "timestamp": 1795225661.252
+      }
+    }
+  ],
+  "runs": [
+    {
+      "directory": "runs/ui2-clearance-ipad",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/ui2-founding-verified-builds",
+        "filter": null,
+        "simulator": [
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+        ],
+        "output": "/tmp/ui2-clearance-ipad"
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-derivedDataPath",
+            "/private/tmp/ui2-founding-verified-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-resultBundlePath",
+            "/private/tmp/ui2-clearance-ipad/ui-debug-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 1,
+          "durationSeconds": 37.526,
+          "log": "/private/tmp/ui2-clearance-ipad/ui-debug-1.log",
+          "executed": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-clearance-ipad/ui-debug-1.log.gz",
+          "logArchiveSHA256": "e3fb8385ff6527d8912892100e06b5b901a15dc253dee27d203e9dae31313f6c"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-clearance-phone",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/ui2-founding-verified-builds",
+        "filter": null,
+        "simulator": [
+          "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+        ],
+        "output": "/tmp/ui2-clearance-phone"
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-derivedDataPath",
+            "/private/tmp/ui2-founding-verified-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-resultBundlePath",
+            "/private/tmp/ui2-clearance-phone/ui-debug-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 1,
+          "durationSeconds": 43.291,
+          "log": "/private/tmp/ui2-clearance-phone/ui-debug-1.log",
+          "executed": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-clearance-phone/ui-debug-1.log.gz",
+          "logArchiveSHA256": "6f30d239fdf54e03808861404bb3761ae0912df66f9e8c6b270e8173c1e2a526"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-core-debug-history-final",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-core-debug-history-final",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 316,
+          "durationSeconds": 27.836,
+          "log": "/private/tmp/ui2-core-debug-history-final/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-debug-history-final/core-debug.log.gz",
+          "logArchiveSHA256": "caf9b794fcaee58dbd807b7dcd7df84d8715e70d693f051c1c81858fdffc1943"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-core-delivery",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "both",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-core-delivery",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 0,
+          "durationSeconds": 3.626,
+          "log": "/private/tmp/ui2-core-delivery/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-delivery/core-debug.log.gz",
+          "logArchiveSHA256": "8865d81947f0145eaf5ff52266b59db9a5e318f02e36c244d8fb0ced463b933b"
+        },
+        {
+          "name": "core-release",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "-c",
+            "release"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 235,
+          "durationSeconds": 29.269,
+          "log": "/private/tmp/ui2-core-delivery/core-release.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-delivery/core-release.log.gz",
+          "logArchiveSHA256": "0e620be6e7ff315a4d20d97108112386b13c2355d5ec0c595ca866482023209a"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-core-final",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "both",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-core-final"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 315,
+          "durationSeconds": 27.471,
+          "log": "/private/tmp/ui2-core-final/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-final/core-debug.log.gz",
+          "logArchiveSHA256": "3aa53d27ce78600fe6464c1cf95bc7faac95a2062cc058e1463231595ac04cef"
+        },
+        {
+          "name": "core-release",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "-c",
+            "release"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 235,
+          "durationSeconds": 29.26,
+          "log": "/private/tmp/ui2-core-final/core-release.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-final/core-release.log.gz",
+          "logArchiveSHA256": "784e66da60f59f8faaee0a216fdf1d6e668672c5cd6b9addd258298c09b5bbcf"
+        },
+        {
+          "name": "release-api-exclusions",
+          "command": [
+            "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/scripts/verify-developer-release.py"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": null,
+          "durationSeconds": 5.203,
+          "log": "/private/tmp/ui2-core-final/release-api-exclusions.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-final/release-api-exclusions.log.gz",
+          "logArchiveSHA256": "17d0ed7a50be18015f28eff8030fbb59bb0ac67ba9e57c2166c2a2916c2328ca"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-core-final-clearance",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "both",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-core-final-clearance"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 317,
+          "durationSeconds": 25.704,
+          "log": "/private/tmp/ui2-core-final-clearance/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-final-clearance/core-debug.log.gz",
+          "logArchiveSHA256": "fa66eb8a82e25947c3abaa0abc0970b016481177965a206ee192021f65f21453"
+        },
+        {
+          "name": "core-release",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "-c",
+            "release"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 235,
+          "durationSeconds": 29.688,
+          "log": "/private/tmp/ui2-core-final-clearance/core-release.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-final-clearance/core-release.log.gz",
+          "logArchiveSHA256": "0fee0c4d2d0760811cfecee5d56a170b05eb71699599f9b0f28d04d8f3aa060c"
+        },
+        {
+          "name": "release-api-exclusions",
+          "command": [
+            "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/scripts/verify-developer-release.py"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": null,
+          "durationSeconds": 4.983,
+          "log": "/private/tmp/ui2-core-final-clearance/release-api-exclusions.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-final-clearance/release-api-exclusions.log.gz",
+          "logArchiveSHA256": "17d0ed7a50be18015f28eff8030fbb59bb0ac67ba9e57c2166c2a2916c2328ca"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-core-final-pass",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "both",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-core-final-pass"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 317,
+          "durationSeconds": 29.823,
+          "log": "/private/tmp/ui2-core-final-pass/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-final-pass/core-debug.log.gz",
+          "logArchiveSHA256": "bd3616651e219c56ae61057b3c1ad5df3ce40d6aa4c22a4fb6c1e9844c308eed"
+        },
+        {
+          "name": "core-release",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "-c",
+            "release"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 235,
+          "durationSeconds": 29.714,
+          "log": "/private/tmp/ui2-core-final-pass/core-release.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-final-pass/core-release.log.gz",
+          "logArchiveSHA256": "ca82eafd6b7e84c9a2e8765c03f9689746a7cf421a40eedfb074567484cb139e"
+        },
+        {
+          "name": "release-api-exclusions",
+          "command": [
+            "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/scripts/verify-developer-release.py"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": null,
+          "durationSeconds": 5.212,
+          "log": "/private/tmp/ui2-core-final-pass/release-api-exclusions.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-final-pass/release-api-exclusions.log.gz",
+          "logArchiveSHA256": "17d0ed7a50be18015f28eff8030fbb59bb0ac67ba9e57c2166c2a2916c2328ca"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-core-full-1",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "both",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-core-full-1"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 312,
+          "durationSeconds": 25.764,
+          "log": "/private/tmp/ui2-core-full-1/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-full-1/core-debug.log.gz",
+          "logArchiveSHA256": "ac93761b5dd0d2b3c9c009ad8016476ac3ef6df15060da4b03c22640639e9265"
+        },
+        {
+          "name": "core-release",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "-c",
+            "release"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 235,
+          "durationSeconds": 31.748,
+          "log": "/private/tmp/ui2-core-full-1/core-release.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-full-1/core-release.log.gz",
+          "logArchiveSHA256": "33bacc9cb0a053fc25ccc856f256b669a0190a42079ed1b8e903443e9171710d"
+        },
+        {
+          "name": "release-api-exclusions",
+          "command": [
+            "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/scripts/verify-developer-release.py"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": null,
+          "durationSeconds": 4.714,
+          "log": "/private/tmp/ui2-core-full-1/release-api-exclusions.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-full-1/release-api-exclusions.log.gz",
+          "logArchiveSHA256": "17d0ed7a50be18015f28eff8030fbb59bb0ac67ba9e57c2166c2a2916c2328ca"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-core-verified",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "both",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-core-verified",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 317,
+          "durationSeconds": 27.776,
+          "log": "/private/tmp/ui2-core-verified/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-verified/core-debug.log.gz",
+          "logArchiveSHA256": "ee5fc92cd3593f7b97f13f0f623d7a3c06f5b588045cc0f72c6df127d569f410"
+        },
+        {
+          "name": "core-release",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "-c",
+            "release"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 235,
+          "durationSeconds": 13.107,
+          "log": "/private/tmp/ui2-core-verified/core-release.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-core-verified/core-release.log.gz",
+          "logArchiveSHA256": "730b21b7449b821ba35ee4b86784666a22f1d293101d8dfc1f4e9c762fad3b86"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-entrance-red",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReviewUpgrade",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-entrance-red",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReviewUpgrade"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 1,
+          "durationSeconds": 3.645,
+          "log": "/private/tmp/ui2-entrance-red/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-entrance-red/core-debug.log.gz",
+          "logArchiveSHA256": "74bba4f0afcac742c6943caed73b7b878d5c5961a01213b7799afa4f523f83b6"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-founding-core-1",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReview",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-founding-core-1",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReview"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 3,
+          "durationSeconds": 7.401,
+          "log": "/private/tmp/ui2-founding-core-1/core-debug.log",
+          "executed": 3,
+          "passed": -1,
+          "failed": 4,
+          "skipped": 0,
+          "logArchive": "runs/ui2-founding-core-1/core-debug.log.gz",
+          "logArchiveSHA256": "bbb069924f1a5ab57eedb984285f7098a5f73f4f7ddb033954c5487488ec80d0"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-founding-core-2",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReview",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-founding-core-2",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReview"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 3,
+          "durationSeconds": 2.164,
+          "log": "/private/tmp/ui2-founding-core-2/core-debug.log",
+          "executed": 3,
+          "passed": 3,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-founding-core-2/core-debug.log.gz",
+          "logArchiveSHA256": "0c2cd41fa9ea7b2ed6aebc6ae478ff2cd96ea64573a3015be161f06a38aa3822"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-founding-red",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReview",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-founding-red",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReview"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 0,
+          "durationSeconds": 0.596,
+          "log": "/private/tmp/ui2-founding-red/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-founding-red/core-debug.log.gz",
+          "logArchiveSHA256": "887ae01796bdb9174989c184581fafd51053a1a8f324d7345ad49c9aa46bb825"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-founding-red-authorized",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReview",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-founding-red-authorized",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReview"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 0,
+          "durationSeconds": 9.96,
+          "log": "/private/tmp/ui2-founding-red-authorized/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-founding-red-authorized/core-debug.log.gz",
+          "logArchiveSHA256": "3030da5aaace19acbafc9b780201f63b2ab9e26eb292f956f109ea631ce20f12"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-native-1",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testUI2FoundingFreshRoadsAndReload"
+        ],
+        "output": "/tmp/ui2-native-1"
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-derivedDataPath",
+            "/private/tmp/civilization-qa-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-resultBundlePath",
+            "/private/tmp/ui2-native-1/ui-debug-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingFreshRoadsAndReload"
+          ],
+          "exitCode": 65,
+          "status": "failed",
+          "tests": 1,
+          "durationSeconds": 63.549,
+          "log": "/private/tmp/ui2-native-1/ui-debug-1.log",
+          "executed": 1,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "logArchive": "runs/ui2-native-1/ui-debug-1.log.gz",
+          "logArchiveSHA256": "f4fb4184b92374aa8adebc85903de3558bcb42ca28863fbfef29771f2bc3973b"
+        },
+        {
+          "name": "ui-debug-2",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-derivedDataPath",
+            "/private/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-resultBundlePath",
+            "/private/tmp/ui2-native-1/ui-debug-2.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingFreshRoadsAndReload"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 1,
+          "durationSeconds": 38.084,
+          "log": "/private/tmp/ui2-native-1/ui-debug-2.log",
+          "executed": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-native-1/ui-debug-2.log.gz",
+          "logArchiveSHA256": "84299f56e58d57d5e2b7d9c922271001fe5eebadf8db43ba109aac9c7059aaea"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-native-delivery",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/ui2-founding-verified-builds",
+        "filter": null,
+        "simulator": [
+          "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+        ],
+        "output": "/tmp/ui2-native-delivery"
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-derivedDataPath",
+            "/private/tmp/ui2-founding-verified-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-resultBundlePath",
+            "/private/tmp/ui2-native-delivery/ui-debug-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 1,
+          "durationSeconds": 48.931,
+          "log": "/private/tmp/ui2-native-delivery/ui-debug-1.log",
+          "executed": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-native-delivery/ui-debug-1.log.gz",
+          "logArchiveSHA256": "040159a216ad8f7dc5d598d10419f324d9e0b5f78ff9d481aa36ed4cf07e9254"
+        },
+        {
+          "name": "ui-debug-2",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-derivedDataPath",
+            "/private/tmp/ui2-founding-verified-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-resultBundlePath",
+            "/private/tmp/ui2-native-delivery/ui-debug-2.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 1,
+          "durationSeconds": 38.591,
+          "log": "/private/tmp/ui2-native-delivery/ui-debug-2.log",
+          "executed": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-native-delivery/ui-debug-2.log.gz",
+          "logArchiveSHA256": "9c81a14aaea762b34c9bd143a3b1a730324f69bcf8f486b0b623c30cca99a3ba"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-native-final",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testUI2FoundingFreshRoadsAndReload",
+          "CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+        ],
+        "output": "/tmp/ui2-native-final"
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-derivedDataPath",
+            "/private/tmp/civilization-qa-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-resultBundlePath",
+            "/private/tmp/ui2-native-final/ui-debug-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingFreshRoadsAndReload",
+            "-only-testing:CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+          ],
+          "exitCode": 65,
+          "status": "failed",
+          "tests": 2,
+          "durationSeconds": 118.893,
+          "log": "/private/tmp/ui2-native-final/ui-debug-1.log",
+          "executed": 2,
+          "passed": 1,
+          "failed": 1,
+          "skipped": 0,
+          "logArchive": "runs/ui2-native-final/ui-debug-1.log.gz",
+          "logArchiveSHA256": "5a50079f49e336046ebed1d046900943ac1133543c7d53b168f219e82afd9365"
+        },
+        {
+          "name": "ui-debug-2",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-derivedDataPath",
+            "/private/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-resultBundlePath",
+            "/private/tmp/ui2-native-final/ui-debug-2.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingFreshRoadsAndReload",
+            "-only-testing:CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 2,
+          "durationSeconds": 79.926,
+          "log": "/private/tmp/ui2-native-final/ui-debug-2.log",
+          "executed": 2,
+          "passed": 2,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-native-final/ui-debug-2.log.gz",
+          "logArchiveSHA256": "75475257ff929f900549746248585861260ebf52985266e94a898720b0e29635"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-native-red",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testUI2FoundingFreshRoadsAndReload"
+        ],
+        "output": "/tmp/ui2-native-red"
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-derivedDataPath",
+            "/private/tmp/civilization-qa-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-resultBundlePath",
+            "/private/tmp/ui2-native-red/ui-debug-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingFreshRoadsAndReload"
+          ],
+          "exitCode": 65,
+          "status": "failed",
+          "tests": 1,
+          "durationSeconds": 42.051,
+          "log": "/private/tmp/ui2-native-red/ui-debug-1.log",
+          "executed": 1,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "logArchive": "runs/ui2-native-red/ui-debug-1.log.gz",
+          "logArchiveSHA256": "a687bae8c324bbb0f1b5314ae94b669c75dcba48d59f74bb58e65bf847907654"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-native-verified",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/ui2-founding-verified-builds",
+        "filter": null,
+        "simulator": [
+          "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+        ],
+        "output": "/tmp/ui2-native-verified"
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-derivedDataPath",
+            "/private/tmp/ui2-founding-verified-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-resultBundlePath",
+            "/private/tmp/ui2-native-verified/ui-debug-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+          ],
+          "exitCode": 65,
+          "status": "failed",
+          "tests": 1,
+          "durationSeconds": 75.145,
+          "log": "/private/tmp/ui2-native-verified/ui-debug-1.log",
+          "executed": 1,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "logArchive": "runs/ui2-native-verified/ui-debug-1.log.gz",
+          "logArchiveSHA256": "569e0f9e93061873b49cfac88417db292c376a1dcfbadac55f59b9eb7558a4c6"
+        },
+        {
+          "name": "ui-debug-2",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-derivedDataPath",
+            "/private/tmp/ui2-founding-verified-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-resultBundlePath",
+            "/private/tmp/ui2-native-verified/ui-debug-2.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 1,
+          "durationSeconds": 47.119,
+          "log": "/private/tmp/ui2-native-verified/ui-debug-2.log",
+          "executed": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-native-verified/ui-debug-2.log.gz",
+          "logArchiveSHA256": "550f284a16936ae57ce96fed198d9b4486ca703133698f7adfea9288c3ab77f8"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-phone-final-pass",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "debug",
+        "derived_data": "/tmp/ui2-founding-verified-builds",
+        "filter": null,
+        "simulator": [
+          "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB"
+        ],
+        "only_testing": [
+          "CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+        ],
+        "output": "/tmp/ui2-phone-final-pass"
+      },
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Debug",
+            "-destination",
+            "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-derivedDataPath",
+            "/private/tmp/ui2-founding-verified-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-resultBundlePath",
+            "/private/tmp/ui2-phone-final-pass/ui-debug-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+          ],
+          "exitCode": 65,
+          "status": "failed",
+          "tests": 1,
+          "durationSeconds": 71.876,
+          "log": "/private/tmp/ui2-phone-final-pass/ui-debug-1.log",
+          "executed": 1,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "logArchive": "runs/ui2-phone-final-pass/ui-debug-1.log.gz",
+          "logArchiveSHA256": "afd1fbb90469f83a57a43f79a955521b3e247fceb777c961fcafec57dc0d15c6"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-release-ipad",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "release",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "390CFA90-D4C9-40F9-BA4A-FE3489C20809"
+        ],
+        "only_testing": [
+          "CivilizationUITests/NormalEntryUITests/testNormalEntryPersistenceWithoutDeveloperHooks"
+        ],
+        "output": "/tmp/ui2-release-ipad"
+      },
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Release",
+            "-destination",
+            "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-derivedDataPath",
+            "/private/tmp/civilization-qa-builds/release/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+            "-resultBundlePath",
+            "/private/tmp/ui2-release-ipad/ui-release-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/NormalEntryUITests/testNormalEntryPersistenceWithoutDeveloperHooks"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 1,
+          "durationSeconds": 47.351,
+          "log": "/private/tmp/ui2-release-ipad/ui-release-1.log",
+          "executed": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-release-ipad/ui-release-1.log.gz",
+          "logArchiveSHA256": "32654c8ba22b438b98e35364a00791051bddaa44de82ec4a1b38c38c7655e6cb"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-release-phone",
+      "status": "passed",
+      "scope": {
+        "command": "test",
+        "suite": "ui",
+        "configuration": "release",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": null,
+        "simulator": [
+          "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB"
+        ],
+        "only_testing": [
+          "CivilizationUITests/NormalEntryUITests/testNormalEntryPersistenceWithoutDeveloperHooks"
+        ],
+        "output": "/tmp/ui2-release-phone"
+      },
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "command": [
+            "xcodebuild",
+            "test",
+            "-project",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Civilization.xcodeproj",
+            "-scheme",
+            "Civilization",
+            "-configuration",
+            "Release",
+            "-destination",
+            "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-derivedDataPath",
+            "/private/tmp/civilization-qa-builds/release/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+            "-resultBundlePath",
+            "/private/tmp/ui2-release-phone/ui-release-1.xcresult",
+            "CODE_SIGNING_ALLOWED=NO",
+            "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+            "-only-testing:CivilizationUITests/NormalEntryUITests/testNormalEntryPersistenceWithoutDeveloperHooks"
+          ],
+          "exitCode": 0,
+          "status": "passed",
+          "tests": 1,
+          "durationSeconds": 52.85,
+          "log": "/private/tmp/ui2-release-phone/ui-release-1.log",
+          "executed": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-release-phone/ui-release-1.log.gz",
+          "logArchiveSHA256": "3da167c7493da3566e6260344073a8069902d3e25a2dd53d2374d34c08269475"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-review-findings-red",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReview",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-review-findings-red",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReview"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 6,
+          "durationSeconds": 2.797,
+          "log": "/private/tmp/ui2-review-findings-red/core-debug.log",
+          "executed": 6,
+          "passed": 2,
+          "failed": 4,
+          "skipped": 0,
+          "logArchive": "runs/ui2-review-findings-red/core-debug.log.gz",
+          "logArchiveSHA256": "3fbdfa1ae2f8fba9019aa28bd3f262ced137bebf3f0b2f1090c975f2fbbb3524"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-stale-red",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReviewStale",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-stale-red",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReviewStale"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 1,
+          "durationSeconds": 2.788,
+          "log": "/private/tmp/ui2-stale-red/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-stale-red/core-debug.log.gz",
+          "logArchiveSHA256": "4e19c47c72a13fa773211bd89a5f9f01a5e923e16dc914ad326a0d4535e4ff15"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-visual-clearance-red",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReviewHutConnection",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-visual-clearance-red",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReviewHutConnection"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 1,
+          "durationSeconds": 3.931,
+          "log": "/private/tmp/ui2-visual-clearance-red/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-visual-clearance-red/core-debug.log.gz",
+          "logArchiveSHA256": "a565e7ac0a3b4e4344d43ddcc8018793bd6c11eb4b766f773aad9a5262d70731"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-yard-red",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReviewKeeps",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-yard-red",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReviewKeeps"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 0,
+          "durationSeconds": 3.805,
+          "log": "/private/tmp/ui2-yard-red/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-yard-red/core-debug.log.gz",
+          "logArchiveSHA256": "730393c8bb8bec24d9a4277cd5b5db636d8e765b0c3125d93bdea5fe7c1dc061"
+        }
+      ]
+    },
+    {
+      "directory": "runs/ui2-yard-red-runtime",
+      "status": "failed",
+      "scope": {
+        "command": "test",
+        "suite": "core",
+        "configuration": "debug",
+        "derived_data": "/tmp/civilization-qa-builds",
+        "filter": "foundingReviewKeeps",
+        "simulator": [],
+        "only_testing": [],
+        "output": "/tmp/ui2-yard-red-runtime",
+        "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+      },
+      "steps": [
+        {
+          "name": "core-debug",
+          "command": [
+            "swift",
+            "test",
+            "--package-path",
+            "/Users/dima/.codex/worktrees/f350/Civilazation/Packages/GameCore",
+            "--filter",
+            "foundingReviewKeeps"
+          ],
+          "exitCode": 1,
+          "status": "failed",
+          "tests": 1,
+          "durationSeconds": 4.054,
+          "log": "/private/tmp/ui2-yard-red-runtime/core-debug.log",
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "skipped": 0,
+          "logArchive": "runs/ui2-yard-red-runtime/core-debug.log.gz",
+          "logArchiveSHA256": "875ec424542c324c65eb46285cb44796fd81387aef795428b39cf8f87636e444"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Simulator/source evidence only; no human acceptance or physical metrics.",
+    "Default paused review; explicit 60-second steps are not measured waits.",
+    "Existing cardinal/full-edge graph; pictured entrance is no directional restriction.",
+    "One hut, bounded opening route suggestions; no terrain rewrite.",
+    "No current/player saves or physical devices accessed.",
+    "No normal adoption, Release enablement, production art, signing or merge."
+  ]
+}

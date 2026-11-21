@@ -1,0 +1,89 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "37F6138D-D5DB-4775-9287-0D79386C9593.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-09-reconnected_0_18830CD6-4139-4DB3-ADC5-6B2A7A4E3657.png",
+        "timestamp" : 1795225799.102
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "FD2FF706-4902-4D26-B9A5-CD17BE4BFF49.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-08-reloaded_0_ADCC93A3-1617-4C9C-AD8E-9FEB823DC1DB.png",
+        "timestamp" : 1795225795.544
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "D54F795D-489F-4E6C-9907-A3B709EE0FF2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-07-disconnected-retained_0_CCB026BA-DB10-493F-AA82-BA5D738DF1F6.png",
+        "timestamp" : 1795225785.536
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "A4B1B8C7-D68B-4F2D-982C-5C9644384E03.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-06-connected_0_A9404EEA-B3BB-468E-98F6-C7E1E3D94A57.png",
+        "timestamp" : 1795225784.85
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "81CDBE9B-CEDE-41B9-B108-26635FB2EF22.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-05-route-preview_0_7D48C658-8E6B-4F0B-8CC7-4E3340F443AE.png",
+        "timestamp" : 1795225781.729
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "32508D6F-05D1-4028-A8F5-F71E5B1F1657.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-04-disconnected_0_EE6F795A-1538-418F-8701-29EF654F4F22.png",
+        "timestamp" : 1795225777.875
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "3AA92D8E-9CE9-48A5-A51E-ADD50861E4AE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-03-visible-hut-fallback_0_7AF59448-4775-477A-B2D7-3766BB09F456.png",
+        "timestamp" : 1795225775.125
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "BA315EBC-D847-48AC-BBE6-FB026EB34BDA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-02-lodge-free-path_0_0C7A826B-1841-488C-9A11-3E567DE020BB.png",
+        "timestamp" : 1795225773.167
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName" : "iPhone 16 Pro",
+        "exportedFileName" : "084F4BF5-A476-4BCD-9F01-8BFBCD450715.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "ui2-01-campfire_0_A78342EF-30A4-468F-A490-727B5785B130.png",
+        "timestamp" : 1795225772.364
+      }
+    ],
+    "testIdentifier" : "RelocationUITests/testUI2FoundingMapInteractionAndReload()",
+    "testIdentifierURL" : "test://com.apple.xcode/Civilization/CivilizationUITests/RelocationUITests/testUI2FoundingMapInteractionAndReload"
+  }
+]

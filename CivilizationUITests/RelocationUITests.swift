@@ -4,6 +4,107 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    @MainActor func testUI2FoundingMapInteractionAndReload() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 30))
+        func open() {
+            app.buttons["developerTools"].tap()
+            XCTAssertTrue(app.buttons["openFoundingReview"].waitForExistence(timeout: 10))
+            app.buttons["openFoundingReview"].tap()
+            XCTAssertTrue(app.staticTexts["foundingStatus"].waitForExistence(timeout: 15))
+        }
+        open()
+        let status = app.staticTexts["foundingStatus"]
+        func value() -> String { status.value as? String ?? "" }
+        func field(_ key: String) throws -> Int {
+            let part = try XCTUnwrap(value().split(separator: " ").first { $0.hasPrefix(key + "=") })
+            return try XCTUnwrap(Int(part.dropFirst(key.count + 1)))
+        }
+        func tap(_ id: String) {
+            let b = app.buttons[id]
+            let scroll = app.scrollViews["foundingControls"]
+            for _ in 0..<60 {
+                if b.isHittable { break }
+                let below = b.frame.isEmpty || b.frame.midY > scroll.frame.midY
+                scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: below ? 0.7 : 0.3)).press(forDuration: 0.02,
+                    thenDragTo: scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)))
+            }
+            XCTAssertTrue(b.isHittable, id); b.tap()
+        }
+        func capture(_ name: String) {
+            let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+            a.name = "ui2-" + name; a.lifetime = .keepAlways; add(a)
+            print("UI2 " + name + " " + value() + " objective=" + app.staticTexts["foundingObjective"].label)
+        }
+        let map = app.otherElements["onboardingWalkthroughMap"]
+        func mapField(_ key: String) throws -> Double {
+            let v = map.value as? String ?? ""
+            let part = try XCTUnwrap(v.split(separator: " ").first { $0.hasPrefix(key + "=") }, v)
+            return try XCTUnwrap(Double(part.dropFirst(key.count + 1)))
+        }
+        func tapMapTarget(_ name: String) throws {
+            let x = try mapField(name + "X"), y = try mapField(name + "Y")
+            XCTAssertGreaterThan(x, 10); XCTAssertGreaterThan(y, 10)
+            XCTAssertLessThan(x, map.frame.width - 325); XCTAssertLessThan(y, map.frame.height - 10)
+            map.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: x, dy: y)).tap()
+        }
+        XCTAssertEqual(try field("civic"), 0); XCTAssertEqual(try field("level"), 1)
+        XCTAssertEqual(try field("wood"), 100); XCTAssertEqual(try field("stone"), 50)
+        XCTAssertEqual(try field("story"), 0); XCTAssertGreaterThanOrEqual(try field("sites"), 2)
+        XCTAssertEqual(app.staticTexts["foundingObjective"].label, "Upgrade Campfire to Founder’s Lodge")
+        capture("01-campfire")
+        tap("foundingUpgrade")
+        XCTAssertEqual(try field("civic"), 0); XCTAssertEqual(try field("level"), 2)
+        XCTAssertEqual(try field("wood"), 88); XCTAssertEqual(try field("stone"), 46)
+        XCTAssertEqual(try field("roads"), 1); XCTAssertEqual(try field("story"), 0)
+        XCTAssertEqual(try field("civicHistory"), 2)
+        XCTAssertEqual(app.staticTexts["foundingObjective"].label, "Build your first hut")
+        capture("02-lodge-free-path")
+        try tapMapTarget("civic")
+        XCTAssertTrue(app.staticTexts["foundingInspection"].label.contains("Founder’s Lodge"))
+        try tapMapTarget("plot0")
+        XCTAssertTrue(app.buttons["foundingConfirmHut"].exists)
+        try tapMapTarget("plot1"); capture("03-visible-hut-fallback")
+        tap("foundingConfirmHut")
+        let paidWood = try field("wood")
+        tap("foundingAdvance60")
+        XCTAssertEqual(try field("active"), 0)
+        XCTAssertEqual(app.staticTexts["foundingObjective"].label, "Connect your hut to the Lodge")
+        XCTAssertTrue(app.staticTexts["foundingConnectionExplanation"].exists)
+        capture("04-disconnected")
+        tap("foundingDrawPath")
+        let coordinates = map.value as? String ?? ""
+        let routeCount = coordinates.split(separator: " ").filter { $0.hasPrefix("route") && $0.contains("X=") }.count
+        XCTAssertGreaterThan(routeCount, 0)
+        for index in 0..<routeCount { try tapMapTarget("route\(index)") }
+        capture("05-route-preview"); tap("foundingConfirmPath")
+        XCTAssertEqual(try field("active"), 1)
+        XCTAssertEqual(try field("wood"), paidWood)
+        XCTAssertEqual(app.staticTexts["foundingObjective"].label, "Founding connected")
+        capture("06-connected")
+        let history = try field("goals")
+        tap("foundingDisconnect")
+        XCTAssertEqual(try field("active"), 0); XCTAssertEqual(try field("wood"), paidWood)
+        XCTAssertEqual(try field("goals"), history); XCTAssertEqual(try field("story"), 0)
+        capture("07-disconnected-retained")
+        let saved = value()
+        app.terminate(); app.launch()
+        let continueButton = app.buttons["continueGame"]
+        XCTAssertTrue(continueButton.waitForExistence(timeout: 30)); continueButton.tap()
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 30)); open()
+        XCTAssertEqual(value(), saved)
+        XCTAssertEqual(app.staticTexts["foundingObjective"].label, "Connect your hut to the Lodge")
+        capture("08-reloaded")
+        tap("foundingSuggestPath"); tap("foundingConfirmPath")
+        XCTAssertEqual(try field("active"), 1); capture("09-reconnected")
+        tap("closeFoundingReview")
+        XCTAssertTrue(app.buttons["developerTools"].waitForExistence(timeout: 10))
+    }
+
     /// Goal5 review starts fresh, delays until Food is depleted, then recovers through existing controls.
     @MainActor func testFirstEraDelayedDepletedRecoveryThroughCraft() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
