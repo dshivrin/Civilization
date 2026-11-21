@@ -2768,6 +2768,10 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
         XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
         XCTAssertTrue(app.staticTexts["settlementMessage"].exists)
+        app.otherElements["settlementMap"].coordinate(withNormalizedOffset: CGVector(dx: 0.93, dy: 0.3)).tap()
+        let message = app.staticTexts["settlementMessage"]
+        let feedback = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label CONTAINS %@", "Unexplored terrain"), object: message)
+        XCTAssertEqual(XCTWaiter.wait(for: [feedback], timeout: 5), .completed)
     }
 
     @MainActor func testStoneAgeGoalsStayAvailableDuringContext() throws {
