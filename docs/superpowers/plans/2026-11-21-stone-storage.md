@@ -23,8 +23,8 @@ No normal engine/schema/seed/art/signing/device edits, main merge or production 
 - [x] Add focused failing Stone/storage tests: hidden-source rejection, exact costs, separate caps, construction/reload, failed writes/retry, cap stop/resume, malformed metadata and old envelopes.
 - [x] Extend Debug profile and Lab model only: source reveal, gatherer placement, storage role costs/validation/configuration. Reuse atomic store.
 - [x] Extend Lab controls/readouts and native route for source → gather → storage → relaunch; retain E0/E1 native tests unchanged.
-- [ ] Run full Debug/Release and Release exclusions, phone+iPad three Debug cases and ordinary native Release. Preserve every report and failure.
-- [ ] Review final diff, archive actual captures/reports with hashes, write delivery and Goal4 handoff; commit/push only designated branch and verify remote SHA.
+- [x] Run full Debug/Release and Release exclusions, phone+iPad three Debug cases and ordinary native Release. Preserve every report and failure.
+- [x] Review final diff, archive actual captures/reports with hashes, write delivery and Goal4 handoff; commit/push only designated branch and verify remote SHA.
 
 ## Review findings
 

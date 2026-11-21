@@ -1,0 +1,589 @@
+{
+  "goal": 3,
+  "base": "fb068aba76ee4cc5104dbb9c696173d8b94bf75b",
+  "productCommit": "70886c20dc40a1501062c9387fe44bb76e8efb08",
+  "mainReadWithoutMerge": "4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3",
+  "branch": "economy-stone-storage-review",
+  "profile": "riverbend-economy-lab-v1",
+  "status": "verified-review-only",
+  "finalCore": "reports/7efdb028.json",
+  "phoneStone": "reports/ea762dae.json",
+  "phoneRegressions": "reports/daeb3bcb.json",
+  "miniDebug": "reports/c840f1be.json",
+  "ordinaryRelease": "reports/aabbc8cc.json",
+  "runs": [
+    {
+      "report": "reports/f1f02852.json",
+      "sha256": "abeda885b28585615b49f2b04e03d56a2a7dc97adf8928d9ba40059f3b25edfa",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 9,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/f1f02852-core-debug.log.gz",
+          "sha256": "b3a52a54941c4482ba316e3e1964341f845a5ab04f5273b639dce2639f1e6d08",
+          "originalSHA256": "a9d3da5c00e2246cbfd58d67b3e4a0770599be915f5010c3544af19dda2ea554"
+        }
+      ]
+    },
+    {
+      "report": "reports/72c2a0eb.json",
+      "sha256": "0b7bd363705bdd6a5e841a37b6a971e540a1df521e97abc58df8b9ddb1e238ad",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 0,
+          "exitCode": 1
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/72c2a0eb-core-debug.log.gz",
+          "sha256": "ef2fae825686570fcaa20326e4e73b1d7a15c556c16ebd2511a155446e0fd4ac",
+          "originalSHA256": "770eb0d1e46c66264e282374c06b514de20f6efac8b2a1ff3359f2358840eeb4"
+        }
+      ]
+    },
+    {
+      "report": "reports/656de5bb.json",
+      "sha256": "7899614d2be4be6ed64a7b553263aa4d131a73c8a1b0a3f04e1b65b96cf7ba40",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 2,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/656de5bb-core-debug.log.gz",
+          "sha256": "aa31b5fb3f08cbd2e78977c97d524a94d4a1757dd2b803c955dc2e84870a5445",
+          "originalSHA256": "5c5b802233db7fcde6de9a4980ef66e068fa74a27ca5c2a68f5345af95f0aa3c"
+        }
+      ]
+    },
+    {
+      "report": "reports/53deb81a.json",
+      "sha256": "deb936c424f30de9c2a929d16a6e2ea9e20f364a32260a031896a7dfc7288229",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 299,
+          "exitCode": 0
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235,
+          "exitCode": 0
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/53deb81a-core-debug.log.gz",
+          "sha256": "9fca3477b5ff5c7ebc98e48edd88cca15565c86321c563e5e7f73e3f798160c7",
+          "originalSHA256": "3763ca28ab5c85dd090daa3376f6246a27b8a946c76c97b746e47545b71ec04b"
+        },
+        {
+          "path": "logs/53deb81a-core-release.log.gz",
+          "sha256": "c4d59d9762e865ff53f9430f3b2113916d85c61e305e3c7764399a31cc0b405b",
+          "originalSHA256": "4410bfd928d50be6a33c09301d0297f7643c24c563d15c0cad2843fbeb7ea9d4"
+        },
+        {
+          "path": "logs/53deb81a-release-api-exclusions.log.gz",
+          "sha256": "c87151b250082111a0004857fad6c4e217c1f5eab243cb9d863bc7591fd937e1",
+          "originalSHA256": "1a33704bf66c9030e5ba4ad09e5c15fa73ef590b58acf2a12935c965c7ee5cec"
+        }
+      ]
+    },
+    {
+      "report": "reports/59144ce3.json",
+      "sha256": "fb2d2254602af7960df37b48a0d8519a2ec4ed4f37cdbc4874db5a3d4f8036bc",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "failed",
+          "tests": 1,
+          "exitCode": 65
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/59144ce3-ui-debug-1.log.gz",
+          "sha256": "86c9a649750812a235594109cd132885bfe6bb6b56667924d397a20ba89b9bed",
+          "originalSHA256": "445cefdfa5b979b38cc86a12773d20d41d66c704c4380ce237f10b55cde2e917"
+        }
+      ]
+    },
+    {
+      "report": "reports/d342fa30.json",
+      "sha256": "d7b28dfd8e5dcc22dad45958bdf3b4bb01cd110f64398efae8fb0bb01821871f",
+      "status": "failed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "failed",
+          "tests": 1,
+          "exitCode": 1
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/d342fa30-core-debug.log.gz",
+          "sha256": "3802466b4703bee57428bd789134c847e2e94de302af89d4fcef8d74737b7a1c",
+          "originalSHA256": "4d9e36a82b776a116c10bb12eb0d173f9f09deece71ddf6ef387a57ae0b7303f"
+        }
+      ]
+    },
+    {
+      "report": "reports/7efdb028.json",
+      "sha256": "391c9118f144da8697e9a7521f2f0b555d61a692063953d1c332690f143b4a25",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "core-debug",
+          "status": "passed",
+          "tests": 300,
+          "exitCode": 0
+        },
+        {
+          "name": "core-release",
+          "status": "passed",
+          "tests": 235,
+          "exitCode": 0
+        },
+        {
+          "name": "release-api-exclusions",
+          "status": "passed",
+          "tests": null,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/7efdb028-core-debug.log.gz",
+          "sha256": "e0cf782f71b0270a9939040332e8fd62ad8e0b0074ac69076b9cc1bcb55b44c2",
+          "originalSHA256": "eeaf65cce1e204fc3daca1b283ce516256673e40b2e1f0ed70acb73564c2cd82"
+        },
+        {
+          "path": "logs/7efdb028-core-release.log.gz",
+          "sha256": "8894fbaf0694612f3b6dba668222c3fa3ac1d624356f2579a78818de51a57077",
+          "originalSHA256": "9d1f9986d6bace9df7ea586ffb7c4d1603035881e6b239b0c329ede97c5d8302"
+        },
+        {
+          "path": "logs/7efdb028-release-api-exclusions.log.gz",
+          "sha256": "c87151b250082111a0004857fad6c4e217c1f5eab243cb9d863bc7591fd937e1",
+          "originalSHA256": "1a33704bf66c9030e5ba4ad09e5c15fa73ef590b58acf2a12935c965c7ee5cec"
+        }
+      ]
+    },
+    {
+      "report": "reports/ea762dae.json",
+      "sha256": "afb1ed9282ce1790d614914830b897f99e218c1dce36d20b302ad50813d6e916",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/ea762dae-ui-debug-1.log.gz",
+          "sha256": "8ba30d6226d82da202833c1db14fbaca9da163129d9a7eee3bf5e1db6b7dbcaa",
+          "originalSHA256": "fe1922031491bb0838adf5c4e7c08b2c8363713fa64f228dfa70095e6dd154b7"
+        }
+      ]
+    },
+    {
+      "report": "reports/aabbc8cc.json",
+      "sha256": "a1a94d724488bfe9f6650e3ed74a9b5367c392b054bb2a97afa2e48e3bc90497",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-release-1",
+          "status": "passed",
+          "tests": 1,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/aabbc8cc-ui-release-1.log.gz",
+          "sha256": "15034053f9181a494fe5fbccecb710b529800226a11a7b37e829805891e89005",
+          "originalSHA256": "98a84b77cf780eb1afc4fc085bfa401a509b52e7aa65c82d71d4c1f4c4d5788e"
+        }
+      ]
+    },
+    {
+      "report": "reports/c840f1be.json",
+      "sha256": "8af9f8c236769bc2f87a131fd267270d3cde9acc3d16b509631d97a1d0f86730",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 3,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/c840f1be-ui-debug-1.log.gz",
+          "sha256": "1890b290ff66240673ddab63567c58c1f3bc7110bf1c8533ccb91468b4bc11fc",
+          "originalSHA256": "57d3579839e391d33b29cd1c1afd48bf78fd76bd73c4ae34a3f47709d1b06612"
+        }
+      ]
+    },
+    {
+      "report": "reports/daeb3bcb.json",
+      "sha256": "d0cb93791a38c8b5dc2ec315f91099a6a924c8f160e5733ee81b410fa1a386e0",
+      "status": "passed",
+      "steps": [
+        {
+          "name": "ui-debug-1",
+          "status": "passed",
+          "tests": 2,
+          "exitCode": 0
+        }
+      ],
+      "logs": [
+        {
+          "path": "logs/daeb3bcb-ui-debug-1.log.gz",
+          "sha256": "a3fe78f536f6efee3177b6f5187c0ae1497489b01c89f6ae72675f4f1b55b46e",
+          "originalSHA256": "49df198682a7ab3bcbf1668876dd38c34cc9b82e1b1f1c2f245f8c7422ff6ae2"
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "path": "captures/phone-stone-storage-relaunch.png",
+      "sha256": "a6c6fdbbeaaf0cd2fc4572bbd8be11cb6426ba8604d7f073a2f61fbd0175fb51",
+      "profile": "phone",
+      "report": "reports/ea762dae.json",
+      "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "586DD500-A2F4-4FEF-8B82-B65A087D5B92.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "stone-storage-relaunch_0_D980648E-8B0C-41E8-BA3D-F9839B9E92B4.png",
+        "timestamp": 1795219206.144
+      }
+    },
+    {
+      "path": "captures/phone-stone-stockyard-expanded-caps.png",
+      "sha256": "3607f74ed1da98a17e17acc41cf9ff52748c310d03afee81d0d0f23a8790ac6d",
+      "profile": "phone",
+      "report": "reports/ea762dae.json",
+      "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "B15F6AE0-FC45-4FD5-B08B-FA20989477D8.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "stone-stockyard-expanded-caps_0_79CBC010-9BD5-498B-A77C-F014F35668A3.png",
+        "timestamp": 1795219191.863
+      }
+    },
+    {
+      "path": "captures/phone-stone-granary-food-only.png",
+      "sha256": "858593879fa8f283453d41eda9e7d039e2f90bff3b8c674366f5958969b8030c",
+      "profile": "phone",
+      "report": "reports/ea762dae.json",
+      "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "7855C2AC-314E-4634-ABB3-AB87EE952574.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "stone-granary-food-only_0_8EA3FF71-3897-442C-BE91-18CD442010A0.png",
+        "timestamp": 1795219132.51
+      }
+    },
+    {
+      "path": "captures/phone-stone-revealed-source.png",
+      "sha256": "7d09e3ce68ef31fc44dd042dacd5b2a3646a393615fdd73922dd9a460b463723",
+      "profile": "phone",
+      "report": "reports/ea762dae.json",
+      "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "CFCF2D45-0ADF-4052-9631-E8FDCBCD403C.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "stone-revealed-source_0_C3E8EAA9-2241-4AD3-95EE-019F1883E86D.png",
+        "timestamp": 1795219073.582
+      }
+    },
+    {
+      "path": "captures/phone-economy-lab-positive-loop.png",
+      "sha256": "c3dcb59244e762d3562e8fc6fc75408a65b2b5ec22ac150e3e8a49a04c9c32e9",
+      "profile": "phone",
+      "report": "reports/daeb3bcb.json",
+      "case": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "9A6076F4-8F03-4B97-8E3B-A74D6124A2F3.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "economy-lab-positive-loop_0_E4A10B85-AB20-4C4C-A21B-A50B048A53AF.png",
+        "timestamp": 1795219300.772
+      }
+    },
+    {
+      "path": "captures/phone-map-finds-reloaded-checkpoint.png",
+      "sha256": "a9cb13cbb7eab2eb8643fb90933977dd08c0322af27534b5c6a26071bbaaa6e5",
+      "profile": "phone",
+      "report": "reports/daeb3bcb.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "EE4F2072-CCCA-4701-9D22-F41E0EE62407.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-reloaded-checkpoint_0_DC422F1A-A24C-40E3-ACC6-BA4F93DFAB6D.png",
+        "timestamp": 1795219357.731
+      }
+    },
+    {
+      "path": "captures/phone-map-finds-tracks-observe.png",
+      "sha256": "30a2b8fabfde66f859d0dceb5c6884e7fe72794696b950331183f11117d5a790",
+      "profile": "phone",
+      "report": "reports/daeb3bcb.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "FB662E09-BAD9-4097-A2DE-07E6CA6613E7.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-tracks-observe_0_BB24D29C-49FB-4723-B588-647AFE7EEAD2.png",
+        "timestamp": 1795219340.583
+      }
+    },
+    {
+      "path": "captures/phone-map-finds-construction-wait-berries.png",
+      "sha256": "209c2f9c2520f4119f5a4328bb7481b1edecf15927c3ad2974a103e86fba2676",
+      "profile": "phone",
+      "report": "reports/daeb3bcb.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "deviceName": "iPhone 16 Pro",
+        "exportedFileName": "7CFC1B52-5B49-4CF7-A446-6D1685C4002E.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-construction-wait-berries_0_D5AD4AF8-61FE-4AD5-9587-D815771C74C5.png",
+        "timestamp": 1795219331.5
+      }
+    },
+    {
+      "path": "captures/mini-economy-lab-positive-loop.png",
+      "sha256": "3bcb918124af8e20ab63278e2107b06920eef331e93010902613345e1dfc7a29",
+      "profile": "mini",
+      "report": "reports/c840f1be.json",
+      "case": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "CA2E5782-2EA5-41B5-846E-DA4F5A54B896.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "economy-lab-positive-loop_0_CBAC255A-F5C7-45DA-94F5-3AE97CBAAA5F.png",
+        "timestamp": 1795219211.008
+      }
+    },
+    {
+      "path": "captures/mini-map-finds-reloaded-checkpoint.png",
+      "sha256": "37acfe5854bf0cd889fdd534a04f5990c3b8938d1f06f8ee26de0d30ca1a85cb",
+      "profile": "mini",
+      "report": "reports/c840f1be.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "7CD7BCAD-CB44-4605-BA7B-E135555256C8.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-reloaded-checkpoint_0_A874D028-16AC-4FC1-A8CF-EF7343A05400.png",
+        "timestamp": 1795219267.441
+      }
+    },
+    {
+      "path": "captures/mini-map-finds-tracks-observe.png",
+      "sha256": "8e89b4bb0d3d0ffe07eae2f4627061b5f1312983278a9cb43d64ccdcb768255f",
+      "profile": "mini",
+      "report": "reports/c840f1be.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "09C423A2-9D5D-413F-9061-BB73045FD7B9.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-tracks-observe_0_CC0AE950-D2CB-47C9-ABA1-7830A2665C7E.png",
+        "timestamp": 1795219249.115
+      }
+    },
+    {
+      "path": "captures/mini-map-finds-construction-wait-berries.png",
+      "sha256": "37bd506d8e0a84e39560ba83689a72754bc00de55fe1a9b7360d1ca8d7dea06c",
+      "profile": "mini",
+      "report": "reports/c840f1be.json",
+      "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "A23193EF-AE42-4339-A6E0-66E2CD2E3D4E.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "map-finds-construction-wait-berries_0_FD741426-23B3-4FF6-8E23-1152754693C3.png",
+        "timestamp": 1795219240.738
+      }
+    },
+    {
+      "path": "captures/mini-stone-storage-relaunch.png",
+      "sha256": "91c76ab8e9bb07515b68f112f6ab2052890a05b03f197382cea90af2c6e695ec",
+      "profile": "mini",
+      "report": "reports/c840f1be.json",
+      "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "6DCB8706-CF92-44F6-A942-F8474A778589.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "stone-storage-relaunch_0_162DF3C3-3981-45B6-B06E-A460E435C52E.png",
+        "timestamp": 1795219382.663
+      }
+    },
+    {
+      "path": "captures/mini-stone-stockyard-expanded-caps.png",
+      "sha256": "c12c24e705b99ada74dd7a24edbebca9fcb114b562411b8a9a1e0726f193362c",
+      "profile": "mini",
+      "report": "reports/c840f1be.json",
+      "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "4D1B40B3-19B9-4D5F-8F66-A26AFDFB59FA.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "stone-stockyard-expanded-caps_0_9E919257-D8DD-4429-8028-ABA21F5A79C9.png",
+        "timestamp": 1795219370.594
+      }
+    },
+    {
+      "path": "captures/mini-stone-granary-food-only.png",
+      "sha256": "150727b05ac782b4d637f8f52b82f84a77d45abe93ee1925c7ef59ac46c49841",
+      "profile": "mini",
+      "report": "reports/c840f1be.json",
+      "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "14A03726-4CE3-4B13-82AB-55D8DF89F06A.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "stone-granary-food-only_0_8D6B724E-B64F-46BE-92D1-525B94F61D5E.png",
+        "timestamp": 1795219339.821
+      }
+    },
+    {
+      "path": "captures/mini-stone-revealed-source.png",
+      "sha256": "7cf3556b2351740b36c67d9d84d263bbc71ca19b9835f13811e9978d3191e7dc",
+      "profile": "mini",
+      "report": "reports/c840f1be.json",
+      "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+      "attachment": {
+        "configurationName": "Test Scheme Action",
+        "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "deviceName": "iPad mini (A17 Pro)",
+        "exportedFileName": "46C71E3D-2EB8-45E0-BAF8-ECBDFF4AFF33.png",
+        "isAssociatedWithFailure": false,
+        "suggestedHumanReadableName": "stone-revealed-source_0_0F643F9B-F350-4562-9546-27B84E1F0FA9.png",
+        "timestamp": 1795219311.157
+      }
+    }
+  ],
+  "sourceSHA256": {
+    "Civilization/UI/EconomyLabView.swift": "3b1c2a83003a950b8fc765e63e644e08f7faa22b55370c7f343dd1950433104c",
+    "CivilizationUITests/RelocationUITests.swift": "47cc11dd5b1f6cf912459293b2a7c8e341ad30f7d7c245541808c8821a207779",
+    "Packages/GameCore/Sources/GameApplication/RiverbendEconomyLab.swift": "1dd89b9e443a2a2c4bd2b8c4bfad7e487149c16c6f31befb009547f76b2a49c9",
+    "Packages/GameCore/Sources/GameCore/RiverbendEconomyProfile.swift": "48f2ba7c8d96aea35b226e8444191cfc54fbdecaa280fb011193e1c317374adb",
+    "Packages/GameCore/Tests/GameCoreTests/EconomyLabTests.swift": "115ab249eb64dc5e51c25a30f04ccb1d527e90fd6ec68d00a8b6292b3ae14f5e",
+    "Packages/GameCore/Tests/GameCoreTests/StoneStorageTests.swift": "73debb1e6791c382798f2c3495b167984c3f8a7dac9122c14bd9c785516d44a9",
+    "scripts/verify-developer-release.py": "9694918aae411cf14abe11da07086b8fb414716f1f04d0985701399d135239bc",
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+    "Packages/GameCore/Sources/GameCore/GameEngine.swift": "2564e5a512fbdb0b3aa05753cfd5b5ba20faa36095e1eb6f80f5764846752a3b",
+    "Packages/GameCore/Sources/GameApplication/GameSession.swift": "6ca897d89755e7fea918ee773b9de5ae08d3593265ea38c4a63010d6b1d921ae",
+    "Packages/GameCore/Sources/GameApplication/GameLibrary.swift": "00b41d0a00d53ab14fc53b1caaf19ea53991417d11ce35731e2ce0957413a582",
+    "Packages/GameCore/Sources/GamePersistence/SaveStore.swift": "d9fc3f8bb362813ab6ea937746d8d57cade70cf685f67ce23d80e3d4f87c5e3e",
+    "Civilization.xcodeproj/project.pbxproj": "5e5a9829ecaa037c0185265ce743da8a7738cba328eb87c11efb876962ce0193",
+    "Civilization/Rendering/SettlementScene.swift": "aeb80963bd90e5914584ed01d59b455443f2ab28a3c0146cebce990d4d113fe9",
+    "Civilization/UI/DeveloperToolsView.swift": "92f200e79149f77e72ccb3e02cde7653f12769193fed009fef44f85ebdb82613"
+  },
+  "byteIdenticalToBase": [
+    "Packages/GameCore/Sources/GameCore/Resources/seed.json",
+    "Packages/GameCore/Sources/GameCore/GameEngine.swift",
+    "Packages/GameCore/Sources/GameApplication/GameSession.swift",
+    "Packages/GameCore/Sources/GameApplication/GameLibrary.swift",
+    "Packages/GameCore/Sources/GamePersistence/SaveStore.swift",
+    "Civilization.xcodeproj/project.pbxproj",
+    "Civilization/Rendering/SettlementScene.swift",
+    "Civilization/UI/DeveloperToolsView.swift"
+  ],
+  "toolkit": {
+    "total": 45,
+    "passed": 42,
+    "skipped": 3,
+    "log": "logs/toolkit-host.log",
+    "sha256": "6ca6c8ba17f02f33dea5673617793ca4149f5c1323c775cb189448913dfec340",
+    "skips": "sibling source-media art fixtures unavailable"
+  },
+  "review": {
+    "fixed": "Free reveal incorrectly included gatherer affordability. Reproduced RED d342fa30, corrected and full suite passed. Follow-up independent review found no further important accounting issue.",
+    "nativeFailure": "59144ce3: Granary not hittable after full-page test swipes. Smaller bounded swipes and hiding completed opening buttons passed ea762dae/c840f1be.",
+    "minorDeferred": [
+      "Stone source glyph may be occluded by existing building/find sprites; source coordinates and gatherer action stay visible.",
+      "Full-Stockyard hint still says add Stockyard despite one-of-each limit; bounded review ends after both storage specializations.",
+      "Inherited observed Tracks/later Berry fallback anchor overlap remains a display-only limit."
+    ],
+    "limits": [
+      "No outcrop depletion in this deterministic revealed-land fixture",
+      "No storage removal/disconnect/upgrade controls, no capacity-reduction path or retained-overflow policy introduced",
+      "No craft goods unlocked; future +24 Stockyard craft-cap hook belongs to Goal4",
+      "No human noticing/enjoyment or physical metrics",
+      "No process-kill-in-atomic-replacement-window experiment"
+    ]
+  }
+}
