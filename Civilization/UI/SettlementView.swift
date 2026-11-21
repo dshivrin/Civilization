@@ -838,8 +838,9 @@ struct SettlementView: View {
             }.padding(16).frame(maxWidth: .infinity, alignment: .leading)
         }.accessibilityIdentifier("buildingInspection")
         if session.configuration.isRiverbendPlayer && building.kind != .campfire {
-            Button("Move building") { session.beginRelocation(buildingID: building.id) }
-                .frame(maxWidth: .infinity, minHeight: 48).buttonStyle(.bordered)
+            Button { session.beginRelocation(buildingID: building.id) } label: {
+                Text("Move building").frame(maxWidth: .infinity, minHeight: 48).contentShape(Rectangle())
+            }.buttonStyle(.bordered)
                 .padding(.horizontal, 12).padding(.bottom, 8).accessibilityIdentifier("moveBuilding")
         }
         }.background(panelColor, in: RoundedRectangle(cornerRadius: 18))

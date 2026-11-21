@@ -2697,6 +2697,7 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertTrue(app.buttons["newNormalGame"].waitForExistence(timeout: 30)); app.buttons["newNormalGame"].tap()
         XCTAssertTrue(app.otherElements["settlementMap"].waitForExistence(timeout: 30))
         XCTAssertTrue(app.buttons["settlementMenu"].waitForExistence(timeout: 5))
+        XCTAssertGreaterThan(app.frame.width, app.frame.height, "Ordinary HUD stays in landscape")
         for id in ["toggleGoals", "openExplore", "openResearch", "openBuild", "settlementMenu"] {
             let button = app.buttons[id]
             XCTAssertTrue(button.isHittable, id)
@@ -2758,6 +2759,7 @@ final class NormalEntryUITests: XCTestCase {
         for _ in 0..<8 where !link.isHittable { panel.swipeUp() }
         XCTAssertTrue(link.isHittable); link.tap()
         XCTAssertTrue(app.descendants(matching: .any)["focusedResearch-exploration"].waitForExistence(timeout: 5))
+        XCTAssertGreaterThan(app.frame.width, app.frame.height, "Research stays in landscape")
         let research = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); research.name = "stone-hud-04-exact-expedition-research"; research.lifetime = .keepAlways; add(research)
         app.buttons["returnToSource"].tap()
         XCTAssertTrue(panel.waitForExistence(timeout: 5)); XCTAssertTrue(link.isHittable)
@@ -2839,6 +2841,7 @@ final class NormalEntryUITests: XCTestCase {
         XCTAssertTrue(inspector.exists)
         if app.frame.width < 1000 { XCTAssertGreaterThan(inspector.frame.midY, app.frame.midY) }
         else { XCTAssertGreaterThan(inspector.frame.midX, app.frame.midX) }
+        XCTAssertGreaterThan(app.frame.width, app.frame.height, "Catalog stays in landscape")
         let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot()); shot.name = "riverbend-contextual-catalog-and-return"; shot.lifetime = .keepAlways; add(shot)
         app.buttons["closeCatalog"].tap(); app.buttons["Build"].tap()
         XCTAssertEqual(search.value as? String, "scout")
