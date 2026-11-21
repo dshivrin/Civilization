@@ -1,0 +1,14 @@
+{
+  "case": "RelocationUITests/testFirstCraftGatherCraftSpendAndReload()",
+  "attachment": {
+    "configurationName": "Test Scheme Action",
+    "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+    "deviceName": "iPhone 16 Pro",
+    "exportedFileName": "D7EC53CF-4F0A-4E73-ABA1-37AB7ECA7623.png",
+    "isAssociatedWithFailure": false,
+    "suggestedHumanReadableName": "craft-unhittable-labStorage-stockyard_0_AD815A5F-2AFA-4E09-A432-4B81C6E5CBF9.png",
+    "timestamp": 1795220786.03
+  },
+  "sha256": "5ecaeb81dbe35ca497faf31f65ec5c42e12ac6fcc7c88d30d21968c9b1ef3560",
+  "report": "reports/goal4-phone-craft.json"
+}

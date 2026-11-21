@@ -1,0 +1,9 @@
+{
+  "Packages/GameCore/Sources/GameApplication/RiverbendEconomyLab.swift": "3af93c08c525e252146ad08de8da2403e8e86ae87498a6a156efec266893f6a0",
+  "Civilization/UI/EconomyLabView.swift": "47ef363de668621d297d6f7db28208860e16590f9990535b0d00261c0d7e1f36",
+  "CivilizationUITests/RelocationUITests.swift": "a8f2a4e4aed51bec7c6b063f09110e63911b111ca75e876241b957e5c251cab5",
+  "Packages/GameCore/Tests/GameCoreTests/FirstCraftTests.swift": "64e499352caa947486074c7be9bb69bc724ffa17fd040319a6445dbfc21b8465",
+  "Packages/GameCore/Tests/GameCoreTests/EconomyLabTests.swift": "25b5b9cd7a25e018292e501edea1862af1bed6224303c0a7fa9758a8876ac1be",
+  "scripts/verify-developer-release.py": "3215efbe92f436ff98fed3d0ce98f9e7dccc7e7dd3378678522856e2f7936046",
+  "Packages/GameCore/Sources/GameCore/RiverbendEconomyProfile.swift": "48f2ba7c8d96aea35b226e8444191cfc54fbdecaa280fb011193e1c317374adb"
+}

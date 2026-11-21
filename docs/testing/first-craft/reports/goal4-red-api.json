@@ -1,0 +1,38 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": "firstCraft",
+    "simulator": [],
+    "only_testing": [],
+    "output": "/tmp/goal4-red-api",
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-debug",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/5cd7/Civilazation/Packages/GameCore",
+        "--filter",
+        "firstCraft"
+      ],
+      "exitCode": 1,
+      "status": "failed",
+      "tests": 0,
+      "durationSeconds": 3.022,
+      "log": "/private/tmp/goal4-red-api/core-debug.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T00:18:43.100313+00:00",
+  "revision": {
+    "commit": "21a3568159cb04fd5ef34fb5ca6f69fd6c0a019c",
+    "dirty": true
+  },
+  "status": "failed"
+}

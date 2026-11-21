@@ -1,0 +1,58 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [
+      "390CFA90-D4C9-40F9-BA4A-FE3489C20809"
+    ],
+    "only_testing": [
+      "CivilizationUITests/RelocationUITests/testFirstCraftGatherCraftSpendAndReload",
+      "CivilizationUITests/RelocationUITests/testStoneStorageRevealCollectSpendAndReload",
+      "CivilizationUITests/RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload",
+      "CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+    ],
+    "output": "/tmp/goal4-mini-final"
+  },
+  "steps": [
+    {
+      "name": "ui-debug-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/.codex/worktrees/5cd7/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-resultBundlePath",
+        "/private/tmp/goal4-mini-final/ui-debug-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/RelocationUITests/testFirstCraftGatherCraftSpendAndReload",
+        "-only-testing:CivilizationUITests/RelocationUITests/testStoneStorageRevealCollectSpendAndReload",
+        "-only-testing:CivilizationUITests/RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload",
+        "-only-testing:CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 4,
+      "durationSeconds": 439.969,
+      "log": "/private/tmp/goal4-mini-final/ui-debug-1.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T00:35:04.420592+00:00",
+  "revision": {
+    "commit": "21a3568159cb04fd5ef34fb5ca6f69fd6c0a019c",
+    "dirty": true
+  },
+  "status": "passed"
+}
