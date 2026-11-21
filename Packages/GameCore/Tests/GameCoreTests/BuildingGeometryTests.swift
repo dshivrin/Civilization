@@ -154,13 +154,13 @@ private func geometrySite(_ g: GameEngine, _ kind: BuildingKind, _ orientation: 
     #expect(session.previewFootprint == nil)
     session.beginRelocation(buildingID:1)
     #expect(session.previewFootprint == BuildingFootprint(width:2,height:3))
-    #expect(session.state == g.state)
+    #expect(withoutCompletionInbox(session.state) == g.state)
     session.cancel()
     #expect(session.previewFootprint == nil)
     session.choose(.hut)
     #expect(session.previewFootprint == BuildingFootprint(width:4,height:4))
     session.cancel()
-    #expect(session.state == g.state)
+    #expect(withoutCompletionInbox(session.state) == g.state)
 }
 
 @Test func rectangularTurnRejectsOnlyNewlyCoveredUndiscoveredEdge() throws {

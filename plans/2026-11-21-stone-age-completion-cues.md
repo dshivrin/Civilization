@@ -49,3 +49,17 @@ history is connected only when already durable and relevant to a real destinatio
   waiting call and used authorized Git fallback at /private/tmp/civilization-stone-age-completion-cues.
 - Pre-flight: Task 1 durable IDs/unread and transient delivery are consumed by Task 2;
   content acknowledgement uses the same exact IDs. Task 3 must test the integrated tree.
+- Task 1: complete. Initial command/unread/pulse/acknowledgement tests observed RED,
+  then GREEN. Core 354 Debug /261 Release +23 exclusion probes pass in
+  /private/tmp/civilization-qa-9e7049ea3196424fa39c2e58a3deffe7.
+  Seventh completion test (actual library game switching) passes in scoped
+  /private/tmp/civilization-qa-a31c8d803e33449e8867d6eb1326b7b0.
+- Ruling: existing whole-state preservation assertions now compare gameplay with
+  only the additive notification inbox removed; dedicated tests cover the inbox.
+  This preserves every original gameplay assertion while allowing the intentional
+  silent historical baseline. Cost if wrong: presentation regressions must be
+  caught by the dedicated completion tests rather than those geometry/library tests.
+- Native RED confirms missing HUD unread value. Follow-up compile found undefined
+  color token (fixed to existing panelColor). Native test route corrected from
+  Culture to actual Science and split into independent authentic games because
+  Lodge+Hut spend all opening Wood. No balance or grant change was made.

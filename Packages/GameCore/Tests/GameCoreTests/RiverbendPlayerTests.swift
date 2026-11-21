@@ -267,7 +267,7 @@ import GamePersistence
     try SaveStore(url: backup).save(GameEngine(configuration: .legacyDevelopment(), now: now).state)
     let bytes = try Data(contentsOf: url), oldBytes = try Data(contentsOf: backup)
     let library = try await GameLibrary.load(rootURL: root, clock: { now })
-    #expect(library.session.state == state)
+    #expect(withoutCompletionInbox(library.session.state) == state)
     #expect(library.games.first?.mapID == state.mapID)
     #expect(try Data(contentsOf: url) == bytes && Data(contentsOf: backup) == oldBytes)
 }

@@ -106,6 +106,8 @@ public enum SettlementOperatingRules: String, Codable, Sendable {
 }
 
 public struct GameState: Codable, Equatable, Sendable {
+    /// Additive presentation history; absent in pre-cue saves.
+    public var completionInbox: CompletionInbox? = nil
     public var riverbend: RiverbendProgress? = nil
     public var mapID: String
     public var resources: ResourceAmounts

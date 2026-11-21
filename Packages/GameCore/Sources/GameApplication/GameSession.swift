@@ -132,6 +132,22 @@ public final class GameSession {
     @ObservationIgnored private var savesEnabled = true
     @ObservationIgnored private var isActive = true
     @ObservationIgnored private var lastSaved = Date.distantPast
+    public private(set) var completionSequence = 0
+    public private(set) var latestCompletions: [EarnedCompletion] = []
+    public func unreadCompletions(for destination: CompletionDestination) -> Set<String> {
+        Set(engine.earnedCompletions.filter { $0.destination == destination && (state.completionInbox?.unread.contains($0.id) ?? false) }.map(\.id))
+    }
+    public func acknowledgeCompletions(_ ids: Set<String>) {
+        guard savesEnabled, !(state.completionInbox?.unread.intersection(ids).isEmpty ?? true) else { return }
+        #if DEBUG
+        guard !isDeveloperMode else { return }
+        #endif
+        let before = engine
+        engine.acknowledgeCompletions(ids)
+        do { try writeCurrentState(); lastSaved = clock(); persistenceWarning = nil }
+        catch { engine = before; persistenceWarning = "Results could not be marked read: " + error.localizedDescription }
+    }
+    @ObservationIgnored private var deliveredCompletionIDs: Set<String> = []
     public var message = "Welcome to Riverbend. Build your first gathering shelter."
     public var persistenceWarning: String?
     public var storageSpecialization: StorageSpecialization = .stockyard
@@ -360,6 +376,8 @@ public final class GameSession {
         #endif
         engine = restoration.engine
         mapIdentity = restoration.engine.state.mapID
+        engine.prepareCompletionInbox()
+        deliveredCompletionIDs = engine.state.completionInbox?.seen ?? []
         message = restoration.message
         persistenceWarning = restoration.warning
         savesEnabled = restoration.warning == nil
@@ -406,11 +424,17 @@ public final class GameSession {
     }
     private func writeCurrentState() throws {
         #if DEBUG
-        if isDeveloperMode { try writeDeveloperState(engine.state, to: activeDeveloperStore, review: isGameplayReview, original: originalScenarioState) }
-        else { try store.save(engine.state) }
-        #else
-        try store.save(engine.state)
+        if isDeveloperMode {
+            try writeDeveloperState(engine.state, to: activeDeveloperStore, review: isGameplayReview, original: originalScenarioState)
+            return
+        }
         #endif
+        try store.save(engine.state)
+        let fresh = engine.earnedCompletions.filter {
+            (state.completionInbox?.unread.contains($0.id) ?? false) && !deliveredCompletionIDs.contains($0.id)
+        }
+        deliveredCompletionIDs.formUnion(state.completionInbox?.seen ?? [])
+        if !fresh.isEmpty { latestCompletions = fresh; completionSequence += 1 }
     }
     public func save() {
         guard savesEnabled else { return }

@@ -409,6 +409,7 @@ public struct GameEngine: Sendable {
             if state.completedPillarGoals?.count == pillarGoals.count && (configuration.requiresCompleteStoneAgeCatalog != true || fullStoneAgeRequirementsMet) { state.stoneAgeCompleted = true }
         }
         recordJourneyProgress()
+        recordCompletionInbox()
     }
     private func validateState() throws {
         func require(_ condition: Bool, _ reason: String) throws { if !condition { throw GameError.invalidSave(reason) } }
