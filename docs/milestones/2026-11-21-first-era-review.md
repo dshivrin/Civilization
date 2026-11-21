@@ -1,0 +1,60 @@
+# Goal 5 — Riverbend First-Era Review
+
+**Verified technical review only**, 21 November 2026. Exact predecessor **1ca410d3332321ccdce4bad5e2b20ad2a2b14923**, independently matched to `origin/economy-first-craft-review`. Fresh managed worktree `/Users/dima/.codex/worktrees/bed1/Civilazation`, distinct branch `economy-first-era-integration-review`. Read main **4ec56dc37cb54a39d454412c2257f8f7fdb7f3c3** E4/foundation without merging. The four economy slices are already in the predecessor ancestry; no cherry-pick, conflict or additional visual integration. No independent V1 proof was selected; artwork does not hold this economy review.
+
+## Result A — unchanged ordinary Stone Age readiness
+
+The existing **Release** `freshStoneAgeCompletesThroughRealResearchAndProduction` earns a fresh ordinary bundled settlement using public build, research, production-mode, upgrade and exploration commands and unmodified costs/timers. It verifies all catalog types, 20 technologies, all seven chapters, all five pillars, identified required territories and the existing readiness flag, then exports through its existing test-only `CIVILIZATION_PLAYTHROUGH_SAVE` seam. This run reaches readiness at **9300 simulated seconds** (155 minutes), population15,23 buildings and704 discovered tiles. No Debug grants or modified thresholds. The exported save is production-validated without byte changes.
+
+The separate existing guidance suite reaches the same existing readiness in **7765.5/8813 simulated seconds** at15s/60s decision cadence (129.4/146.9minutes),48 actions each. Longest continuous scripted waits are807.5/721seconds. Knowledge accounts for5992/5173seconds of waiting; these are real ordinary costs and model time, not wall-clock novice sessions. Current results supersede historical S1-PLAY timings for this checkpoint; the historical reports remain unchanged. The suite also reproduces zero Wood after poor worker priorities and restores ordinary Hut affordability through advice, priorities and reload without grants.
+
+Native Release `NormalCompletionUITests` verifies the legitimately earned final state across two ordinary launches: Continue,7/7 chapters, Stone Age complete, Bronze-readiness text and available Hut construction in the continued sandbox. The fixture is copied externally only into a previously absent, distinct completion-only simulator app identity with an empty Civilization directory. No Release import API, product source, signing or owner save access is involved. The native test verifies presentation/persistence of earned readiness; the deterministic public-command tests establish the complete chapter route. **Playable Bronze is unavailable.**
+
+Completion uses the checked-in runner’s documented S1-PLAY exception: `build-for-testing`, guarded external fixture copy and `test-without-building`. Its existing `run_step(require_tests=True)` and report writer retain exact commands, counts and logs. The normal `dev.py test` unprepared-completion refusal remains unchanged; no new runner, weakened guard or app import hook is introduced.
+
+Native Release ordinary New Game/Continue, paid building persistence and separate second-game retention are independently exercised by `NormalEntryUITests` through `python3 scripts/dev.py`. These are distinct from the earned completion fixtures.
+
+## Result B — waterless Debug Lab checkpoint
+
+The fresh Lab route ends at the **spent Woodcutter improvement**, not ordinary era readiness. Existing phone+iPad native opening, ignore-both finds, optional Gather/Observe, Stone/storage, and first craft/relaunch tests are retained. A new native delayed/depleted route starts from a fresh UUID-isolated fixture, uses33 explicit one-minute review steps to exhaust Food, builds the Hut, observes the disabled8Food survey, forages to12 twice without stacking a grant, and pays8Food once. It waits at real1× speed for the survey instead of stepping that timer. Woodcutter and Gathering Shelter create the positive opening, then the Stone gatherer and exact18Wood+6Stone Stockyard block demonstrate a reachable cost/staffing delay. Both storage roles complete before Toolmaking.
+
+Toolmaking initially blocks without Flint and displays its source, batch2Wood+2Flint→1Tool/60s, and3Tool improvement cost. The gatherer switches to exclusive Flint; the first paid batch completes on real1× time, the other two use explicitly labeled review steps. Three Tools are spent once; output reads8Wood/min, Tools0, persistent completed project on reopening. Opening and recovery do not depend on resolving finds. No outcrop depletion is claimed; depleted stocks and delayed production are distinct from depletion of deposits.
+
+Final observed active waits are **phone 65.094s survey / 67.095s Tool batch**, **iPad 64.375s / 66.060s**; original screenshots and raw observations are recorded in the pinned evidence. Stopwatch intervals begin after navigating to the timer and end when XCTest observes completion; they are observations of active1× timers, not exact timer benchmarks. The33-minute delay, growth/resource waits and stepped batches are simulation advances, never described as real wall-clock waits. Pause-on-close/no offline catch-up remains.
+
+## Review observations
+
+The opening guide names the Hut/cost, survey guide and button name the next forest action, and legal placement provides candidate/Next site/Confirm. At zero Food, the disabled survey exposes8Food and existing recovery is available lower in the panel. Later the Stockyard error names18Wood+6Stone; outcrop guidance and staffing text explain growth to population5 before full third-producer output. Craft source/full costs/effect appear before payment and the final guide records the permanent payoff. These are inspectable controls and successful scripted actions; no novice comprehension or enjoyment is inferred.
+
+Minor friction remains: compact-panel scrolling/clipping (parts of long inventory rows and the phone completed-guide first line can clip at the edge), recovery does not replace the primary guide when a survey is unaffordable, the guide can suggest optional Toolmaking while a selected storage cost is blocked (the exact cost remains in the same-panel error), inherited source glyph occlusion and occasional Tracks/Berry anchor overlap. Ordinary guidance still has substantial Knowledge waits. These are review questions, not reproduced severe blockers authorizing a redesign. No gameplay/product fix is made.
+
+## Captured flow review
+
+Current-run native XCTest captures are presented in the [ordered gallery](../testing/first-era-review/index.html); each original PNG links to exact case/device/time/hash metadata. This is a bounded UX review of the supported Lab path using existing controls, not a redesign or a full accessibility audit.
+
+| Step | Visible state / health | Observation tied to capture |
+|---|---|---|
+| 1 | Fresh opening — clear | `first-era-fresh-next-action`: Hut price and 15s timer and primary guide are visible; normal Water is absent from this separate Lab. |
+| 2 | Food depleted — recoverable friction | `first-era-survey-blocked-eight-food`: zero Food, disabled8Food survey. Recovery exists lower in the panel; primary guide still proposes the survey. |
+| 3 | Paid survey — clear | `first-era-survey-paid-wait`:8Food already paid and remaining timer; native active1× observation then verifies completion. |
+| 4 | Storage block — recoverable friction | `first-era-stockyard-blocked-cost`: exact18Wood+6Stone error, partial staffing/production and growth explanation. Main guide can propose optional craft rather than resolving this selected block. |
+| 5 | Craft opportunity — clear after scrolling | `craft-source-cost-and-project` and `first-era-craft-blocked-flint-source`: shared source, missing Flint, exclusive modes, complete batch/project costs and lasting benefit before payment. |
+| 6 | Recovered checkpoint — clear | `first-era-recovered-reopen`: Tools0, Wood+8/min and permanent completion guide survive reopening; native assertion then returns to ordinary 64×48 one-building map. Separate first-craft test covers app relaunch. |
+
+Accessibility risks visible here are overlapping find labels/source glyphs and the amount of scrolling in a compact panel. Disabled control text is visually muted; contrast ratios, Dynamic Type reflow, VoiceOver focus/order and motor accessibility are unmeasured. Screenshots and successful scripted hits cannot establish those outcomes. Keep existing recovery, costs and source text available; review guide emphasis and compact hierarchy in the coordinator's separately scoped Interface Round2. No severe blocker requires a product change in this technical gate.
+
+## Verification and preservation
+
+Full checked-in runner: **308 Debug / 235 Release and 16 Release API exclusions**. Protected source verification covers **108 unchanged files**; all 59 pinned Goal4 report/log/capture/artifact files still match their inherited hashes. Phone and iPad each pass all5Lab routes; the final iPad recovery framing/map-return check passes separately. Both profiles each pass1ordinary Release entry case and1earned-completion case across2launches. Independent final whole-branch review found no blocking issue. Exact native counts, destinations, logs, original captures, source pins, failed attempts and independent review are in [verification.json](../testing/first-era-review/verification.json). No build-only or zero-selection result counts as native verification. The authentic Normal/Developer/connected-Round2/library fixture byte comparison executes through craft/spend/finds/reload in the full core suite. Existing core tests also cover zero Food/Wood before and after the Hut; native depletion here is zero Food and an unaffordable storage stock, with no claim of deposit depletion. Protected app/core/persistence/assets/project/runner bytes match the exact predecessor. Only test coverage and review documentation/evidence change.
+
+Initial ordinary sandbox Git branch and simulator-inventory denials are disclosed. The first external iPad completion install failed because the destination was Shutdown; no fixture was written. The corrected workflow explicitly boots the target, confirms absent identity and directory, and runs completion with parallel testing disabled. Failed attempts are separate from passing evidence.
+
+No ordinary Water/economy/schema/readiness change, migration, production or normal-appearance activation, R2-07/GateB, runtime art/original media change, physical access/install, signing change, main merge, Empire or playable Bronze. Original milestones remain intact. End this context after verified push; **only the coordinator starts the separately queued Interface Round2 after this technical gate**, without implying production approval.
+
+## Short owner playtest guide
+
+1. Ordinary Release: New Game → follow the chapter guide and All seven chapters; early Knowledge needs civic/circle investment. Continue retains the chosen game, Games switches independent games. Readiness says Stone Age complete/Bronze unlocked, with continued sandbox and no Bronze gameplay.
+2. Debug: enter any ordinary game → Developer tools → Open separate Food and Wood lab. Build Hut (12 Wood), survey (8 Food / 60s), place legal Woodcutter (4 Wood) and Gathering Shelter (8 Wood). Recovery floors are Food 12 / Wood 12 before Hut or 8 after; use them when blocked.
+3. After positive Food/Wood: free Stone reveal, gatherer (10 Wood); allow growth to 5 for a third full field slot. Granary (14 Wood + 4 Stone) adds 60 Food; Stockyard (18 Wood + 6 Stone) adds 60 Wood/Stone, never Food.
+4. Free Toolmaking reveal → switch the one gatherer to Flint (4/min) → start three separate 2 Wood + 2 Flint / 60s batches → spend 3 Tools once. Read 8 Wood/min and completion marker; close/reopen/relaunch. Finds are optional and ignored by this recovery route.
+5. Leave the Lab idle to inspect Food pressure, try an unaffordable survey/storage action, recover and read its source/cost. Review time controls are explicit; closing pauses the Lab. This review build is not installed on a physical device by this task.

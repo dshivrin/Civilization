@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "tests": 0,
+  "reason": "Simulator target was Shutdown; install failed before any fixture write. Native runner had used its own clone. Retry explicitly boots target and disables parallel testing for completion.",
+  "logs": [
+    "empty-identity-preflight.txt",
+    "install-isolated-release.log"
+  ]
+}

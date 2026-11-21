@@ -1,0 +1,32 @@
+{
+  "scope": {
+    "command": "validate-saves",
+    "root": "/tmp/goal5-earned-validation/Civilization",
+    "sourceByteIdentical": true
+  },
+  "steps": [
+    {
+      "name": "validate-saves",
+      "command": [
+        "swift",
+        "run",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/bed1/Civilazation/Tools/SaveInspector",
+        "SaveInspector",
+        "/private/tmp/goal5-earned-validation/Civilization"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 8.17,
+      "log": "/private/tmp/goal5-earned-validation-report/validate-saves.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T00:50:51.649871+00:00",
+  "revision": {
+    "commit": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+    "dirty": true
+  },
+  "status": "passed"
+}

@@ -1,0 +1,53 @@
+{
+  "scope": {
+    "approvedS1PlayExternalFixture": true,
+    "releaseFixtureAPI": false,
+    "simulator": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+    "bundle": "com.civilization.seed.goal5complete.bed1"
+  },
+  "steps": [
+    {
+      "name": "install-isolated-release",
+      "command": [
+        "xcrun",
+        "simctl",
+        "install",
+        "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "/tmp/goal5-completion-build/Build/Products/Release-iphonesimulator/Civilization.app"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 1.205,
+      "log": "/tmp/goal5-mini-completion-booted/install-isolated-release.log"
+    },
+    {
+      "name": "ordinary-release-completion",
+      "command": [
+        "xcodebuild",
+        "test-without-building",
+        "-xctestrun",
+        "/tmp/goal5-completion-build/Build/Products/Civilization_iphonesimulator27.2-arm64-x86_64.xctestrun",
+        "-destination",
+        "platform=iOS Simulator,id=390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+        "-parallel-testing-enabled",
+        "NO",
+        "-resultBundlePath",
+        "/tmp/goal5-mini-completion-booted/completion.xcresult",
+        "-only-testing:CivilizationUITests/NormalCompletionUITests"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 1,
+      "durationSeconds": 35.928,
+      "log": "/tmp/goal5-mini-completion-booted/ordinary-release-completion.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T00:52:35.077247+00:00",
+  "revision": {
+    "commit": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+    "dirty": true
+  },
+  "status": "passed"
+}

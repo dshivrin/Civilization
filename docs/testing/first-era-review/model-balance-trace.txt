@@ -1,0 +1,20 @@
+LAB_TRACE start seconds=0.0 food=32.0 wood=32.0 foodNet=-1.0 woodNet=0.0 people=3
+LAB_TRACE hut seconds=15.0 food=31.75 wood=20.0 foodNet=-1.0 woodNet=0.0 people=3
+LAB_TRACE survey-paid seconds=15.0 food=23.75 wood=20.0 foodNet=-1.0 woodNet=0.0 people=3
+LAB_TRACE forest seconds=75.0 food=22.75 wood=20.0 foodNet=-1.0 woodNet=0.0 people=3
+LAB_TRACE woodcutter seconds=95.0 food=22.416666666666668 wood=16.0 foodNet=-1.0 woodNet=6.0 people=3
+LAB_TRACE gatherer seconds=115.0 food=22.083333333333336 wood=10.0 foodNet=7.0 woodNet=6.0 people=3
+LAB_TRACE minute10 seconds=600.0 food=60.0 wood=58.5 foodNet=5.0 woodNet=6.0 people=5
+CRAFT_TRACE opening-and-stone seconds=810.0 food=60.0 wood=56.0 stone=3.3333333333333335 flint=0.0 tools=0.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE opportunity-free seconds=810.0 food=60.0 wood=56.0 stone=3.3333333333333335 flint=0.0 tools=0.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE six-flint seconds=900.0 food=60.0 wood=60.0 stone=3.3333333333333335 flint=6.0 tools=0.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE batch-1-paid seconds=900.0 food=60.0 wood=58.0 stone=3.3333333333333335 flint=4.0 tools=0.0 woodNet=6.0 batch=60.0 improved=false
+CRAFT_TRACE batch-1-complete seconds=960.0 food=60.0 wood=60.0 stone=8.333333333333334 flint=4.0 tools=1.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE batch-2-paid seconds=960.0 food=60.0 wood=58.0 stone=8.333333333333334 flint=2.0 tools=1.0 woodNet=6.0 batch=60.0 improved=false
+CRAFT_TRACE batch-2-complete seconds=1020.0 food=60.0 wood=60.0 stone=13.333333333333334 flint=2.0 tools=2.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE batch-3-paid seconds=1020.0 food=60.0 wood=58.0 stone=13.333333333333334 flint=0.0 tools=2.0 woodNet=6.0 batch=60.0 improved=false
+CRAFT_TRACE batch-3-complete seconds=1080.0 food=60.0 wood=60.0 stone=18.333333333333336 flint=0.0 tools=3.0 woodNet=6.0 batch=0.0 improved=false
+CRAFT_TRACE three-tools-spent seconds=1080.0 food=60.0 wood=60.0 stone=18.333333333333336 flint=0.0 tools=0.0 woodNet=8.0 batch=0.0 improved=true
+CRAFT_TRACE reloaded seconds=1080.0 food=60.0 wood=60.0 stone=18.333333333333336 flint=0.0 tools=0.0 woodNet=8.0 batch=0.0 improved=true
+CRAFT_TRACE stockyard-headroom seconds=1200.0 food=60.0 wood=58.0 stone=22.333333333333336 flint=0.0 tools=0.0 woodNet=8.0 batch=0.0 improved=true
+CRAFT_TRACE improved-one-minute-output seconds=1260.0 food=60.0 wood=66.0 stone=27.333333333333336 flint=0.0 tools=0.0 woodNet=8.0 batch=0.0 improved=true

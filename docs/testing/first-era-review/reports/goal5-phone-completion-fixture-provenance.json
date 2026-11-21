@@ -1,0 +1,9 @@
+{
+  "bundle": "com.civilization.seed.goal5complete.bed1",
+  "simulator": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+  "source": "/tmp/goal5-earned-normal.json",
+  "sha256": "907e531aa3fde4efe8e990855bc2cea7d74d425b1ac3da5146c03962ba155e2b",
+  "emptyIdentityBeforeInstall": true,
+  "emptyCivilizationDirectoryBeforeCopy": true,
+  "container": "/Users/dima/Library/Developer/CoreSimulator/Devices/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB/data/Containers/Data/Application/237E218C-462C-4DEC-A6C3-5F1438D8412C"
+}

@@ -1,0 +1,955 @@
+{
+  "actions" : [
+    {
+      "action" : "build(GameCore.BuildingKind.gatheringShelter)",
+      "atSeconds" : 0,
+      "constructionDurationSeconds" : 20,
+      "title" : "Build Gathering shelter"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.woodcutter)",
+      "atSeconds" : 60,
+      "constructionDurationSeconds" : 20,
+      "title" : "Build Woodcutter"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.hut)",
+      "atSeconds" : 120,
+      "constructionDurationSeconds" : 15,
+      "title" : "Build Hut"
+    },
+    {
+      "action" : "research(\"oralTradition\")",
+      "atSeconds" : 180,
+      "title" : "Research Oral Tradition"
+    },
+    {
+      "action" : "upgrade(0)",
+      "atSeconds" : 240,
+      "title" : "Upgrade to Gathering Place"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.stoneGatherer)",
+      "atSeconds" : 300,
+      "constructionDurationSeconds" : 20,
+      "title" : "Build Stone gatherer"
+    },
+    {
+      "action" : "research(\"hunting\")",
+      "atSeconds" : 516,
+      "title" : "Research Hunting"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.huntingLodge)",
+      "atSeconds" : 576,
+      "constructionDurationSeconds" : 30,
+      "title" : "Build Hunting lodge"
+    },
+    {
+      "action" : "research(\"fishing\")",
+      "atSeconds" : 932,
+      "title" : "Research Fishing"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.fishingShelter)",
+      "atSeconds" : 992,
+      "constructionDurationSeconds" : 30,
+      "title" : "Build Fishing shelter"
+    },
+    {
+      "action" : "research(\"naturalKnowledge\")",
+      "atSeconds" : 1618,
+      "title" : "Research Natural Knowledge"
+    },
+    {
+      "action" : "research(\"cultivation\")",
+      "atSeconds" : 1951,
+      "title" : "Research Cultivation"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.farm)",
+      "atSeconds" : 2011,
+      "constructionDurationSeconds" : 30,
+      "title" : "Build Farm"
+    },
+    {
+      "action" : "research(\"animalDomestication\")",
+      "atSeconds" : 2366,
+      "title" : "Research Animal Domestication"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.animalPen)",
+      "atSeconds" : 2426,
+      "constructionDurationSeconds" : 30,
+      "title" : "Build Animal pen"
+    },
+    {
+      "action" : "research(\"stoneTools\")",
+      "atSeconds" : 2760,
+      "title" : "Research Stone Tools"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.stoneGatherer)",
+      "atSeconds" : 2820,
+      "constructionDurationSeconds" : 20,
+      "title" : "Build Stone gatherer"
+    },
+    {
+      "action" : "recipe(9, \"clay\")",
+      "atSeconds" : 2880,
+      "title" : "Choose Gather clay"
+    },
+    {
+      "action" : "research(\"pottery\")",
+      "atSeconds" : 3243,
+      "title" : "Research Pottery"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.potteryWorkshop)",
+      "atSeconds" : 3303,
+      "constructionDurationSeconds" : 30,
+      "title" : "Build Pottery workshop"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.hut)",
+      "atSeconds" : 3543,
+      "constructionDurationSeconds" : 15,
+      "title" : "Build Hut"
+    },
+    {
+      "action" : "research(\"foodPreservation\")",
+      "atSeconds" : 3954,
+      "title" : "Research Food Preservation"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.toolmaker)",
+      "atSeconds" : 4014,
+      "constructionDurationSeconds" : 30,
+      "title" : "Build Toolmaker"
+    },
+    {
+      "action" : "research(\"leatherworking\")",
+      "atSeconds" : 4327,
+      "title" : "Research Leatherworking"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.tannery)",
+      "atSeconds" : 4387,
+      "constructionDurationSeconds" : 30,
+      "title" : "Build Tannery"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.storehouse)",
+      "atSeconds" : 4447,
+      "constructionDurationSeconds" : 30,
+      "title" : "Build Storehouse"
+    },
+    {
+      "action" : "research(\"construction\")",
+      "atSeconds" : 4566,
+      "title" : "Research Construction"
+    },
+    {
+      "action" : "research(\"basketry\")",
+      "atSeconds" : 4816,
+      "title" : "Research Basketry"
+    },
+    {
+      "action" : "research(\"rituals\")",
+      "atSeconds" : 5191,
+      "title" : "Research Rituals"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.shrine)",
+      "atSeconds" : 5251,
+      "constructionDurationSeconds" : 36,
+      "title" : "Build Shrine"
+    },
+    {
+      "action" : "research(\"herbalMedicine\")",
+      "atSeconds" : 5735,
+      "title" : "Research Herbal Medicine"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.healersHut)",
+      "atSeconds" : 5795,
+      "constructionDurationSeconds" : 31.5,
+      "title" : "Build Healer’s hut"
+    },
+    {
+      "action" : "research(\"burialTraditions\")",
+      "atSeconds" : 6042,
+      "title" : "Research Burial Traditions"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.burialGround)",
+      "atSeconds" : 6102,
+      "constructionDurationSeconds" : 31.5,
+      "title" : "Build Burial ground"
+    },
+    {
+      "action" : "research(\"socialOrder\")",
+      "atSeconds" : 6883,
+      "title" : "Research Social Order"
+    },
+    {
+      "action" : "research(\"permanentSettlement\")",
+      "atSeconds" : 7133,
+      "title" : "Research Permanent Settlement"
+    },
+    {
+      "action" : "upgrade(0)",
+      "atSeconds" : 7193,
+      "title" : "Upgrade to Council Circle"
+    },
+    {
+      "action" : "research(\"exploration\")",
+      "atSeconds" : 7288,
+      "title" : "Research Exploration"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.scoutCamp)",
+      "atSeconds" : 7348,
+      "constructionDurationSeconds" : 27,
+      "title" : "Build Scout camp"
+    },
+    {
+      "action" : "research(\"surveillance\")",
+      "atSeconds" : 7602,
+      "title" : "Research Surveillance"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.watchtower)",
+      "atSeconds" : 7662,
+      "constructionDurationSeconds" : 40.5,
+      "title" : "Build Watchtower"
+    },
+    {
+      "action" : "research(\"fortification\")",
+      "atSeconds" : 7853,
+      "title" : "Research Fortification"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.palisade)",
+      "atSeconds" : 7913,
+      "constructionDurationSeconds" : 18,
+      "title" : "Build Palisade"
+    },
+    {
+      "action" : "build(GameCore.BuildingKind.stoneGatherer)",
+      "atSeconds" : 7973,
+      "constructionDurationSeconds" : 18,
+      "title" : "Build Stone gatherer"
+    },
+    {
+      "action" : "recipe(21, \"flint\")",
+      "atSeconds" : 8033,
+      "title" : "Choose Gather flint"
+    },
+    {
+      "action" : "explore",
+      "atSeconds" : 8633,
+      "title" : "Send an expedition"
+    },
+    {
+      "action" : "explore",
+      "atSeconds" : 8693,
+      "title" : "Send an expedition"
+    },
+    {
+      "action" : "explore",
+      "atSeconds" : 8753,
+      "title" : "Send an expedition"
+    }
+  ],
+  "allChaptersComplete" : true,
+  "chapterEvents" : [
+    {
+      "atSeconds" : 300,
+      "discoveredTiles" : 257,
+      "housing" : 10,
+      "id" : 1,
+      "population" : 5,
+      "resources" : {
+        "animalHides" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "clay" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "culture" : {
+          "capacity" : 500,
+          "grossPerMinute" : 2,
+          "netPerMinute" : 2,
+          "stored" : 1.6666666666666665,
+          "usedPerMinute" : 0
+        },
+        "flint" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "food" : {
+          "capacity" : 500,
+          "grossPerMinute" : 14,
+          "netPerMinute" : 9,
+          "stored" : 73.666666666666671,
+          "usedPerMinute" : 5
+        },
+        "knowledge" : {
+          "capacity" : 500,
+          "grossPerMinute" : 3,
+          "netPerMinute" : 3,
+          "stored" : 2.5,
+          "usedPerMinute" : 0
+        },
+        "leather" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "pottery" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "stone" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 35,
+          "usedPerMinute" : 0
+        },
+        "stoneTools" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "water" : {
+          "capacity" : 500,
+          "grossPerMinute" : 3,
+          "netPerMinute" : 0.5,
+          "stored" : 65.833333333333329,
+          "usedPerMinute" : 2.5
+        },
+        "wood" : {
+          "capacity" : 500,
+          "grossPerMinute" : 10,
+          "netPerMinute" : 10,
+          "stored" : 93.333333333333343,
+          "usedPerMinute" : 0
+        }
+      },
+      "title" : "Founding a settlement",
+      "workersAvailable" : 3,
+      "workersRequired" : 3
+    },
+    {
+      "atSeconds" : 1678,
+      "discoveredTiles" : 257,
+      "housing" : 10,
+      "id" : 2,
+      "population" : 10,
+      "resources" : {
+        "animalHides" : {
+          "capacity" : 500,
+          "grossPerMinute" : 4,
+          "netPerMinute" : 4,
+          "stored" : 61.790476190476191,
+          "usedPerMinute" : 0
+        },
+        "clay" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "culture" : {
+          "capacity" : 500,
+          "grossPerMinute" : 2,
+          "netPerMinute" : 2,
+          "stored" : 28.688888888888894,
+          "usedPerMinute" : 0
+        },
+        "flint" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "food" : {
+          "capacity" : 500,
+          "grossPerMinute" : 36,
+          "netPerMinute" : 26,
+          "stored" : 464.50476190476195,
+          "usedPerMinute" : 10
+        },
+        "knowledge" : {
+          "capacity" : 500,
+          "grossPerMinute" : 3.5999999999999996,
+          "netPerMinute" : 3.5999999999999996,
+          "stored" : 3.6333333333333275,
+          "usedPerMinute" : 0
+        },
+        "leather" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "pottery" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "stone" : {
+          "capacity" : 500,
+          "grossPerMinute" : 8,
+          "netPerMinute" : 8,
+          "stored" : 130.42222222222222,
+          "usedPerMinute" : 0
+        },
+        "stoneTools" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "water" : {
+          "capacity" : 500,
+          "grossPerMinute" : 17.399999999999999,
+          "netPerMinute" : 12.399999999999999,
+          "stored" : 191.50190476190477,
+          "usedPerMinute" : 5
+        },
+        "wood" : {
+          "capacity" : 500,
+          "grossPerMinute" : 10,
+          "netPerMinute" : 10,
+          "stored" : 168.44444444444451,
+          "usedPerMinute" : 0
+        }
+      },
+      "title" : "Mastering nature",
+      "workersAvailable" : 6,
+      "workersRequired" : 6
+    },
+    {
+      "atSeconds" : 4014,
+      "discoveredTiles" : 257,
+      "housing" : 15,
+      "id" : 3,
+      "population" : 13,
+      "resources" : {
+        "animalHides" : {
+          "capacity" : 500,
+          "grossPerMinute" : 6.8571428571428568,
+          "netPerMinute" : 6.8571428571428568,
+          "stored" : 284.15833333333336,
+          "usedPerMinute" : 0
+        },
+        "clay" : {
+          "capacity" : 500,
+          "grossPerMinute" : 3.4285714285714284,
+          "netPerMinute" : 1.7142857142857142,
+          "stored" : 33.785714285714285,
+          "usedPerMinute" : 1.7142857142857142
+        },
+        "culture" : {
+          "capacity" : 500,
+          "grossPerMinute" : 1.1428571428571428,
+          "netPerMinute" : 1.1428571428571428,
+          "stored" : 77.817698412698434,
+          "usedPerMinute" : 0
+        },
+        "flint" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "food" : {
+          "capacity" : 600,
+          "grossPerMinute" : 59.657142857142851,
+          "netPerMinute" : 46.657142857142851,
+          "stored" : 546.65714285714284,
+          "usedPerMinute" : 13
+        },
+        "knowledge" : {
+          "capacity" : 500,
+          "grossPerMinute" : 2.0571428571428569,
+          "netPerMinute" : 2.0571428571428569,
+          "stored" : 2.0651904761904625,
+          "usedPerMinute" : 0
+        },
+        "leather" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "pottery" : {
+          "capacity" : 500,
+          "grossPerMinute" : 1.1428571428571428,
+          "netPerMinute" : 1.1428571428571428,
+          "stored" : 7.7571428571428562,
+          "usedPerMinute" : 0
+        },
+        "stone" : {
+          "capacity" : 500,
+          "grossPerMinute" : 5.4857142857142849,
+          "netPerMinute" : 5.4857142857142849,
+          "stored" : 321.59650793650786,
+          "usedPerMinute" : 0
+        },
+        "stoneTools" : {
+          "capacity" : 500,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "water" : {
+          "capacity" : 500,
+          "grossPerMinute" : 17.399999999999999,
+          "netPerMinute" : 7.4714285714285715,
+          "stored" : 500,
+          "usedPerMinute" : 9.928571428571427
+        },
+        "wood" : {
+          "capacity" : 500,
+          "grossPerMinute" : 6.8571428571428559,
+          "netPerMinute" : 5.7142857142857135,
+          "stored" : 303.9051587301588,
+          "usedPerMinute" : 1.1428571428571428
+        }
+      },
+      "title" : "Establishing agriculture",
+      "workersAvailable" : 7,
+      "workersRequired" : 10
+    },
+    {
+      "atSeconds" : 4876,
+      "discoveredTiles" : 257,
+      "housing" : 15,
+      "id" : 4,
+      "population" : 15,
+      "resources" : {
+        "animalHides" : {
+          "capacity" : 750,
+          "grossPerMinute" : 7.333333333333333,
+          "netPerMinute" : 6,
+          "stored" : 375.55000000000001,
+          "usedPerMinute" : 1.3333333333333333
+        },
+        "clay" : {
+          "capacity" : 750,
+          "grossPerMinute" : 4,
+          "netPerMinute" : 2,
+          "stored" : 63.260714285714286,
+          "usedPerMinute" : 2
+        },
+        "culture" : {
+          "capacity" : 750,
+          "grossPerMinute" : 1.3333333333333333,
+          "netPerMinute" : 1.3333333333333333,
+          "stored" : 97.467698412698439,
+          "usedPerMinute" : 0
+        },
+        "flint" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "food" : {
+          "capacity" : 850,
+          "grossPerMinute" : 62.399999999999991,
+          "netPerMinute" : 47.399999999999991,
+          "stored" : 850,
+          "usedPerMinute" : 15
+        },
+        "knowledge" : {
+          "capacity" : 750,
+          "grossPerMinute" : 2.3999999999999999,
+          "netPerMinute" : 2.3999999999999999,
+          "stored" : 2.4351904761904595,
+          "usedPerMinute" : 0
+        },
+        "leather" : {
+          "capacity" : 750,
+          "grossPerMinute" : 1.3333333333333333,
+          "netPerMinute" : 1.3333333333333333,
+          "stored" : 10.199999999999999,
+          "usedPerMinute" : 0
+        },
+        "pottery" : {
+          "capacity" : 750,
+          "grossPerMinute" : 1.3333333333333333,
+          "netPerMinute" : 1.3333333333333333,
+          "stored" : 27.407142857142851,
+          "usedPerMinute" : 0
+        },
+        "stone" : {
+          "capacity" : 750,
+          "grossPerMinute" : 6.3999999999999995,
+          "netPerMinute" : 6.3999999999999995,
+          "stored" : 370.91650793650774,
+          "usedPerMinute" : 0
+        },
+        "stoneTools" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "water" : {
+          "capacity" : 800,
+          "grossPerMinute" : 17.399999999999999,
+          "netPerMinute" : 5.2333333333333325,
+          "stored" : 534.80166666666673,
+          "usedPerMinute" : 12.166666666666666
+        },
+        "wood" : {
+          "capacity" : 800,
+          "grossPerMinute" : 7.9999999999999991,
+          "netPerMinute" : 6.6666666666666661,
+          "stored" : 307.1551587301588,
+          "usedPerMinute" : 1.3333333333333333
+        }
+      },
+      "title" : "Developing craftsmanship",
+      "workersAvailable" : 9,
+      "workersRequired" : 12
+    },
+    {
+      "atSeconds" : 7253,
+      "discoveredTiles" : 257,
+      "housing" : 15,
+      "id" : 5,
+      "population" : 15,
+      "resources" : {
+        "animalHides" : {
+          "capacity" : 750,
+          "grossPerMinute" : 6.5,
+          "netPerMinute" : 5.5,
+          "stored" : 600.2618939393941,
+          "usedPerMinute" : 1
+        },
+        "clay" : {
+          "capacity" : 750,
+          "grossPerMinute" : 3,
+          "netPerMinute" : 1.5,
+          "stored" : 129.50594155844158,
+          "usedPerMinute" : 1.5
+        },
+        "culture" : {
+          "capacity" : 750,
+          "grossPerMinute" : 6.3250000000000002,
+          "netPerMinute" : 6.3250000000000002,
+          "stored" : 286.07378174603195,
+          "usedPerMinute" : 0
+        },
+        "flint" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "food" : {
+          "capacity" : 850,
+          "grossPerMinute" : 57.599999999999994,
+          "netPerMinute" : 42.599999999999994,
+          "stored" : 850,
+          "usedPerMinute" : 15
+        },
+        "knowledge" : {
+          "capacity" : 750,
+          "grossPerMinute" : 4.0499999999999998,
+          "netPerMinute" : 4.0499999999999998,
+          "stored" : 7.6626450216450115,
+          "usedPerMinute" : 0
+        },
+        "leather" : {
+          "capacity" : 750,
+          "grossPerMinute" : 1,
+          "netPerMinute" : 0.75,
+          "stored" : 45.30344696969695,
+          "usedPerMinute" : 0.25
+        },
+        "pottery" : {
+          "capacity" : 750,
+          "grossPerMinute" : 1,
+          "netPerMinute" : 0.75,
+          "stored" : 62.813089826839821,
+          "usedPerMinute" : 0.25
+        },
+        "stone" : {
+          "capacity" : 750,
+          "grossPerMinute" : 4.7999999999999998,
+          "netPerMinute" : 4.7999999999999998,
+          "stored" : 487.90123520923504,
+          "usedPerMinute" : 0
+        },
+        "stoneTools" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "water" : {
+          "capacity" : 800,
+          "grossPerMinute" : 19.140000000000001,
+          "netPerMinute" : 7.1400000000000006,
+          "stored" : 792.21631818181834,
+          "usedPerMinute" : 12
+        },
+        "wood" : {
+          "capacity" : 800,
+          "grossPerMinute" : 6,
+          "netPerMinute" : 5,
+          "stored" : 442.97258297258298,
+          "usedPerMinute" : 1
+        }
+      },
+      "title" : "Building a society",
+      "workersAvailable" : 9,
+      "workersRequired" : 15
+    },
+    {
+      "atSeconds" : 7973,
+      "discoveredTiles" : 257,
+      "housing" : 15,
+      "id" : 6,
+      "population" : 15,
+      "resources" : {
+        "animalHides" : {
+          "capacity" : 750,
+          "grossPerMinute" : 6.1428571428571423,
+          "netPerMinute" : 5.2857142857142856,
+          "stored" : 664.66601481851512,
+          "usedPerMinute" : 0.8571428571428571
+        },
+        "clay" : {
+          "capacity" : 750,
+          "grossPerMinute" : 2.5714285714285712,
+          "netPerMinute" : 1.2857142857142856,
+          "stored" : 145.91006243756246,
+          "usedPerMinute" : 1.2857142857142856
+        },
+        "culture" : {
+          "capacity" : 750,
+          "grossPerMinute" : 5.4214285714285708,
+          "netPerMinute" : 5.4214285714285708,
+          "stored" : 355.24449145299172,
+          "usedPerMinute" : 0
+        },
+        "flint" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "food" : {
+          "capacity" : 850,
+          "grossPerMinute" : 55.542857142857137,
+          "netPerMinute" : 40.542857142857137,
+          "stored" : 850,
+          "usedPerMinute" : 15
+        },
+        "knowledge" : {
+          "capacity" : 750,
+          "grossPerMinute" : 3.4714285714285711,
+          "netPerMinute" : 3.4714285714285711,
+          "stored" : 6.953771395271386,
+          "usedPerMinute" : 0
+        },
+        "leather" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0.8571428571428571,
+          "netPerMinute" : 0.64285714285714279,
+          "stored" : 53.505507409257405,
+          "usedPerMinute" : 0.21428571428571427
+        },
+        "pottery" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0.8571428571428571,
+          "netPerMinute" : 0.64285714285714279,
+          "stored" : 71.015150266400255,
+          "usedPerMinute" : 0.21428571428571427
+        },
+        "stone" : {
+          "capacity" : 750,
+          "grossPerMinute" : 4.1142857142857139,
+          "netPerMinute" : 4.1142857142857139,
+          "stored" : 500.39442202242168,
+          "usedPerMinute" : 0
+        },
+        "stoneTools" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0,
+          "netPerMinute" : 0,
+          "stored" : 0,
+          "usedPerMinute" : 0
+        },
+        "water" : {
+          "capacity" : 800,
+          "grossPerMinute" : 19.140000000000001,
+          "netPerMinute" : 7.7828571428571429,
+          "stored" : 800,
+          "usedPerMinute" : 11.357142857142858
+        },
+        "wood" : {
+          "capacity" : 800,
+          "grossPerMinute" : 5.1428571428571423,
+          "netPerMinute" : 4.2857142857142856,
+          "stored" : 402.65298590298607,
+          "usedPerMinute" : 0.8571428571428571
+        }
+      },
+      "title" : "Exploring and protecting",
+      "workersAvailable" : 9,
+      "workersRequired" : 17
+    },
+    {
+      "atSeconds" : 8813,
+      "discoveredTiles" : 704,
+      "housing" : 15,
+      "id" : 7,
+      "population" : 15,
+      "resources" : {
+        "animalHides" : {
+          "capacity" : 750,
+          "grossPerMinute" : 6,
+          "netPerMinute" : 5.2000000000000002,
+          "stored" : 737.49172910422965,
+          "usedPerMinute" : 0.80000000000000004
+        },
+        "clay" : {
+          "capacity" : 750,
+          "grossPerMinute" : 2.4000000000000004,
+          "netPerMinute" : 1.2000000000000002,
+          "stored" : 162.73577672327667,
+          "usedPerMinute" : 1.2000000000000002
+        },
+        "culture" : {
+          "capacity" : 750,
+          "grossPerMinute" : 5.9400000000000013,
+          "netPerMinute" : 5.9400000000000013,
+          "stored" : 437.63292002442023,
+          "usedPerMinute" : 0
+        },
+        "flint" : {
+          "capacity" : 750,
+          "grossPerMinute" : 2.8799999999999999,
+          "netPerMinute" : 2.0800000000000001,
+          "stored" : 27.039999999999992,
+          "usedPerMinute" : 0.80000000000000004
+        },
+        "food" : {
+          "capacity" : 850,
+          "grossPerMinute" : 54.719999999999999,
+          "netPerMinute" : 39.719999999999999,
+          "stored" : 850,
+          "usedPerMinute" : 15
+        },
+        "knowledge" : {
+          "capacity" : 750,
+          "grossPerMinute" : 4.1999999999999993,
+          "netPerMinute" : 4.1999999999999993,
+          "stored" : 64.863199966699952,
+          "usedPerMinute" : 0
+        },
+        "leather" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0.80000000000000004,
+          "netPerMinute" : 0.60000000000000009,
+          "stored" : 61.918364552114568,
+          "usedPerMinute" : 0.20000000000000001
+        },
+        "pottery" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0.80000000000000004,
+          "netPerMinute" : 0.60000000000000009,
+          "stored" : 79.428007409257361,
+          "usedPerMinute" : 0.20000000000000001
+        },
+        "stone" : {
+          "capacity" : 750,
+          "grossPerMinute" : 3.8399999999999999,
+          "netPerMinute" : 3.8399999999999999,
+          "stored" : 557.46230773670766,
+          "usedPerMinute" : 0
+        },
+        "stoneTools" : {
+          "capacity" : 750,
+          "grossPerMinute" : 0.80000000000000004,
+          "netPerMinute" : 0.5,
+          "stored" : 6.5,
+          "usedPerMinute" : 0.30000000000000004
+        },
+        "water" : {
+          "capacity" : 800,
+          "grossPerMinute" : 19.140000000000001,
+          "netPerMinute" : 7.6399999999999988,
+          "stored" : 800,
+          "usedPerMinute" : 11.500000000000002
+        },
+        "wood" : {
+          "capacity" : 800,
+          "grossPerMinute" : 5.7599999999999998,
+          "netPerMinute" : 4.1600000000000001,
+          "stored" : 435.4987001887003,
+          "usedPerMinute" : 1.6000000000000001
+        }
+      },
+      "title" : "Completing the Stone Age",
+      "workersAvailable" : 9,
+      "workersRequired" : 18
+    }
+  ],
+  "decisionCadenceSeconds" : 60,
+  "developerGrants" : false,
+  "fullRequirementsMet" : true,
+  "longestContinuousScriptWaitSeconds" : 721,
+  "ordinaryCosts" : true,
+  "schemaVersion" : 1,
+  "scriptedNotHumanPlaytest" : true,
+  "totalSeconds" : 8813,
+  "totalWaitSeconds" : 5933,
+  "waitByReasonSeconds" : {
+    "resource-clay" : 40,
+    "resource-knowledge" : 5173,
+    "resource-pottery" : 180,
+    "resource-stoneTools" : 540
+  }
+}

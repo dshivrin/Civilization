@@ -1,0 +1,546 @@
+{
+  "base": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+  "unchangedFiles": 108,
+  "files": [
+    {
+      "path": "Civilization.xcodeproj/project.pbxproj",
+      "sha256": "5e5a9829ecaa037c0185265ce743da8a7738cba328eb87c11efb876962ce0193",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization.xcodeproj/xcshareddata/xcschemes/Civilization.xcscheme",
+      "sha256": "3bec25a49bc1b5adce21289a9e76c734203b2bae734bfe03b0422b63126e02ca",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/animalPen.png",
+      "sha256": "2ba536bfdec9c32b815db99d04008a70ca4bde1b539a713f8599769c878b0695",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/burialGround.png",
+      "sha256": "93245915b34756edd895d16806d924b74155a7ad85b4090c650560d9601c571c",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/campfire.png",
+      "sha256": "1674d1368c16f67b9a332d3fadfc121a675db8cca0f30e48d68aede86ad46fc7",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/farm.png",
+      "sha256": "debc2ad930b1d4d1353091c6e82292c4f320e8d41b3644a449e9df457bb0fa86",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/fishingShelter.png",
+      "sha256": "de140d5e42f7c852ad13924f23baffebd4e3a5eb233c751be8c49b721b6f7918",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/gatheringShelter.png",
+      "sha256": "cf294dc60468ba03d1a48259ea836e0aa3be40d62d3e8f8264690665b54768b5",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/healersHut.png",
+      "sha256": "2766486a2c8ec120e34f3fa5a5e2c1b0664dc3aac5a7b2b0d674a578e7a1eef0",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/huntingLodge.png",
+      "sha256": "58b32c7b5f83aba6bb8ae02d223a015a7381cb12e7077a6c7953573948295123",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/hut.png",
+      "sha256": "dbc0ed3af44832855df6921b1b0c54d9962f01380aaff617c0c253d51770a989",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/palisade.png",
+      "sha256": "6938fdd85b846bdaca95a33368833c3caaabd834ca3a6f0164d47b74eee23192",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/potteryWorkshop.png",
+      "sha256": "739c9b08e0c2a192f09a50d86927319ef7e3bea4f6fbd86023da68a5931ae889",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/scoutCamp.png",
+      "sha256": "872229e06414b81e193cf139bd0923fa1bd90cd6a7936163695d9a8e5cf59715",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/shrine.png",
+      "sha256": "80bf162ef41e984f63117cbef0ecf22ff3fdd9e135f587b74e040f627db3e9bf",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/stoneGatherer.png",
+      "sha256": "14cb9229fd255f988b7de6f226cd36f5b15ca609982017f40cd424b33f817ebc",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/storehouse.png",
+      "sha256": "18d8ee0be97f0da7d381e3125978b9014702a783f6c055cd4b34eda55aa462cf",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/storytellingCircle.png",
+      "sha256": "ad35b68f8179a28ca7088e9d20cbb5f3b54725715cfc0651975022183a86b4ae",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/tannery.png",
+      "sha256": "5808df15307bf54e60cb15e15b9404f49c94da1b8e938a829f1bdc0c2ad29ed8",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/toolmaker.png",
+      "sha256": "07a90d2f9e5f02522bf32f40552799b4e430db4af933709bff00d712f26a45f1",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/watchtower.png",
+      "sha256": "e684365c0a07fda4dbbf1a30d55316e3d4e8101ffe23869d172cb5d2a0568952",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/buildings/woodcutter.png",
+      "sha256": "cfd6addae09648c710b00f94fbb8d8dd3d3ba177c0af66eddb643a3eafdc7724",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/loading-valley.png",
+      "sha256": "5de6a5819c849c0663323a353257200e2973d3a5944c39f5630bdad0d0330427",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/animalPen.png",
+      "sha256": "89ea35369b3963ce35c9c037e401126580d0089f5d2397d5324d6ed90185f6e9",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/burialGround.png",
+      "sha256": "857c129fa384244e3af9994c3dcdfa7cf49d374a35d4b9ebbf86afbd7e37aed0",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/campfire.png",
+      "sha256": "cbd3703f6e9ee16a20b816c8c37ddf37ed30a504b3c1041d0b208c78e8fd8e4f",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/farm.png",
+      "sha256": "075c98de8c78808e01663143298908365e60fafa5e0a908ba4580b1d14e76fe5",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/fishingShelter.png",
+      "sha256": "9cd311edcdfd1268b4e7bf6fdd906cdb1b0e30664724bc2a41f817a64c4e7c0c",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/gatheringShelter.png",
+      "sha256": "14166496ebe5b8ca6c21f73c01fb1b65fc26bcf5bc872f8a21f587eb2ad835c6",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/healersHut.png",
+      "sha256": "93d705146d7f54ace3bed74922b5ae247cfc127c3b975066a41cf33d399a7fd2",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/huntingLodge.png",
+      "sha256": "1fa5d1ef2aca0b26170d0b27ad34c221546045b0138069d8dbd8a74393037ddc",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/hut.png",
+      "sha256": "8d21d79992b774c10e779b696bb3ff272d5850480a4d5530989d386c659fb8ae",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/palisade.png",
+      "sha256": "b57dcab65d69ec9859f9788e0c311e3aa3382ad3c29b7314360b1d2ed45e4360",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/potteryWorkshop.png",
+      "sha256": "e1102e21047f45fa19dc52f061c77464b438f69d52f16bb0d7b1bd667b9d90a8",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/scoutCamp.png",
+      "sha256": "7a22f2d14605c412997400148e1ae0c76c9babcb0f128bd5150da79853a16ae3",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/shrine.png",
+      "sha256": "196180894d0586a9a21ccbcc4c4a05ba14b5caab2ad1b50cce82bd946a67a66c",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/stoneGatherer.png",
+      "sha256": "543dfc9eb0e5bb3cd63604aaec44dc271b3865da2b17d14b6f5bf036c7c4c164",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/storehouse.png",
+      "sha256": "ba1eee5a127e9a92d9860c3329d09f3872797c3d22a059bb5927cee187095fa6",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/storytellingCircle.png",
+      "sha256": "afe967459c7bcf5e6018055ced60f7e726f433460f7be149a028918c2467b2b7",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/tannery.png",
+      "sha256": "0dc3cd95148523e3278c5241b1fe6000c18168b96ed7fee596fae0c46663732c",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/toolmaker.png",
+      "sha256": "148432339ae90b4c96ce9db81e0ddb25dfc246f35964d686b235d395c51a0771",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/watchtower.png",
+      "sha256": "8376f9f86500d97286d1335cc992661bae8d3c9aeadaab482d8ce06dd8a1243c",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Art/thumbnails/woodcutter.png",
+      "sha256": "510f5695866cd2d0f3041fdb057ce627cb1b2a2a0aaf2f4ee69eae68e036223a",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/CivilizationApp.swift",
+      "sha256": "422f379101335f7b350bae767b332e374fda9754efba922c124381cefbe75c2b",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/LaunchScreen.storyboard",
+      "sha256": "879c310ea7fed83854bdf584b86fc146decca360f22c960cc7e955eec4c5ad95",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/BuildingConnectionLayer.swift",
+      "sha256": "0ce895ff4f49fc68b0a0931a91af37e11a5c35af69063f9d11849f0c16dfe670",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/EraArt.swift",
+      "sha256": "0efc43b080c82eec08b0726b8a2c5b7e731d3674f36fd28f52afe59e8a41850b",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/IsometricProjection.swift",
+      "sha256": "1620f6cb77e40bb4eae54bcaa8b11c2f8a8f92c245126c8329c0af2c7c409fae",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/LivingWorldLayer.swift",
+      "sha256": "e221d406b82128424344cff7568bacdb74141166d4c99c56ea8af2221ea7ceeb",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/RenderDiagnostics.swift",
+      "sha256": "6ae0324b8010607dd6175b4e9fc494524e5f5aec1209e5d16da5b8cbb8cf53d2",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/RoadSceneLayer.swift",
+      "sha256": "3348b2b374bde0cb086f89c29798b98886e4e9082c765bd8193a5a3e4dce6138",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/SettlementScene.swift",
+      "sha256": "aeb80963bd90e5914584ed01d59b455443f2ab28a3c0146cebce990d4d113fe9",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/VillagerFigure.swift",
+      "sha256": "b07f6f4903a5f667f6bd953e6222538a8d69a471a796cf5681230385f322be47",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/WorldDetails.swift",
+      "sha256": "cc0994a1a2d7b6544a2149292f655b26d729e5648bf3bb4e5fcdfcc16d7eac22",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/Rendering/WorldView.swift",
+      "sha256": "abb86c755c23b2a901ff72eb3eb5fa798d75c7346ba0462145883ad5dc628065",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/BuildingCatalogView.swift",
+      "sha256": "0ce092b7d56075cd6b04d37042fa745fcab8eff864e8f05527b5783d84d466fd",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/DeveloperToolsView.swift",
+      "sha256": "92f200e79149f77e72ccb3e02cde7653f12769193fed009fef44f85ebdb82613",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/DevelopmentComponents.swift",
+      "sha256": "00315757243a8f9652d544bfa7ee2261fe6bcfed3006bff4aed1e26c265d144d",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/EconomyLabView.swift",
+      "sha256": "47ef363de668621d297d6f7db28208860e16590f9990535b0d00261c0d7e1f36",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/EraIcon.swift",
+      "sha256": "336fba02a66c83602908d8737d30540396594d22c1cfb6a7110fa80e3d4d430e",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/LaunchMenuView.swift",
+      "sha256": "b68de4d156ad781a4b5d410042519c6c621f2c6c5d138f6b49beebc64cbf1782",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/LoadingSceneryView.swift",
+      "sha256": "ce3690beb120eb8d503d937598afbfd62f5fa67e862ae2410a692dbbd0533b3f",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/NativeVisualReviewView.swift",
+      "sha256": "3e72edf23bbc666365fc7814d617745d066c5cadd24f6e03dfc1b87c484e68af",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/ResearchView.swift",
+      "sha256": "eb329527aa846aa8bed4085f6adb9811af13768810277f1e8492322bebcdb4bd",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/RoadControlsView.swift",
+      "sha256": "ccb42315e002fc40f1d4b1960c6edc0fd4b3c580c88012a9cbaaae4553f30a19",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/SavedGamesView.swift",
+      "sha256": "34646f46ef2704b6304b06d63106e5d8d84bcf0cebcb2ec66d8bee5d8c4473bb",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/SettlementLoadingView.swift",
+      "sha256": "64f9f61879ea93c38d53d256dc2a44292381f2efddd708025e6aa2bd91eaa96b",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/SettlementView.swift",
+      "sha256": "bc5de415b0b51baf7e2f36179d77e2b90db0023d51f563f1bf1476f9870d70a4",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Civilization/UI/VillagerMotionReviewView.swift",
+      "sha256": "518e2c16c0ee3f4ec091df9b0f80f0835f691c25171aababbd82ec84c5c2baed",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/ArtCatalog.swift",
+      "sha256": "cc93c04258bc6ea17ab5a01a22b7048a9060efdafe613438333fe52df015d4ac",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/BuildingVisualConnections.swift",
+      "sha256": "5f6b0a6bde1b9670c6017cb5cc299a014f0ab2c14f8436ac0d0c7d3a75b91c89",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/ConstructionPresentation.swift",
+      "sha256": "af24711974ead54424d0591be96b86cc42ab1fa2eedfd7e1a432f71c68337a91",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/DeveloperScenario.swift",
+      "sha256": "2c0d46a1945f013c28fab2c0d4f82ea4fe507866c07c841d3c88b3467d5e8701",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/GameLibrary.swift",
+      "sha256": "00b41d0a00d53ab14fc53b1caaf19ea53991417d11ce35731e2ce0957413a582",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/GameSession.swift",
+      "sha256": "6ca897d89755e7fea918ee773b9de5ae08d3593265ea38c4a63010d6b1d921ae",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/GameSessionRoads.swift",
+      "sha256": "b980c91174e95bd0f705cf66900eb092ec6a64ed6a00776c951d8b4f73af46b5",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/GroupedDeveloperVillage.swift",
+      "sha256": "8fdb31be4e26d9105b460b8662f643c2d5adce6ccf34000049d175afd380cb0d",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/LoadingPresentation.swift",
+      "sha256": "d08f10f68a947581b8d8bb9693f931b9155143dd79cb1811ab6227db557be17f",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/OnboardingReview.swift",
+      "sha256": "7ca10cc4b033d880c0657148a8d5a61d1f8156ae71feed037d612ceecb9b5093",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/OnboardingReviewWalkthrough.swift",
+      "sha256": "10e7f9cd6bf2877ed45e595b002556ca12e03a19d63ee7128608511e9dd4d55b",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/Resources/art-catalog.json",
+      "sha256": "f7e79340e138601539c4f1cae3f10df643770b02294551a98e6f7f9ff9373690",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/RiverbendEconomyLab.swift",
+      "sha256": "3af93c08c525e252146ad08de8da2403e8e86ae87498a6a156efec266893f6a0",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/SettlementGoalsDisclosure.swift",
+      "sha256": "f11f30feab905545ae5254e57db86d2c520286d3268108dc3a288817c204c6a6",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/VisualAgentMotion.swift",
+      "sha256": "9649aa8131bd611229362c50eed3aca67d2ce21fe745303779ac4e365b509bd9",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/VisualDayCycle.swift",
+      "sha256": "679b85e352df7a536994825a4341c8dbff5382697c181599028bcfe5bf78c3f1",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameApplication/VisualRoutePlanner.swift",
+      "sha256": "74c09c888ac79f4572dc1c40165f4e43e93dd0261e8bdcd98ccb7e28d90d8805",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/BootstrapMaterials.swift",
+      "sha256": "fdac53c7f5301e003ed7f2d2aa15cc879414c40752b18d1b166a465ab4ad1195",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/BuildingGeometry.swift",
+      "sha256": "d60c3db5a449d0fd79cbcb9db731b261163cc7f04a4788eff9bdded4625b627c",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/CivicCenter.swift",
+      "sha256": "0a42eb26e86610f8911ffdab4de145e7ddc9e816d67d075a3c32dd77a6b11654",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Configuration.swift",
+      "sha256": "884b17680c721d128db040a20d9c6516fab188bb43e8ae9e7239fadb02da28a8",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Economy.swift",
+      "sha256": "0e8de04404c93dc73742ad7a4cfba04c7aa6f364ea6fabc3df608b42944e3792",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Exploration.swift",
+      "sha256": "2211fb549c37dad1b69324f3b32e3b0d81260a5795f4fecb0e8dfd2041a3a20e",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/GameEngine.swift",
+      "sha256": "2564e5a512fbdb0b3aa05753cfd5b5ba20faa36095e1eb6f80f5764846752a3b",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/MapGeometry.swift",
+      "sha256": "542fc1f8b550bf3839ff3cf0ed99a8e35f8b0e3f8096f7c54efec59865bf2ef6",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Progression.swift",
+      "sha256": "a50d0406d2fceb09ff1df326c98f1f6569a8942d744ed875c89717210042fc70",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Research.swift",
+      "sha256": "73dbb9d70a2e132c5268cff35b8b5b5545bed8e7042521914b9b2de9ca0484d2",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Resources/development-32x24.json",
+      "sha256": "9f96c9fe334adff8aa485a52ab75f2c609dae723e37f5ec3e88f9cf5a3ddc959",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Resources/seed.json",
+      "sha256": "5c812367c320b1060fd93f3b07af64b942b20d8c679a73b5b62bc6d4b5b9f25d",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/RiverbendEconomyProfile.swift",
+      "sha256": "48f2ba7c8d96aea35b226e8444191cfc54fbdecaa280fb011193e1c317374adb",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Roads.swift",
+      "sha256": "1a4989a630e1fe1d70aa79a8f60626379466ee9b02c3badd1fd69371dcc97f1a",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/SettlementConnectivity.swift",
+      "sha256": "dc123d599857162935d09a0abe63b0132fe79644a0fe3b90a17c0181b71d1c36",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/SettlementGuidance.swift",
+      "sha256": "3f7388ba67ebab12dd66e762dabfaf93b339f03c1719de5b9b3ba303dc6cadb4",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/StoneAgeJourney.swift",
+      "sha256": "63c01f5e3912591175ba0107ba7abebe21da5e1e014190dd474ae259769036e5",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Types.swift",
+      "sha256": "938e52c77f2834078854d0ccfff47d97c2b1e7ca45c724a588897814742040e8",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GameCore/Workforce.swift",
+      "sha256": "c820043f1031745f7fe4dab58e1176c7b2b4ad0dda5b9817fb74db685fb42b43",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GamePersistence/GameLibraryStore.swift",
+      "sha256": "3080810225c0de882ec966b8c84755fd835bae2ba632172ff23bc5b510aa4a5e",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "Packages/GameCore/Sources/GamePersistence/SaveStore.swift",
+      "sha256": "d9fc3f8bb362813ab6ea937746d8d57cade70cf685f67ce23d80e3d4f87c5e3e",
+      "unchangedFromBase": true
+    },
+    {
+      "path": "scripts/dev.py",
+      "sha256": "fb98ba5760290519e3ba8981a9573d94c5b92e9b0f1f49db3d0689049884f05e",
+      "unchangedFromBase": true
+    }
+  ]
+}

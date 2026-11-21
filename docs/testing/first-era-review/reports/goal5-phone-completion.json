@@ -1,0 +1,82 @@
+{
+  "scope": {
+    "approvedS1PlayExternalFixture": true,
+    "releaseFixtureAPI": false,
+    "simulator": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+    "bundle": "com.civilization.seed.goal5complete.bed1"
+  },
+  "steps": [
+    {
+      "name": "boot-qa-target",
+      "command": [
+        "xcrun",
+        "simctl",
+        "boot",
+        "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 0.391,
+      "log": "/tmp/goal5-phone-completion/boot-qa-target.log"
+    },
+    {
+      "name": "wait-for-qa-target",
+      "command": [
+        "xcrun",
+        "simctl",
+        "bootstatus",
+        "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-b"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 2.495,
+      "log": "/tmp/goal5-phone-completion/wait-for-qa-target.log"
+    },
+    {
+      "name": "install-isolated-release",
+      "command": [
+        "xcrun",
+        "simctl",
+        "install",
+        "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "/tmp/goal5-completion-build/Build/Products/Release-iphonesimulator/Civilization.app"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": null,
+      "durationSeconds": 2.069,
+      "log": "/tmp/goal5-phone-completion/install-isolated-release.log"
+    },
+    {
+      "name": "ordinary-release-completion",
+      "command": [
+        "xcodebuild",
+        "test-without-building",
+        "-xctestrun",
+        "/tmp/goal5-completion-build/Build/Products/Civilization_iphonesimulator27.2-arm64-x86_64.xctestrun",
+        "-destination",
+        "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-parallel-testing-enabled",
+        "NO",
+        "-resultBundlePath",
+        "/tmp/goal5-phone-completion/completion.xcresult",
+        "-only-testing:CivilizationUITests/NormalCompletionUITests"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 1,
+      "durationSeconds": 27.71,
+      "log": "/tmp/goal5-phone-completion/ordinary-release-completion.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T00:59:21.232236+00:00",
+  "revision": {
+    "commit": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+    "dirty": true
+  },
+  "status": "passed"
+}

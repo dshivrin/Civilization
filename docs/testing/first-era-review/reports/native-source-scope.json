@@ -1,0 +1,9 @@
+{
+  "base": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+  "productSourcesUnchanged": true,
+  "initialPhoneHarnessSnapshot": "/tmp/goal5-native-tests-initial.swift",
+  "intermediateMiniHarness": "Same initial harness with early return when the reveal target is hittable; initial 5-case matrix. Final recovery rerun also frames guide captures and verifies the ordinary map on return.",
+  "releaseHarness": "NormalEntryUITests and NormalCompletionUITests are identical across these Debug-only helper changes. Completion build only adds native readiness screenshots to the inherited suite.",
+  "finalPhoneMatrix": "Final checked-in native harness; source SHA256 pinned in verification.json.",
+  "notAClaim": "No source hash replaces required native execution."
+}

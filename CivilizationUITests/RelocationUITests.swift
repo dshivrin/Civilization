@@ -4,6 +4,110 @@ import GameCore
 import GameApplication
 
 final class RelocationUITests: XCTestCase {
+    /// Goal5 review starts fresh, delays until Food is depleted, then recovers through existing controls.
+    @MainActor func testFirstEraDelayedDepletedRecoveryThroughCraft() throws {
+        continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
+        let app = XCUIApplication()
+        app.launchEnvironment["CIVILIZATION_UI_FRESH_SAVE"] = "1"
+        app.launchEnvironment["CIVILIZATION_UI_LIBRARY_ID"] = UUID().uuidString
+        launchNormal(app)
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "settlementLoading").firstMatch.waitForNonExistence(timeout: 30))
+        app.buttons["developerTools"].tap(); app.buttons["openEconomyLab"].tap()
+        let status = app.staticTexts["economyLabStatus"]
+        XCTAssertTrue(status.waitForExistence(timeout: 15))
+        func value() -> String { status.value as? String ?? "" }
+        func field(_ key: String) throws -> Int {
+            let part = try XCTUnwrap(value().split(separator: " ").first { $0.hasPrefix(key + "=") })
+            return try XCTUnwrap(Int(part.dropFirst(key.count + 1)))
+        }
+        func reveal(_ element: XCUIElement) {
+            let scroll = app.scrollViews.firstMatch
+            for _ in 0..<60 {
+                if element.isHittable { return }
+                let below = element.frame.midY > scroll.frame.midY
+                scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: below ? 0.7 : 0.3)).press(forDuration: 0.02,
+                    thenDragTo: scroll.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)))
+            }
+            XCTAssertTrue(element.isHittable, element.identifier)
+        }
+        func tap(_ id: String) { let button = app.buttons[id]; reveal(button); button.tap() }
+        func capture(_ name: String) {
+            let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+            shot.name = name; shot.lifetime = .keepAlways; add(shot)
+            print("GOAL5 " + name + " " + value() + " guide=" + app.staticTexts["economyLabGuide"].label)
+        }
+        func build(_ kind: String) { tap("labBuild-" + kind); tap("labConfirmBuild"); tap("labAdvance60") }
+        func realWaitUntil(_ predicate: @escaping () -> Bool, name: String) {
+            let began = Date()
+            let condition = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in predicate() }, object: nil)
+            XCTAssertEqual(XCTWaiter.wait(for: [condition], timeout: 85), .completed)
+            print("GOAL5 actual elapsed " + name + " seconds=\(Date().timeIntervalSince(began))")
+        }
+        tap("labPause")
+        XCTAssertEqual(try field("wood"), 32)
+        XCTAssertTrue(app.staticTexts["economyLabGuide"].label.contains("Hut"))
+        reveal(app.staticTexts["economyLabGuide"]); capture("first-era-fresh-next-action")
+        // Explicit review steps represent a 33-minute delayed opening, not wall-clock waiting.
+        for _ in 0..<33 { tap("labAdvance60") }
+        XCTAssertEqual(try field("food"), 0)
+        XCTAssertEqual(try field("wood"), 32)
+        reveal(app.staticTexts["economyLabGuide"]); capture("first-era-delayed-food-depleted")
+        build("hut")
+        XCTAssertFalse(app.buttons["labSurvey"].isEnabled)
+        reveal(app.buttons["labSurvey"])
+        capture("first-era-survey-blocked-eight-food")
+        tap("labRecoverFood"); XCTAssertEqual(try field("food"), 12)
+        tap("labRecoverFood"); XCTAssertEqual(try field("food"), 12)
+        tap("labSurvey"); XCTAssertEqual(try field("food"), 4)
+        reveal(app.staticTexts["labSurveyTimer"]); capture("first-era-survey-paid-wait")
+        tap("labPause") // Resume real 1x time for this required wait.
+        realWaitUntil({ value().contains("survey=true") }, name: "survey")
+        tap("labPause")
+        XCTAssertEqual(try field("knowledge"), 6)
+        build("woodcutter"); build("gatheringShelter")
+        XCTAssertTrue(value().contains("checkpoint=true"))
+        XCTAssertTrue(value().contains("foodNet=7.0"))
+        tap("labRevealStone")
+        build("stoneGatherer")
+        // Shelter+hut+woodcutter+gatherer consume the reserve. Stockyard needs18 Wood+6 Stone.
+        tap("labStorage-stockyard")
+        XCTAssertFalse(app.buttons["labConfirmBuild"].isEnabled)
+        XCTAssertTrue(app.staticTexts["labError"].label.contains("18 Wood + 6 Stone"))
+        reveal(app.staticTexts["labError"]); capture("first-era-stockyard-blocked-cost")
+        app.buttons["Cancel"].tap()
+        for _ in 0..<10 { tap("labAdvance60") }
+        XCTAssertGreaterThanOrEqual(try field("stone"), 6)
+        tap("labStorage-stockyard"); tap("labConfirmBuild"); tap("labAdvance60")
+        tap("labStorage-granary"); tap("labConfirmBuild"); tap("labAdvance60")
+        XCTAssertEqual(try field("foodCap"), 120); XCTAssertEqual(try field("woodCap"), 120)
+        tap("labUnlockCraft")
+        XCTAssertFalse(app.buttons["labCraftTool"].isEnabled)
+        reveal(app.staticTexts["labCraftProject"]); capture("first-era-craft-blocked-flint-source")
+        tap("labMode-flint"); tap("labAdvance60"); tap("labAdvance60")
+        tap("labCraftTool")
+        XCTAssertEqual(try field("tools"), 0)
+        reveal(app.staticTexts["labToolTimer"]); capture("first-era-tool-paid-wait")
+        tap("labPause")
+        realWaitUntil({ (try? field("tools")) == 1 }, name: "tool-batch")
+        tap("labPause")
+        for _ in 0..<2 { tap("labCraftTool"); tap("labAdvance60") }
+        XCTAssertEqual(try field("tools"), 3)
+        tap("labSpendTools")
+        XCTAssertTrue(value().contains("improved=true")); XCTAssertTrue(value().contains("woodNet=8.0"))
+        XCTAssertEqual(try field("tools"), 0)
+        XCTAssertTrue(app.staticTexts["economyLabGuide"].label.contains("3 Tools spent once"))
+        reveal(app.staticTexts["labCraftImproved"]); capture("first-era-recovered-post-craft-checkpoint")
+        app.buttons["closeEconomyLab"].tap(); app.buttons["openEconomyLab"].tap()
+        XCTAssertTrue(status.waitForExistence(timeout: 15)); tap("labPause")
+        XCTAssertTrue(value().contains("improved=true")); XCTAssertEqual(try field("tools"), 0)
+        XCTAssertEqual(try field("knowledge"), 6)
+        reveal(app.staticTexts["economyLabGuide"]); capture("first-era-recovered-reopen")
+        app.buttons["closeEconomyLab"].tap(); app.navigationBars["Developer tools"].buttons["Done"].tap()
+        let ordinaryMap = app.otherElements["settlementMap"]
+        XCTAssertTrue(ordinaryMap.waitForExistence(timeout: 15))
+        XCTAssertTrue((ordinaryMap.value as? String ?? "").contains("64×48 tiles · 1 buildings · 0 road tiles"))
+    }
+
     @MainActor func testFirstCraftGatherCraftSpendAndReload() throws {
         continueAfterFailure = false; XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
@@ -2134,6 +2238,8 @@ final class NormalCompletionUITests: XCTestCase {
             XCTAssertEqual(expand.value as? String, "Expanded")
             app.buttons["openJourney"].tap()
             XCTAssertTrue(app.staticTexts["bronzeAgeReadiness"].waitForExistence(timeout: 5))
+            let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+            shot.name = "ordinary-release-earned-bronze-readiness"; shot.lifetime = .keepAlways; add(shot)
             app.navigationBars["Stone Age journey"].buttons["Done"].tap()
             app.buttons["Build"].tap(); app.buttons["buildingCategory-Settlement"].tap()
             XCTAssertTrue(app.buttons["build-hut"].isEnabled)

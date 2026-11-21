@@ -1,0 +1,9 @@
+{
+  "base": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+  "nativeHarnessSHA256": "89ae0ba62729d6118e80c68749a975eb7a344ffe32ccf2926ef531cea2fd1f65",
+  "initialPhoneRecoveryHarnessSHA256": "cf982e9b82b44c6455cd6200fd04df9ac4af6cfd0a8f64e1415c79c8405788e8",
+  "ordinaryReleaseHarnessSHA256": "ecfc55b1b935b9d7016825445338d79bd2be04b8dcb34a282337217280c54870",
+  "releaseHarnessMatchesCompletionBuildSource": true,
+  "productProtectedManifest": "protected-source.json",
+  "nativeSourceScope": "reports/native-source-scope.json"
+}

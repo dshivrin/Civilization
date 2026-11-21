@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "countsAsNativeTest": false,
+  "command": [
+    "xcodebuild",
+    "build-for-testing",
+    "-project",
+    "Civilization.xcodeproj",
+    "-scheme",
+    "Civilization",
+    "-configuration",
+    "Release",
+    "-destination",
+    "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+    "-derivedDataPath",
+    "/tmp/goal5-completion-build",
+    "CODE_SIGNING_ALLOWED=NO",
+    "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.goal5complete.bed1"
+  ],
+  "log": "../logs/goal5-completion-build.log.gz",
+  "fixtureSHA256": "907e531aa3fde4efe8e990855bc2cea7d74d425b1ac3da5146c03962ba155e2b",
+  "source": "existing Release public-command test exporter; see goal5-earned-fixture.json",
+  "ownerSaveAccess": false
+}

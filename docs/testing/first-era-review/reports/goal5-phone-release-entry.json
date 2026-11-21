@@ -1,0 +1,52 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "release",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [
+      "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB"
+    ],
+    "only_testing": [
+      "CivilizationUITests/NormalEntryUITests"
+    ],
+    "output": "/tmp/goal5-phone-release-entry"
+  },
+  "steps": [
+    {
+      "name": "ui-release-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/.codex/worktrees/bed1/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Release",
+        "-destination",
+        "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/release/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-resultBundlePath",
+        "/private/tmp/goal5-phone-release-entry/ui-release-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/NormalEntryUITests"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 1,
+      "durationSeconds": 67.098,
+      "log": "/private/tmp/goal5-phone-release-entry/ui-release-1.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T00:58:19.686869+00:00",
+  "revision": {
+    "commit": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+    "dirty": true
+  },
+  "status": "passed"
+}

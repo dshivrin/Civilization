@@ -1,0 +1,60 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "ui",
+    "configuration": "debug",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": null,
+    "simulator": [
+      "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB"
+    ],
+    "only_testing": [
+      "CivilizationUITests/RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft",
+      "CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload",
+      "CivilizationUITests/RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload",
+      "CivilizationUITests/RelocationUITests/testStoneStorageRevealCollectSpendAndReload",
+      "CivilizationUITests/RelocationUITests/testFirstCraftGatherCraftSpendAndReload"
+    ],
+    "output": "/tmp/goal5-phone-debug-final"
+  },
+  "steps": [
+    {
+      "name": "ui-debug-1",
+      "command": [
+        "xcodebuild",
+        "test",
+        "-project",
+        "/Users/dima/.codex/worktrees/bed1/Civilazation/Civilization.xcodeproj",
+        "-scheme",
+        "Civilization",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-derivedDataPath",
+        "/private/tmp/civilization-qa-builds/debug/FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+        "-resultBundlePath",
+        "/private/tmp/goal5-phone-debug-final/ui-debug-1.xcresult",
+        "CODE_SIGNING_ALLOWED=NO",
+        "PRODUCT_BUNDLE_IDENTIFIER=com.civilization.seed.qa",
+        "-only-testing:CivilizationUITests/RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft",
+        "-only-testing:CivilizationUITests/RelocationUITests/testEconomyLabGestureRouteAndReload",
+        "-only-testing:CivilizationUITests/RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload",
+        "-only-testing:CivilizationUITests/RelocationUITests/testStoneStorageRevealCollectSpendAndReload",
+        "-only-testing:CivilizationUITests/RelocationUITests/testFirstCraftGatherCraftSpendAndReload"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 5,
+      "durationSeconds": 925.098,
+      "log": "/private/tmp/goal5-phone-debug-final/ui-debug-1.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T01:15:11.608990+00:00",
+  "revision": {
+    "commit": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+    "dirty": true
+  },
+  "status": "passed"
+}

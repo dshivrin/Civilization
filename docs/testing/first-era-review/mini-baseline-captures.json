@@ -1,0 +1,104 @@
+[
+  {
+    "path": "captures/mini-economy-lab-positive-loop.png",
+    "profile": "mini",
+    "result": "debug-lab",
+    "report": "reports/goal5-mini-debug.json",
+    "case": "RelocationUITests/testEconomyLabGestureRouteAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "0B0AAFD6-6A96-4749-AD8F-A5337C830125.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "economy-lab-positive-loop_0_7E80FD41-FCEA-464F-BE85-4BDA1EDF809B.png",
+      "timestamp": 1795222409.27
+    },
+    "sha256": "9f556645cf823a7655d970f413fe60af87160c51542404ce81f79187c950a1be"
+  },
+  {
+    "path": "captures/mini-craft-relaunch-persistent-project.png",
+    "profile": "mini",
+    "result": "debug-lab",
+    "report": "reports/goal5-mini-debug.json",
+    "case": "RelocationUITests/testFirstCraftGatherCraftSpendAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "E7AE30EE-E2FC-4B63-9E1F-8A7AAE1706DF.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "craft-relaunch-persistent-project_0_08AADCAF-5204-4B1A-88E6-BA16890F2480.png",
+      "timestamp": 1795222597.469
+    },
+    "sha256": "ca501b50fbc2ab48951fcb59edfc1a43e3e7cd4b3fb6bb1f2ff2621d0710bac1"
+  },
+  {
+    "path": "captures/mini-craft-source-cost-and-project.png",
+    "profile": "mini",
+    "result": "debug-lab",
+    "report": "reports/goal5-mini-debug.json",
+    "case": "RelocationUITests/testFirstCraftGatherCraftSpendAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "7C4FCC7A-0B0C-45C3-B1F6-EE9D357769B5.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "craft-source-cost-and-project_0_7C3D7398-4039-48DA-AFE9-E598CDC757C3.png",
+      "timestamp": 1795222508.87
+    },
+    "sha256": "edb81aea79844e4050c860aa617e454f842d2bd449fbe3516e9c223134dae2c0"
+  },
+  {
+    "path": "captures/mini-map-finds-construction-wait-berries.png",
+    "profile": "mini",
+    "result": "debug-lab",
+    "report": "reports/goal5-mini-debug.json",
+    "case": "RelocationUITests/testMapFindsWaitDismissGatherObserveAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "AAAEAC78-C869-4D8F-9A09-B17CCA282E9A.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "map-finds-construction-wait-berries_0_DCE03BAD-4FCD-4D64-A517-0FA2CD00057C.png",
+      "timestamp": 1795222806.112
+    },
+    "sha256": "3ce23cfb60da259a4d21478c137b072edfcf6db1de3e7c41ea1cbfd4ed6abee2"
+  },
+  {
+    "path": "captures/mini-stone-stockyard-expanded-caps.png",
+    "profile": "mini",
+    "result": "debug-lab",
+    "report": "reports/goal5-mini-debug.json",
+    "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "E50D9560-4792-4F00-B19C-DAF853B69532.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "stone-stockyard-expanded-caps_0_7F6E2B3E-073A-45C7-823F-4B16FEEEB431.png",
+      "timestamp": 1795222967.586
+    },
+    "sha256": "33c2e4f67f9079ddea1571c2608b5e68cbbb8c6fb9d1fb7138f54d3130289f76"
+  },
+  {
+    "path": "captures/mini-stone-granary-food-only.png",
+    "profile": "mini",
+    "result": "debug-lab",
+    "report": "reports/goal5-mini-debug.json",
+    "case": "RelocationUITests/testStoneStorageRevealCollectSpendAndReload()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "FB8CEA5D-11A8-42C6-A44E-B295035DCBA0.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "stone-granary-food-only_0_A1880E48-FBDF-44F6-B9A3-E0BC9C84FAD2.png",
+      "timestamp": 1795222906.076
+    },
+    "sha256": "d3249733df2e30f61d6bcc0230069b7f7d1976bd773e7d1a91f0be1e4a5ffeeb"
+  }
+]

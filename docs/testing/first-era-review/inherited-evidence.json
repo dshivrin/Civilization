@@ -1,0 +1,6 @@
+{
+  "goal4VerificationSHA256": "d6d4358fe5ddf409d3a536811ac178b5249826c906af0638dd9bd32c2544f71c",
+  "checkedFiles": 59,
+  "allPinnedReportsLogsCapturesArtifactsMatch": true,
+  "sourceHashesExcludedFromThisCheck": "Native harness deliberately gains Goal5 coverage; unchanged product source bytes are independently checked in protected-source.json."
+}

@@ -1,0 +1,155 @@
+[
+  {
+    "path": "captures/mini-first-era-recovered-reopen.png",
+    "profile": "mini",
+    "result": "debug-lab-delayed-recovery",
+    "report": "reports/goal5-mini-recovery-final.json",
+    "case": "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "6A8F7243-72EE-4932-BD30-4E8FAA1CE546.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "first-era-recovered-reopen_0_78B4A5A2-532A-4676-87D8-1D11315F8A74.png",
+      "timestamp": 1795223213.833
+    },
+    "sha256": "301f8893db0cc2d1d62cd5cbfc8935b2117aa431abcaffb42504cdc26e044315"
+  },
+  {
+    "path": "captures/mini-first-era-recovered-post-craft-checkpoint.png",
+    "profile": "mini",
+    "result": "debug-lab-delayed-recovery",
+    "report": "reports/goal5-mini-recovery-final.json",
+    "case": "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "28511644-6A19-48E4-A011-C6EDAB5C8034.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "first-era-recovered-post-craft-checkpoint_0_B85D6DB1-8489-4185-8401-058F723B2EB3.png",
+      "timestamp": 1795223205.832
+    },
+    "sha256": "5b4114fa769ff5ad622809f980755dd408f4086e2849e4734b39a614c2733b58"
+  },
+  {
+    "path": "captures/mini-first-era-tool-paid-wait.png",
+    "profile": "mini",
+    "result": "debug-lab-delayed-recovery",
+    "report": "reports/goal5-mini-recovery-final.json",
+    "case": "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "DCE19B8A-81F5-4046-9AB8-02F06EF45E3E.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "first-era-tool-paid-wait_0_59CCF1BE-041C-41F5-B080-25A6806B804B.png",
+      "timestamp": 1795223136.506
+    },
+    "sha256": "8e73461bb4638c4f96d21e8402681b0f671710d57ed8e8efd02d1ac8c098fabf"
+  },
+  {
+    "path": "captures/mini-first-era-craft-blocked-flint-source.png",
+    "profile": "mini",
+    "result": "debug-lab-delayed-recovery",
+    "report": "reports/goal5-mini-recovery-final.json",
+    "case": "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "24675474-8C96-48F5-AA9A-E744E8F65E57.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "first-era-craft-blocked-flint-source_0_4DEB5AB4-F2CD-4414-B5ED-8D7A4EA9C20F.png",
+      "timestamp": 1795223132.248
+    },
+    "sha256": "29dd5c2a0167e446562cab086131976b65a39f48cabc964d7057a3269ef1bbfb"
+  },
+  {
+    "path": "captures/mini-first-era-stockyard-blocked-cost.png",
+    "profile": "mini",
+    "result": "debug-lab-delayed-recovery",
+    "report": "reports/goal5-mini-recovery-final.json",
+    "case": "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "DA36D15F-79FD-4F96-8BC9-059E978E70D4.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "first-era-stockyard-blocked-cost_0_545A9602-47D0-4CEB-B4C2-8253F3F62FF0.png",
+      "timestamp": 1795223124.295
+    },
+    "sha256": "5b01d356f9cbe4cd2e3a2bd07a9c2f33091321168fce665b910779455f0b831b"
+  },
+  {
+    "path": "captures/mini-first-era-survey-paid-wait.png",
+    "profile": "mini",
+    "result": "debug-lab-delayed-recovery",
+    "report": "reports/goal5-mini-recovery-final.json",
+    "case": "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "3FBEA0A1-DDE2-4B2B-A012-0DA37F3FB5A1.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "first-era-survey-paid-wait_0_A8F6B9EA-8BE9-4205-9EBE-3C6BF151CD3F.png",
+      "timestamp": 1795223051.937
+    },
+    "sha256": "4fee9012cd97a71ab44572b7254f35c2b8e0daf9766b0505690d2e47d24232c4"
+  },
+  {
+    "path": "captures/mini-first-era-survey-blocked-eight-food.png",
+    "profile": "mini",
+    "result": "debug-lab-delayed-recovery",
+    "report": "reports/goal5-mini-recovery-final.json",
+    "case": "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "DBA86BE7-6024-46D9-8369-51BF3754559A.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "first-era-survey-blocked-eight-food_0_AEBAFA4B-9CCB-4C96-A442-BADE72072417.png",
+      "timestamp": 1795223050.426
+    },
+    "sha256": "d688522d4b3185cb85e8b1b43de2a9c051162f9231b895be340e00b92c40a7df"
+  },
+  {
+    "path": "captures/mini-first-era-delayed-food-depleted.png",
+    "profile": "mini",
+    "result": "debug-lab-delayed-recovery",
+    "report": "reports/goal5-mini-recovery-final.json",
+    "case": "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "A6ED0EB3-BC9E-4E0D-AF8A-BA1399930634.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "first-era-delayed-food-depleted_0_2C7C4499-D32F-42B2-9E90-0FA4D3C32625.png",
+      "timestamp": 1795223048.976
+    },
+    "sha256": "843c420a348440dcc3101f3e40e8bdb397b6d4da9048fbee6631de49e22c2fb9"
+  },
+  {
+    "path": "captures/mini-first-era-fresh-next-action.png",
+    "profile": "mini",
+    "result": "debug-lab-delayed-recovery",
+    "report": "reports/goal5-mini-recovery-final.json",
+    "case": "RelocationUITests/testFirstEraDelayedDepletedRecoveryThroughCraft()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "19C9BCC4-30E5-4D76-A19A-99176517DBCE.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "first-era-fresh-next-action_0_3CD812DC-46AE-46B8-A357-A35787517CD2.png",
+      "timestamp": 1795223034.969
+    },
+    "sha256": "02ddb7a3d052e95524cb5f0bae00a9f63d9518b3cbb6fe59abb4822e224d8e0e"
+  }
+]

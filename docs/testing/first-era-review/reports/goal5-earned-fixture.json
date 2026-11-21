@@ -1,0 +1,40 @@
+{
+  "scope": {
+    "command": "test",
+    "suite": "core",
+    "configuration": "release",
+    "derived_data": "/tmp/civilization-qa-builds",
+    "filter": "freshStoneAgeCompletesThroughRealResearchAndProduction|ordinaryPlayerCanFollowGuidanceThroughEntireEra",
+    "simulator": [],
+    "only_testing": [],
+    "output": "/tmp/goal5-earned-fixture",
+    "releaseAPIExclusions": "Not run: both configurations must pass in this invocation"
+  },
+  "steps": [
+    {
+      "name": "core-release",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/dima/.codex/worktrees/bed1/Civilazation/Packages/GameCore",
+        "-c",
+        "release",
+        "--filter",
+        "freshStoneAgeCompletesThroughRealResearchAndProduction|ordinaryPlayerCanFollowGuidanceThroughEntireEra"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "tests": 2,
+      "durationSeconds": 4.67,
+      "log": "/private/tmp/goal5-earned-fixture/core-release.log"
+    }
+  ],
+  "schemaVersion": 1,
+  "generatedAtUTC": "2026-11-21T00:49:22.894095+00:00",
+  "revision": {
+    "commit": "1ca410d3332321ccdce4bad5e2b20ad2a2b14923",
+    "dirty": true
+  },
+  "status": "passed"
+}

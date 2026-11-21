@@ -1,0 +1,70 @@
+[
+  {
+    "path": "captures/phone-ordinary-release-readiness-1.png",
+    "profile": "phone",
+    "result": "ordinary-release-readiness",
+    "report": "reports/goal5-phone-completion.json",
+    "case": "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+      "deviceName": "iPhone 16 Pro",
+      "exportedFileName": "F4F24A53-40A7-47A4-B405-0057B8746A75.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ordinary-release-earned-bronze-readiness_0_AE11D2E2-F734-4EEB-B679-AE75869B7781.png",
+      "timestamp": 1795222746.816
+    },
+    "sha256": "96471281b1a7eeb658d98444ec874fa9a4f21b88a5327073220919e01ffe6133"
+  },
+  {
+    "path": "captures/phone-ordinary-release-readiness-2.png",
+    "profile": "phone",
+    "result": "ordinary-release-readiness",
+    "report": "reports/goal5-phone-completion.json",
+    "case": "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "FC0EFF78-D008-4CCB-84A3-C40C0DDB3BBB",
+      "deviceName": "iPhone 16 Pro",
+      "exportedFileName": "11051D97-12F7-4277-B798-844393233B73.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ordinary-release-earned-bronze-readiness_0_83074902-A685-4CAD-920A-D99A2895E31C.png",
+      "timestamp": 1795222757.945
+    },
+    "sha256": "96471281b1a7eeb658d98444ec874fa9a4f21b88a5327073220919e01ffe6133"
+  },
+  {
+    "path": "captures/mini-ordinary-release-readiness-1.png",
+    "profile": "mini",
+    "result": "ordinary-release-readiness",
+    "report": "reports/goal5-mini-completion-booted.json",
+    "case": "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "B40ECA03-AA55-4479-8F1B-21F8CCDA2278.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ordinary-release-earned-bronze-readiness_0_C586DA2D-A94B-40D6-9910-AC11742D7A3A.png",
+      "timestamp": 1795222330.508
+    },
+    "sha256": "71f52b83449ce418283d44710550d8c31021c2dd15a72fa0c0ec4a0180f63173"
+  },
+  {
+    "path": "captures/mini-ordinary-release-readiness-2.png",
+    "profile": "mini",
+    "result": "ordinary-release-readiness",
+    "report": "reports/goal5-mini-completion-booted.json",
+    "case": "NormalCompletionUITests/testEarnedNormalCompletionAndRelaunch()",
+    "attachment": {
+      "configurationName": "Test Scheme Action",
+      "deviceId": "390CFA90-D4C9-40F9-BA4A-FE3489C20809",
+      "deviceName": "iPad mini (A17 Pro)",
+      "exportedFileName": "645C5092-CB18-4D51-8A24-48B6E1F3A9A3.png",
+      "isAssociatedWithFailure": false,
+      "suggestedHumanReadableName": "ordinary-release-earned-bronze-readiness_0_CDF15C08-B6BB-4459-A469-FB720D5B4BB9.png",
+      "timestamp": 1795222351.696
+    },
+    "sha256": "71f52b83449ce418283d44710550d8c31021c2dd15a72fa0c0ec4a0180f63173"
+  }
+]
